@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 23:09+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -19,118 +19,79 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:134
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Fail \"%s\" tidak dapat dibaca"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:138
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Mungkin anda tidak mempunyai keizinan yang diperlukan."
-
-#: src/Application.vala:140
-msgid "Maybe the file path provided is not valid."
-msgstr "Mungkin laluan fail yang disediakan tidak sah."
-
-#: src/Application.vala:142
-msgid "The location is read-only."
-msgstr "Lokasi adalah baca-sahaja."
-
-#: src/Application.vala:144
-msgid "The parent directory doesn't exist."
-msgstr "Direktori induk tidak wujud."
-
-#: src/Application.vala:165
-msgid "It is a mountable location."
-msgstr "Adalah lokasi boleh dilekap."
-
-#: src/Application.vala:168
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Adalah fail \"khas\" seperti soket,\n"
-" fifo, peranti blok, atau peranti aksara."
-
-#: src/Application.vala:171
-msgid "It is an \"unknown\" file type."
-msgstr "Adalah jenis fail yang \"tidak diketahui\"."
-
-#: src/Application.vala:176
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Fail \"%s\" tidak dapat dibaca"
-
-#: src/Application.vala:248
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Tab Baru"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Tetingkap Baru"
 
-#: src/Application.vala:250
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Cetak maklumat versi dan keluar"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Set pemalam"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Set pemalam"
 
-#: src/MainWindow.vala:137
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Cari..."
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Sembunyikan bar carian"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Sumber Data Zeitgeist untuk Scratch"
 
-#: src/MainWindow.vala:764 src/Services/Document.vala:502
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Semua fail"
 
-#: src/MainWindow.vala:768 src/Services/Document.vala:506
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Fail teks"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Buka beberapa fail"
 
-#: src/MainWindow.vala:775
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:776 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:801
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "B_uka"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Keutamaan"
 
@@ -177,7 +138,7 @@ msgid "Interface"
 msgstr "Antaramuka"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Tutup"
 
@@ -242,24 +203,24 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Buka bagaimanapun"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Aplikasi lain…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Buka dalam"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
 #, fuzzy
 msgid "Other Actions"
 msgstr "Aplikasi lain…"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Tukar nama"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tong Sampah"
@@ -316,74 +277,74 @@ msgstr ""
 msgid "Branch"
 msgstr "Ubah tetapan Kasar"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s bukan sebuah Fail Teks"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Code tidak akan buka fail jenis ini."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Buka bagaimanapun"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Pembukaan Fail \"%s\" Sedang Mengambil Masa Yang Lama"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Sila tunggu sementara Code membukakan fail."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Batalkan Pembukaan"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Simpan perubahan ke dokumen %s sebelum menutup?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jika anda tidak  simpan, perubahan dari 4 saat terakhir akan hilang."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Tutup tanpa menyimpan"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Simpan Fail"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Dokumen Baru"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Fail \"%s\" tidak dapat dibaca"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Mungkin ia telah rosak atau anda tidak mempunyai keizinan untuk membacanya."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -392,17 +353,17 @@ msgstr ""
 "Lokasi mengandungi fail \"%s\" telah dinyahlekap. Anda mahu simpan ditempat "
 "lain?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Simpan Sebagai..."
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fail \"%s\" telah dipadam. Anda mahu simpan ia jua?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -411,11 +372,11 @@ msgstr ""
 "Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
 "perubahan pada fail ini dalam lokasi yang berlainan?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Simpan perubahan dimana saja"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -424,11 +385,11 @@ msgstr ""
 "Fail \"%s\" telah diubahsuai oleh aplikasi luar. Anda mahu muatkannya sekali "
 "lagi atau teruskan penyuntingan anda?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Muat"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Teruskan"
 
@@ -436,7 +397,7 @@ msgstr "Teruskan"
 msgid "Templates"
 msgstr "Templat"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Fail teks dari %s"
@@ -473,88 +434,80 @@ msgstr[0] "%d Tab"
 msgid "Go To Line:"
 msgstr "Pergi Ke Baris:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:45
 msgid "Open a file"
 msgstr "Buka fail"
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:50
 msgid "Project templates"
 msgstr "Templat projek"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:56
 msgid "Save this file"
 msgstr "Simpan fail ini"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file with a different name"
 msgstr "Siman fail ini dengan nama berbeza"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Restore this file"
 msgstr "Pulih fail ini"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:85
 msgid "Share"
 msgstr "Kongsi"
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom Out"
 msgstr "Zum Keluar"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom 1:1"
 msgstr "Zum 1:1"
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom In"
 msgstr "Zum masuk"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:120
 msgid "High Contrast"
 msgstr "Kontras Tinggi"
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:128
 #, fuzzy
 msgid "Solarized Light"
 msgstr "Cahaya Keterlaluan"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:136
 #, fuzzy
 msgid "Solarized Dark"
 msgstr "Kegelapan Keterlaluan"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:146
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Palang sisi"
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr "Tambah Paparan Baru"
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr "Buang Paparan Semasa"
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:44
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open a folder"
-msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Buka satu folder"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -562,44 +515,44 @@ msgstr ""
 msgid "Find"
 msgstr "Cari"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr "Gelintar berikutnya"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr "Gelintar terdahulu"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr "Gelintar Kitar"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:112
+#: src/Widgets/SearchBar.vala:114
 msgid "Replace With"
 msgstr "Ganti Dengan"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:117
 msgid "Replace"
 msgstr "Ganti"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:120
 msgid "Replace all"
 msgstr "Ganti semua"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Bagi teks diserlahkan"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr ""
 
@@ -635,70 +588,69 @@ msgstr "Buka Folder"
 msgid "Add a project folder to the sidebar."
 msgstr "Tambahkan sebuah Folder projek ke bar sisi."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
-msgid "Share via Pastebin"
-msgstr "Kongsi melalui PasteBin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Muat naik ke Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Nama:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 #, fuzzy
 msgid "Format:"
 msgstr "Format:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "Lain-lain..."
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "Masa luput:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Kekalkan tampalan ini peribadi"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Muat Naik"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Format lain"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "Pilih fon:"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Tidak Sesekali"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Sepuluh minit"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Satu jam"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Satu hari"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Satu bulan"
 
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Muat naik ke Pastebin"
-
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simbol"
@@ -709,41 +661,28 @@ msgstr "Simbol"
 msgid "No Symbols Found"
 msgstr "Simbol"
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr "Tunjuk Terminal"
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr "Sembunyi Terminal"
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr "Salin"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "Tampal"
-
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Pratonton Sesawang"
-
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
-msgid "Show Preview"
-msgstr "Tunjuk Pratonton"
-
-#: plugins/browser-preview/browser-preview.vala:88
-msgid "Hide Preview"
-msgstr "Sembunyi Pratonton"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
@@ -760,6 +699,69 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Perkataan"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Fail \"%s\" tidak dapat dibaca"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Mungkin anda tidak mempunyai keizinan yang diperlukan."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Mungkin laluan fail yang disediakan tidak sah."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Lokasi adalah baca-sahaja."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Direktori induk tidak wujud."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Adalah lokasi boleh dilekap."
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Adalah fail \"khas\" seperti soket,\n"
+#~ " fifo, peranti blok, atau peranti aksara."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Adalah jenis fail yang \"tidak diketahui\"."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Fail \"%s\" tidak dapat dibaca"
+
+#~ msgid "Web Preview"
+#~ msgstr "Pratonton Sesawang"
+
+#~ msgid "Show Preview"
+#~ msgstr "Tunjuk Pratonton"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Sembunyi Pratonton"
+
+#, fuzzy
+#~ msgid "Share via Pastebin"
+#~ msgstr "Kongsi melalui PasteBin"
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "Lain-lain..."
+
+#~ msgid "Upload"
+#~ msgstr "Muat Naik"
+
+#~ msgid "Other formats"
+#~ msgstr "Format lain"
+
+#~ msgid "Add New View"
+#~ msgstr "Tambah Paparan Baru"
+
+#~ msgid "Remove Current View"
+#~ msgstr "Buang Paparan Semasa"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "folder tanpa nama %d"
@@ -1115,9 +1117,6 @@ msgstr "%s - Pelengkapan Perkataan"
 
 #~ msgid "Save unsaved changes to file before closing?"
 #~ msgstr "Simpan perubahan belum disimpan ke fail sebelum menutup?"
-
-#~ msgid "Select font:"
-#~ msgstr "Pilih fon:"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Perubahan ke fail ini tidak disimpan."

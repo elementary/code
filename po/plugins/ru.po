@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-06-08 01:35+0000\n"
 "Last-Translator: Khomyak-sibiryak <owalski@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/plugins/ru/"
@@ -27,14 +27,6 @@ msgstr "Автозавершение скобок"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Автозакрытие скобок во время набора"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Предпросмотр в браузере"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Предпросмотр Вашей работы на веб-странице"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -126,3 +118,9 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Показать диалоговое окно завершения с наиболее часто используемыми словами "
 "из файлов"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Предпросмотр в браузере"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Предпросмотр Вашей работы на веб-странице"

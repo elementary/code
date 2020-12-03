@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2018-06-23 00:11+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/code/"
@@ -26,14 +26,6 @@ msgstr "Zárójel-kiegészítés"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Kiegészíti a megkezdett zárójelet"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Böngésző előnézet"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Megjeleníti a weblap előnézetét"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -126,6 +118,12 @@ msgstr "Szavak kiegészítése"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Megjelenít egy párbeszédablakot, amely segítségével kiegészítheti szavakat"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Böngésző előnézet"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Megjeleníti a weblap előnézetét"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"

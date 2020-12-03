@@ -35,7 +35,7 @@ code_files = files(
     'Widgets/FormatBar.vala',
     'Widgets/SourceGutterRenderer.vala',
     'Widgets/HeaderBar.vala',
-    'Widgets/Pane.vala',
+    'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',

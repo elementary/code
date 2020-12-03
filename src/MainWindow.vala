@@ -1,7 +1,6 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017–2018 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+*           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -20,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Gtk.Window {
+    public class MainWindow : Hdy.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
@@ -41,7 +40,7 @@ namespace Scratch {
 
         // Widgets for Plugins
         public Gtk.Notebook bottombar;
-        public Code.Pane project_pane;
+        public Code.Sidebar sidebar;
 
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
@@ -91,6 +90,8 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_NEXT_TAB = "action_next_tab";
+        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -125,7 +126,9 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_NEXT_TAB, action_next_tab },
+            { ACTION_PREVIOUS_TAB, action_previous_tab },
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -167,10 +170,14 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
             Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            Hdy.init ();
         }
 
         construct {
@@ -215,6 +222,15 @@ namespace Scratch {
             var gtk_settings = Gtk.Settings.get_default ();
             gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
 
+            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+
+            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+
+            key_press_event.connect (on_key_pressed);
+
+            // Set up layout
+            init_layout ();
+
             var window_state = Scratch.saved_state.get_enum ("window-state");
             switch (window_state) {
                 case ScratchWindowState.MAXIMIZED:
@@ -231,15 +247,8 @@ namespace Scratch {
                     break;
             }
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
-
-            key_press_event.connect (on_key_pressed);
-
-            // Set up layout
-            init_layout ();
-            set_widgets_sensitive (false);
+            // Show/Hide widgets
+            show_all ();
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -281,7 +290,6 @@ namespace Scratch {
         private void init_layout () {
             toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
-            set_titlebar (toolbar);
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
@@ -319,11 +327,11 @@ namespace Scratch {
                 }
             });
 
-            project_pane = new Code.Pane ();
+            sidebar = new Code.Sidebar ();
 
             folder_manager_view = new FolderManager.FileView ();
 
-            project_pane.add_tab (folder_manager_view);
+            sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();
 
             folder_manager_view.select.connect ((a) => {
@@ -335,6 +343,15 @@ namespace Scratch {
                 } else {
                     open_binary (file.file);
                 }
+            });
+
+            folder_manager_view.close_all_docs_from_path.connect ((a) => {
+                var docs = document_view.docs.copy ();
+                docs.foreach ((doc) => {
+                    if (doc.file.get_path ().has_prefix (a)) {
+                        document_view.close_document (doc);
+                    }
+                });
             });
 
             folder_manager_view.restore_saved_state ();
@@ -364,22 +381,26 @@ namespace Scratch {
             int width, height;
             get_size (out width, out height);
 
-            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.position = 180;
-            hp1.pack1 (project_pane, false, false);
-            hp1.pack2 (content_stack, true, false);
-
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (hp1, true, false);
+            vp.pack1 (content_stack, true, false);
             vp.pack2 (bottombar, false, false);
 
-            add (vp);
+            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            hp1.position = 180;
+            hp1.pack1 (sidebar, false, false);
+            hp1.pack2 (vp, true, false);
+
+            var grid = new Gtk.Grid ();
+            grid.attach (toolbar, 0, 0);
+            grid.attach (hp1, 0, 1);
+
+            add (grid);
 
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", project_pane, "visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -414,6 +435,8 @@ namespace Scratch {
 
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
+                toolbar.title = doc.get_basename ();
+
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
@@ -424,8 +447,7 @@ namespace Scratch {
                 doc.check_undoable_actions ();
             });
 
-            // Show/Hide widgets
-            show_all ();
+            set_widgets_sensitive (false);
         }
 
         private void open_binary (File file) {
@@ -531,16 +553,8 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        // Open a document
         public void open_document (Scratch.Services.Document doc, bool focus = true) {
-            while (Gtk.events_pending ()) {
-                Gtk.main_iteration ();
-            }
-
-            document_view.open_document (doc);
-            if (focus) {
-                document_view.current_document = doc;
-            }
+            document_view.open_document (doc, focus);
         }
 
         // Close a document
@@ -957,11 +971,19 @@ namespace Scratch {
         }
 
         private void action_toggle_sidebar () {
-            if (project_pane == null) {
+            if (sidebar == null) {
                 return;
             }
 
-            project_pane.visible = !project_pane.visible;
+            sidebar.visible = !sidebar.visible;
+        }
+
+        private void action_next_tab () {
+            document_view.next_document ();
+        }
+
+        private void action_previous_tab () {
+            document_view.previous_document ();
         }
     }
 }
