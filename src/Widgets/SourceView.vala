@@ -28,6 +28,8 @@ namespace Scratch.Widgets {
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
+        public GLib.File location { get; set; }
+
         private string font;
         private uint selection_changed_timer = 0;
         private uint size_allocate_timer = 0;
@@ -166,9 +168,9 @@ namespace Scratch.Widgets {
             });
 
             // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter_renderer = new SourceGutterRenderer("/home/puffin/code/code/.git/");
-            Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
-            source_gutter.insert(git_diff_gutter_renderer, 1);
+            git_diff_gutter_renderer = new SourceGutterRenderer ();
+            var source_gutter = get_gutter (Gtk.TextWindowType.LEFT);
+            source_gutter.insert (git_diff_gutter_renderer, 1);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -508,8 +510,19 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        public void refresh_gutter (string basename) {
-            git_diff_gutter_renderer.reload (basename);
+        public void refresh_gutter () {
+            if (git_diff_gutter_renderer.git_repo_set) {
+                git_diff_gutter_renderer.reload (location.get_path ());
+            }
+        }
+
+        public void set_git_repo (Ggit.Repository? repo) {
+            git_diff_gutter_renderer.set_git_repo (repo);
+            refresh_gutter ();
+        }
+
+        public bool git_repo_not_set () {
+            return !git_diff_gutter_renderer.git_repo_set;
         }
     }
 }

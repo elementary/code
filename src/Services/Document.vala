@@ -51,12 +51,14 @@ namespace Scratch.Services {
         }
 
         private Gtk.SourceFile source_file;
-        public File file {
+        public GLib.File file {
             get {
                 return source_file.location;
             }
-            set {
+
+            set construct {
                 source_file.set_location (value);
+                source_view.location = value;
                 file_changed ();
                 label = get_basename ();
             }
@@ -85,7 +87,7 @@ namespace Scratch.Services {
         }
 
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+        public Scratch.Widgets.SourceView source_view { get; construct; }
 
         public string original_content;
         private string last_save_content;
@@ -572,13 +574,13 @@ namespace Scratch.Services {
 
         // When switching between tabs, refresh the source view gutter
         public void refresh_sourceview_gutter () {
-            this.source_view.refresh_gutter (this.file.get_path ());
+            source_view.refresh_gutter ();
         }
 
         // Focus the SourceView
         public new void focus () {
-            this.source_view.refresh_gutter (this.file.get_path ());
-            this.source_view.grab_focus ();
+            source_view.refresh_gutter ();
+            source_view.grab_focus ();
         }
 
         // Get file uri

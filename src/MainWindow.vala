@@ -554,6 +554,11 @@ namespace Scratch {
         }
 
         public void open_document (Scratch.Services.Document doc, bool focus = true) {
+            if (doc.source_view.git_repo_not_set ()) {
+                Ggit.Repository? repo = folder_manager_view.get_git_repo_for_file (doc.file);
+                doc.source_view.set_git_repo (repo);
+            }
+
             document_view.open_document (doc, focus);
         }
 

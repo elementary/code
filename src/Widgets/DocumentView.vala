@@ -193,7 +193,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                     current_document = nth_doc;
                 }
 
-                current_document.refresh_sourceview_gutter();
+                current_document.refresh_sourceview_gutter ();
                 debug ("This Document was already opened! Not opening a duplicate!");
                 return;
             }

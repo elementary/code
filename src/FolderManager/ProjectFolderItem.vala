@@ -28,7 +28,7 @@ namespace Scratch.FolderManager {
         // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
         private static Gee.HashMap<string, uint> git_update_timer_ids;
         private string top_level_path;
-        private Ggit.Repository? git_repo = null;
+        public Ggit.Repository? git_repo { get; construct; }
         private GLib.FileMonitor git_monitor;
         private GLib.FileMonitor gitignore_monitor;
 
@@ -153,6 +153,10 @@ namespace Scratch.FolderManager {
                 git_update_timer_ids[uri] = 0;
                 return Source.REMOVE;
             });
+        }
+
+        public bool contains_file (GLib.File descendant) {
+            return file.file.get_relative_path (descendant) != null;
         }
 
         private void do_git_update () {

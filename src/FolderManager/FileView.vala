@@ -130,6 +130,24 @@ namespace Scratch.FolderManager {
             return null;
         }
 
+        public Ggit.Repository? get_git_repo_for_file (GLib.File file) {
+            var folders = root.children;
+            foreach (var item in root.children) {
+                if (!(item is ProjectFolderItem)) {
+                    continue;
+                } else {
+                    var folder = (ProjectFolderItem)item;
+                    if (folder.git_repo != null &&
+                        folder.contains_file (file)) {
+
+                        return folder.git_repo;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
