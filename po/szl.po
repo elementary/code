@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -14,112 +14,73 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Niy idzie stworzić zbioru „%s”"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Możesz niy mieć potrzebnych uprawniyń."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Możno wkludzōno drōga niyma noleżno."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Tyn plac je ino do ôdczytu."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Wyższy katalog niy istniyje."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "To je mōntowalny plac."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"To je „specjalny” zbiōr, jak socket,\n"
-" FIFO, blok abo znak."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "To je niyznōmo zorta zbioru."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Zbiōr „%s” niy może być ôtwarty"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Nowo karta"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nowe ôkno"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Pokoż info ô wersyji i zawrzij"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Kōmplet rozszyrzynia"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "rozszyrzynie"
 
-#: src/MainWindow.vala:136
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Znojdź…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zdrzōdło danych Zeitgeist do Kodu"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Pociep"
 
@@ -304,69 +265,69 @@ msgstr "%s, Nowy"
 msgid "Branch"
 msgstr "Gałōńź"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s to niy zbiōr tekstowy"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Kod niy zaladuje tyj zorty zbioru."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Zaladuj i tak"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Ladowanie zbioru „%s” biere moc czasu"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Czekej, aż Kod zaladuje zbiōr."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "Pociep ladowanie"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Spamiyntać zmiany we „%s” przed zawarciym?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Zmiany bydōm doimyntnie stracōne, jak niy bydōm spamiyntane."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "Zawrzij bez spamiyntowanio"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Spamiyntej"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Spamiyntej zbiōr"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Nowy dokumynt"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Niy idzie czytać zbioru „%s”"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Może być poprzniōny abo możesz niy mieć przizwolynio na jego edycyjo."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -374,17 +335,17 @@ msgid ""
 msgstr ""
 "Plac, kaj je zbiōr „%s”, bōł ôdmōntowany. Chcesz go spamiyntać kajś ińdzij?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Spamiyntej za…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Zbiōr „%s” bōł skasowany. Chcesz go i tak spamiyntać?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -393,11 +354,11 @@ msgstr ""
 "Niy idzie spamiyntować zmian we zbiorze „%s”. Chcesz je spamiyntać kajś "
 "ińdzij?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Spamiyntej zmiany kaj ińdzij"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -406,11 +367,11 @@ msgstr ""
 "Zbiōr „%s” bōł zmodyfikowany ôd inkszego programu. Chcesz go zaladować na "
 "nowo abo chcesz kōntynuować edytowanie?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Laduj"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Dalij"
 
@@ -515,21 +476,21 @@ msgstr "Szaltrowanie panelu bocznego"
 msgid "Menu"
 msgstr "Myni"
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Open Project Folder…"
 msgstr "Ôtwōrz katalog projektu…"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr "Swijń wszyjsko"
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr "Alfabetyzuj"
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr "Zarzōndzej katalogami projektōw"
 
@@ -569,11 +530,11 @@ msgstr "Zastōmp"
 msgid "Replace all"
 msgstr "Zastōmp wszyjske"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Zortuj zaznaczōne wiersze"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
 
@@ -668,9 +629,9 @@ msgstr "Jedyn miesiōnc"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Symbole"
@@ -702,19 +663,6 @@ msgstr "Skopiuj"
 msgid "Paste"
 msgstr "Wraź"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Podglōnd w przeglōndarce internetowyj"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Pokoż podglōnd"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Skryj podglōnd"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Niy szło znojś ôdpednich słownikōw"
@@ -727,6 +675,46 @@ msgstr "Zainstaluj aby jedyn słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Niy idzie stworzić zbioru „%s”"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Możesz niy mieć potrzebnych uprawniyń."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Możno wkludzōno drōga niyma noleżno."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Tyn plac je ino do ôdczytu."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Wyższy katalog niy istniyje."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "To je mōntowalny plac."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "To je „specjalny” zbiōr, jak socket,\n"
+#~ " FIFO, blok abo znak."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "To je niyznōmo zorta zbioru."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Zbiōr „%s” niy może być ôtwarty"
+
+#~ msgid "Web Preview"
+#~ msgstr "Podglōnd w przeglōndarce internetowyj"
+
+#~ msgid "Show Preview"
+#~ msgstr "Pokoż podglōnd"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Skryj podglōnd"
 
 #~ msgid "Share via Pastebin"
 #~ msgstr "Udostympnij bez Pastebin"

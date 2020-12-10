@@ -72,7 +72,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document, this);
+            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
             save_focused_document_uri (new_tab as Services.Document);
         });
 
@@ -126,12 +126,22 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
-    private string unsaved_file_path_builder () {
+    private string unsaved_file_path_builder (string extension = "txt") {
         var timestamp = new DateTime.now_local ();
 
         string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
-        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file) + "." + extension;
+    }
+
+    private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string extension = "txt";
+        string[] parts = original_filename.split (".", 2);
+        if (parts.length > 1) {
+            extension = parts[parts.length - 1];
+        }
+
+        return unsaved_file_path_builder (extension);
     }
 
     public void new_document () {
@@ -209,12 +219,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     // Set a copy of content
     public void duplicate_document (Services.Document original) {
         try {
-            var file = File.new_for_path (unsaved_file_path_builder ());
+            var file = File.new_for_path (unsaved_duplicated_file_path_builder (original.file.get_basename ()));
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
-
+            doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
@@ -233,6 +243,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var next_doc = docs.nth_data (current_index++);
             current_document = next_doc;
             next_doc.focus ();
+        } else if (docs.length () > 0) {
+            var next_doc = docs.nth_data (0);
+            current_document = next_doc;
+            next_doc.focus ();
         }
     }
 
@@ -240,6 +254,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         uint current_index = docs.index (current_document);
         if (current_index > 0) {
             var previous_doc = docs.nth_data (--current_index);
+            current_document = previous_doc;
+            previous_doc.focus ();
+        } else if (docs.length () > 0) {
+            var previous_doc = docs.nth_data (docs.length () - 1);
             current_document = previous_doc;
             previous_doc.focus ();
         }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/code/code/bg/"
@@ -20,112 +20,75 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr ""
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Може би нямате нужният достъп."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Може би предоставеният път до файла не е валиден."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Локацията има достъп само за четене."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Директорията родител не съществува."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Локацията позволява маунтване."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr ""
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Нов раздел"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Нов прозорец"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Принтиране на информация за версията и затваряне"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Набор от добавки"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Набор от добавки"
 
-#: src/MainWindow.vala:136
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Търсене…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Скриване на лентата за търсене"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Зайтгайст източник за Драскутина"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Всички файлове"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Текстови файлове"
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Отваряне на файлове"
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Отваряне"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Отвори"
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Отмени"
 
@@ -315,77 +278,77 @@ msgstr ""
 msgid "Branch"
 msgstr "Промяна на настройките на програмата"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Отказ"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Записване на промените в документа %s преди затваряне?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ако не съхраните файла, промените от предходните 4 секунди ще бъдат загубени "
 "окончателно."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Затваряне без запазване"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Запазване"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Запазване на файл"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Нов документ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Файлът \"%s\" не може да бъде прочетен. Възможно е да е повреден или вие "
 "нямате необходимите права, за да го прочетете."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -394,17 +357,17 @@ msgstr ""
 "Източникът съдържащ файлът \"%s\" бе демонтиран. Искате ли да го запазите на "
 "друго място?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Запазване като…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Файла \"%s\" бе изтрит. Искате ли да го запазите все пак?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -413,11 +376,11 @@ msgstr ""
 "Не можете да запазите промените на файл \"%s\". Искате ли да запазите "
 "промените на файла на друго място?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Запазване на промените другаде"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -426,11 +389,11 @@ msgstr ""
 "Файла \"%s\" се модифицира от друго приложение. Искате ли да го заредите "
 "отново или да продължите редактирането си?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Зареждане"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Продължаване"
 
@@ -537,21 +500,21 @@ msgstr "Странична лента"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Отвори папка"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -591,11 +554,11 @@ msgstr "Заместване"
 msgid "Replace all"
 msgstr "Заместване на всички"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr ""
 
@@ -694,9 +657,9 @@ msgstr "Един месец"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr ""
@@ -728,19 +691,6 @@ msgstr "Копирай"
 msgid "Paste"
 msgstr "Постави"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Предварителен преглед"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr ""
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -753,6 +703,24 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Довършване на думи"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Може би нямате нужният достъп."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Може би предоставеният път до файла не е валиден."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Локацията има достъп само за четене."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Директорията родител не съществува."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Локацията позволява маунтване."
+
+#~ msgid "Show Preview"
+#~ msgstr "Предварителен преглед"
 
 #, fuzzy
 #~ msgid "Share via Pastebin"
