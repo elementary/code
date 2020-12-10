@@ -56,7 +56,7 @@ namespace Scratch.Services {
                 return source_file.location;
             }
 
-            set construct {
+            private set {
                 source_file.set_location (value);
                 source_view.location = value;
                 file_changed ();
@@ -112,7 +112,8 @@ namespace Scratch.Services {
         private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
 #endif
         public Document (SimpleActionGroup actions, File? file = null) {
-            this.actions = actions;
+            Object (actions: actions);
+
             this.file = file;
             page = main_stack;
         }
