@@ -154,10 +154,12 @@ namespace Scratch.Widgets {
             } else {
                 loading = true;
             }
+
             lines_to_status.clear ();
             if (repo_diff_list == null) {
                 return;
             }
+
             debug ("Reloading with: %s\n", doc_path);
             this.doc_path = doc_path;
             try {

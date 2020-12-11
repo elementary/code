@@ -131,15 +131,10 @@ namespace Scratch.FolderManager {
         }
 
         public Ggit.Repository? get_git_repo_for_file (GLib.File file) {
-            var folders = root.children;
             foreach (var item in root.children) {
-                if (!(item is ProjectFolderItem)) {
-                    continue;
-                } else {
+                if (item is ProjectFolderItem) {
                     var folder = (ProjectFolderItem)item;
-                    if (folder.git_repo != null &&
-                        folder.contains_file (file)) {
-
+                    if (folder.git_repo != null && folder.contains_file (file)) {
                         return folder.git_repo;
                     }
                 }

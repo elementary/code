@@ -163,14 +163,12 @@ namespace Scratch.Widgets {
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
                     });
-
                 }
             });
 
             // Make the gutter renderer and insert into the left side of the source view.
             git_diff_gutter_renderer = new SourceGutterRenderer ();
-            var source_gutter = get_gutter (Gtk.TextWindowType.LEFT);
-            source_gutter.insert (git_diff_gutter_renderer, 1);
+            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {

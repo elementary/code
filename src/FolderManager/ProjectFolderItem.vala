@@ -28,7 +28,7 @@ namespace Scratch.FolderManager {
         // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
         private static Gee.HashMap<string, uint> git_update_timer_ids;
         private string top_level_path;
-        public Ggit.Repository? git_repo { get; construct; }
+        public Ggit.Repository? git_repo { get; construct; } //Assumes will not be made a repo while in use.
         private GLib.FileMonitor git_monitor;
         private GLib.FileMonitor gitignore_monitor;
 
