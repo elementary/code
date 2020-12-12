@@ -48,7 +48,7 @@ namespace Scratch.FolderManager {
                     add_children ();
                     var root = get_root_folder ();
                     if (root != null) {
-                        root.update_git_status ();
+                        root.child_folder_loaded (this);
                     }
 
                     children_loaded = true;
@@ -302,7 +302,7 @@ namespace Scratch.FolderManager {
 
             var root = get_root_folder ();
             if (root != null) {
-                root.update_git_status ();
+                root.child_folder_changed (this);
             }
         }
 
