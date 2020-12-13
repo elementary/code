@@ -44,9 +44,7 @@ namespace Scratch.FolderManager {
 
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
-                monitored_repo.branch_changed.connect ((name) => {
-                    //TODO Respond to branch name change
-                });
+                monitored_repo.branch_changed.connect ((update_branch_name));
                 monitored_repo.file_status_change.connect (update_item_status);
                 monitored_repo.update ();
             }
@@ -59,7 +57,7 @@ namespace Scratch.FolderManager {
                     // Match folder path with its child paths as well else exact match
                     var match = (item is FolderItem) ? entry.key.has_prefix (rel_path) : entry.key == rel_path;
                     if (match) {
-                        bool is_new = entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW;
+                        bool is_new = (entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW);
                         // Only mark folders new if only contains new items otherwise mark modified
                         if (item is FolderItem &&
                             is_new && item.activatable == null) {
@@ -79,6 +77,12 @@ namespace Scratch.FolderManager {
 
                 return true;
             });
+        }
+
+        private void update_branch_name (string branch_name) {
+            if (monitored_repo != null) {
+                markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
+            }
         }
 
         public void child_folder_loaded (FolderItem folder) {

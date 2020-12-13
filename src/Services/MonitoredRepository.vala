@@ -23,7 +23,19 @@ namespace Scratch.Services {
         public Ggit.Repository git_repo { get; set construct; }
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
-        private string branch_name = "";
+        private string _branch_name = "";
+        public string branch_name {
+            get {
+                return _branch_name;
+            }
+
+            set {
+                if (_branch_name != value) {
+                    _branch_name = value;
+                    branch_changed (value);
+                }
+            }
+        }
 
         public signal void branch_changed (string name);
         public signal void file_status_change ();
@@ -123,9 +135,10 @@ namespace Scratch.Services {
             return branches;
         }
 
-        public void change_branch (string branch_name) throws Error {
-            var branch = git_repo.lookup_branch (branch_name, Ggit.BranchType.LOCAL);
+        public void change_branch (string new_branch_name) throws Error {
+            var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
+            branch_name = new_branch_name;
         }
 
         private bool do_update = false;
@@ -136,11 +149,7 @@ namespace Scratch.Services {
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                var name = ((Ggit.Branch)head).get_name ();
-                                if (name != branch_name) {
-                                    branch_name = name;
-                                    branch_changed (branch_name);
-                                }
+                                branch_name = ((Ggit.Branch)head).get_name ();
                             }
                         } catch (Error e) {
                             warning ("An error occured while fetching the current git branch name: %s", e.message);
