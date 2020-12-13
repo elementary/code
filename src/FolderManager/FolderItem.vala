@@ -300,9 +300,14 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            var root = get_root_folder ();
-            if (root != null) {
-                root.child_folder_changed (this);
+            // Reduce spamming of root (still results in multiple signals per change in file being edited
+            //TODO Throttle this signal?
+            if (event == FileMonitorEvent.CHANGES_DONE_HINT) {
+                //TODO Get root folder once as it will not change for the life of this folder
+                var root = get_root_folder (this);
+                if (root != null) {
+                    root.child_folder_changed (this);
+                }
             }
         }
 

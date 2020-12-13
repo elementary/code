@@ -26,6 +26,7 @@ namespace Scratch.Services {
         static construct {
             Ggit.init ();
             instance = null;
+            project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
         }
 
         public static GitManager get_instance () {
@@ -36,9 +37,7 @@ namespace Scratch.Services {
             return instance;
         }
 
-        private GitManager () {
-            Ggit.init ();
-        }
+        private GitManager () {}
 
         public MonitoredRepository? add_project (GLib.File root_folder) {
             var root_path = root_folder.get_path ();
@@ -49,10 +48,11 @@ namespace Scratch.Services {
                 }
 
                 var monitored_repo = new MonitoredRepository (git_repo);
+
                 project_gitrepo_map.@set (root_path, monitored_repo);
-                return monitored_repo;
+                return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
-                debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
+                warning ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
                 return null;
             }
         }

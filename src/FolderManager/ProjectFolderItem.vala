@@ -19,14 +19,16 @@
 
 namespace Scratch.FolderManager {
     internal class ProjectFolderItem : FolderItem {
+        private static Icon added_icon;
+        private static Icon modified_icon;
+
         public signal void closed ();
         public signal void close_all_except ();
 
-        public string top_level_path { get; construct; }
         private Scratch.Services.MonitoredRepository? monitored_repo = null;
-
-        private static Icon added_icon;
-        private static Icon modified_icon;
+        // Cache the visible item in the project.
+        private Gee.HashMap<string, Item> rel_path_item_map;
+        public string top_level_path { get; construct; }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -38,24 +40,66 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            top_level_path = file.file.get_path () + Path.DIR_SEPARATOR_S;
+            rel_path_item_map = new Gee.HashMap<string, Item> ();
 
-            var monitorer_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
+            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((name) => {
+                    //TODO Respond to branch name change
                 });
-
-                monitored_repo.file_status_changed.connect ((path, status) => {
-                });
+                monitored_repo.file_status_change.connect (update_item_status);
+                monitored_repo.update ();
             }
         }
 
-        public void child_folder_loaded (FolderItem folder) {
+        private void update_item_status () {
+            rel_path_item_map.map_iterator ().@foreach ((rel_path, item) => {
+                item.activatable = null;
+                monitored_repo.non_current_entries.@foreach ((entry) => {
+                    // Match folder path with its child paths as well else exact match
+                    var match = (item is FolderItem) ? entry.key.has_prefix (rel_path) : entry.key == rel_path;
+                    if (match) {
+                        bool is_new = entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW;
+                        // Only mark folders new if only contains new items otherwise mark modified
+                        if (item is FolderItem &&
+                            is_new && item.activatable == null) {
 
+                            item.activatable = added_icon;
+                            item.activatable_tooltip = _("New");
+                            return false;
+                        }
+
+                        item.activatable = is_new ? added_icon : modified_icon;
+                        item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                });
+
+                return true;
+            });
+        }
+
+        public void child_folder_loaded (FolderItem folder) {
+            foreach (var child in folder.children) {
+                if (child is Item) {
+                    var item = (Item)child;
+                    var rel_path = this.file.file.get_relative_path (item.file.file);
+                    if (rel_path != null && rel_path != "") {
+                        rel_path_item_map.@set (rel_path, item);
+                    }
+                }
+            }
+
+            update_item_status ();
         }
 
         public void child_folder_changed (FolderItem folder) {
+            monitored_repo.update ();
+        }
 
+        public void child_folder_closed (FolderItem folder) {
         }
 
         public override Gtk.Menu? get_context_menu () {

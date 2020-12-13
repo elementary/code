@@ -20,44 +20,64 @@
 
 namespace Scratch.Services {
     public class MonitoredRepository : Object {
-        private Ggit.Repository git_repo;
+        public Ggit.Repository git_repo { get; set construct; }
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
         private string branch_name = "";
 
         public signal void branch_changed (string name);
-        public signal void file_status_changed (string file_path, Ggit.StatusFlags status);
+        public signal void file_status_change ();
 
-        // Minimum time to elapse before querying git folder again (ms)
-        private const uint GIT_UPDATE_RATE_LIMIT = 300;
         private uint update_timer_id = 0;
 
-        private Gee.HashMap<string, Ggit.StatusFlags> file_status_map;
+        // Map paths to status other than CURRENT
+        // We use two maps alternately in order to detect modified files reverting to unmodified without copying maps.
+        private Gee.HashMap<string, Ggit.StatusFlags> [] map_array;
+        private int map_index = 0;
+        private int old_map_index = 1;
+        private Gee.HashMap<string, Ggit.StatusFlags> map_in_use {
+            get {
+                return map_array[map_index];
+            }
+        }
+
+        private Gee.HashMap<string, Ggit.StatusFlags> old_map {
+            get {
+                return map_array[old_map_index];
+            }
+        }
+
+        public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags>> non_current_entries {
+            owned get {
+                return map_in_use.entries;
+            }
+        }
+
         construct {
-            file_status_map = new Gee.HashMap<string, Ggit.StatusFlags> ();
+            var file_status_map = new Gee.HashMap<string, Ggit.StatusFlags> ();
+            var alt_file_status_map = new Gee.HashMap<string, Ggit.StatusFlags> ();
+            map_array = {file_status_map, alt_file_status_map};
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
             git_repo = _git_repo;
-            var root_path = git_repo.get_location ().get_path ();
-            var git_folder = GLib.File.new_for_path (Path.build_filename (root_path, ".git"));
+            var git_folder = git_repo.get_location ();
 
-            if (git_folder.query_exists ()) {
-                try {
-                    git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                    git_monitor.changed.connect (update_repo);
-                } catch (IOError e) {
-                    warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
-                }
+            try {
+                git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
+                git_monitor.changed.connect (update);
+            } catch (IOError e) {
+                warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
             }
 
             // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
             // It doesn't make sense to have a .gitignore file in a project folder that ain't a local git repo.
-            var gitignore_file = GLib.File.new_for_path (Path.build_filename (root_path, ".gitignore"));
+            var workdir = git_repo.workdir;
+            var gitignore_file = workdir.get_child (".gitignore");
             if (gitignore_file.query_exists ()) {
                 try {
                     gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
-                    gitignore_monitor.changed.connect (update_repo);
+                    gitignore_monitor.changed.connect (update);
                 } catch (IOError e) {
                     warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
                 }
@@ -101,7 +121,6 @@ namespace Scratch.Services {
             }
 
             return branches;
-            
         }
 
         public void change_branch (string branch_name) throws Error {
@@ -109,54 +128,70 @@ namespace Scratch.Services {
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
         }
 
-        public void update_repo () {
-            if (update_timer_id != 0) {
-                return;
-            }
-
-            update_timer_id = Timeout.add (GIT_UPDATE_RATE_LIMIT, () => {
-                try {
-                    var head = git_repo.get_head ();
-                    if (head.is_branch ()) {
-                        var name = ((Ggit.Branch)head).get_name ();
-                        if (name != branch_name) {
-                            branch_name = name;
-                            branch_changed (branch_name);
+        private bool do_update = false;
+        public void update () {
+            if (update_timer_id == 0) {
+                update_timer_id = Timeout.add (150, () => {
+                    if (do_update) {
+                        try {
+                            var head = git_repo.get_head ();
+                            if (head.is_branch ()) {
+                                var name = ((Ggit.Branch)head).get_name ();
+                                if (name != branch_name) {
+                                    branch_name = name;
+                                    branch_changed (branch_name);
+                                }
+                            }
+                        } catch (Error e) {
+                            warning ("An error occured while fetching the current git branch name: %s", e.message);
                         }
+
+                        //SourceList shows files in working dir so only want status for those for now.
+                        // No callback generated for current files.
+                        //TODO Distinguish new untracked files from new tracked files
+                        var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED,
+                                                              Ggit.StatusShow.WORKDIR_ONLY,
+                                                              null);
+                        try {
+                            status_change = false;
+                            map_index = map_index == 0 ? 1 : 0;
+                            old_map_index = map_index == 0 ? 1 : 0;
+
+                            map_in_use.clear ();
+
+                            git_repo.file_status_foreach (options, check_each_git_status);
+
+                            if (status_change || map_in_use.size != old_map.size) {
+                                file_status_change ();
+                            }
+                        } catch (Error e) {
+                            critical ("Error enumerating git status: %s", e.message);
+                        }
+
+                        do_update = false;
+                        update_timer_id = 0;
+                        return Source.REMOVE;
+                    } else {
+                        do_update = true;
+                        return Source.CONTINUE;
                     }
-                } catch (Error e) {
-                    warning ("An error occured while fetching the current git branch name: %s", e.message);
-                }
-
-                var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED,
-                                                      Ggit.StatusShow.INDEX_AND_WORKDIR,
-                                                      null);
-                try {
-                    git_repo.file_status_foreach (options, check_each_git_status);
-                } catch (Error e) {
-                    critical ("Error enumerating git status: %s", e.message);
-                }
-
-                return Source.REMOVE;
-            });
+                });
+            } else {
+                do_update = false;
+            }
         }
 
+        private bool status_change = false;
         private int check_each_git_status (string path, Ggit.StatusFlags status) {
-            if (file_status_map.has_key (path)) {
-                var old_status = file_status_map.@get (path);
-                if (status == old_status) {
-                    return 0;
-                }
-            } else {
-                file_status_map.@set (path, status);
-                if (status == Ggit.StatusFlags.CURRENT) {
-                    // On first use, clients should assume files are tracked and current unless notified otherwise
-                    // We want to signal an "IGNORED" status so items can be styled accordingly.
+            map_in_use.@set (path, status);
+
+            if (old_map.has_key (path)) {
+                if (status == old_map.@get (path)) {
                     return 0;
                 }
             }
 
-            file_status_changed (path, status);
+            status_change = true;
             return 0;
         }
     }
