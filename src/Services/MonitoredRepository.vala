@@ -37,7 +37,8 @@ namespace Scratch.Services {
             }
         }
 
-        public signal void branch_changed (string name);
+        public signal void branch_changed (string new_branch_name);
+        public signal void ignored_changed ();
         public signal void file_status_change ();
 
         private uint update_timer_id = 0;
@@ -89,7 +90,7 @@ namespace Scratch.Services {
             if (gitignore_file.query_exists ()) {
                 try {
                     gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
-                    gitignore_monitor.changed.connect (update);
+                    gitignore_monitor.changed.connect (() => {ignored_changed ();});
                 } catch (IOError e) {
                     warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
                 }
@@ -202,6 +203,10 @@ namespace Scratch.Services {
 
             status_change = true;
             return 0;
+        }
+
+        public bool path_is_ignored (string path) throws Error {
+            return git_repo.path_is_ignored (path);
         }
     }
 }

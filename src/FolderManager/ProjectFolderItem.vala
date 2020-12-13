@@ -45,44 +45,19 @@ namespace Scratch.FolderManager {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
+                monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (update_item_status);
                 monitored_repo.update ();
             }
         }
 
-        private void update_item_status () {
-            rel_path_item_map.map_iterator ().@foreach ((rel_path, item) => {
-                item.activatable = null;
-                monitored_repo.non_current_entries.@foreach ((entry) => {
-                    // Match folder path with its child paths as well else exact match
-                    var match = (item is FolderItem) ? entry.key.has_prefix (rel_path) : entry.key == rel_path;
-                    if (match) {
-                        bool is_new = (entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW);
-                        // Only mark folders new if only contains new items otherwise mark modified
-                        if (item is FolderItem &&
-                            is_new && item.activatable == null) {
-
-                            item.activatable = added_icon;
-                            item.activatable_tooltip = _("New");
-                            return false;
-                        }
-
-                        item.activatable = is_new ? added_icon : modified_icon;
-                        item.activatable_tooltip = is_new ? _("New") : _("Modified");
-                        return false;
-                    } else {
-                        return true;
-                    }
-                });
-
-                return true;
-            });
+        public void child_folder_changed (FolderItem folder) {
+            if (monitored_repo != null) {
+                monitored_repo.update ();
+            }
         }
 
-        private void update_branch_name (string branch_name) {
-            if (monitored_repo != null) {
-                markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
-            }
+        public void child_folder_closed (FolderItem folder) {
         }
 
         public void child_folder_loaded (FolderItem folder) {
@@ -96,14 +71,10 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            update_item_status ();
-        }
-
-        public void child_folder_changed (FolderItem folder) {
-            monitored_repo.update ();
-        }
-
-        public void child_folder_closed (FolderItem folder) {
+            if (monitored_repo != null) {
+                update_item_status ();
+                deprioritize_git_ignored ();
+            }
         }
 
         public override Gtk.Menu? get_context_menu () {
@@ -146,8 +117,57 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
+        private void update_item_status () requires (monitored_repo != null) {
+            rel_path_item_map.map_iterator ().@foreach ((rel_path, item) => {
+                item.activatable = null;
+                monitored_repo.non_current_entries.@foreach ((entry) => {
+                    // Match folder path with its child paths as well else exact match
+                    var match = (item is FolderItem) ? entry.key.has_prefix (rel_path) : entry.key == rel_path;
+                    if (match) {
+                        bool is_new = (entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW);
+                        // Only mark folders new if only contains new items otherwise mark modified
+                        if (item is FolderItem &&
+                            is_new && item.activatable == null) {
+
+                            item.activatable = added_icon;
+                            item.activatable_tooltip = _("New");
+                            return false;
+                        }
+
+                        item.activatable = is_new ? added_icon : modified_icon;
+                        item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                });
+
+                return true;
+            });
+        }
+
+        private void update_branch_name (string branch_name) requires (monitored_repo != null) {
+            markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
+        }
+
+        private void deprioritize_git_ignored () requires (monitored_repo != null) {
+            rel_path_item_map.map_iterator ().@foreach ((path, item) => {
+                try {
+                    if (monitored_repo.path_is_ignored (path)) {
+                        item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
+                    } else {
+                        item.markup = item.name;
+                    }
+                } catch (Error e) {
+                    warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
+                }
+
+                return true;
+            });
+        }
+
         private class ChangeBranchMenu : Gtk.MenuItem {
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) {
+            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) requires (monitored_repo != null) {
                 string current_branch_name = monitored_repo.get_current_branch ();
                 string[] local_branch_names = monitored_repo.get_local_branches ();
                 var change_branch_menu = new Gtk.Menu ();
