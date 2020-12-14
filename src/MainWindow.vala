@@ -431,7 +431,7 @@ namespace Scratch {
             });
 
             document_view.document_change.connect ((doc) => {
-//~                 plugins.hook_document (doc);
+                plugins.hook_document (doc);
 
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
