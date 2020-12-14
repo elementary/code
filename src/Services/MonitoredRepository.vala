@@ -43,33 +43,19 @@ namespace Scratch.Services {
 
         private uint update_timer_id = 0;
 
-        // Map paths to status other than CURRENT
-        // We use two maps alternately in order to detect modified files reverting to unmodified without copying maps.
-        private Gee.HashMap<string, Ggit.StatusFlags> [] map_array;
-        private int map_index = 0;
-        private int old_map_index = 1;
-        private Gee.HashMap<string, Ggit.StatusFlags> map_in_use {
-            get {
-                return map_array[map_index];
-            }
-        }
+        // Need to use nullable status in order to pass Flatpak CI.
+        private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
+        private Gee.HashMap<string, Ggit.StatusFlags?> temp_file_status_map;
 
-        private Gee.HashMap<string, Ggit.StatusFlags> old_map {
-            get {
-                return map_array[old_map_index];
-            }
-        }
-
-        public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags>> non_current_entries {
+        public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
-                return map_in_use.entries;
+                return file_status_map.entries;
             }
         }
 
         construct {
-            var file_status_map = new Gee.HashMap<string, Ggit.StatusFlags> ();
-            var alt_file_status_map = new Gee.HashMap<string, Ggit.StatusFlags> ();
-            map_array = {file_status_map, alt_file_status_map};
+            file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
+            temp_file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -164,14 +150,36 @@ namespace Scratch.Services {
                                                               null);
                         try {
                             status_change = false;
-                            map_index = map_index == 0 ? 1 : 0;
-                            old_map_index = map_index == 0 ? 1 : 0;
-
-                            map_in_use.clear ();
+                            temp_file_status_map.clear ();
 
                             git_repo.file_status_foreach (options, check_each_git_status);
 
-                            if (status_change || map_in_use.size != old_map.size) {
+                            temp_file_status_map.map_iterator ().@foreach ((path, new_status) => {
+                                if (file_status_map.has_key (path)) {
+                                    var old_status = file_status_map.@get (path);
+                                    if (new_status != old_status) {
+                                        file_status_map.unset (path);
+                                        file_status_map.@set (path, new_status);
+                                        status_change = true;
+                                    }
+                                } else {
+                                    file_status_map.@set (path, new_status);
+                                    status_change = true;
+                                }
+
+                                return true;
+                            });
+
+                            file_status_map.keys.@foreach ((path) => {
+                                if (!temp_file_status_map.has_key (path)) {
+                                    file_status_map.unset (path);
+                                    status_change = true;
+                                }
+
+                                return true;
+                            });
+
+                            if (status_change) {
                                 file_status_change ();
                             }
                         } catch (Error e) {
@@ -193,15 +201,7 @@ namespace Scratch.Services {
 
         private bool status_change = false;
         private int check_each_git_status (string path, Ggit.StatusFlags status) {
-            map_in_use.@set (path, status);
-
-            if (old_map.has_key (path)) {
-                if (status == old_map.@get (path)) {
-                    return 0;
-                }
-            }
-
-            status_change = true;
+            temp_file_status_map.@set (path, status);
             return 0;
         }
 
