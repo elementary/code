@@ -65,6 +65,7 @@ namespace Scratch.FolderManager {
                 if (child is Item) {
                     var item = (Item)child;
                     var rel_path = this.file.file.get_relative_path (item.file.file);
+
                     if (rel_path != null && rel_path != "") {
                         rel_path_item_map.@set (rel_path, item);
                     }
@@ -118,20 +119,21 @@ namespace Scratch.FolderManager {
         }
 
         private void update_item_status () requires (monitored_repo != null) {
+            bool is_new = false;
             rel_path_item_map.map_iterator ().@foreach ((rel_path, item) => {
                 item.activatable = null;
                 monitored_repo.non_current_entries.@foreach ((entry) => {
-                    // Match folder path with its child paths as well else exact match
-                    var match = (item is FolderItem) ? entry.key.has_prefix (rel_path) : entry.key == rel_path;
+                    // Match non_current_path with parent folder as well as itself
+                    var match = entry.key.has_prefix (rel_path);
                     if (match) {
-                        bool is_new = (entry.@value == Ggit.StatusFlags.WORKING_TREE_NEW);
+                        is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
                         // Only mark folders new if only contains new items otherwise mark modified
                         if (item is FolderItem &&
                             is_new && item.activatable == null) {
 
                             item.activatable = added_icon;
                             item.activatable_tooltip = _("New");
-                            return false;
+                            return true;  // scan all children
                         }
 
                         item.activatable = is_new ? added_icon : modified_icon;
@@ -148,6 +150,11 @@ namespace Scratch.FolderManager {
 
         private void update_branch_name (string branch_name) requires (monitored_repo != null) {
             markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
+            //Clear all status icons - they will be refreshed according to the new branch.
+            rel_path_item_map.values.@foreach ((item) => {
+                item.activatable = null;
+                return Source.CONTINUE;
+            });
         }
 
         private void deprioritize_git_ignored () requires (monitored_repo != null) {

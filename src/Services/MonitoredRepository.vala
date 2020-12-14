@@ -21,9 +21,6 @@
 namespace Scratch.Services {
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
-        private FileMonitor? git_monitor = null;
-        private FileMonitor? gitignore_monitor = null;
-        private string _branch_name = "";
         public string branch_name {
             get {
                 return _branch_name;
@@ -41,11 +38,14 @@ namespace Scratch.Services {
         public signal void ignored_changed ();
         public signal void file_status_change ();
 
+        private FileMonitor? git_monitor = null;
+        private FileMonitor? gitignore_monitor = null;
+        private string _branch_name = "";
         private uint update_timer_id = 0;
+        private Ggit.StatusOptions status_options;
 
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
-        private Gee.HashMap<string, Ggit.StatusFlags?> temp_file_status_map;
 
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
@@ -55,7 +55,9 @@ namespace Scratch.Services {
 
         construct {
             file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
-            temp_file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
+            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.DEFAULT,
+                                                     Ggit.StatusShow.INDEX_AND_WORKDIR,
+                                                     null);
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -142,46 +144,18 @@ namespace Scratch.Services {
                             warning ("An error occured while fetching the current git branch name: %s", e.message);
                         }
 
-                        //SourceList shows files in working dir so only want status for those for now.
+                        // SourceList shows files in working dir so only want status for those for now.
                         // No callback generated for current files.
-                        //TODO Distinguish new untracked files from new tracked files
-                        var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED,
-                                                              Ggit.StatusShow.WORKDIR_ONLY,
-                                                              null);
+                        // TODO Distinguish new untracked files from new tracked files
                         try {
-                            status_change = false;
-                            temp_file_status_map.clear ();
+                            file_status_map.clear ();
 
-                            git_repo.file_status_foreach (options, check_each_git_status);
-
-                            temp_file_status_map.map_iterator ().@foreach ((path, new_status) => {
-                                if (file_status_map.has_key (path)) {
-                                    var old_status = file_status_map.@get (path);
-                                    if (new_status != old_status) {
-                                        file_status_map.unset (path);
-                                        file_status_map.@set (path, new_status);
-                                        status_change = true;
-                                    }
-                                } else {
-                                    file_status_map.@set (path, new_status);
-                                    status_change = true;
-                                }
-
-                                return true;
+                            git_repo.file_status_foreach (status_options, (path, status) => {
+                                file_status_map.@set (path, status);
+                                return 0;
                             });
 
-                            file_status_map.keys.@foreach ((path) => {
-                                if (!temp_file_status_map.has_key (path)) {
-                                    file_status_map.unset (path);
-                                    status_change = true;
-                                }
-
-                                return true;
-                            });
-
-                            if (status_change) {
-                                file_status_change ();
-                            }
+                            file_status_change ();
                         } catch (Error e) {
                             critical ("Error enumerating git status: %s", e.message);
                         }
@@ -197,12 +171,6 @@ namespace Scratch.Services {
             } else {
                 do_update = false;
             }
-        }
-
-        private bool status_change = false;
-        private int check_each_git_status (string path, Ggit.StatusFlags status) {
-            temp_file_status_map.@set (path, status);
-            return 0;
         }
 
         public bool path_is_ignored (string path) throws Error {
