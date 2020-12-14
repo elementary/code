@@ -19,6 +19,11 @@
 
 namespace Scratch.FolderManager {
     internal class ProjectFolderItem : FolderItem {
+        struct VisibleItem {
+            public string rel_path;
+            public Item item;
+        }
+
         private static Icon added_icon;
         private static Icon modified_icon;
 
@@ -27,7 +32,7 @@ namespace Scratch.FolderManager {
 
         private Scratch.Services.MonitoredRepository? monitored_repo = null;
         // Cache the visible item in the project.
-        private Gee.HashMap<string, Item> rel_path_item_map;
+        private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
@@ -40,8 +45,6 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            rel_path_item_map = new Gee.HashMap<string, Item> ();
-
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
@@ -57,9 +60,6 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void child_folder_closed (FolderItem folder) {
-        }
-
         public void child_folder_loaded (FolderItem folder) {
             foreach (var child in folder.children) {
                 if (child is Item) {
@@ -67,7 +67,7 @@ namespace Scratch.FolderManager {
                     var rel_path = this.file.file.get_relative_path (item.file.file);
 
                     if (rel_path != null && rel_path != "") {
-                        rel_path_item_map.@set (rel_path, item);
+                        visible_item_list.prepend ({rel_path, item});
                     }
                 }
             }
@@ -120,11 +120,12 @@ namespace Scratch.FolderManager {
 
         private void update_item_status () requires (monitored_repo != null) {
             bool is_new = false;
-            rel_path_item_map.map_iterator ().@foreach ((rel_path, item) => {
+            visible_item_list.@foreach ((visible_item) => {
+                var item = visible_item.item;
                 item.activatable = null;
                 monitored_repo.non_current_entries.@foreach ((entry) => {
                     // Match non_current_path with parent folder as well as itself
-                    var match = entry.key.has_prefix (rel_path);
+                    var match = entry.key.has_prefix (visible_item.rel_path);
                     if (match) {
                         is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
                         // Only mark folders new if only contains new items otherwise mark modified
@@ -143,24 +144,18 @@ namespace Scratch.FolderManager {
                         return true;
                     }
                 });
-
-                return true;
             });
         }
 
         private void update_branch_name (string branch_name) requires (monitored_repo != null) {
             markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
-            //Clear all status icons - they will be refreshed according to the new branch.
-            rel_path_item_map.values.@foreach ((item) => {
-                item.activatable = null;
-                return Source.CONTINUE;
-            });
         }
 
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
-            rel_path_item_map.map_iterator ().@foreach ((path, item) => {
+            visible_item_list.@foreach ((visible_item) => {
+                var item = visible_item.item;
                 try {
-                    if (monitored_repo.path_is_ignored (path)) {
+                    if (monitored_repo.path_is_ignored (visible_item.rel_path)) {
                         item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
                     } else {
                         item.markup = item.name;
@@ -168,8 +163,6 @@ namespace Scratch.FolderManager {
                 } catch (Error e) {
                     warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
                 }
-
-                return true;
             });
         }
 
