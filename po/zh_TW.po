@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-24 22:13+0000\n"
+"POT-Creation-Date: 2020-12-15 21:28+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -59,33 +59,33 @@ msgstr "隱藏搜尋列"
 msgid "Zeitgeist Datasource for Code"
 msgstr "供 Code 使用的 Zeitgeist 資料來源"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:496
+#: src/MainWindow.vala:739 src/Services/Document.vala:496
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:500
+#: src/MainWindow.vala:743 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:747
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:750
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/MainWindow.vala:751 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:776
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:777
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -221,7 +221,7 @@ msgstr "改名"
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "資料夾"
 

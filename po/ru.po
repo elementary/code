@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-24 22:13+0000\n"
+"POT-Creation-Date: 2020-12-15 21:28+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -61,33 +61,33 @@ msgstr "Скрыть панель поиска"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Отслеживать источник данных для редактора Scratch"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:496
+#: src/MainWindow.vala:739 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:500
+#: src/MainWindow.vala:743 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:747
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:750
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/MainWindow.vala:751 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:776
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:777
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -224,7 +224,7 @@ msgstr "Переименовать"
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Папки"
 

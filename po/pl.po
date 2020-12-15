@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-24 22:13+0000\n"
+"POT-Creation-Date: 2020-12-15 21:28+0000\n"
 "PO-Revision-Date: 2019-11-15 19:42+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -60,33 +60,33 @@ msgstr "Ukryj pasek wyszukiwania"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Źródła danych Zeitgeist dla Kodu"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:496
+#: src/MainWindow.vala:739 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:500
+#: src/MainWindow.vala:743 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:747
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:750
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/MainWindow.vala:751 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:776
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:777
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -224,7 +224,7 @@ msgstr "Zmień nazwę"
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Foldery"
 

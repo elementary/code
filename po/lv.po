@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-24 22:13+0000\n"
+"POT-Creation-Date: 2020-12-15 21:28+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Latvian <https://l10n.elementary.io/projects/code/code/lv/>\n"
@@ -62,33 +62,33 @@ msgstr "Paslēpt meklētāju"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist datu avots priekš Scracth"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:496
+#: src/MainWindow.vala:739 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Visas datnes"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:500
+#: src/MainWindow.vala:743 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Taksta faili"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:747
 msgid "Open some files"
 msgstr "Atvērt datnes"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:750
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/MainWindow.vala:742 src/Services/Document.vala:395
+#: src/MainWindow.vala:751 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:776
 msgid "_Open"
 msgstr "_Atvērt"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:777
 msgid "_Cancel"
 msgstr "_Atcelt"
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Mapes"
 
