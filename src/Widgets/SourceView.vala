@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+*               2017–2020 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -24,16 +24,17 @@ namespace Scratch.Widgets {
         public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
+        public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
         private string font;
         private uint selection_changed_timer = 0;
+        private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
 
-        // Pause after end user highlighting to confirm select,in ms
-        private const uint SELECTION_CHANGED_PAUSE = 400;
+        private const uint THROTTLE_MS = 400;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
@@ -64,6 +65,9 @@ namespace Scratch.Widgets {
             expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+
+            font_css_provider = new Gtk.CssProvider ();
+            get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
@@ -97,10 +101,10 @@ namespace Scratch.Widgets {
 
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    Application.instance.get_last_window ().action_zoom_in ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
                     return true;
                 } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    Application.instance.get_last_window ().action_zoom_out ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
                     return true;
                 }
 
@@ -108,7 +112,7 @@ namespace Scratch.Widgets {
             });
 
             cut_clipboard.connect (() => {
-                if (!Scratch.settings.smart_cut_copy) {
+                if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
                     return;
                 }
 
@@ -129,7 +133,7 @@ namespace Scratch.Widgets {
             });
 
             copy_clipboard.connect (() => {
-                if (!Scratch.settings.smart_cut_copy) {
+                if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
                     return;
                 }
 
@@ -147,6 +151,17 @@ namespace Scratch.Widgets {
             });
 
             populate_popup.connect_after (on_context_menu);
+
+            size_allocate.connect ((allocation) => {
+                // Throttle for performance
+                if (size_allocate_timer == 0) {
+                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                        size_allocate_timer = 0;
+                        bottom_margin = calculate_bottom_margin (allocation.height);
+                        return GLib.Source.REMOVE;
+                    });
+                }
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -162,14 +177,6 @@ namespace Scratch.Widgets {
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
-        }
-
-        public void use_default_font (bool value) {
-            if (!value) {
-                return;
-            }
-
-            font = Application.instance.default_font;
         }
 
         public void change_syntax_highlight_from_file (File file) {
@@ -190,49 +197,69 @@ namespace Scratch.Widgets {
         }
 
         private void restore_settings () {
-            auto_indent = Scratch.settings.auto_indent;
-            show_right_margin = Scratch.settings.show_right_margin;
-            right_margin_position = Scratch.settings.right_margin_position;
+            auto_indent = Scratch.settings.get_boolean ("auto-indent");
+            show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
+            right_margin_position = Scratch.settings.get_int ("right-margin-position");
             var source_buffer = (Gtk.SourceBuffer) buffer;
-            source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+            source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
 
-            if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
-                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
-                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
-            } else if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
-                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
-                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
-            } else {
-                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+            switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
+                case ScratchDrawSpacesState.ALWAYS:
+                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
+                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+                    break;
+                case ScratchDrawSpacesState.FOR_SELECTION:
+                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
+                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+                    break;
+                default:
+                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                    break;
             }
 
             update_draw_spaces ();
 
-            insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
-            tab_width = (uint) Scratch.settings.indent_width;
-            if (Scratch.settings.line_wrap) {
+            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
+            tab_width = (uint) Scratch.settings.get_int ("indent-width");
+            if (Scratch.settings.get_boolean ("line-wrap")) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
             } else {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
-            font = Scratch.settings.font;
-            use_default_font (Scratch.settings.use_system_font);
-            override_font (Pango.FontDescription.from_string (font));
-            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+            } else {
+                font = Scratch.settings.get_string ("font");
+            }
+
+            /* Convert font description to css equivalent and apply to the .view node */
+            var font_css = string.join (" ",
+                ".view {",
+                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
+                "}"
+            );
+
+            try {
+                font_css_provider.load_from_data (font_css);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
+            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
             style_changed (source_buffer.style_scheme);
         }
 
         private void update_settings () {
             var source_buffer = (Gtk.SourceBuffer) buffer;
-            Scratch.settings.show_right_margin = show_right_margin;
-            Scratch.settings.right_margin_position = (int) right_margin_position;
-            Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
-            Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
-            Scratch.settings.indent_width = (int) tab_width;
-            Scratch.settings.font = font;
-            Scratch.settings.style_scheme = source_buffer.style_scheme.id;
+            Scratch.settings.set_boolean ("show-right-margin", show_right_margin);
+            Scratch.settings.set_int ("right-margin-position", (int) right_margin_position);
+            Scratch.settings.set_boolean ("highlight-matching-brackets", source_buffer.highlight_matching_brackets);
+            Scratch.settings.set_boolean ("spaces-instead-of-tabs", insert_spaces_instead_of_tabs);
+            Scratch.settings.set_int ("indent-width", (int) tab_width);
+            Scratch.settings.set_string ("font", font);
+            Scratch.settings.set_string ("style-scheme", source_buffer.style_scheme.id);
             style_changed (source_buffer.style_scheme);
         }
 
@@ -380,7 +407,7 @@ namespace Scratch.Widgets {
 
             /* Draw spaces in selection the same way if drawn at all */
             if (selection &&
-                settings.draw_spaces in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+                (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces") in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
 
                 buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
@@ -398,7 +425,7 @@ namespace Scratch.Widgets {
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = can_comment;
@@ -407,13 +434,29 @@ namespace Scratch.Widgets {
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
                 ));
                 comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
                 });
 
                 menu.add (comment_item);
             }
 
             menu.show_all ();
+        }
+
+        private static int calculate_bottom_margin (int height_in_px) {
+            const int LINES_TO_KEEP = 3;
+            const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
+
+            // Use a default size of 10pt
+            double px_per_line = 10 * PT_TO_PX;
+
+            var last_window = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ();
+            if (last_window != null) {
+                // Get the actual font size
+                px_per_line = last_window.get_current_font_size () * PT_TO_PX;
+            }
+
+            return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
@@ -440,7 +483,7 @@ namespace Scratch.Widgets {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
-                selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
+                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
             }
 
         }

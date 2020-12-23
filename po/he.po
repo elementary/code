@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 20:05+0000\n"
-"PO-Revision-Date: 2020-02-29 20:15+0000\n"
+"POT-Creation-Date: 2020-12-15 21:28+0000\n"
+"PO-Revision-Date: 2020-12-14 19:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -19,115 +19,77 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:134
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "לא ניתן ליצור את הקובץ „%s”"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:138
-msgid "Maybe you do not have the necessary permissions."
-msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
-
-#: src/Application.vala:140
-msgid "Maybe the file path provided is not valid."
-msgstr "יתכן שנתיב הקובץ אינו תקף."
-
-#: src/Application.vala:142
-msgid "The location is read-only."
-msgstr "המקום לקריאה בלבד."
-
-#: src/Application.vala:144
-msgid "The parent directory doesn't exist."
-msgstr "תיקיית האב אינה קיימת."
-
-#: src/Application.vala:165
-msgid "It is a mountable location."
-msgstr "מיקום זה ניתן לעגינה."
-
-#: src/Application.vala:168
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"זה קובץ „מיוחד” כגון שקע,\n"
-"‎.FIFO, התקן בלוקים או התקן תווים."
-
-#: src/Application.vala:171
-msgid "It is an \"unknown\" file type."
-msgstr "זהו סוג קובץ „לא ידוע”."
-
-#: src/Application.vala:176
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "לא ניתן לפתוח את הקובץ „%s”"
-
-#: src/Application.vala:248
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:250
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "ערכת תוספים"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "תוסף"
 
-#: src/MainWindow.vala:137
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr "[FILE…]"
+
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "חיפוש…"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:262
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "מקור נתונים צייטגייסט עבור קוד"
 
-#: src/MainWindow.vala:770 src/Services/Document.vala:502
+#: src/MainWindow.vala:739 src/Services/Document.vala:496
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:774 src/Services/Document.vala:506
+#: src/MainWindow.vala:743 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:778
+#: src/MainWindow.vala:747
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:750
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:782 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:751 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:776
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:777
 msgid "_Cancel"
 msgstr "_ביטול"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -175,7 +137,7 @@ msgid "Interface"
 msgstr "ממשק"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "סגירה"
 
@@ -239,28 +201,28 @@ msgstr "לא לשחזר"
 msgid "Restore Anyway"
 msgstr "לשחזר בכל זאת"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "יישום אחר…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "פתיחה עם"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "פעולות אחרות"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "תיקיות"
 
@@ -295,108 +257,108 @@ msgstr "לסגור את התיקיות האחרות"
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, נערכה"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, חדשה"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr "ענף"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s אינו קובץ טקסט"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "קוד לא ידע לטעון סוג כזה של קובץ."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "לטעון בכל זאת"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "טעינת הקובץ „%s” אורכת זמן רב"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "נא להמתין בזמן שקוד טוען את הקובץ."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "ביטול הטעינה"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "לשמור את השינויים אל „%s” לפני הסגירה?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "בחירה שלא לשמור תוביל לאבדן השינויים לעד."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "סגירה ללא שמירה"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "שמירה"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "שמירת קובץ"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "מסמך חדש"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "לא ניתן לקרוא את הקובץ „%s”"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "יתכן שהוא פגום או שאין לך את ההרשאות המתאימות כדי לקרוא ממנו."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "בוטלה העגינה של המקום המכיל את הקובץ „%s”. האם לשמור במקום אחר?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "שמירה בשם…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "הקובץ „%s” נמחק. האם לשמור בכל זאת?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "לא ניתן לשמור שינויים לקובץ „%s”. לשמור את השינויים לקובץ אחר?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "שמירת השינויים במקום אחר"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -404,11 +366,11 @@ msgid ""
 msgstr ""
 "הקובץ „%s” שונה באמצעות יישום חיצוני. האם לטעון אותו שוב או להמשיך בעריכה?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "טעינה"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "המשך"
 
@@ -416,7 +378,7 @@ msgstr "המשך"
 msgid "Templates"
 msgstr "תבניות"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "קובץ טקסט מ־%s:‏%d"
@@ -455,119 +417,119 @@ msgstr[1] "%d טאבים"
 msgid "Go To Line:"
 msgstr "מעבר לשורה:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:45
 msgid "Open a file"
 msgstr "פתיחת קובץ"
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:50
 msgid "Project templates"
 msgstr "תבניות מיזם"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:56
 msgid "Save this file"
 msgstr "שמירת קובץ זה"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file with a different name"
 msgstr "שמירת קובץ זה בשם שונה"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Restore this file"
 msgstr "שחזור קובץ זה לקדמותו"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:85
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom 1:1"
 msgstr "תקריב 1:1"
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:120
 msgid "High Contrast"
 msgstr "ניגודיות גבוהה"
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:128
 msgid "Solarized Light"
 msgstr "Solarized בהיר"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:136
 msgid "Solarized Dark"
 msgstr "Solarized כהה"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr "הצגה/הסתרה של לוח צד"
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr "הוספת תצוגה חדשה"
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr "הסרת התצוגה הנוכחית"
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "תפריט"
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Sidebar.vala:45
+msgid "Open Project Folder…"
 msgstr "לפתוח תיקיית מיזם…"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr "לצמצם הכול"
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr "סידור אלפביתי"
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr "ניהול תיקיות המיזם"
 
-#: src/Widgets/SearchBar.vala:61
+#: src/Widgets/SearchBar.vala:63
 msgid "Find"
 msgstr "חיפוש"
 
-#: src/Widgets/SearchBar.vala:70
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr "חיפוש הבא"
 
-#: src/Widgets/SearchBar.vala:80
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr "חיפוש הקודם"
 
-#: src/Widgets/SearchBar.vala:85
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr "חיפוש מעגלי"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:95
+msgid "Case Sensitive"
+msgstr "תלוי רישיות"
+
+#: src/Widgets/SearchBar.vala:95
+msgid "Case Insensitive"
+msgstr "ללא תלות ברישיות"
+
+#: src/Widgets/SearchBar.vala:114
 msgid "Replace With"
 msgstr "החלפה ב־"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:117
 msgid "Replace"
 msgstr "החלפה"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:120
 msgid "Replace all"
 msgstr "החלפת הכול"
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "סידור השורות הנבחרות"
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "החלפת מצב הערה"
 
@@ -603,112 +565,100 @@ msgstr "פתיחת תיקייה"
 msgid "Add a project folder to the sidebar."
 msgstr "הוספת תיקיית מיזם לסרגל הצד."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "שיתוף עם PasteBin"
-
-#: plugins/pastebin/pastebin_dialog.vala:256
-msgid "Name:"
-msgstr "שם:"
-
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Format:"
-msgstr "תסדיר:"
-
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "אחרים…"
-
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "זמן תפוגה:"
-
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Keep this paste private"
-msgstr "השארת גזיר זה כפרטי"
-
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "העלאה"
-
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "תסדירים אחרים"
-
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "לעולם לא"
-
-#: plugins/pastebin/pastebin_dialog.vala:461
-msgid "Ten minutes"
-msgstr "עשר דקות"
-
-#: plugins/pastebin/pastebin_dialog.vala:462
-msgid "One hour"
-msgstr "שעה אחת"
-
-#: plugins/pastebin/pastebin_dialog.vala:463
-msgid "One day"
-msgstr "יום אחד"
-
-#: plugins/pastebin/pastebin_dialog.vala:464
-msgid "One month"
-msgstr "חודש אחד"
-
-#: plugins/pastebin/pastebin.vala:91
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "העלאה ל־Pastebin"
 
+#: plugins/pastebin/pastebin_dialog.vala:257
+msgid "Name:"
+msgstr "שם:"
+
+#: plugins/pastebin/pastebin_dialog.vala:260
+msgid "Format:"
+msgstr "תסדיר:"
+
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr "בחירת תצורה אחרת"
+
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
+msgstr "תפוגה:"
+
+#: plugins/pastebin/pastebin_dialog.vala:295
+msgid "Keep this paste private"
+msgstr "השארת גזיר זה כפרטי"
+
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr "תצורות זמינות"
+
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
+msgstr "בחירת תצורה"
+
+#: plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "לעולם לא"
+
+#: plugins/pastebin/pastebin_dialog.vala:468
+msgid "Ten minutes"
+msgstr "עשר דקות"
+
+#: plugins/pastebin/pastebin_dialog.vala:469
+msgid "One hour"
+msgstr "שעה אחת"
+
+#: plugins/pastebin/pastebin_dialog.vala:470
+msgid "One day"
+msgstr "יום אחד"
+
+#: plugins/pastebin/pastebin_dialog.vala:471
+msgid "One month"
+msgstr "חודש אחד"
+
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "סמלים"
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr "לא נמצאו סמלים"
+
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr "הצגת המסוף"
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr "הסתרת המסוף"
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr "מסוף"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr "העתקה"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "הדבקה"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "תצוגה מקדימה ברשת"
-
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
-msgid "Show Preview"
-msgstr "הצגת תצוגה מקדימה"
-
-#: plugins/browser-preview/browser-preview.vala:88
-msgid "Hide Preview"
-msgstr "הסתרת תצוגה מקדימה"
-
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "לא נמצאו מילונים מתאימים"
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr "נא להתקין לפחות מילון [aspell] אחד."
 
@@ -716,6 +666,64 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "לא ניתן ליצור את הקובץ „%s”"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "יתכן שנתיב הקובץ אינו תקף."
+
+#~ msgid "The location is read-only."
+#~ msgstr "המקום לקריאה בלבד."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "תיקיית האב אינה קיימת."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "מיקום זה ניתן לעגינה."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "זה קובץ „מיוחד” כגון שקע,\n"
+#~ "‎.FIFO, התקן בלוקים או התקן תווים."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "זהו סוג קובץ „לא ידוע”."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "לא ניתן לפתוח את הקובץ „%s”"
+
+#~ msgid "Web Preview"
+#~ msgstr "תצוגה מקדימה ברשת"
+
+#~ msgid "Show Preview"
+#~ msgstr "הצגת תצוגה מקדימה"
+
+#~ msgid "Hide Preview"
+#~ msgstr "הסתרת תצוגה מקדימה"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "שיתוף עם PasteBin"
+
+#~ msgid "Others…"
+#~ msgstr "אחרים…"
+
+#~ msgid "Upload"
+#~ msgstr "העלאה"
+
+#~ msgid "Other formats"
+#~ msgstr "תסדירים אחרים"
+
+#~ msgid "Add New View"
+#~ msgstr "הוספת תצוגה חדשה"
+
+#~ msgid "Remove Current View"
+#~ msgstr "הסרת התצוגה הנוכחית"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "תיקייה ללא שם %d"
@@ -1052,9 +1060,6 @@ msgstr "%s - השלמת מילים"
 
 #~ msgid "Context View"
 #~ msgstr "תצוגת הקשר"
-
-#~ msgid "Select font:"
-#~ msgstr "בחירת גופן:"
 
 #~ msgid ""
 #~ "Do you want to save the changes to this file in a different location?"

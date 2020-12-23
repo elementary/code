@@ -24,7 +24,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     MainWindow window = null;
 
-    Scratch.Plugins.TerminalViewer.Settings settings;
+    private GLib.Settings settings;
 
     Gtk.Notebook? bottombar = null;
     Scratch.Widgets.HeaderBar? toolbar = null;
@@ -77,8 +77,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect (on_hook_split_view);
-
         on_hook_notebook ();
     }
 
@@ -94,7 +92,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     }
 
     void save_last_working_directory () {
-        settings.last_opened_path = get_shell_location ();
+        settings.set_string ("last-opened-path", get_shell_location ());
     }
 
     bool on_window_key_press_event (Gdk.EventKey event) {
@@ -158,16 +156,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         return false;
     }
 
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = ! view.is_empty ();
-        view.welcome_shown.connect (() => {
-            this.tool_button.visible = false;
-        });
-        view.welcome_hidden.connect (() => {
-            this.tool_button.visible = true;
-        });
-    }
-
     void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
         tool_button = new Gtk.ToggleToolButton ();
@@ -203,7 +191,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     }
 
     void on_hook_notebook () {
-        this.settings = new Scratch.Plugins.TerminalViewer.Settings ();
+        this.settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.terminal");
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
@@ -252,13 +240,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 menu.select_first (false);
-                menu.popup (null, null, null, event.button, event.time);
+                menu.popup_at_pointer (event);
             }
             return false;
         });
 
         try {
-            string last_opened_path = settings.last_opened_path == "" ? "~/" : settings.last_opened_path;
+            string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
             terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
         } catch (GLib.Error e) {
             warning (e.message);
@@ -280,9 +268,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         var pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
         font_name = pantheon_terminal_settings.get_string ("font");
-
-        bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
-        this.terminal.set_allow_bold (allow_bold_setting);
 
         bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
         this.terminal.set_audible_bell (audible_bell_setting);

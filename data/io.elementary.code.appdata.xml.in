@@ -46,6 +46,49 @@
     </ul>
   </description>
   <releases>
+    <release version="3.4.2" date="2020-06-09">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>New Markdown plugin for WYSIWYG-like editing.</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Allow Spell Checker extension in Markdown files</li>
+          <li>Remember whether the sidebar is open</li>
+          <li>Add keyboard shortcuts for next and previous documents.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.4.1" date="2020-06-09">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix empty sidebar layout, ensuring folders can always be added</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Scroll past the end of a file</li>
+          <li>More efficiently save and restore window position</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.4.0" date="2020-04-01">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Include Git status in file tooltips</li>
+          <li>Option for explicit case-sensitive Find</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Correctly show Toggle Comment menu item when no text is selected</li>
+          <li>Fixed font switch alignment</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.0" date="2020-02-29">
       <description>
         <p>New features:</p>

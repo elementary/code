@@ -29,7 +29,6 @@ namespace Scratch.Services {
         public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
         public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
 
@@ -59,7 +58,6 @@ namespace Scratch.Services {
         Peas.Engine engine_core;
         Peas.ExtensionSet exts_core;
 
-        GLib.Settings settings;
         string settings_field;
 
         public Interface plugin_iface { private set; public get; }
@@ -71,7 +69,6 @@ namespace Scratch.Services {
         public signal void hook_share_menu (Gtk.Menu menu);
         public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
 
@@ -81,7 +78,6 @@ namespace Scratch.Services {
         public PluginsManager (MainWindow window, string? set_name = null) {
             this.window = window;
 
-            settings = Scratch.settings.schema;
             settings_field = "plugins-enabled";
 
             plugin_iface = new Interface (this);
@@ -90,7 +86,7 @@ namespace Scratch.Services {
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
-            settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
@@ -138,9 +134,6 @@ namespace Scratch.Services {
             });
             this.hook_notebook_bottom.connect ((n) => {
                 plugin_iface.hook_notebook_bottom (n);
-            });
-            this.hook_split_view.connect ((v) => {
-                plugin_iface.hook_split_view (v);
             });
             this.hook_document.connect ((d) => {
                 plugin_iface.hook_document (d);

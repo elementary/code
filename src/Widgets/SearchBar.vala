@@ -30,6 +30,8 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
+
+        private Gtk.ToggleButton case_sensitive_button;
         public Gtk.ToggleButton tool_cycle_search {get; construct;}
 
         public Gtk.SearchEntry search_entry;
@@ -60,11 +62,13 @@ namespace Scratch.Widgets {
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
 
+            var app_instance = (Scratch.Application) GLib.Application.get_default ();
+
             tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
             tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (
+                app_instance.get_accels_for_action (
                     Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
@@ -74,7 +78,7 @@ namespace Scratch.Widgets {
             tool_arrow_up.clicked.connect (search_previous);
             tool_arrow_up.sensitive = false;
             tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (
+                app_instance.get_accels_for_action (
                     Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
@@ -84,6 +88,14 @@ namespace Scratch.Widgets {
             tool_cycle_search.image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_cycle_search.tooltip_text = _("Cyclic Search");
 
+            case_sensitive_button = new Gtk.ToggleButton ();
+            case_sensitive_button.image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            case_sensitive_button.bind_property (
+                "active", case_sensitive_button, "tooltip-text", BindingFlags.DEFAULT,
+                (b, f, ref t) => {t.set_string (f.get_boolean () ? _("Case Sensitive") : _("Case Insensitive"));}
+             );
+            case_sensitive_button.clicked.connect (on_search_entry_text_changed);
+
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
             search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
@@ -91,6 +103,7 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_down);
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
+            search_grid.add (case_sensitive_button);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
             search_flow_box_child.can_focus = false;
@@ -188,7 +201,7 @@ namespace Scratch.Widgets {
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
                 try {
-                    search_context.replace2 (start_iter, end_iter, replace_string, replace_string.length);
+                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
                     bool matches = search ();
                     update_replace_tool_sensitivities (search_entry.text, matches);
                     update_tool_arrows (search_entry.text);
@@ -225,7 +238,7 @@ namespace Scratch.Widgets {
         private void on_search_entry_text_changed () {
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+            bool case_sensitive = is_case_sensitive (search_string);
             search_context.settings.case_sensitive = case_sensitive;
 
             bool matches = search ();
@@ -247,7 +260,7 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             end_iter = start_iter;
-            bool case_sensitive = !((search_entry.text.up () == search_entry.text) || (search_entry.text.down () == search_entry.text));
+            bool case_sensitive = is_case_sensitive (search_entry.text);
             bool found = start_iter.forward_search (search_entry.text,
                                                     case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                                     out start_iter, out end_iter, null);
@@ -309,7 +322,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward2 (start_iter, out start_iter, out end_iter, null);
+            bool found = search_context.forward (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -320,7 +333,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward2 (start_iter, out start_iter, out end_iter, null);
+            bool found = search_context.backward (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -381,14 +394,14 @@ namespace Scratch.Widgets {
                     is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        bool next_found = search_context.forward2 (end_iter, out tmp_start_iter, out tmp_end_iter, null);
+                        bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter, null);
                         tool_arrow_down.sensitive = next_found;
                     } else {
                         tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = search_context.backward2 (start_iter, out tmp_start_iter, out end_iter, null);
+                        bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter, null);
                         tool_arrow_up.sensitive = previous_found;
                     } else {
                         tool_arrow_up.sensitive = false;
@@ -456,6 +469,10 @@ namespace Scratch.Widgets {
             }
 
             return false;
+        }
+
+        private bool is_case_sensitive (string search_string) {
+            return case_sensitive_button.active || !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
     }
 }
