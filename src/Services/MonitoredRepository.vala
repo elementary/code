@@ -55,7 +55,7 @@ namespace Scratch.Services {
 
         construct {
             file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
-            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.DEFAULT,
+            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
                                                      Ggit.StatusShow.INDEX_AND_WORKDIR,
                                                      null);
         }
