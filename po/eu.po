@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2016-09-11 21:29+0000\n"
 "Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -47,46 +47,46 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Bilatu..."
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Ezkutatu bilaketa-barra"
 
-#: src/MainWindow.vala:274
+#: src/MainWindow.vala:276
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Scratch-entzako Zeitgeist datu-iturburua"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: src/MainWindow.vala:743 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Testu-fitxategiak"
 
-#: src/MainWindow.vala:747
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Fitxategi batzuk ireki"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Ireki"
 
-#: src/MainWindow.vala:751 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/MainWindow.vala:776
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "_Ireki"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -276,101 +276,100 @@ msgstr ""
 msgid "Branch"
 msgstr "Aldatu Scratch-en ezarpenak"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Utzi"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "%s dokumentuaren aldaketak gorde irten aurretik?"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ez baduzu gordetzen, azken 4 segundotako aldaketak betirako galduko dira."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Itxi gorde gabe"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Gorde"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "Gorde fitxategia"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Dokumentu berria"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Gorde honela..."
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Gorde aldaketak beste nonbait"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -379,11 +378,11 @@ msgstr ""
 "\"%s\" fitxategia kanpoko aplikazio batengatik aldatua izan da. Berriro "
 "kargatu nahi duzu ala zure edizioa jarraitu?"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "Kargatu"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "Jarraitu"
 
@@ -500,11 +499,11 @@ msgstr "Ireki karpeta"
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr ""
 
@@ -524,31 +523,33 @@ msgstr "Aurrekoa bilatu"
 msgid "Cyclic Search"
 msgstr "Bilaketa ziklikoa"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Ordezkatu honekin"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Ordezkatu"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "Ordeztu denak"
 
-#: src/Widgets/SourceView.vala:420
+#: src/Widgets/SourceView.vala:433
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr ""
 
