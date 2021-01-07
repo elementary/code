@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2020-09-06 13:13+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"PO-Revision-Date: 2020-11-25 15:54+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -19,112 +19,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "ファイル \"%s\" を作成できません"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "必要な権限がない可能性があります。"
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "指定されたファイルのパスが有効ではない可能性があります。"
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "この場所は読み取り専用です。"
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "親ディレクトリが存在しません。"
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "これはマウント可能な場所です。"
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"これは、ソケット、FIFO、ブロックデバイス、\n"
-" キャラクタデバイスなどの \"特別な\" ファイルです。"
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "これは \"未知\" のファイル形式です。"
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "ファイル \"%s\" を開けません"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "バージョン情報を表示して終了します"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "プラグインのセット"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "プラグイン"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr "[ファイル…]"
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "コード"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "検索…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "検索バーを表示しない"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:276
 msgid "Zeitgeist Datasource for Code"
 msgstr "Code 向けの Zeitgeist データソース"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "複数のファイルを開く"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -262,7 +223,7 @@ msgstr "名前を変更"
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "フォルダー"
 
@@ -308,69 +269,69 @@ msgstr "%s、新規"
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr "\"コード\" はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr "\"コード\" がファイルを読み込む間、お待ちください。"
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "閉じる前に \"%s\" への変更を保存しますか？"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ファイル \"%s\" を読み込めません"
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "ファイルが破損しているか、読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -379,17 +340,16 @@ msgstr ""
 "ファイル \"%s\" を含む場所はアンマウントされています。どこか別の場所に保存し"
 "ますか？"
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "名前を付けて保存…"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" は削除されています。それでも保存しますか？"
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -398,11 +358,11 @@ msgstr ""
 "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "別の場所に変更内容を保存"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -411,11 +371,11 @@ msgstr ""
 "ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込み"
 "ますか？または編集を続行しますか？"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "変更を読み込む"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "編集を続行"
 
@@ -524,11 +484,11 @@ msgstr "プロジェクトフォルダーを開く…"
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr "プロジェクトフォルダーを管理"
 
@@ -548,31 +508,33 @@ msgstr "前を検索"
 msgid "Cyclic Search"
 msgstr "循環検索"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr "大文字と小文字を区別しない"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:433
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr "コメントを切り替え"
 
@@ -665,7 +627,7 @@ msgstr "1 か月"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "シンボル"
@@ -709,6 +671,37 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "ファイル \"%s\" を作成できません"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "必要な権限がない可能性があります。"
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "指定されたファイルのパスが有効ではない可能性があります。"
+
+#~ msgid "The location is read-only."
+#~ msgstr "この場所は読み取り専用です。"
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "親ディレクトリが存在しません。"
+
+#~ msgid "It is a mountable location."
+#~ msgstr "これはマウント可能な場所です。"
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "これは、ソケット、FIFO、ブロックデバイス、\n"
+#~ " キャラクタデバイスなどの \"特別な\" ファイルです。"
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "これは \"未知\" のファイル形式です。"
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "ファイル \"%s\" を開けません"
 
 #~ msgid "Web Preview"
 #~ msgstr "Web プレビュー"
