@@ -177,8 +177,10 @@ namespace Scratch.Widgets {
             app_menu.tooltip_text = _("Menu");
             app_menu.popover = menu;
 
-            format_bar = new Code.FormatBar ();
-            format_bar.no_show_all = true;
+            format_bar = new Code.FormatBar () {
+                no_show_all = true,
+                valign = Gtk.Align.CENTER
+            };
             set_custom_title (format_bar);
 
             pack_start (open_button);
