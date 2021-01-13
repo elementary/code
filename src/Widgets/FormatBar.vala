@@ -77,9 +77,12 @@ public class Code.FormatBar : Gtk.Grid {
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
 
-        lang_selection_filter = new Gtk.SearchEntry ();
-        lang_selection_filter.margin = 6;
-        lang_selection_filter.placeholder_text = _("Filter languages");
+        lang_selection_filter = new Gtk.SearchEntry () {
+            margin = 12,
+            margin_bottom = 6,
+            placeholder_text = _("Filter languages")
+        };
+
         lang_selection_filter.changed.connect (() => {
             lang_selection_listbox.invalidate_filter ();
         });
@@ -294,6 +297,7 @@ public class Code.FormatBar : Gtk.Grid {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
+        public unowned SList<Gtk.RadioButton> group { get; construct; }
 
         public bool active {
             get {
@@ -319,12 +323,16 @@ public class Code.FormatBar : Gtk.Grid {
 
         private Gtk.RadioButton lang_radio;
         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
-            Object (lang_id: lang_id, lang_name: lang_name);
+            Object (group: group, lang_id: lang_id, lang_name: lang_name);
+        }
 
-            get_style_context ().add_class ("menuitem");
+        class construct {
+            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+        }
 
+        construct {
             lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
-            lang_radio.margin_start = 4;
+
             add (lang_radio);
             lang_radio.toggled.connect (radio_toggled);
         }
