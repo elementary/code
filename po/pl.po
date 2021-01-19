@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-24 22:13+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2019-11-15 19:42+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -48,45 +48,45 @@ msgstr ""
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Znajdź…"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
-#: src/MainWindow.vala:274
+#: src/MainWindow.vala:276
 msgid "Zeitgeist Datasource for Code"
 msgstr "Źródła danych Zeitgeist dla Kodu"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:742 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -224,7 +224,7 @@ msgstr "Zmień nazwę"
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Foldery"
 
@@ -272,71 +272,71 @@ msgstr ""
 msgid "Branch"
 msgstr "Gałąź"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nie jest plikiem tekstowym"
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr "Kod nie wczyta tego rodzaju plików."
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr "Wczytaj mimo wszystko"
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Wczytywanie pliku \"%s\" trwa długi czas"
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr "Prosimy oczekiwać podczas wczytywania pliku przez Kod."
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 msgid "Cancel Loading"
 msgstr "Anuluj wczytywanie"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Zachować zmiany w pliku „%s” przed zamknięciem?"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jeśli plik nie zostanie zapisany, zmiany zostaną bezzwrotnie utracone."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 msgid "Close Without Saving"
 msgstr "Zamknij bez zapisywania"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "Zapisz plik"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Nowy dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Plik \"%s\" nie może zostać odczytany"
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Prawdopodobnie jest uszkodzony lub nie posiadasz wystarczających uprawnień "
 "do jego odczytu."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -345,17 +345,16 @@ msgstr ""
 "Położenie zawierające plik \"%s\" jest niedostępne. Czy chcesz zapisać plik "
 "w innym miejscu?"
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Zapisz jako…"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Plik \"%s\" został usunięty. Czy mimo to chcesz go zapisać?"
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -364,11 +363,11 @@ msgstr ""
 "Nie można zapisać zmian w pliku \"%s\". Czy chcesz zapisać zmiany w innym "
 "miejscu?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Zapisz zmiany w innym miejscu"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -377,11 +376,11 @@ msgstr ""
 "Plik \"%s\" został zmieniony przez zewnętrzny program. Chcesz wczytać go "
 "ponownie, czy kontynuować edycję?"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "Wczytaj"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "Kontynuuj"
 
@@ -496,11 +495,11 @@ msgstr "Otwórz folder"
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr ""
 
@@ -520,31 +519,33 @@ msgstr "Wyszukaj poprzednie"
 msgid "Cyclic Search"
 msgstr "Cykliczne wyszukiwanie"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Zastąp przez"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Zastąp"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "Zastąp wszystko"
 
-#: src/Widgets/SourceView.vala:420
+#: src/Widgets/SourceView.vala:433
 msgid "Sort Selected Lines"
 msgstr "Sortuj wybrane wiersze"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr "Przełącz komentarze"
 

@@ -189,7 +189,9 @@ namespace Scratch.Widgets {
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
+                var mime_type = ContentType.get_mime_type (
+                    info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE)
+                );
                 language = manager.guess_language (file.get_path (), mime_type);
             } catch (Error e) {
                 critical (e.message);
@@ -212,16 +214,26 @@ namespace Scratch.Widgets {
 
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
-                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+                    space_drawer.set_types_for_locations (
+                        Gtk.SourceSpaceLocationFlags.ALL,
+                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                    );
                     break;
                 case ScratchDrawSpacesState.FOR_SELECTION:
-                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
-                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+                    space_drawer.set_types_for_locations (
+                        Gtk.SourceSpaceLocationFlags.ALL,
+                        Gtk.SourceSpaceTypeFlags.NONE
+                    );
+                    space_drawer.set_types_for_locations (
+                        Gtk.SourceSpaceLocationFlags.TRAILING,
+                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                    );
                     break;
                 default:
-                    space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                    space_drawer.set_types_for_locations (
+                        Gtk.SourceSpaceLocationFlags.ALL,
+                        Gtk.SourceSpaceTypeFlags.NONE
+                    );
                     break;
             }
 
@@ -413,10 +425,11 @@ namespace Scratch.Widgets {
             var selection = buffer.get_selection_bounds (out start, out end);
 
             /* Draw spaces in selection the same way if drawn at all */
-            if (selection &&
-                (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces") in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
-
-                buffer.apply_tag_by_name ("draw_spaces", start, end);
+            if (selection) {
+                var draw_spaces_state = (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces");
+                if (draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+                    buffer.apply_tag_by_name ("draw_spaces", start, end);
+                }
             }
         }
 

@@ -46,7 +46,9 @@ namespace Scratch.Services {
 
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved);
+                return file.get_path ().has_prefix (
+                    ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
+                );
             }
         }
 
@@ -119,7 +121,10 @@ namespace Scratch.Services {
         }
 
         static construct {
-            var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
+            var fontpath = Path.build_filename (
+                Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf"
+            );
+
             unowned Fc.Config config = Fc.init ();
             if (!config.add_app_font (fontpath)) {
                 warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
@@ -728,14 +733,18 @@ namespace Scratch.Services {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
-                    string message = _("The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                         this.save_as.begin ();
                         hide_info_bar ();
                     });
                 } else {
-                    string message = _("File \"%s\" was deleted. Do you want to save it anyway?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "File \"%s\" was deleted. Do you want to save it anyway?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save.begin ();
@@ -750,7 +759,9 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _(
+                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+                ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();
@@ -785,7 +796,10 @@ namespace Scratch.Services {
                         if (Scratch.settings.get_boolean ("autosave")) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
-                            string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                            string message = _(
+        "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
+                            ).printf ("<b>%s</b>".printf (get_basename ()));
+
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                                 this.source_view.set_text (new_buffer.text, false);
                                 hide_info_bar ();
@@ -803,7 +817,9 @@ namespace Scratch.Services {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
-            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_buffer.text);
+            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
+                original_content != source_buffer.text
+            );
         }
 
         // Set saved status

@@ -65,7 +65,11 @@ namespace Scratch.FolderManager {
 
         public void open_folder (File folder) {
             if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
+                var existing = find_path (root, folder.path);
+                if (existing is Granite.Widgets.SourceList.ExpandableItem) {
+                    ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+                }
+
                 return;
             } else if (!folder.is_valid_directory) {
                 warning ("Cannot open invalid directory.");
