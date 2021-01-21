@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2019-11-15 21:24+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2021-01-21 17:09+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "extra/nb/>\n"
 "Language: nb\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -108,32 +108,33 @@ msgstr "mange andre"
 #: data/io.elementary.code.appdata.xml.in:94
 #: data/io.elementary.code.appdata.xml.in:110
 msgid "New features:"
-msgstr ""
+msgstr "Nye funksjoner:"
 
 #: data/io.elementary.code.appdata.xml.in:53
+#, fuzzy
 msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr ""
+msgstr "Nytt Markdown-programtillegg for WYSIWYG-lignende redigering."
 
 #: data/io.elementary.code.appdata.xml.in:55
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Minor updates:"
-msgstr ""
+msgstr "Små oppdateringer:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Allow Spell Checker extension in Markdown files"
-msgstr ""
+msgstr "Tillat stavekontrollutvidelse i Markdown-filer"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Remember whether the sidebar is open"
-msgstr ""
+msgstr "Husk hvorvidt sidepanelet er åpent"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Add keyboard shortcuts for next and previous documents."
-msgstr ""
+msgstr "Tillagte tastatursnarveier for neste og forrige dokument."
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Fixes:"
-msgstr ""
+msgstr "Fikser:"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
@@ -141,7 +142,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Rull forbi filens slutt"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "More efficiently save and restore window position"
@@ -169,7 +170,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:99
 #: data/io.elementary.code.appdata.xml.in:121
 msgid "Other updates:"
-msgstr ""
+msgstr "Andre oppdateringer:"
 
 #: data/io.elementary.code.appdata.xml.in:86
 msgid "Correctly show Toggle Comment menu item when no text is selected"
@@ -181,15 +182,15 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
+msgstr "Nytt «Lukk andre mapper»-menyelement for å rydde opp i sidefeltet"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "Lagre og gjenopprett syklisk søkeinnstilling"
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Tillagte tastatursnarveier i menyelementer"
 
 #: data/io.elementary.code.appdata.xml.in:102
 msgid "Make sidebar folder items not selectable"
@@ -302,15 +303,15 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:160
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Ikke legg til midlertidige filer i fanegjenoppretting"
 
 #: data/io.elementary.code.appdata.xml.in:168
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Ikke gjenopprett slettede filer ved gjenoppretting av økt"
 
 #: data/io.elementary.code.appdata.xml.in:169
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Gjenopprett foretrukken linjebrytingsinnstilling"
 
 #: data/io.elementary.code.appdata.xml.in:170
 msgid "Add accel tooltips"
@@ -318,7 +319,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:171
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Små feilfikser"
 
 #: data/io.elementary.code.appdata.xml.in:211
 msgid "elementary LLC."
@@ -342,7 +343,7 @@ msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Ny fil"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
