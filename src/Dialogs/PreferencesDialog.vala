@@ -32,7 +32,6 @@ namespace Scratch.Dialogs {
 
         public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
             Object (
-                border_width: 5,
                 deletable: false,
                 resizable: false,
                 title: _("Preferences"),
@@ -67,10 +66,9 @@ namespace Scratch.Dialogs {
             general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 6);
             general_grid.attach (indent_width, 1, 6, 2);
 
-            main_stack = new Gtk.Stack ();
-            main_stack.margin = 6;
-            main_stack.margin_bottom = 18;
-            main_stack.margin_top = 24;
+            main_stack = new Gtk.Stack () {
+                margin = 12
+            };
             main_stack.add_titled (general_grid, "behavior", _("Behavior"));
             main_stack.add_titled (get_editor_box (), "interface", _("Interface"));
 
@@ -78,18 +76,19 @@ namespace Scratch.Dialogs {
             main_stackswitcher.set_stack (main_stack);
             main_stackswitcher.halign = Gtk.Align.CENTER;
 
-            var main_grid = new Gtk.Grid ();
-            main_grid.attach (main_stackswitcher, 0, 0, 1, 1);
-            main_grid.attach (main_stack, 0, 1, 1, 1);
+            var main_grid = new Gtk.Grid () {
+                row_spacing = 12
+            };
+            main_grid.attach (main_stackswitcher, 0, 0);
+            main_grid.attach (main_stack, 0, 1);
 
+            border_width = 0;
             get_content_area ().add (main_grid);
 
-            var close_button = new Gtk.Button.with_label (_("Close"));
+            var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
             close_button.clicked.connect (() => {
                 destroy ();
             });
-
-            add_action_widget (close_button, 0);
         }
 
         private void create_layout (Services.PluginsManager plugins) {
