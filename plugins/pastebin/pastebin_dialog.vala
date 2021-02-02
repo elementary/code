@@ -22,7 +22,7 @@ using Scratch.Services;
 
 namespace Scratch.Dialogs {
 
-    public class PasteBinDialog : Gtk.Dialog {
+    public class PasteBinDialog : Granite.Dialog {
 
         public string[,] languages = {
             //if default, code, desc, Code-equivalent
@@ -236,7 +236,7 @@ namespace Scratch.Dialogs {
         private Gtk.ComboBoxText expiry_combo;
         private Gtk.CheckButton private_check;
         private Gtk.ComboBoxText format_combo;
-        private Gtk.Dialog format_dialog;
+        private Granite.Dialog format_dialog;
         private Gtk.Stack stack;
         private Gtk.ListBox languages_listbox;
 
@@ -346,7 +346,7 @@ namespace Scratch.Dialogs {
         }
 
         private void format_button_clicked () {
-            format_dialog = new Gtk.Dialog () {
+            format_dialog = new Granite.Dialog () {
                 deletable = false,
                 resizable = false,
                 border_width = 6,
