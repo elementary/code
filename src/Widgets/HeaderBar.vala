@@ -74,13 +74,6 @@ namespace Scratch.Widgets {
                 _("Run")
             );
 
-            var stop_button = new Gtk.Button.from_icon_name ("media-playback-stop", Gtk.IconSize.LARGE_TOOLBAR);
-            stop_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_STOP;
-            stop_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (stop_button.action_name),
-                _("Stop")
-            );
-
             var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
             revert_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -210,7 +203,6 @@ namespace Scratch.Widgets {
             pack_start (save_as_button);
             pack_start (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             pack_start (run_button);
-            pack_start (stop_button);
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);

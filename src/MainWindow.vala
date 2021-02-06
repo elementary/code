@@ -77,7 +77,6 @@ namespace Scratch {
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
         public const string ACTION_RUN = "action_run";
-        public const string ACTION_STOP = "action_stop";
         public const string ACTION_REVERT = "action_revert";
         public const string ACTION_SAVE = "action_save";
         public const string ACTION_SAVE_AS = "action_save_as";
@@ -109,7 +108,6 @@ namespace Scratch {
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_RUN, action_run },
-            { ACTION_STOP, action_stop },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
@@ -152,7 +150,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_RUN, "");
-            action_accelerators.set (ACTION_STOP, "");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
@@ -544,7 +541,6 @@ namespace Scratch {
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
-            Utils.action_from_group (ACTION_STOP, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
@@ -837,10 +833,6 @@ namespace Scratch {
             project.build ();
             project.install ();
             project.run ();
-        }
-
-        private void action_stop () {
-            // TODO: stop running application
         }
 
         private void action_revert () {
