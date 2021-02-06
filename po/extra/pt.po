@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2020-12-18 00:16+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2021-02-06 16:01+0000\n"
+"Last-Translator: Caio Vinicius <caioshift02@gmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -212,7 +212,7 @@ msgstr "Ignora visualmente ficheiros .gitignorados na barra lateral do projeto"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Smart cut/copy lines with no active selection"
-msgstr "Linhas cortar/colar inteligentes sem seleção ativa"
+msgstr "Forma inteligente de cortar/copiar linhas sem seleção"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Add a confirmation dialog to the \"Restore\" action"
@@ -245,7 +245,7 @@ msgstr "Simplifica a preferência \"Desenhar espaços\""
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr "Corrigir o atalho do teclado de retroceder nos resultados da pesquisa"
+msgstr "Ajustar o atalho do teclado para ir atrás nos resultados da pesquisa"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Fix opening files from relative paths in Terminal"
