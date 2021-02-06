@@ -10,10 +10,10 @@ Categories=Development;GTK;IDE;WebDevelopment;
 Keywords=text;IDE;scratch;
 MimeType=text/plain;inode/directory;
 StartupNotify=true
-Actions=NewWindow;NewDocument;
+Actions=NewWindow;NewFile;
 
-[Desktop Action NewDocument]
-Name=New Document
+[Desktop Action NewFile]
+Name=New File
 Exec=@EXEC_NAME@ --new-tab
 
 [Desktop Action NewWindow]

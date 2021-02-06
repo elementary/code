@@ -34,11 +34,10 @@ code_files = files(
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
     'Widgets/HeaderBar.vala',
-    'Widgets/Pane.vala',
+    'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
-    'Widgets/SplitView.vala',
     'Widgets/WelcomeView.vala',
 )
 

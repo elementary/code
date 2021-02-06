@@ -63,10 +63,10 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
         pos = line_begin;
         int indent = 0;
-        int tabwidth = Scratch.settings.indent_width;
+        int tabwidth = Scratch.settings.get_int ("indent-width");
 
         unichar ch = pos.get_char ();
-        while (pos.get_offset () < iter.get_offset () && ch != '\n') {
+        while (pos.get_offset () < iter.get_offset () && ch != '\n' && ch.isspace ()) {
             if (ch == '\t') {
                 indent += tabwidth;
             } else {
@@ -159,9 +159,12 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
     ) {
         int first_line = region_begin.get_line ();
         int last_line = region_end.get_line ();
+        int buf_last_line = view.buffer.get_line_count () - 1;
 
         int nlines = (first_line - last_line).abs () + 1;
-        if (nlines < 1 || nchars < 1 || last_line < first_line || !view.editable) {
+        if (nlines < 1 || nchars < 1 || last_line < first_line || !view.editable
+            || first_line == buf_last_line
+        ) {
             return;
         }
 
@@ -171,7 +174,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         if (view.insert_spaces_instead_of_tabs) {
             indent_str = string.nfill (nchars, ' ');
         } else {
-            int tabwidth = Scratch.settings.indent_width;
+            int tabwidth = Scratch.settings.get_int ("indent-width");
             int tabs = nchars / tabwidth;
             int spaces = nchars % tabwidth;
 
@@ -203,7 +206,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         }
 
         Gtk.TextBuffer buffer = view.buffer;
-        int tabwidth = Scratch.settings.indent_width;
+        int tabwidth = Scratch.settings.get_int ("indent-width");
         Gtk.TextIter del_begin, del_end, itr;
 
         for (var line = first_line; line <= last_line; ++line) {

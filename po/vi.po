@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-04 09:46-0600\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -20,208 +20,170 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:132
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr ""
-"Tệp \"%s\" không thể khởi tạo.\n"
-"%s"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:136
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Có thể bạn không có quyền truy cập cần thiết."
-
-#: src/Application.vala:138
-msgid "Maybe the file path provided is not valid."
-msgstr "Có thể đường dẫn không tồn tại."
-
-#: src/Application.vala:140
-msgid "The location is read-only."
-msgstr "Đường dẫn này chỉ được phép đọc."
-
-#: src/Application.vala:142
-msgid "The parent directory doesn't exist."
-msgstr "Thư mục chủ không tồn tại."
-
-#: src/Application.vala:163
-msgid "It is a mountable location."
-msgstr "Chỗ này có thể gắn kết được."
-
-#: src/Application.vala:166
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Đây là một tệp \"đặc biệt\" kiểu như là socket,\n"
-"fifo, block device, hoặc character device."
-
-#: src/Application.vala:169
-msgid "It is an \"unknown\" file type."
-msgstr "Không định dạng được kiểu tệp."
-
-#: src/Application.vala:174
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
-"Tệp \"%s\" không thể mở được.\n"
-"%s"
-
-#: src/Application.vala:246
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Bảng mới"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Cửa sổ mới"
 
-#: src/Application.vala:248
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Hiển thị phiên bản và thoát"
 
-#: src/Application.vala:249
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Tập hợp plugin"
 
-#: src/Application.vala:249
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Tập hợp plugin"
 
-#: src/MainWindow.vala:133
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Mã nguồn"
 
-#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Tìm kiếm…"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:276
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Nguồn dữ liệu Zeitgeist cho Scratch"
 
-#: src/MainWindow.vala:765 src/Services/Document.vala:503
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:507
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Mở vài tệp"
 
-#: src/MainWindow.vala:776
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Mở"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:402
-#: src/Services/Document.vala:515
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Bỏ qua"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "_Mở"
 
-#: src/MainWindow.vala:803
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Bỏ qua"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Tùy chỉnh"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:48
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Tổng thể"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Lưu tập tin khi thay đổi:"
 
-#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59
+msgid "Smart cut/copy lines:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Bảng"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Tự động thụt dòng:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Chèn khoảng trống thay vì tab"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Độ rộng Tab:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Chế độ"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Giao diện"
 
-#: src/Dialogs/PreferencesDialog.vala:80
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: src/Dialogs/PreferencesDialog.vala:87
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Đóng"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:103
 msgid "Extensions"
 msgstr "Phần mở rộng"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Editor"
 msgstr "Trình sửa văn bản"
 
-#: src/Dialogs/PreferencesDialog.vala:107
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Làm nổi bật ngoặc tương ứng:"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
 msgstr "Cự ly vẽ:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Không bao giờ"
-
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "For selected text"
 msgstr "Dành cho từ đã chọn"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Luôn luôn"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Hiển thị Bản đồ:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Hường dẫn bề rộng:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Phông chữ"
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Tùy biến phông:"
 
@@ -241,138 +203,143 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Mở tại"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
 #, fuzzy
 msgid "Other Actions"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Đổi tên"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Xóa vào Thùng rác"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Các thư mục"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Thư mục"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Tệp rỗng"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:339
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:332
 #, fuzzy
 msgid "new file"
 msgstr "Tập tin mới"
 
-#: src/FolderManager/FolderItem.vala:371
-#, fuzzy, c-format
-msgid "new file %d"
-msgstr "Tập tin mới"
-
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+msgid "Close Other Folders"
+msgstr "Mở tập tin"
+
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 #, fuzzy
 msgid "Branch"
 msgstr "Thay đổi tùy chỉnh của Scratch"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:270
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:294
+#: src/Services/Document.vala:292
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Bỏ qua"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:390
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Nếu bạn không lưu, thay đổi trong 4 giây trước sẽ bị mất mãi mãi"
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Đóng không lưu"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:514
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Lưu"
 
-#: src/Services/Document.vala:511
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:593
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Tạo tài liệu mới"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:715
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -383,43 +350,42 @@ msgstr ""
 msgid "Save As…"
 msgstr ""
 
-#: src/Services/Document.vala:736
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#. If the file can't be written
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:754
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Lưu thay đổi vào nơi khác"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr ""
 
-#: src/Services/TemplateManager.vala:194
+#: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Các mẫu"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Tập tin văn bản"
@@ -459,109 +425,124 @@ msgstr[1] ""
 msgid "Go To Line:"
 msgstr "Đi tới dòng:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:45
 msgid "Open a file"
 msgstr "Mở tập tin"
 
-#: src/Widgets/HeaderBar.vala:48
-msgid "Open a folder"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:50
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:56
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:70
 msgid "Restore this file"
 msgstr "Khôi phục tập tin này"
 
-#: src/Widgets/HeaderBar.vala:87
+#: src/Widgets/HeaderBar.vala:85
 msgid "Share"
 msgstr "Chia sẻ"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:122
+#: src/Widgets/HeaderBar.vala:120
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:128
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:136
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:146
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Khung lề"
 
-#: src/Widgets/HeaderBar.vala:152
-msgid "Add New View"
-msgstr "Thêm Khung nhìn mới"
-
-#: src/Widgets/HeaderBar.vala:156
-msgid "Remove Current View"
-msgstr "Bỏ Khung nhìn hiện tại"
-
-#: src/Widgets/HeaderBar.vala:183
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:61
+#: src/Widgets/Sidebar.vala:45
+#, fuzzy
+msgid "Open Project Folder…"
+msgstr "Mở tập tin"
+
+#: src/Widgets/Sidebar.vala:48
+msgid "Collapse All"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:52
+msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:64
+msgid "Manage project folders"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:63
 msgid "Find"
 msgstr "Tìm kiếm"
 
-#: src/Widgets/SearchBar.vala:70
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:80
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:85
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr ""
 
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
+msgid "Case Sensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:101
+msgid "Case Insensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Thay thế bằng"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Thay thế"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:362
+#: src/Widgets/SourceView.vala:433
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Dành cho từ đã chọn"
 
-#: src/Widgets/SourceView.vala:369
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr ""
 
@@ -600,118 +581,174 @@ msgstr "Mở tập tin"
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
-msgid "Share via Pastebin"
-msgstr "Chia sẻ qua PasteBin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Tên"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 #, fuzzy
 msgid "Format:"
 msgstr "Định dạng: "
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "Khác..."
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "Thời gian hết hạn:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Giữ riêng tư đoạn dán này"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Tải lên"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Định dạng khác"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "Chọn kiểu chữ:"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Không bao giờ"
+
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Mười phút"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Một giờ"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Một ngày"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Một tháng"
 
-#: plugins/pastebin/pastebin.vala:94
-msgid "Upload to Pastebin"
-msgstr ""
-
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr ""
+
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:139
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr ""
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:194
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr ""
 
 #. PASTE
-#: plugins/terminal/terminal.vala:201
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr ""
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:72
-#: plugins/browser-preview/browser-preview.vala:98
-msgid "Show Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:90
-msgid "Hide Preview"
-msgstr ""
-
-#: plugins/spell/spell.vala:76
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
-#: plugins/spell/spell.vala:77
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
-#: plugins/word-completion/plugin.vala:174
+#: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr ""
+#~ "Tệp \"%s\" không thể khởi tạo.\n"
+#~ "%s"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Có thể bạn không có quyền truy cập cần thiết."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Có thể đường dẫn không tồn tại."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Đường dẫn này chỉ được phép đọc."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Thư mục chủ không tồn tại."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Chỗ này có thể gắn kết được."
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Đây là một tệp \"đặc biệt\" kiểu như là socket,\n"
+#~ "fifo, block device, hoặc character device."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Không định dạng được kiểu tệp."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr ""
+#~ "Tệp \"%s\" không thể mở được.\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgid "Share via Pastebin"
+#~ msgstr "Chia sẻ qua PasteBin"
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "Khác..."
+
+#~ msgid "Upload"
+#~ msgstr "Tải lên"
+
+#~ msgid "Other formats"
+#~ msgstr "Định dạng khác"
+
+#~ msgid "Add New View"
+#~ msgstr "Thêm Khung nhìn mới"
+
+#~ msgid "Remove Current View"
+#~ msgstr "Bỏ Khung nhìn hiện tại"
+
+#, fuzzy
+#~ msgid "new file %d"
+#~ msgstr "Tập tin mới"
 
 #~ msgid "Current working directory"
 #~ msgstr "Thư mục hiện hành"
@@ -851,9 +888,6 @@ msgstr ""
 
 #~ msgid "Tabs:"
 #~ msgstr "Thẻ:"
-
-#~ msgid "Select font:"
-#~ msgstr "Chọn kiểu chữ:"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Hiện lề bên phải:"

@@ -34,27 +34,8 @@ public class Code.FormatBar : Gtk.Grid {
 
     private unowned Scratch.Services.Document? doc = null;
 
-    private const string CSS = """
-        .format-bar {
-            background-color: @bg_color;
-            border-radius: 3px;
-        }
-    """;
-
-    static construct {
-       var provider = new Gtk.CssProvider ();
-        try {
-            provider.load_from_data (CSS, CSS.length);
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
-    }
-
     construct {
-        var style_context = get_style_context ();
-        style_context.add_class ("format-bar");
-        style_context.add_class (Gtk.STYLE_CLASS_LINKED);
+        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         manager = Gtk.SourceLanguageManager.get_default ();
 
@@ -69,7 +50,7 @@ public class Code.FormatBar : Gtk.Grid {
         line_toggle = new FormatButton ();
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
         line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
-            Scratch.Application.instance.get_accels_for_action (
+            ((Scratch.Application) GLib.Application.get_default ()).get_accels_for_action (
                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
             ),
             _("Line number")
@@ -96,9 +77,12 @@ public class Code.FormatBar : Gtk.Grid {
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
 
-        lang_selection_filter = new Gtk.SearchEntry ();
-        lang_selection_filter.margin = 6;
-        lang_selection_filter.placeholder_text = _("Filter languages");
+        lang_selection_filter = new Gtk.SearchEntry () {
+            margin = 12,
+            margin_bottom = 6,
+            placeholder_text = _("Filter languages")
+        };
+
         lang_selection_filter.changed.connect (() => {
             lang_selection_listbox.invalidate_filter ();
         });
@@ -163,14 +147,14 @@ public class Code.FormatBar : Gtk.Grid {
 
         autoindent_switch = new Gtk.Switch ();
         autoindent_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
 
         tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
 
         space_tab_switch = new Gtk.Switch ();
         space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
 
         var tab_grid = new Gtk.Grid ();
         tab_grid.margin = 12;
@@ -189,13 +173,13 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.schema.changed["indent-width"].connect (() => format_tab_header ());
-        Scratch.settings.schema.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
+        Scratch.settings.changed["indent-width"].connect (() => format_tab_header ());
+        Scratch.settings.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
     }
 
     private void format_tab_header () {
-        var indent_width = Scratch.settings.schema.get_int ("indent-width");
-        var spaces_instead_of_tabs = Scratch.settings.schema.get_boolean ("spaces-instead-of-tabs");
+        var indent_width = Scratch.settings.get_int ("indent-width");
+        var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
         if (doc != null) {
             indent_width = (int)doc.source_view.tab_width;
             spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
@@ -313,6 +297,7 @@ public class Code.FormatBar : Gtk.Grid {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
+        public unowned SList<Gtk.RadioButton> group { get; construct; }
 
         public bool active {
             get {
@@ -338,12 +323,16 @@ public class Code.FormatBar : Gtk.Grid {
 
         private Gtk.RadioButton lang_radio;
         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
-            Object (lang_id: lang_id, lang_name: lang_name);
+            Object (group: group, lang_id: lang_id, lang_name: lang_name);
+        }
 
-            get_style_context ().add_class ("menuitem");
+        class construct {
+            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+        }
 
+        construct {
             lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
-            lang_radio.margin_start = 4;
+
             add (lang_radio);
             lang_radio.toggled.connect (radio_toggled);
         }

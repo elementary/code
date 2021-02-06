@@ -204,7 +204,7 @@ public class Scratch.TemplateManager : GLib.Object {
         scroll.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scroll.add (grid);
 
-        (dialog.get_content_area () as Gtk.Box).pack_start (scroll);
+        dialog.get_content_area ().pack_start (scroll);
         //register_template ("text-editor", "Sample", "sample template", typeof(TestTemplate));
     }
 
