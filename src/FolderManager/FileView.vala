@@ -26,6 +26,7 @@ namespace Scratch.FolderManager {
         private GLib.Settings settings;
 
         public signal void select (string file);
+        public signal void close_all_docs_from_path (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -64,7 +65,11 @@ namespace Scratch.FolderManager {
 
         public void open_folder (File folder) {
             if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
+                var existing = find_path (root, folder.path);
+                if (existing is Granite.Widgets.SourceList.ExpandableItem) {
+                    ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+                }
+
                 return;
             } else if (!folder.is_valid_directory) {
                 warning ("Cannot open invalid directory.");
@@ -143,6 +148,7 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
                 write_settings ();
             });

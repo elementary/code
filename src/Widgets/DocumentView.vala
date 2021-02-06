@@ -126,12 +126,24 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
-    private string unsaved_file_path_builder () {
+    private string unsaved_file_path_builder (string extension = "txt") {
         var timestamp = new DateTime.now_local ();
 
-        string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
+        string new_text_file = _("Text file from %s:%d").printf (
+                                    timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ()
+                                );
 
-        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (window.app.data_home_folder_unsaved, new_text_file) + "." + extension;
+    }
+
+    private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string extension = "txt";
+        string[] parts = original_filename.split (".", 2);
+        if (parts.length > 1) {
+            extension = parts[parts.length - 1];
+        }
+
+        return unsaved_file_path_builder (extension);
     }
 
     public void new_document () {
@@ -209,12 +221,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     // Set a copy of content
     public void duplicate_document (Services.Document original) {
         try {
-            var file = File.new_for_path (unsaved_file_path_builder ());
+            var file = File.new_for_path (unsaved_duplicated_file_path_builder (original.file.get_basename ()));
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
-
+            doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
@@ -339,7 +351,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return false;
     }
 
-    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel, uint info, uint time) {
+    private void drag_received (Gtk.Widget w,
+                                Gdk.DragContext ctx,
+                                int x,
+                                int y,
+                                Gtk.SelectionData sel,
+                                uint info,
+                                uint time) {
+
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
