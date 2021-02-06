@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2020-09-26 13:14+0000\n"
 "Last-Translator: Shukrullo <shukrullo@umail.uz>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
@@ -14,112 +14,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "\"%s\"  faylini yaratib bo'lmadi"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Sizda yetarli huquq bo'lmasligi mumkin."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Ko'rsatilgan joy noto'g'ri bo'lishi mumkin."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Ushbu joy faqat o'qish uchun."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Bosh papka mavjud emas."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Bu kompyuterga ulangan yo'nalish."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Bu socketga o'xshagan \"maxsus\" fayl\n"
-"FIFO, blokli yoki belgili qurilma."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Bu faylning \"noaniq\" turi."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "\"%s\" faylini ochib bo'lmadi"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Yangi vkladka"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Yangi oyna"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Talqin haqidagi ma'lumotni chiqarish va chiqish"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Qo'shimchalar to'plami"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "Qo'shimchalar"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Izlash…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Izlash panelini yashirish"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:276
 msgid "Zeitgeist Datasource for Code"
 msgstr "Code uchun Zeitgeist Datasource"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Barcha fayllar"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Matnli fayllar"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Fayllarni ochish"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Ochish"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Bekor qilish"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "_Ochish"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Bekor qilish"
 
@@ -259,7 +220,7 @@ msgstr "Qayta nomlash"
 msgid "Move to Trash"
 msgstr "Axlat savatchasiga o'tkazish"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Papkalar"
 
@@ -305,88 +266,87 @@ msgstr "%s, Yangi"
 msgid "Branch"
 msgstr "Brench"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s matnli fayl emas"
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr "Code bu turdagi fayllarni ocha olmaydi."
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr "Baribir ochish"
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" ni ochish ko'p vaqt olyapti"
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr "Iltimos, Code faylni ochguncha biroz sabr qiling."
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 msgid "Cancel Loading"
 msgstr "Yuklashni bekor qilish"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "\"%s\" ni yopishdan avval kiritilgan o'zgarishlarni saqlash kerakmi?"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Agar o'zgarishlarni saqlamasangiz ularni keyinchalik umuman tiklab bo'lmaydi."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 msgid "Close Without Saving"
 msgstr "Saqlamasdan yopish"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Saqlash"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "Faylni saqlash"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Yangi hujjat"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" faylini o'qib bo'lmadi"
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Ushbu fayl zararlangan yoki sizda uni o'qish uchun huquq bo'lmasligi mumkin."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "\"%s\" ochilgan manbaani topib bo'lmadi. Boshqa joyda saqlaysizmi?"
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Boshqa usulda saqlash…"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" fayli o'chirib yuborilgan. Baribir saqlashni xoxlaysizmi?"
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -395,11 +355,11 @@ msgstr ""
 "Siz \"%s\" fayliga kiritilgan o'zgartirishlarni saqlay olmaysiz. Boshqa "
 "joyda saqlashni xoxlaysizmi?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Kiritilgan o'zgartirishlarni boshqa joyda saqlash"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -408,11 +368,11 @@ msgstr ""
 "\"%s\" fayli boshqa ilova tomonidan o'zgartirilgan. Uni qaytadan yuklab, "
 "tahrirlashni davom ettirmoqchimisiz?"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "Yuklash"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "Davom etish"
 
@@ -523,11 +483,11 @@ msgstr "Loyiha papkasini ochish…"
 msgid "Collapse All"
 msgstr "Barchasini yig'ish"
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr "Alifbo tartibida"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr "Loyiha papkalarini boshqarish"
 
@@ -547,31 +507,33 @@ msgstr "Avvalgisini izlash"
 msgid "Cyclic Search"
 msgstr "Siklik izlash"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr "Katta-kichiklikka bog'liqligi"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr "Katta-kichikligiga bog'liqmas"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Ushbuga almashtirish"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Almashtirish"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "Barchasini almashtirish"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:433
 msgid "Sort Selected Lines"
 msgstr "Belgilangan qatorlarni tartiblash"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr "Sharhga olish/Sharhdan chiqarish"
 
@@ -664,7 +626,7 @@ msgstr "1 oy"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Belgilar"
@@ -708,3 +670,34 @@ msgstr "Iltimos hech bo'lmasa bir dona [aspell] lug'at o'rnating."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - so'zlarni avtomatik tugatish"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "\"%s\"  faylini yaratib bo'lmadi"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Sizda yetarli huquq bo'lmasligi mumkin."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Ko'rsatilgan joy noto'g'ri bo'lishi mumkin."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Ushbu joy faqat o'qish uchun."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Bosh papka mavjud emas."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Bu kompyuterga ulangan yo'nalish."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Bu socketga o'xshagan \"maxsus\" fayl\n"
+#~ "FIFO, blokli yoki belgili qurilma."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Bu faylning \"noaniq\" turi."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "\"%s\" faylini ochib bo'lmadi"

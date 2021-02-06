@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -19,115 +19,75 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:114
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Fail \"%s\" tidak dapat dibaca"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Mungkin anda tidak mempunyai keizinan yang diperlukan."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Mungkin laluan fail yang disediakan tidak sah."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Lokasi adalah baca-sahaja."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Direktori induk tidak wujud."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Adalah lokasi boleh dilekap."
-
-#: src/Application.vala:148
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Adalah fail \"khas\" seperti soket,\n"
-" fifo, peranti blok, atau peranti aksara."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Adalah jenis fail yang \"tidak diketahui\"."
-
-#: src/Application.vala:156
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Fail \"%s\" tidak dapat dibaca"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Tab Baru"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Tetingkap Baru"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Cetak maklumat versi dan keluar"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Set pemalam"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Set pemalam"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Cari..."
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Sembunyikan bar carian"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:276
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Sumber Data Zeitgeist untuk Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Semua fail"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Fail teks"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Buka beberapa fail"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "B_uka"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -265,7 +225,7 @@ msgstr "Tukar nama"
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tong Sampah"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Folder"
 
@@ -317,74 +277,74 @@ msgstr ""
 msgid "Branch"
 msgstr "Ubah tetapan Kasar"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s bukan sebuah Fail Teks"
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr "Code tidak akan buka fail jenis ini."
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr "Buka bagaimanapun"
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Pembukaan Fail \"%s\" Sedang Mengambil Masa Yang Lama"
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr "Sila tunggu sementara Code membukakan fail."
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Batalkan Pembukaan"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Simpan perubahan ke dokumen %s sebelum menutup?"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jika anda tidak  simpan, perubahan dari 4 saat terakhir akan hilang."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Tutup tanpa menyimpan"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "Simpan Fail"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Dokumen Baru"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Fail \"%s\" tidak dapat dibaca"
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Mungkin ia telah rosak atau anda tidak mempunyai keizinan untuk membacanya."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -393,17 +353,16 @@ msgstr ""
 "Lokasi mengandungi fail \"%s\" telah dinyahlekap. Anda mahu simpan ditempat "
 "lain?"
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Simpan Sebagai..."
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fail \"%s\" telah dipadam. Anda mahu simpan ia jua?"
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -412,11 +371,11 @@ msgstr ""
 "Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
 "perubahan pada fail ini dalam lokasi yang berlainan?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Simpan perubahan dimana saja"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -425,11 +384,11 @@ msgstr ""
 "Fail \"%s\" telah diubahsuai oleh aplikasi luar. Anda mahu muatkannya sekali "
 "lagi atau teruskan penyuntingan anda?"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "Muat"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "Teruskan"
 
@@ -543,11 +502,11 @@ msgstr "Buka satu folder"
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr ""
 
@@ -567,32 +526,34 @@ msgstr "Gelintar terdahulu"
 msgid "Cyclic Search"
 msgstr "Gelintar Kitar"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Ganti Dengan"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Ganti"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "Ganti semua"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:433
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Bagi teks diserlahkan"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr ""
 
@@ -690,7 +651,7 @@ msgstr "Satu bulan"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simbol"
@@ -739,6 +700,40 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Perkataan"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Fail \"%s\" tidak dapat dibaca"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Mungkin anda tidak mempunyai keizinan yang diperlukan."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Mungkin laluan fail yang disediakan tidak sah."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Lokasi adalah baca-sahaja."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Direktori induk tidak wujud."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Adalah lokasi boleh dilekap."
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Adalah fail \"khas\" seperti soket,\n"
+#~ " fifo, peranti blok, atau peranti aksara."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Adalah jenis fail yang \"tidak diketahui\"."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Fail \"%s\" tidak dapat dibaca"
 
 #~ msgid "Web Preview"
 #~ msgstr "Pratonton Sesawang"

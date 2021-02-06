@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-12-24 00:28+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -21,114 +21,75 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:114
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Datoteka \"%s\" ne može biti očitana"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Možda nemate potrebne dozovole."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Možda je zadana putanja do datoteka nevažeća."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Lokacija je samo za čitanje."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Nadređeni direktorij ne postoji."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Ovo je lokacija koja se može montirati."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Ovo je \"posebna\" datoteka, kao što je utičnica,\n"
-" FIFO, uređaj za blokiranje ili znakove."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Ovo je \"nepoznat\" tip datoteke."
-
-#: src/Application.vala:156
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Datoteka \"%s\" ne može biti očitana"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Nova kartica"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novi prozor"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Štampaj informacije o verziji i zatvori"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Set dodataka"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Set dodataka"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Nađi…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:200
 msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:276
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist izvor podataka za Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:730 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Tekstualne datoteke"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:734
 msgid "Open some files"
 msgstr "Otvori neke datoteke"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:737
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
-#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:738 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:763
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:764
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -265,7 +226,7 @@ msgstr "Preimenuj"
 msgid "Move to Trash"
 msgstr "Premjesti u Otpad"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "Direktoriji"
 
@@ -314,73 +275,73 @@ msgstr ""
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Services/Document.vala:260
+#: src/Services/Document.vala:265
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nije tekstualna datoteka"
 
-#: src/Services/Document.vala:261
+#: src/Services/Document.vala:266
 msgid "Code will not load this type of file."
 msgstr "Kod nije mogao učitati ovaj tip datoteke."
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:268
 msgid "Load Anyway"
 msgstr "Svejedno učitaj"
 
-#: src/Services/Document.vala:284
+#: src/Services/Document.vala:289
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Učitavanje datoteke \"%s\" traje dugo"
 
-#: src/Services/Document.vala:285
+#: src/Services/Document.vala:290
 msgid "Please wait while Code is loading the file."
 msgstr "Molimo, sačekajte dok Kod učitava datoteku."
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:292
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "_Otkaži učitavanje"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:390
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Sačuvati promjene dokumentu %s pre zatvaranja?"
 
-#: src/Services/Document.vala:386
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ako ne sačuvate, promjene poslednje 4 sekunde će biti izgubljene."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Zatvori bez čuvanja"
 
-#: src/Services/Document.vala:396 src/Services/Document.vala:507
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:401 src/Services/Document.vala:512
+#: src/Services/Document.vala:740
 msgid "Save"
 msgstr "Sačuvaj"
 
-#: src/Services/Document.vala:504
+#: src/Services/Document.vala:509
 msgid "Save File"
 msgstr "Sačuvaj datoteku"
 
-#: src/Services/Document.vala:586
+#: src/Services/Document.vala:591
 msgid "New Document"
 msgstr "Novi dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:714
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Datoteka \"%s\" ne može biti očitana"
 
-#: src/Services/Document.vala:710
+#: src/Services/Document.vala:715
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Možda je oštećena ili nemate potrebne dozvole za njeno čitanje."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -389,17 +350,16 @@ msgstr ""
 "Lokacija koja sadrži datoteku \"%s\" je demontirana. Želite li sačuvati "
 "negdje drugo?"
 
-#: src/Services/Document.vala:724
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Sačuvaj kao…"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je izbrisana. Želite li svejedno sačuvati?"
 
-#. If the file can't be written
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:754
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -408,11 +368,11 @@ msgstr ""
 "Ne možete sačuvati izmjene u datoteku \"%s\". Želite li sačuvati izmjene za "
 "ovu datoteku na drugoj lokaciji?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:757
 msgid "Save changes elsewhere"
 msgstr "Sačuvati promjene negde drugde"
 
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:791
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -421,11 +381,11 @@ msgstr ""
 "Datoteka \"%s\" je izmijenjena pomoću vanjske aplikacije. Želite li je opet "
 "učitati i nastaviti uređivanje?"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:794
 msgid "Load"
 msgstr "Učitaj"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:797
 msgid "Continue"
 msgstr "Nastavi"
 
@@ -540,11 +500,11 @@ msgstr "Otvori direktorij"
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:51
+#: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
 msgstr ""
 
@@ -564,31 +524,33 @@ msgstr "Prethodni rezultat pretrage"
 msgid "Cyclic Search"
 msgstr "Pretragu uvijek nastaviti s početka teksta"
 
-#: src/Widgets/SearchBar.vala:95
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "Zamijeni sa"
 
-#: src/Widgets/SearchBar.vala:117
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "Zamijeni"
 
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "Zamijeni sve"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:433
 msgid "Sort Selected Lines"
 msgstr "Razvrstaj odabrane redove"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:446
 msgid "Toggle Comment"
 msgstr "Uključi komentar"
 
@@ -685,7 +647,7 @@ msgstr "Jedan Mjesec"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simboli"
@@ -734,6 +696,39 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Automatski završetak riječi"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Datoteka \"%s\" ne može biti očitana"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Možda nemate potrebne dozovole."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Možda je zadana putanja do datoteka nevažeća."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Lokacija je samo za čitanje."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Nadređeni direktorij ne postoji."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Ovo je lokacija koja se može montirati."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Ovo je \"posebna\" datoteka, kao što je utičnica,\n"
+#~ " FIFO, uređaj za blokiranje ili znakove."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Ovo je \"nepoznat\" tip datoteke."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Datoteka \"%s\" ne može biti očitana"
 
 #~ msgid "Web Preview"
 #~ msgstr "Web pretpregled"
