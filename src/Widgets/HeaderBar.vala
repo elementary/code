@@ -203,6 +203,7 @@ namespace Scratch.Widgets {
             pack_start (save_as_button);
             pack_start (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             pack_start (run_button);
+            pack_start (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);
