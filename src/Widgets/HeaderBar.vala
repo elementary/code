@@ -28,6 +28,10 @@ namespace Scratch.Widgets {
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
 
+        private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
+        private const string STYLE_SCHEME_LIGHT = "solarized-light";
+        private const string STYLE_SCHEME_DARK = "solarized-dark";
+
         public HeaderBar () {
             Object (
                 has_subtitle: false,
@@ -115,7 +119,10 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
-            var color_button_white = new Gtk.RadioButton (null);
+            // Intentionally never attached so we can have a non-selected state
+            var color_button_none = new Gtk.RadioButton (null);
+
+            var color_button_white = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_white.halign = Gtk.Align.CENTER;
             color_button_white.tooltip_text = _("High Contrast");
 
@@ -123,7 +130,7 @@ namespace Scratch.Widgets {
             color_button_white_context.add_class ("color-button");
             color_button_white_context.add_class ("color-white");
 
-            var color_button_light = new Gtk.RadioButton.from_widget (color_button_white);
+            var color_button_light = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_light.halign = Gtk.Align.CENTER;
             color_button_light.tooltip_text = _("Solarized Light");
 
@@ -131,7 +138,7 @@ namespace Scratch.Widgets {
             color_button_light_context.add_class ("color-button");
             color_button_light_context.add_class ("color-light");
 
-            var color_button_dark = new Gtk.RadioButton.from_widget (color_button_white);
+            var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_dark.halign = Gtk.Align.CENTER;
             color_button_dark.tooltip_text = _("Solarized Dark");
 
@@ -177,8 +184,10 @@ namespace Scratch.Widgets {
             app_menu.tooltip_text = _("Menu");
             app_menu.popover = menu;
 
-            format_bar = new Code.FormatBar ();
-            format_bar.no_show_all = true;
+            format_bar = new Code.FormatBar () {
+                no_show_all = true,
+                valign = Gtk.Align.CENTER
+            };
             set_custom_title (format_bar);
 
             pack_start (open_button);
@@ -212,32 +221,34 @@ namespace Scratch.Widgets {
             var gtk_settings = Gtk.Settings.get_default ();
 
             switch (Scratch.settings.get_string ("style-scheme")) {
-               case "high-contrast":
-                   color_button_white.active = true;
-                   break;
-               case "solarized-light":
-                   color_button_light.active = true;
-                   break;
-               case "solarized-dark":
-                   color_button_dark.active = true;
-                   break;
+                case STYLE_SCHEME_HIGH_CONTRAST:
+                    color_button_white.active = true;
+                    break;
+                case STYLE_SCHEME_LIGHT:
+                    color_button_light.active = true;
+                    break;
+                case STYLE_SCHEME_DARK:
+                    color_button_dark.active = true;
+                    break;
+                default:
+                    color_button_none.active = true;
             }
 
             color_button_dark.clicked.connect (() => {
                 Scratch.settings.set_boolean ("prefer-dark-style", true);
-                Scratch.settings.set_string ("style-scheme", "solarized-dark");
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_DARK);
                 gtk_settings.gtk_application_prefer_dark_theme = true;
             });
 
             color_button_light.clicked.connect (() => {
                 Scratch.settings.set_boolean ("prefer-dark-style", false);
-                Scratch.settings.set_string ("style-scheme", "solarized-light");
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_LIGHT);
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
 
             color_button_white.clicked.connect (() => {
                 Scratch.settings.set_boolean ("prefer-dark-style", false);
-                Scratch.settings.set_string ("style-scheme", "classic");
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
         }
