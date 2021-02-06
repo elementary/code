@@ -19,9 +19,12 @@
 ***/
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
+    const double MIN_SCALE = 0.2;
+    const double MAX_SCALE = 5.0;
+
     MainWindow window = null;
 
-    Scratch.Plugins.TerminalViewer.Settings settings;
+    private GLib.Settings settings;
 
     Gtk.Notebook? bottombar = null;
     Scratch.Widgets.HeaderBar? toolbar = null;
@@ -52,7 +55,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
                 return;
 
             window = w;
-            window.key_press_event.connect (switch_focus);
+            window.key_press_event.connect (on_window_key_press_event);
             window.destroy.connect (save_last_working_directory);
 
         });
@@ -74,8 +77,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect (on_hook_split_view);
-
         on_hook_notebook ();
     }
 
@@ -86,26 +87,27 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         if (tool_button != null)
             tool_button.destroy ();
 
-        window.key_press_event.disconnect (switch_focus);
+        window.key_press_event.disconnect (on_window_key_press_event);
         window.destroy.disconnect (save_last_working_directory);
     }
 
     void save_last_working_directory () {
-        settings.last_opened_path = get_shell_location ();
+        settings.set_string ("last-opened-path", get_shell_location ());
     }
 
-    bool switch_focus (Gdk.EventKey event) {
+    bool on_window_key_press_event (Gdk.EventKey event) {
+        /* <Control><Alt>t toggles focus between terminal and document */
         if (event.keyval == Gdk.Key.t
             && Gdk.ModifierType.MOD1_MASK in event.state
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
 
             if (terminal.has_focus && window.get_current_document () != null) {
-
                 window.get_current_document ().focus ();
                 debug ("Move focus: EDITOR.");
                 return true;
 
-            } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
+            } else if (window.get_current_document () != null &&
+                       window.get_current_document ().source_view.has_focus) {
 
                 terminal.grab_focus ();
                 debug ("Move focus: TERMINAL.");
@@ -113,17 +115,45 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
             }
         }
+
+        if (terminal.has_focus) {
+            /* Action any terminal hotkeys */
+            return on_terminal_key_press_event (event);
+        }
+
         return false;
     }
 
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = ! view.is_empty ();
-        view.welcome_shown.connect (() => {
-            this.tool_button.visible = false;
-        });
-        view.welcome_hidden.connect (() => {
-            this.tool_button.visible = true;
-        });
+    bool on_terminal_key_press_event (Gdk.EventKey event) {
+        var mods = (event.state & Gtk.accelerator_get_default_mod_mask ());
+        bool control_pressed = ((mods & Gdk.ModifierType.CONTROL_MASK) != 0);
+        bool other_mod_pressed = (((mods & ~Gdk.ModifierType.SHIFT_MASK) & ~Gdk.ModifierType.CONTROL_MASK) != 0);
+        bool only_control_pressed = control_pressed && !other_mod_pressed; /* Shift can be pressed */
+
+        if (only_control_pressed) {
+            switch (event.keyval) {
+                case Gdk.Key.plus:
+                case Gdk.Key.KP_Add:
+                case Gdk.Key.equal:
+                    increment_size ();
+                    return true;
+
+                case Gdk.Key.minus:
+                case Gdk.Key.KP_Subtract:
+                    decrement_size ();
+                    return true;
+
+                case Gdk.Key.@0:
+                case Gdk.Key.KP_0:
+                    set_default_font_size ();
+                    return true;
+
+                default:
+                    break;
+            }
+        }
+
+        return false;
     }
 
     void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
@@ -161,7 +191,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     }
 
     void on_hook_notebook () {
-        this.settings = new Scratch.Plugins.TerminalViewer.Settings ();
+        this.settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.terminal");
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
@@ -176,6 +206,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
                 update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
             }
         }
+
+        terminal.key_press_event.connect (on_terminal_key_press_event);
 
         // Set terminal font
         if (font_name == "") {
@@ -208,13 +240,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 menu.select_first (false);
-                menu.popup (null, null, null, event.button, event.time);
+                menu.popup_at_pointer (event);
             }
             return false;
         });
 
         try {
-            string last_opened_path = settings.last_opened_path == "" ? "~/" : settings.last_opened_path;
+            string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
             terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
         } catch (GLib.Error e) {
             warning (e.message);
@@ -236,9 +268,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         var pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
         font_name = pantheon_terminal_settings.get_string ("font");
-
-        bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
-        this.terminal.set_allow_bold (allow_bold_setting);
 
         bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
         this.terminal.set_audible_bell (audible_bell_setting);
@@ -293,6 +322,18 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         this.terminal.set_colors (foreground_color, background_color, palette);
+    }
+
+    public void increment_size () {
+        terminal.font_scale = (terminal.font_scale + 0.1).clamp (MIN_SCALE, MAX_SCALE);
+    }
+
+    public void decrement_size () {
+        terminal.font_scale = (terminal.font_scale - 0.1).clamp (MIN_SCALE, MAX_SCALE);
+    }
+
+    public void set_default_font_size () {
+        terminal.font_scale = 1.0;
     }
 }
 

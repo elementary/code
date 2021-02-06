@@ -1,7 +1,6 @@
 module_name = 'terminal'
 
 module_files = [
-    'Settings.vala',
     'terminal.vala'
 ]
 

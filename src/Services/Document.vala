@@ -46,7 +46,9 @@ namespace Scratch.Services {
 
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (Application.instance.data_home_folder_unsaved);
+                return file.get_path ().has_prefix (
+                    ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
+                );
             }
         }
 
@@ -86,7 +88,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-        public Code.Pane pane;
+
         public string original_content;
         private string last_save_content;
         public bool saved = true;
@@ -116,7 +118,10 @@ namespace Scratch.Services {
         }
 
         static construct {
-            var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
+            var fontpath = Path.build_filename (
+                Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf"
+            );
+
             unowned Fc.Config config = Fc.init ();
             if (!config.add_app_font (fontpath)) {
                 warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
@@ -143,8 +148,6 @@ namespace Scratch.Services {
 
             source_map.set_view (source_view);
 
-            pane = new Code.Pane ();
-
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
             Gtk.TargetEntry text = {"text/plain", 0, 0};
@@ -165,14 +168,10 @@ namespace Scratch.Services {
             source_grid.add (scroll);
             source_grid.add (source_map);
 
-            var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            paned.pack1 (source_grid, true, false);
-            paned.pack2 (pane, false, false);
-
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
             doc_grid.add (info_bar);
-            doc_grid.add (paned);
+            doc_grid.add (source_grid);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
@@ -183,7 +182,7 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
+                if (Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
                 }
 
@@ -193,7 +192,7 @@ namespace Scratch.Services {
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
-                    if (!settings.autosave) {
+                    if (!Scratch.settings.get_boolean ("autosave")) {
                         set_saved_status (false);
                     }
                 } else {
@@ -218,7 +217,7 @@ namespace Scratch.Services {
                     this.source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
-                        if (settings.autosave) {
+                        if (Scratch.settings.get_boolean ("autosave")) {
                             if (timeout_saving > 0) {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
@@ -377,7 +376,7 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (settings.autosave && !saved) {
+            if (Scratch.settings.get_boolean ("autosave") && !saved) {
                 save_with_hold ();
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
@@ -566,7 +565,7 @@ namespace Scratch.Services {
         }
 
         private void restore_settings () {
-            if (settings.show_mini_map) {
+            if (Scratch.settings.get_boolean ("show-mini-map")) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
             } else {
@@ -725,14 +724,18 @@ namespace Scratch.Services {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
-                    string message = _("The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                         this.save_as.begin ();
                         hide_info_bar ();
                     });
                 } else {
-                    string message = _("File \"%s\" was deleted. Do you want to save it anyway?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "File \"%s\" was deleted. Do you want to save it anyway?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save.begin ();
@@ -747,7 +750,9 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _(
+                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+                ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();
@@ -755,7 +760,7 @@ namespace Scratch.Services {
                 });
 
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
-                this.source_view.editable = !settings.autosave;
+                this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
             } else {
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
@@ -779,10 +784,13 @@ namespace Scratch.Services {
                     }
 
                     if (!source_view.buffer.get_modified ()) {
-                        if (settings.autosave) {
+                        if (Scratch.settings.get_boolean ("autosave")) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
-                            string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                            string message = _(
+        "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
+                            ).printf ("<b>%s</b>".printf (get_basename ()));
+
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                                 this.source_view.set_text (new_buffer.text, false);
                                 hide_info_bar ();
@@ -800,7 +808,9 @@ namespace Scratch.Services {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
-            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_buffer.text);
+            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
+                original_content != source_buffer.text
+            );
         }
 
         // Set saved status
