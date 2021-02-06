@@ -28,6 +28,7 @@ code_files = files(
     'Services/Document.vala',
     'Services/FileHandler.vala',
     'Services/PluginManager.vala',
+    'Services/ProjectManager.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
     'Services/ZeitgeistLogger.vala',

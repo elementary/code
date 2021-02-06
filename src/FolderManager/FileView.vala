@@ -26,6 +26,7 @@ namespace Scratch.FolderManager {
         private GLib.Settings settings;
 
         public signal void select (string file);
+        public signal void select_project (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -52,7 +53,22 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                select (((FileItem) item).file.path);
+                FileItem file_item = (FileItem) item;
+                var project_path = file_item.file.path;
+
+                select (file_item.file.path);
+
+                Granite.Widgets.SourceList.Item? parent_item = item;
+                while (parent_item != parent_item.parent) {
+                    if (parent_item.parent.name == null || parent_item.parent.name == "") {
+                        break;
+                    }
+
+                    parent_item = parent_item.parent;
+                    project_path += "/..";
+                }
+
+                select_project (GLib.File.new_for_path (project_path).get_path ());
             }
         }
 

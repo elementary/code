@@ -24,6 +24,8 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
+        private Services.ProjectManager project;
+
         public weak Scratch.Application app { get; construct; }
 
         public Scratch.Widgets.DocumentView document_view;
@@ -74,6 +76,8 @@ namespace Scratch {
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
+        public const string ACTION_RUN = "action_run";
+        public const string ACTION_STOP = "action_stop";
         public const string ACTION_REVERT = "action_revert";
         public const string ACTION_SAVE = "action_save";
         public const string ACTION_SAVE_AS = "action_save_as";
@@ -104,6 +108,8 @@ namespace Scratch {
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
+            { ACTION_RUN, action_run },
+            { ACTION_STOP, action_stop },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
@@ -145,6 +151,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
+            action_accelerators.set (ACTION_RUN, "");
+            action_accelerators.set (ACTION_STOP, "");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
@@ -181,6 +189,8 @@ namespace Scratch {
         }
 
         construct {
+            project = new Services.ProjectManager ();
+
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
@@ -343,6 +353,10 @@ namespace Scratch {
                 } else {
                     open_binary (file.file);
                 }
+            });
+
+            folder_manager_view.select_project.connect ((path) => {
+                project.path = path;
             });
 
             folder_manager_view.restore_saved_state ();
@@ -517,6 +531,8 @@ namespace Scratch {
             Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (val);
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_STOP, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
@@ -818,6 +834,16 @@ namespace Scratch {
             if (doc != null) {
                 doc.redo ();
             }
+        }
+
+        private void action_run () {
+            project.build ();
+            project.install ();
+            project.run ();
+        }
+
+        private void action_stop () {
+            project.run ();
         }
 
         private void action_revert () {

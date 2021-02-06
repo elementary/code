@@ -64,14 +64,14 @@ namespace Scratch.Widgets {
             );
 
             var run_button = new Gtk.Button.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
-            run_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
+            run_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RUN;
             run_button.tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (run_button.action_name),
                 _("Run")
             );
 
             var stop_button = new Gtk.Button.from_icon_name ("media-playback-stop", Gtk.IconSize.LARGE_TOOLBAR);
-            stop_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
+            stop_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_STOP;
             stop_button.tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (stop_button.action_name),
                 _("Stop")
