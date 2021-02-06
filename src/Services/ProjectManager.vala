@@ -1,5 +1,6 @@
 public class Scratch.Services.ProjectManager : Object {
     public string path { get; set; }
+    public bool is_running { get; set; }
 
     private string? project_name () {
         try {
@@ -106,14 +107,25 @@ public class Scratch.Services.ProjectManager : Object {
     }
 
     public async bool build_install_run () {
+        if (is_running) {
+            debug ("Project “%s“ is already running", path);
+            return false;
+        }
+
+        is_running = true;
         if (!yield build ()) {
+            is_running = false;
             return false;
         }
 
         if (!yield install ()) {
+            is_running = false;
             return false;
         }
 
-        return yield run ();
+        var result = yield run ();
+        is_running = false;
+
+        return result;
     }
 }
