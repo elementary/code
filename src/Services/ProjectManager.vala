@@ -1,4 +1,4 @@
-public class Scratch.Services.ProjectManager : Object{
+public class Scratch.Services.ProjectManager : Object {
     public string path { get; set; }
 
     private string? project_name () {
@@ -38,7 +38,7 @@ public class Scratch.Services.ProjectManager : Object{
 
             if (status != 0) {
                 return false;
-            }    
+            }
         } catch (SpawnError e) {
             print ("Error: %s\n", e.message);
             return false;

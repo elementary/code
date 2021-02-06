@@ -26,9 +26,7 @@ namespace Scratch.FolderManager {
         private GLib.Settings settings;
 
         public signal void select (string file);
-
         public signal void select_project (string path);
-
         public signal void close_all_docs_from_path (string path);
 
 
