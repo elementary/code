@@ -21,39 +21,47 @@ public class Scratch.Services.ProjectManager : Object {
         return null;
     }
 
-    private bool run_command (string[] cmd) {
+    private async bool run_command (string[] cmd) {
+        MainLoop loop = new MainLoop ();
+        bool exit_status = false;
+
         try {
             string[] spawn_args = cmd;
             string[] spawn_env = Environ.get ();
-            int status;
+            Pid child_pid;
 
-            Process.spawn_sync (path,
-                                spawn_args,
-                                spawn_env,
-                                SpawnFlags.SEARCH_PATH,
-                                null,
-                                null,
-                                null,
-                                out status);
+            Process.spawn_async (
+                path,
+                spawn_args,
+                spawn_env,
+                SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+                null,
+                out child_pid
+            );
 
-            if (status != 0) {
-                return false;
-            }
+            ChildWatch.add (child_pid, (pid, status) => {
+                // Triggered when the child indicated by child_pid exits
+                Process.close_pid (pid);
+                exit_status = (status == 0);
+                loop.quit ();
+            });
+
+            loop.run ();
+
+            return exit_status;
         } catch (SpawnError e) {
-            print ("Error: %s\n", e.message);
+            warning ("Could not run command: %s\n", e.message);
             return false;
         }
-
-        return true;
     }
 
-    public bool build () {
+    private async bool build () {
         var meson_build = Path.build_filename (path, "meson.build");
         if (FileUtils.test (meson_build, FileTest.IS_REGULAR)) {
             var build_folder = Path.build_filename (path, "build");
             var is_ready = FileUtils.test (build_folder, FileTest.IS_DIR);
             if (!is_ready) {
-                is_ready = run_command ({
+                is_ready = yield run_command ({
                     "meson",
                     "build",
                     "--prefix=/usr"
@@ -64,7 +72,7 @@ public class Scratch.Services.ProjectManager : Object {
                 return false;
             }
 
-            return run_command ({
+            return yield run_command ({
                 "ninja",
                 "-C",
                 "%s".printf (Path.build_filename (path, "build"))
@@ -74,8 +82,8 @@ public class Scratch.Services.ProjectManager : Object {
         return false;
     }
 
-    public bool install () {
-        return run_command ({
+    private async bool install () {
+        return yield run_command ({
             "pkexec",
             "bash",
             "-c",
@@ -88,12 +96,24 @@ public class Scratch.Services.ProjectManager : Object {
         });
     }
 
-    public bool run () {
+    private async bool run () {
         var project_name = project_name ();
         if (project_name != null) {
-            return run_command ({project_name});
+            return yield run_command ({project_name});
         }
 
         return false;
+    }
+
+    public async bool build_install_run () {
+        if (!yield build ()) {
+            return false;
+        }
+
+        if (!yield install ()) {
+            return false;
+        }
+
+        return yield run ();
     }
 }

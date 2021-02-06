@@ -830,9 +830,9 @@ namespace Scratch {
         }
 
         private void action_run () {
-            project.build ();
-            project.install ();
-            project.run ();
+            project.build_install_run.begin ((obj, res) => {
+                project.build_install_run.end (res);
+            });
         }
 
         private void action_revert () {
