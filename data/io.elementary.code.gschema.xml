@@ -10,33 +10,23 @@
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
+
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
     <key name="window-state" enum="io.elementary.code.window-states">
       <default>"Normal"</default>
       <summary>The saved state of the window.</summary>
       <description>The saved state of the window.</description>
     </key>
-    <key name="window-width" type="i">
-      <default>850</default>
-      <summary>The saved width of the window.</summary>
-      <description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
+    <key name="window-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Window position</summary>
+      <description>Most recent window position (x, y)</description>
     </key>
-    <key name="window-height" type="i">
-      <default>550</default>
-      <summary>The saved height of the window.</summary>
-      <description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
+    <key name="window-size" type="(ii)">
+      <default>(850, 550)</default>
+      <summary>Most recent window size</summary>
+      <description>Most recent window size (width, height)</description>
     </key>
-    <key name="window-x" type="i">
-      <default>250</default>
-      <summary></summary>
-      <description></description>
-    </key>
-    <key name="window-y" type="i">
-      <default>250</default>
-      <summary></summary>
-      <description></description>
-    </key>
-
     <key name="hp1-size" type="i">
       <default>125</default>
       <summary></summary>
@@ -47,7 +37,13 @@
       <summary></summary>
       <description></description>
     </key>
+    <key name="sidebar-visible" type="b">
+      <default>true</default>
+      <summary>Sidebar visibility</summary>
+      <description>Whether or not the sidebar is open</description>
+    </key>
   </schema>
+
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
     <key type="as" name="plugins-enabled">
       <default>['brackets-completion', 'detect-indent', 'editorconfig', 'outline']</default>
@@ -68,6 +64,11 @@
       <default>true</default>
       <summary>Autosave edited files</summary>
       <description>Autosave edited files.</description>
+    </key>
+    <key name="smart-cut-copy" type="b">
+      <default>true</default>
+      <summary>CTRL+C and CTRL+X copy/cut the current line when no selection</summary>
+      <description>If there is no selection, will the cut/copy shortcuts automatically act on the current line</description>
     </key>
     <key name="line-wrap" type="b">
       <default>true</default>
@@ -92,7 +93,7 @@
     <key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
       <default>"For Selection"</default>
       <summary>Draw spaces and tabs with symbols</summary>
-      <description>Draw spaces and tabs with symbols.</description>
+      <description>Draw spaces and tabs with symbols. "Never" is deprecated and not exposed in the UI.</description>
     </key>
     <key name="show-mini-map" type="b">
       <default>false</default>
@@ -144,7 +145,13 @@
       <summary>Request dark Gtk stylesheet variant</summary>
       <description>Switches between dark and light style</description>
     </key>
+    <key name="cyclic-search" type="b">
+      <default>false</default>
+      <summary>Whether search is cyclic</summary>
+      <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
+    </key>
   </schema>
+
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
     <key name="paste-format-code" type="s">
       <default>'None'</default>
@@ -162,11 +169,12 @@
       <description>Set the preferred policy.</description>
     </key>
   </schema>
-    <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
-        <key name="opened-folders" type="as">
-            <default>[]</default>
-            <summary>Opened folders.</summary>
-            <description>Opened folders that should be restored in startup.</description>
-        </key>
-    </schema>
+
+  <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
+    <key name="opened-folders" type="as">
+      <default>[]</default>
+      <summary>Opened folders.</summary>
+      <description>Opened folders that should be restored in startup.</description>
+    </key>
+  </schema>
 </schemalist>

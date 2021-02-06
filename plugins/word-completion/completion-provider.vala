@@ -25,7 +25,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
 
-    private Gdk.Pixbuf icon;
     private Gtk.TextView? view;
     private Gtk.TextBuffer? buffer;
     private Euclide.Completion.Parser parser;
@@ -162,7 +161,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             Gee.TreeSet<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem (word, word, null, null);
+                    var item = new Gtk.SourceCompletionItem ();
+                    item.label = word;
+                    item.text = word;
                     props.prepend (item);
                 }
 

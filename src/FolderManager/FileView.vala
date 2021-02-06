@@ -23,9 +23,10 @@ namespace Scratch.FolderManager {
      * SourceList that displays folders and their contents.
      */
     internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
-        private FolderManagerSettings settings;
+        private GLib.Settings settings;
 
         public signal void select (string file);
+        public signal void close_all_docs_from_path (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -40,7 +41,7 @@ namespace Scratch.FolderManager {
 
             item_selected.connect (on_item_selected);
 
-            settings = new FolderManagerSettings ();
+            settings = new GLib.Settings ("io.elementary.code.folder-manager");
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
@@ -52,18 +53,23 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                select ((item as FileItem).file.path);
+                select (((FileItem) item).file.path);
             }
         }
 
         public void restore_saved_state () {
-            foreach (var path in settings.opened_folders)
+            foreach (unowned string path in settings.get_strv ("opened-folders")) {
                 add_folder (new File (path), false);
+            }
         }
 
         public void open_folder (File folder) {
             if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
+                var existing = find_path (root, folder.path);
+                if (existing is Granite.Widgets.SourceList.ExpandableItem) {
+                    ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+                }
+
                 return;
             } else if (!folder.is_valid_directory) {
                 warning ("Cannot open invalid directory.");
@@ -74,8 +80,33 @@ namespace Scratch.FolderManager {
             write_settings ();
         }
 
+        public void collapse_all () {
+            foreach (var child in root.children) {
+                ((ProjectFolderItem) child).collapse_all ();
+            }
+        }
+
+        public void order_folders () {
+            var list = new Gee.ArrayList<ProjectFolderItem> ();
+
+            foreach (var child in root.children) {
+                root.remove (child as ProjectFolderItem);
+                list.add (child as ProjectFolderItem);
+            }
+
+            list.sort ( (a, b) => {
+                return a.name.down () > b.name.down () ? 0 : -1;
+            });
+
+            foreach (var item in list) {
+                root.add (item);
+            }
+        }
+
         public void select_path (string path) {
+            item_selected.disconnect (on_item_selected);
             selected = find_path (root, path);
+            item_selected.connect (on_item_selected);
         }
 
         private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
@@ -117,14 +148,25 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
+                write_settings ();
+            });
+
+            folder_root.close_all_except.connect (() => {
+                foreach (var child in root.children) {
+                    if (child != folder_root) {
+                        root.remove (child);
+                    }
+                }
+
                 write_settings ();
             });
         }
 
         private bool is_open (File folder) {
             foreach (var child in root.children)
-                if (folder.path == (child as Item).path)
+                if (folder.path == ((Item) child).path)
                     return true;
             return false;
         }
@@ -134,20 +176,21 @@ namespace Scratch.FolderManager {
 
             foreach (var main_folder in root.children) {
                 var saved = false;
+                var folder_path = ((Item) main_folder).path;
 
                 foreach (var saved_folder in to_save) {
-                    if ((main_folder as Item).path == saved_folder) {
+                    if (folder_path == saved_folder) {
                         saved = true;
                         break;
                     }
                 }
 
                 if (!saved) {
-                    to_save += (main_folder as Item).path;
+                    to_save += folder_path;
                 }
             }
 
-            settings.opened_folders = to_save;
+            settings.set_strv ("opened-folders", to_save);
         }
     }
 }

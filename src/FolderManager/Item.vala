@@ -49,13 +49,19 @@ namespace Scratch.FolderManager {
         }
 
         public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+            if (a is RenameItem) {
+                return -1;
+            } else if (b is RenameItem) {
+                return 1;
+            }
+
             if (a is FolderItem && b is FileItem) {
                 return -1;
             } else if (a is FileItem && b is FolderItem) {
                 return 1;
             }
 
-            return File.compare ((a as Item).file, (b as Item).file);
+            return File.compare (((Item)a).file, ((Item)b).file);
         }
 
         public bool allow_dnd_sorting () {
