@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2021-02-06 16:01+0000\n"
+"PO-Revision-Date: 2021-02-06 16:06+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -245,12 +245,11 @@ msgstr "Simplifica a preferência \"Desenhar espaços\""
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr "Ajustar o atalho do teclado para ir atrás nos resultados da pesquisa"
+msgstr "Corrigir o atalho do teclado para ir atrás nos resultados da pesquisa"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
-"Corrige os ficheiros de abertura a partir de caminhos relativos no Terminal"
+msgstr "Corrige os ficheiros abertos a partir dos mesmos caminhos no Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:126
 msgid "Fix null file dialog when opening a new window via the dock"
@@ -263,9 +262,7 @@ msgstr "Adicionar \"=\" como uma tecla de zoom"
 
 #: data/io.elementary.code.appdata.xml.in:128
 msgid "Change search entry icon when results aren't found"
-msgstr ""
-"Alterar o ícone de entrada de pesquisa quando os resultados não são "
-"encontrados"
+msgstr "Alterar o ícone de pesquisa quando os resultados não são encontrados"
 
 #: data/io.elementary.code.appdata.xml.in:129
 msgid "Enter name of new file before creating it"
