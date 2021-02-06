@@ -840,7 +840,7 @@ namespace Scratch {
         }
 
         private void action_stop () {
-            project.run ();
+            // TODO: stop running application
         }
 
         private void action_revert () {
