@@ -93,6 +93,8 @@ namespace Scratch.FolderManager {
                 return;
             }
 
+            select_project (folder.path);
+
             add_folder (folder, true);
             write_settings ();
         }
