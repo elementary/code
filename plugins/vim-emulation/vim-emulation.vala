@@ -213,10 +213,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 debug ("Vim Emulation: INSERT Mode!");
 
                 view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
-                var buffer = view.buffer;
-                Gtk.TextIter insert;
-                buffer.get_iter_at_mark (out insert, buffer.get_insert ());
-                buffer.insert (ref insert, "\n", 1);
+                view.insert_at_cursor ("\n");
                 break;
             case Gdk.Key.O:
                 if (mode == Mode.INSERT) {
@@ -226,10 +223,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 debug ("Vim Emulation: INSERT Mode!");
 
                 view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, -1, false);
-                var buffer = view.buffer;
-                Gtk.TextIter insert;
-                buffer.get_iter_at_mark (out insert, buffer.get_insert ());
-                buffer.insert (ref insert, "\n", 1);
+                view.insert_at_cursor ("\n");
                 view.move_cursor (Gtk.MovementStep.PARAGRAPHS, -1, false);
                 break;
             case 46: // Dot "."
