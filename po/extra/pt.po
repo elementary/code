@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2020-12-18 00:16+0000\n"
+"PO-Revision-Date: 2021-02-06 16:06+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -212,7 +212,7 @@ msgstr "Ignora visualmente ficheiros .gitignorados na barra lateral do projeto"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Smart cut/copy lines with no active selection"
-msgstr "Linhas cortar/colar inteligentes sem seleção ativa"
+msgstr "Forma inteligente de cortar/copiar linhas sem seleção"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Add a confirmation dialog to the \"Restore\" action"
@@ -245,12 +245,11 @@ msgstr "Simplifica a preferência \"Desenhar espaços\""
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr "Corrigir o atalho do teclado de retroceder nos resultados da pesquisa"
+msgstr "Corrigir o atalho do teclado para ir atrás nos resultados da pesquisa"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
-"Corrige os ficheiros de abertura a partir de caminhos relativos no Terminal"
+msgstr "Corrige os ficheiros abertos a partir dos mesmos caminhos no Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:126
 msgid "Fix null file dialog when opening a new window via the dock"
@@ -263,9 +262,7 @@ msgstr "Adicionar \"=\" como uma tecla de zoom"
 
 #: data/io.elementary.code.appdata.xml.in:128
 msgid "Change search entry icon when results aren't found"
-msgstr ""
-"Alterar o ícone de entrada de pesquisa quando os resultados não são "
-"encontrados"
+msgstr "Alterar o ícone de pesquisa quando os resultados não são encontrados"
 
 #: data/io.elementary.code.appdata.xml.in:129
 msgid "Enter name of new file before creating it"
@@ -354,7 +351,7 @@ msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;"
-msgstr "text;IDE;scratch;"
+msgstr "texto;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
