@@ -201,7 +201,7 @@ public class Scratch.Services.ProjectManager : Object {
             return true;
         }
 
-        var result = Posix.kill(command_pid, Posix.Signal.TERM) == 0;
+        var result = Posix.kill (command_pid, Posix.Signal.TERM) == 0;
         is_running = !result;
 
         return result;

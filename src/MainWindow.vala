@@ -546,7 +546,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (val);
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
-            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (val);            
+            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (val);
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
             Utils.action_from_group (ACTION_STOP, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
