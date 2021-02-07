@@ -194,8 +194,6 @@ namespace Scratch {
         }
 
         construct {
-            project = new Services.ProjectManager ();
-
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
@@ -264,6 +262,12 @@ namespace Scratch {
 
             // Show/Hide widgets
             show_all ();
+
+            project = new Services.ProjectManager ();
+            set_build_run_widgets_sensitive ();
+            project.notify.connect ((s, p) => {
+                set_build_run_widgets_sensitive ();
+            });
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -546,9 +550,6 @@ namespace Scratch {
             Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (val);
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
-            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (val);
-            Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
-            Utils.action_from_group (ACTION_STOP, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
@@ -559,6 +560,15 @@ namespace Scratch {
             } else {
                 bottombar.visible = val;
             }
+        }
+
+        private void set_build_run_widgets_sensitive () {
+            bool is_project_selected = project.path != null;
+            bool is_running = project.is_running;
+
+            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_RUN, actions).set_enabled (is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_STOP, actions).set_enabled (is_project_selected && is_running);
         }
 
         // Get current document
