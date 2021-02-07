@@ -82,6 +82,7 @@ namespace Scratch {
         public const string ACTION_SAVE = "action_save";
         public const string ACTION_SAVE_AS = "action_save_as";
         public const string ACTION_SHOW_FIND = "action_show_find";
+        public const string ACTION_STOP = "action_stop";
         public const string ACTION_TEMPLATES = "action_templates";
         public const string ACTION_SHOW_REPLACE = "action_show_replace";
         public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
@@ -114,6 +115,7 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
+            { ACTION_STOP, action_stop },
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
@@ -162,6 +164,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
+            action_accelerators.set (ACTION_STOP, "F6");
             action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
@@ -545,6 +548,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_BUILD, actions).set_enabled (val);            
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_STOP, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
@@ -843,6 +847,10 @@ namespace Scratch {
             project.build_install_run.begin ((obj, res) => {
                 project.build_install_run.end (res);
             });
+        }
+
+        private void action_stop () {
+            project.stop ();
         }
 
         private void action_revert () {

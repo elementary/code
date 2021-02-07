@@ -5,6 +5,8 @@ public class Scratch.Services.ProjectManager : Object {
     public signal void on_standard_output (string line);
     public signal void on_standard_error (string line);
 
+    private Pid command_pid;
+
     private string? project_name () {
         try {
             string content;
@@ -62,7 +64,6 @@ public class Scratch.Services.ProjectManager : Object {
         try {
             string[] spawn_args = cmd;
             string[] spawn_env = Environ.get ();
-            Pid child_pid;
 
             int standard_input;
             int standard_output;
@@ -74,7 +75,7 @@ public class Scratch.Services.ProjectManager : Object {
                 spawn_env,
                 SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
                 null,
-                out child_pid,
+                out command_pid,
                 out standard_input,
                 out standard_output,
                 out standard_error
@@ -93,8 +94,8 @@ public class Scratch.Services.ProjectManager : Object {
             });
 
 
-            ChildWatch.add (child_pid, (pid, status) => {
-                // Triggered when the child indicated by child_pid exits
+            ChildWatch.add (command_pid, (pid, status) => {
+                // Triggered when the child indicated by command_pid exits
                 Process.close_pid (pid);
                 exit_status = (status == 0);
                 loop.quit ();
@@ -190,6 +191,18 @@ public class Scratch.Services.ProjectManager : Object {
 
         var result = yield run_project ();
         is_running = false;
+
+        return result;
+    }
+
+    public bool stop () {
+        if (!is_running) {
+            debug ("Project “%s“ is not running", path);
+            return true;
+        }
+
+        var result = Posix.kill(command_pid, Posix.Signal.TERM) == 0;
+        is_running = !result;
 
         return result;
     }
