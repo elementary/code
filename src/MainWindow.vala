@@ -62,6 +62,7 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_BUILD = "action_build";
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
@@ -99,6 +100,7 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] ACTION_ENTRIES = {
+            { ACTION_BUILD, action_build },
             { ACTION_FIND, action_fetch },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
@@ -145,6 +147,7 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_BUILD, "F4");
             action_accelerators.set (ACTION_FIND, "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
@@ -540,6 +543,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (val);
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (val);            
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
@@ -827,6 +831,12 @@ namespace Scratch {
             if (doc != null) {
                 doc.redo ();
             }
+        }
+
+        private void action_build () {
+            project.build.begin ((obj, res) => {
+                project.build.end (res);
+            });
         }
 
         private void action_run () {

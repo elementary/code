@@ -109,7 +109,7 @@ public class Scratch.Services.ProjectManager : Object {
         }
     }
 
-    private async bool build () {
+    private async bool build_project () {
         var meson_build = Path.build_filename (path, "meson.build");
         if (FileUtils.test (meson_build, FileTest.IS_REGULAR)) {
             var build_folder = Path.build_filename (path, "build");
@@ -136,7 +136,7 @@ public class Scratch.Services.ProjectManager : Object {
         return false;
     }
 
-    private async bool install () {
+    private async bool install_project () {
         return yield run_command ({
             "pkexec",
             "bash",
@@ -150,13 +150,25 @@ public class Scratch.Services.ProjectManager : Object {
         });
     }
 
-    private async bool run () {
+    private async bool run_project () {
         var project_name = project_name ();
         if (project_name != null) {
             return yield run_command ({project_name});
         }
 
         return false;
+    }
+
+    public async bool build () {
+        if (is_running) {
+            debug ("Project “%s“ is already running", path);
+            return false;
+        }
+
+        var result = yield build_project ();
+        is_running = false;
+
+        return result;
     }
 
     public async bool build_install_run () {
@@ -166,17 +178,17 @@ public class Scratch.Services.ProjectManager : Object {
         }
 
         is_running = true;
-        if (!yield build ()) {
+        if (!yield build_project ()) {
             is_running = false;
             return false;
         }
 
-        if (!yield install ()) {
+        if (!yield install_project ()) {
             is_running = false;
             return false;
         }
 
-        var result = yield run ();
+        var result = yield run_project ();
         is_running = false;
 
         return result;
