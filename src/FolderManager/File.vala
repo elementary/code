@@ -80,7 +80,7 @@ namespace Scratch.FolderManager {
         // checks if we're dealing with a non-hidden, non-backup directory
         public bool is_valid_directory {
             get {
-                if (info.get_is_hidden () || info.get_is_backup ()) {
+                if (info.get_is_backup ()) {
                     return false;
                 }
 
