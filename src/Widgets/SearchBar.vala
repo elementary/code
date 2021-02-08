@@ -178,6 +178,7 @@ namespace Scratch.Widgets {
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
             search_context.settings.wrap_around = tool_cycle_search.active;
             search_context.settings.regex_enabled = false;
+            search_context.settings.search_text = search_entry.text;
 
             // Determine the search entry color
             bool found = (search_entry.text != "" && search_entry.text in this.text_buffer.text);
