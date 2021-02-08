@@ -84,16 +84,24 @@ namespace Scratch.Widgets {
                 _("Search previous")
             );
 
-            tool_cycle_search = new Gtk.ToggleButton ();
-            tool_cycle_search.image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            tool_cycle_search.tooltip_text = _("Cyclic Search");
+            tool_cycle_search = new Gtk.ToggleButton () {
+                image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+                tooltip_text = _("Cyclic Search")
+            };
 
-            case_sensitive_button = new Gtk.ToggleButton ();
-            case_sensitive_button.image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            case_sensitive_button = new Gtk.ToggleButton () {
+                image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+            };
             case_sensitive_button.bind_property (
-                "active", case_sensitive_button, "tooltip-text", BindingFlags.DEFAULT,
-                (b, f, ref t) => {t.set_string (f.get_boolean () ? _("Case Sensitive") : _("Case Insensitive"));}
-             );
+                "active",
+                case_sensitive_button, "tooltip-text",
+                BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE, // Need to SYNC_CREATE so tooltip present before toggled
+                (binding, active_val, ref tooltip_val) => {
+                    ((Gtk.Widget)(binding.target)).set_tooltip_text ( //tooltip_val.set_string () does not work (?)
+                        active_val.get_boolean () ? _("Case Sensitive") : _("Case Insensitive")
+                    );
+                }
+            );
             case_sensitive_button.clicked.connect (on_search_entry_text_changed);
 
             var search_grid = new Gtk.Grid ();
@@ -170,6 +178,7 @@ namespace Scratch.Widgets {
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
             search_context.settings.wrap_around = tool_cycle_search.active;
             search_context.settings.regex_enabled = false;
+            search_context.settings.search_text = search_entry.text;
 
             // Determine the search entry color
             bool found = (search_entry.text != "" && search_entry.text in this.text_buffer.text);
@@ -394,15 +403,17 @@ namespace Scratch.Widgets {
                     is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter, null);
-                        tool_arrow_down.sensitive = next_found;
+                        tool_arrow_down.sensitive = search_context.forward (
+                            end_iter, out tmp_start_iter, out tmp_end_iter, null
+                        );
                     } else {
                         tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter, null);
-                        tool_arrow_up.sensitive = previous_found;
+                        tool_arrow_up.sensitive = search_context.backward (
+                            start_iter, out tmp_start_iter, out end_iter, null
+                        );
                     } else {
                         tool_arrow_up.sensitive = false;
                     }
@@ -472,7 +483,8 @@ namespace Scratch.Widgets {
         }
 
         private bool is_case_sensitive (string search_string) {
-            return case_sensitive_button.active || !((search_string.up () == search_string) || (search_string.down () == search_string));
+            return case_sensitive_button.active ||
+                   !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
     }
 }

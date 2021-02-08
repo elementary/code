@@ -175,7 +175,9 @@ namespace Scratch {
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
 
             Hdy.init ();
         }
@@ -560,21 +562,6 @@ namespace Scratch {
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
             document_view.close_document (doc);
-        }
-
-        public bool has_temporary_files () {
-            try {
-                var enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
-                for (var fileinfo = enumerator.next_file (null); fileinfo != null; fileinfo = enumerator.next_file (null)) {
-                    if (!fileinfo.get_name ().has_suffix ("~")) {
-                        return true;
-                    }
-                }
-            } catch (Error e) {
-                critical (e.message);
-            }
-
-            return false;
         }
 
         // Check if there no unsaved changes

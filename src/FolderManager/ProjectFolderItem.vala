@@ -117,11 +117,9 @@ namespace Scratch.FolderManager {
             }
 
             var menu = new Gtk.Menu ();
-            menu.append (close_item);
-            menu.append (close_all_except_item);
             menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
-            menu.append (delete_item);
 
             try {
                 if (git_repo != null) {
@@ -134,7 +132,10 @@ namespace Scratch.FolderManager {
                 critical (e.message);
             }
 
-
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (close_item);
+            menu.append (close_all_except_item);
+            menu.append (delete_item);
             menu.show_all ();
 
             return menu;
