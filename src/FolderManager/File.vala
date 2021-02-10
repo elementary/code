@@ -80,7 +80,7 @@ namespace Scratch.FolderManager {
         // Checks if we're dealing with a non-backup directory
         // Hidden subfolders are not shown by default, but we need to allow hidden top-level folder
         public bool is_valid_directory (bool allow_hidden = false) {
-            if ((!allow_hidden && name.has_prefix (".")) || //If parent is hidden then inherit validity from parent
+            if ((!allow_hidden && name.has_prefix (".")) || // If parent is hidden then inherit validity from parent
                  info.get_is_backup ()) {
 
                 return false;

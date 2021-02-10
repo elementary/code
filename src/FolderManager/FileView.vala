@@ -134,7 +134,7 @@ namespace Scratch.FolderManager {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
                 return;
-            } else if (!folder.is_valid_directory (true)) { //Allow hidden top-level folders
+            } else if (!folder.is_valid_directory (true)) { // Allow hidden top-level folders
                 warning ("Cannot open invalid directory.");
                 return;
             }
