@@ -79,6 +79,12 @@ namespace Scratch {
         }
 
         public override int command_line (GLib.ApplicationCommandLine command_line) {
+            /* Only allow running with root privileges using pkexec, not using sudo */
+            if (Posix.getuid () == 0 && GLib.Environment.get_variable ("PKEXEC_UID") == null) {
+                warning ("Running Code using sudo is not possible. Use: pkexec io.elementary.code");
+                quit ();
+            };
+
             var options = command_line.get_options_dict ();
 
             if (options.contains ("new-tab")) {
