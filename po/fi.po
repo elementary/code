@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-24 00:28+0000\n"
-"PO-Revision-Date: 2020-08-17 08:13+0000\n"
+"PO-Revision-Date: 2021-02-09 16:35+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -41,7 +41,7 @@ msgstr "liitännäinen"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[TIEDOSTO…]"
 
 #: src/MainWindow.vala:139
 msgid "Code"
@@ -482,8 +482,6 @@ msgid "Menu"
 msgstr "Valikko"
 
 #: src/Widgets/Sidebar.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
 msgstr "Avaa projektikansio…"
 
@@ -592,13 +590,11 @@ msgstr "Muoto:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Valitse eri muoto"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "Vanhenemisaika:"
+msgstr "Vanheneminen:"
 
 #: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
@@ -606,13 +602,11 @@ msgstr "Älä aseta julkiseksi"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Käytettävissä olevat muodot"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Valitse fontti:"
+msgstr "Valitse muoto"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
