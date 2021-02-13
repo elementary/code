@@ -21,16 +21,12 @@
 namespace Scratch.Services {
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
-        public string branch_name {
-            get {
-                return _branch_name;
-            }
 
-            set {
-                if (_branch_name != value) {
-                    _branch_name = value;
-                    branch_changed (value);
-                }
+        public string current_branch_name { get; private set; }
+
+        public bool is_detached_head {
+            get {
+                return current_branch_name == "";
             }
         }
 
@@ -40,7 +36,6 @@ namespace Scratch.Services {
 
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
-        private string _branch_name = "";
         private uint update_timer_id = 0;
         private Ggit.StatusOptions status_options;
 
@@ -95,19 +90,6 @@ namespace Scratch.Services {
             }
         }
 
-        public string get_current_branch () {
-            try {
-                var head = git_repo.get_head ();
-                if (head.is_branch ()) {
-                    return ((Ggit.Branch)head).get_name ();
-                }
-            } catch (Error e) {
-                warning ("Could not get current branch name - %s", e.message);
-            }
-
-            return "";
-        }
-
         public string[] get_local_branches () {
             string[] branches = {};
             try {
@@ -127,7 +109,13 @@ namespace Scratch.Services {
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
-            branch_name = new_branch_name;
+            //Change of branch will be picked up by the monitor of the .git folder and "branch-changed" signal emitted
+        }
+
+        public void create_new_branch (string name) throws Error {
+            Ggit.Object git_object = git_repo.get_head ().lookup ();
+            var new_branch = git_repo.create_branch (name, git_object, Ggit.CreateFlags.NONE);
+            git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
         }
 
         private bool do_update = false;
@@ -138,10 +126,14 @@ namespace Scratch.Services {
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                branch_name = ((Ggit.Branch)head).get_name ();
+                                unowned string name = ((Ggit.Branch)head).get_name ();
+                                if (name != current_branch_name) {
+                                    current_branch_name = name;
+                                    branch_changed (name);
+                                }
                             }
                         } catch (Error e) {
-                            warning ("An error occured while fetching the current git branch name: %s", e.message);
+                            warning ("Could not get current branch name - %s", e.message);
                         }
 
                         // SourceList shows files in working dir so only want status for those for now.
