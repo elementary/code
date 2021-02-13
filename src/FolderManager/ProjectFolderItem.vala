@@ -110,7 +110,7 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 menu.append (new ChangeBranchMenu (monitored_repo));
             }
-            
+
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
