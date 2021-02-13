@@ -44,6 +44,15 @@ namespace Scratch {
             { null }
         };
 
+        static construct {
+            _app_cmd_name = "Code";
+
+            // Init data home folder for unsaved text files
+            _data_home_folder_unsaved = Path.build_filename (
+                                            Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
+                                        );
+        }
+
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
@@ -51,18 +60,13 @@ namespace Scratch {
             application_id = Constants.PROJECT_NAME;
 
             add_main_option_entries (ENTRIES);
-        }
 
-        public Application () {
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
             settings = new GLib.Settings (Constants.PROJECT_NAME + ".settings");
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
-
-            // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved");
         }
 
         public override int handle_local_options (VariantDict options) {
@@ -150,7 +154,6 @@ namespace Scratch {
         }
 
         public static int main (string[] args) {
-            _app_cmd_name = "Code";
             return new Application ().run (args);
         }
     }

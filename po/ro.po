@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-24 00:28+0000\n"
-"PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"PO-Revision-Date: 2021-02-11 08:41+0000\n"
+"Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/code/code/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -37,17 +37,16 @@ msgid "Set of plugins"
 msgstr "Set de module"
 
 #: src/Application.vala:42
-#, fuzzy
 msgid "plugin"
-msgstr "Set de module"
+msgstr "extensie"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FIȘIER...]"
 
 #: src/MainWindow.vala:139
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
@@ -58,9 +57,8 @@ msgid "Hide search bar"
 msgstr "Ascunde bara de căutare"
 
 #: src/MainWindow.vala:276
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Sursă de date Zeitgeist pentru Scratch"
+msgstr "Sursă de date Zeitgeist pentru Code"
 
 #: src/MainWindow.vala:726 src/Services/Document.vala:501
 msgid "All files"
@@ -101,6 +99,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Decuparea sau copierea fără o selecție activă va decupa sau copia întreaga "
+"linie curentă"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
