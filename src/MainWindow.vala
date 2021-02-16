@@ -42,7 +42,7 @@ namespace Scratch {
         public Gtk.Notebook bottombar;
         public Code.Sidebar sidebar;
 
-        private Gtk.Dialog? preferences_dialog = null;
+        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
