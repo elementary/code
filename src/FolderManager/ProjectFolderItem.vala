@@ -27,13 +27,16 @@ namespace Scratch.FolderManager {
         private static Icon added_icon;
         private static Icon modified_icon;
 
+        public const string ACTION_DOMAIN = "git";
         public const string ACTION_PREFIX = "git.";
         public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_COMMIT = "action-commit";
 
         public SimpleActionGroup actions { get; construct; }
 
-        private const ActionEntry[] GIT_ACTION_ENTRIES = {
-            { ACTION_NEW_BRANCH, action_new_branch }
+        private const ActionEntry[] ACTION_ENTRIES = {
+            { ACTION_NEW_BRANCH, action_new_branch },
+            { ACTION_COMMIT, action_commit }
         };
 
         public signal void closed ();
@@ -65,7 +68,7 @@ namespace Scratch.FolderManager {
             }
 
             actions = new SimpleActionGroup ();
-            actions.add_action_entries (GIT_ACTION_ENTRIES, this);
+            actions.add_action_entries (ACTION_ENTRIES, this);
         }
 
         public void child_folder_changed (FolderItem folder) {
@@ -122,7 +125,15 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo, actions));
+                menu.append (new BranchMenu (monitored_repo, actions));
+                if (monitored_repo.has_uncommitted_changes ()) {
+                    menu.insert_action_group (ACTION_DOMAIN, actions);
+                    var commit_item = new Gtk.MenuItem.with_label (_("Commit")) {
+                       action_name = ACTION_PREFIX + ACTION_COMMIT
+                    };
+
+                    menu.append (commit_item);
+                }
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -184,6 +195,46 @@ namespace Scratch.FolderManager {
         }
 
         private void action_new_branch () {
+            if (monitored_repo.has_uncommitted_changes ()) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Branch '%s' has uncommitted changes").printf (monitored_repo.current_branch_name),
+                    _("Please choose what to do '%s'").printf (monitored_repo.current_branch_name),
+                    "dialog-question",
+                    Gtk.ButtonsType.CANCEL
+                );
+
+                var keep_button = new Gtk.Button.with_label (_("Keep"));
+                var commit_button = new Gtk.Button.with_label (_("Commit"));
+
+                dialog.add_action_widget (keep_button, 0);
+                dialog.add_action_widget (commit_button, 1);
+
+                dialog.show_all ();
+                int response = dialog.run ();
+                dialog.destroy ();
+
+                switch (response) {
+                    case Gtk.ResponseType.CANCEL:
+                        return;
+
+                    case 0: //Keep
+                        break;
+
+                    case 1: //Commit
+                        try {
+                            monitored_repo.commit_all_to_head ();
+                        } catch (Error e) {
+                            //TODO provide UI feedback on failure
+                            return;
+                        }
+
+                        break;
+                    default:
+                        warning ("Unrecognised response");
+                        return;
+                }
+            }
+
             try {
                 var new_branch_name = get_new_branch_name ();
                 if (new_branch_name != null) {
@@ -199,7 +250,7 @@ namespace Scratch.FolderManager {
 
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (
                 _("Create a new local branch in '%s'").printf (file.name),
-                _("The branch parent will be '%s' and it will include any uncommitted changes").printf (monitored_repo.current_branch_name),
+                _("The branch parent will be '%s'").printf (monitored_repo.current_branch_name),
                 "applications-development",
                 Gtk.ButtonsType.CANCEL
             );
@@ -224,19 +275,26 @@ namespace Scratch.FolderManager {
             return name;
         }
 
-        private class ChangeBranchMenu : Gtk.MenuItem {
-            public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
-            public SimpleActionGroup git_actions { get; construct; }
+        private void action_commit () {
+            try {
+                monitored_repo.commit_all_to_head ();
+            } catch (Error e) {
+                //TODO provide user feedback on failure
+            }
+        }
 
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo, SimpleActionGroup git_actions) {
+        private class BranchMenu : Gtk.MenuItem {
+            public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
+
+            public BranchMenu (Scratch.Services.MonitoredRepository monitored_repo, SimpleActionGroup git_actions) {
                 Object (
-                    monitored_repo: monitored_repo,
-                    git_actions: git_actions
+                    monitored_repo: monitored_repo
                 );
+
+                insert_action_group (ACTION_DOMAIN, git_actions);
             }
 
             construct {
-                insert_action_group ("git", git_actions);
                 unowned string current_branch_name = monitored_repo.current_branch_name;
                 string[] local_branch_names = monitored_repo.get_local_branches ();
                 var change_branch_menu = new Gtk.Menu ();
