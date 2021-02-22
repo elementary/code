@@ -118,9 +118,9 @@ namespace Scratch.Services {
             git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
         }
 
-        public void commit_all_to_head () throws Error {
+        public void commit_all_to_head () throws Ggit.Error, Error {
             //TODO Provide means to set various commit information
-            //TODO Warn of untracked files
+            //TODO Warn of untracked files - at present these will be committed and tracked without warning
             //Use automatic commit message for now
             var message = ("Commit made at %s").printf (new DateTime.now_local ().to_string ());
 
@@ -136,22 +136,24 @@ namespace Scratch.Services {
 
                 // Stage all modified files
                 var idx = git_repo.get_index ();
+                List<File> paths_to_stage = null;
                 file_status_map.entries.@foreach ((entry) => {
                     if (entry.@value != Ggit.StatusFlags.CURRENT) {
-                        var file = git_repo.workdir.get_child (entry.key);
-                        try {
-                            idx.add_file (file);
-                        } catch (Error e) {
-                            warning ("Error adding to index %s", e.message);
-                        }
+                        paths_to_stage.prepend (git_repo.workdir.get_child (entry.key));
                     }
 
                     return true;
                 });
 
+                foreach (File file in paths_to_stage) {
+                    //TODO Check the file exists?
+                    idx.add_file (file);
+                }
+
                 var tree_oid = idx.write_tree ();
                 var git_tree = git_repo.lookup_tree (tree_oid);
 
+                //For now assume user is both author and committer
                 var commit_oid = git_repo.create_commit (
                     "HEAD",
                     author,
@@ -165,6 +167,8 @@ namespace Scratch.Services {
                 var commit = git_repo.lookup_commit (commit_oid);
                 var options = new Ggit.CheckoutOptions ();
                 git_repo.checkout_tree (commit, options);
+            } else {
+                throw new Ggit.Error.GIT_ERROR ("Head is not a commit");
             }
         }
 
@@ -193,7 +197,11 @@ namespace Scratch.Services {
                             file_status_map.clear ();
 
                             git_repo.file_status_foreach (status_options, (path, status) => {
-                                file_status_map.@set (path, status);
+                                // We want to ignore temporary backup files created by Code itself.
+                                if (!path.has_suffix ("~")) {
+                                    file_status_map.@set (path, status);
+                                }
+
                                 return 0;
                             });
 
