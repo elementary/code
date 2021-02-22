@@ -195,47 +195,8 @@ namespace Scratch.FolderManager {
         }
 
         private void action_new_branch () {
-            if (monitored_repo.has_uncommitted_changes ()) {
-                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                    _("Branch '%s' has uncommitted changes").printf (monitored_repo.current_branch_name),
-                    _("Please choose what to do '%s'").printf (monitored_repo.current_branch_name),
-                    "dialog-question",
-                    Gtk.ButtonsType.CANCEL
-                );
-
-                var keep_button = new Gtk.Button.with_label (_("Keep"));
-                var commit_button = new Gtk.Button.with_label (_("Commit"));
-
-                dialog.add_action_widget (keep_button, 0);
-                dialog.add_action_widget (commit_button, 1);
-
-                dialog.show_all ();
-                int response = dialog.run ();
-                dialog.destroy ();
-
-                switch (response) {
-                    case Gtk.ResponseType.CANCEL:
-                        return;
-
-                    case 0: //Keep
-                        break;
-
-                    case 1: //Commit
-                        try {
-                            monitored_repo.commit_all_to_head ();
-                        } catch (Error e) {
-                            //TODO provide UI feedback on failure
-                            return;
-                        }
-
-                        break;
-                    default:
-                        warning ("Unrecognised response");
-                        return;
-                }
-            }
-
             try {
+                deal_with_uncommitted_changes ();
                 var new_branch_name = get_new_branch_name ();
                 if (new_branch_name != null) {
                     monitored_repo.create_new_branch (new_branch_name);
@@ -280,6 +241,42 @@ namespace Scratch.FolderManager {
                 monitored_repo.commit_all_to_head ();
             } catch (Error e) {
                 //TODO provide user feedback on failure
+            }
+        }
+
+        private void deal_with_uncommitted_changes () throws Ggit.Error, Error {
+            if (monitored_repo.has_uncommitted_changes ()) {
+                var error_message = "";
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Branch '%s' has uncommitted changes").printf (monitored_repo.current_branch_name),
+                    _("Please choose what to do '%s'").printf (monitored_repo.current_branch_name),
+                    "dialog-question",
+                    Gtk.ButtonsType.CANCEL
+                );
+
+                var commit_button = new Gtk.Button.with_label (_("Commit"));
+
+                dialog.add_action_widget (commit_button, 1);
+
+                dialog.show_all ();
+                int response = dialog.run ();
+                dialog.destroy ();
+
+                switch (response) {
+                    case Gtk.ResponseType.CANCEL:
+                        error_message = _("Cancelled by user");
+                        break;
+
+                    case 1: //Commit
+                        monitored_repo.commit_all_to_head ();
+                        return;
+
+                    default:
+                         error_message = _("Unrecognised response from user");
+                        break;
+                }
+
+                throw new Ggit.Error.GIT_ERROR (error_message);
             }
         }
 
