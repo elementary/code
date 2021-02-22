@@ -118,9 +118,9 @@ namespace Scratch.Services {
             git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
         }
 
-        public void commit_all_to_head () throws Error {
+        public void commit_all_to_head () throws Ggit.Error, Error {
             //TODO Provide means to set various commit information
-            //TODO Warn of untracked files
+            //TODO Warn of untracked files - at present these will be committed and tracked without warning
             //Use automatic commit message for now
             var message = ("Commit made at %s").printf (new DateTime.now_local ().to_string ());
 
@@ -128,34 +128,32 @@ namespace Scratch.Services {
             Ggit.Object? head_object = head_ref.lookup ();
             if (head_object is Ggit.Commit) {
                 //Get default commit info from config
-                var config = (new Ggit.Config.from_file (Ggit.Config.find_global ())).snapshot ();
-                var author = new Ggit.Signature.now (
-                    config.get_string ("user.name"),
-                    config.get_string ("user.email")
-                );
+
 
                 // Stage all modified files
                 var idx = git_repo.get_index ();
+                List<File> paths_to_stage = null;
                 file_status_map.entries.@foreach ((entry) => {
                     if (entry.@value != Ggit.StatusFlags.CURRENT) {
-                        var file = git_repo.workdir.get_child (entry.key);
-                        try {
-                            idx.add_file (file);
-                        } catch (Error e) {
-                            warning ("Error adding to index %s", e.message);
-                        }
+                        paths_to_stage.prepend (git_repo.workdir.get_child (entry.key));
                     }
 
                     return true;
                 });
 
+                foreach (File file in paths_to_stage) {
+                    //TODO Check the file exists?
+                    idx.add_file (file);
+                }
+
                 var tree_oid = idx.write_tree ();
                 var git_tree = git_repo.lookup_tree (tree_oid);
-
+                var signature = get_signature ();
+                //For now assume user is both author and committer
                 var commit_oid = git_repo.create_commit (
                     "HEAD",
-                    author,
-                    author,
+                    signature,
+                    signature,
                     null,
                     message,
                     git_tree,
@@ -165,6 +163,8 @@ namespace Scratch.Services {
                 var commit = git_repo.lookup_commit (commit_oid);
                 var options = new Ggit.CheckoutOptions ();
                 git_repo.checkout_tree (commit, options);
+            } else {
+                throw new Ggit.Error.GIT_ERROR ("Head is not a commit");
             }
         }
 
@@ -221,6 +221,14 @@ namespace Scratch.Services {
 
         public bool has_uncommitted_changes () {
             return non_current_entries.size > 0;
+        }
+
+        private Ggit.Signature? get_signature () throws Error {
+            var config = (new Ggit.Config.from_file (Ggit.Config.find_global ())).snapshot ();
+            return new Ggit.Signature.now (
+                config.get_string ("user.name"),
+                config.get_string ("user.email")
+            );
         }
     }
 }
