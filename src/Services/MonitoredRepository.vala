@@ -37,7 +37,6 @@ namespace Scratch.Services {
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
         private uint update_timer_id = 0;
-        private Ggit.StatusOptions status_options;
 
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
@@ -50,9 +49,6 @@ namespace Scratch.Services {
 
         construct {
             file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
-            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
-                                                     Ggit.StatusShow.INDEX_AND_WORKDIR,
-                                                     null);
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -134,11 +130,7 @@ namespace Scratch.Services {
             Ggit.Object? head_object = head_ref.lookup ();
             if (head_object is Ggit.Commit) {
                 //Get default commit info from config
-                var config = (new Ggit.Config.from_file (Ggit.Config.find_global ())).snapshot ();
-                var author = new Ggit.Signature.now (
-                    config.get_string ("user.name"),
-                    config.get_string ("user.email")
-                );
+
 
                 // Stage all modified files
                 var idx = git_repo.get_index ();
@@ -158,12 +150,12 @@ namespace Scratch.Services {
 
                 var tree_oid = idx.write_tree ();
                 var git_tree = git_repo.lookup_tree (tree_oid);
-
+                var signature = get_signature ();
                 //For now assume user is both author and committer
                 var commit_oid = git_repo.create_commit (
                     "HEAD",
-                    author,
-                    author,
+                    signature,
+                    signature,
                     null,
                     message,
                     git_tree,
@@ -176,6 +168,15 @@ namespace Scratch.Services {
             } else {
                 throw new Ggit.Error.GIT_ERROR ("Head is not a commit");
             }
+        }
+
+        public void stash_all (string message = "") throws Ggit.Error, Error {
+            var stasher = get_signature ();
+            if (message == "") {
+                message = "Default Stash";
+            }
+            var flags = Ggit.StashFlags.DEFAULT;  //Do not stash untracked/ignored; do not keep index
+            git_repo.save_stash (stasher, message, flags);
         }
 
         private bool do_update = false;
@@ -201,6 +202,9 @@ namespace Scratch.Services {
                         // TODO Distinguish new untracked files from new tracked files
                         try {
                             file_status_map.clear ();
+                            var status_options = new Ggit.StatusOptions (
+                                Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
+                                Ggit.StatusShow.INDEX_AND_WORKDIR, null);
 
                             git_repo.file_status_foreach (status_options, (path, status) => {
                                 // We want to ignore temporary backup files created by Code itself.
@@ -235,6 +239,14 @@ namespace Scratch.Services {
 
         public bool has_uncommitted_changes () {
             return non_current_entries.size > 0;
+        }
+
+        private Ggit.Signature? get_signature () throws Error {
+            var config = (new Ggit.Config.from_file (Ggit.Config.find_global ())).snapshot ();
+            return new Ggit.Signature.now (
+                config.get_string ("user.name"),
+                config.get_string ("user.email")
+            );
         }
     }
 }

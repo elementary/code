@@ -256,10 +256,10 @@ namespace Scratch.FolderManager {
                     Gtk.ButtonsType.CANCEL
                 );
 
-                var keep_button = new Gtk.Button.with_label (_("Keep"));
+                var stash_button = new Gtk.Button.with_label (_("Stash"));
                 var commit_button = new Gtk.Button.with_label (_("Commit"));
 
-                dialog.add_action_widget (keep_button, 0);
+                dialog.add_action_widget (stash_button, 0);
                 dialog.add_action_widget (commit_button, 1);
 
                 dialog.show_all ();
@@ -271,7 +271,8 @@ namespace Scratch.FolderManager {
                         error_message = _("Cancelled by user");
                         break;
 
-                    case 0: //Keep
+                    case 0: //Stash
+                        monitored_repo.stash_all ();
                         return;
 
                     case 1: //Commit
@@ -289,6 +290,13 @@ namespace Scratch.FolderManager {
 
         private void action_switch (GLib.SimpleAction action, GLib.Variant? param) {
             var switch_to_branch_name = param.get_string ();
+            try {
+                deal_with_uncommitted_changes ();
+                monitored_repo.change_branch (switch_to_branch_name);
+            } catch (Error e) {
+                //TODO Provide UI feedback if fails
+                warning ("Error changing branch: %s", e.message);
+            }
         }
 
         private class BranchMenu : Gtk.MenuItem {
