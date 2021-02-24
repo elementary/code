@@ -83,6 +83,7 @@ namespace Scratch {
             if (Posix.getuid () == 0 && GLib.Environment.get_variable ("PKEXEC_UID") == null) {
                 warning ("Running Code using sudo is not possible. Use: pkexec io.elementary.code");
                 quit ();
+                return 1;
             };
 
             var options = command_line.get_options_dict ();
