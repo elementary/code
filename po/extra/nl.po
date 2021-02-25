@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2020-10-31 21:15+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/extra/nl/>\n"
@@ -373,6 +373,14 @@ msgstr "Nieuw bestand"
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nieuw venster"
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr ""
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
+msgstr ""
 
 #~ msgid "New Document"
 #~ msgstr "Nieuw Document"

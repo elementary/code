@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2016-09-30 17:54+0000\n"
 "Last-Translator: Emir Mamashov <Unknown>\n"
 "Language-Team: Kirghiz <ky@li.org>\n"
@@ -346,6 +346,14 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
+msgstr ""
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr ""
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
 msgstr ""
 
 #~ msgid "Notepad;IDE;Plain;"
