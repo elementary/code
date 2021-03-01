@@ -21,6 +21,7 @@ Build-Depends: appstream,
                libwebkit2gtk-4.0-dev,
                libzeitgeist-2.0-dev,
                meson (>= 0.44.0),
+               policykit-1,
                valac
 Standards-Version: 3.9.5
 Homepage: https://github.com/elementary/code
