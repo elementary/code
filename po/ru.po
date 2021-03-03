@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2021-03-03 13:11+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"Last-Translator: Daniil <solodyankin.daniilgo@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -252,10 +252,8 @@ msgid "Close Folder"
 msgstr "Закрыть папку"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Закрыть папку"
+msgstr "Закрыть остальные папки"
 
 #: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
@@ -265,7 +263,7 @@ msgstr ""
 #: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, Новый"
 
 #: src/FolderManager/ProjectFolderItem.vala:348
 #, fuzzy
@@ -488,7 +486,7 @@ msgstr "Открыть папку проекта…"
 
 #: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
-msgstr ""
+msgstr "Свернуть всё"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
@@ -496,7 +494,7 @@ msgstr ""
 
 #: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
-msgstr ""
+msgstr "Управление папками проекта"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
