@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2021-03-03 13:11+0000\n"
-"Last-Translator: Yaroslav <bomberbit@gmail.com>\n"
+"Last-Translator: ig-cheprasov <ig-cheprasov@yandex.ru>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -198,9 +198,8 @@ msgid "Don't Restore"
 msgstr "Не восстанавливать"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Открыть всё равно"
+msgstr "Все равно восстановить"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
@@ -266,9 +265,8 @@ msgid "%s, New"
 msgstr "%s, Новый"
 
 #: src/FolderManager/ProjectFolderItem.vala:348
-#, fuzzy
 msgid "Branch"
-msgstr "Сменить Ветку"
+msgstr "Ветка"
 
 #: src/Services/Document.vala:265
 #, c-format
