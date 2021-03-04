@@ -92,6 +92,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
+        public const string ACTION_CLEAR_LINES = "action_clear_lines";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -129,6 +130,7 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
+            { ACTION_CLEAR_LINES, action_clear_lines }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -172,6 +174,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
+            action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -974,6 +977,15 @@ namespace Scratch {
 
         private void action_previous_tab () {
             document_view.previous_document ();
+        }
+
+        private void action_clear_lines () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.clear_selected_lines ();
         }
     }
 }
