@@ -122,7 +122,7 @@ modules:
             md5: 12e517cac2b57a0121cda351570f1e63
 
   - name: policykit-1
-    buildsystem: meson
+    buildsystem: autotools
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/polkit/polkit
