@@ -49,7 +49,7 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
-                monitored_repo.file_status_change.connect (update_item_status);
+                monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
             }
         }
@@ -73,7 +73,7 @@ namespace Scratch.FolderManager {
             }
 
             if (monitored_repo != null) {
-                update_item_status ();
+                update_item_status (folder);
                 deprioritize_git_ignored ();
             }
         }
@@ -121,9 +121,14 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        private void update_item_status () requires (monitored_repo != null) {
+        public void update_item_status (FolderItem? start_folder) requires (monitored_repo != null) {
             bool is_new = false;
+            string start_path = start_folder != null ? start_folder.path : "";
             visible_item_list.@foreach ((visible_item) => {
+                if (start_path.has_prefix (visible_item.rel_path)) {
+                    return; //Only need to update status for start_folder and its children
+                }
+
                 var item = visible_item.item;
                 item.activatable = null;
                 monitored_repo.non_current_entries.@foreach ((entry) => {
@@ -140,8 +145,10 @@ namespace Scratch.FolderManager {
                             return true;  // scan all children
                         }
 
-                        item.activatable = is_new ? added_icon : modified_icon;
-                        item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        if (!(item is FolderItem) || !item.expanded) { //No need to show status when children shown
+                            item.activatable = is_new ? added_icon : modified_icon;
+                            item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        }
                         return false;
                     } else {
                         return true;
