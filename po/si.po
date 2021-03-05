@@ -3,16 +3,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 18:55+0000\n"
-"PO-Revision-Date: 2018-06-10 00:11+0000\n"
-"Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
-"Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
-">\n"
+"PO-Revision-Date: 2021-03-04 17:58+0000\n"
+"Last-Translator: HelaBasa <R45XvezA@pm.me>\n"
+"Language-Team: Sinhala <https://l10n.elementary.io/projects/code/code/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -42,7 +41,7 @@ msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
-msgstr "Code"
+msgstr "කේතය"
 
 #: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
@@ -67,7 +66,7 @@ msgstr "පාඨ ගොනු"
 
 #: src/MainWindow.vala:737
 msgid "Open some files"
-msgstr "සමහර ගොනු විවෘත කරන්න"
+msgstr "ගොනු කිහිපයක් විවෘත කරන්න"
 
 #: src/MainWindow.vala:740
 msgid "Open"
@@ -208,9 +207,8 @@ msgid "Open In"
 msgstr "විවෘත කරන්න"
 
 #: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
-#, fuzzy
 msgid "Other Actions"
-msgstr "වෙනත් යෙදුම්…"
+msgstr "වෙනත් ක්‍රියාමාර්ග"
 
 #: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
@@ -239,21 +237,19 @@ msgstr "නව"
 
 #: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
-msgstr "නම් නොකල ෆෝල්ඩරය"
+msgstr "නිර්ණාමික බහාලුම"
 
 #: src/FolderManager/FolderItem.vala:332
 msgid "new file"
-msgstr "නව ගොනුවක්"
+msgstr "නව ගොනුව"
 
 #: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
-msgstr "බහලුම වසන්න"
+msgstr "බහාලුම වසන්න"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "බහලුම වසන්න"
+msgstr "අනෙක් බහාලුම් වසන්න"
 
 #: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
@@ -292,9 +288,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "කේත ගොනුව ප්‍රවේශනය වනතෙක් රැඳී සිටින්න."
 
 #: src/Services/Document.vala:292
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "ප්‍රවේශනය නවතන්න"
+msgstr "පූරනය අවලංගු කරන්න"
 
 #: src/Services/Document.vala:390
 #, fuzzy, c-format
@@ -322,7 +317,7 @@ msgstr "ගොනුව සුරකින්න"
 
 #: src/Services/Document.vala:591
 msgid "New Document"
-msgstr "නව ගොනුවක්"
+msgstr "නව ලේඛනය"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:714
@@ -392,7 +387,7 @@ msgstr ""
 
 #: src/Widgets/FormatBar.vala:56
 msgid "Line number"
-msgstr ""
+msgstr "රේඛා අංකය"
 
 #: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
@@ -422,7 +417,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
-msgstr ""
+msgstr "ගොනුවක් විවෘත කරන්න"
 
 #: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
@@ -430,11 +425,11 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
-msgstr ""
+msgstr "මෙම ගොනුව සුරකින්න"
 
 #: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "මෙම ගොනුව වෙනත් නමකින් සුරකින්න"
 
 #: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
@@ -442,7 +437,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:89
 msgid "Share"
-msgstr ""
+msgstr "බෙදාගන්න"
 
 #: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
@@ -478,11 +473,11 @@ msgstr ""
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Open Project Folder…"
-msgstr ""
+msgstr "ව්‍යාපෘති බහාලුම විවෘත කරන්න…"
 
 #: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
-msgstr ""
+msgstr "සියල්ල හකුළන්න"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Alphabetize"
@@ -490,7 +485,7 @@ msgstr ""
 
 #: src/Widgets/Sidebar.vala:64
 msgid "Manage project folders"
-msgstr ""
+msgstr "ව්‍යාපෘති බහාලුම් කළමනාකරණය කරන්න"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -549,11 +544,11 @@ msgstr ""
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr ""
+msgstr "නව ගොනුව"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr ""
+msgstr "නව හිස් ගොනුවක් සාදන්න."
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
@@ -561,11 +556,11 @@ msgstr ""
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr ""
+msgstr "සුරකින ලද ගොනුවක් විවෘත කරන්න."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr ""
+msgstr "බහාලුම විවෘත කරන්න"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
@@ -578,7 +573,7 @@ msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
-msgstr ""
+msgstr "නම:"
 
 #: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
@@ -610,19 +605,19 @@ msgstr "කවදාවත්"
 
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
-msgstr ""
+msgstr "විනාඩි දහයයි"
 
 #: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
-msgstr ""
+msgstr "පැයක්"
 
 #: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
-msgstr ""
+msgstr "දිනක්"
 
 #: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr ""
+msgstr "මාසයක්"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -653,16 +648,16 @@ msgstr ""
 #. COPY
 #: plugins/terminal/terminal.vala:225
 msgid "Copy"
-msgstr ""
+msgstr "පිටපත්"
 
 #. PASTE
 #: plugins/terminal/terminal.vala:232
 msgid "Paste"
-msgstr ""
+msgstr "අලවන්න"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "සුදුසු ශබ්ද කෝෂ කිසිවක් හමු නොවීය"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
