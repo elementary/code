@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 18:55+0000\n"
-"PO-Revision-Date: 2020-12-18 00:16+0000\n"
+"PO-Revision-Date: 2021-03-05 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -382,11 +382,12 @@ msgstr "Nouvelle fenêtre"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Exécuter Code en tant qu'administrateur"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+"Une authentification est requise pour exécuter Code en tant qu'administrateur"
 
 #~ msgid "New Document"
 #~ msgstr "Nouveau document"
