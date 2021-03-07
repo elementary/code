@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2020-05-16 03:11+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Code"
 msgstr "شيفرة برمجية"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "إبحث…"
 
@@ -60,129 +60,129 @@ msgstr "اخفاء شريط البحث"
 msgid "Zeitgeist Datasource for Code"
 msgstr "برمجية “zeitgeist” كمصدر معلومات للكود"
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:501
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:737
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:740
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:741 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:766
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:767
 msgid "_Cancel"
 msgstr "_الغاء"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr "اﻹعدادات"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "القص أو النسخ بدون تحديد شيء سينسخ أو يقص كامل السطر الحالي"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "عام"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "إحفظ الملفات عند تغييرها:"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr "القص/النسخ الذكي للأسطر:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "التبويبات"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "التعرف التلقائي على المسافات الفارغة:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "ادخل مسافات بدلا من tabs:"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "عرض التبويب:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "السلوك"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "الواجهة"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "اغلق"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "الامتدادات"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "المحرر"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "إبراز الاقواس :"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 #, fuzzy
 msgid "Line wrap:"
 msgstr "تنزيل المؤشر لسطر جديد بسبب امتلاء السطر السابق:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "ارسم مسافات:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "للنصوص المختارة"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "دائما"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "اظهر خارطة مصغرة:"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "دليل سمك الخط:"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr "الخط"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "خط مخصص:"
 
@@ -255,17 +255,17 @@ msgstr "أغلق المجلد"
 msgid "Close Other Folders"
 msgstr "اغلق المجلدات الاخرى"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
 msgid "%s, Modified"
 msgstr "%s, المعدل"
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
 msgstr "%s, الجديد"
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:348
 msgid "Branch"
 msgstr "تفرع"
 
@@ -384,23 +384,23 @@ msgstr "القوالب"
 msgid "Text file from %s:%d"
 msgstr "ملف نصي من %s:%d"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "إبراز تراكيب الجمله"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "إعرض رقم السطر"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "ترشيح اللغات"
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "نص بسيط"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -411,7 +411,7 @@ msgstr[3] "%d مسافات"
 msgstr[4] "%d مسافات"
 msgstr[5] "%d مسافات"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -422,63 +422,63 @@ msgstr[3] "%d تبويبات"
 msgstr[4] "%d تبويبات"
 msgstr[5] "%d تبويبات"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "إذهب الى السطر :"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr "إفتح ملفاً"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr "قوالب المشروع"
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr "حفظ هذا الملف"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr "احفظ هذا الملف باسم آخر"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr "إستعد هذا الملف"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr "المشاركه"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr "تصغير للخارج"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr "تكبير مقاس 1:1"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr "تكبير للداخل"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr "تباين عالي"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr "الوضع الفاتح"
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr "الوضع المظلم"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr "الشريط الجانبي"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr "القائمة"
 
@@ -578,8 +578,8 @@ msgstr "افتح مجلد"
 msgid "Add a project folder to the sidebar."
 msgstr "اضف مجلد المشروع للشريط الجانبي."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "رفع إلى Pastebin"
 
@@ -587,25 +587,25 @@ msgstr "رفع إلى Pastebin"
 msgid "Name:"
 msgstr "الاسم :"
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr "الصيغة:"
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 #, fuzzy
 #| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "وقت الانتهاء :"
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "اجعل اللصق خاص"
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr ""
 

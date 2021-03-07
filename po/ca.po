@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2020-11-25 15:54+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -47,7 +47,7 @@ msgstr "[FITXER…]"
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Cerca…"
 
@@ -59,41 +59,41 @@ msgstr "Amaga la barra de cerca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades del Zeitgeist per al Codi"
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:737
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:740
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:741 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:766
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:767
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr "Preferències"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -101,88 +101,88 @@ msgstr ""
 "Retallar o copiar sense una selecció activa tallarà o copiarà tota la línia "
 "actual."
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "General"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "Desa els fitxers quan es produeixin canvis:"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr "Línies de retall / còpia intel·ligents:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "Pestanyes"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "Sagnat automàtic:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserir espais en comptes de tabulacions:"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "Amplada del tabulador:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Interfície"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Tanca"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "Realça la parella de claudàtors:"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr "Ajust de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "Dibuxa espais:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "Per al text seleccionat"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "Sempre"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "Mostra el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "Guia d'amplada de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr "Lletra"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 
@@ -257,17 +257,17 @@ msgstr "Tanca la carpeta"
 msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
 msgid "%s, Modified"
 msgstr "%s, modificat"
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
 msgstr "%s, nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:348
 msgid "Branch"
 msgstr "Branca"
 
@@ -391,93 +391,93 @@ msgstr "Plantilles"
 msgid "Text file from %s:%d"
 msgstr "Fitxer de text de %s:%d"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Realçat de sintaxi"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Número de línia"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Filtra llenguatges"
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Text pla"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d espai"
 msgstr[1] "%d espais"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d pestanya"
 msgstr[1] "%d pestanyes"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "Ves a la línia:"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr "Obre un fitxer"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr "Plantilles de projectes"
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr "Desa aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr "Desa aquest fitxer amb un nom diferent"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr "Restaura aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr "Allunya"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr "Ampliació 1:1"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr "Apropa"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr "Contrast alt"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr "Llum de dia clara"
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr "Llum de dia fosca"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr "Commuta la barra lateral"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr "Menú"
 
@@ -575,8 +575,8 @@ msgstr "Obre una carpeta"
 msgid "Add a project folder to the sidebar."
 msgstr "Afegeix la carpeta d'un projecte a la barra lateral."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Puja al Pastebin"
 
@@ -584,23 +584,23 @@ msgstr "Puja al Pastebin"
 msgid "Name:"
 msgstr "Nom:"
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr "Format:"
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr "Trieu un format diferent"
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
 msgstr "Caducitat:"
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "Mantén aquest retall com a privat"
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr "Formats disponibles"
 

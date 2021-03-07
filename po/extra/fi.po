@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2019-01-08 08:54+0000\n"
 "Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/extra/fi/"
@@ -345,6 +345,14 @@ msgstr ""
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Uusi ikkuna"
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr ""
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
+msgstr ""
 
 #~ msgid "New Document"
 #~ msgstr "Uusi asiakirja"
