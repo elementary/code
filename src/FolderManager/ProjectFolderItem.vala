@@ -296,14 +296,18 @@ namespace Scratch.FolderManager {
             return false;
         }
 
-        public void global_search (string search_term = "") {
+        public void global_search (string search_term = "", bool is_regex = false) {
             string term = "";
+            bool term_is_regex = false;
+            Regex? pattern = null;
+
             if (search_term == "") {
                 var dialog = new Scratch.Dialogs.GlobalSearchDialog (null, file.file.get_basename ());
                 dialog.response.connect ((response) => {
                     switch (response) {
                         case Gtk.ResponseType.ACCEPT:
                             term = dialog.search_term;
+                            term_is_regex = dialog.use_regex;
                             break;
 
                         default:
@@ -316,6 +320,20 @@ namespace Scratch.FolderManager {
                 dialog.run ();
             } else {
                 term = search_term;
+                term_is_regex = is_regex;
+            }
+
+            if (term != null) {
+                if (!term_is_regex) {
+                    term = Regex.escape_string (term);
+                }
+
+                try {
+                    pattern = new Regex (term, RegexCompileFlags.MULTILINE);
+                } catch (Error e) {
+                    critical ("Error creating regex from '%s': %s", term, e.message);
+                    return;
+                }
             }
 
             var status_options = new Ggit.StatusOptions (
@@ -335,10 +353,28 @@ namespace Scratch.FolderManager {
                         return 0;
                     }
 
-                    if (contents.contains (term)) {
-                        unowned var item = view.expand_to_path (path);
-                        if (item != null) {
-                            item.badge = "***";
+                    MatchInfo? match_info = null;
+                    if (term != "") {
+                        int match_count = 0;
+                        try {
+                            for (pattern.match (contents, 0, out match_info);
+                                match_info.matches ();
+                                match_info.next ()) {
+
+                                int start_pos, end_pos;
+                                match_info.fetch_pos (0, out start_pos, out end_pos);
+                                //TODO Do something with position(s) of matches e.g. store in item
+                                match_count++;
+                            }
+                        } catch (RegexError next_error) {
+                            critical ("Error getting next match: %s", next_error.message);
+                        }
+
+                        if (match_count > 0) {
+                            unowned var item = view.expand_to_path (path);
+                            if (item != null) {
+                                item.badge = match_count.to_string ();
+                            }
                         }
                     } else {
                         unowned var item = view.find_item_for_path (path);
