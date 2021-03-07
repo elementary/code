@@ -416,6 +416,9 @@ namespace Scratch {
                 });
 
                 hook_func ();
+            });
+
+            document_view.realize.connect (() => {
                 restore_opened_documents ();
             });
 
