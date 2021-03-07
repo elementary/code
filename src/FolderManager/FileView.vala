@@ -105,29 +105,47 @@ namespace Scratch.FolderManager {
             item_selected.connect (on_item_selected);
         }
 
-        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
-            foreach (var item in list.children) {
+        private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+                                                                    string path,
+                                                                    bool expand = false) {
+            foreach (unowned var item in list.children) {
                 if (item is Item) {
-                    var code_item = item as Item;
+                    var code_item = (Item)item;
                     if (code_item.path == path) {
-                        return item;
+                        return (!)item;
                     }
 
                     if (item is Granite.Widgets.SourceList.ExpandableItem) {
                         var expander = item as Granite.Widgets.SourceList.ExpandableItem;
-                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                        if (!path.has_prefix (code_item.path)) {
                             continue;
                         }
 
-                        var recurse_item = find_path (expander, path);
+                        if (!expander.expanded) {
+                             if (expand) {
+                                 expander.expanded = true;
+                             } else {
+                                 continue;
+                             }
+                         }
+
+                        unowned var recurse_item = find_path (expander, path, expand);
                         if (recurse_item != null) {
-                            return recurse_item;
+                            return (!)recurse_item;
                         }
                     }
                 }
             }
 
             return null;
+        }
+
+        public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+             return find_path (root, path, true);
+        }
+
+        public unowned Granite.Widgets.SourceList.Item? find_item_for_path (string path) {
+             return find_path (root, path, false);
         }
 
         private void add_folder (File folder, bool expand) {

@@ -136,6 +136,13 @@ namespace Scratch.FolderManager {
             menu.append (close_item);
             menu.append (close_all_except_item);
             menu.append (delete_item);
+
+            var search_item = new Gtk.MenuItem.with_label (_("Search Project"));
+            search_item.activate.connect (() => { global_search (); });
+
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (search_item);
+
             menu.show_all ();
 
             return menu;
@@ -287,6 +294,66 @@ namespace Scratch.FolderManager {
             }
 
             return false;
+        }
+
+        public void global_search (string search_term = "") {
+            string term = "";
+            if (search_term == "") {
+                var dialog = new Scratch.Dialogs.GlobalSearchDialog (null, file.file.get_basename ());
+                dialog.response.connect ((response) => {
+                    switch (response) {
+                        case Gtk.ResponseType.ACCEPT:
+                            term = dialog.search_term;
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    dialog.destroy ();
+                });
+
+                dialog.run ();
+            } else {
+                term = search_term;
+            }
+
+            var status_options = new Ggit.StatusOptions (
+                Ggit.StatusOption.INCLUDE_UNMODIFIED,
+                Ggit.StatusShow.WORKDIR_ONLY,
+                {"*.vala"}
+            );
+
+            try {
+                git_repo.file_status_foreach (status_options, (rel_path, status) => {
+                    string contents;
+                    string path = Path.build_filename (top_level_path, rel_path);
+                    try {
+                        FileUtils.get_contents (path, out contents);
+                    } catch (Error e) {
+                        warning ("error getting contents: %s", e.message);
+                        return 0;
+                    }
+
+                    if (contents.contains (term)) {
+                        unowned var item = view.expand_to_path (path);
+                        if (item != null) {
+                            item.badge = "***";
+                        }
+                    } else {
+                        unowned var item = view.find_item_for_path (path);
+                        if (item != null) {
+                            item.badge = "";
+                        }
+                    }
+
+                    return 0;
+                });
+            } catch (Error err) {
+                warning ("Error getting file status: %s", err.message);
+            }
+
+            return;
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
