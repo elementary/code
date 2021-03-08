@@ -179,7 +179,9 @@ namespace Scratch.FolderManager {
             }
 
             reset_all_children (this);
-            var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.INDEX_AND_WORKDIR, null);
+            var options = new Ggit.StatusOptions (
+                Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.INDEX_AND_WORKDIR, null
+            );
             try {
                 git_repo.file_status_foreach (options, check_each_git_status);
             } catch (Error e) {
@@ -296,9 +298,17 @@ namespace Scratch.FolderManager {
             return false;
         }
 
-        public void global_search (string search_term = "", bool is_regex = false) {
+        public void global_search (string search_term = "",
+                                   GLib.File root_folder = file.file,
+                                   bool is_literal = true,
+                                   bool tracked_only = true,
+                                   bool recurse = true) {
             string term = "";
-            bool term_is_regex = false;
+            bool term_is_literal = true;
+            bool search_tracked_only = true;
+            bool recurse_subfolders = true;
+            bool check_is_text = false;
+            string[] path_spec = {"*.*"};
             Regex? pattern = null;
 
             if (search_term == "") {
@@ -307,7 +317,10 @@ namespace Scratch.FolderManager {
                     switch (response) {
                         case Gtk.ResponseType.ACCEPT:
                             term = dialog.search_term;
-                            term_is_regex = dialog.use_regex;
+                            term_is_literal = dialog.use_literal;
+                            search_tracked_only = dialog.tracked_only;
+                            recurse_subfolders = dialog.recurse;
+                            path_spec = dialog.path_spec;
                             break;
 
                         default:
@@ -320,11 +333,13 @@ namespace Scratch.FolderManager {
                 dialog.run ();
             } else {
                 term = search_term;
-                term_is_regex = is_regex;
+                term_is_literal = is_literal;
+                search_tracked_only = tracked_only;
+                recurse_subfolders = recurse;
             }
 
             if (term != null) {
-                if (!term_is_regex) {
+                if (term_is_literal) {
                     term = Regex.escape_string (term);
                 }
 
@@ -336,16 +351,57 @@ namespace Scratch.FolderManager {
                 }
             }
 
+            check_is_text = path_spec[0] == "*.*" ; //Assume otherwise path spec will exclude non-text
+
+            var status_scope = Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            if (!search_tracked_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNTRACKED;
+            }
             var status_options = new Ggit.StatusOptions (
-                Ggit.StatusOption.INCLUDE_UNMODIFIED,
+                status_scope,
                 Ggit.StatusShow.WORKDIR_ONLY,
-                {"*.vala"}
+                path_spec
             );
+
+            remove_all_badges ();
 
             try {
                 git_repo.file_status_foreach (status_options, (rel_path, status) => {
                     string contents;
-                    string path = Path.build_filename (top_level_path, rel_path);
+                    var target = file.file.resolve_relative_path (rel_path);
+                    string path = target.get_path ();
+
+                    if (!recurse_subfolders && root_folder != target.get_parent () ||
+                        check_is_text && rel_path.has_prefix ("po/")) {
+                        return 0;
+                    }
+
+                    if (check_is_text) {
+                        FileInfo? info = null;
+                        try {
+                            info = target.query_info (
+                                FileAttribute.STANDARD_CONTENT_TYPE,
+                                FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                                null
+                            );
+                        } catch (Error query_error) {
+                            warning (
+                                "Error getting file info for %s: %s.  Ignoring.", target.get_path (), query_error.message
+                            );
+                        }
+
+                        if (info == null) {
+                            return 0;
+                        }
+
+                        var type = info.get_content_type ();
+                        if (!ContentType.is_mime_type (type, "text/*") ||
+                            ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
+
+                            return 0;
+                        }
+                    }
+
                     try {
                         FileUtils.get_contents (path, out contents);
                     } catch (Error e) {
@@ -375,11 +431,6 @@ namespace Scratch.FolderManager {
                             if (item != null) {
                                 item.badge = match_count.to_string ();
                             }
-                        }
-                    } else {
-                        unowned var item = view.find_item_for_path (path);
-                        if (item != null) {
-                            item.badge = "";
                         }
                     }
 

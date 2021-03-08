@@ -206,6 +206,20 @@ namespace Scratch.FolderManager {
             base.remove (item);
         }
 
+        protected void remove_all_badges () {
+            foreach (var child in children) {
+                remove_badge (child);
+            }
+        }
+
+        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                ((FolderItem) item).remove_all_badges ();
+            }
+
+            item.badge = "";
+        }
+
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (!children_loaded) {
                 /* Empty folder with dummy item will come here even if expanded */
