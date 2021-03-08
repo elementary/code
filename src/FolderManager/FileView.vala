@@ -108,7 +108,7 @@ namespace Scratch.FolderManager {
         private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
                                                                     string path,
                                                                     bool expand = false) {
-            foreach (unowned var item in list.children) {
+            foreach (var item in list.children) {
                 if (item is Item) {
                     var code_item = (Item)item;
                     if (code_item.path == path) {
@@ -131,7 +131,7 @@ namespace Scratch.FolderManager {
 
                         unowned var recurse_item = find_path (expander, path, expand);
                         if (recurse_item != null) {
-                            return (!)recurse_item;
+                            return recurse_item;
                         }
                     }
                 }
