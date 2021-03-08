@@ -144,10 +144,6 @@ namespace Scratch.FolderManager {
              return find_path (root, path, true);
         }
 
-        public unowned Granite.Widgets.SourceList.Item? find_item_for_path (string path) {
-             return find_path (root, path, false);
-        }
-
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
