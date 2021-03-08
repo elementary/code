@@ -74,7 +74,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
     construct {
         border_width = 0;
-        var header = new Gtk.Label (_("Search content in folder '%s'").printf (folder_name)) {
+        var header = new Gtk.Label (_("Search text in folder '%s'").printf (folder_name)) {
             margin_bottom = 24,
             halign = Gtk.Align.CENTER
         };

@@ -364,6 +364,7 @@ namespace Scratch.FolderManager {
             );
 
             remove_all_badges ();
+            collapse_all ();
 
             try {
                 git_repo.file_status_foreach (status_options, (rel_path, status) => {
