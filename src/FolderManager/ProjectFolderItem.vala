@@ -312,7 +312,10 @@ namespace Scratch.FolderManager {
             Regex? pattern = null;
 
             if (search_term == "") {
-                var dialog = new Scratch.Dialogs.GlobalSearchDialog (null, file.file.get_basename ());
+                var dialog = new Scratch.Dialogs.GlobalSearchDialog (
+                    null, file.file.get_basename (), git_repo != null
+                );
+
                 dialog.response.connect ((response) => {
                     switch (response) {
                         case Gtk.ResponseType.ACCEPT:
@@ -366,79 +369,119 @@ namespace Scratch.FolderManager {
             remove_all_badges ();
             collapse_all ();
 
+            if (git_repo != null) {
+                try {
+                    git_repo.file_status_foreach (status_options, (rel_path, status) => {
+                        var target = file.file.resolve_relative_path (rel_path);
+                        if (check_is_text && rel_path.has_prefix ("po/")) { // Ignore translation files
+                            return 0;
+                        }
+
+                        if (recurse_subfolders || root_folder.equal (target.get_parent ())) {
+                            perform_match (target, pattern, check_is_text);
+                        }
+                        return 0; //TODO Allow cancelling?
+                    });
+                } catch (Error err) {
+                    warning ("Error getting file status: %s", err.message);
+                }
+            } else {
+                search_folder_children (root_folder, pattern, recurse_subfolders);
+            }
+
+            return;
+        }
+
+        private void search_folder_children (GLib.File root_folder, Regex pattern, bool recurse_subfolders) {
             try {
-                git_repo.file_status_foreach (status_options, (rel_path, status) => {
-                    string contents;
-                    var target = file.file.resolve_relative_path (rel_path);
-                    string path = target.get_path ();
+                var enumerator = root_folder.enumerate_children (
+                    FileAttribute.STANDARD_CONTENT_TYPE + "," + FileAttribute.STANDARD_TYPE,
+                    FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                    null
+                );
 
-                    if (!recurse_subfolders && root_folder != target.get_parent () ||
-                        check_is_text && rel_path.has_prefix ("po/")) {
-                        return 0;
-                    }
-
-                    if (check_is_text) {
-                        FileInfo? info = null;
-                        try {
-                            info = target.query_info (
-                                FileAttribute.STANDARD_CONTENT_TYPE,
-                                FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-                                null
-                            );
-                        } catch (Error query_error) {
-                            warning (
-                                "Error getting file info for %s: %s.  Ignoring.", target.get_path (), query_error.message
-                            );
-                        }
-
-                        if (info == null) {
-                            return 0;
-                        }
-
-                        var type = info.get_content_type ();
-                        if (!ContentType.is_mime_type (type, "text/*") ||
-                            ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
-
-                            return 0;
+                unowned FileInfo info = null;
+                unowned GLib.File child = null;
+                while (enumerator.iterate (out info, out child, null) && info != null) {
+                    if (info != null && info.has_attribute (FileAttribute.STANDARD_TYPE)) {
+                        if (info.get_file_type () == FileType.DIRECTORY) {
+                            if (recurse_subfolders) {
+                                search_folder_children (child, pattern, false); //Limit depth to 1
+                            }
+                        } else {
+                            perform_match (child, pattern, true, info);
                         }
                     }
+                }
+            } catch (Error enumerate_error) {
+                warning ("Error enumerating children of %s: %s", root_folder.get_path (), enumerate_error.message);
+            }
+        }
 
+        private void perform_match (GLib.File target,
+                                    Regex pattern,
+                                    bool check_is_text = false,
+                                    FileInfo? target_info = null) {
+            string contents;
+            string target_path = target.get_path ();
+            if (check_is_text) {
+                FileInfo? info = null;
+                if (target_info == null) {
                     try {
-                        FileUtils.get_contents (path, out contents);
-                    } catch (Error e) {
-                        warning ("error getting contents: %s", e.message);
-                        return 0;
+                        info = target.query_info (
+                            FileAttribute.STANDARD_CONTENT_TYPE,
+                            FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                            null
+                        );
+                    } catch (Error query_error) {
+                        warning (
+                            "Error getting file info for %s: %s.  Ignoring.", target.get_path (), query_error.message
+                        );
                     }
+                } else {
+                    info = target_info;
+                }
 
-                    MatchInfo? match_info = null;
-                    if (term != "") {
-                        int match_count = 0;
-                        try {
-                            for (pattern.match (contents, 0, out match_info);
-                                match_info.matches ();
-                                match_info.next ()) {
+                if (info == null) {
+                    return;
+                }
 
-                                int start_pos, end_pos;
-                                match_info.fetch_pos (0, out start_pos, out end_pos);
-                                //TODO Do something with position(s) of matches e.g. store in item
-                                match_count++;
-                            }
-                        } catch (RegexError next_error) {
-                            critical ("Error getting next match: %s", next_error.message);
-                        }
+                var type = info.get_content_type ();
+                if (!ContentType.is_mime_type (type, "text/*") ||
+                    ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
 
-                        if (match_count > 0) {
-                            unowned var item = view.expand_to_path (path);
-                            if (item != null) {
-                                item.badge = match_count.to_string ();
-                            }
-                        }
-                    }
+                    return;
+                }
+            }
 
-                    return 0;
-                });
-            } catch (Error err) {
-                warning ("Error getting file status: %s", err.message);
+            try {
+                FileUtils.get_contents (target_path, out contents);
+            } catch (Error e) {
+                warning ("error getting contents: %s", e.message);
+                return;
+            }
+
+            MatchInfo? match_info = null;
+            int match_count = 0;
+            try {
+                for (pattern.match (contents, 0, out match_info);
+                    match_info.matches ();
+                    match_info.next ()) {
+
+                    int start_pos, end_pos;
+                    match_info.fetch_pos (0, out start_pos, out end_pos);
+                    //TODO Do something with position(s) of matches e.g. store in item
+                    match_count++;
+                }
+            } catch (RegexError next_error) {
+                critical ("Error getting next match: %s", next_error.message);
+            }
+
+            if (match_count > 0) {
+                unowned var item = view.expand_to_path (target_path);
+                if (item != null) {
+                    item.badge = match_count.to_string ();
+                }
             }
 
             return;

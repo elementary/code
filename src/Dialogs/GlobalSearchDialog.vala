@@ -23,6 +23,7 @@
 
 public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     public string folder_name { get; construct; }
+    public bool is_repo { get; construct; }
     private Gtk.Entry search_term_entry;
     private Gtk.ComboBoxText filter_combo;
     private Gtk.Switch modified_switch;
@@ -63,12 +64,13 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         }
     }
 
-    public GlobalSearchDialog (Gtk.Window? parent, string folder_name) {
+    public GlobalSearchDialog (Gtk.Window? parent, string folder_name, bool is_repo) {
         Object (
             deletable: false,
             resizable: false,
             transient_for: parent,
-            folder_name: folder_name
+            folder_name: folder_name,
+            is_repo: is_repo
         );
     }
 
@@ -105,8 +107,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         filter_combo.append ( "*/meson*.*;meson/*", _("Meson Files"));
         filter_combo.append ( "data/*", _("Data Files"));
         filter_combo.append ("*.c;*.h", _("C Files"));
-        filter_combo.append ("*.*", _("All Files"));
-        filter_combo.active = 0;
+        filter_combo.append ("*.*", _("All Text Files"));
+        filter_combo.active_id = is_repo ? "*.vala; *.vapi" : "*.*";
 
         var filter_label = new Gtk.Label (_("Search in:")) {
             halign = Gtk.Align.END,
@@ -114,7 +116,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         };
 
         scope_mode_button = new Granite.Widgets.ModeButton () {
-            margin = 6
+            margin = 6,
+            no_show_all = !is_repo
         };
 
         tracked_mode_index = scope_mode_button.append_text (_("Tracked"));
@@ -124,18 +127,20 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         modified_switch = new Gtk.Switch () {
             margin = 6,
             halign = Gtk.Align.START, //Stop switch expanding
-            active = true
+            active = true,
+            no_show_all = !is_repo
         };
 
         var modified_label = new Gtk.Label (_("Modified only")) {
             halign = Gtk.Align.END,
-            margin_start = 6
+            margin_start = 6,
+            no_show_all = !is_repo
         };
 
         recurse_switch = new Gtk.Switch () {
             margin = 6,
             halign = Gtk.Align.START, //Stop switch expanding
-            active = true
+            active = is_repo ? true : false
         };
 
         var recurse_label = new Gtk.Label (_("Search sub-folders")) {
@@ -162,7 +167,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         search_term_entry.bind_property ("text", search_button, "sensitive", BindingFlags.DEFAULT,
              (binding, src_val, ref target_val) => {
-                target_val.set_boolean (src_val.get_string () != "");
+                target_val.set_boolean (src_val.get_string ().length >= 3);
             }
         );
 
