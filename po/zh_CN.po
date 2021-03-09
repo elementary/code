@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"POT-Creation-Date: 2021-03-09 21:59+0000\n"
 "PO-Revision-Date: 2021-01-29 13:51+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -60,11 +60,11 @@ msgstr "隐藏搜索栏"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist 数据源"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "所有文件"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "文本文件"
 
@@ -76,8 +76,8 @@ msgstr "打开一些文件"
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
@@ -268,107 +268,107 @@ msgstr "%s, 新增"
 msgid "Branch"
 msgstr "分支"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文本文件"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "无法打开此类型文件。"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "仍然载入"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "载入 \"%s\" 花费的时间较长"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "请耐心等待文件载入。"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "取消载入"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "关闭前保存数据到 “%s” 吗？"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若不保存，变更的内容将永久丢失。"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 msgid "Close Without Saving"
 msgstr "关闭且不保存"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "保存文件"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "新文件"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "文件 “%s” 不可读"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "可能文件已损坏或您没有读取它的权限。"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "文件 \"%s\" 所在位置不可写， 您想将它保存至其他位置吗？"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "另存为…"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "文件 \"%s\" 已被删除。 您想储存此文件的副本吗？"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "无法保存对文件 \"%s\" 的更改。您想将更改的内容保存至其他位置吗？"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "将更改保存到其他位置"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr "文件 \"%s\" 的内容已被其他程序更改。 您想要重新载入还是继续编辑？"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "重新加载"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "继续"
 
