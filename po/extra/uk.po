@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2021-02-02 19:54+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"PO-Revision-Date: 2021-02-26 13:42+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
 "\n"
@@ -356,6 +356,14 @@ msgstr "Новий файл"
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Нове вікно"
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr "Запуск Коду з правами адміністратора"
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
+msgstr "Потрібна автентифікація для запуску Коду з правами адміністратора"
 
 #~ msgid "New Document"
 #~ msgstr "Новий документ"

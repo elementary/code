@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 21:28+0000\n"
-"PO-Revision-Date: 2021-02-06 21:53+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"PO-Revision-Date: 2021-02-26 13:42+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -75,9 +75,9 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ "
-"Diff,‏ Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏"
-" Objective C,‏ Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
+"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ Diff,‏ "
+"Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏ Objective C,‏ "
+"Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
@@ -343,6 +343,14 @@ msgstr "קובץ חדש"
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "חלון חדש"
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr "הפעלת קוד כהנהלה"
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
+msgstr "נדרש אימות כדי להריץ את קוד עם הרשאות ניהול"
 
 #~ msgid "New Document"
 #~ msgstr "מסמך חדש"

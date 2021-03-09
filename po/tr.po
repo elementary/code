@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "PO-Revision-Date: 2020-12-06 19:16+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -47,7 +47,7 @@ msgstr "[DOSYA…]"
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Bul…"
 
@@ -59,41 +59,41 @@ msgstr "Arama çubuğunu gizle"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Kod için Zeitgeist Veri Kaynağı"
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:501
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:505
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:737
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:740
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:741 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:766
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:767
 msgid "_Cancel"
 msgstr "_İptal"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -101,88 +101,88 @@ msgstr ""
 "Aktif bir seçim olmadan kesmek veya kopyalamak mevcut satırın tamamını "
 "kesecek veya kopyalayacaktır"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "Genel"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "Dosyalar değiştirildiğinde kaydet:"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr "Satırı akıllı kes/kopyala:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "Sekmeler"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "Otomatik girintili yazma:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "Sekme yerine boşluk ekle:"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "Sekme genişliği:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "Davranış"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Kapat"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Düzenleyici"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "Eşleşen parantezleri vurgula:"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr "Satır kaydırma:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "Boşlukları Göster:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "Seçili metin için"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "Her zaman"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "Küçük Haritayı Göster:"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "Satır genişliği kılavuzu:"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr "Yazı Tipi"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "Özel yazı tipi:"
 
@@ -257,17 +257,17 @@ msgstr "Klasörü Kapat"
 msgid "Close Other Folders"
 msgstr "Diğer Klasörleri Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
 msgid "%s, Modified"
 msgstr "%s, Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
 msgstr "%s, Yeni"
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:348
 msgid "Branch"
 msgstr "Dal"
 
@@ -390,93 +390,93 @@ msgstr "Şablonlar"
 msgid "Text file from %s:%d"
 msgstr "Metin dosyası %s:%d"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Sözdizimi Vurgulaması"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Satır numarası"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Dilleri filtrele"
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Düz Metin"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Boşluk"
 msgstr[1] "%d Boşluk"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Sekme"
 msgstr[1] "%d Sekme"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "Satıra Git:"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr "Bir dosya aç"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr "Proje şablonları"
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr "Bu dosyayı kaydet"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr "Bu dosyayı farklı bir adla kaydet"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr "Bu dosyayı geri yükle"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr "Paylaş"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr "Uzaklaştır"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr "1:1 Yakınlaştır"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr "Yakınlaştır"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr "Yüksek Karşıtlık"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr "Açık Renk Tema"
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr "Koyu Renk Tema"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr "Kenar Çubuğunu Aç/Kapat"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr "Menü"
 
@@ -574,8 +574,8 @@ msgstr "Klasör Aç"
 msgid "Add a project folder to the sidebar."
 msgstr "Kenar çubuğuna bir proje klasörü ekle."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Pastebin'e Yükle"
 
@@ -583,23 +583,23 @@ msgstr "Pastebin'e Yükle"
 msgid "Name:"
 msgstr "Ad:"
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr "Biçim:"
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr "Farklı biçim seç"
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
 msgstr "Geçerlilik süresi:"
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "Bu paylaşımı gizli tut"
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr "Kullanılabilir biçimler"
 

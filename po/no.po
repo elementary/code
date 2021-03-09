@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"POT-Creation-Date: 2021-02-25 18:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr ""
 
@@ -46,128 +46,128 @@ msgstr ""
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:501
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:505
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:737
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:740
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:741 src/Services/Document.vala:400
+#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:766
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:767
 msgid "_Cancel"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr ""
 
@@ -240,17 +240,17 @@ msgstr ""
 msgid "Close Other Folders"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
 msgid "%s, Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:348
 msgid "Branch"
 msgstr ""
 
@@ -367,93 +367,93 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr ""
 
@@ -551,8 +551,8 @@ msgstr ""
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr ""
 
@@ -560,23 +560,23 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr ""
 
