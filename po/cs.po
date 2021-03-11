@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
+"POT-Creation-Date: 2021-03-09 21:59+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Hledat…"
 
@@ -59,129 +59,129 @@ msgstr "Skrýt vyhledávací panel"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zdroj dat Zeitgeist pro Code"
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Textové soubory"
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:737
 msgid "Open some files"
 msgstr "Otevřít nějaké soubory"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:740
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:766
 msgid "_Open"
 msgstr "_Otevřít"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:767
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 "Vyjmutí/kopírování bez vybrání vyjme/zkopíruje celý řádek na aktuální pozici"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "Obecné"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "Automaticky ukládat soubory po upravení:"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr "Chytré vyjímání/kopírování řádků:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "Tabulátory"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "Automatické odsazování:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "Vkládat mezery místo tabulátorů:"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "Šířka tabulátoru:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "Chování"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Rozhraní"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Zavřít"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "Rozšíření"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "Zvýraznit odpovídající závorky:"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr "Zalamovat řádky:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "Vykreslit mezery:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "Pro vybraný text"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "Vždy"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "Zobrazit mini mapu:"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "Vodítko délky řádku:"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr "Písmo"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "Vlastní písmo:"
 
@@ -254,83 +254,83 @@ msgstr "Zavřít složku"
 msgid "Close Other Folders"
 msgstr "Zavřít ostatní složky"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, c-format
 msgid "%s, Modified"
 msgstr "%s, Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:198
 #, c-format
 msgid "%s, New"
 msgstr "%s, Nový"
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:348
 msgid "Branch"
 msgstr "Větev"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s není textový soubor"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code nenačte tento typ souboru."
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Přesto načíst"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Načítání souboru \"%s\" trvá hodně dlouho"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Prosím počkejte, než Code načte soubor."
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "Zrušit načítání"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Uložit před ukončením změny do „%s“?"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Pokud neuložíte, změny nenávratně ztratí."
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 msgid "Close Without Saving"
 msgstr "Zavřít bez uložení"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "Uložit"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "Uložit soubor"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Soubor \"%s\" nelze přečíst"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Může být poškozený, nebo nemáte oprávnění k jeho čtení."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -338,16 +338,16 @@ msgid ""
 msgstr ""
 "Úložiště obsahující soubor \"%s\" bylo odpojeno. Přejete si jej uložit jinde?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "Uložit jako…"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Soubor \"%s\" byl smazán. Přejete si jej přesto uložit?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -355,11 +355,11 @@ msgid ""
 msgstr ""
 "Změny nelze uložit do souboru  \"%s\".  Přejete si tyto změny uložit jinam?"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "Uložit změny jinam"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -368,11 +368,11 @@ msgstr ""
 "Soubor \"%s\" byl pozměněn jinou aplikací. Přejete si jej otevřít znovu nebo "
 "chcete pokračovat v úpravách?"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "Načíst"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "Pokračovat"
 
@@ -385,23 +385,23 @@ msgstr "Šablony"
 msgid "Text file from %s:%d"
 msgstr "Textový soubor z %s:%d"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Zvýraznění syntaxe"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Číslo řádku"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Filtrovat jazyky"
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Prostý text"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -409,7 +409,7 @@ msgstr[0] "%d mezera"
 msgstr[1] "%d mezery"
 msgstr[2] "%d mezer"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -417,63 +417,63 @@ msgstr[0] "%d tabulátor"
 msgstr[1] "%d tabulátory"
 msgstr[2] "%d tabulátorů"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "Přejít na řádek:"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr "Otevřít soubor"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr "Šablony projektu"
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr "Uložit"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr "Uložit soubor pod jiným názvem"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr "Obnovit tento soubor"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr "Sdílet"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr "Zvětšení 1:1"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr "Vysoký kontrast"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr "Solarizovaný světlý"
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr "Solarizovaný tmavý"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr "Skrýt/Zobrazit postranní panel"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr "Menu"
 
@@ -573,8 +573,8 @@ msgstr "Otevřít složku"
 msgid "Add a project folder to the sidebar."
 msgstr "Přidat složku projektu do bočního panelu."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Nahrát na Pastebin"
 
@@ -582,25 +582,25 @@ msgstr "Nahrát na Pastebin"
 msgid "Name:"
 msgstr "Jméno:"
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr "Formát:"
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 #, fuzzy
 #| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Doba použitelnosti:"
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "Ponechte si vložit soukromý"
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr ""
 
