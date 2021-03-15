@@ -21,16 +21,12 @@
 namespace Scratch.Services {
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
-        public string branch_name {
-            get {
-                return _branch_name;
-            }
 
-            set {
-                if (_branch_name != value) {
-                    _branch_name = value;
-                    branch_changed (value);
-                }
+        public string current_branch_name { get; private set; }
+
+        public bool is_detached_head {
+            get {
+                return current_branch_name == "";
             }
         }
 
@@ -40,7 +36,6 @@ namespace Scratch.Services {
 
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
-        private string _branch_name = "";
         private uint update_timer_id = 0;
         private Ggit.StatusOptions status_options;
 
@@ -95,19 +90,6 @@ namespace Scratch.Services {
             }
         }
 
-        public string get_current_branch () {
-            try {
-                var head = git_repo.get_head ();
-                if (head.is_branch ()) {
-                    return ((Ggit.Branch)head).get_name ();
-                }
-            } catch (Error e) {
-                warning ("Could not get current branch name - %s", e.message);
-            }
-
-            return "";
-        }
-
         public string[] get_local_branches () {
             string[] branches = {};
             try {
@@ -127,7 +109,63 @@ namespace Scratch.Services {
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
-            branch_name = new_branch_name;
+            //Change of branch will be picked up by the monitor of the .git folder and "branch-changed" signal emitted
+        }
+
+        public void create_new_branch (string name) throws Error {
+            Ggit.Object git_object = git_repo.get_head ().lookup ();
+            var new_branch = git_repo.create_branch (name, git_object, Ggit.CreateFlags.NONE);
+            git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
+        }
+
+        public void commit_all_to_head () throws Ggit.Error, Error {
+            //TODO Provide means to set various commit information
+            //TODO Warn of untracked files - at present these will be committed and tracked without warning
+            //Use automatic commit message for now
+            var message = ("Commit made at %s").printf (new DateTime.now_local ().to_string ());
+
+            Ggit.Ref? head_ref = git_repo.get_head ();
+            Ggit.Object? head_object = head_ref.lookup ();
+            if (head_object is Ggit.Commit) {
+                //Get default commit info from config
+
+
+                // Stage all modified files
+                var idx = git_repo.get_index ();
+                List<File> paths_to_stage = null;
+                file_status_map.entries.@foreach ((entry) => {
+                    if (entry.@value != Ggit.StatusFlags.CURRENT) {
+                        paths_to_stage.prepend (git_repo.workdir.get_child (entry.key));
+                    }
+
+                    return true;
+                });
+
+                foreach (File file in paths_to_stage) {
+                    //TODO Check the file exists?
+                    idx.add_file (file);
+                }
+
+                var tree_oid = idx.write_tree ();
+                var git_tree = git_repo.lookup_tree (tree_oid);
+                var signature = get_signature ();
+                //For now assume user is both author and committer
+                var commit_oid = git_repo.create_commit (
+                    "HEAD",
+                    signature,
+                    signature,
+                    null,
+                    message,
+                    git_tree,
+                    {(Ggit.Commit)head_object}
+                );
+
+                var commit = git_repo.lookup_commit (commit_oid);
+                var options = new Ggit.CheckoutOptions ();
+                git_repo.checkout_tree (commit, options);
+            } else {
+                throw new Ggit.Error.GIT_ERROR ("Head is not a commit");
+            }
         }
 
         private bool do_update = false;
@@ -138,10 +176,14 @@ namespace Scratch.Services {
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                branch_name = ((Ggit.Branch)head).get_name ();
+                                unowned string name = ((Ggit.Branch)head).get_name ();
+                                if (name != current_branch_name) {
+                                    current_branch_name = name;
+                                    branch_changed (name);
+                                }
                             }
                         } catch (Error e) {
-                            warning ("An error occured while fetching the current git branch name: %s", e.message);
+                            warning ("Could not get current branch name - %s", e.message);
                         }
 
                         // SourceList shows files in working dir so only want status for those for now.
@@ -175,6 +217,18 @@ namespace Scratch.Services {
 
         public bool path_is_ignored (string path) throws Error {
             return git_repo.path_is_ignored (path);
+        }
+
+        public bool has_uncommitted_changes () {
+            return non_current_entries.size > 0;
+        }
+
+        private Ggit.Signature? get_signature () throws Error {
+            var config = (new Ggit.Config.from_file (Ggit.Config.find_global ())).snapshot ();
+            return new Ggit.Signature.now (
+                config.get_string ("user.name"),
+                config.get_string ("user.email")
+            );
         }
     }
 }

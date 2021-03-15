@@ -19,7 +19,7 @@
 
 namespace Scratch.FolderManager {
     internal class ProjectFolderItem : FolderItem {
-        struct VisibleItem {
+        private struct VisibleItem {
             public string rel_path;
             public Item item;
         }
@@ -27,16 +27,30 @@ namespace Scratch.FolderManager {
         private static Icon added_icon;
         private static Icon modified_icon;
 
+        public const string ACTION_DOMAIN = "git";
+        public const string ACTION_PREFIX = "git.";
+        public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_COMMIT = "action-commit";
+
+        public SimpleActionGroup actions { get; construct; }
+
+        private const ActionEntry[] ACTION_ENTRIES = {
+            { ACTION_NEW_BRANCH, action_new_branch },
+            { ACTION_COMMIT, action_commit }
+        };
+
         public signal void closed ();
         public signal void close_all_except ();
 
         private Scratch.Services.MonitoredRepository? monitored_repo = null;
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
-        public string top_level_path { get; construct; }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
-            Object (file: file, view: view);
+            Object (
+                file: file,
+                view: view
+            );
         }
 
         static construct {
@@ -52,6 +66,9 @@ namespace Scratch.FolderManager {
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
             }
+
+            actions = new SimpleActionGroup ();
+            actions.add_action_entries (ACTION_ENTRIES, this);
         }
 
         public void child_folder_changed (FolderItem folder) {
@@ -108,7 +125,15 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo));
+                menu.append (new BranchMenu (monitored_repo, actions));
+                if (monitored_repo.has_uncommitted_changes ()) {
+                    menu.insert_action_group (ACTION_DOMAIN, actions);
+                    var commit_item = new Gtk.MenuItem.with_label (_("Commit")) {
+                       action_name = ACTION_PREFIX + ACTION_COMMIT
+                    };
+
+                    menu.append (commit_item);
+                }
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -158,7 +183,7 @@ namespace Scratch.FolderManager {
         }
 
         private void update_branch_name (string branch_name) requires (monitored_repo != null) {
-            markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
+            markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, monitored_repo.current_branch_name);
         }
 
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
@@ -365,9 +390,110 @@ namespace Scratch.FolderManager {
             return;
         }
 
-        private class ChangeBranchMenu : Gtk.MenuItem {
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) requires (monitored_repo != null) {
-                string current_branch_name = monitored_repo.get_current_branch ();
+        private void action_new_branch () {
+            try {
+                deal_with_uncommitted_changes ();
+                var new_branch_name = get_new_branch_name ();
+                if (new_branch_name != null) {
+                    monitored_repo.create_new_branch (new_branch_name);
+                }
+            } catch (Error e) {
+                warning ("Error creating branch %s", e.message);
+            }
+        }
+
+        private string? get_new_branch_name () throws Error {
+            string? name = null;
+
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Create a new local branch in '%s'").printf (file.name),
+                _("The branch parent will be '%s'").printf (monitored_repo.current_branch_name),
+                "applications-development",
+                Gtk.ButtonsType.CANCEL
+            );
+
+            var create_button = new Gtk.Button.with_label (_("Create Branch"));
+            create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            var entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z]+[a-z0-9--]*$"));
+            entry.bind_property ("is-valid", create_button, "sensitive", BindingFlags.DEFAULT);
+
+            dialog.add_action_widget (create_button, Gtk.ResponseType.APPLY);
+            dialog.custom_bin.add (entry);
+
+            dialog.show_all ();
+
+            if (dialog.run () == Gtk.ResponseType.APPLY) {
+                name = entry.text;
+            }
+
+            dialog.destroy ();
+
+            return name;
+        }
+
+        private void action_commit () {
+            try {
+                monitored_repo.commit_all_to_head ();
+            } catch (Error e) {
+                //TODO provide user feedback on failure
+            }
+        }
+
+        private void deal_with_uncommitted_changes () throws Ggit.Error, Error {
+            if (monitored_repo.has_uncommitted_changes ()) {
+                var error_message = "";
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Branch '%s' has uncommitted changes").printf (monitored_repo.current_branch_name),
+                    _("Please choose what to do '%s'").printf (monitored_repo.current_branch_name),
+                    "dialog-question",
+                    Gtk.ButtonsType.CANCEL
+                );
+
+                var commit_button = new Gtk.Button.with_label (_("Commit"));
+
+                dialog.add_action_widget (commit_button, 1);
+
+                dialog.show_all ();
+                int response = dialog.run ();
+                dialog.destroy ();
+
+                switch (response) {
+                    case Gtk.ResponseType.CANCEL:
+                        error_message = _("Cancelled by user");
+                        break;
+
+                    case 1: //Commit
+                        monitored_repo.commit_all_to_head ();
+                        return;
+
+                    default:
+                         error_message = _("Unrecognised response from user");
+                        break;
+                }
+
+                throw new Ggit.Error.GIT_ERROR (error_message);
+            }
+        }
+
+        // private class ChangeBranchMenu : Gtk.MenuItem {
+        //     public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) 
+        //         string current_branch_name = monitored_repo.get_current_branch ();
+
+        private class BranchMenu : Gtk.MenuItem {
+            public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
+
+            public BranchMenu (Scratch.Services.MonitoredRepository monitored_repo, SimpleActionGroup git_actions)
+            requires (monitored_repo != null) {
+                Object (
+                    monitored_repo: monitored_repo
+                );
+
+                insert_action_group (ACTION_DOMAIN, git_actions);
+            }
+
+            construct {
+                unowned string current_branch_name = monitored_repo.current_branch_name;
                 string[] local_branch_names = monitored_repo.get_local_branches ();
                 var change_branch_menu = new Gtk.Menu ();
 
@@ -388,6 +514,19 @@ namespace Scratch.FolderManager {
                             warning ("Failed to change branch to %s.  %s", name, e.message);
                         }
                     });
+                }
+
+                try {
+                    if (!monitored_repo.is_detached_head) {
+                        change_branch_menu.add (new Gtk.SeparatorMenuItem ());
+                        var branch_item = new Gtk.MenuItem.with_label (_("New Branch")) {
+                           action_name = ACTION_PREFIX + ACTION_NEW_BRANCH
+                        };
+
+                        change_branch_menu.add (branch_item);
+                    }
+                } catch (Error e) {
+                    warning ("Error adding 'New Branch' menu item %s", e.message);
                 }
 
                 label = _("Branch");
