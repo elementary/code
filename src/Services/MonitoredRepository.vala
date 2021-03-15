@@ -37,7 +37,6 @@ namespace Scratch.Services {
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
         private uint update_timer_id = 0;
-        private Ggit.StatusOptions status_options;
 
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
@@ -50,9 +49,6 @@ namespace Scratch.Services {
 
         construct {
             file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
-            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
-                                                     Ggit.StatusShow.INDEX_AND_WORKDIR,
-                                                     null);
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -109,6 +105,12 @@ namespace Scratch.Services {
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
+            var options = new Ggit.CheckoutOptions () {
+                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                strategy = Ggit.CheckoutStrategy.FORCE
+            };
+
+            git_repo.checkout_head (options); //Use default options for now
             //Change of branch will be picked up by the monitor of the .git folder and "branch-changed" signal emitted
         }
 
@@ -168,6 +170,15 @@ namespace Scratch.Services {
             }
         }
 
+        public void stash_all (string message = "") throws Ggit.Error, Error {
+            var stasher = get_signature ();
+            if (message == "") {
+                message = "Default Stash";
+            }
+            var flags = Ggit.StashFlags.DEFAULT;  //Do not stash untracked/ignored; do not keep index
+            git_repo.save_stash (stasher, message, flags);
+        }
+
         private bool do_update = false;
         public void update () {
             if (update_timer_id == 0) {
@@ -191,9 +202,16 @@ namespace Scratch.Services {
                         // TODO Distinguish new untracked files from new tracked files
                         try {
                             file_status_map.clear ();
+                            var status_options = new Ggit.StatusOptions (
+                                Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
+                                Ggit.StatusShow.INDEX_AND_WORKDIR, null);
 
                             git_repo.file_status_foreach (status_options, (path, status) => {
-                                file_status_map.@set (path, status);
+                                // We want to ignore temporary backup files created by Code itself.
+                                if (!path.has_suffix ("~")) {
+                                    file_status_map.@set (path, status);
+                                }
+
                                 return 0;
                             });
 

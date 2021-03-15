@@ -31,12 +31,14 @@ namespace Scratch.FolderManager {
         public const string ACTION_PREFIX = "git.";
         public const string ACTION_NEW_BRANCH = "action-new-branch";
         public const string ACTION_COMMIT = "action-commit";
+        public const string ACTION_SWITCH = "action-switch";
 
         public SimpleActionGroup actions { get; construct; }
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_NEW_BRANCH, action_new_branch },
-            { ACTION_COMMIT, action_commit }
+            { ACTION_COMMIT, action_commit },
+            { ACTION_SWITCH, action_switch, "s" }
         };
 
         public signal void closed ();
@@ -398,7 +400,7 @@ namespace Scratch.FolderManager {
                     monitored_repo.create_new_branch (new_branch_name);
                 }
             } catch (Error e) {
-                warning ("Error creating branch %s", e.message);
+                warning ("Error creating branch: %s", e.message);
             }
         }
 
@@ -450,8 +452,10 @@ namespace Scratch.FolderManager {
                     Gtk.ButtonsType.CANCEL
                 );
 
+                var stash_button = new Gtk.Button.with_label (_("Stash"));
                 var commit_button = new Gtk.Button.with_label (_("Commit"));
 
+                dialog.add_action_widget (stash_button, 0);
                 dialog.add_action_widget (commit_button, 1);
 
                 dialog.show_all ();
@@ -462,6 +466,10 @@ namespace Scratch.FolderManager {
                     case Gtk.ResponseType.CANCEL:
                         error_message = _("Cancelled by user");
                         break;
+
+                    case 0: //Stash
+                        monitored_repo.stash_all ();
+                        return;
 
                     case 1: //Commit
                         monitored_repo.commit_all_to_head ();
@@ -476,9 +484,17 @@ namespace Scratch.FolderManager {
             }
         }
 
-        // private class ChangeBranchMenu : Gtk.MenuItem {
-        //     public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) 
-        //         string current_branch_name = monitored_repo.get_current_branch ();
+
+        private void action_switch (GLib.SimpleAction action, GLib.Variant? param) {
+            var switch_to_branch_name = param.get_string ();
+            try {
+                deal_with_uncommitted_changes ();
+                monitored_repo.change_branch (switch_to_branch_name);
+            } catch (Error e) {
+                //TODO Provide UI feedback if fails
+                warning ("Error changing branch: %s", e.message);
+            }
+        }
 
         private class BranchMenu : Gtk.MenuItem {
             public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
@@ -498,22 +514,17 @@ namespace Scratch.FolderManager {
                 var change_branch_menu = new Gtk.Menu ();
 
                 foreach (var branch_name in local_branch_names) {
-                    var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
-                    branch_item.draw_as_radio = true;
+                    var branch_item = new Gtk.CheckMenuItem.with_label (branch_name) {
+                        draw_as_radio = true,
+                        action_name = ACTION_PREFIX + ACTION_SWITCH,
+                        action_target = branch_name
+                    };
 
                     if (branch_name == current_branch_name) {
                         branch_item.active = true;
                     }
 
                     change_branch_menu.add (branch_item);
-
-                    branch_item.toggled.connect (() => {
-                        try {
-                            monitored_repo.change_branch (branch_name);
-                        } catch (GLib.Error e) {
-                            warning ("Failed to change branch to %s.  %s", name, e.message);
-                        }
-                    });
                 }
 
                 try {
@@ -526,7 +537,7 @@ namespace Scratch.FolderManager {
                         change_branch_menu.add (branch_item);
                     }
                 } catch (Error e) {
-                    warning ("Error adding 'New Branch' menu item %s", e.message);
+                    warning ("Error adding 'New Branch' menu item: %s", e.message);
                 }
 
                 label = _("Branch");
