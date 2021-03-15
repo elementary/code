@@ -60,7 +60,14 @@ namespace Scratch.Services {
             set {
                 source_file.set_location (value);
                 file_changed ();
-                label = get_basename ();
+                tab_name = get_basename ();
+            }
+        }
+
+        public string tab_name {
+            set {
+                label = value;
+                tooltip = get_tab_tooltip ();
             }
         }
 
@@ -594,6 +601,15 @@ namespace Scratch.Services {
             }
         }
 
+        // Get full file path
+        public string get_tab_tooltip () {
+            if (is_file_temporary) {
+                return _("New Document"); //No path for a new document
+            } else {
+                return file.get_path ();
+            }
+        }
+
         // Set InfoBars message
         public void set_message (Gtk.MessageType type, string label,
                                   string? button1 = null, owned VoidFunc? callback1 = null,
@@ -821,10 +837,10 @@ namespace Scratch.Services {
 
             if (!val) {
                 if (!(unsaved_identifier in this.label)) {
-                    this.label = unsaved_identifier + this.label;
+                    tab_name = unsaved_identifier + this.label;
                 }
             } else {
-                this.label = this.label.replace (unsaved_identifier, "");
+                tab_name = this.label.replace (unsaved_identifier, "");
             }
         }
 
