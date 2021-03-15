@@ -487,8 +487,12 @@ namespace Scratch {
                         */
                         if (file.query_exists ()) {
                             var doc = new Scratch.Services.Document (actions, file);
+                            bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
                                 open_document (doc, file.get_uri () == focused_document, pos);
+                            }
+                            if (is_focused) { //Maybe expand to show all opened documents?
+                                folder_manager_view.expand_to_path (file.get_path ());
                             }
                         }
                     }
