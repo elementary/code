@@ -138,6 +138,12 @@ namespace Scratch.FolderManager {
                 }
             }
 
+            var search_item = new Gtk.MenuItem.with_label (_("Search Project"));
+             search_item.activate.connect (() => { global_search (); });
+
+             menu.append (new Gtk.SeparatorMenuItem ());
+             menu.append (search_item);
+
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
