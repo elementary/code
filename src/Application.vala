@@ -83,8 +83,6 @@ namespace Scratch {
             if (Posix.getuid () == 0 && GLib.Environment.get_variable ("PKEXEC_UID") == null) {
 #if HAVE_PKEXEC
                 warning ("Running Code using sudo is not possible. Use: pkexec io.elementary.code");
-#else
-                warning ("Running Code using sudo is not possible."); //Pkexec cannot be used in e.g. Flatpak
 #endif
                 quit ();
                 return 1;
