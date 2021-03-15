@@ -121,13 +121,6 @@ modules:
             url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
             md5: 12e517cac2b57a0121cda351570f1e63
 
-  - name: policykit-1
-    buildsystem: autotools
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/polkit/polkit
-        tag: '0.118'
-
   - name: vte
     buildsystem: meson
     config-opts:
@@ -145,6 +138,8 @@ modules:
 
   - name: code
     buildsystem: meson
+    config-opts:
+     - '-Dhave_pkexec=false'
     sources:
       - type: dir
         path: .
