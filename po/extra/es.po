@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-09 21:59+0000\n"
-"PO-Revision-Date: 2021-02-26 13:42+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"PO-Revision-Date: 2021-03-16 11:50+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -129,16 +129,16 @@ msgid "Remember whether the sidebar is open"
 msgstr "Se recuerda si la barra lateral estaba abierta"
 
 #: data/io.elementary.code.appdata.xml.in:59
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
 msgid "Add keyboard shortcuts for next and previous documents"
 msgstr ""
 "Se añadieron atajos de teclado para cambiar al documento anterior y el "
-"siguiente."
+"siguiente"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Show full document path in tab tooltip"
 msgstr ""
+"Se muestra la ruta completa del documento en la descripción emergente de la "
+"pestaña"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Fixes:"
@@ -343,7 +343,7 @@ msgstr "No recrear archivos eliminados al restaurar la sesión"
 
 #: data/io.elementary.code.appdata.xml.in:170
 msgid "Restore line wrap preference"
-msgstr "Restaurar la preferencia del envoltorio de línea"
+msgstr "Se restaura la preferencia de ajuste de renglones"
 
 #: data/io.elementary.code.appdata.xml.in:171
 msgid "Add accel tooltips"
