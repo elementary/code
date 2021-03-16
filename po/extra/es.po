@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-09 21:59+0000\n"
-"PO-Revision-Date: 2021-03-16 11:50+0000\n"
+"PO-Revision-Date: 2021-03-16 12:20+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:130
 msgid "Enter name of new file before creating it"
-msgstr "Introducir el nombre del nuevo archivo antes de crearlo"
+msgstr "Puede introducir el nombre del archivo nuevo antes de crearlo"
 
 #: data/io.elementary.code.appdata.xml.in:138
 msgid "Use Granite.MessageDialog throughout"
@@ -293,7 +293,7 @@ msgstr "Uso exhaustivo de Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:139
 msgid "Include non-text files in sidebar"
-msgstr "Incluir archivos que no sean de texto en la barra lateral"
+msgstr "Se incluyen archivos binarios en la barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:140
 msgid "Fix Remove Current View"
@@ -387,7 +387,7 @@ msgstr "Ejecutar código como administrador"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr "Se requiere autenticación para ejecutar Code como administrador"
+msgstr "Necesita autenticarse para ejecutar Code con permisos administrativos"
 
 #~ msgid "New Document"
 #~ msgstr "Nuevo documento"
