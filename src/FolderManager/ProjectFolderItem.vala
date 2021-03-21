@@ -299,7 +299,7 @@ namespace Scratch.FolderManager {
         }
 
         public void global_search (string search_term = "",
-                                   GLib.File root_folder = file.file,
+                                   GLib.File? start_folder = file.file,
                                    bool is_literal = true,
                                    bool tracked_only = true,
                                    bool recurse = true) {
@@ -314,7 +314,7 @@ namespace Scratch.FolderManager {
 
             if (search_term == "") {
                 var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                    null, file.file.get_basename (), git_repo != null
+                    null, start_folder.get_basename (), git_repo != null
                 );
 
                 dialog.response.connect ((response) => {
@@ -382,24 +382,27 @@ namespace Scratch.FolderManager {
                             return 0;
                         }
 
-                        if (recurse_subfolders || root_folder.equal (target.get_parent ())) {
+                        if ((recurse_subfolders && start_folder.get_relative_path (target) != null) ||
+                             start_folder.equal (target.get_parent ())) {
+
                             perform_match (target, pattern, check_is_text);
                         }
+
                         return 0; //TODO Allow cancelling?
                     });
                 } catch (Error err) {
                     warning ("Error getting file status: %s", err.message);
                 }
             } else {
-                search_folder_children (root_folder, pattern, recurse_subfolders);
+                search_folder_children (start_folder, pattern, recurse_subfolders);
             }
 
             return;
         }
 
-        private void search_folder_children (GLib.File root_folder, Regex pattern, bool recurse_subfolders) {
+        private void search_folder_children (GLib.File start_folder, Regex pattern, bool recurse_subfolders) {
             try {
-                var enumerator = root_folder.enumerate_children (
+                var enumerator = start_folder.enumerate_children (
                     FileAttribute.STANDARD_CONTENT_TYPE + "," + FileAttribute.STANDARD_TYPE,
                     FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
                     null
@@ -419,7 +422,7 @@ namespace Scratch.FolderManager {
                     }
                 }
             } catch (Error enumerate_error) {
-                warning ("Error enumerating children of %s: %s", root_folder.get_path (), enumerate_error.message);
+                warning ("Error enumerating children of %s: %s", start_folder.get_path (), enumerate_error.message);
             }
         }
 
