@@ -310,6 +310,7 @@ namespace Scratch.FolderManager {
             bool check_is_text = false;
             string[] path_spec = {"*.*"};
             bool modified_only = true;
+            bool case_sensitive = true;
             Regex? pattern = null;
 
             if (search_term == "") {
@@ -326,6 +327,7 @@ namespace Scratch.FolderManager {
                             recurse_subfolders = dialog.recurse;
                             path_spec = dialog.path_spec;
                             modified_only = dialog.modified_only;
+                            case_sensitive = dialog.case_sensitive;
                             break;
 
                         default:
@@ -349,11 +351,18 @@ namespace Scratch.FolderManager {
                 }
 
                 try {
-                    pattern = new Regex (term, RegexCompileFlags.MULTILINE);
+                    var flags = RegexCompileFlags.MULTILINE;
+                    if (!case_sensitive) {
+                        flags |= RegexCompileFlags.CASELESS;
+                    }
+
+                    pattern = new Regex (term, flags);
                 } catch (Error e) {
                     critical ("Error creating regex from '%s': %s", term, e.message);
                     return;
                 }
+            } else {
+                return;
             }
 
             check_is_text = path_spec[0] == "*.*" ; //Assume otherwise path spec will exclude non-text

@@ -28,6 +28,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     private Gtk.ComboBoxText filter_combo;
     private Gtk.Switch modified_switch;
     private Gtk.Switch recurse_switch;
+    private Gtk.Switch case_switch;
     private Granite.Widgets.ModeButton match_mode_button;
     private Granite.Widgets.ModeButton scope_mode_button;
     private int literal_mode_index;
@@ -51,6 +52,12 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     public bool recurse {
         get {
             return recurse_switch.active;
+        }
+    }
+
+    public bool case_sensitive {
+        get {
+            return case_switch.active;
         }
     }
 
@@ -139,7 +146,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
         recurse_switch = new Gtk.Switch () {
             margin = 6,
-            halign = Gtk.Align.START, //Stop switch expanding
+            halign = Gtk.Align.START,
             active = is_repo ? true : false
         };
 
@@ -147,6 +154,14 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
             halign = Gtk.Align.END,
             margin_start = 6
         };
+
+        case_switch = new Gtk.Switch () {
+            margin = 6,
+            halign = Gtk.Align.START,
+            active = true
+        };
+
+        var case_label = new Gtk.Label (_("Case sensitive"));
 
         var layout = new Gtk.Grid ();
         layout.attach (header, 0, 0, 4, 1);
@@ -160,6 +175,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         layout.attach (modified_switch, 1, 3, 1, 1);
         layout.attach (recurse_label, 0, 4, 1, 1);
         layout.attach (recurse_switch, 1, 4, 1, 1);
+        layout.attach (case_label, 0, 5, 1, 1);
+        layout.attach (case_switch, 1, 5, 1, 1);
         get_content_area ().add (layout);
 
         var close_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
