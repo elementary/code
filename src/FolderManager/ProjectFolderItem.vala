@@ -309,6 +309,7 @@ namespace Scratch.FolderManager {
             bool recurse_subfolders = true;
             bool check_is_text = false;
             string[] path_spec = {"*.*"};
+            bool modified_only = true;
             Regex? pattern = null;
 
             if (search_term == "") {
@@ -324,6 +325,7 @@ namespace Scratch.FolderManager {
                             search_tracked_only = dialog.tracked_only;
                             recurse_subfolders = dialog.recurse;
                             path_spec = dialog.path_spec;
+                            modified_only = dialog.modified_only;
                             break;
 
                         default:
@@ -356,7 +358,10 @@ namespace Scratch.FolderManager {
 
             check_is_text = path_spec[0] == "*.*" ; //Assume otherwise path spec will exclude non-text
 
-            var status_scope = Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            var status_scope = Ggit.StatusOption.DEFAULT;
+            if (!modified_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            }
             if (!search_tracked_only) {
                 status_scope |= Ggit.StatusOption.INCLUDE_UNTRACKED;
             }
