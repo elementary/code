@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-09 21:59+0000\n"
-"PO-Revision-Date: 2020-12-20 18:16+0000\n"
+"PO-Revision-Date: 2021-03-21 00:15+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/extra/mr/>\n"
 "Language: mr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
@@ -77,7 +77,7 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"इतर सिन्ट्याक्स हायलाइटिंग:  Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, "
+"इतर सिन्ट्याक्स हायलाइटिंग: Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, "
 "Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, "
 "Pascal, Perl, Python, Ruby, XML."
 
@@ -126,14 +126,12 @@ msgid "Remember whether the sidebar is open"
 msgstr "साइडबार खुले आहे की नाही ते लक्षात ठेवा"
 
 #: data/io.elementary.code.appdata.xml.in:59
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "पुढील आणि मागील दस्तऐवजांसाठी कीबोर्ड शॉर्टकट जोडा."
+msgstr "पुढील आणि मागील दस्तऐवजांसाठी कीबोर्ड शॉर्टकट जोडा"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Show full document path in tab tooltip"
-msgstr ""
+msgstr "टॅब टूलटिपमध्ये दस्तऐवजाचा पूर्ण पाथ दाखवा"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Fixes:"
@@ -357,11 +355,11 @@ msgstr "नवीन विंडो"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "प्रशासक म्हणून कोड चालवा"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "प्रशासक म्हणून कोड चालविण्यासाठी प्रमाणीकरण आवश्यक आहे"
 
 #~ msgid "New Document"
 #~ msgstr "नवीन दस्तऐवज"
