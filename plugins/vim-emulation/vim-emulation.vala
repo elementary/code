@@ -212,7 +212,8 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
             case Gdk.Key.Home:
             case Gdk.Key.@0:
                 if (number == "") {
-                    view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
+                    view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, -1, false);
+                    view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, -1, false);
                 } else {
                     number += "0";
                 }
