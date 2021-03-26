@@ -210,7 +210,7 @@ namespace Scratch.FolderManager {
         }
 
         public void global_search (string search_term = "",
-                                   GLib.File root_folder = file.file,
+                                   GLib.File? start_folder = file.file,
                                    bool is_literal = true,
                                    bool tracked_only = true,
                                    bool recurse = true) {
@@ -220,11 +220,13 @@ namespace Scratch.FolderManager {
             bool recurse_subfolders = true;
             bool check_is_text = false;
             string[] path_spec = {"*.*"};
+            bool modified_only = true;
+            bool case_sensitive = true;
             Regex? pattern = null;
 
             if (search_term == "") {
                 var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                    null, file.file.get_basename (), monitored_repo != null
+                    null, start_folder.get_basename (), monitored_repo != null
                 );
 
                 dialog.response.connect ((response) => {
@@ -235,6 +237,8 @@ namespace Scratch.FolderManager {
                             search_tracked_only = dialog.tracked_only;
                             recurse_subfolders = dialog.recurse;
                             path_spec = dialog.path_spec;
+                            modified_only = dialog.modified_only;
+                            case_sensitive = dialog.case_sensitive;
                             break;
 
                         default:
@@ -258,16 +262,26 @@ namespace Scratch.FolderManager {
                 }
 
                 try {
-                    pattern = new Regex (term, RegexCompileFlags.MULTILINE);
+                    var flags = RegexCompileFlags.MULTILINE;
+                    if (!case_sensitive) {
+                        flags |= RegexCompileFlags.CASELESS;
+                    }
+
+                    pattern = new Regex (term, flags);
                 } catch (Error e) {
                     critical ("Error creating regex from '%s': %s", term, e.message);
                     return;
                 }
+            } else {
+                return;
             }
 
             check_is_text = path_spec[0] == "*.*" ; //Assume otherwise path spec will exclude non-text
 
-            var status_scope = Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            var status_scope = Ggit.StatusOption.DEFAULT;
+            if (!modified_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            }
             if (!search_tracked_only) {
                 status_scope |= Ggit.StatusOption.INCLUDE_UNTRACKED;
             }
@@ -288,24 +302,27 @@ namespace Scratch.FolderManager {
                             return 0;
                         }
 
-                        if (recurse_subfolders || root_folder.equal (target.get_parent ())) {
+                        if ((recurse_subfolders && start_folder.get_relative_path (target) != null) ||
+                             start_folder.equal (target.get_parent ())) {
+
                             perform_match (target, pattern, check_is_text);
                         }
+
                         return 0; //TODO Allow cancelling?
                     });
                 } catch (Error err) {
                     warning ("Error getting file status: %s", err.message);
                 }
             } else {
-                search_folder_children (root_folder, pattern, recurse_subfolders);
+                search_folder_children (start_folder, pattern, recurse_subfolders);
             }
 
             return;
         }
 
-        private void search_folder_children (GLib.File root_folder, Regex pattern, bool recurse_subfolders) {
+        private void search_folder_children (GLib.File start_folder, Regex pattern, bool recurse_subfolders) {
             try {
-                var enumerator = root_folder.enumerate_children (
+                var enumerator = start_folder.enumerate_children (
                     FileAttribute.STANDARD_CONTENT_TYPE + "," + FileAttribute.STANDARD_TYPE,
                     FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
                     null
@@ -325,7 +342,7 @@ namespace Scratch.FolderManager {
                     }
                 }
             } catch (Error enumerate_error) {
-                warning ("Error enumerating children of %s: %s", root_folder.get_path (), enumerate_error.message);
+                warning ("Error enumerating children of %s: %s", start_folder.get_path (), enumerate_error.message);
             }
         }
 
