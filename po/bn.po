@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"POT-Creation-Date: 2021-03-09 21:59+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,11 @@ msgstr "অনুসন্ধান বার লুকিয়ে রাখুন
 msgid "Zeitgeist Datasource for Code"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
@@ -71,8 +71,8 @@ msgstr "কিছু ফাইল খুলুন"
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -271,79 +271,79 @@ msgstr ""
 msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "নতুন ডকুমেন্ট"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "\"%s\" ফাইলটি নির্ণয় করে যাচ্ছেনা।  হয়ত এটি নষ্ট\n"
 "অথবা আপনার প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -352,16 +352,16 @@ msgstr ""
 "\"%s\" ফাইলটি যে অবস্থা এ ছিল সে লোকেশানটি সরিয়ে নেয়া হয়েছে। আপনি কী অন্য "
 "কোথায় সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "নতুনভাবে সংরক্ষণ করুন..."
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -370,11 +370,11 @@ msgstr ""
 "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
 "লোকেশনে সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -383,11 +383,11 @@ msgstr ""
 "\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
 "পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "লোড"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "পরবর্তী"
 

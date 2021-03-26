@@ -15,6 +15,10 @@ add_project_arguments(
     language: 'vala'
 )
 
+if get_option('have_pkexec')
+    add_project_arguments('--define=HAVE_PKEXEC', language: 'vala')
+endif
+
 libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
 pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
 

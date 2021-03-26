@@ -55,18 +55,20 @@ config_data.set('install_prefix', get_option('prefix'))
 config_data.set('bin_dir', get_option('bindir'))
 config_data.set('exec_name', meson.project_name())
 
-policy_in = configure_file(
-    input: 'code.policy.in.in',
-    output:  meson.project_name() + '.policy.in',
-    configuration: config_data,
-    install: false,
-)
+if get_option ('have_pkexec')
+    policy_in = configure_file(
+        input: 'code.policy.in.in',
+        output:  meson.project_name() + '.policy.in',
+        configuration: config_data,
+        install: false,
+    )
 
-i18n.merge_file(
-    'policy',
-    input: policy_in,
-    output: meson.project_name() + '.policy',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
-    install: true,
-    install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions'),
-)
+    i18n.merge_file(
+        'policy',
+        input: policy_in,
+        output: meson.project_name() + '.policy',
+        po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+        install: true,
+        install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions'),
+    )
+endif
