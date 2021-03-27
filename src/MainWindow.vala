@@ -96,7 +96,7 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_fetch },
+            { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_OPEN, action_open },
@@ -141,7 +141,7 @@ namespace Scratch {
         }
 
         static construct {
-            action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
@@ -855,7 +855,10 @@ namespace Scratch {
         }
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
-        private void action_fetch () {
+        private string current_search_term = "";
+        private void action_fetch (SimpleAction action, Variant? param) {
+            current_search_term = param.get_string ();
+
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -878,20 +881,26 @@ namespace Scratch {
         }
 
         private void set_search_text () {
-            var current_doc = get_current_document ();
-            // This is also called when all documents are closed.
-            if (current_doc != null) {
-                var selected_text = current_doc.get_selected_text ();
-                if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                    search_bar.set_search_string (selected_text);
+            if (current_search_term != "") {
+                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.grab_focus ();
+                search_bar.search_next ();
+            } else {
+                var current_doc = get_current_document ();
+                // This is also called when all documents are closed.
+                if (current_doc != null) {
+                    var selected_text = current_doc.get_selected_text ();
+                    if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                        current_search_term = selected_text;
+                        search_bar.set_search_string (current_search_term);
+                    }
+
+                    search_bar.search_entry.grab_focus (); /* causes loss of document selection */
                 }
+            }
 
-                search_bar.search_entry.grab_focus (); /* causes loss of document selection */
-
-                if (selected_text != "") {
-                    search_bar.search_next (); /* this selects the next match (if any) */
-                }
-
+            if (current_search_term != "") {
+                search_bar.search_next (); /* this selects the next match (if any) */
             }
         }
 
