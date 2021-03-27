@@ -257,6 +257,12 @@ namespace Scratch.FolderManager {
             }
 
             if (term != null) {
+                /* Put search term in search bar to help user locate the position of the matches in each doc */
+                var search_variant = new Variant.string (term);
+                var app = (Gtk.Application)GLib.Application.get_default ();
+                var win = (Scratch.MainWindow)(app.get_active_window ());
+                win.actions.lookup_action ("action_find").activate (search_variant);
+
                 if (term_is_literal) {
                     term = Regex.escape_string (term);
                 }
@@ -396,9 +402,6 @@ namespace Scratch.FolderManager {
                     match_info.matches ();
                     match_info.next ()) {
 
-                    int start_pos, end_pos;
-                    match_info.fetch_pos (0, out start_pos, out end_pos);
-                    //TODO Do something with position(s) of matches e.g. store in item
                     match_count++;
                 }
             } catch (RegexError next_error) {
