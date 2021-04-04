@@ -76,15 +76,15 @@ public class Code.Sidebar : Gtk.Grid {
                 stack_switcher.show_all ();
             }
 
-            no_show_all = false;
-            show_all ();
+            stack.no_show_all = false;
+            stack.show_all ();
         });
 
         stack.remove.connect (() => {
             switch (stack.get_children ().length ()) {
                 case 0:
-                    no_show_all = true;
-                    hide ();
+                    stack.no_show_all = true;
+                    stack.hide ();
                     break;
                 case 1:
                     stack_switcher.no_show_all = true;
