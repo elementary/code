@@ -53,7 +53,9 @@ namespace Code.Plugins {
         }
 
         public void deactivate () {
-            container.destroy ();
+            remove_container ();
+            scratch_interface.hook_document.disconnect (on_hook_document);
+            scratch_interface.hook_window.disconnect (on_hook_window);
         }
 
         public void update_state () {
@@ -61,8 +63,9 @@ namespace Code.Plugins {
         }
 
         void on_hook_window (Scratch.MainWindow window) {
-            if (container != null)
+            if (container != null) {
                 return;
+            }
 
             this.window = window;
 
@@ -113,8 +116,10 @@ namespace Code.Plugins {
 
             if (view != null) {
                 var source_list = view.get_source_list ();
-                if (source_list.parent == null)
+                if (source_list.parent == null) {
                     container.add (source_list);
+                }
+
                 container.set_visible_child (source_list);
                 container.show_all ();
                 current_view = view;
@@ -134,17 +139,23 @@ namespace Code.Plugins {
         void remove_container () {
             var parent = container.get_parent ();
             if (parent != null) {
-                parent.remove (container);
+                window.sidebar.remove_tab (container);
             }
+
+            container.destroy ();
         }
 
         void remove_view (SymbolOutline view) {
             views.remove (view);
             var source_list = view.get_source_list ();
-            if (source_list.parent == container)
+            if (source_list.parent == container) {
                 container.remove (source_list);
-            if (views.is_empty)
+            }
+
+            if (views.is_empty) {
                 remove_container ();
+            }
+
             view.goto.disconnect (goto);
         }
 

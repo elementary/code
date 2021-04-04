@@ -107,4 +107,8 @@ public class Code.Sidebar : Gtk.Grid {
             stack.child_set_property (tab, "icon-name", tab.icon_name);
         });
     }
+
+    public void remove_tab (Code.PaneSwitcher tab) {
+        stack.remove (tab);
+    }
 }
