@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-09 21:59+0000\n"
-"PO-Revision-Date: 2020-10-31 21:15+0000\n"
+"PO-Revision-Date: 2021-04-01 20:39+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -124,27 +124,27 @@ msgstr "记忆侧边栏开关状态"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr ""
+msgstr "为下一个和上一个文档添加键盘快捷键"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Show full document path in tab tooltip"
-msgstr ""
+msgstr "在选项卡工具提示中显示完整的文档路径"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Fixes:"
-msgstr ""
+msgstr "修复："
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
-msgstr ""
+msgstr "修正了空的侧边栏布局, 确保文件夹可以随时添加"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "滚动到文件的末尾"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "更有效地保存和恢复窗口位置"
 
 #: data/io.elementary.code.appdata.xml.in:74
 #: data/io.elementary.code.appdata.xml.in:89
@@ -158,11 +158,11 @@ msgstr "翻译更新"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "在文件提示中包含 Git 状态"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "严谨区分大小写的查找选项"
 
 #: data/io.elementary.code.appdata.xml.in:85
 #: data/io.elementary.code.appdata.xml.in:100
@@ -172,39 +172,39 @@ msgstr "其它更新："
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
+msgstr "当没有选择文本时正确地显示切换注释菜单项"
 
 #: data/io.elementary.code.appdata.xml.in:88
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "固定对齐字体"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
+msgstr "新建 \"关闭其他文件夹\" 菜单项，以帮助清理你的工具条"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "保存和恢复循环搜索设置"
 
 #: data/io.elementary.code.appdata.xml.in:102
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "为菜单项添加键盘快捷键"
 
 #: data/io.elementary.code.appdata.xml.in:103
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "使侧边栏文件夹项不可选择"
 
 #: data/io.elementary.code.appdata.xml.in:104
 msgid "Center new windows"
-msgstr ""
+msgstr "居中新建的窗口"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgstr "优先可视化侧边栏中的 .gitignored 文件"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "智能剪切/复制行"
 
 #: data/io.elementary.code.appdata.xml.in:115
 msgid "Add a confirmation dialog to the \"Restore\" action"
