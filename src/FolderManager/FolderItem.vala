@@ -105,7 +105,7 @@ namespace Scratch.FolderManager {
 
             var search_item = new Gtk.MenuItem.with_label (_("Search text in this Folder"));
             search_item.activate.connect (() => {
-                get_root_folder ().global_search ("", this.file.file);
+                get_root_folder ().global_search (this.file.file);
             });
 
             var menu = new Gtk.Menu ();
@@ -330,22 +330,6 @@ namespace Scratch.FolderManager {
                 if (root != null) {
                     root.child_folder_changed (this);
                 }
-            }
-        }
-
-        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
-            if (start == null) {
-                start = this;
-            }
-
-            if (start is ProjectFolderItem) {
-                return start as ProjectFolderItem;
-            } else if (start.parent is ProjectFolderItem) {
-                return start.parent as ProjectFolderItem;
-            } else if (start.parent != null) {
-                return get_root_folder (start.parent);
-            } else {
-                return null;
             }
         }
 

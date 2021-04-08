@@ -138,16 +138,19 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            var search_item = new Gtk.MenuItem.with_label (_("Search Project"));
-             search_item.activate.connect (() => { global_search (); });
+            var search_item = new Gtk.MenuItem.with_label (_("Search Project")) {
+                action_name = "win.action_find_global"
+            };
 
-             menu.append (new Gtk.SeparatorMenuItem ());
-             menu.append (search_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (search_item);
 
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
             menu.append (delete_item);
+
+
 
             menu.show_all ();
 
@@ -209,12 +212,8 @@ namespace Scratch.FolderManager {
             });
         }
 
-        public void global_search (string search_term = "",
-                                   GLib.File? start_folder = file.file,
-                                   bool is_literal = true,
-                                   bool tracked_only = true,
-                                   bool recurse = true) {
-            string term = "";
+        public void global_search (GLib.File start_folder = this.file.file) {
+            string? term = null;
             bool term_is_literal = true;
             bool search_tracked_only = true;
             bool recurse_subfolders = true;
@@ -224,37 +223,30 @@ namespace Scratch.FolderManager {
             bool case_sensitive = true;
             Regex? pattern = null;
 
-            if (search_term == "") {
-                var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                    null, start_folder.get_basename (), monitored_repo != null
-                );
+            var dialog = new Scratch.Dialogs.GlobalSearchDialog (
+                null, start_folder.get_basename (), monitored_repo.git_repo != null
+            );
 
-                dialog.response.connect ((response) => {
-                    switch (response) {
-                        case Gtk.ResponseType.ACCEPT:
-                            term = dialog.search_term;
-                            term_is_literal = dialog.use_literal;
-                            search_tracked_only = dialog.tracked_only;
-                            recurse_subfolders = dialog.recurse;
-                            path_spec = dialog.path_spec;
-                            modified_only = dialog.modified_only;
-                            case_sensitive = dialog.case_sensitive;
-                            break;
+            dialog.response.connect ((response) => {
+                switch (response) {
+                    case Gtk.ResponseType.ACCEPT:
+                        term = dialog.search_term;
+                        term_is_literal = dialog.use_literal;
+                        search_tracked_only = dialog.tracked_only;
+                        recurse_subfolders = dialog.recurse;
+                        path_spec = dialog.path_spec;
+                        modified_only = dialog.modified_only;
+                        case_sensitive = dialog.case_sensitive;
+                        break;
 
-                        default:
-                            break;
-                    }
+                    default:
+                        break;
+                }
 
-                    dialog.destroy ();
-                });
+                dialog.destroy ();
+            });
 
-                dialog.run ();
-            } else {
-                term = search_term;
-                term_is_literal = is_literal;
-                search_tracked_only = tracked_only;
-                recurse_subfolders = recurse;
-            }
+            dialog.run ();
 
             if (term != null) {
                 /* Put search term in search bar to help user locate the position of the matches in each doc */

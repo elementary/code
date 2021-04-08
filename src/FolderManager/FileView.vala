@@ -144,6 +144,16 @@ namespace Scratch.FolderManager {
              return find_path (root, path, true);
         }
 
+        public void search_global (string path) {
+            var item_for_path = expand_to_path (path);
+            if (item_for_path != null) {
+                var search_root = ((Item)(item_for_path)).get_root_folder ();
+                if (search_root is ProjectFolderItem) {
+                    search_root.global_search (search_root.file.file);
+                }
+            }
+        }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
