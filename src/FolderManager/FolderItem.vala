@@ -103,7 +103,7 @@ namespace Scratch.FolderManager {
 
             var search_item = new Gtk.MenuItem.with_label (_("Search text in this Folder"));
             search_item.activate.connect (() => {
-                get_root_folder ().global_search ("", this.file.file);
+                get_root_folder ().global_search (this.file.file);
             });
 
             var menu = new Gtk.Menu ();
