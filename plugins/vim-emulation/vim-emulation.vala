@@ -205,6 +205,31 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 debug ("Vim Emulation: INSERT Mode!");
                 break;
+            case Gdk.Key.o:
+                if (mode == Mode.INSERT) {
+                    return false;
+                }
+                mode = Mode.INSERT;
+                debug ("Vim Emulation: INSERT Mode!");
+
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
+                view.insert_at_cursor ("\n");
+                break;
+            case Gdk.Key.O:
+                if (mode == Mode.INSERT) {
+                    return false;
+                }
+                mode = Mode.INSERT;
+                debug ("Vim Emulation: INSERT Mode!");
+
+                // Move to start of current line
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, -1, false);
+                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, -1, false);
+                // Insert newline before current line
+                view.insert_at_cursor ("\n");
+                // Move to beginning of the new line
+                view.move_cursor (Gtk.MovementStep.PARAGRAPHS, -1, false);
+                break;
             case 46: // Dot "."
                 debug (action);
                 view.insert_at_cursor (action);
@@ -212,7 +237,8 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
             case Gdk.Key.Home:
             case Gdk.Key.@0:
                 if (number == "") {
-                    view.move_cursor (Gtk.MovementStep.PARAGRAPHS, 1, false);
+                    view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, -1, false);
+                    view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, -1, false);
                 } else {
                     number += "0";
                 }
