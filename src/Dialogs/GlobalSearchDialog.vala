@@ -97,7 +97,13 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
         match_mode_button = new Granite.Widgets.ModeButton ();
         literal_mode_index = match_mode_button.append_text (_("Text"));
-        match_mode_button.append_text (_("Regex"));
+        var literal_widget = (Gtk.Widget)(match_mode_button.get_children ().nth_data (literal_mode_index));
+        literal_widget.tooltip_text = _("Treat the search entry as literal text");
+
+        var regex_mode_index = match_mode_button.append_text (_("Regex"));
+        var regex_widget = (Gtk.Widget)(match_mode_button.get_children ().nth_data (regex_mode_index));
+        regex_widget.tooltip_text = _("Treat the search entry as a Regex expression");
+
         match_mode_button.selected = literal_mode_index;
 
         filter_combo = new Gtk.ComboBoxText.with_entry ();
@@ -117,8 +123,14 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         };
 
         tracked_mode_index = scope_mode_button.append_text (_("Tracked"));
-        scope_mode_button.append_text (_("All"));
+        var all_mode_index = scope_mode_button.append_text (_("All"));
         scope_mode_button.selected = tracked_mode_index;
+
+        var tracked_widget = (Gtk.Widget)(scope_mode_button.get_children ().nth_data (tracked_mode_index));
+        tracked_widget.tooltip_text = _("Only include files added to the git repository");
+
+        var all_widget = (Gtk.Widget)(scope_mode_button.get_children ().nth_data (all_mode_index));
+        all_widget.tooltip_text = _("Include any file in or below the folder '%s'").printf (folder_name);
 
         modified_switch = new Gtk.Switch () {
             halign = Gtk.Align.START, //Stop switch expanding
