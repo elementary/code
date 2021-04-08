@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"POT-Creation-Date: 2021-04-07 15:07+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,11 @@ msgstr "تلاش بارچهپائيں"
 msgid "Zeitgeist Datasource for Code"
 msgstr "زایت گیست (zeitgeist) ڈیٹا سورس برائے سکریچ"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "تمام فائلیں"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "متن فائلیں"
 
@@ -71,8 +71,8 @@ msgstr "کچھ فائلیں کھولیں"
 msgid "Open"
 msgstr "کهولیں"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "منسوخ کریں"
@@ -271,113 +271,113 @@ msgstr ""
 msgid "Branch"
 msgstr "سكريچ كى ترتیبات تبديل كريں"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "منسوخ کریں"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "كيا دستاویز %s کو بند كرنے سے پہلے محفوظ كرنا چاہيں گے؟"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "اگر آپ ڈاکومنٹ محفوظ نہیں کریں گے تو گزشتہ 4 سیکنڈ میں کی گئی تبدیلیاں مستقل "
 "طور پر ختم کر دی جائیں گی۔"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "محفوظ کئے بغیر بند کریں"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "محفوظ کریں"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "فائل محفوظ كریں"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "نئی دستاویز"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "فائل  %s پڑھی نہیں جا سکتی۔ شاید یہ کرپٹ ہو چکی ہے۔"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "محفوظ بطور"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "فائل %s حذف کر دی گئی تھی۔ کیا آپ اسے پھر بھی محفوظ کرنا چاہتے ہیں؟"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "دوسری جگہوں پر تبدیلیوں کو محفوظ کریں"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "لوڈ"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "جاری رکھیں"
 
