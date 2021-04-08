@@ -137,8 +137,9 @@ namespace Scratch.FolderManager {
             menu.append (close_all_except_item);
             menu.append (delete_item);
 
-            var search_item = new Gtk.MenuItem.with_label (_("Search Project"));
-            search_item.activate.connect (() => { global_search (); });
+            var search_item = new Gtk.MenuItem.with_label (_("Search Project")) {
+                action_name = "win.action_find_global"
+            };
 
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
@@ -298,7 +299,7 @@ namespace Scratch.FolderManager {
             return false;
         }
 
-        public void global_search (GLib.File? start_folder = file.file) {
+        public void global_search (GLib.File start_folder = this.file.file) {
             string? term = null;
             bool term_is_literal = true;
             bool search_tracked_only = true;

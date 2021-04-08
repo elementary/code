@@ -326,22 +326,6 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
-            if (start == null) {
-                start = this;
-            }
-
-            if (start is ProjectFolderItem) {
-                return start as ProjectFolderItem;
-            } else if (start.parent is ProjectFolderItem) {
-                return start.parent as ProjectFolderItem;
-            } else if (start.parent != null) {
-                return get_root_folder (start.parent);
-            } else {
-                return null;
-            }
-        }
-
         private void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below

@@ -92,5 +92,21 @@ namespace Scratch.FolderManager {
                 warning (e.message);
             }
         }
+
+        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
+            } else if (start.parent != null) {
+                return get_root_folder (start.parent);
+            } else {
+                return null;
+            }
+        }
     }
 }
