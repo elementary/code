@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"POT-Creation-Date: 2021-04-07 15:07+0000\n"
 "PO-Revision-Date: 2021-02-11 08:41+0000\n"
 "Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/code/code/ro/>\n"
@@ -60,11 +60,11 @@ msgstr "Ascunde bara de căutare"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Sursă de date Zeitgeist pentru Code"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Toate fişierele"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Fișiere text"
 
@@ -76,8 +76,8 @@ msgstr "Deschide niște fișiere"
 msgid "Open"
 msgstr "Deschis"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Renunță"
@@ -278,78 +278,78 @@ msgstr ""
 msgid "Branch"
 msgstr "Schimbă configurările Scratch"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Renunță"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Salvați modificările documentului %s înainte de închidere?"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Dacă nu salvezi, schimbările făcute în ultimele 4 secunde vor fi pierdute."
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Închide fără a salva"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "Salvează"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "Salvează fişierul"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "Document nou"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Fişierul \"%s\" nu poate fi creat.\n"
 "%s"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Fişierul \"%s\"  nu poate fi citit. Poate fi deteriorat\n"
 "sau nu ai permisiunile necesare pentru a-l citi."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -358,16 +358,16 @@ msgstr ""
 "Locaţia ce conţine fişierul \"%s\" a fost demontată. Doriţi sa salvaţi într-"
 "o locaţie diferită?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "Salvează ca…"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fişierul %s a fost şters. Il salvezi oricum?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -376,11 +376,11 @@ msgstr ""
 "Modificările aduse fișierului \"%s\" nu pot fi salvate. Doriți să salvați "
 "modificările într-o alta locație?"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "Salvează schimbările altundeva"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -389,11 +389,11 @@ msgstr ""
 "Fișierul \"%s\" a fost modificat de o aplicație externă. Doriți să-l "
 "reîncărcați sau să continuați editarea?"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "Încarcă"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "Continuă"
 

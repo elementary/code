@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 18:55+0000\n"
+"POT-Creation-Date: 2021-04-07 15:07+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -59,11 +59,11 @@ msgstr "Skjul søgelinjen"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-datakilde til Code"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:501
+#: src/MainWindow.vala:729 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:505
+#: src/MainWindow.vala:733 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Tekstfiler"
 
@@ -75,8 +75,8 @@ msgstr "Åbn nogle filer"
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuller"
@@ -270,70 +270,70 @@ msgstr "%s, Ny"
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Er Ikke En Tekstfil"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code kan ikke indlæse denne type fil."
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Indlæsning af Filen \"%s\" Tager Lang Tid"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Vent venligst, mens Code indlæser filen."
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "Annuller Indlæsning"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Gem ændringer til dokumentet \"%s\", inden lukning?"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Hvis ikke du gemmer, vil ændringer gå tabt permanent."
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 msgid "Close Without Saving"
 msgstr "Luk uden at gemme"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "Gem"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "Gem fil"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "Nyt Dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Den kan være beskadiget, eller du kan mangle tilladelse til at læse den."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -342,16 +342,16 @@ msgstr ""
 "Placeringen som indeholder filen \"%s\" blev afmonteret. Vil du gemme et "
 "andet sted?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "Gem som…"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Filen \"%s\" blev slettet. Vil du gemme den alligevel?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -360,11 +360,11 @@ msgstr ""
 "Du kan ikke gemme dine ændringer i filen \"%s\". Vil du gemme ændringerne et "
 "andet sted?"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "Gem ændringer et andet sted"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -373,11 +373,11 @@ msgstr ""
 "Filen \"%s\" var ændret af en anden applikation. Vil du indlæse den igen "
 "eller fortsætte med dine ændringer?"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "Indlæs"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "Fortsæt"
 
