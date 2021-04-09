@@ -307,27 +307,42 @@ namespace Scratch.Widgets {
             return 0;
         }
 
-        // Duplicate selected text if exists, else duplicate current line
+        // If selected text does not exists duplicate current line.
+        // If selected text is only in one line duplicate in place.
+        // If seected text covers more than one line, duplicate all lines complete.
         public void duplicate_selection () {
+            Gtk.TextIter? start = null;
+            Gtk.TextIter? end = null;
+            Gtk.TextIter? selection_start = null;
+            Gtk.TextIter? selection_end = null;
+            int start_line, end_line;
             var selection = get_selected_text ();
 
-            Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start, out end);
-
             if (selection != "") {
-                buffer.insert (ref end, selection, -1);
-            // If nothing is selected duplicate current line
+                buffer.get_selection_bounds (out selection_start, out selection_end);
+                start_line = selection_start.get_line ();
+                end_line = selection_end.get_line ();
+                if (start_line != end_line) {
+                    buffer.get_iter_at_line (out start, start_line);
+                    buffer.get_iter_at_line (out end, end_line);
+                    end.forward_to_line_end ();
+                    //We do it this way to ensure creation of new line if selected lines include the last in buffer
+                    selection = "\n" + buffer.get_text (start, end, true);
+                } else {
+                    start = selection_start.copy ();
+                    end = selection_end.copy ();
+                }
             } else {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
-                start.backward_line ();
-                start.forward_line ();
-
-                buffer.get_iter_at_mark (out end, buffer.get_insert ());
-                end.forward_line ();
-
-                string line = buffer.get_text (start, end, true);
-                buffer.insert (ref end, line, -1);
+                start.backward_line (); //To start of previous line
+                start.forward_line (); //To start of original line
+                // buffer.get_iter_at_line (out start, start_line);
+                end = start.copy ();
+                end.forward_to_line_end ();
+                selection = "\n" + buffer.get_text (start, end, true);
             }
+
+            buffer.insert (ref end, selection, -1);
         }
 
         public void sort_selected_lines () {
