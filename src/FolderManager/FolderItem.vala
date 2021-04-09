@@ -101,10 +101,10 @@ namespace Scratch.FolderManager {
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
-            var search_item = new Gtk.MenuItem.with_label (_("Find text in this Folder…"));
-            search_item.activate.connect (() => {
-                get_root_folder ().global_search (this.file.file);
-            });
+            var search_item = new Gtk.MenuItem.with_label (_("Find text in this Folder…")) {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
 
             var menu = new Gtk.Menu ();
             menu.append (create_submenu_for_open_in (info, file_type));

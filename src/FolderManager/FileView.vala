@@ -145,11 +145,11 @@ namespace Scratch.FolderManager {
         }
 
         public void search_global (string path) {
-            var item_for_path = expand_to_path (path);
+            var item_for_path = (Item?)(expand_to_path (path));
             if (item_for_path != null) {
-                var search_root = ((Item)(item_for_path)).get_root_folder ();
+                var search_root = item_for_path.get_root_folder ();
                 if (search_root is ProjectFolderItem) {
-                    search_root.global_search (search_root.file.file);
+                    search_root.global_search (item_for_path.file.file);
                 }
             }
         }

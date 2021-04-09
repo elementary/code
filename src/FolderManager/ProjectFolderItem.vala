@@ -138,7 +138,8 @@ namespace Scratch.FolderManager {
             menu.append (delete_item);
 
             var search_item = new Gtk.MenuItem.with_label (_("Find in Project…")) {
-                action_name = "win.action_find_global"
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
             };
 
             menu.append (new Gtk.SeparatorMenuItem ());

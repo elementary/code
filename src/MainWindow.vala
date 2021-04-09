@@ -100,7 +100,7 @@ namespace Scratch {
             { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
-            { ACTION_FIND_GLOBAL, action_find_global },
+            { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
@@ -883,8 +883,8 @@ namespace Scratch {
             search_bar.search_previous ();
         }
 
-        private void action_find_global () {
-            folder_manager_view.search_global (get_current_document ().file.get_path ());
+        private void action_find_global (SimpleAction action, Variant? param) {
+            folder_manager_view.search_global (param.get_string ());
         }
 
         private void set_search_text () {
