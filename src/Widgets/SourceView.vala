@@ -21,7 +21,6 @@
 
 namespace Scratch.Widgets {
     public class SourceView : Gtk.SourceView {
-        public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
         public Gtk.CssProvider font_css_provider;
@@ -313,36 +312,42 @@ namespace Scratch.Widgets {
         public void duplicate_selection () {
             Gtk.TextIter? start = null;
             Gtk.TextIter? end = null;
-            Gtk.TextIter? selection_start = null;
-            Gtk.TextIter? selection_end = null;
+            int selection_start_offset = 0;
+            int selection_end_offset = 0;
             int start_line, end_line;
             var selection = get_selected_text ();
 
             if (selection != "") {
-                buffer.get_selection_bounds (out selection_start, out selection_end);
-                start_line = selection_start.get_line ();
-                end_line = selection_end.get_line ();
+                buffer.get_selection_bounds (out start, out end);
+                start_line = start.get_line ();
+                end_line = end.get_line ();
+
                 if (start_line != end_line) {
                     buffer.get_iter_at_line (out start, start_line);
                     buffer.get_iter_at_line (out end, end_line);
                     end.forward_to_line_end ();
                     //We do it this way to ensure creation of new line if selected lines include the last in buffer
                     selection = "\n" + buffer.get_text (start, end, true);
-                } else {
-                    start = selection_start.copy ();
-                    end = selection_end.copy ();
                 }
+
+                selection_start_offset = start.get_offset ();
+                selection_end_offset = end.get_offset ();
             } else {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
                 start.backward_line (); //To start of previous line
                 start.forward_line (); //To start of original line
-                // buffer.get_iter_at_line (out start, start_line);
                 end = start.copy ();
                 end.forward_to_line_end ();
                 selection = "\n" + buffer.get_text (start, end, true);
             }
 
             buffer.insert (ref end, selection, -1);
+            // Re-establish any pre-exising selection (we do not want duplicate text selected)
+            if (selection_start_offset > 0 || selection_end_offset > 0) {
+                buffer.get_iter_at_offset (out start, selection_start_offset);
+                buffer.get_iter_at_offset (out end, selection_end_offset);
+                buffer.select_range (start, end);
+            }
         }
 
         public void sort_selected_lines () {
