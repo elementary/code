@@ -88,15 +88,11 @@ namespace Scratch.FolderManager {
                 }
 
                 return;
-            } else if (!folder.is_valid_directory) {
-                warning ("Cannot open invalid directory.");
-                return;
             }
 
             select_project (folder.path);
 
             add_folder (folder, true);
-            write_settings ();
         }
 
         public void collapse_all () {
@@ -157,7 +153,7 @@ namespace Scratch.FolderManager {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
                 return;
-            } else if (!folder.is_valid_directory) {
+            } else if (!folder.is_valid_directory (true)) { // Allow hidden top-level folders
                 warning ("Cannot open invalid directory.");
                 return;
             }
@@ -181,6 +177,8 @@ namespace Scratch.FolderManager {
 
                 write_settings ();
             });
+
+            write_settings ();
         }
 
         private bool is_open (File folder) {

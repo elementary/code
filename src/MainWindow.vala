@@ -44,7 +44,7 @@ namespace Scratch {
         public Gtk.Notebook bottombar;
         public Code.Sidebar sidebar;
 
-        private Gtk.Dialog? preferences_dialog = null;
+        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -438,6 +438,9 @@ namespace Scratch {
                 });
 
                 hook_func ();
+            });
+
+            document_view.realize.connect (() => {
                 restore_opened_documents ();
             });
 
