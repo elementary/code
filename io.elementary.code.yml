@@ -1,9 +1,7 @@
 app-id: io.elementary.code
-runtime: org.gnome.Sdk # outline plugin needs libvala that is only on sdk
-runtime-version: '3.38'
-base: io.elementary.BaseApp
-base-version: juno-20.08
-sdk: org.gnome.Sdk
+runtime: io.elementary.Platform
+runtime-version: '0.1.0'
+sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
   - '--filesystem=host'
@@ -26,28 +24,12 @@ cleanup:
   - '*.a'
   - '*.la'
 modules:
-  - name: granite
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/elementary/granite.git
-
   - name: gtksourceview
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: '4.8.0'
-
-  - name: handy
-    buildsystem: meson
-    config-opts:
-      - '-Dexamples=false'
-      - '-Dtests=false'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: '1.0.3'
 
   - name: peas
     buildsystem: meson
