@@ -1,5 +1,5 @@
 app-id: io.elementary.code
-runtime: io.elementary.Sdk
+runtime: io.elementary.Sdk // The outline plugin requires libvala which is only in the SDK, not the runtime
 runtime-version: '0.1.0'
 sdk: io.elementary.Sdk
 command: io.elementary.code
@@ -12,6 +12,7 @@ finish-args:
 
   - '--talk-name=org.gtk.vfs.*'
   - '--talk-name=org.gnome.SettingsDaemon'
+  - '--talk-name=org.gnome.zeitgeist.Engine'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
 cleanup:
