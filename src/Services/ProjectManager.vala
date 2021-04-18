@@ -48,7 +48,7 @@ public class Scratch.Services.ProjectManager : Object {
                             build_dir = Path.build_filename (path, "build-dir"),
                             app_id = mi.fetch_named ("app_id")
                         };
-                    }       
+                    }
                 }
             }
         } catch (FileError e) {
