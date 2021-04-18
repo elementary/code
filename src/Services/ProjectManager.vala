@@ -28,16 +28,28 @@ public class Scratch.Services.ProjectManager : Object {
 
     private Pid command_pid;
 
-    private string? project_name () {
+    private FlatpakManifest? flatpak_manifest () {
         try {
-            string content;
-            FileUtils.get_contents (Path.build_filename (path, "meson.build"), out content);
+            Dir dir = Dir.open (path, 0);
+            string? name = null;
+            while ((name = dir.read_name ()) != null) {
+                string f = Path.build_filename (path, name);
 
-            var regex = new Regex ("project\\s*\\(\\s*'(?P<name>[^']*)'[^\\)]*\\)");
+                if (FileUtils.test (f, FileTest.IS_REGULAR) && f.has_suffix (".yml")) {
+                    string content;
+                    FileUtils.get_contents (f, out content);
 
-            MatchInfo mi;
-            if (regex.match (content, 0, out mi)) {
-                return mi.fetch_named ("name");
+                    var regex = new Regex ("app-id:\\s*(?P<app_id>[A-Za-z0-9-\\.]+)");
+
+                    MatchInfo mi;
+                    if (regex.match (content, 0, out mi)) {
+                        return new FlatpakManifest () {
+                            manifest = f,
+                            build_dir = Path.build_filename (path, "build-dir"),
+                            app_id = mi.fetch_named ("app_id")
+                        };
+                    }       
+                }
             }
         } catch (FileError e) {
             stderr.printf (e.message);
@@ -46,6 +58,12 @@ public class Scratch.Services.ProjectManager : Object {
         }
 
         return null;
+    }
+
+    private class FlatpakManifest : Object {
+        public string manifest { get; set; }
+        public string build_dir { get; set; }
+        public string app_id { get; set; }
     }
 
     private bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
@@ -132,50 +150,29 @@ public class Scratch.Services.ProjectManager : Object {
     }
 
     private async bool build_project () {
-        var meson_build = Path.build_filename (path, "meson.build");
-        if (FileUtils.test (meson_build, FileTest.IS_REGULAR)) {
-            var build_folder = Path.build_filename (path, "build");
-            var is_ready = FileUtils.test (build_folder, FileTest.IS_DIR);
-            if (!is_ready) {
-                is_ready = yield run_command ({
-                    "meson",
-                    "build",
-                    "--prefix=/usr"
-                });
-            }
-
-            if (!is_ready) {
-                return false;
-            }
-
+        var flatpak_manifest = flatpak_manifest ();
+        if (flatpak_manifest != null) {
             return yield run_command ({
-                "ninja",
-                "-C",
-                "%s".printf (Path.build_filename (path, "build"))
+                "flatpak-builder",
+                "--force-clean",
+                flatpak_manifest.build_dir,
+                flatpak_manifest.manifest
             });
         }
 
         return false;
     }
 
-    private async bool install_project () {
-        return yield run_command ({
-            "pkexec",
-            "bash",
-            "-c",
-            "ninja -C %s install; chown %s:%s %s".printf (
-                Path.build_filename (path, "build"),
-                Environment.get_variable ("USER"),
-                Environment.get_variable ("USER"),
-                Path.build_filename (path, "build", ".ninja_*")
-            )
-        });
-    }
-
     private async bool run_project () {
-        var project_name = project_name ();
-        if (project_name != null) {
-            return yield run_command ({project_name});
+        var flatpak_manifest = flatpak_manifest ();
+        if (flatpak_manifest != null) {
+            return yield run_command ({
+                "flatpak-builder",
+                "--run",
+                flatpak_manifest.build_dir,
+                flatpak_manifest.manifest,
+                flatpak_manifest.app_id
+            });
         }
 
         return false;
@@ -202,11 +199,6 @@ public class Scratch.Services.ProjectManager : Object {
 
         is_running = true;
         if (!yield build_project ()) {
-            is_running = false;
-            return false;
-        }
-
-        if (!yield install_project ()) {
             is_running = false;
             return false;
         }
