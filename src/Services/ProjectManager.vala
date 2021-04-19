@@ -35,19 +35,29 @@ public class Scratch.Services.ProjectManager : Object {
             while ((name = dir.read_name ()) != null) {
                 string f = Path.build_filename (project_path, name);
 
-                if (FileUtils.test (f, FileTest.IS_REGULAR) && f.has_suffix (".yml")) {
+                if (FileUtils.test (f, FileTest.IS_REGULAR) && (f.has_suffix (".yml") || f.has_suffix (".yaml"))) {
                     string content;
                     FileUtils.get_contents (f, out content);
 
-                    var regex = new Regex ("app-id:\\s*(?P<app_id>[A-Za-z0-9-\\.]+)");
+                    var re_app_id = new Regex ("app-id:\\s*(?P<app_id>[A-Za-z0-9-\\.]+)");
+                    var re_command = new Regex ("command:\\s*(?P<command>[A-Za-z0-9-\\.]+)");
+
+                    var flatpak_manifest = new FlatpakManifest () {
+                        manifest = f,
+                        build_dir = Path.build_filename (project_path, "build-dir")
+                    };
 
                     MatchInfo mi;
-                    if (regex.match (content, 0, out mi)) {
-                        return new FlatpakManifest () {
-                            manifest = f,
-                            build_dir = Path.build_filename (project_path, "build-dir"),
-                            app_id = mi.fetch_named ("app_id")
-                        };
+                    if (re_app_id.match (content, 0, out mi)) {
+                        flatpak_manifest.app_id = mi.fetch_named ("app_id");
+                    }
+
+                    if (re_command.match (content, 0, out mi)) {
+                        flatpak_manifest.command = mi.fetch_named ("command");
+                    }
+
+                    if (flatpak_manifest.app_id.length > 0 && flatpak_manifest.command.length > 0) {
+                        return flatpak_manifest;
                     }
                 }
             }
@@ -64,6 +74,7 @@ public class Scratch.Services.ProjectManager : Object {
         public string manifest { get; set; }
         public string build_dir { get; set; }
         public string app_id { get; set; }
+        public string command { get; set; }
     }
 
     private bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
@@ -171,7 +182,7 @@ public class Scratch.Services.ProjectManager : Object {
                 "--run",
                 flatpak_manifest.build_dir,
                 flatpak_manifest.manifest,
-                flatpak_manifest.app_id
+                flatpak_manifest.command
             });
         }
 
