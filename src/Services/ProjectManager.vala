@@ -20,7 +20,7 @@
  */
 
 public class Scratch.Services.ProjectManager : Object {
-    public string path { get; set; }
+    public string project_path { get; set; }
     public bool is_running { get; set; }
 
     public signal void on_standard_output (string line);
@@ -30,10 +30,10 @@ public class Scratch.Services.ProjectManager : Object {
 
     private FlatpakManifest? flatpak_manifest () {
         try {
-            Dir dir = Dir.open (path, 0);
+            Dir dir = Dir.open (project_path, 0);
             string? name = null;
             while ((name = dir.read_name ()) != null) {
-                string f = Path.build_filename (path, name);
+                string f = Path.build_filename (project_path, name);
 
                 if (FileUtils.test (f, FileTest.IS_REGULAR) && f.has_suffix (".yml")) {
                     string content;
@@ -45,7 +45,7 @@ public class Scratch.Services.ProjectManager : Object {
                     if (regex.match (content, 0, out mi)) {
                         return new FlatpakManifest () {
                             manifest = f,
-                            build_dir = Path.build_filename (path, "build-dir"),
+                            build_dir = Path.build_filename (project_path, "build-dir"),
                             app_id = mi.fetch_named ("app_id")
                         };
                     }
@@ -109,7 +109,7 @@ public class Scratch.Services.ProjectManager : Object {
             int standard_error;
 
             Process.spawn_async_with_pipes (
-                path,
+                project_path,
                 spawn_args,
                 spawn_env,
                 SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
@@ -180,7 +180,7 @@ public class Scratch.Services.ProjectManager : Object {
 
     public async bool build () {
         if (is_running) {
-            debug ("Project “%s“ is already running", path);
+            debug ("Project “%s“ is already running", project_path);
             return false;
         }
 
@@ -193,7 +193,7 @@ public class Scratch.Services.ProjectManager : Object {
 
     public async bool build_install_run () {
         if (is_running) {
-            debug ("Project “%s“ is already running", path);
+            debug ("Project “%s“ is already running", project_path);
             return false;
         }
 
@@ -211,7 +211,7 @@ public class Scratch.Services.ProjectManager : Object {
 
     public bool stop () {
         if (!is_running) {
-            debug ("Project “%s“ is not running", path);
+            debug ("Project “%s“ is not running", project_path);
             return true;
         }
 

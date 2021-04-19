@@ -24,7 +24,7 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        private Services.ProjectManager project;
+        private Services.ProjectManager project_manager;
 
         public weak Scratch.Application app { get; construct; }
 
@@ -263,9 +263,9 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            project = new Services.ProjectManager ();
+            project_manager = new Services.ProjectManager ();
             set_build_run_widgets_sensitive ();
-            project.notify.connect ((s, p) => {
+            project_manager.notify.connect ((s, p) => {
                 set_build_run_widgets_sensitive ();
             });
 
@@ -366,7 +366,7 @@ namespace Scratch {
 
 
             folder_manager_view.select_project.connect ((path) => {
-                project.path = path;
+                project_manager.project_path = path;
             });
 
             folder_manager_view.close_all_docs_from_path.connect ((a) => {
@@ -566,8 +566,8 @@ namespace Scratch {
         }
 
         private void set_build_run_widgets_sensitive () {
-            bool is_project_selected = project.path != null;
-            bool is_running = project.is_running;
+            bool is_project_selected = project_manager.project_path != null;
+            bool is_running = project_manager.is_running;
 
             Utils.action_from_group (ACTION_BUILD, actions).set_enabled (is_project_selected && !is_running);
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (is_project_selected && !is_running);
@@ -851,19 +851,19 @@ namespace Scratch {
         }
 
         private void action_build () {
-            project.build.begin ((obj, res) => {
-                project.build.end (res);
+            project_manager.build.begin ((obj, res) => {
+                project_manager.build.end (res);
             });
         }
 
         private void action_run () {
-            project.build_install_run.begin ((obj, res) => {
-                project.build_install_run.end (res);
+            project_manager.build_install_run.begin ((obj, res) => {
+                project_manager.build_install_run.end (res);
             });
         }
 
         private void action_stop () {
-            project.stop ();
+            project_manager.stop ();
         }
 
         private void action_revert () {
