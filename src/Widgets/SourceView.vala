@@ -407,6 +407,29 @@ namespace Scratch.Widgets {
             }
         }
 
+        public void clear_selected_lines () {
+            buffer.begin_user_action ();
+            bool has_selection = buffer.has_selection;
+
+            if (has_selection) {
+                //Delete selected lines
+                buffer.delete_selection (true, true);
+            }
+
+            //Clear current line.
+            Gtk.TextIter start, end;
+            get_current_line (out start, out end);
+            end.backward_char ();
+
+            //If line was empty to begin with, remove it entirely
+            if (!has_selection && end.equal (start)) {
+                end.forward_char ();
+            }
+
+            buffer.@delete (ref start, ref end);
+            buffer.end_user_action ();
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
