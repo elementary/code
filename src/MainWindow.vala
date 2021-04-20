@@ -474,7 +474,6 @@ namespace Scratch {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 string[] uris = settings.get_strv ("opened-files-view1");
                 string focused_document = settings.get_string ("focused-document-view1");
-
                 foreach (string uri in uris) {
                    if (uri != "") {
                         GLib.File file;
@@ -488,8 +487,12 @@ namespace Scratch {
                         */
                         if (file.query_exists ()) {
                             var doc = new Scratch.Services.Document (actions, file);
+                            bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
-                                open_document (doc, file.get_uri () == focused_document);
+                                open_document (doc, is_focused);
+                            }
+                            if (is_focused) { //Maybe expand to show all opened documents?
+                                folder_manager_view.expand_to_path (file.get_path ());
                             }
                         }
                     }
