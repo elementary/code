@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-09 21:59+0000\n"
-"PO-Revision-Date: 2021-02-26 13:42+0000\n"
+"POT-Creation-Date: 2021-04-07 15:07+0000\n"
+"PO-Revision-Date: 2021-04-10 20:00+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -129,16 +129,16 @@ msgid "Remember whether the sidebar is open"
 msgstr "Se recuerda si la barra lateral estaba abierta"
 
 #: data/io.elementary.code.appdata.xml.in:59
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
 msgid "Add keyboard shortcuts for next and previous documents"
 msgstr ""
 "Se añadieron atajos de teclado para cambiar al documento anterior y el "
-"siguiente."
+"siguiente"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Show full document path in tab tooltip"
 msgstr ""
+"Se muestra la ruta completa del documento en la descripción emergente de la "
+"pestaña"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Fixes:"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:130
 msgid "Enter name of new file before creating it"
-msgstr "Introducir el nombre del nuevo archivo antes de crearlo"
+msgstr "Puede introducir el nombre del archivo nuevo antes de crearlo"
 
 #: data/io.elementary.code.appdata.xml.in:138
 msgid "Use Granite.MessageDialog throughout"
@@ -293,7 +293,7 @@ msgstr "Uso exhaustivo de Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:139
 msgid "Include non-text files in sidebar"
-msgstr "Incluir archivos que no sean de texto en la barra lateral"
+msgstr "Se incluyen archivos binarios en la barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:140
 msgid "Fix Remove Current View"
@@ -343,7 +343,7 @@ msgstr "No recrear archivos eliminados al restaurar la sesión"
 
 #: data/io.elementary.code.appdata.xml.in:170
 msgid "Restore line wrap preference"
-msgstr "Restaurar la preferencia del envoltorio de línea"
+msgstr "Se restaura la preferencia de ajuste de renglones"
 
 #: data/io.elementary.code.appdata.xml.in:171
 msgid "Add accel tooltips"
@@ -354,8 +354,8 @@ msgid "Minor bug fixes"
 msgstr "Pequeñas correcciones de errores"
 
 #: data/io.elementary.code.appdata.xml.in:212
-msgid "elementary LLC."
-msgstr "elementary LLC."
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -387,7 +387,7 @@ msgstr "Ejecutar código como administrador"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr "Se requiere autenticación para ejecutar Code como administrador"
+msgstr "Necesita autenticarse para ejecutar Code con permisos administrativos"
 
 #~ msgid "New Document"
 #~ msgstr "Nuevo documento"
