@@ -34,10 +34,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: bilelmoussaoui/flatpak-github-actions@v2
+    - uses: bilelmoussaoui/flatpak-github-actions@master
       with:
         bundle: "io.elementary.code.flatpak"
         manifest-path: "io.elementary.code.yml"
+        repository-name: "elementary"
+        repository-url: "https://flatpak.elementary.io/elementary.flatpakrepo"
+        cache-key: "flatpak-builder-${{ github.sha }}"
 
   lint:
 
