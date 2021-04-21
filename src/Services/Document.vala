@@ -375,7 +375,7 @@ namespace Scratch.Services {
         }
 
         public bool do_close (bool app_closing = false) {
-            message ("Closing \"%s\"", get_basename ());
+            debug ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
                 load_cancellable.cancel ();
@@ -493,7 +493,7 @@ namespace Scratch.Services {
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
-            message ("File \"%s\" saved succesfully", get_basename ());
+            debug ("File \"%s\" saved succesfully", get_basename ());
 
             return true;
         }
@@ -544,7 +544,7 @@ namespace Scratch.Services {
                         // Delete temporary file
                         File.new_for_path (current_file).delete ();
                     } catch (Error err) {
-                        message ("Temporary file cannot be deleted: %s", current_file);
+                        warning ("Temporary file cannot be deleted: %s", current_file);
                     }
                 }
 
