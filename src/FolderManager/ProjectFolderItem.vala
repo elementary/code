@@ -63,7 +63,6 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
-                // monitored_repo.file_status_change.connect (update_item_status);
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
             }
@@ -91,7 +90,6 @@ namespace Scratch.FolderManager {
             }
 
             if (monitored_repo != null) {
-                // update_item_status ();
                 update_item_status (folder);
                 deprioritize_git_ignored ();
             }
