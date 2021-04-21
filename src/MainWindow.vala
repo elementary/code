@@ -148,7 +148,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
-            action_accelerators.set (ACTION_FIND_GLOBAL, "<Control><shift>f");
+            action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -890,7 +890,11 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            folder_manager_view.search_global (param.get_string ());
+            /* The string parameter is for future development allowing specifying a search term */
+            var current_doc = get_current_document ();
+            if (current_doc != null) {
+                folder_manager_view.search_global (current_doc.file.get_path ());
+            }
         }
 
         private void set_search_text () {
