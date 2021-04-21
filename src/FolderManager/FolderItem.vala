@@ -43,15 +43,17 @@ namespace Scratch.FolderManager {
             add (dummy);
 
             toggled.connect (() => {
+                var root = get_root_folder ();
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
-                    var root = get_root_folder ();
                     if (root != null) {
-                        root.update_git_status ();
+                        root.child_folder_loaded (this);
                     }
 
                     children_loaded = true;
+                } else if (!expanded && root != null) {
+                    root.update_item_status (this); //When toggled closed, update status to reflect hidden contents
                 }
             });
 
@@ -320,9 +322,14 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            var root = get_root_folder ();
-            if (root != null) {
-                root.update_git_status ();
+            // Reduce spamming of root (still results in multiple signals per change in file being edited
+            //TODO Throttle this signal?
+            if (event == FileMonitorEvent.CHANGES_DONE_HINT) {
+                //TODO Get root folder once as it will not change for the life of this folder
+                var root = get_root_folder (this);
+                if (root != null) {
+                    root.child_folder_changed (this);
+                }
             }
         }
 
