@@ -21,7 +21,6 @@
 namespace Scratch.Services {
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
-
         public string current_branch_name { get; private set; }
 
         public bool is_detached_head {

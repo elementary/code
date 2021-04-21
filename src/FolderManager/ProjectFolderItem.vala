@@ -27,6 +27,13 @@ namespace Scratch.FolderManager {
         private static Icon added_icon;
         private static Icon modified_icon;
 
+        public signal void closed ();
+        public signal void close_all_except ();
+
+        private Scratch.Services.MonitoredRepository? monitored_repo = null;
+        // Cache the visible item in the project.
+        private List<VisibleItem?> visible_item_list = null;
+        public string top_level_path { get; construct; }
         public const string ACTION_DOMAIN = "git";
         public const string ACTION_PREFIX = "git.";
         public const string ACTION_NEW_BRANCH = "action-new-branch";
@@ -40,13 +47,6 @@ namespace Scratch.FolderManager {
             { ACTION_COMMIT, action_commit },
             { ACTION_SWITCH, action_switch, "s" }
         };
-
-        public signal void closed ();
-        public signal void close_all_except ();
-
-        private Scratch.Services.MonitoredRepository? monitored_repo = null;
-        // Cache the visible item in the project.
-        private List<VisibleItem?> visible_item_list = null;
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (
@@ -192,7 +192,6 @@ namespace Scratch.FolderManager {
                 });
             });
         }
-
         private void update_branch_name (string branch_name) requires (monitored_repo != null) {
             markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, monitored_repo.current_branch_name);
         }

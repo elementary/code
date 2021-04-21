@@ -44,6 +44,7 @@ namespace Scratch.FolderManager {
 
             toggled.connect (() => {
                 var root = get_root_folder ();
+                activatable = null;
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
