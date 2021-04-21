@@ -1,6 +1,5 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2021 elementary LLC (https://elementary.io)
+* Copyright 2021 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -19,7 +18,6 @@
 *
 * Authored by: Jeremy Wootten <jeremy@elementaryos.org>
 */
-
 
 public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     public string folder_name { get; construct; }
@@ -81,10 +79,9 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
     construct {
         var header = new Gtk.Label (_("Search text in folder '%s'").printf (folder_name)) {
-            margin_bottom = 24,
-            halign = Gtk.Align.CENTER
+            margin_bottom = 12
         };
-        header.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
         search_term_entry = new Gtk.Entry () {
             hexpand = true,
@@ -97,6 +94,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
         match_mode_button = new Granite.Widgets.ModeButton ();
         literal_mode_index = match_mode_button.append_text (_("Text"));
+
         var literal_widget = (Gtk.Widget)(match_mode_button.get_children ().nth_data (literal_mode_index));
         literal_widget.tooltip_text = _("Treat the search entry as literal text");
 
@@ -138,7 +136,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
             no_show_all = !is_repo
         };
 
-        var modified_label = new Gtk.Label (_("Modified only")) {
+        var modified_label = new Gtk.Label (_("Modified only:")) {
             halign = Gtk.Align.END,
             no_show_all = !is_repo
         };
@@ -148,7 +146,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
             active = is_repo ? true : false
         };
 
-        var recurse_label = new Gtk.Label (_("Search sub-folders")) {
+        var recurse_label = new Gtk.Label (_("Search sub-folders:")) {
             halign = Gtk.Align.END
         };
 
@@ -157,31 +155,39 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
             active = true
         };
 
-        var case_label = new Gtk.Label (_("Case sensitive"));
+        var case_label = new Gtk.Label (_("Case sensitive:")) {
+            halign = Gtk.Align.END
+        };
 
         var layout = new Gtk.Grid () {
             column_spacing = 12,
             row_spacing = 6,
-            margin = 12
+            margin = 12,
+            margin_top = 0,
+            vexpand = true
         };
-        layout.attach (header, 0, 0, 4, 1);
-        layout.attach (search_term_label, 0, 1, 1, 1);
-        layout.attach (search_term_entry, 1, 1, 2, 1);
-        layout.attach (match_mode_button, 3, 1, 1, 1);
-        layout.attach (filter_label, 0, 2, 1, 1 );
-        layout.attach (filter_combo, 1, 2, 2, 1);
-        layout.attach (scope_mode_button, 3, 2, 1, 1);
-        layout.attach (modified_label, 0, 3, 1, 1);
-        layout.attach (modified_switch, 1, 3, 1, 1);
-        layout.attach (recurse_label, 0, 4, 1, 1);
-        layout.attach (recurse_switch, 1, 4, 1, 1);
-        layout.attach (case_label, 0, 5, 1, 1);
-        layout.attach (case_switch, 1, 5, 1, 1);
+        layout.attach (header, 0, 0, 4);
+        layout.attach (search_term_label, 0, 1);
+        layout.attach (search_term_entry, 1, 1, 2);
+        layout.attach (match_mode_button, 3, 1);
+        layout.attach (filter_label, 0, 2);
+        layout.attach (filter_combo, 1, 2, 2);
+        layout.attach (scope_mode_button, 3, 2);
+        layout.attach (modified_label, 0, 3);
+        layout.attach (modified_switch, 1, 3);
+        layout.attach (recurse_label, 0, 4);
+        layout.attach (recurse_switch, 1, 4);
+        layout.attach (case_label, 0, 5);
+        layout.attach (case_switch, 1, 5);
+        layout.show_all ();
+
         get_content_area ().add (layout);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+
         var search_button = (Gtk.Button) add_button (_("Search"), Gtk.ResponseType.ACCEPT);
         search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
         search_term_entry.bind_property ("text", search_button, "sensitive", BindingFlags.DEFAULT,
              (binding, src_val, ref target_val) => {
                 target_val.set_boolean (src_val.get_string ().length >= 3);
@@ -193,7 +199,5 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         });
 
         set_default_response (Gtk.ResponseType.CLOSE);
-
-        show_all ();
     }
  }
