@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 15:07+0000\n"
+"POT-Creation-Date: 2021-04-20 23:02+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -44,50 +44,50 @@ msgstr "Σετ προσθέτων"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:141
 msgid "Code"
 msgstr "Κώδικας"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Εύρεση…"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:203
 msgid "Hide search bar"
 msgstr "Απόκρυψη γραμμής αναζήτησης"
 
-#: src/MainWindow.vala:276
+#: src/MainWindow.vala:279
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Πηγή δεδομένων Zeitgeist για το Scratch"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:508
+#: src/MainWindow.vala:735 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Όλα τα αρχεία"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:512
+#: src/MainWindow.vala:739 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Αρχεία κειμένου"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:743
 msgid "Open some files"
 msgstr "Άνοιγμα μερικών αρχείων"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:746
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/MainWindow.vala:747 src/Services/Document.vala:407
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:773
 msgid "_Cancel"
 msgstr "_Ακύρωση"
 
@@ -202,26 +202,26 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
 msgid "Other Application…"
 msgstr "Άλλη εφαρμογή…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
 #, fuzzy
 msgid "Open In"
 msgstr "Άνοιγμα"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 #, fuzzy
 msgid "Other Actions"
 msgstr "Άλλες μορφές"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr "Μετονομασία"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:89
 msgid "Move to Trash"
 msgstr "Μετακίνηση στον κάδο"
 
@@ -229,50 +229,48 @@ msgstr "Μετακίνηση στον κάδο"
 msgid "Folders"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:166
 #, fuzzy
 msgid "Folder"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:169
 msgid "Empty File"
 msgstr "Άδειο αρχείο"
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/ProjectFolderItem.vala:144
+#: src/FolderManager/ProjectFolderItem.vala:150
 #, fuzzy
 msgid "New"
 msgstr "Νέα Καρτέλα"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "untitled folder"
 msgstr "φάκελος χωρίς τίτλο"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 #, fuzzy
 msgid "new file"
 msgstr "Νέο αρχείο"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:82
 msgid "Close Folder"
 msgstr "Κλείσιμο φακέλου"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:85
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Κλείσιμο φακέλου"
 
-#: src/FolderManager/ProjectFolderItem.vala:189
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:150
+msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:198
-#, c-format
-msgid "%s, New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:348
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, fuzzy
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
@@ -553,11 +551,11 @@ msgstr "Αντικατάσταση"
 msgid "Replace all"
 msgstr "Αντικατάσταση Όλων"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:476
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:446
+#: src/Widgets/SourceView.vala:489
 msgid "Toggle Comment"
 msgstr ""
 
