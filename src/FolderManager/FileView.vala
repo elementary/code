@@ -124,7 +124,9 @@ namespace Scratch.FolderManager {
             item_selected.connect (on_item_selected);
         }
 
-        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
+        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+                                                            string path,
+                                                            bool expand = false) {
             foreach (var item in list.children) {
                 if (item is Item) {
                     var code_item = item as Item;
@@ -134,11 +136,19 @@ namespace Scratch.FolderManager {
 
                     if (item is Granite.Widgets.SourceList.ExpandableItem) {
                         var expander = item as Granite.Widgets.SourceList.ExpandableItem;
-                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                        if (!path.has_prefix (code_item.path)) {
                             continue;
                         }
 
-                        var recurse_item = find_path (expander, path);
+                        if (!expander.expanded) {
+                            if (expand) {
+                                expander.expanded = true;
+                            } else {
+                                continue;
+                            }
+                        }
+
+                        var recurse_item = find_path (expander, path, expand);
                         if (recurse_item != null) {
                             return recurse_item;
                         }
@@ -147,6 +157,10 @@ namespace Scratch.FolderManager {
             }
 
             return null;
+        }
+
+        public void expand_to_path (string path) {
+            find_path (root, path, true);
         }
 
         private void add_folder (File folder, bool expand) {

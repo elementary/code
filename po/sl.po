@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 15:07+0000\n"
+"POT-Creation-Date: 2021-04-20 23:02+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -45,49 +45,49 @@ msgstr "vtičnik"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:141
 msgid "Code"
 msgstr "Koda"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Išči…"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:203
 msgid "Hide search bar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:276
+#: src/MainWindow.vala:279
 msgid "Zeitgeist Datasource for Code"
 msgstr "Vir podatkov Zeitgeist za Kodo"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:508
+#: src/MainWindow.vala:735 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:512
+#: src/MainWindow.vala:739 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:743
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:746
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/MainWindow.vala:747 src/Services/Document.vala:407
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:773
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -205,24 +205,24 @@ msgstr "Ne obnovi"
 msgid "Restore Anyway"
 msgstr "Vseeno obnovi"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
 msgid "Open In"
 msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
 msgstr "Druga dejanja"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:89
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -230,45 +230,43 @@ msgstr "Premakni v smeti"
 msgid "Folders"
 msgstr "Mape"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:166
 msgid "Folder"
 msgstr "Mapa"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:169
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/ProjectFolderItem.vala:144
+#: src/FolderManager/ProjectFolderItem.vala:150
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "new file"
 msgstr "nova datoteka"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:82
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:85
 msgid "Close Other Folders"
 msgstr "Zapri druge mape"
 
-#: src/FolderManager/ProjectFolderItem.vala:189
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:150
+msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:198
-#, c-format
-msgid "%s, New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:348
+#: src/FolderManager/ProjectFolderItem.vala:204
 msgid "Branch"
 msgstr "Veja"
 
@@ -541,11 +539,11 @@ msgstr "Zamenjaj"
 msgid "Replace all"
 msgstr "Zamenjaj vse"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:476
 msgid "Sort Selected Lines"
 msgstr "Sortiraj izbrane vrstice"
 
-#: src/Widgets/SourceView.vala:446
+#: src/Widgets/SourceView.vala:489
 msgid "Toggle Comment"
 msgstr "Preklopi komentar"
 

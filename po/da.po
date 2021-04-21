@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 15:07+0000\n"
+"POT-Creation-Date: 2021-04-20 23:02+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -43,49 +43,49 @@ msgstr "plugin"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:141
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Find…"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:203
 msgid "Hide search bar"
 msgstr "Skjul søgelinjen"
 
-#: src/MainWindow.vala:276
+#: src/MainWindow.vala:279
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-datakilde til Code"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:508
+#: src/MainWindow.vala:735 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:512
+#: src/MainWindow.vala:739 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:743
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:746
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/MainWindow.vala:747 src/Services/Document.vala:407
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuller"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Åbn"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:773
 msgid "_Cancel"
 msgstr "_Annuller"
 
@@ -203,24 +203,24 @@ msgstr "Genskab Ikke"
 msgid "Restore Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
 msgid "Open In"
 msgstr "Åbn I"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:89
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
@@ -228,45 +228,45 @@ msgstr "Flyt til Skrald"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:166
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:169
 msgid "Empty File"
 msgstr "Tom Fil"
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/ProjectFolderItem.vala:144
+#: src/FolderManager/ProjectFolderItem.vala:150
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "untitled folder"
 msgstr "unavngivet mappe"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:82
 msgid "Close Folder"
 msgstr "Luk Mappen"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:85
 msgid "Close Other Folders"
 msgstr "Luk Andre Mapper"
 
-#: src/FolderManager/ProjectFolderItem.vala:189
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, fuzzy
+#| msgid "%s, Modified"
+msgid "Modified"
 msgstr "%s, Modificeret"
 
-#: src/FolderManager/ProjectFolderItem.vala:198
-#, c-format
-msgid "%s, New"
-msgstr "%s, Ny"
-
-#: src/FolderManager/ProjectFolderItem.vala:348
+#: src/FolderManager/ProjectFolderItem.vala:204
 msgid "Branch"
 msgstr "Branch"
 
@@ -536,11 +536,11 @@ msgstr "Erstat"
 msgid "Replace all"
 msgstr "Erstat alle"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:476
 msgid "Sort Selected Lines"
 msgstr "Sorter Valgte Linjer"
 
-#: src/Widgets/SourceView.vala:446
+#: src/Widgets/SourceView.vala:489
 msgid "Toggle Comment"
 msgstr "Slå Kommentarer til/fra"
 
@@ -681,6 +681,9 @@ msgstr "Installer venligst mindst en [aspell] ordbog."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Fuldførsel af ord"
+
+#~ msgid "%s, New"
+#~ msgstr "%s, Ny"
 
 #~ msgid "File \"%s\" Cannot Be Created"
 #~ msgstr "Filen \"%s\" Kan Ikke Oprettes"
