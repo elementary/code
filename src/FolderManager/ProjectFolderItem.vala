@@ -27,6 +27,13 @@ namespace Scratch.FolderManager {
         private static Icon added_icon;
         private static Icon modified_icon;
 
+        public signal void closed ();
+        public signal void close_all_except ();
+
+        private Scratch.Services.MonitoredRepository? monitored_repo = null;
+        // Cache the visible item in the project.
+        private List<VisibleItem?> visible_item_list = null;
+        public string top_level_path { get; construct; }
         public const string ACTION_DOMAIN = "git";
         public const string ACTION_PREFIX = "git.";
         public const string ACTION_NEW_BRANCH = "action-new-branch";
@@ -40,13 +47,6 @@ namespace Scratch.FolderManager {
             { ACTION_COMMIT, action_commit },
             { ACTION_SWITCH, action_switch, "s" }
         };
-
-        public signal void closed ();
-        public signal void close_all_except ();
-
-        private Scratch.Services.MonitoredRepository? monitored_repo = null;
-        // Cache the visible item in the project.
-        private List<VisibleItem?> visible_item_list = null;
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (
@@ -65,7 +65,7 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
-                monitored_repo.file_status_change.connect (update_item_status);
+                monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
             }
 
@@ -92,7 +92,7 @@ namespace Scratch.FolderManager {
             }
 
             if (monitored_repo != null) {
-                update_item_status ();
+                update_item_status (folder);
                 deprioritize_git_ignored ();
             }
         }
@@ -148,9 +148,14 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        private void update_item_status () requires (monitored_repo != null) {
+        public void update_item_status (FolderItem? start_folder) requires (monitored_repo != null) {
             bool is_new = false;
+            string start_path = start_folder != null ? start_folder.path : "";
             visible_item_list.@foreach ((visible_item) => {
+                if (start_path.has_prefix (visible_item.rel_path)) {
+                    return; //Only need to update status for start_folder and its children
+                }
+
                 var item = visible_item.item;
                 item.activatable = null;
                 monitored_repo.non_current_entries.@foreach ((entry) => {
@@ -167,8 +172,10 @@ namespace Scratch.FolderManager {
                             return true;  // scan all children
                         }
 
-                        item.activatable = is_new ? added_icon : modified_icon;
-                        item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        if (!(item is FolderItem) || !item.expanded) { //No need to show status when children shown
+                            item.activatable = is_new ? added_icon : modified_icon;
+                            item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        }
                         return false;
                     } else {
                         return true;
@@ -176,7 +183,6 @@ namespace Scratch.FolderManager {
                 });
             });
         }
-
         private void update_branch_name (string branch_name) requires (monitored_repo != null) {
             markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, monitored_repo.current_branch_name);
         }

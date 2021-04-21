@@ -43,15 +43,18 @@ namespace Scratch.FolderManager {
             add (dummy);
 
             toggled.connect (() => {
+                var root = get_root_folder ();
+                activatable = null;
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
-                    var root = get_root_folder ();
                     if (root != null) {
                         root.child_folder_loaded (this);
                     }
 
                     children_loaded = true;
+                } else if (!expanded && root != null) {
+                    root.update_item_status (this); //When toggled closed, update status to reflect hidden contents
                 }
             });
 

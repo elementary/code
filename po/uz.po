@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 00:28+0000\n"
-"PO-Revision-Date: 2020-09-26 13:14+0000\n"
-"Last-Translator: Shukrullo <shukrullo@umail.uz>\n"
+"POT-Creation-Date: 2021-04-20 23:02+0000\n"
+"PO-Revision-Date: 2021-03-21 11:04+0000\n"
+"Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -36,59 +36,59 @@ msgstr "Qo'shimchalar"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FAYL...]"
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:141
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Izlash…"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:203
 msgid "Hide search bar"
 msgstr "Izlash panelini yashirish"
 
-#: src/MainWindow.vala:276
+#: src/MainWindow.vala:279
 msgid "Zeitgeist Datasource for Code"
 msgstr "Code uchun Zeitgeist Datasource"
 
-#: src/MainWindow.vala:726 src/Services/Document.vala:501
+#: src/MainWindow.vala:735 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Barcha fayllar"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:505
+#: src/MainWindow.vala:739 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Matnli fayllar"
 
-#: src/MainWindow.vala:734
+#: src/MainWindow.vala:743
 msgid "Open some files"
 msgstr "Fayllarni ochish"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:746
 msgid "Open"
 msgstr "Ochish"
 
-#: src/MainWindow.vala:738 src/Services/Document.vala:400
-#: src/Services/Document.vala:513 plugins/pastebin/pastebin_dialog.vala:326
-#: plugins/pastebin/pastebin_dialog.vala:377
+#: src/MainWindow.vala:747 src/Services/Document.vala:407
+#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Bekor qilish"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Ochish"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:773
 msgid "_Cancel"
 msgstr "_Bekor qilish"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
 msgstr "Sozlamalar"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -96,88 +96,88 @@ msgstr ""
 "Agar belgilamasdan turib nusxa yoki qirqib olish amali bajarilsa bu amal "
 "butun qator bo'ylab amalga oshiriladi"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "Umumiy"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "Fayllarni o'zgartirish amalga oshirilganda saqlab qo'yish:"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr "Qatorlardan aqlli qirqish/nusxa olish:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "Vkladkalar"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "Surilishlarni avtomatik yaratish:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "Tabulyatsiya o'rniga bo'shliqlarni ishlatish:"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "Tabulyatsiya kengligi:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "Behavior"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Interfeys"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Yopish"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "Qo'shimchalar"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Tahrirlovchi"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "Mos keluvchi qavslarni belgilash:"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr "Yangi qatorga o'tkazish:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "Bo'shliqlarni ko'rsatish:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "Belgilangan matn uchun"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "Doimo"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "Mini-xaritani ko'rsatish:"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "Qatorlar sozlamalari:"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr "Shrift"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "Foydalanuvchi shrifti:"
 
@@ -199,24 +199,24 @@ msgstr "Tiklanmasin"
 msgid "Restore Anyway"
 msgstr "Baribir tiklansin"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
 msgid "Other Application…"
 msgstr "Boshqa ilova…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
 msgid "Open In"
 msgstr "Boshqa ilovada ochish"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
 msgstr "Boshqa amallar"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr "Qayta nomlash"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:89
 msgid "Move to Trash"
 msgstr "Axlat savatchasiga o'tkazish"
 
@@ -224,129 +224,129 @@ msgstr "Axlat savatchasiga o'tkazish"
 msgid "Folders"
 msgstr "Papkalar"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:166
 msgid "Folder"
 msgstr "Papka"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:169
 msgid "Empty File"
 msgstr "Bo'sh fayl"
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/ProjectFolderItem.vala:144
+#: src/FolderManager/ProjectFolderItem.vala:150
 msgid "New"
 msgstr "Yaratish"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "untitled folder"
 msgstr "nomsiz papka"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "new file"
 msgstr "yangi fayl"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:82
 msgid "Close Folder"
 msgstr "Papkani yopish"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:85
 msgid "Close Other Folders"
 msgstr "Boshqa papkalarni yopish"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, fuzzy
+#| msgid "%s, Modified"
+msgid "Modified"
 msgstr "%s, O'zgartirilgan"
 
-#: src/FolderManager/ProjectFolderItem.vala:197
-#, c-format
-msgid "%s, New"
-msgstr "%s, Yangi"
-
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:204
 msgid "Branch"
 msgstr "Brench"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s matnli fayl emas"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code bu turdagi fayllarni ocha olmaydi."
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Baribir ochish"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" ni ochish ko'p vaqt olyapti"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Iltimos, Code faylni ochguncha biroz sabr qiling."
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "Yuklashni bekor qilish"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:397
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "\"%s\" ni yopishdan avval kiritilgan o'zgarishlarni saqlash kerakmi?"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:398
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Agar o'zgarishlarni saqlamasangiz ularni keyinchalik umuman tiklab bo'lmaydi."
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:404
 msgid "Close Without Saving"
 msgstr "Saqlamasdan yopish"
 
-#: src/Services/Document.vala:401 src/Services/Document.vala:512
-#: src/Services/Document.vala:740
+#: src/Services/Document.vala:408 src/Services/Document.vala:519
+#: src/Services/Document.vala:756
 msgid "Save"
 msgstr "Saqlash"
 
-#: src/Services/Document.vala:509
+#: src/Services/Document.vala:516
 msgid "Save File"
 msgstr "Faylni saqlash"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:598 src/Services/Document.vala:607
 msgid "New Document"
 msgstr "Yangi hujjat"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:730
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" faylini o'qib bo'lmadi"
 
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:731
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Ushbu fayl zararlangan yoki sizda uni o'qish uchun huquq bo'lmasligi mumkin."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "\"%s\" ochilgan manbaani topib bo'lmadi. Boshqa joyda saqlaysizmi?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:747
 msgid "Save As…"
 msgstr "Boshqa usulda saqlash…"
 
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:753
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" fayli o'chirib yuborilgan. Baribir saqlashni xoxlaysizmi?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:770
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -355,11 +355,11 @@ msgstr ""
 "Siz \"%s\" fayliga kiritilgan o'zgartirishlarni saqlay olmaysiz. Boshqa "
 "joyda saqlashni xoxlaysizmi?"
 
-#: src/Services/Document.vala:757
+#: src/Services/Document.vala:773
 msgid "Save changes elsewhere"
 msgstr "Kiritilgan o'zgartirishlarni boshqa joyda saqlash"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:807
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -368,11 +368,11 @@ msgstr ""
 "\"%s\" fayli boshqa ilova tomonidan o'zgartirilgan. Uni qaytadan yuklab, "
 "tahrirlashni davom ettirmoqchimisiz?"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:810
 msgid "Load"
 msgstr "Yuklash"
 
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:813
 msgid "Continue"
 msgstr "Davom etish"
 
@@ -385,93 +385,93 @@ msgstr "Na'munalar"
 msgid "Text file from %s:%d"
 msgstr "%s:%d dan matnli fayl"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Sintaksisni ranglar bilan ajratish"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Qator raqamlari"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Tillar filtri"
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Oddiy matn"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d bo'shliq"
 msgstr[1] "%d bo'shliq"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d surilish"
 msgstr[1] "%d surilish"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "Qatorga o'tish:"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:49
 msgid "Open a file"
 msgstr "Faylni ochish"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:54
 msgid "Project templates"
 msgstr "Loyiha na'munalari"
 
-#: src/Widgets/HeaderBar.vala:56
+#: src/Widgets/HeaderBar.vala:60
 msgid "Save this file"
 msgstr "Ushbu faylni saqlash"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:67
 msgid "Save this file with a different name"
 msgstr "Ushbu faylni boshqa nom bilan saqlash"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:74
 msgid "Restore this file"
 msgstr "Faylni dastlabki holatiga qaytarish"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:89
 msgid "Share"
 msgstr "Ulashish"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom Out"
 msgstr "Masshtabni kamaytirish"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom 1:1"
 msgstr "1:1 masshtab"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:110
 msgid "Zoom In"
 msgstr "Masshtabni oshirish"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:127
 msgid "High Contrast"
 msgstr "Yuqori kontrast"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:135
 msgid "Solarized Light"
 msgstr "Solarized Light"
 
-#: src/Widgets/HeaderBar.vala:136
+#: src/Widgets/HeaderBar.vala:143
 msgid "Solarized Dark"
 msgstr "Solarized Dark"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:153
 msgid "Toggle Sidebar"
 msgstr "Yon panelni almashtirish"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:184
 msgid "Menu"
 msgstr "Menyu"
 
@@ -529,11 +529,11 @@ msgstr "Almashtirish"
 msgid "Replace all"
 msgstr "Barchasini almashtirish"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:476
 msgid "Sort Selected Lines"
 msgstr "Belgilangan qatorlarni tartiblash"
 
-#: src/Widgets/SourceView.vala:446
+#: src/Widgets/SourceView.vala:489
 msgid "Toggle Comment"
 msgstr "Sharhga olish/Sharhdan chiqarish"
 
@@ -569,8 +569,8 @@ msgstr "Papkani ochish"
 msgid "Add a project folder to the sidebar."
 msgstr "Loyiha papkasini yon panelga qo'shish."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Pastebinga yuklash"
 
@@ -578,23 +578,23 @@ msgstr "Pastebinga yuklash"
 msgid "Name:"
 msgstr "Ism:"
 
-#: plugins/pastebin/pastebin_dialog.vala:260
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr "Shakli:"
 
-#: plugins/pastebin/pastebin_dialog.vala:266
+#: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
 msgstr "Boshqa shaklni tanlang"
 
-#: plugins/pastebin/pastebin_dialog.vala:289
+#: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
 msgstr "Muddati:"
 
-#: plugins/pastebin/pastebin_dialog.vala:295
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "Ushbu matnni shaxsiy qilib belgilash"
 
-#: plugins/pastebin/pastebin_dialog.vala:353
+#: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
 msgstr "Mavjud shakllar"
 
@@ -670,6 +670,9 @@ msgstr "Iltimos hech bo'lmasa bir dona [aspell] lug'at o'rnating."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - so'zlarni avtomatik tugatish"
+
+#~ msgid "%s, New"
+#~ msgstr "%s, Yangi"
 
 #~ msgid "File \"%s\" Cannot Be Created"
 #~ msgstr "\"%s\"  faylini yaratib bo'lmadi"
