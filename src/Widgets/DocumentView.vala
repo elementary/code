@@ -183,7 +183,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true) {
+    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -210,6 +210,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 doc.open.end (res);
                 if (focus) {
                     doc.focus ();
+                }
+
+                if (cursor_position > 0) {
+                    doc.source_view.cursor_position = cursor_position;
                 }
                 save_opened_files ();
             });
@@ -370,18 +374,17 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     public void save_opened_files () {
-        string[] opened_files = {};
-
         if (privacy_settings.get_boolean ("remember-recent-files")) {
+            var vb = new VariantBuilder (new VariantType ("a(si)"));
             tabs.foreach ((tab) => {
                 var doc = (Scratch.Services.Document)tab;
                 if (doc.file != null && doc.exists ()) {
-                    opened_files += doc.file.get_uri ();
+                    vb.add ("(si)", doc.file.get_uri (), doc.source_view.cursor_position);
                 }
             });
-        }
 
-        Scratch.settings.set_strv ("opened-files-view1", opened_files);
+            Scratch.settings.set_value ("opened-files", vb.end ());
+        }
     }
 
     private void save_focused_document_uri (Services.Document? current_document) {
@@ -392,7 +395,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 file_uri = current_document.file.get_uri ();
             }
 
-            Scratch.settings.set_string ("focused-document-view1", file_uri);
+            Scratch.settings.set_string ("focused-document", file_uri);
         }
     }
 }
