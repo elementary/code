@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 15:07+0000\n"
+"POT-Creation-Date: 2021-04-20 23:02+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -43,49 +43,49 @@ msgstr "Componenti aggiuntivi"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:139
+#: src/MainWindow.vala:141
 msgid "Code"
 msgstr "Codice"
 
-#: src/MainWindow.vala:195 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Trova…"
 
-#: src/MainWindow.vala:200
+#: src/MainWindow.vala:203
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:276
+#: src/MainWindow.vala:279
 msgid "Zeitgeist Datasource for Code"
 msgstr "Origine dati Zeitgeist per Codice"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:508
+#: src/MainWindow.vala:735 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:733 src/Services/Document.vala:512
+#: src/MainWindow.vala:739 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:737
+#: src/MainWindow.vala:743
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:746
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:407
+#: src/MainWindow.vala:747 src/Services/Document.vala:407
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:773
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -203,24 +203,24 @@ msgstr "Non ripristinare"
 msgid "Restore Anyway"
 msgstr "Ripristina lo stesso"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
 msgid "Other Application…"
 msgstr "Un'altra applicazione…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
 msgid "Open In"
 msgstr "Apri con"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
 msgstr "Altre azioni"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr "Rinomina"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:89
 msgid "Move to Trash"
 msgstr "Sposta nel cestino"
 
@@ -228,45 +228,45 @@ msgstr "Sposta nel cestino"
 msgid "Folders"
 msgstr "Cartelle"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:166
 msgid "Folder"
 msgstr "Cartella"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:169
 msgid "Empty File"
 msgstr "File vuoto"
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/ProjectFolderItem.vala:144
+#: src/FolderManager/ProjectFolderItem.vala:150
 msgid "New"
 msgstr "Nuovo"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "untitled folder"
 msgstr "cartella senza titolo"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:339
 msgid "new file"
 msgstr "nuovo file"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:82
 msgid "Close Folder"
 msgstr "Chiudi cartella"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:85
 msgid "Close Other Folders"
 msgstr "Chiudi le altre cartelle"
 
-#: src/FolderManager/ProjectFolderItem.vala:189
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, fuzzy
+#| msgid "%s, Modified"
+msgid "Modified"
 msgstr "%s, modificato"
 
-#: src/FolderManager/ProjectFolderItem.vala:198
-#, c-format
-msgid "%s, New"
-msgstr "%s, nuovo"
-
-#: src/FolderManager/ProjectFolderItem.vala:348
+#: src/FolderManager/ProjectFolderItem.vala:204
 msgid "Branch"
 msgstr "Ramo di sviluppo"
 
@@ -536,11 +536,11 @@ msgstr "Sostituisci"
 msgid "Replace all"
 msgstr "Sostituisci tutto"
 
-#: src/Widgets/SourceView.vala:433
+#: src/Widgets/SourceView.vala:476
 msgid "Sort Selected Lines"
 msgstr "Ordina le linee selezionate"
 
-#: src/Widgets/SourceView.vala:446
+#: src/Widgets/SourceView.vala:489
 msgid "Toggle Comment"
 msgstr "Attiva o disattiva il commento"
 
@@ -677,6 +677,9 @@ msgstr "Installa almeno un dizionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocompletamento parole"
+
+#~ msgid "%s, New"
+#~ msgstr "%s, nuovo"
 
 #~ msgid "File \"%s\" Cannot Be Created"
 #~ msgstr "Impossibile creare il file \"%s\""
