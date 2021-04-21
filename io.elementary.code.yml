@@ -1,9 +1,7 @@
 app-id: io.elementary.code
-runtime: org.gnome.Sdk # outline plugin needs libvala that is only on sdk
-runtime-version: '3.38'
-base: io.elementary.BaseApp
-base-version: juno-20.08
-sdk: org.gnome.Sdk
+runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
+runtime-version: '0.1.0'
+sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
   - '--filesystem=host'
@@ -14,6 +12,7 @@ finish-args:
 
   - '--talk-name=org.gtk.vfs.*'
   - '--talk-name=org.gnome.SettingsDaemon'
+  - '--talk-name=org.gnome.zeitgeist.Engine'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
 cleanup:
@@ -32,16 +31,6 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: '4.8.0'
-
-  - name: handy
-    buildsystem: meson
-    config-opts:
-      - '-Dexamples=false'
-      - '-Dtests=false'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: '1.0.1'
 
   - name: peas
     buildsystem: meson
@@ -132,6 +121,8 @@ modules:
 
   - name: code
     buildsystem: meson
+    config-opts:
+     - '-Dhave_pkexec=false'
     sources:
       - type: dir
         path: .

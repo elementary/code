@@ -21,7 +21,6 @@
 
 namespace Scratch.Widgets {
     public class SourceView : Gtk.SourceView {
-        public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
         public Gtk.CssProvider font_css_provider;
@@ -307,26 +306,47 @@ namespace Scratch.Widgets {
             return 0;
         }
 
-        // Duplicate selected text if exists, else duplicate current line
+        // If selected text does not exists duplicate current line.
+        // If selected text is only in one line duplicate in place.
+        // If seected text covers more than one line, duplicate all lines complete.
         public void duplicate_selection () {
+            Gtk.TextIter? start = null;
+            Gtk.TextIter? end = null;
+            int selection_start_offset = 0;
+            int selection_end_offset = 0;
+            int start_line, end_line;
             var selection = get_selected_text ();
 
-            Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start, out end);
-
             if (selection != "") {
-                buffer.insert (ref end, selection, -1);
-            // If nothing is selected duplicate current line
+                buffer.get_selection_bounds (out start, out end);
+                start_line = start.get_line ();
+                end_line = end.get_line ();
+
+                if (start_line != end_line) {
+                    buffer.get_iter_at_line (out start, start_line);
+                    buffer.get_iter_at_line (out end, end_line);
+                    end.forward_to_line_end ();
+                    //We do it this way to ensure creation of new line if selected lines include the last in buffer
+                    selection = "\n" + buffer.get_text (start, end, true);
+                }
+
+                selection_start_offset = start.get_offset ();
+                selection_end_offset = end.get_offset ();
             } else {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
-                start.backward_line ();
-                start.forward_line ();
+                start.backward_line (); //To start of previous line
+                start.forward_line (); //To start of original line
+                end = start.copy ();
+                end.forward_to_line_end ();
+                selection = "\n" + buffer.get_text (start, end, true);
+            }
 
-                buffer.get_iter_at_mark (out end, buffer.get_insert ());
-                end.forward_line ();
-
-                string line = buffer.get_text (start, end, true);
-                buffer.insert (ref end, line, -1);
+            buffer.insert (ref end, selection, -1);
+            // Re-establish any pre-exising selection (we do not want duplicate text selected)
+            if (selection_start_offset > 0 || selection_end_offset > 0) {
+                buffer.get_iter_at_offset (out start, selection_start_offset);
+                buffer.get_iter_at_offset (out end, selection_end_offset);
+                buffer.select_range (start, end);
             }
         }
 
@@ -385,6 +405,29 @@ namespace Scratch.Widgets {
                 buffer.insert_at_cursor (sorted, -1);
                 buffer.end_user_action ();
             }
+        }
+
+        public void clear_selected_lines () {
+            buffer.begin_user_action ();
+            bool has_selection = buffer.has_selection;
+
+            if (has_selection) {
+                //Delete selected lines
+                buffer.delete_selection (true, true);
+            }
+
+            //Clear current line.
+            Gtk.TextIter start, end;
+            get_current_line (out start, out end);
+            end.backward_char ();
+
+            //If line was empty to begin with, remove it entirely
+            if (!has_selection && end.equal (start)) {
+                end.forward_char ();
+            }
+
+            buffer.@delete (ref start, ref end);
+            buffer.end_user_action ();
         }
 
         public void set_text (string text, bool opening = true) {
