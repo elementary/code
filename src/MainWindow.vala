@@ -472,9 +472,12 @@ namespace Scratch {
 
         public void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
-                string[] uris = settings.get_strv ("opened-files-view1");
-                string focused_document = settings.get_string ("focused-document-view1");
-                foreach (string uri in uris) {
+                var doc_infos = settings.get_value ("opened-files");
+                var doc_info_iter = new VariantIter (doc_infos);
+                string focused_document = settings.get_string ("focused-document");
+                string uri;
+                int pos;
+                while (doc_info_iter.next ("(si)", out uri, out pos)) {
                    if (uri != "") {
                         GLib.File file;
                         if (Uri.parse_scheme (uri) != null) {
@@ -489,8 +492,9 @@ namespace Scratch {
                             var doc = new Scratch.Services.Document (actions, file);
                             bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
-                                open_document (doc, is_focused);
+                                open_document (doc, is_focused, pos);
                             }
+
                             if (is_focused) { //Maybe expand to show all opened documents?
                                 folder_manager_view.expand_to_path (file.get_path ());
                             }
@@ -564,8 +568,8 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc, bool focus = true) {
-            document_view.open_document (doc, focus);
+        public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
+            document_view.open_document (doc, focus, cursor_position);
         }
 
         // Close a document
