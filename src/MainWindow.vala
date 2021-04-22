@@ -69,6 +69,7 @@ namespace Scratch {
         public const string ACTION_ORDER_FOLDERS = "action_order_folders";
         public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_SORT_LINES = "action_sort_lines";
+        public const string ACTION_NEW_APP = "action_new_app";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
         public const string ACTION_PREFERENCES = "preferences";
@@ -112,6 +113,7 @@ namespace Scratch {
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
+            { ACTION_NEW_APP, action_new_app },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_PREFERENCES, action_preferences },
@@ -845,6 +847,10 @@ namespace Scratch {
             if (doc != null) {
                 doc.duplicate_selection ();
             }
+        }
+
+        private void action_new_app () {
+            //  document_view.new_app ();
         }
 
         private void action_new_tab () {
