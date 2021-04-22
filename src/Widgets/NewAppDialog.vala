@@ -31,6 +31,43 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             hexpand = true
         };
 
+        var license_label = new Granite.HeaderLabel (_("License Type"));
+
+        var license_combobox = new Gtk.ComboBoxText ();
+        license_combobox.append_text ("GNU General Public License v2.0");
+        license_combobox.append_text ("GNU General Public License v3.0");
+        license_combobox.append_text ("MIT");
+        license_combobox.set_active (1);
+
+        var location_label = new Granite.HeaderLabel (_("Location"));
+
+        var location_chooser = new Gtk.FileChooserButton (_("Select the folder where your app should be located"), Gtk.FileChooserAction.SELECT_FOLDER) {
+            hexpand = true
+        };
+        try {
+            location_chooser.set_file (File.new_for_path (Environment.get_home_dir ()));
+        } catch (Error e) {
+            warning ("The folder path is invalid: %s", e.message);
+        }
+
+        var your_name_label = new Granite.HeaderLabel (_("Your Name"));
+
+        var your_name_entry = new Gtk.Entry () {
+            hexpand = true
+        };
+
+        var your_email_label = new Granite.HeaderLabel (_("Your Email"));
+
+        var your_email_entry = new Gtk.Entry () {
+            hexpand = true
+        };
+
+        var your_github_label = new Granite.HeaderLabel (_("Your GitHub Account"));
+
+        var your_github_entry = new Gtk.Entry () {
+            hexpand = true
+        };
+
         var form_grid = new Gtk.Grid ();
         form_grid.margin_start = form_grid.margin_end = 12;
         form_grid.orientation = Gtk.Orientation.VERTICAL;
@@ -39,6 +76,16 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         form_grid.vexpand = true;
         form_grid.add (app_name_label);
         form_grid.add (app_name_entry);
+        form_grid.add (license_label);
+        form_grid.add (license_combobox);
+        form_grid.add (location_label);
+        form_grid.add (location_chooser);
+        form_grid.add (your_name_label);
+        form_grid.add (your_name_entry);
+        form_grid.add (your_email_label);
+        form_grid.add (your_email_entry);
+        form_grid.add (your_github_label);
+        form_grid.add (your_github_entry);
         form_grid.show_all ();
 
         deletable = false;
