@@ -850,7 +850,8 @@ namespace Scratch {
         }
 
         private void action_new_app () {
-            //  document_view.new_app ();
+            var new_app_dialog = new Widgets.NewAppDialog ((Gtk.Window) this.get_toplevel ());
+            new_app_dialog.present ();
         }
 
         private void action_new_tab () {

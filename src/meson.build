@@ -36,6 +36,7 @@ code_files = files(
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
     'Widgets/HeaderBar.vala',
+    'Widgets/NewAppDialog.vala',
     'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
