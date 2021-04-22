@@ -49,11 +49,6 @@ namespace Scratch {
 
         public Gtk.Clipboard clipboard;
 
-#if HAVE_ZEITGEIST
-        // Zeitgeist integration
-        private Zeitgeist.DataSourceRegistry registry;
-#endif
-
         // Delegates
         delegate void HookFunc ();
 
@@ -265,28 +260,6 @@ namespace Scratch {
 
             // Crate folder for unsaved documents
             create_unsaved_documents_directory ();
-
-#if HAVE_ZEITGEIST
-            // Set up the Data Source Registry for Zeitgeist
-            registry = new Zeitgeist.DataSourceRegistry ();
-
-            var ds_event = new Zeitgeist.Event ();
-            ds_event.actor = "application://" + Constants.PROJECT_NAME + ".desktop";
-            ds_event.add_subject (new Zeitgeist.Subject ());
-            var ds_events = new GenericArray<Zeitgeist.Event> ();
-            ds_events.add (ds_event);
-            var ds = new Zeitgeist.DataSource.full ("code-logger",
-                                          _("Zeitgeist Datasource for Code"),
-                                          "A data source which logs Open, Close, Save and Move Events",
-                                          ds_events); // FIXME: templates!
-            registry.register_data_source.begin (ds, null, (obj, res) => {
-                try {
-                    registry.register_data_source.end (res);
-                } catch (Error reg_err) {
-                    critical (reg_err.message);
-                }
-            });
-#endif
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
