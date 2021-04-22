@@ -28,7 +28,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
     public string search_term { get {return search_term_entry.text;} }
     public bool use_regex {
-        get { 
+        get {
             return regex_switch.active;
         }
     }
