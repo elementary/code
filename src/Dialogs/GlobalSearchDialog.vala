@@ -24,13 +24,13 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     public bool is_repo { get; construct; }
     private Gtk.Entry search_term_entry;
     private Gtk.Switch case_switch;
-    private Granite.Widgets.ModeButton match_mode_button;
-    private int literal_mode_index;
-    private int tracked_mode_index;
+    private Gtk.Switch regex_switch;
 
     public string search_term { get {return search_term_entry.text;} }
-    public bool use_literal {
-        get { return match_mode_button.selected == literal_mode_index; }
+    public bool use_regex {
+        get { 
+            return regex_switch.active;
+        }
     }
 
     public bool case_sensitive {
@@ -62,24 +62,21 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
-        match_mode_button = new Granite.Widgets.ModeButton ();
-        literal_mode_index = match_mode_button.append_text (_("Text"));
-
-        var literal_widget = (Gtk.Widget)(match_mode_button.get_children ().nth_data (literal_mode_index));
-        literal_widget.tooltip_text = _("Treat the search entry as literal text");
-
-        var regex_mode_index = match_mode_button.append_text (_("Regex"));
-        var regex_widget = (Gtk.Widget)(match_mode_button.get_children ().nth_data (regex_mode_index));
-        regex_widget.tooltip_text = _("Treat the search entry as a Regex expression");
-
-        match_mode_button.selected = literal_mode_index;
-
         case_switch = new Gtk.Switch () {
             halign = Gtk.Align.START,
             active = true
         };
 
         var case_label = new Gtk.Label (_("Case sensitive:")) {
+            halign = Gtk.Align.END
+        };
+
+        regex_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START,
+            active = false
+        };
+
+        var regex_label = new Gtk.Label (_("Use regular expressions:")) {
             halign = Gtk.Align.END
         };
 
@@ -93,9 +90,10 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         layout.attach (header, 0, 0, 4);
         layout.attach (search_term_label, 0, 1);
         layout.attach (search_term_entry, 1, 1, 2);
-        layout.attach (match_mode_button, 3, 1);
-        layout.attach (case_label, 0, 5);
-        layout.attach (case_switch, 1, 5);
+        layout.attach (case_label, 0, 2);
+        layout.attach (case_switch, 1, 2);
+        layout.attach (regex_label, 0, 3);
+        layout.attach (regex_switch, 1, 3);
         layout.show_all ();
 
         get_content_area ().add (layout);

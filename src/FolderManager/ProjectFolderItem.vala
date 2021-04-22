@@ -187,7 +187,7 @@ namespace Scratch.FolderManager {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
             string? term = null;
-            bool term_is_literal = true;
+            bool use_regex = false;
             bool search_tracked_only = false;
             bool recurse_subfolders = true;
             bool check_is_text = true;
@@ -204,7 +204,7 @@ namespace Scratch.FolderManager {
                 switch (response) {
                     case Gtk.ResponseType.ACCEPT:
                         term = dialog.search_term;
-                        term_is_literal = dialog.use_literal;
+                        use_regex = dialog.use_regex;
                         case_sensitive = dialog.case_sensitive;
                         break;
 
@@ -224,7 +224,7 @@ namespace Scratch.FolderManager {
                 var win = (Scratch.MainWindow)(app.get_active_window ());
                 win.actions.lookup_action ("action_find").activate (search_variant);
 
-                if (term_is_literal) {
+                if (!use_regex) {
                     term = Regex.escape_string (term);
                 }
 
