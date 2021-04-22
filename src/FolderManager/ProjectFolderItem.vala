@@ -184,13 +184,15 @@ namespace Scratch.FolderManager {
         }
 
         public void global_search (GLib.File start_folder = this.file.file) {
+            /* For now set all options to the most inclusive (except case).
+             * The ability to set these in the dialog (or by parameter) may be added later. */
             string? term = null;
             bool term_is_literal = true;
-            bool search_tracked_only = true;
+            bool search_tracked_only = false;
             bool recurse_subfolders = true;
-            bool check_is_text = false;
+            bool check_is_text = true;
             string[] path_spec = {"*.*"};
-            bool modified_only = true;
+            bool modified_only = false;
             bool case_sensitive = true;
             Regex? pattern = null;
 
@@ -203,10 +205,6 @@ namespace Scratch.FolderManager {
                     case Gtk.ResponseType.ACCEPT:
                         term = dialog.search_term;
                         term_is_literal = dialog.use_literal;
-                        search_tracked_only = dialog.tracked_only;
-                        recurse_subfolders = dialog.recurse;
-                        path_spec = dialog.path_spec;
-                        modified_only = dialog.modified_only;
                         case_sensitive = dialog.case_sensitive;
                         break;
 
@@ -244,8 +242,6 @@ namespace Scratch.FolderManager {
             } else {
                 return;
             }
-
-            check_is_text = path_spec[0] == "*.*" ; //Assume otherwise path spec will exclude non-text
 
             var status_scope = Ggit.StatusOption.DEFAULT;
             if (!modified_only) {
