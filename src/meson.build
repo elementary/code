@@ -24,6 +24,7 @@ code_files = files(
     'FolderManager/FolderItem.vala',
     'FolderManager/Item.vala',
     'FolderManager/ProjectFolderItem.vala',
+    'Services/AppTemplate.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
     'Services/FileHandler.vala',

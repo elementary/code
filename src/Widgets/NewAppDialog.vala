@@ -31,6 +31,14 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     }
 
     construct {
+        string content = " {{ a }} {{ b }} {{c}}";
+        var template = new Services.AppTemplate (content);
+        var context = new Gee.HashMap<string, string> ();
+        context["a"] = "A";
+        context["b"] = "B";
+        context["c"] = "C";
+        template.render (context);
+
         var app_name_label = new Granite.HeaderLabel (_("App Name"));
 
         app_name_entry = new Gtk.Entry () {
@@ -130,6 +138,9 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         });
 
         response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.OK) {
+            }
+
             destroy ();
         });
     }
