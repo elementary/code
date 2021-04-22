@@ -20,6 +20,12 @@
  */
 
 public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
+    private Gtk.Entry app_name_entry;
+    private Gtk.Entry your_name_entry;
+    private Gtk.Entry your_email_entry;
+    private Gtk.Entry your_github_entry;
+    private Gtk.Button create_button;
+
     public NewAppDialog (Gtk.Window parent) {
         Object (transient_for: parent);
     }
@@ -27,7 +33,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     construct {
         var app_name_label = new Granite.HeaderLabel (_("App Name"));
 
-        var app_name_entry = new Gtk.Entry () {
+        app_name_entry = new Gtk.Entry () {
             hexpand = true
         };
 
@@ -52,19 +58,19 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
         var your_name_label = new Granite.HeaderLabel (_("Your Name"));
 
-        var your_name_entry = new Gtk.Entry () {
+        your_name_entry = new Gtk.Entry () {
             hexpand = true
         };
 
         var your_email_label = new Granite.HeaderLabel (_("Your Email"));
 
-        var your_email_entry = new Gtk.Entry () {
+        your_email_entry = new Gtk.Entry () {
             hexpand = true
         };
 
         var your_github_label = new Granite.HeaderLabel (_("Your GitHub Account"));
 
-        var your_github_entry = new Gtk.Entry () {
+        your_github_entry = new Gtk.Entry () {
             hexpand = true
         };
 
@@ -99,7 +105,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         cancel_button.margin_bottom = 6;
         cancel_button.margin_top = 14;
 
-        var create_button = (Gtk.Button) add_button (_("Create App"), Gtk.ResponseType.OK);
+        create_button = (Gtk.Button) add_button (_("Create App"), Gtk.ResponseType.OK);
         create_button.margin = 6;
         create_button.margin_start = 0;
         create_button.margin_top = 14;
@@ -107,8 +113,36 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         create_button.sensitive = false;
         create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
+        app_name_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
+        your_name_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
+        your_email_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
+        your_github_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
         response.connect ((response_id) => {
             destroy ();
         });
+    }
+
+    private void update_create_button () {
+        if (app_name_entry.text.length > 0 &&
+            your_name_entry.text.length > 0 &&
+            your_email_entry.text.length > 0 &&
+            your_github_entry.text.length > 0) {
+            create_button.sensitive = true;
+            create_button.has_default = true;
+        } else {
+            create_button.sensitive = false;
+        }
     }
 }
