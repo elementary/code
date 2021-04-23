@@ -42,10 +42,8 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         var license_label = new Granite.HeaderLabel (_("License Type"));
 
         var license_combobox = new Gtk.ComboBoxText ();
-        license_combobox.append_text ("GNU General Public License v2.0");
         license_combobox.append_text ("GNU General Public License v3.0");
-        license_combobox.append_text ("MIT");
-        license_combobox.set_active (1);
+        license_combobox.set_active (0);
 
         var location_label = new Granite.HeaderLabel (_("Location"));
 
@@ -202,6 +200,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             template = new Services.AppTemplate (content);
             string new_content = template.render (context);
             FileUtils.set_contents (dest_path, new_content);
+            // TODO: set mode
         }
 
         return true;
