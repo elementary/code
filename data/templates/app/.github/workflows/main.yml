@@ -17,7 +17,6 @@ jobs:
         run-tests: "true"
         repository-name: "elementary"
         repository-url: "https://flatpak.elementary.io/elementary.flatpakrepo"
-        cache-key: "flatpak-builder-${{ github.sha }}"
 
   lint:
     runs-on: ubuntu-latest

@@ -145,7 +145,6 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                     context["your_email"] = your_email_entry.text;
                     context["github_username"] = your_github_entry.text;
                     context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
-                    context["github_sha"] = "{{ github.sha }}";
                     context["license_code"] = "gpl-3.0";
                     context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
 
