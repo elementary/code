@@ -15,7 +15,7 @@ install_data([
   'fonts/BuilderBlocks.ttf',
 ], install_dir: join_paths(get_option('datadir'), meson.project_name(), 'fonts'))
 
-install_data([
+install_subdir([
   'templates',
 ], install_dir: join_paths(get_option('datadir'), meson.project_name()))
 

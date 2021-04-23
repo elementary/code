@@ -137,22 +137,26 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         });
 
         response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.OK) {
-                var context = new Gee.HashMap<string, string> ();
-                context["app_name"] = app_name_entry.text;
-                context["your_name"] = your_name_entry.text;
-                context["your_email"] = your_email_entry.text;
-                context["github_username"] = your_github_entry.text;
-                context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
-                context["github_sha"] = "{{ github.sha }}";
-                context["license_code"] = "gpl-3.0";
-                context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
+            try {
+                if (response_id == Gtk.ResponseType.OK) {
+                    var context = new Gee.HashMap<string, string> ();
+                    context["app_name"] = app_name_entry.text;
+                    context["your_name"] = your_name_entry.text;
+                    context["your_email"] = your_email_entry.text;
+                    context["github_username"] = your_github_entry.text;
+                    context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
+                    context["github_sha"] = "{{ github.sha }}";
+                    context["license_code"] = "gpl-3.0";
+                    context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
 
-                var src = APP_TEMPLATE_FOLDER;
-                var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
-                copy_recursive_with_context (src, dest, context);
+                    var src = APP_TEMPLATE_FOLDER;
+                    var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
+                    copy_recursive_with_context (src, dest, context);
 
-                open_folder (dest);
+                    open_folder (dest);
+                }
+            } catch (Error e) {
+                show_error_dialog (app_name_entry.text, e.message);
             }
 
             destroy ();
@@ -204,5 +208,22 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         }
 
         return true;
+    }
+
+    private void show_error_dialog (string app_name, string message) {
+        var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Could not create ”%s” from template").printf (app_name),
+            "",
+            "application-default-icon",
+            Gtk.ButtonsType.CLOSE
+        );
+        message_dialog.badge_icon = new ThemedIcon ("dialog-error");
+        message_dialog.transient_for = this.transient_for;
+
+        message_dialog.show_error_details (message);
+
+        message_dialog.show_all ();
+        message_dialog.run ();
+        message_dialog.destroy ();
     }
 }
