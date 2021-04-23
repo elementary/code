@@ -852,6 +852,10 @@ namespace Scratch {
         private void action_new_app () {
             var new_app_dialog = new Widgets.NewAppDialog ((Gtk.Window) this.get_toplevel ());
             new_app_dialog.present ();
+
+            new_app_dialog.open_folder.connect ((path) => {
+                open_folder (File.new_for_path (path));
+            });
         }
 
         private void action_new_tab () {

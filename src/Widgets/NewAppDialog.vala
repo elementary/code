@@ -26,19 +26,13 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     private Gtk.Entry your_github_entry;
     private Gtk.Button create_button;
 
+    public signal void open_folder (string path);
+
     public NewAppDialog (Gtk.Window parent) {
         Object (transient_for: parent);
     }
 
     construct {
-        string content = " {{ a }} {{ b }} {{c}}";
-        var template = new Services.AppTemplate (content);
-        var context = new Gee.HashMap<string, string> ();
-        context["a"] = "A";
-        context["b"] = "B";
-        context["c"] = "C";
-        template.render (context);
-
         var app_name_label = new Granite.HeaderLabel (_("App Name"));
 
         app_name_entry = new Gtk.Entry () {
@@ -144,6 +138,22 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
         response.connect ((response_id) => {
             if (response_id == Gtk.ResponseType.OK) {
+                var context = new Gee.HashMap<string, string> ();
+                context["app_name"] = app_name_entry.text;
+                context["your_name"] = your_name_entry.text;
+                context["your_email"] = your_email_entry.text;
+                context["github_username"] = your_github_entry.text;
+                context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
+                context["github_sha"] = "{{ github.sha }}";
+                context["license_code"] = "gpl-3.0";
+                context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
+
+                const string APP_TEMPLATE_FOLDER = "/home/marius/Projekte/github.com/elementary/code/data/templates/app";
+                var src = APP_TEMPLATE_FOLDER;
+                var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
+                copy_recursive_with_context (src, dest, context);
+
+                open_folder (dest);
             }
 
             destroy ();
@@ -160,5 +170,40 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         } else {
             create_button.sensitive = false;
         }
+    }
+
+    private bool copy_recursive_with_context (string src, string dest, Gee.HashMap<string, string> context, FileCopyFlags flags = FileCopyFlags.NONE, Cancellable? cancellable = null) throws Error {
+        var template = new Services.AppTemplate (dest);
+        var src_path = src;
+        var dest_path = template.render (context);
+
+        var src_file = File.new_for_path (src_path);
+        var dest_file = File.new_for_path (dest_path);
+
+        FileType src_type = src_file.query_file_type (FileQueryInfoFlags.NONE, cancellable);
+        if (src_type == FileType.DIRECTORY) {
+            dest_file.make_directory (cancellable);
+            src_file.copy_attributes (dest_file, flags, cancellable);
+
+            FileEnumerator enumerator = src_file.enumerate_children (FileAttribute.STANDARD_NAME, FileQueryInfoFlags.NONE, cancellable);
+            for (FileInfo? info = enumerator.next_file (cancellable); info != null; info = enumerator.next_file (cancellable)) {
+                copy_recursive_with_context (
+                    Path.build_filename (src_path, info.get_name ()),
+                    Path.build_filename (dest_path, info.get_name ()),
+                    context,
+                    flags,
+                    cancellable
+                );
+            }
+        } else if (src_type == FileType.REGULAR) {
+            src_file.copy (dest_file, flags, cancellable);
+            string content;
+            FileUtils.get_contents (dest_path, out content);
+            template = new Services.AppTemplate (content);
+            string new_content = template.render (context);
+            FileUtils.set_contents (dest_path, new_content);
+        }
+
+        return true;
     }
 }

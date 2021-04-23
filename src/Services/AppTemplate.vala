@@ -45,6 +45,8 @@ public class Scratch.Services.AppTemplate {
             index = found_end_index + 2;
         }
 
+        s += _content.substring (index);
+
         return s;
     }
 }
