@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="com.github.{{ github_username }}.{{ github_repository }}" path="/com/github/{{ github_username }}/{{ github_repository }}/" gettext-domain="com.github.{{ github_username }}.{{ github_repository }}">
+    <key name="window-width" type="i">
+      <default>500</default>
+      <summary>The saved width of the window.</summary>
+      <description>The saved width of the window.</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>700</default>
+      <summary>The saved height of the window.</summary>
+      <description>The saved height of the window.</description>
+    </key>
+    <key name="window-x" type="i">
+      <default>-1</default>
+      <summary>The saved x-position of the window.</summary>
+      <description>The saved x-position of the window.</description>
+    </key>
+    <key name="window-y" type="i">
+      <default>-1</default>
+      <summary>The saved y-position of the window.</summary>
+      <description>The saved y-position of the window.</description>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Maximized window.</summary>
+      <description>Maximized window.</description>
+    </key>
+    <key name="window-fullscreen" type="b">
+      <default>false</default>
+      <summary>Fullscreen window.</summary>
+      <description>Fullscreen window.</description>
+    </key>
+  </schema>
+</schemalist>
