@@ -52,7 +52,7 @@ public class Scratch.Services.ProjectManager : Object {
 
                         var flatpak_manifest = new FlatpakManifest () {
                             manifest = f,
-                            build_dir = Path.build_filename (project_path, "build-dir")
+                            build_dir = Path.build_filename (project_path, "build")
                         };
 
                         MatchInfo mi;
@@ -81,7 +81,7 @@ public class Scratch.Services.ProjectManager : Object {
 
                         return new FlatpakManifest () {
                             manifest = f,
-                            build_dir = Path.build_filename (project_path, "build-dir"),
+                            build_dir = Path.build_filename (project_path, "build"),
                             app_id = object.get_string_member ("app-id"),
                             command = object.get_string_member ("command")
                         };
