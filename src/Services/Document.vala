@@ -114,10 +114,6 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-#if HAVE_ZEITGEIST
-        // Zeitgeist integration
-        private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
-#endif
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
             this.file = file;
@@ -350,11 +346,6 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.open_insert (file.get_uri (), mime_type);
-#endif
-
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
@@ -431,10 +422,6 @@ namespace Scratch.Services {
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
-#if HAVE_ZEITGEIST
-                // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), mime_type);
-#endif
                 doc_closed ();
             }
 
@@ -484,10 +471,6 @@ namespace Scratch.Services {
             }
 
             source_view.buffer.set_modified (false);
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), mime_type);
-#endif
 
             doc_saved ();
             this.set_saved_status (true);
@@ -562,11 +545,6 @@ namespace Scratch.Services {
         public bool move (File new_dest) {
             this.file = new_dest;
             this.save.begin ();
-
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), mime_type);
-#endif
 
             return true;
         }
