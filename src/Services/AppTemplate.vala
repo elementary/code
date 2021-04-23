@@ -27,16 +27,24 @@ public class Scratch.Services.AppTemplate {
     }
 
     public string render (Gee.HashMap<string, string> context) {
+        if (!_content.contains ("{{")) {
+            return _content;
+        }
+
         int index = 0;
+        string s = "";
         while (_content.substring (index).contains ("{{")) {
             int start_index = index;
             int found_start_index = _content.index_of ("{{", start_index);
             int found_end_index = _content.index_of ("}}", found_start_index + 2);
             var key = _content.substring (found_start_index + 2, found_end_index - found_start_index - 2).strip ();
-            print ("Found '%s' -> '%s': %i\n", key, context.get (key), found_start_index);
+
+            s += _content.substring (index, found_start_index - index);
+            s += context[key];
+
             index = found_end_index + 2;
         }
 
-        return "";
+        return s;
     }
 }
