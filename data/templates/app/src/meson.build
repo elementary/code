@@ -1,5 +1,6 @@
 sources = [
     'Application.vala',
+    'MainWindow.vala',
 ]
 
 executable(
