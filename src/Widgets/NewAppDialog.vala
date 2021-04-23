@@ -26,6 +26,8 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     private Gtk.Entry your_github_entry;
     private Gtk.Button create_button;
 
+    private const string APP_TEMPLATE_FOLDER = "/usr/share/io.elementary.code/templates/app";
+
     public signal void open_folder (string path);
 
     public NewAppDialog (Gtk.Window parent) {
@@ -146,7 +148,6 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                 context["license_code"] = "gpl-3.0";
                 context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
 
-                const string APP_TEMPLATE_FOLDER = "/home/marius/Projekte/github.com/elementary/code/data/templates/app";
                 var src = APP_TEMPLATE_FOLDER;
                 var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
                 copy_recursive_with_context (src, dest, context);
@@ -200,7 +201,6 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             template = new Services.AppTemplate (content);
             string new_content = template.render (context);
             FileUtils.set_contents (dest_path, new_content);
-            // TODO: set mode
         }
 
         return true;
