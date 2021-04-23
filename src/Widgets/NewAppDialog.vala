@@ -82,6 +82,10 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             hexpand = true
         };
 
+        var link_button = new Gtk.LinkButton.with_label ("https://docs.elementary.io/develop/", _("Developer Documentation…")) {
+            margin_top = 14
+        };
+
         var form_grid = new Gtk.Grid ();
         form_grid.margin_start = form_grid.margin_end = 12;
         form_grid.orientation = Gtk.Orientation.VERTICAL;
@@ -100,6 +104,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         form_grid.add (your_email_entry);
         form_grid.add (your_github_label);
         form_grid.add (your_github_entry);
+        form_grid.add (link_button);
         form_grid.show_all ();
 
         deletable = false;
