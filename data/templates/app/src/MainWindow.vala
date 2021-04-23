@@ -19,8 +19,9 @@
  * Authored by: {{ your_name }} <{{ your_email }}>
  */
 
- public class MainWindow : Hdy.Window {
+public class MainWindow : Hdy.Window {
     private Hdy.HeaderBar headerbar;
+    private uint configure_id;
 
     public MyApp app { get; construct; }
 
@@ -60,5 +61,33 @@
         window_handle.add (main_layout);
 
         add (window_handle);
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                app.settings.set_boolean ("window-maximized", true);
+            } else {
+                app.settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                app.settings.set ("window-size", "(ii)", rect.width, rect.height);
+
+                int root_x, root_y;
+                get_position (out root_x, out root_y);
+                app.settings.set ("window-position", "(ii)", root_x, root_y);
+            }
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 }
