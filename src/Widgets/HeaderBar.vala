@@ -27,6 +27,9 @@ namespace Scratch.Widgets {
         public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
+        public Gtk.Button build_button;
+        public Gtk.Button run_button;
+        public Gtk.Button stop_button;
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "solarized-light";
@@ -67,21 +70,21 @@ namespace Scratch.Widgets {
                 _("Save this file with a different name")
             );
 
-            var build_button = new Gtk.Button.from_icon_name ("media-playlist-repeat", Gtk.IconSize.LARGE_TOOLBAR);
+            build_button = new Gtk.Button.from_icon_name ("media-playlist-repeat", Gtk.IconSize.LARGE_TOOLBAR);
             build_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_BUILD;
             build_button.tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (build_button.action_name),
                 _("Build")
             );
 
-            var run_button = new Gtk.Button.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            run_button = new Gtk.Button.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             run_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RUN;
             run_button.tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (run_button.action_name),
                 _("Run")
             );
 
-            var stop_button = new Gtk.Button.from_icon_name ("media-playback-stop", Gtk.IconSize.LARGE_TOOLBAR);
+            stop_button = new Gtk.Button.from_icon_name ("media-playback-stop", Gtk.IconSize.LARGE_TOOLBAR);
             stop_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_STOP;
             stop_button.tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (stop_button.action_name),

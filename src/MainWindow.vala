@@ -555,6 +555,17 @@ namespace Scratch {
             Utils.action_from_group (ACTION_BUILD, actions).set_enabled (is_project_selected && !is_running);
             Utils.action_from_group (ACTION_RUN, actions).set_enabled (is_project_selected && !is_running);
             Utils.action_from_group (ACTION_STOP, actions).set_enabled (is_project_selected && is_running);
+
+            if (is_project_selected) {
+                var project_name = Path.get_basename (project_manager.project_path);
+                toolbar.build_button.tooltip_markup = _("Build ”%s”".printf (project_name));
+                toolbar.run_button.tooltip_markup = _("Run ”%s”".printf (project_name));
+                toolbar.stop_button.tooltip_markup = _("Stop ”%s”".printf (project_name));
+            } else {
+                toolbar.build_button.tooltip_markup = _("Build");
+                toolbar.run_button.tooltip_markup = _("Run");
+                toolbar.stop_button.tooltip_markup = _("Stop");
+            }
         }
 
         // Get current document
