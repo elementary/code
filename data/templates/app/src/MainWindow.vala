@@ -19,10 +19,10 @@
  * Authored by: {{ your_name }} <{{ your_email }}>
  */
 
-public class MainWindow : Hdy.ApplicationWindow {
+public class {{ app_namespace }}.MainWindow : Hdy.ApplicationWindow {
     private uint configure_id;
 
-    public MainWindow (MyApp app) {
+    public MainWindow (Application app) {
         Object (
             application: app
         );
@@ -55,17 +55,17 @@ public class MainWindow : Hdy.ApplicationWindow {
             configure_id = 0;
 
             if (is_maximized) {
-                MyApp.settings.set_boolean ("window-maximized", true);
+                {{ app_namespace }}.Application.settings.set_boolean ("window-maximized", true);
             } else {
-                MyApp.settings.set_boolean ("window-maximized", false);
+                {{ app_namespace }}.Application.settings.set_boolean ("window-maximized", false);
 
                 Gdk.Rectangle rect;
                 get_allocation (out rect);
-                MyApp.settings.set ("window-size", "(ii)", rect.width, rect.height);
+                {{ app_namespace }}.Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
 
                 int root_x, root_y;
                 get_position (out root_x, out root_y);
-                MyApp.settings.set ("window-position", "(ii)", root_x, root_y);
+                {{ app_namespace }}.Application.settings.set ("window-position", "(ii)", root_x, root_y);
             }
 
             return false;
