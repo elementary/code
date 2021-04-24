@@ -20,12 +20,12 @@
  */
 
 public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
-    private Gtk.Entry app_name_entry;
-    private Gtk.Entry app_summary_entry;
-    private Gtk.Entry app_description_entry;
-    private Gtk.Entry your_name_entry;
-    private Gtk.Entry your_email_entry;
-    private Gtk.Entry your_github_entry;
+    private Granite.ValidatedEntry app_name_entry;
+    private Granite.ValidatedEntry app_summary_entry;
+    private Granite.ValidatedEntry app_description_entry;
+    private Granite.ValidatedEntry your_name_entry;
+    private Granite.ValidatedEntry your_email_entry;
+    private Granite.ValidatedEntry your_github_entry;
     private Gtk.Button create_button;
 
     private const string APP_TEMPLATE_FOLDER = "/usr/share/io.elementary.code/templates/app";
@@ -39,19 +39,19 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     construct {
         var app_name_label = new Granite.HeaderLabel (_("App Name"));
 
-        app_name_entry = new Gtk.Entry () {
+        app_name_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
         var app_summary_label = new Granite.HeaderLabel (_("App Summary"));
 
-        app_summary_entry = new Gtk.Entry () {
+        app_summary_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
         var app_description_label = new Granite.HeaderLabel (_("App Description"));
 
-        app_description_entry = new Gtk.Entry () {
+        app_description_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
@@ -74,19 +74,19 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
         var your_name_label = new Granite.HeaderLabel (_("Your Name"));
 
-        your_name_entry = new Gtk.Entry () {
+        your_name_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
         var your_email_label = new Granite.HeaderLabel (_("Your Email"));
 
-        your_email_entry = new Gtk.Entry () {
+        your_email_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
         var your_github_label = new Granite.HeaderLabel (_("Your GitHub Account"));
 
-        your_github_entry = new Gtk.Entry () {
+        your_github_entry = new Granite.ValidatedEntry () {
             hexpand = true
         };
 
@@ -139,26 +139,32 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         app_name_entry.changed.connect (() => {
+            app_name_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
         app_summary_entry.changed.connect (() => {
+            app_summary_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
         app_description_entry.changed.connect (() => {
+            app_description_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
         your_name_entry.changed.connect (() => {
+            your_name_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
         your_email_entry.changed.connect (() => {
+            your_email_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
         your_github_entry.changed.connect (() => {
+            your_github_entry.is_valid = check_is_valid ();
             update_create_button ();
         });
 
@@ -188,6 +194,10 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
             destroy ();
         });
+    }
+
+    private bool check_is_valid () {
+        return true;
     }
 
     private void update_create_button () {
