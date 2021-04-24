@@ -167,7 +167,6 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                 if (response_id == Gtk.ResponseType.OK) {
                     var context = new Gee.HashMap<string, string> ();
                     context["app_name"] = app_name_entry.text;
-                    context["app_namespace"] = app_name_entry.text.replace (" ", "");
                     context["app_summary"] = app_summary_entry.text;
                     context["app_description"] = app_description_entry.text;
                     context["your_name"] = your_name_entry.text;

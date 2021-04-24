@@ -19,10 +19,10 @@
  * Authored by: {{ your_name }} <{{ your_email }}>
  */
 
-public class {{ app_namespace }}.Application : Gtk.Application {
+public class MyApp : Gtk.Application {
     public static Settings settings;
 
-    public Application () {
+    public MyApp () {
         Object (
             application_id: "com.github.{{ github_username }}.{{ github_repository }}",
             flags: ApplicationFlags.FLAGS_NONE
@@ -69,6 +69,6 @@ public class {{ app_namespace }}.Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        return new Application ().run (args);
+        return new MyApp ().run (args);
     }
 }
