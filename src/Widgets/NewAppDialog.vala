@@ -139,32 +139,32 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         app_name_entry.changed.connect (() => {
-            app_name_entry.is_valid = check_is_valid ();
+            app_name_entry.is_valid = check_is_valid (app_name_entry.text);
             update_create_button ();
         });
 
         app_summary_entry.changed.connect (() => {
-            app_summary_entry.is_valid = check_is_valid ();
+            app_summary_entry.is_valid = check_is_valid (app_summary_entry.text);
             update_create_button ();
         });
 
         app_description_entry.changed.connect (() => {
-            app_description_entry.is_valid = check_is_valid ();
+            app_description_entry.is_valid = check_is_valid (app_description_entry.text);
             update_create_button ();
         });
 
         your_name_entry.changed.connect (() => {
-            your_name_entry.is_valid = check_is_valid ();
+            your_name_entry.is_valid = check_is_valid (your_name_entry.text);
             update_create_button ();
         });
 
         your_email_entry.changed.connect (() => {
-            your_email_entry.is_valid = check_is_valid ();
+            your_email_entry.is_valid = check_is_valid (your_email_entry.text);
             update_create_button ();
         });
 
         your_github_entry.changed.connect (() => {
-            your_github_entry.is_valid = check_is_valid ();
+            your_github_entry.is_valid = check_is_valid (your_github_entry.text);
             update_create_button ();
         });
 
@@ -196,17 +196,17 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         });
     }
 
-    private bool check_is_valid () {
-        return true;
+    private bool check_is_valid (string text) {
+        return text.length > 0;
     }
 
     private void update_create_button () {
-        if (app_name_entry.text.length > 0 &&
-            app_summary_entry.text.length > 0 &&
-            app_description_entry.text.length > 0 &&
-            your_name_entry.text.length > 0 &&
-            your_email_entry.text.length > 0 &&
-            your_github_entry.text.length > 0) {
+        if (app_name_entry.is_valid &&
+            app_summary_entry.is_valid &&
+            app_description_entry.is_valid &&
+            your_name_entry.is_valid &&
+            your_email_entry.is_valid &&
+            your_github_entry.is_valid) {
             create_button.sensitive = true;
             create_button.has_default = true;
         } else {
