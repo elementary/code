@@ -19,8 +19,8 @@
  * Authored by: {{ your_name }} <{{ your_email }}>
  */
 
- public class MyApp : Gtk.Application {
-    public Settings settings { get; construct; }
+public class MyApp : Gtk.Application {
+    public static Settings settings;
 
     public MyApp () {
         Object (
@@ -29,7 +29,7 @@
         );
     }
 
-    construct {
+    static construct {
         settings = new Settings ("com.github.{{ github_username }}.{{ github_repository }}");
     }
 
