@@ -4,9 +4,9 @@
   <id>com.github.{{ github_username }}.{{ github_repository }}</id>
   <metadata_license>CC0</metadata_license>
   <name>{{ app_name }}</name>
-  <summary>A Catchy Tagline</summary>
+  <summary>{{ app_summary }}</summary>
   <description>
-    <p>A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best.</p>
+    <p>{{ app_description }}</p>
   </description>
   <custom>
     <value key="x-appcenter-color-primary"></value>

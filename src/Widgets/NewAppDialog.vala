@@ -21,6 +21,8 @@
 
 public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
     private Gtk.Entry app_name_entry;
+    private Gtk.Entry app_summary_entry;
+    private Gtk.Entry app_description_entry;
     private Gtk.Entry your_name_entry;
     private Gtk.Entry your_email_entry;
     private Gtk.Entry your_github_entry;
@@ -38,6 +40,18 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         var app_name_label = new Granite.HeaderLabel (_("App Name"));
 
         app_name_entry = new Gtk.Entry () {
+            hexpand = true
+        };
+
+        var app_summary_label = new Granite.HeaderLabel (_("App Summary"));
+
+        app_summary_entry = new Gtk.Entry () {
+            hexpand = true
+        };
+
+        var app_description_label = new Granite.HeaderLabel (_("App Description"));
+
+        app_description_entry = new Gtk.Entry () {
             hexpand = true
         };
 
@@ -88,6 +102,10 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         form_grid.vexpand = true;
         form_grid.add (app_name_label);
         form_grid.add (app_name_entry);
+        form_grid.add (app_summary_label);
+        form_grid.add (app_summary_entry);
+        form_grid.add (app_description_label);
+        form_grid.add (app_description_entry);
         form_grid.add (license_label);
         form_grid.add (license_combobox);
         form_grid.add (location_label);
@@ -124,6 +142,14 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             update_create_button ();
         });
 
+        app_summary_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
+        app_description_entry.changed.connect (() => {
+            update_create_button ();
+        });
+
         your_name_entry.changed.connect (() => {
             update_create_button ();
         });
@@ -141,6 +167,8 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                 if (response_id == Gtk.ResponseType.OK) {
                     var context = new Gee.HashMap<string, string> ();
                     context["app_name"] = app_name_entry.text;
+                    context["app_summary"] = app_summary_entry.text;
+                    context["app_description"] = app_description_entry.text;
                     context["your_name"] = your_name_entry.text;
                     context["your_email"] = your_email_entry.text;
                     context["github_username"] = your_github_entry.text;
@@ -164,6 +192,8 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
     private void update_create_button () {
         if (app_name_entry.text.length > 0 &&
+            app_summary_entry.text.length > 0 &&
+            app_description_entry.text.length > 0 &&
             your_name_entry.text.length > 0 &&
             your_email_entry.text.length > 0 &&
             your_github_entry.text.length > 0) {
