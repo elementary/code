@@ -29,7 +29,6 @@ namespace Scratch.FolderManager {
         public signal void select_project (string path);
         public signal void close_all_docs_from_path (string path);
 
-
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         public bool ignore_next_select { get; set; default = false; }
@@ -55,7 +54,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                FileItem file_item = (FileItem) item;
+                var file_item = (FileItem) item;
                 var project_path = file_item.file.path;
 
                 select (file_item.file.path);
