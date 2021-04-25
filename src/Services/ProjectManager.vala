@@ -28,7 +28,7 @@ public class Scratch.Services.ProjectManager : Object {
 
     private Pid command_pid;
 
-    private FlatpakManifest? flatpak_manifest () {
+    public FlatpakManifest? flatpak_manifest () {
         Dir dir;
         try {
             dir = Dir.open (project_path, 0);
@@ -95,7 +95,7 @@ public class Scratch.Services.ProjectManager : Object {
         return null;
     }
 
-    private class FlatpakManifest : Object {
+    public class FlatpakManifest : Object {
         public string manifest { get; set; }
         public string build_dir { get; set; }
         public string app_id { get; set; }

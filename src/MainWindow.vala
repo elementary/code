@@ -549,7 +549,7 @@ namespace Scratch {
         }
 
         private void set_build_run_widgets_sensitive () {
-            bool is_project_selected = project_manager.project_path != null;
+            bool is_project_selected = (project_manager.project_path != null) && (project_manager.flatpak_manifest != null);
             bool is_running = project_manager.is_running;
 
             Utils.action_from_group (ACTION_BUILD, actions).set_enabled (is_project_selected && !is_running);
