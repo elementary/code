@@ -24,7 +24,8 @@ public class MainWindow : Hdy.ApplicationWindow {
 
     public MainWindow (MyApp app) {
         Object (
-            application: app
+            application: app,
+            title = "{{ app_name }}"
         );
     }
 
