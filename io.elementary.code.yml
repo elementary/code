@@ -12,7 +12,6 @@ finish-args:
 
   - '--talk-name=org.gtk.vfs.*'
   - '--talk-name=org.gnome.SettingsDaemon'
-  - '--talk-name=org.gnome.zeitgeist.Engine'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
 cleanup:
