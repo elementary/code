@@ -41,10 +41,7 @@ public class MainWindow : Hdy.ApplicationWindow {
         var main_layout = new Gtk.Grid ();
         main_layout.attach (headerbar, 0, 0);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (main_layout);
-
-        add (window_handle);
+        add (main_layout);
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
