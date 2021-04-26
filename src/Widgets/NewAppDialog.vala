@@ -94,12 +94,13 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             margin_top = 14
         };
 
-        var form_grid = new Gtk.Grid ();
+        var form_grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL,
+            row_spacing = 3,
+            valign = Gtk.Align.CENTER,
+            vexpand = true
+        };
         form_grid.margin_start = form_grid.margin_end = 12;
-        form_grid.orientation = Gtk.Orientation.VERTICAL;
-        form_grid.row_spacing = 3;
-        form_grid.valign = Gtk.Align.CENTER;
-        form_grid.vexpand = true;
         form_grid.add (app_name_label);
         form_grid.add (app_name_entry);
         form_grid.add (app_summary_label);
@@ -119,21 +120,14 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         form_grid.add (link_button);
         form_grid.show_all ();
 
-        deletable = false;
         modal = true;
         resizable= false;
         width_request = 560;
-        window_position = Gtk.WindowPosition.CENTER_ON_PARENT;
         get_content_area ().add (form_grid);
 
         var cancel_button = add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        cancel_button.margin_bottom = 6;
-        cancel_button.margin_top = 14;
 
         create_button = (Gtk.Button) add_button (_("Create App"), Gtk.ResponseType.OK);
-        create_button.margin = 6;
-        create_button.margin_start = 0;
-        create_button.margin_top = 14;
         create_button.can_default = true;
         create_button.sensitive = false;
         create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
