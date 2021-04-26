@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-22 21:23+0000\n"
-"PO-Revision-Date: 2020-05-16 03:11+0000\n"
+"PO-Revision-Date: 2021-04-26 16:48+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:00+0000\n"
 
 #: src/Application.vala:39
@@ -332,7 +332,7 @@ msgstr "قد يكون تالفا أو أنك ليس لديك الصلاحيات 
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr "المكان يحتوي على الملف “%s” ولم يكن مركبا.  هل تريد حفظه فيه مكان آخر؟"
+msgstr "المكان يحتوي على الملف “%s” ولم يكن مركبا. هل تريد حفظه فيه مكان آخر؟"
 
 #: src/Services/Document.vala:725
 msgid "Save As…"
@@ -341,14 +341,14 @@ msgstr "حفظ باسم…"
 #: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "الملف “%s” قد تم حذفه.  هل تريد حفظه على اية حال؟"
+msgstr "الملف “%s” قد تم حذفه. هل تريد حفظه على اية حال؟"
 
 #: src/Services/Document.vala:748
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
-msgstr "لا يمكنك التغيير على الملف “%s”.  هل تريد حفظ التغييرات في مكان آخر؟"
+msgstr "لا يمكنك التغيير على الملف “%s”. هل تريد حفظ التغييرات في مكان آخر؟"
 
 #: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
