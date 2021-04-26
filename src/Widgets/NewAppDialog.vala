@@ -174,6 +174,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                     context["github_username"] = your_github_entry.text;
                     context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
                     context["license_code"] = "gpl-3.0";
+                    context["license_spdx"] = "GPL-3.0-or-later";
                     context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
 
                     var src = APP_TEMPLATE_FOLDER;

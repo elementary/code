@@ -1,6 +1,6 @@
 /*
- * SPDX-License-Identifier: LGPL-3.0-or-later
- * SPDX-FileCopyrightText: 2021 {{ your_name }}
+ * SPDX-License-Identifier: {{ license_spdx }}
+ * SPDX-FileCopyrightText: {{ current_year }} {{ your_name }}
  */
 
 public class MainWindow : Hdy.ApplicationWindow {
