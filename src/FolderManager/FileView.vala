@@ -105,14 +105,14 @@ namespace Scratch.FolderManager {
             item_selected.connect (on_item_selected);
         }
 
-        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
-                                                            string path,
-                                                            bool expand = false) {
+        private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+                                                                    string path,
+                                                                    bool expand = false) {
             foreach (var item in list.children) {
                 if (item is Item) {
-                    var code_item = item as Item;
+                    var code_item = (Item)item;
                     if (code_item.path == path) {
-                        return item;
+                        return (!)item;
                     }
 
                     if (item is Granite.Widgets.SourceList.ExpandableItem) {
@@ -122,14 +122,14 @@ namespace Scratch.FolderManager {
                         }
 
                         if (!expander.expanded) {
-                            if (expand) {
-                                expander.expanded = true;
-                            } else {
-                                continue;
-                            }
-                        }
+                             if (expand) {
+                                 expander.expanded = true;
+                             } else {
+                                 continue;
+                             }
+                         }
 
-                        var recurse_item = find_path (expander, path, expand);
+                        unowned var recurse_item = find_path (expander, path, expand);
                         if (recurse_item != null) {
                             return recurse_item;
                         }
@@ -140,8 +140,27 @@ namespace Scratch.FolderManager {
             return null;
         }
 
-        public void expand_to_path (string path) {
-            find_path (root, path, true);
+        public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+             return find_path (root, path, true);
+        }
+
+        /* Do global search on project containing the file path supplied in parameter */
+        public void search_global (string path) {
+            var item_for_path = (Item?)(expand_to_path (path));
+            if (item_for_path != null) {
+                var search_root = item_for_path.get_root_folder ();
+                if (search_root is ProjectFolderItem) {
+                    search_root.global_search (search_root.file.file);
+                }
+            }
+        }
+
+        public void clear_badges () {
+            foreach (var child in root.children) {
+                if (child is ProjectFolderItem) {
+                    ((FolderItem)child).remove_all_badges ();
+                }
+            }
         }
 
         private void add_folder (File folder, bool expand) {

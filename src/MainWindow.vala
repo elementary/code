@@ -58,6 +58,7 @@ namespace Scratch {
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
+        public const string ACTION_FIND_GLOBAL = "action_find_global";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
@@ -92,9 +93,10 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_fetch },
+            { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
+            { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
@@ -138,9 +140,10 @@ namespace Scratch {
         }
 
         static construct {
-            action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
+            action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -280,6 +283,9 @@ namespace Scratch {
             search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
                 search_bar.set_search_string ("");
                 search_bar.highlight_none ();
+            });
+            search_bar.search_empty.connect (() => {
+                folder_manager_view.clear_badges ();
             });
 
             Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
@@ -838,7 +844,10 @@ namespace Scratch {
         }
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
-        private void action_fetch () {
+        private string current_search_term = "";
+        private void action_fetch (SimpleAction action, Variant? param) {
+            current_search_term = param.get_string ();
+
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -860,21 +869,35 @@ namespace Scratch {
             search_bar.search_previous ();
         }
 
-        private void set_search_text () {
+        private void action_find_global (SimpleAction action, Variant? param) {
+            /* The string parameter is for future development allowing specifying a search term */
             var current_doc = get_current_document ();
-            // This is also called when all documents are closed.
             if (current_doc != null) {
-                var selected_text = current_doc.get_selected_text ();
-                if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                    search_bar.set_search_string (selected_text);
+                folder_manager_view.search_global (current_doc.file.get_path ());
+            }
+        }
+
+        private void set_search_text () {
+            if (current_search_term != "") {
+                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.grab_focus ();
+                search_bar.search_next ();
+            } else {
+                var current_doc = get_current_document ();
+                // This is also called when all documents are closed.
+                if (current_doc != null) {
+                    var selected_text = current_doc.get_selected_text ();
+                    if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                        current_search_term = selected_text;
+                        search_bar.set_search_string (current_search_term);
+                    }
+
+                    search_bar.search_entry.grab_focus (); /* causes loss of document selection */
                 }
+            }
 
-                search_bar.search_entry.grab_focus (); /* causes loss of document selection */
-
-                if (selected_text != "") {
-                    search_bar.search_next (); /* this selects the next match (if any) */
-                }
-
+            if (current_search_term != "") {
+                search_bar.search_next (); /* this selects the next match (if any) */
             }
         }
 
