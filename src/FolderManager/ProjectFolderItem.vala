@@ -473,7 +473,7 @@ namespace Scratch.FolderManager {
                     });
                 }
 
-                var main_window = (MainWindow)(project_folder.view.get_toplevel ());
+                var main_window = (MainWindow)((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
                 Utils.action_from_group (
                     MainWindow.ACTION_NEW_BRANCH, main_window.actions
                 ).set_enabled (monitored_repo.head_is_branch);
