@@ -146,7 +146,7 @@ namespace Scratch.FolderManager {
 
         public void new_branch (GLib.File current_doc_file) {
             foreach (var child in root.children) {
-                var item = (ProjectFolderItem)child;
+                unowned var item = (ProjectFolderItem)child;
                 if (item.file.file.get_relative_path (current_doc_file) != null) {
                     item.new_branch ();
                     return;
