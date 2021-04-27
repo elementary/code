@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-27 17:01+0000\n"
-"PO-Revision-Date: 2021-04-21 07:13+0000\n"
+"PO-Revision-Date: 2021-04-27 21:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -227,8 +227,9 @@ msgid "Folders"
 msgstr "Mapper"
 
 #: src/FolderManager/FolderItem.vala:106
+#, fuzzy
 msgid "Find text in this Folder…"
-msgstr ""
+msgstr "Finn tekst i denne mappen …"
 
 #: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
@@ -266,7 +267,7 @@ msgstr "Lukk andre mapper"
 #, fuzzy
 #| msgid "Open Project Folder…"
 msgid "Find in Project…"
-msgstr "Åpne prosjektmappe …"
+msgstr "Finn i prosjekt …"
 
 #: src/FolderManager/ProjectFolderItem.vala:157
 msgid "Modified"

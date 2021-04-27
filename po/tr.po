@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-27 17:01+0000\n"
-"PO-Revision-Date: 2021-04-21 09:59+0000\n"
+"PO-Revision-Date: 2021-04-27 21:07+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -227,7 +227,7 @@ msgstr "Klasörler"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find text in this Folder…"
-msgstr ""
+msgstr "Bu klasördeki metni bulun…"
 
 #: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
@@ -262,10 +262,8 @@ msgid "Close Other Folders"
 msgstr "Diğer Klasörleri Kapat"
 
 #: src/FolderManager/ProjectFolderItem.vala:119
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Project…"
-msgstr "Proje Klasörü Ekle…"
+msgstr "Projede Bul…"
 
 #: src/FolderManager/ProjectFolderItem.vala:157
 msgid "Modified"
