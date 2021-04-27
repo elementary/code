@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 21:23+0000\n"
+"POT-Creation-Date: 2021-04-27 17:01+0000\n"
 "PO-Revision-Date: 2021-04-21 09:59+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -43,45 +43,45 @@ msgstr "eklenti"
 msgid "[FILE…]"
 msgstr "[DOSYA…]"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:138
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Bul…"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:201
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:712 src/Services/Document.vala:491
+#: src/MainWindow.vala:718 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:716 src/Services/Document.vala:495
+#: src/MainWindow.vala:722 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:720
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:723
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:398
+#: src/MainWindow.vala:730 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:749
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -200,11 +200,11 @@ msgstr "Geri Yükleme"
 msgid "Restore Anyway"
 msgstr "Yine de Geri Yükle"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
 msgid "Other Application…"
 msgstr "Diğer Uygulamalar…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
 msgid "Open In"
 msgstr "İçinde Aç"
 
@@ -225,27 +225,31 @@ msgstr "Çöpe Taşı"
 msgid "Folders"
 msgstr "Klasörler"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find text in this Folder…"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
 msgstr "Klasör"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:175
 msgid "Empty File"
 msgstr "Boş Dosya"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:151
+#: src/FolderManager/ProjectFolderItem.vala:157
 msgid "New"
 msgstr "Yeni"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "untitled folder"
 msgstr "adsız klasör"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "new file"
 msgstr "yeni dosya"
 
@@ -257,11 +261,17 @@ msgstr "Klasörü Kapat"
 msgid "Close Other Folders"
 msgstr "Diğer Klasörleri Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:119
+#, fuzzy
+#| msgid "Add Project Folder…"
+msgid "Find in Project…"
+msgstr "Proje Klasörü Ekle…"
+
+#: src/FolderManager/ProjectFolderItem.vala:157
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:408
 msgid "Branch"
 msgstr "Dal"
 
@@ -733,9 +743,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "Remove Current View"
 #~ msgstr "Seçili Görünümü Sil"
-
-#~ msgid "Add Project Folder…"
-#~ msgstr "Proje Klasörü Ekle…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "adsız klasör %d"

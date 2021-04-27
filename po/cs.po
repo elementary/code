@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 21:23+0000\n"
+"POT-Creation-Date: 2021-04-27 17:01+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -43,45 +43,45 @@ msgstr "zásuvný modul"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:138
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Hledat…"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:201
 msgid "Hide search bar"
 msgstr "Skrýt vyhledávací panel"
 
-#: src/MainWindow.vala:712 src/Services/Document.vala:491
+#: src/MainWindow.vala:718 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: src/MainWindow.vala:716 src/Services/Document.vala:495
+#: src/MainWindow.vala:722 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Textové soubory"
 
-#: src/MainWindow.vala:720
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Otevřít nějaké soubory"
 
-#: src/MainWindow.vala:723
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:398
+#: src/MainWindow.vala:730 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/MainWindow.vala:749
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Otevřít"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Zrušit"
 
@@ -197,11 +197,11 @@ msgstr "Neobnovovat"
 msgid "Restore Anyway"
 msgstr "Přesto obnovit"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
 msgid "Other Application…"
 msgstr "Jiná aplikace…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
 msgid "Open In"
 msgstr "Otevřít v"
 
@@ -222,27 +222,31 @@ msgstr "Přesunout do koše"
 msgid "Folders"
 msgstr "Složky"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find text in this Folder…"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
 msgstr "Složka"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:175
 msgid "Empty File"
 msgstr "Prázdný soubor"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:151
+#: src/FolderManager/ProjectFolderItem.vala:157
 msgid "New"
 msgstr "Nový"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "untitled folder"
 msgstr "složka bez názvu"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "new file"
 msgstr "nový soubor"
 
@@ -254,13 +258,19 @@ msgstr "Zavřít složku"
 msgid "Close Other Folders"
 msgstr "Zavřít ostatní složky"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:119
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Find in Project…"
+msgstr "Otevřít složku projektu…"
+
+#: src/FolderManager/ProjectFolderItem.vala:157
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:408
 msgid "Branch"
 msgstr "Větev"
 

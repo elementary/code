@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 21:23+0000\n"
+"POT-Creation-Date: 2021-04-27 17:01+0000\n"
 "PO-Revision-Date: 2021-02-15 11:35+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/code/code/sr/>\n"
@@ -44,45 +44,45 @@ msgstr "прикључак"
 msgid "[FILE…]"
 msgstr "[ДАТОТЕКА…]"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:138
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Нађи…"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:201
 msgid "Hide search bar"
 msgstr "Сакриј траку за претрагу"
 
-#: src/MainWindow.vala:712 src/Services/Document.vala:491
+#: src/MainWindow.vala:718 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Све датотеке"
 
-#: src/MainWindow.vala:716 src/Services/Document.vala:495
+#: src/MainWindow.vala:722 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Текстуалне датотеке"
 
-#: src/MainWindow.vala:720
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Отвори датотеке"
 
-#: src/MainWindow.vala:723
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Отвори"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:398
+#: src/MainWindow.vala:730 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Поништи"
 
-#: src/MainWindow.vala:749
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Отвори"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Прекини"
 
@@ -199,11 +199,11 @@ msgstr "Немој вратити"
 msgid "Restore Anyway"
 msgstr "Ипак поврати"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
 msgid "Other Application…"
 msgstr "Другим програмом…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
 msgid "Open In"
 msgstr "Отвори у"
 
@@ -224,27 +224,31 @@ msgstr "Премести у смеће"
 msgid "Folders"
 msgstr "Фасцикле"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find text in this Folder…"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
 msgstr "Фасцикла"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:175
 msgid "Empty File"
 msgstr "Празна датотека"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:151
+#: src/FolderManager/ProjectFolderItem.vala:157
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "untitled folder"
 msgstr "неименована фасцикла"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "new file"
 msgstr "нова датотека"
 
@@ -256,13 +260,19 @@ msgstr "Затвори фасциклу"
 msgid "Close Other Folders"
 msgstr "Затвори друге фасцикле"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:119
+#, fuzzy
+#| msgid "Open Project Folder…"
+msgid "Find in Project…"
+msgstr "Отвори фасциклу пројекта…"
+
+#: src/FolderManager/ProjectFolderItem.vala:157
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, измењена"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:408
 msgid "Branch"
 msgstr "Грана"
 
