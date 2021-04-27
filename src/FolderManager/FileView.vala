@@ -57,19 +57,15 @@ namespace Scratch.FolderManager {
                 var file_item = (FileItem) item;
                 var project_path = file_item.file.path;
 
-                select (file_item.file.path);
+                select (project_path);
 
-                Granite.Widgets.SourceList.Item? parent_item = item;
-                while (parent_item != parent_item.parent) {
-                    if (parent_item.parent.name == null || parent_item.parent.name == "") {
-                        break;
+                var item_for_path = (Item?)(expand_to_path (project_path));
+                if (item_for_path != null) {
+                    var search_root = item_for_path.get_root_folder ();
+                    if (search_root is ProjectFolderItem) {
+                        select_project (search_root.file.file.get_path ());
                     }
-
-                    parent_item = parent_item.parent;
-                    project_path += "/..";
                 }
-
-                select_project (GLib.File.new_for_path (project_path).get_path ());
             }
         }
 
