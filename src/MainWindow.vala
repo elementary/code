@@ -284,6 +284,9 @@ namespace Scratch {
                 search_bar.set_search_string ("");
                 search_bar.highlight_none ();
             });
+            search_bar.search_empty.connect (() => {
+                folder_manager_view.clear_badges ();
+            });
 
             Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 

@@ -155,6 +155,14 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public void clear_badges () {
+            foreach (var child in root.children) {
+                if (child is ProjectFolderItem) {
+                    ((FolderItem)child).remove_all_badges ();
+                }
+            }
+        }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);

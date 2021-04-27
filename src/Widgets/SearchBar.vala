@@ -44,7 +44,7 @@ namespace Scratch.Widgets {
         private Gtk.TextBuffer? text_buffer = null;
         private Gtk.SourceSearchContext search_context = null;
 
-        public signal void need_hide ();
+        public signal void search_empty ();
 
         /**
          * Create a new SearchBar widget.
@@ -253,6 +253,10 @@ namespace Scratch.Widgets {
             bool matches = search ();
             update_replace_tool_sensitivities (search_entry.text, matches);
             update_tool_arrows (search_entry.text);
+
+            if (search_entry.text == "") {
+                search_empty ();
+            }
         }
 
         private void update_replace_tool_sensitivities (string search_text, bool matches) {

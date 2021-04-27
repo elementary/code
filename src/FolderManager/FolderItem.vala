@@ -214,7 +214,7 @@ namespace Scratch.FolderManager {
             base.remove (item);
         }
 
-        protected void remove_all_badges () {
+        public void remove_all_badges () {
             foreach (var child in children) {
                 remove_badge (child);
             }
