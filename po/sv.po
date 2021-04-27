@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 23:02+0000\n"
+"POT-Creation-Date: 2021-04-22 21:23+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -45,50 +45,45 @@ msgstr "uppsättning av tillägg"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:136
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Sök…"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Dölj sökfältet"
 
-#: src/MainWindow.vala:279
-#, fuzzy
-msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist databaskälla för Scratch"
-
-#: src/MainWindow.vala:735 src/Services/Document.vala:508
+#: src/MainWindow.vala:712 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Alla filer"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:512
+#: src/MainWindow.vala:716 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Textfiler"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:720
 msgid "Open some files"
 msgstr "Öppna några filer"
 
-#: src/MainWindow.vala:746
+#: src/MainWindow.vala:723
 msgid "Open"
 msgstr "Öppna"
 
-#: src/MainWindow.vala:747 src/Services/Document.vala:407
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:724 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:749
 msgid "_Open"
 msgstr "_Öppna"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:750
 msgid "_Cancel"
 msgstr "_Avbryt"
 
@@ -272,77 +267,77 @@ msgstr ""
 msgid "Branch"
 msgstr "Ändra inställningarna för Scratch"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s är inte en textfil"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr "Kod kan inte ladda den här filtypen."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr "Ladda ändå"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Laddning av fil \"%s\" tar lång tid"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr "Vänta medan Kod laddar in filen."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:295
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Avbryt inladdning"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:388
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Spara ändringarna i dokumentet %s innan du avslutar?"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:389
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Om du inte sparar, kommer ändringar gjorda de 4 senaste sekunderna att "
 "försvinna."
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:395
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Stäng utan att spara"
 
-#: src/Services/Document.vala:408 src/Services/Document.vala:519
-#: src/Services/Document.vala:756
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "Spara"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "Spara fil"
 
-#: src/Services/Document.vala:598 src/Services/Document.vala:607
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "Nytt dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:708
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" kan inte läsas"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:709
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Kanske har den skadats, eller så har du inte tillräckliga rättigheter för "
 "att läsa den."
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -351,16 +346,16 @@ msgstr ""
 "Platsen som innehåller filen \"%s\" avmonterades. Vill du spara någon "
 "annanstans?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "Spara som…"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Filen \"%s\" raderades. Vill du spara den ändå?"
 
-#: src/Services/Document.vala:770
+#: src/Services/Document.vala:748
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -369,11 +364,11 @@ msgstr ""
 "Du kan inte spara ändringar i filen \"%s\". Vill du spara ändringarna i "
 "denna fil på annan plats?"
 
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "Spara ändringar någon annanstans"
 
-#: src/Services/Document.vala:807
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -382,11 +377,11 @@ msgstr ""
 "Filen \"%s\" ändrades av extern applikation. Vill du ladda den igen eller "
 "fortsätta redigeringen?"
 
-#: src/Services/Document.vala:810
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "Läs in"
 
-#: src/Services/Document.vala:813
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "Fortsätt"
 
@@ -489,21 +484,21 @@ msgstr "Visa/dölj sidopanel"
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:42
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Öppna en mapp"
 
-#: src/Widgets/Sidebar.vala:48
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr ""
 
@@ -545,11 +540,11 @@ msgstr "Ersätt"
 msgid "Replace all"
 msgstr "Ersätt alla"
 
-#: src/Widgets/SourceView.vala:476
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr "Sortera valda rader"
 
-#: src/Widgets/SourceView.vala:489
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr "Visa/dölj kommentarer"
 
@@ -695,6 +690,10 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordförslag"
+
+#, fuzzy
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Zeitgeist databaskälla för Scratch"
 
 #, fuzzy
 #~ msgid "File \"%s\" Cannot Be Created"

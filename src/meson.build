@@ -33,7 +33,6 @@ code_files = files(
     'Services/PluginManager.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
-    'Services/ZeitgeistLogger.vala',
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
     'Widgets/HeaderBar.vala',
