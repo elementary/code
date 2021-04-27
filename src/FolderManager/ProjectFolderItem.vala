@@ -24,15 +24,6 @@ namespace Scratch.FolderManager {
             public Item item;
         }
 
-        public const string ACTION_PREFIX = "git.";
-        public const string ACTION_NEW_BRANCH = "action-new-branch";
-
-        public SimpleActionGroup actions {get; construct;}
-
-        private const ActionEntry[] GIT_ACTION_ENTRIES = {
-            { ACTION_NEW_BRANCH, action_new_branch }
-        };
-
         private static Icon added_icon;
         private static Icon modified_icon;
 
@@ -54,9 +45,6 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            actions = new SimpleActionGroup ();
-            actions.add_action_entries (GIT_ACTION_ENTRIES, this);
-
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
@@ -120,7 +108,7 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo, actions));
+                menu.append (new ChangeBranchMenu (this));
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -188,7 +176,7 @@ namespace Scratch.FolderManager {
             });
         }
 
-        private void action_new_branch () {
+        public void new_branch () {
             try {
                 if (monitored_repo.head_is_branch) {
                     var new_branch_name = get_new_branch_name ();
@@ -238,16 +226,16 @@ namespace Scratch.FolderManager {
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
-            public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
-            public SimpleActionGroup git_actions { get; construct; }
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo,
-                                     SimpleActionGroup git_actions) requires (monitored_repo != null) {
+            public Scratch.Services.MonitoredRepository monitored_repo {
+                get {
+                    return project_folder.monitored_repo;
+                }
+            }
+            public ProjectFolderItem project_folder { get; construct; }
+            public ChangeBranchMenu (ProjectFolderItem project_folder) {
                  Object (
-                     monitored_repo: monitored_repo,
-                     git_actions: git_actions
+                     project_folder: project_folder
                  );
-
-                insert_action_group ("git", git_actions);
 
                 string current_branch_name = monitored_repo.get_current_branch ();
                 string[] local_branch_names = monitored_repo.get_local_branches ();
@@ -275,7 +263,7 @@ namespace Scratch.FolderManager {
                 if (monitored_repo.head_is_branch) {
                     change_branch_menu.add (new Gtk.SeparatorMenuItem ());
                     var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
-                        action_name = ACTION_PREFIX + ACTION_NEW_BRANCH
+                        action_name = "win.action_new_branch"
                     };
 
                     change_branch_menu.add (branch_item);

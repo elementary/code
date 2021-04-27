@@ -144,6 +144,16 @@ namespace Scratch.FolderManager {
             find_path (root, path, true);
         }
 
+        public void new_branch (GLib.File current_doc_file) {
+            foreach (var child in root.children) {
+                var item = (ProjectFolderItem)child;
+                if (item.file.file.get_relative_path (current_doc_file) != null) {
+                    item.new_branch ();
+                    return;
+                }
+            }
+        }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);

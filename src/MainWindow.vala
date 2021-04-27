@@ -88,6 +88,7 @@ namespace Scratch {
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
+        public const string ACTION_NEW_BRANCH = "action_new_branch";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -125,7 +126,8 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
-            { ACTION_CLEAR_LINES, action_clear_lines }
+            { ACTION_CLEAR_LINES, action_clear_lines },
+            { ACTION_NEW_BRANCH, action_new_branch }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -170,6 +172,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
+            action_accelerators.set (ACTION_NEW_BRANCH, "<Control>B"); //Git action - new branch
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -966,6 +969,11 @@ namespace Scratch {
             }
 
             doc.source_view.clear_selected_lines ();
+        }
+
+        private void action_new_branch () {
+            var current_doc = get_current_document ();
+            folder_manager_view.new_branch (current_doc.file);
         }
     }
 }
