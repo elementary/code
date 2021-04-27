@@ -260,14 +260,17 @@ namespace Scratch.FolderManager {
                     });
                 }
 
-                if (monitored_repo.head_is_branch) {
-                    change_branch_menu.add (new Gtk.SeparatorMenuItem ());
-                    var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
-                        action_name = "win.action_new_branch"
-                    };
+                var main_window = (MainWindow)(project_folder.view.get_toplevel ());
+                Utils.action_from_group (
+                    MainWindow.ACTION_NEW_BRANCH, main_window.actions
+                ).set_enabled (monitored_repo.head_is_branch);
 
-                    change_branch_menu.add (branch_item);
-                }
+                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
+                var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
+                    action_name = "win.action_new_branch"
+                };
+
+                change_branch_menu.add (branch_item);
 
                 label = _("Branch");
                 submenu = change_branch_menu;
