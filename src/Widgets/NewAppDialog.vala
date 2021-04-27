@@ -84,7 +84,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             hexpand = true
         };
 
-        var your_github_label = new Granite.HeaderLabel (_("Your GitHub Account"));
+        var your_github_label = new Granite.HeaderLabel (_("Your GitHub Username"));
 
         your_github_entry = new Granite.ValidatedEntry () {
             hexpand = true
@@ -161,6 +161,10 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
             your_github_entry.is_valid = check_is_valid (your_github_entry.text);
             update_create_button ();
         });
+
+        your_name_entry.text = Environment.get_real_name ();
+
+        your_github_entry.text = Environment.get_user_name ();
 
         response.connect ((response_id) => {
             try {
