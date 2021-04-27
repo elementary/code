@@ -24,6 +24,15 @@ namespace Scratch.FolderManager {
             public Item item;
         }
 
+        public const string ACTION_PREFIX = "git.";
+        public const string ACTION_NEW_BRANCH = "action-new-branch";
+
+        public SimpleActionGroup actions {get; construct;}
+
+        private const ActionEntry[] GIT_ACTION_ENTRIES = {
+            { ACTION_NEW_BRANCH, action_new_branch }
+        };
+
         private static Icon added_icon;
         private static Icon modified_icon;
 
@@ -45,6 +54,9 @@ namespace Scratch.FolderManager {
         }
 
         construct {
+            actions = new SimpleActionGroup ();
+            actions.add_action_entries (GIT_ACTION_ENTRIES, this);
+
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect ((update_branch_name));
@@ -108,7 +120,7 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo));
+                menu.append (new ChangeBranchMenu (monitored_repo, actions));
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -176,8 +188,67 @@ namespace Scratch.FolderManager {
             });
         }
 
+        private void action_new_branch () {
+            try {
+                if (monitored_repo.head_is_branch) {
+                    var new_branch_name = get_new_branch_name ();
+                    if (new_branch_name != null) {
+                        monitored_repo.create_new_branch (new_branch_name);
+                    }
+                }
+            } catch (Error e) {
+                warning ("Error creating branch %s", e.message);
+            }
+        }
+
+        private string? get_new_branch_name () throws Error {
+            string? name = null;
+
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Create a new local branch in “%s”").printf (file.name),
+                _("The branch parent will be “%s” and it will include any uncommitted changes").printf (
+                    monitored_repo.branch_name
+                ),
+                "applications-development",
+                Gtk.ButtonsType.CANCEL) {
+                // Have to get toplevel window from view as ProjectFolderItem is not a widget
+                transient_for = (Gtk.Window)(view.get_toplevel ())
+            };
+
+            var create_button = new Gtk.Button.with_label (_("Create Branch"));
+            create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            var entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z]+[a-z0-9--]*$"));
+            entry.bind_property (
+                "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
+            );
+
+            dialog.add_action_widget (create_button, Gtk.ResponseType.APPLY);
+            dialog.custom_bin.add (entry);
+
+            dialog.show_all ();
+
+            if (dialog.run () == Gtk.ResponseType.APPLY) {
+                name = entry.text;
+            }
+
+            dialog.destroy ();
+
+            return name;
+        }
+
         private class ChangeBranchMenu : Gtk.MenuItem {
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) requires (monitored_repo != null) {
+            public Scratch.Services.MonitoredRepository monitored_repo { get; construct; }
+            public SimpleActionGroup git_actions { get; construct; }
+            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo,
+                                     SimpleActionGroup git_actions) requires (monitored_repo != null) {
+                 Object (
+                     monitored_repo: monitored_repo,
+                     git_actions: git_actions
+                 );
+
+                insert_action_group ("git", git_actions);
+
                 string current_branch_name = monitored_repo.get_current_branch ();
                 string[] local_branch_names = monitored_repo.get_local_branches ();
                 var change_branch_menu = new Gtk.Menu ();
@@ -199,6 +270,15 @@ namespace Scratch.FolderManager {
                             warning ("Failed to change branch to %s.  %s", name, e.message);
                         }
                     });
+                }
+
+                if (monitored_repo.head_is_branch) {
+                    change_branch_menu.add (new Gtk.SeparatorMenuItem ());
+                    var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
+                        action_name = ACTION_PREFIX + ACTION_NEW_BRANCH
+                    };
+
+                    change_branch_menu.add (branch_item);
                 }
 
                 label = _("Branch");
