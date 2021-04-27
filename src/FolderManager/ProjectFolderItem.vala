@@ -196,9 +196,11 @@ namespace Scratch.FolderManager {
                 var dialog = new Granite.MessageDialog (
                     _("An error occurred while creating new branch “%s”").printf (new_branch_name),
                     e.message,
-                    new ThemedIcon ("dialog-warning"),
+                    new ThemedIcon ("git"),
                     Gtk.ButtonsType.CLOSE
-                );
+                ) {
+                    badge_icon = new ThemedIcon ("dialog-error")
+                };
                 dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
                 dialog.response.connect (() => {
                     dialog.destroy ();
@@ -215,8 +217,10 @@ namespace Scratch.FolderManager {
                 _("The branch parent will be “%s” and it will include any uncommitted changes").printf (
                     monitored_repo.branch_name
                 ),
-                "applications-development",
-                Gtk.ButtonsType.CANCEL) {
+                "git",
+                Gtk.ButtonsType.CANCEL
+            ) {
+                badge_icon = new ThemedIcon ("list-add"),
                 // Have to get toplevel window from view as ProjectFolderItem is not a widget
                 transient_for = (Gtk.Window)(view.get_toplevel ())
             };
