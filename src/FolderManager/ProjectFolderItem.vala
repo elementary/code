@@ -116,6 +116,13 @@ namespace Scratch.FolderManager {
             menu.append (close_all_except_item);
             menu.append (delete_item);
 
+            var search_item = new Gtk.MenuItem.with_label (_("Find in Project…")) {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (search_item);
             menu.show_all ();
 
             return menu;
@@ -174,6 +181,203 @@ namespace Scratch.FolderManager {
                     warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
                 }
             });
+        }
+
+        public void global_search (GLib.File start_folder = this.file.file) {
+            /* For now set all options to the most inclusive (except case).
+             * The ability to set these in the dialog (or by parameter) may be added later. */
+            string? term = null;
+            bool use_regex = false;
+            bool search_tracked_only = false;
+            bool recurse_subfolders = true;
+            bool check_is_text = true;
+            string[] path_spec = {"*.*"};
+            bool modified_only = false;
+            bool case_sensitive = false;
+            Regex? pattern = null;
+
+            var dialog = new Scratch.Dialogs.GlobalSearchDialog (
+                null, start_folder.get_basename (), monitored_repo.git_repo != null
+            ) {
+                case_sensitive = case_sensitive,
+                use_regex = use_regex
+            };
+
+            dialog.response.connect ((response) => {
+                switch (response) {
+                    case Gtk.ResponseType.ACCEPT:
+                        term = dialog.search_term;
+                        use_regex = dialog.use_regex;
+                        case_sensitive = dialog.case_sensitive;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                dialog.destroy ();
+            });
+
+            dialog.run ();
+
+            if (term != null) {
+                /* Put search term in search bar to help user locate the position of the matches in each doc */
+                var search_variant = new Variant.string (term);
+                var app = (Gtk.Application)GLib.Application.get_default ();
+                var win = (Scratch.MainWindow)(app.get_active_window ());
+                win.actions.lookup_action ("action_find").activate (search_variant);
+
+                if (!use_regex) {
+                    term = Regex.escape_string (term);
+                }
+
+                try {
+                    var flags = RegexCompileFlags.MULTILINE;
+                    if (!case_sensitive) {
+                        flags |= RegexCompileFlags.CASELESS;
+                    }
+
+                    pattern = new Regex (term, flags);
+                } catch (Error e) {
+                    critical ("Error creating regex from '%s': %s", term, e.message);
+                    return;
+                }
+            } else {
+                return;
+            }
+
+            var status_scope = Ggit.StatusOption.DEFAULT;
+            if (!modified_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            }
+            if (!search_tracked_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNTRACKED;
+            }
+            var status_options = new Ggit.StatusOptions (
+                status_scope,
+                Ggit.StatusShow.WORKDIR_ONLY,
+                path_spec
+            );
+
+            remove_all_badges ();
+            collapse_all ();
+
+            if (monitored_repo != null) {
+                try {
+                    monitored_repo.git_repo.file_status_foreach (status_options, (rel_path, status) => {
+                        var target = file.file.resolve_relative_path (rel_path);
+                        if (check_is_text && rel_path.has_prefix ("po/")) { // Ignore translation files
+                            return 0;
+                        }
+
+                        if ((recurse_subfolders && start_folder.get_relative_path (target) != null) ||
+                             start_folder.equal (target.get_parent ())) {
+
+                            perform_match (target, pattern, check_is_text);
+                        }
+
+                        return 0; //TODO Allow cancelling?
+                    });
+                } catch (Error err) {
+                    warning ("Error getting file status: %s", err.message);
+                }
+            } else {
+                search_folder_children (start_folder, pattern, recurse_subfolders);
+            }
+
+            return;
+        }
+
+        private void search_folder_children (GLib.File start_folder, Regex pattern, bool recurse_subfolders) {
+            try {
+                var enumerator = start_folder.enumerate_children (
+                    FileAttribute.STANDARD_CONTENT_TYPE + "," + FileAttribute.STANDARD_TYPE,
+                    FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                    null
+                );
+
+                unowned FileInfo info = null;
+                unowned GLib.File child = null;
+                while (enumerator.iterate (out info, out child, null) && info != null) {
+                    if (info != null && info.has_attribute (FileAttribute.STANDARD_TYPE)) {
+                        if (info.get_file_type () == FileType.DIRECTORY) {
+                            if (recurse_subfolders) {
+                                search_folder_children (child, pattern, false); //Limit depth to 1
+                            }
+                        } else {
+                            perform_match (child, pattern, true, info);
+                        }
+                    }
+                }
+            } catch (Error enumerate_error) {
+                warning ("Error enumerating children of %s: %s", start_folder.get_path (), enumerate_error.message);
+            }
+        }
+
+        private void perform_match (GLib.File target,
+                                    Regex pattern,
+                                    bool check_is_text = false,
+                                    FileInfo? target_info = null) {
+            string contents;
+            string target_path = target.get_path ();
+            if (check_is_text) {
+                FileInfo? info = null;
+                if (target_info == null) {
+                    try {
+                        info = target.query_info (
+                            FileAttribute.STANDARD_CONTENT_TYPE,
+                            FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                            null
+                        );
+                    } catch (Error query_error) {
+                        warning (
+                            "Error getting file info for %s: %s.  Ignoring.", target.get_path (), query_error.message
+                        );
+                    }
+                } else {
+                    info = target_info;
+                }
+
+                if (info == null) {
+                    return;
+                }
+
+                var type = info.get_content_type ();
+                if (!ContentType.is_mime_type (type, "text/*") ||
+                    ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
+
+                    return;
+                }
+            }
+
+            try {
+                FileUtils.get_contents (target_path, out contents);
+            } catch (Error e) {
+                warning ("error getting contents: %s", e.message);
+                return;
+            }
+
+            MatchInfo? match_info = null;
+            int match_count = 0;
+            try {
+                for (pattern.match (contents, 0, out match_info);
+                    match_info.matches ();
+                    match_info.next ()) {
+
+                    match_count++;
+                }
+            } catch (RegexError next_error) {
+                critical ("Error getting next match: %s", next_error.message);
+            }
+
+            if (match_count > 0) {
+                unowned var item = view.expand_to_path (target_path);
+                if (item != null) {
+                    item.badge = match_count.to_string ();
+                }
+            }
+
+            return;
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
