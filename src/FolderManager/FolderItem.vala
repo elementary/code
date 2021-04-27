@@ -103,6 +103,11 @@ namespace Scratch.FolderManager {
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
+            var search_item = new Gtk.MenuItem.with_label (_("Find text in this Folder…")) {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+
             var menu = new Gtk.Menu ();
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (contractor_item);
@@ -110,6 +115,7 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
             menu.append (rename_menu_item);
             menu.append (delete_item);
+            menu.append (search_item);
             menu.show_all ();
 
             return menu;
@@ -206,6 +212,20 @@ namespace Scratch.FolderManager {
             }
 
             base.remove (item);
+        }
+
+        public void remove_all_badges () {
+            foreach (var child in children) {
+                remove_badge (child);
+            }
+        }
+
+        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                ((FolderItem) item).remove_all_badges ();
+            }
+
+            item.badge = "";
         }
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
@@ -310,22 +330,6 @@ namespace Scratch.FolderManager {
                 if (root != null) {
                     root.child_folder_changed (this);
                 }
-            }
-        }
-
-        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
-            if (start == null) {
-                start = this;
-            }
-
-            if (start is ProjectFolderItem) {
-                return start as ProjectFolderItem;
-            } else if (start.parent is ProjectFolderItem) {
-                return start.parent as ProjectFolderItem;
-            } else if (start.parent != null) {
-                return get_root_folder (start.parent);
-            } else {
-                return null;
             }
         }
 

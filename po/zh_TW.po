@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 21:23+0000\n"
+"POT-Creation-Date: 2021-04-27 17:01+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -43,45 +43,45 @@ msgstr "插件"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:138
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "尋找…"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:201
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:712 src/Services/Document.vala:491
+#: src/MainWindow.vala:718 src/Services/Document.vala:491
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:716 src/Services/Document.vala:495
+#: src/MainWindow.vala:722 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:720
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:723
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:398
+#: src/MainWindow.vala:730 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:749
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -196,11 +196,11 @@ msgstr "不要還原"
 msgid "Restore Anyway"
 msgstr "無論如何都要復原"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
 msgid "Open In"
 msgstr "開啟於"
 
@@ -221,27 +221,31 @@ msgstr "移至垃圾桶"
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find text in this Folder…"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:175
 msgid "Empty File"
 msgstr "空白檔案"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:151
+#: src/FolderManager/ProjectFolderItem.vala:157
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "untitled folder"
 msgstr "無名資料夾"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:343
 msgid "new file"
 msgstr "新檔案"
 
@@ -253,13 +257,19 @@ msgstr "關閉資料夾"
 msgid "Close Other Folders"
 msgstr "關閉其他資料夾"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:119
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Find in Project…"
+msgstr "開啟專案目錄…"
+
+#: src/FolderManager/ProjectFolderItem.vala:157
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s，已修改"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:408
 msgid "Branch"
 msgstr "分支"
 
