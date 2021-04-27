@@ -210,15 +210,13 @@ namespace Scratch.FolderManager {
                 transient_for = (Gtk.Window)(view.get_toplevel ())
             };
 
-            var create_button = new Gtk.Button.with_label (_("Create Branch"));
+            var create_button = (Gtk.Button) dialog.add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
             create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             var entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z]+[a-z0-9--]*$"));
             entry.bind_property (
                 "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
             );
-
-            dialog.add_action_widget (create_button, Gtk.ResponseType.APPLY);
             dialog.custom_bin.add (entry);
 
             dialog.show_all ();
