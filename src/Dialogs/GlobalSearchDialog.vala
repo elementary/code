@@ -31,11 +31,19 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         get {
             return regex_switch.active;
         }
+
+        set {
+            regex_switch.active = value;
+        }
     }
 
     public bool case_sensitive {
         get {
             return case_switch.active;
+        }
+
+        set {
+            case_switch.active = value;
         }
     }
 
@@ -64,7 +72,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
         case_switch = new Gtk.Switch () {
             halign = Gtk.Align.START,
-            active = true
+            active = false
         };
 
         var case_label = new Gtk.Label (_("Case sensitive:")) {

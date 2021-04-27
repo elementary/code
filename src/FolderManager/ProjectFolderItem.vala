@@ -193,12 +193,15 @@ namespace Scratch.FolderManager {
             bool check_is_text = true;
             string[] path_spec = {"*.*"};
             bool modified_only = false;
-            bool case_sensitive = true;
+            bool case_sensitive = false;
             Regex? pattern = null;
 
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
                 null, start_folder.get_basename (), monitored_repo.git_repo != null
-            );
+            ) {
+                case_sensitive = case_sensitive,
+                use_regex = use_regex
+            };
 
             dialog.response.connect ((response) => {
                 switch (response) {
