@@ -184,15 +184,26 @@ namespace Scratch.FolderManager {
         }
 
         public void new_branch () {
+            string new_branch_name = "";
             try {
                 if (monitored_repo.head_is_branch) {
-                    var new_branch_name = get_new_branch_name ();
+                    new_branch_name = get_new_branch_name ();
                     if (new_branch_name != null) {
                         monitored_repo.create_new_branch (new_branch_name);
                     }
                 }
             } catch (Error e) {
-                warning ("Error creating branch %s", e.message);
+                var dialog = new Granite.MessageDialog (
+                    _("An error occurred while creating new branch “%s”").printf (new_branch_name),
+                    e.message,
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.CLOSE
+                );
+                dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
+                dialog.response.connect (() => {
+                    dialog.destroy ();
+                });
+                dialog.run ();
             }
         }
 

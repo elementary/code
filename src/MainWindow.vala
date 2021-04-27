@@ -175,7 +175,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
-            action_accelerators.set (ACTION_NEW_BRANCH, "<Control>B"); //Git action - new branch
+            action_accelerators.set (ACTION_NEW_BRANCH, "<Control>B");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
