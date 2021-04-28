@@ -168,6 +168,7 @@ namespace Scratch.FolderManager {
             string? branch_name = null;
             unowned var active_project = get_active_project (current_doc_file, out project_list);
             var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
+            dialog.show_all ();
             if (dialog.run () == Gtk.ResponseType.APPLY) {
                 branch_name = dialog.new_branch_name;
             }

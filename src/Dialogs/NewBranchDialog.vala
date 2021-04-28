@@ -58,14 +58,13 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
             //Branch name must be lower-case, start with a letter and be at least 3 characters long
             // new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].(?=[a-z0-9--]{2,}$)"));
             new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$"));
+            new_branch_name_entry.no_show_all = active_project == null;
         } catch (GLib.Error e) {
             critical ("NewBranchDialog invalid Regex");
             assert_not_reached ();
         }
 
-        if (active_project != null) {
-            custom_bin.add (new_branch_name_entry);
-        }
+        custom_bin.add (new_branch_name_entry);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
