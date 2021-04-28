@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-27 17:01+0000\n"
+"POT-Creation-Date: 2021-04-28 01:54+0000\n"
 "PO-Revision-Date: 2016-01-22 12:51+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
@@ -71,8 +71,9 @@ msgstr ""
 msgid "Open"
 msgstr "खोल्नुहोस्"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Services/Document.vala:398 src/Services/Document.vala:503
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द गर्नुहोस्"
@@ -84,6 +85,30 @@ msgstr ""
 #: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:59
+#, c-format
+msgid "Search text in folder '%s'"
+msgstr ""
+
+#. Most searches are less than this, can expand window if required
+#: src/Dialogs/GlobalSearchDialog.vala:68
+msgid "Search for:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:78
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:87
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
+#, fuzzy
+#| msgid "Next Search"
+msgid "Search"
+msgstr "पछिल्लो खोज"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -797,9 +822,6 @@ msgstr ""
 
 #~ msgid "Previous Search"
 #~ msgstr "अघिल्लो खोज"
-
-#~ msgid "Next Search"
-#~ msgstr "पछिल्लो खोज"
 
 #~ msgid "Create a new instance"
 #~ msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-27 17:01+0000\n"
+"POT-Creation-Date: 2021-04-28 01:54+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,8 +66,9 @@ msgstr "ზოგიერთი ფაილის გახსნა"
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Services/Document.vala:398 src/Services/Document.vala:503
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -79,6 +80,32 @@ msgstr "გახ_სნა"
 #: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_გაუქმება"
+
+#: src/Dialogs/GlobalSearchDialog.vala:59
+#, c-format
+msgid "Search text in folder '%s'"
+msgstr ""
+
+#. Most searches are less than this, can expand window if required
+#: src/Dialogs/GlobalSearchDialog.vala:68
+#, fuzzy
+#| msgid "Search next"
+msgid "Search for:"
+msgstr "შემდეგის პოვნა"
+
+#: src/Dialogs/GlobalSearchDialog.vala:78
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:87
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "შემდეგის პოვნა"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"

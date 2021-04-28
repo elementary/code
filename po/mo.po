@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-27 17:01+0000\n"
+"POT-Creation-Date: 2021-04-28 01:54+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -66,8 +66,9 @@ msgstr "Deschideți fișiere"
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Services/Document.vala:398 src/Services/Document.vala:503
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anulare"
@@ -79,6 +80,32 @@ msgstr "_Deschis"
 #: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Anulare"
+
+#: src/Dialogs/GlobalSearchDialog.vala:59
+#, c-format
+msgid "Search text in folder '%s'"
+msgstr ""
+
+#. Most searches are less than this, can expand window if required
+#: src/Dialogs/GlobalSearchDialog.vala:68
+#, fuzzy
+#| msgid "Search next"
+msgid "Search for:"
+msgstr "Căutați în continuare"
+
+#: src/Dialogs/GlobalSearchDialog.vala:78
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:87
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "Căutați în continuare"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
