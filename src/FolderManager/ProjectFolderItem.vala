@@ -97,6 +97,17 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            var search_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Find in Project…"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL + "::"
+            );
+
+            var search_item = new Gtk.MenuItem () {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            search_item.add (search_accellabel);
+
             GLib.FileInfo info = null;
             unowned string? file_type = null;
 
@@ -120,12 +131,6 @@ namespace Scratch.FolderManager {
             menu.append (close_item);
             menu.append (close_all_except_item);
             menu.append (delete_item);
-
-            var search_item = new Gtk.MenuItem.with_label (_("Find in Project…")) {
-                action_name = "win.action_find_global",
-                action_target = new Variant.string (file.file.get_path ())
-            };
-
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
             menu.show_all ();
