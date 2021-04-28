@@ -89,6 +89,7 @@ namespace Scratch {
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
+        public const string ACTION_NEW_BRANCH = "action_new_branch";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -127,7 +128,8 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
-            { ACTION_CLEAR_LINES, action_clear_lines }
+            { ACTION_CLEAR_LINES, action_clear_lines },
+            { ACTION_NEW_BRANCH, action_new_branch, "s" }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -173,6 +175,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
+            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -184,6 +187,9 @@ namespace Scratch {
         }
 
         construct {
+            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+            default_theme.add_resource_path ("/io/elementary/code");
+
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
@@ -989,6 +995,25 @@ namespace Scratch {
             }
 
             doc.source_view.clear_selected_lines ();
+        }
+
+        private void action_new_branch (SimpleAction action, Variant? param) {
+            string path = "";
+            File? file = null;
+            if (param != null) {
+                path = param.get_string ();
+            }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    file = current_doc.file;
+                }
+            } else {
+                file = File.new_for_path (path);
+            }
+
+            folder_manager_view.new_branch (file);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
     /**
      * Class for easily dealing with files.
      */
-    internal class File : GLib.Object {
+    public class File : GLib.Object {
         public GLib.File file { get; private set; }
         private GLib.FileInfo info;
 
