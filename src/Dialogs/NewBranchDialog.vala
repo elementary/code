@@ -57,8 +57,10 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         try {
             //Branch name must be lower-case, start with a letter and be at least 3 characters long
             // new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].(?=[a-z0-9--]{2,}$)"));
-            new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$"));
-            new_branch_name_entry.no_show_all = active_project == null;
+            new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$")) {
+                activates_default = true,
+                no_show_all = active_project == null
+            };
         } catch (GLib.Error e) {
             critical ("NewBranchDialog invalid Regex");
             assert_not_reached ();
@@ -69,16 +71,12 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var create_button = (Gtk.Button) add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
+        create_button.can_default = true;
+        create_button.has_default = true;
         create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         new_branch_name_entry.bind_property (
             "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
-
-        new_branch_name_entry.activate.connect (() => {
-            response (new_branch_name_entry.is_valid ? Gtk.ResponseType.ACCEPT : Gtk.ResponseType.CANCEL);
-        });
-
-        set_default_response (Gtk.ResponseType.CANCEL);
     }
 }
