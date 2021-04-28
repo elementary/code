@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2019-09-11 16:24+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
@@ -248,11 +248,11 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "其他应用…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "打开于"
 
@@ -274,30 +274,32 @@ msgid "Folders"
 msgstr "文件夹"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
-msgstr ""
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Folder…"
+msgstr "打开文件夹"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "文件夹"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "空文件"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "新"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "未命名文件夹"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "新建文件"
 
@@ -311,26 +313,26 @@ msgstr "关闭文件夹"
 msgid "Close Other Folders"
 msgstr "关闭文件夹"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "打开文件夹"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:453
+#: src/FolderManager/ProjectFolderItem.vala:458
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr ""
 

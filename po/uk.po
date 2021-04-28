@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
-"PO-Revision-Date: 2021-04-28 19:35+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"PO-Revision-Date: 2021-04-28 23:45+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -111,38 +111,37 @@ msgid "Search"
 msgstr "Пошук"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "Створення нового екземпляра"
+msgstr "Створення нової гілки з «%s»"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"Назва гілки повинна бути з маленьких букв, починатися з букви й містити "
+"понад 3 символи"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "Ви повинні мати активний git-проєкт, щоб створити нову гілку."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Додати теку проєкту на бічну панель."
+msgstr "Відкрити теку git-проєкту на бічній панелі."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Відкрийте документ у теці git-проєкту на бічній панелі або скористайтеся "
+"контекстним меню проєкту."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Гілка"
+msgstr "Створити гілку"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -257,11 +256,11 @@ msgstr "Не відновлювати"
 msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Інший Застосунок…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Відкрити в"
 
@@ -283,30 +282,32 @@ msgid "Folders"
 msgstr "Теки"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
+#, fuzzy
+#| msgid "Find text in this Folder…"
+msgid "Find in Folder…"
 msgstr "Пошук тексту в цій теці…"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Тека"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Порожній файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "тека без назви"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "новий файл"
 
@@ -318,26 +319,24 @@ msgstr "Закрити теку"
 msgid "Close Other Folders"
 msgstr "Закрити інші теки"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 msgid "Find in Project…"
 msgstr "Пошук у проєкті…"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr "Змінено"
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Помилка створення нової гілки: «%s»"
 
-#: src/FolderManager/ProjectFolderItem.vala:453
-#, fuzzy
-#| msgid "Branch"
+#: src/FolderManager/ProjectFolderItem.vala:458
 msgid "New Branch…"
-msgstr "Гілка"
+msgstr "Нова гілка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr "Гілка"
 
