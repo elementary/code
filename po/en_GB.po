@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 01:54+0000\n"
-"PO-Revision-Date: 2021-04-23 17:40+0000\n"
+"PO-Revision-Date: 2021-04-28 14:12+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -90,30 +90,24 @@ msgstr "_Cancel"
 #: src/Dialogs/GlobalSearchDialog.vala:59
 #, c-format
 msgid "Search text in folder '%s'"
-msgstr ""
+msgstr "Search text in folder '%s'"
 
 #. Most searches are less than this, can expand window if required
 #: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
 msgid "Search for:"
-msgstr "Search next"
+msgstr "Search for:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:78
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Case Insensitive"
+msgstr "Case sensitive:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:87
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Use regular expressions:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Search next"
+msgstr "Search"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -255,7 +249,7 @@ msgstr "Folders"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find text in this Folder…"
-msgstr ""
+msgstr "Find text in this Folder…"
 
 #: src/FolderManager/FolderItem.vala:172
 msgid "Folder"
@@ -290,10 +284,8 @@ msgid "Close Other Folders"
 msgstr "Close Other Folders"
 
 #: src/FolderManager/ProjectFolderItem.vala:119
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Project…"
-msgstr "Open Project Folder…"
+msgstr "Find in Project…"
 
 #: src/FolderManager/ProjectFolderItem.vala:157
 msgid "Modified"
