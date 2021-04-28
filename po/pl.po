@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 01:54+0000\n"
+"POT-Creation-Date: 2021-04-28 19:34+0000\n"
 "PO-Revision-Date: 2019-11-15 19:42+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -44,46 +44,46 @@ msgstr "wtyczka"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Znajdź…"
 
-#: src/MainWindow.vala:201
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:491
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:495
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Services/Document.vala:398 src/Services/Document.vala:503
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -243,7 +243,7 @@ msgid "Rename"
 msgstr "Zmień nazwę"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:94
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
@@ -266,8 +266,8 @@ msgstr "Pusty plik"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:151
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:156
+#: src/FolderManager/ProjectFolderItem.vala:162
 msgid "New"
 msgstr "Nowy"
 
@@ -279,27 +279,38 @@ msgstr "Katalog bez nazwy"
 msgid "new file"
 msgstr "Nowy plik"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:87
 msgid "Close Folder"
 msgstr "Zamknij folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:90
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Zamknij folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/ProjectFolderItem.vala:124
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Otwórz folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:162
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:408
+#: src/FolderManager/ProjectFolderItem.vala:200
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:453
+#, fuzzy
+#| msgid "Branch"
+msgid "New Branch…"
+msgstr "Gałąź"
+
+#: src/FolderManager/ProjectFolderItem.vala:460
 msgid "Branch"
 msgstr "Gałąź"
 

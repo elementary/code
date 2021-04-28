@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 01:54+0000\n"
+"POT-Creation-Date: 2021-04-28 19:34+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,46 +38,46 @@ msgstr "გაფართოებების კომპლექტი"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "პოვნა..."
 
-#: src/MainWindow.vala:201
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "პოვნის ზოლის დამლავა"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:491
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:495
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "ტექსტ ფაილები"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "ზოგიერთი ფაილის გახსნა"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Services/Document.vala:398 src/Services/Document.vala:503
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "გახ_სნა"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
@@ -237,7 +237,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:94
 msgid "Move to Trash"
 msgstr ""
 
@@ -261,8 +261,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:151
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:156
+#: src/FolderManager/ProjectFolderItem.vala:162
 #, fuzzy
 msgid "New"
 msgstr "ახალი ჩანართი"
@@ -276,27 +276,37 @@ msgstr ""
 msgid "new file"
 msgstr "ახალი ფაილი"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:87
 msgid "Close Folder"
 msgstr "საქაღალდის დახურვა"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:90
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "საქაღალდის დახურვა"
 
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/ProjectFolderItem.vala:124
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "საქაღალდის გახსნა"
 
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:162
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:408
+#: src/FolderManager/ProjectFolderItem.vala:200
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:453
+#, fuzzy
+msgid "New Branch…"
+msgstr "Scratch-ის პარამეტრების შეცვლა"
+
+#: src/FolderManager/ProjectFolderItem.vala:460
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch-ის პარამეტრების შეცვლა"
