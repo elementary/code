@@ -76,9 +76,9 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         );
 
         new_branch_name_entry.activate.connect (() => {
-            response (new_branch_name_entry.text != "" ? Gtk.ResponseType.ACCEPT : Gtk.ResponseType.CLOSE);
+            response (new_branch_name_entry.is_valid ? Gtk.ResponseType.ACCEPT : Gtk.ResponseType.CANCEL);
         });
 
-        set_default_response (Gtk.ResponseType.CLOSE);
+        set_default_response (Gtk.ResponseType.CANCEL);
     }
 }
