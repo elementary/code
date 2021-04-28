@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
@@ -111,9 +111,10 @@ msgid "Search"
 msgstr "Дале"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Утворити нову інштанціу"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -845,9 +846,6 @@ msgstr ""
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Туйки є несохранині переміни у Scratch!"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Утворити нову інштанціу"
 
 #~ msgid "Go to line..."
 #~ msgstr "Іти на рядок..."

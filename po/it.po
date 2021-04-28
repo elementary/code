@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Cerca successivo"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Crea una nuova istanza"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1204,9 +1205,6 @@ msgstr "%s - Autocompletamento parole"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Ci sono modifiche non salvate!"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Crea una nuova istanza"
 
 #~ msgid "Context View"
 #~ msgstr "Vista contestuale"

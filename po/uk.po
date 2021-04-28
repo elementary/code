@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-04-28 19:35+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
@@ -111,9 +111,10 @@ msgid "Search"
 msgstr "Пошук"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Створення нового екземпляра"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1127,9 +1128,6 @@ msgstr "%s - завершення слів"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Аргумент для набору плагінів"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Створення нового екземпляра"
 
 #~ msgid "Find..."
 #~ msgstr "Знайти ..."
