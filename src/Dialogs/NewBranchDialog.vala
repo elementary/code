@@ -41,42 +41,43 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
     construct {
         if (active_project != null) {
             assert (active_project.is_git_repo);
-            primary_text = _("Create new branch in project “%s”").printf (active_project.file.file.get_basename ());
+            primary_text = _("Create a new branch in “%s”").printf (active_project.file.file.get_basename ());
             secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters");
             badge_icon = new ThemedIcon ("list-add");
+
+            try {
+                //Branch name must be lower-case, start with a letter and be at least 3 characters long
+                // new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].(?=[a-z0-9--]{2,}$)"));
+                new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$")) {
+                    activates_default = true
+                };
+            } catch (GLib.Error e) {
+                critical ("NewBranchDialog invalid Regex");
+                assert_not_reached ();
+            }
+
+            custom_bin.add (new_branch_name_entry);
+
+            add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+
+            var create_button = (Gtk.Button) add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
+            create_button.can_default = true;
+            create_button.has_default = true;
+            create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            new_branch_name_entry.bind_property (
+                "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
+            );
         } else {
-            primary_text = _("You must have an active git project before creating a new branch.");
+            primary_text = _("Creating a new branch requires an open, git-using project");
             badge_icon = new ThemedIcon ("dialog-warning");
             if (project_list.length () == 0) {
-                secondary_text = _("Open a git project folder in the sidebar.");
+                secondary_text = _("Open a git-using project folder in the sidebar.");
             } else {
-                secondary_text = _("Open a document in a git project folder in the sidebar or use a project context menu.");
+                secondary_text = _("Open a document in a git-using project folder in the sidebar or use a project context menu.");
             }
+
+            add_button (_("Close"), Gtk.ResponseType.CLOSE);
         }
-
-        try {
-            //Branch name must be lower-case, start with a letter and be at least 3 characters long
-            // new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].(?=[a-z0-9--]{2,}$)"));
-            new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$")) {
-                activates_default = true,
-                no_show_all = active_project == null
-            };
-        } catch (GLib.Error e) {
-            critical ("NewBranchDialog invalid Regex");
-            assert_not_reached ();
-        }
-
-        custom_bin.add (new_branch_name_entry);
-
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-
-        var create_button = (Gtk.Button) add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
-        create_button.can_default = true;
-        create_button.has_default = true;
-        create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        new_branch_name_entry.bind_property (
-            "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
-        );
     }
 }
