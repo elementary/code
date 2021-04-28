@@ -454,12 +454,18 @@ namespace Scratch.FolderManager {
                     MainWindow.ACTION_NEW_BRANCH, main_window.actions
                 ).set_enabled (monitored_repo.head_is_branch);
 
-                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
-                var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
+                var accel_label = new Granite.AccelLabel.from_action_name (
+                    _("New Branch…"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH + "::"
+                );
+
+                var branch_item = new Gtk.MenuItem () {
                     action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
                     action_target = project_folder.file.file.get_path ()
                 };
+                branch_item.add (accel_label);
 
+                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
                 change_branch_menu.add (branch_item);
 
                 label = _("Branch");
