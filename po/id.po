@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 01:54+0000\n"
+"POT-Creation-Date: 2021-04-28 19:34+0000\n"
 "PO-Revision-Date: 2018-10-24 13:33+0000\n"
 "Last-Translator: Angga Rifandi <empty.email.boxs@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/code/code/"
@@ -44,46 +44,46 @@ msgstr "Kumpulan pengaya"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Cari…"
 
-#: src/MainWindow.vala:201
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "Sembunyikan bilah cari"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:491
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Semua berkas"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:495
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Berkas teks"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "Buka beberapa file"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:730 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Services/Document.vala:398 src/Services/Document.vala:503
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "_Buka"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -242,7 +242,7 @@ msgid "Rename"
 msgstr "Ubah Nama"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:94
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tempat Sampah"
 
@@ -265,8 +265,8 @@ msgstr "File Kosong"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:151
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:156
+#: src/FolderManager/ProjectFolderItem.vala:162
 msgid "New"
 msgstr "Baru"
 
@@ -278,27 +278,37 @@ msgstr "folder tanpa judul"
 msgid "new file"
 msgstr "berkas baru"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:87
 msgid "Close Folder"
 msgstr "Tutup Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:90
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Tutup Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/ProjectFolderItem.vala:124
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Buka Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:162
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:408
+#: src/FolderManager/ProjectFolderItem.vala:200
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:453
+#, fuzzy
+msgid "New Branch…"
+msgstr "Ubah pengaturan Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:460
 #, fuzzy
 msgid "Branch"
 msgstr "Ubah pengaturan Scratch"
