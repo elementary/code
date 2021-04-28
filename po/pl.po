@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2019-11-15 19:42+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -114,9 +114,10 @@ msgid "Search"
 msgstr "Wyszukaj następne"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Utwórz nowe wystąpienie"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1212,9 +1213,6 @@ msgstr "%s - uzupełnienie słowa"
 
 #~ msgid "Draw spaces:"
 #~ msgstr "Wyróżnianie znaków spacji"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Utwórz nowe wystąpienie"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Istnieją niezapisane zmiany w Scratch'u!"

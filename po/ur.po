@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,9 +108,10 @@ msgid "Search"
 msgstr "اگلا تلاش کریں"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "نیا انسٹنس بنائیں"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1036,9 +1037,6 @@ msgstr ""
 #~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr ""
 #~ "کیا آپ اس فائل میں کی گئی تبدیلیاں کسی اور جگہ محفوظ کرنا چاہتے ہیں؟"
-
-#~ msgid "Create a new instance"
-#~ msgstr "نیا انسٹنس بنائیں"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "سکریچ میں غیر محفوظ شدہ کام موجود ہے!"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2018-06-22 00:03+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/code/code/"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Következő keresése"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Új példány létrehozása"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1213,9 +1214,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "Új dokumentum létrehozása sablonból"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Új példány létrehozása"
 
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Kívánja frissíteni?"

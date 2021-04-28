@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-04-22 12:35+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Rechercher le suivant"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Créer une nouvelle instance"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1227,9 +1228,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Paramètre pour le réglage des greffons"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Créer une nouvelle instance"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Des changements dans Scratch n'ont pas été enregistrés !"

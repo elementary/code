@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-04-21 22:40+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Nächstes Suchergebnis"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Eine neue Instanz erstellen"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1202,9 +1203,6 @@ msgstr "%s – Wortvervollständigung"
 #~ msgstr ""
 #~ "Möchten Sie die Änderungen an der Datei speichern, bevor Sie diese "
 #~ "schließen?"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Eine neue Instanz erstellen"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Die Änderungen an dieser Datei wurden noch nicht gespeichert."

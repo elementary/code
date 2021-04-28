@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-04-28 14:12+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -110,9 +110,10 @@ msgid "Search"
 msgstr "Procurar"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Criar uma nova instância"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1153,9 +1154,6 @@ msgstr "%s - Completar palavra"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "Criar novo documento com base num modelo"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Criar uma nova instância"
 
 #~ msgid "Go to line..."
 #~ msgstr "Ir para a linha..."

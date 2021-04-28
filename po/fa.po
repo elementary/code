@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -112,9 +112,10 @@ msgid "Search"
 msgstr "جستجوی بعدی"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "ساخت یک نمونه جدید"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -922,9 +923,6 @@ msgstr ""
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "نشانوند مجموعه افزونه‌ها"
-
-#~ msgid "Create a new instance"
-#~ msgstr "ساخت یک نمونه جدید"
 
 #~ msgid "Choose the new location"
 #~ msgstr "انتخاب مکان جدید"

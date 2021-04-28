@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-04-22 12:35+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Cerca el següent"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Crea una nova instància"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1192,9 +1193,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Argument per al conjunt de connectors"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Crea una nova instància"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Mostra un marge a la dreta:"

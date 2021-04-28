@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2016-01-22 12:51+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
@@ -111,9 +111,10 @@ msgid "Search"
 msgstr "पछिल्लो खोज"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -862,9 +863,6 @@ msgstr ""
 
 #~ msgid "Previous Search"
 #~ msgstr "अघिल्लो खोज"
-
-#~ msgid "Create a new instance"
-#~ msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"
 
 #~ msgid "Create a new document in a new tab"
 #~ msgstr "नयाँ ट्याबमा नयाँ कागजात सिर्जना गर्नुहोस्"

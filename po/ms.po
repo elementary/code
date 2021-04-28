@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -114,9 +114,10 @@ msgid "Search"
 msgstr "Gelintar berikutnya"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Cipta kejadian baru"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1122,9 +1123,6 @@ msgstr "%s - Pelengkapan Perkataan"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Argumen untuk set pemalam"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Cipta kejadian baru"
 
 #~ msgid "Go to line..."
 #~ msgstr "Pergi ke baris..."

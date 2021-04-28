@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -116,9 +116,10 @@ msgid "Search"
 msgstr "Sljedeći rezultat pretrage"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Kreirati novu instancu"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1110,9 +1111,6 @@ msgstr "%s - Automatski završetak riječi"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Argument za set dodataka"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Kreirati novu instancu"
 
 #~ msgid "You can't save changes to:"
 #~ msgstr "Ne možete sačuvati promijene u:"
