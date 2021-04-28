@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 19:47+0000\n"
-"PO-Revision-Date: 2021-04-28 14:12+0000\n"
+"PO-Revision-Date: 2021-04-28 23:45+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -109,10 +109,9 @@ msgid "Search"
 msgstr "חיפוש"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "יצירת דוגמה חדשה"
+msgstr "יצירת ענף חדש של „%s”"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
