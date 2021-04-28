@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:34+0000\n"
+"POT-Creation-Date: 2021-04-28 19:37+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Javanese <jv@li.org>\n"
@@ -72,8 +72,8 @@ msgid "Open"
 msgstr "Bukak"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Services/Document.vala:398 src/Services/Document.vala:503
-#: plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
@@ -109,6 +109,35 @@ msgstr ""
 #| msgid "Next Search"
 msgid "Search"
 msgstr "Goleki sak teruse"
+
+#: src/Dialogs/NewBranchDialog.vala:44
+#, c-format
+msgid "Create new branch in project “%s”"
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:45
+msgid ""
+"The branch name must be lower-case, start with a letter, and be at least 3 "
+"characters"
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:48
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:51
+msgid "Open a git project folder in the sidebar."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:53
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:73
+msgid "Create Branch"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
