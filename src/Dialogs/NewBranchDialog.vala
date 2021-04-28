@@ -42,7 +42,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         if (active_project != null) {
             assert (active_project.is_git_repo);
             primary_text = _("Create new branch in project “%s”").printf (active_project.file.file.get_basename ());
-            secondary_text = _("The barnch name must be lower-case, start with a letter, and be at least 3 characters");
+            secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters");
             badge_icon = new ThemedIcon ("list-add");
         } else {
             primary_text = _("You must have an active git project before creating a new branch.");
