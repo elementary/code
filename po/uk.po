@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2021-04-28 23:45+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
-"\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
+">\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,11 +256,11 @@ msgstr "Не відновлювати"
 msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Інший Застосунок…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Відкрити в"
 
@@ -282,30 +282,32 @@ msgid "Folders"
 msgstr "Теки"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
+#, fuzzy
+#| msgid "Find text in this Folder…"
+msgid "Find in Folder…"
 msgstr "Пошук тексту в цій теці…"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Тека"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Порожній файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "тека без назви"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "новий файл"
 
@@ -317,24 +319,24 @@ msgstr "Закрити теку"
 msgid "Close Other Folders"
 msgstr "Закрити інші теки"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 msgid "Find in Project…"
 msgstr "Пошук у проєкті…"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr "Змінено"
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Помилка створення нової гілки: «%s»"
 
-#: src/FolderManager/ProjectFolderItem.vala:453
+#: src/FolderManager/ProjectFolderItem.vala:458
 msgid "New Branch…"
 msgstr "Нова гілка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr "Гілка"
 

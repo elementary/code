@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2021-04-22 12:35+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -263,11 +263,11 @@ msgstr "No el restauris"
 msgid "Restore Anyway"
 msgstr "Restaura'l tanmateix"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Obre amb"
 
@@ -289,30 +289,32 @@ msgid "Folders"
 msgstr "Carpetes"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
-msgstr ""
+#, fuzzy
+#| msgid "Add Project Folder…"
+msgid "Find in Folder…"
+msgstr "Afegeix una carpeta de projecte…"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Carpeta"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Fitxer buit"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "carpeta sense nom"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "fitxer nou"
 
@@ -324,28 +326,28 @@ msgstr "Tanca la carpeta"
 msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "Afegeix una carpeta de projecte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr "Modificat"
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:453
+#: src/FolderManager/ProjectFolderItem.vala:458
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Branca"
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr "Branca"
 

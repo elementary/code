@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,11 +249,11 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 #, fuzzy
 msgid "Open In"
 msgstr "کهولیں"
@@ -277,32 +277,34 @@ msgid "Folders"
 msgstr "فولڈرز"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
-msgstr ""
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Folder…"
+msgstr "فولڈركهوليں"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 #, fuzzy
 msgid "Folder"
 msgstr "فولڈرز"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 #, fuzzy
 msgid "New"
 msgstr "نیا ٹیب"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 #, fuzzy
 msgid "new file"
 msgstr "نئی فائل"
@@ -317,27 +319,27 @@ msgstr "فولڈربندكريں"
 msgid "Close Other Folders"
 msgstr "فولڈربندكريں"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "فولڈركهوليں"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:453
+#: src/FolderManager/ProjectFolderItem.vala:458
 #, fuzzy
 msgid "New Branch…"
 msgstr "سكريچ كى ترتیبات تبديل كريں"
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 #, fuzzy
 msgid "Branch"
 msgstr "سكريچ كى ترتیبات تبديل كريں"

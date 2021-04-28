@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:47+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2021-04-28 14:12+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -258,11 +258,11 @@ msgstr "Não restaurar"
 msgid "Restore Anyway"
 msgstr "Restaurar mesmo assim"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Outra aplicação…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Abrir em"
 
@@ -284,30 +284,32 @@ msgid "Folders"
 msgstr "Pastas"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
+#, fuzzy
+#| msgid "Find text in this Folder…"
+msgid "Find in Folder…"
 msgstr "Encontre texto nesta Pasta…"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Pasta"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Ficheiro vazio"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:156
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "Novo"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "pasta sem nome"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "novo ficheiro"
 
@@ -319,26 +321,26 @@ msgstr "Fechar pasta"
 msgid "Close Other Folders"
 msgstr "Fechar outras pastas"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:101
 msgid "Find in Project…"
 msgstr "Encontre no projeto…"
 
-#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
 msgstr "Modificado"
 
-#: src/FolderManager/ProjectFolderItem.vala:200
+#: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:453
+#: src/FolderManager/ProjectFolderItem.vala:458
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Ramo"
 
-#: src/FolderManager/ProjectFolderItem.vala:460
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr "Ramo"
 
