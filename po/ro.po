@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-02-11 08:41+0000\n"
 "Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/code/code/ro/>\n"
@@ -114,9 +114,10 @@ msgid "Search"
 msgstr "Caută următorul"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Crează o instanță nouă"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1167,9 +1168,6 @@ msgstr "%s - Completare de cuvinte"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Vreţi să salvaţi modificările înainte de a inchide acest fişier ?"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Crează o instanță nouă"
 
 #~ msgid "Go to line..."
 #~ msgstr "Du-te la linia..."

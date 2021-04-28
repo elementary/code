@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "向後搜尋"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "建立新的實體"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1181,9 +1182,6 @@ msgstr "%s - 單字補完"
 
 #~ msgid "Draw spaces:"
 #~ msgstr "繪製空格數："
-
-#~ msgid "Create a new instance"
-#~ msgstr "建立新的實體"
 
 #~ msgid "Do you want to create it again?"
 #~ msgstr "你是否要再次建立它？"

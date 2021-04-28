@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Sök nästa"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Skapa en ny instans"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1164,9 +1165,6 @@ msgstr "%s - Ordförslag"
 
 #~ msgid "Choose the new location"
 #~ msgstr "Välj en ny plats"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Skapa en ny instans"
 
 #~ msgid "Normal text"
 #~ msgstr "Normal text"

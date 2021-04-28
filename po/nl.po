@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2020-09-20 20:14+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Volgende zoeken"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Creëer een nieuwe instantie"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1241,9 +1242,6 @@ msgstr "%s - Woorden aanvullen"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Argument voor de pluginset"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Creëer een nieuwe instantie"
 
 #~ msgid "Create a new document in a new tab"
 #~ msgstr "Maak een nieuw document aan in een nieuw tabblad"

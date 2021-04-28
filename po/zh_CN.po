@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2021-01-29 13:51+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -116,9 +116,10 @@ msgid "Search"
 msgstr "下一个"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "创建新例程"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1194,9 +1195,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "The file %s was deleted."
 #~ msgstr "文件 %s 已删除。"
-
-#~ msgid "Create a new instance"
-#~ msgstr "创建新例程"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "字体和颜色："

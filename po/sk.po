@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 19:37+0000\n"
+"POT-Creation-Date: 2021-04-28 19:47+0000\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -115,9 +115,10 @@ msgid "Search"
 msgstr "Hľadať ďalší"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create new branch in project “%s”"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "Vytvoriť novú inštanciu"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
@@ -1145,9 +1146,6 @@ msgstr "Dokončovanie slova: %s"
 
 #~ msgid "Choose the new location"
 #~ msgstr "Vyberte novú lokáciu"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Vytvoriť novú inštanciu"
 
 #~ msgid "No files are open."
 #~ msgstr "Nie sú otvorené žiadne súbory."
