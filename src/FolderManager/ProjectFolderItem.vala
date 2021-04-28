@@ -18,7 +18,7 @@
  */
 
 namespace Scratch.FolderManager {
-    internal class ProjectFolderItem : FolderItem {
+    public class ProjectFolderItem : FolderItem {
         struct VisibleItem {
             public string rel_path;
             public Item item;
@@ -34,6 +34,11 @@ namespace Scratch.FolderManager {
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
+        public bool is_git_repo {
+            get {
+                return monitored_repo != null;
+            }
+        }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -183,18 +188,16 @@ namespace Scratch.FolderManager {
             });
         }
 
-        public void new_branch () {
-            string new_branch_name = "";
+        public void new_branch (string branch_name) {
             try {
                 if (monitored_repo.head_is_branch) {
-                    new_branch_name = get_new_branch_name ();
-                    if (new_branch_name != null) {
-                        monitored_repo.create_new_branch (new_branch_name);
-                    }
+                    monitored_repo.create_new_branch (branch_name);
+                } else {
+                    throw new IOError.NOT_FOUND ("Cannot create a new branch when head is detached");
                 }
             } catch (Error e) {
                 var dialog = new Granite.MessageDialog (
-                    _("An error occurred while creating new branch “%s”").printf (new_branch_name),
+                    _("Error while creating new branch: “%s”").printf (branch_name),
                     e.message,
                     new ThemedIcon ("git"),
                     Gtk.ButtonsType.CLOSE
@@ -207,42 +210,6 @@ namespace Scratch.FolderManager {
                 });
                 dialog.run ();
             }
-        }
-
-        private string? get_new_branch_name () throws Error {
-            string? name = null;
-
-            var dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                _("Create a new local branch in “%s”").printf (file.name),
-                _("The branch parent will be “%s” and it will include any uncommitted changes").printf (
-                    monitored_repo.branch_name
-                ),
-                "git",
-                Gtk.ButtonsType.CANCEL
-            ) {
-                badge_icon = new ThemedIcon ("list-add"),
-                // Have to get toplevel window from view as ProjectFolderItem is not a widget
-                transient_for = (Gtk.Window)(view.get_toplevel ())
-            };
-
-            var create_button = (Gtk.Button) dialog.add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
-            create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-            var entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z]+[a-z0-9--]*$"));
-            entry.bind_property (
-                "is-valid", create_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
-            );
-            dialog.custom_bin.add (entry);
-
-            dialog.show_all ();
-
-            if (dialog.run () == Gtk.ResponseType.APPLY) {
-                name = entry.text;
-            }
-
-            dialog.destroy ();
-
-            return name;
         }
 
         public void global_search (GLib.File start_folder = this.file.file) {

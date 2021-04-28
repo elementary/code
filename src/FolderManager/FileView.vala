@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
-    internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+    public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private GLib.Settings settings;
 
         public signal void select (string file);
@@ -164,19 +164,30 @@ namespace Scratch.FolderManager {
         }
 
         public void new_branch (GLib.File? current_doc_file) {
-            unowned var active_project = get_active_project (current_doc_file);
-            if (active_project != null) {
-                active_project.new_branch ();
-            } else {
-                //TODO Show user dialog
+            GLib.List<ProjectFolderItem> project_list;
+            string? branch_name = null;
+            unowned var active_project = get_active_project (current_doc_file, out project_list);
+            var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
+            if (dialog.run () == Gtk.ResponseType.APPLY) {
+                branch_name = dialog.new_branch_name;
+            }
+
+            dialog.destroy ();
+            if (active_project != null && branch_name != null) {
+                active_project.new_branch (branch_name);
             }
         }
 
-        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file) {
+        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file, out List<ProjectFolderItem> project_list) {
             unowned ProjectFolderItem? project = null;
-            uint n_projects = 0;
+            project_list = null;
             foreach (var child in root.children) {
                 project = (ProjectFolderItem)child;
+                if (!project.is_git_repo) {
+                    // Ignore sidebar folders that are not git repos
+                    continue;
+                }
+
                 if (active_file != null)
                     if (project.file.file.equal (active_file) ||
                         project.file.file.get_relative_path (active_file) != null) {
@@ -184,12 +195,12 @@ namespace Scratch.FolderManager {
                     return project;
                 }
 
-                n_projects++;
+                project_list.prepend (project);
             }
 
-            if (n_projects == 1) {
+            if (project_list.length () == 1) {
                 //There was only one project so use that
-                return project;
+                return project_list.data;
             }
 
             return null;

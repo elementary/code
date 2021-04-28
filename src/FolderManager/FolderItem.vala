@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
      */
-    internal class FolderItem : Item {
+    public class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
