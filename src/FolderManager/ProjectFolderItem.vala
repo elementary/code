@@ -484,7 +484,8 @@ namespace Scratch.FolderManager {
 
                 change_branch_menu.add (new Gtk.SeparatorMenuItem ());
                 var branch_item = new Gtk.MenuItem.with_label (_("New Branch…")) {
-                    action_name = "win.action_new_branch"
+                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                    action_target = project_folder.file.file.get_path ()
                 };
 
                 change_branch_menu.add (branch_item);

@@ -163,14 +163,36 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void new_branch (GLib.File current_doc_file) {
-            foreach (var child in root.children) {
-                unowned var item = (ProjectFolderItem)child;
-                if (item.file.file.get_relative_path (current_doc_file) != null) {
-                    item.new_branch ();
-                    return;
-                }
+        public void new_branch (GLib.File? current_doc_file) {
+            unowned var active_project = get_active_project (current_doc_file);
+            if (active_project != null) {
+                active_project.new_branch ();
+            } else {
+                //TODO Show user dialog
             }
+        }
+
+        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file) {
+            unowned ProjectFolderItem? project = null;
+            uint n_projects = 0;
+            foreach (var child in root.children) {
+                project = (ProjectFolderItem)child;
+                if (active_file != null)
+                    if (project.file.file.equal (active_file) ||
+                        project.file.file.get_relative_path (active_file) != null) {
+
+                    return project;
+                }
+
+                n_projects++;
+            }
+
+            if (n_projects == 1) {
+                //There was only one project so use that
+                return project;
+            }
+
+            return null;
         }
 
         private void add_folder (File folder, bool expand) {

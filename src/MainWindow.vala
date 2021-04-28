@@ -129,7 +129,7 @@ namespace Scratch {
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch }
+            { ACTION_NEW_BRANCH, action_new_branch, "s" }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -175,7 +175,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
-            action_accelerators.set (ACTION_NEW_BRANCH, "<Control>B");
+            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -997,9 +997,23 @@ namespace Scratch {
             doc.source_view.clear_selected_lines ();
         }
 
-        private void action_new_branch () {
-            var current_doc = get_current_document ();
-            folder_manager_view.new_branch (current_doc.file);
+        private void action_new_branch (SimpleAction action, Variant? param) {
+            string path = "";
+            File? file = null;
+            if (param != null) {
+                path = param.get_string ();
+            }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    file = current_doc.file;
+                }
+            } else {
+                file = File.new_for_path (path);
+            }
+
+            folder_manager_view.new_branch (file);
         }
     }
 }
