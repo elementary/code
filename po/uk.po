@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 19:47+0000\n"
-"PO-Revision-Date: 2021-04-28 19:35+0000\n"
+"PO-Revision-Date: 2021-04-28 23:45+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,38 +111,37 @@ msgid "Search"
 msgstr "Пошук"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "Створення нового екземпляра"
+msgstr "Створення нової гілки з «%s»"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"Назва гілки повинна бути з маленьких букв, починатися з букви й містити "
+"понад 3 символи"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "Ви повинні мати активний git-проєкт, щоб створити нову гілку."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Додати теку проєкту на бічну панель."
+msgstr "Відкрити теку git-проєкту на бічній панелі."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Відкрийте документ у теці git-проєкту на бічній панелі або скористайтеся "
+"контекстним меню проєкту."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Гілка"
+msgstr "Створити гілку"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -329,13 +328,11 @@ msgstr "Змінено"
 #: src/FolderManager/ProjectFolderItem.vala:200
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Помилка створення нової гілки: «%s»"
 
 #: src/FolderManager/ProjectFolderItem.vala:453
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Гілка"
+msgstr "Нова гілка…"
 
 #: src/FolderManager/ProjectFolderItem.vala:460
 msgid "Branch"
