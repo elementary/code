@@ -105,7 +105,7 @@ namespace Scratch.Services {
             }
         }
 
-        public string get_current_branch () {
+        public unowned string get_current_branch () {
             try {
                 var head = git_repo.get_head ();
                 if (head.is_branch ()) {
@@ -118,13 +118,13 @@ namespace Scratch.Services {
             return "";
         }
 
-        public string[] get_local_branches () {
-            string[] branches = {};
+        public unowned List<string> get_local_branches () {
+            unowned List<string> branches = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     if (branch_ref is Ggit.Branch) {
-                        branches += ((Ggit.Branch)branch_ref).get_name ();
+                        branches.append (((Ggit.Branch)branch_ref).get_name ());
                     }
                 }
             } catch (Error e) {

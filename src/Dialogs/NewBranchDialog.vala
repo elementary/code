@@ -39,10 +39,14 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
     }
 
     construct {
+        unowned List<string> branch_names = null;
         if (active_project != null) {
             assert (active_project.is_git_repo);
+            branch_names = active_project.get_branch_names ();
             primary_text = _("Create a new branch of “%s”").printf (active_project.file.file.get_basename ());
-            secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters");
+            var secondary_1 = _("The branch name must be lower-case, start with a letter, and be at least 3 characters.");
+            var secondary_2 = _("The name must not already exist");
+            secondary_text = ("%s\n%s").printf (secondary_1, secondary_2);
             badge_icon = new ThemedIcon ("list-add");
         } else {
             primary_text = _("You must have an active git project before creating a new branch.");
@@ -61,6 +65,17 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
                 activates_default = true,
                 no_show_all = active_project == null
             };
+
+            new_branch_name_entry.changed.connect (() => {
+                unowned var new_name = new_branch_name_entry.text;
+                foreach (unowned var name in branch_names) {
+                    if (new_name != name) {
+                        continue;
+                    }
+
+                    new_branch_name_entry.is_valid = false;
+                }
+            });
         } catch (GLib.Error e) {
             critical ("NewBranchDialog invalid Regex");
             assert_not_reached ();
