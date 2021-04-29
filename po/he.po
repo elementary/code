@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-28 23:45+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -118,28 +118,26 @@ msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"שם הענף חייב להיות באותיות קטנות באנגלית, להתחלי באות ושאורכו יהיה 3 תווים "
+"לפחות"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "חייב להיות לך מיזם git פעיל בטרם יצירת ענף חדש."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "הוספת תיקיית מיזם לסרגל הצד."
+msgstr "פתיחת תיקיית מיזם git בסרגל הצד."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
-msgstr ""
+msgstr "לפתוח מסמך בתיקיית מיזם git בסרגל הצד או להשתמש בתפריט ההקשר של המיזם."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "ענף"
+msgstr "יצירת ענף"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -279,10 +277,8 @@ msgid "Folders"
 msgstr "תיקיות"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Find text in this Folder…"
 msgid "Find in Folder…"
-msgstr "איתור טקסט בתיקייה הזאת…"
+msgstr "איתור בתיקייה…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -327,13 +323,11 @@ msgstr "נערכה"
 #: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "שגיאה ביצירת ענף חדש: „%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "ענף"
+msgstr "ענף חדש…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
