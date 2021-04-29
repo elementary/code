@@ -22,7 +22,7 @@
 public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
     public string folder_name { get; construct; }
     public bool is_repo { get; construct; }
-    private Gtk.Entry search_term_entry;
+    private Granite.ValidatedEntry search_term_entry;
     private Gtk.Switch case_switch;
     private Gtk.Switch regex_switch;
 
@@ -61,10 +61,11 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         };
         header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
-        search_term_entry = new Gtk.Entry () {
+        search_term_entry = new Granite.ValidatedEntry () {
             hexpand = true,
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
+
         var search_term_label = new Gtk.Label (_("Search for:")) {
             valign = Gtk.Align.CENTER,
             halign = Gtk.Align.END
@@ -109,18 +110,18 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var search_button = (Gtk.Button) add_button (_("Search"), Gtk.ResponseType.ACCEPT);
+        search_button.can_default = true;
+        search_button.has_default = true;
         search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        search_term_entry.bind_property ("text", search_button, "sensitive", BindingFlags.DEFAULT,
-             (binding, src_val, ref target_val) => {
-                target_val.set_boolean (src_val.get_string ().length >= 3);
-            }
+        search_term_entry.bind_property (
+            "is-valid", search_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
 
-        search_term_entry.activate.connect (() => {
-            response (search_term_entry.text != "" ? Gtk.ResponseType.ACCEPT : Gtk.ResponseType.CLOSE);
+        search_term_entry.changed.connect (() => {
+            search_term_entry.is_valid = search_term_entry.text.length >= 3;
         });
 
-        set_default_response (Gtk.ResponseType.CLOSE);
+        set_default_response (Gtk.ResponseType.CANCEL);
     }
  }
