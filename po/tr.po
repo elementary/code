@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-28 14:12+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -109,38 +109,36 @@ msgid "Search"
 msgstr "Ara"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "Yeni bir örnek oluştur"
+msgstr "\"%s\" için yeni bir dal oluştur"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"Dal adı küçük harf olmalı, bir harfle başlamalı ve en az 3 karakter olmalıdır"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "Yeni bir dal oluşturmadan önce aktif bir git projeniz olmalıdır."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Kenar çubuğuna bir proje klasörü ekle."
+msgstr "Kenar çubuğuna bir git proje klasörü açın."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Kenar çubuğundaki git proje klasöründeki bir belgeyi açın veya projenin "
+"içerik menüsünü kullanın."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Dal"
+msgstr "Dal Oluştur"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -283,10 +281,8 @@ msgid "Folders"
 msgstr "Klasörler"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Find text in this Folder…"
 msgid "Find in Folder…"
-msgstr "Bu klasördeki metni bulun…"
+msgstr "Klasörde Bul…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -331,13 +327,11 @@ msgstr "Değiştirildi"
 #: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Yeni dal oluşturulurken hata meydana geldi: \"%s\""
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Dal"
+msgstr "Yeni Dal…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
