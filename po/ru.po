@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-22 12:35+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -90,30 +90,24 @@ msgstr "_Отменить"
 #: src/Dialogs/GlobalSearchDialog.vala:59
 #, c-format
 msgid "Search text in folder '%s'"
-msgstr ""
+msgstr "Поиск текста в папке «%s»"
 
 #. Most searches are less than this, can expand window if required
 #: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
 msgid "Search for:"
-msgstr "Найти далее"
+msgstr "Поиск для:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:78
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Без учета регистра"
+msgstr "Учитывать регистр:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:87
 msgid "Use regular expressions:"
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Найти далее"
+msgstr "Поиск"
 
 #: src/Dialogs/NewBranchDialog.vala:44
 #, fuzzy, c-format
@@ -132,10 +126,8 @@ msgid "You must have an active git project before creating a new branch."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Добавить папку проекта в боковую панель."
+msgstr "Открыть папку git-проекта в боковой панели."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
@@ -144,10 +136,8 @@ msgid ""
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Ветка"
+msgstr "Создать ветку"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -288,10 +278,8 @@ msgid "Folders"
 msgstr "Папки"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Folder…"
-msgstr "Открыть папку проекта…"
+msgstr "Поиск в папке…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -326,10 +314,8 @@ msgid "Close Other Folders"
 msgstr "Закрыть остальные папки"
 
 #: src/FolderManager/ProjectFolderItem.vala:101
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Project…"
-msgstr "Открыть папку проекта…"
+msgstr "Найти в проекте…"
 
 #: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
@@ -341,10 +327,8 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Ветка"
+msgstr "Новая ветка…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
