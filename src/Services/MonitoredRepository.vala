@@ -34,6 +34,16 @@ namespace Scratch.Services {
             }
         }
 
+        public bool head_is_branch {
+            get {
+                try {
+                    return git_repo.get_head ().is_branch ();
+                } catch (Error e) {
+                    return false;
+                }
+            }
+        }
+
         public signal void branch_changed (string new_branch_name);
         public signal void ignored_changed ();
         public signal void file_status_change ();
@@ -128,6 +138,12 @@ namespace Scratch.Services {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
             branch_name = new_branch_name;
+        }
+
+        public void create_new_branch (string name) throws Error {
+            Ggit.Object git_object = git_repo.get_head ().lookup ();
+            var new_branch = git_repo.create_branch (name, git_object, Ggit.CreateFlags.NONE);
+            git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
         }
 
         private bool do_update = false;
