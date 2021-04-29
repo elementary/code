@@ -19,7 +19,7 @@
 * Authored by: Jeremy Wootten <jeremy@elementaryos.org>
 */
 
-public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
+public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     public string folder_name { get; construct; }
     public bool is_repo { get; construct; }
     private Granite.ValidatedEntry search_term_entry;
@@ -51,61 +51,64 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         Object (
             transient_for: parent,
             folder_name: folder_name,
-            is_repo: is_repo
+            is_repo: is_repo,
+            image_icon: new ThemedIcon ("system-search")
         );
     }
 
     construct {
-        var header = new Gtk.Label (_("Search text in folder '%s'").printf (folder_name)) {
-            margin_bottom = 12
-        };
-        header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        primary_text = _("Search for text in folder '%s'").printf (folder_name);
+        secondary_text = _("The search term must be at least 3 characters long");
 
         search_term_entry = new Granite.ValidatedEntry () {
-            hexpand = true,
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
 
         var search_term_label = new Gtk.Label (_("Search for:")) {
-            valign = Gtk.Align.CENTER,
+            margin_end = 6,
             halign = Gtk.Align.END
         };
 
+        var search_grid = new Gtk.Grid () {
+            margin_bottom = 24,
+            margin_top = 12,
+            orientation = Gtk.Orientation.HORIZONTAL
+        };
+
+        search_grid.add (search_term_label);
+        search_grid.add (search_term_entry);
+
         case_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START,
             active = false
         };
 
         var case_label = new Gtk.Label (_("Case sensitive:")) {
+            margin_end = 6,
             halign = Gtk.Align.END
         };
 
         regex_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START,
+            hexpand = false,
             active = false
         };
 
         var regex_label = new Gtk.Label (_("Use regular expressions:")) {
+            margin_end = 6,
             halign = Gtk.Align.END
         };
 
-        var layout = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 6,
-            margin = 12,
-            margin_top = 0,
-            vexpand = true
-        };
-        layout.attach (header, 0, 0, 4);
-        layout.attach (search_term_label, 0, 1);
-        layout.attach (search_term_entry, 1, 1, 2);
-        layout.attach (case_label, 0, 2);
-        layout.attach (case_switch, 1, 2);
-        layout.attach (regex_label, 0, 3);
-        layout.attach (regex_switch, 1, 3);
+        var switch_grid = new Gtk.Grid ();
+        switch_grid.attach (case_label, 0, 0, 1, 1);
+        switch_grid.attach (case_switch, 1, 0, 1, 1);
+        switch_grid.attach (regex_label, 0, 1, 1, 1);
+        switch_grid.attach (regex_switch, 1, 1, 1, 1);
+
+        var layout = new Gtk.Grid ();
+        layout.attach (search_grid, 0, 0, 1, 1);
+        layout.attach (switch_grid, 0, 1, 1, 1);
         layout.show_all ();
 
-        get_content_area ().add (layout);
+        custom_bin.add (layout);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
@@ -121,7 +124,5 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         search_term_entry.changed.connect (() => {
             search_term_entry.is_valid = search_term_entry.text.length >= 3;
         });
-
-        set_default_response (Gtk.ResponseType.CANCEL);
     }
  }
