@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-22 12:35+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -89,64 +89,58 @@ msgstr "_Annuler"
 #: src/Dialogs/GlobalSearchDialog.vala:59
 #, c-format
 msgid "Search text in folder '%s'"
-msgstr ""
+msgstr "Rechercher du texte dans le dossier « %s »"
 
 #. Most searches are less than this, can expand window if required
 #: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
 msgid "Search for:"
-msgstr "Rechercher le suivant"
+msgstr "Rechercher :"
 
 #: src/Dialogs/GlobalSearchDialog.vala:78
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Insensible à la casse"
+msgstr "Sensible à la casse :"
 
 #: src/Dialogs/GlobalSearchDialog.vala:87
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Utiliser des expressions régulières :"
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Rechercher le suivant"
+msgstr "Rechercher"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "Créer une nouvelle instance"
+msgstr "Créer une nouvelle branche à partir de « %s »"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"Le nom de la branche doit être en minuscules, commencer par une lettre et "
+"comporter au moins 3 caractères"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
 msgstr ""
+"Vous devez posséder un projet git actif avant de créer une nouvelle branche."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Ajouter le dossier d'un projet dans la barre latérale."
+msgstr "Ouvrir le dossier d'un projet git dans la barre latérale."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Ouvrir un document dans un dossier de projet git dans la barre latérale ou "
+"utiliser un menu contextuel de projet."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Branche"
+msgstr "Créer une branche"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -289,10 +283,8 @@ msgid "Folders"
 msgstr "Dossiers"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Folder…"
-msgstr "Ajouter un dossier de projet…"
+msgstr "Rechercher dans le dossier…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -327,10 +319,8 @@ msgid "Close Other Folders"
 msgstr "Fermer les autres dossiers"
 
 #: src/FolderManager/ProjectFolderItem.vala:101
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Project…"
-msgstr "Ajouter un dossier de projet…"
+msgstr "Rechercher dans le projet…"
 
 #: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
@@ -339,13 +329,11 @@ msgstr "Modifié"
 #: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Erreur lors de la création de la nouvelle branche : « %s »"
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Branche"
+msgstr "Nouvelle branche…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
