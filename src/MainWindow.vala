@@ -876,11 +876,19 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            /* The string parameter is for future development allowing specifying a search term */
-            var current_doc = get_current_document ();
-            if (current_doc != null) {
-                folder_manager_view.search_global (current_doc.file.get_path ());
+            string path = "";
+            if (param != null) {
+                path = param.get_string ();
             }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    path = current_doc.file.get_path ();
+                }
+            }
+
+            folder_manager_view.search_global (path);
         }
 
         private void set_search_text () {
