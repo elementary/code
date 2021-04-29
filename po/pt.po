@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-29 14:05+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
 "\n"
@@ -50,7 +50,7 @@ msgstr "Code"
 
 #: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
-msgstr "Procurar…"
+msgstr "Localizar…"
 
 #: src/MainWindow.vala:207
 msgid "Hide search bar"
@@ -81,7 +81,7 @@ msgstr "Cancelar"
 
 #: src/MainWindow.vala:761
 msgid "_Open"
-msgstr "_Abrir"
+msgstr "Abrir"
 
 #: src/MainWindow.vala:762
 msgid "_Cancel"
@@ -284,7 +284,7 @@ msgstr "Pastas"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find in Folder…"
-msgstr "Encontrar na Pasta…"
+msgstr "Localizar na Pasta…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -320,7 +320,7 @@ msgstr "Fechar outras pastas"
 
 #: src/FolderManager/ProjectFolderItem.vala:101
 msgid "Find in Project…"
-msgstr "Encontre no projeto…"
+msgstr "Localizar no Projeto…"
 
 #: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
@@ -573,11 +573,11 @@ msgstr "Localizar"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "Search next"
-msgstr "Encontrar seguinte"
+msgstr "Localizar seguinte"
 
 #: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
-msgstr "Encontrar anterior"
+msgstr "Localizar anterior"
 
 #: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
@@ -745,7 +745,7 @@ msgstr "Instale pelo menos um dicionário [aspell]."
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - Completar palavra"
+msgstr "%s - Preenchimento de palavras"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Fonte de dados Zeitgeist para o Code"

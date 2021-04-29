@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-28 23:45+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -281,10 +281,8 @@ msgid "Folders"
 msgstr "Carpetas"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Find text in this Folder…"
 msgid "Find in Folder…"
-msgstr "Buscar texto en esta carpeta…"
+msgstr "Buscar en carpeta…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
