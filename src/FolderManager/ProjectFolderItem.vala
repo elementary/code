@@ -18,7 +18,7 @@
  */
 
 namespace Scratch.FolderManager {
-    internal class ProjectFolderItem : FolderItem {
+    public class ProjectFolderItem : FolderItem {
         struct VisibleItem {
             public string rel_path;
             public Item item;
@@ -34,6 +34,11 @@ namespace Scratch.FolderManager {
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
+        public bool is_git_repo {
+            get {
+                return monitored_repo != null;
+            }
+        }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -92,6 +97,17 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            var search_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Find in Project…"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL + "::"
+            );
+
+            var search_item = new Gtk.MenuItem () {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            search_item.add (search_accellabel);
+
             GLib.FileInfo info = null;
             unowned string? file_type = null;
 
@@ -108,19 +124,13 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo));
+                menu.append (new ChangeBranchMenu (this));
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
             menu.append (delete_item);
-
-            var search_item = new Gtk.MenuItem.with_label (_("Find in Project…")) {
-                action_name = "win.action_find_global",
-                action_target = new Variant.string (file.file.get_path ())
-            };
-
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
             menu.show_all ();
@@ -181,6 +191,30 @@ namespace Scratch.FolderManager {
                     warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
                 }
             });
+        }
+
+        public void new_branch (string branch_name) {
+            try {
+                if (monitored_repo.head_is_branch) {
+                    monitored_repo.create_new_branch (branch_name);
+                } else {
+                    throw new IOError.NOT_FOUND ("Cannot create a new branch when head is detached");
+                }
+            } catch (Error e) {
+                var dialog = new Granite.MessageDialog (
+                    _("Error while creating new branch: “%s”").printf (branch_name),
+                    e.message,
+                    new ThemedIcon ("git"),
+                    Gtk.ButtonsType.CLOSE
+                ) {
+                    badge_icon = new ThemedIcon ("dialog-error")
+                };
+                dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
+                dialog.response.connect (() => {
+                    dialog.destroy ();
+                });
+                dialog.run ();
+            }
         }
 
         public void global_search (GLib.File start_folder = this.file.file) {
@@ -381,7 +415,17 @@ namespace Scratch.FolderManager {
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) requires (monitored_repo != null) {
+            public Scratch.Services.MonitoredRepository monitored_repo {
+                get {
+                    return project_folder.monitored_repo;
+                }
+            }
+            public ProjectFolderItem project_folder { get; construct; }
+            public ChangeBranchMenu (ProjectFolderItem project_folder) {
+                 Object (
+                     project_folder: project_folder
+                 );
+
                 string current_branch_name = monitored_repo.get_current_branch ();
                 string[] local_branch_names = monitored_repo.get_local_branches ();
                 var change_branch_menu = new Gtk.Menu ();
@@ -404,6 +448,25 @@ namespace Scratch.FolderManager {
                         }
                     });
                 }
+
+                var main_window = (MainWindow)((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+                Utils.action_from_group (
+                    MainWindow.ACTION_NEW_BRANCH, main_window.actions
+                ).set_enabled (monitored_repo.head_is_branch);
+
+                var accel_label = new Granite.AccelLabel.from_action_name (
+                    _("New Branch…"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH + "::"
+                );
+
+                var branch_item = new Gtk.MenuItem () {
+                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                    action_target = project_folder.file.file.get_path ()
+                };
+                branch_item.add (accel_label);
+
+                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
+                change_branch_menu.add (branch_item);
 
                 label = _("Branch");
                 submenu = change_branch_menu;

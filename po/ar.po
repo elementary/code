@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-27 17:01+0000\n"
+"POT-Creation-Date: 2021-04-28 23:45+0000\n"
 "PO-Revision-Date: 2021-04-26 16:48+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -44,47 +44,110 @@ msgstr "اضافة"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:138
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "شيفرة برمجية"
 
-#: src/MainWindow.vala:196 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "إبحث…"
 
-#: src/MainWindow.vala:201
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "اخفاء شريط البحث"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:491
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:495
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:398
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_الغاء"
+
+#: src/Dialogs/GlobalSearchDialog.vala:59
+#, c-format
+msgid "Search text in folder '%s'"
+msgstr ""
+
+#. Most searches are less than this, can expand window if required
+#: src/Dialogs/GlobalSearchDialog.vala:68
+#, fuzzy
+#| msgid "Search next"
+msgid "Search for:"
+msgstr "البحث عن التالي"
+
+#: src/Dialogs/GlobalSearchDialog.vala:78
+#, fuzzy
+#| msgid "Case Insensitive"
+msgid "Case sensitive:"
+msgstr "غير حساسة لحالة الأحرف (غير مهم الأحرف كبيرة أو صغيرة)"
+
+#: src/Dialogs/GlobalSearchDialog.vala:87
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "البحث عن التالي"
+
+#: src/Dialogs/NewBranchDialog.vala:44
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s”"
+msgstr "انشاء نموذج جديد"
+
+#: src/Dialogs/NewBranchDialog.vala:45
+msgid ""
+"The branch name must be lower-case, start with a letter, and be at least 3 "
+"characters"
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:48
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:51
+#, fuzzy
+#| msgid "Add a project folder to the sidebar."
+msgid "Open a git project folder in the sidebar."
+msgstr "اضف مجلد المشروع للشريط الجانبي."
+
+#: src/Dialogs/NewBranchDialog.vala:53
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:73
+#, fuzzy
+#| msgid "Branch"
+msgid "Create Branch"
+msgstr "تفرع"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -198,11 +261,11 @@ msgstr "لا تسترجعه"
 msgid "Restore Anyway"
 msgstr "استرجع على اية حال"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "تطبيقات أخرى…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "إفتح في"
 
@@ -215,7 +278,7 @@ msgid "Rename"
 msgstr "إعادة التسمية"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:94
 msgid "Move to Trash"
 msgstr "انقل الى سلة المهملات"
 
@@ -224,54 +287,67 @@ msgid "Folders"
 msgstr "المجلدات"
 
 #: src/FolderManager/FolderItem.vala:106
-msgid "Find text in this Folder…"
-msgstr ""
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Find in Folder…"
+msgstr "فتح مجلد المشروع…"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "مجلد"
 
-#: src/FolderManager/FolderItem.vala:175
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "ملف فارغ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:151
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:161
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "New"
 msgstr "جديد"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "ملف غير مسمى"
 
-#: src/FolderManager/FolderItem.vala:343
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "ملف جديد"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:87
 msgid "Close Folder"
 msgstr "أغلق المجلد"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:90
 msgid "Close Other Folders"
 msgstr "اغلق المجلدات الاخرى"
 
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/ProjectFolderItem.vala:101
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/FolderManager/ProjectFolderItem.vala:157
+#: src/FolderManager/ProjectFolderItem.vala:167
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, المعدل"
 
-#: src/FolderManager/ProjectFolderItem.vala:408
+#: src/FolderManager/ProjectFolderItem.vala:205
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:458
+#, fuzzy
+#| msgid "Branch"
+msgid "New Branch…"
+msgstr "تفرع"
+
+#: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
 msgstr "تفرع"
 
@@ -872,9 +948,6 @@ msgstr "اتمام %s من الكلمات"
 
 #~ msgid "Save the current file with a different name"
 #~ msgstr "حفظ الملف الحالي باسم مختلف"
-
-#~ msgid "Create a new instance"
-#~ msgstr "انشاء نموذج جديد"
 
 #~ msgid "Bottom Panel"
 #~ msgstr "الشريط السفلي"

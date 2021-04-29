@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
      */
-    internal class FolderItem : Item {
+    public class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
@@ -103,7 +103,7 @@ namespace Scratch.FolderManager {
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
-            var search_item = new Gtk.MenuItem.with_label (_("Find text in this Folder…")) {
+            var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
                 action_name = "win.action_find_global",
                 action_target = new Variant.string (file.file.get_path ())
             };
@@ -115,6 +115,7 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
             menu.append (rename_menu_item);
             menu.append (delete_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
             menu.show_all ();
 
