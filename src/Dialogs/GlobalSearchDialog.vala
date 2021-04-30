@@ -52,60 +52,47 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             transient_for: parent,
             folder_name: folder_name,
             is_repo: is_repo,
-            image_icon: new ThemedIcon ("system-search")
+            image_icon: new ThemedIcon ("edit-find")
         );
     }
 
     construct {
-        primary_text = _("Search for text in folder '%s'").printf (folder_name);
-        secondary_text = _("The search term must be at least 3 characters long");
+        primary_text = _("Search for text in “%s”").printf (folder_name);
+        secondary_text = _("The search term must be at least 3 characters long.");
 
         search_term_entry = new Granite.ValidatedEntry () {
+            margin_bottom = 12,
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
 
-        var search_term_label = new Gtk.Label (_("Search for:")) {
-            margin_end = 6,
-            halign = Gtk.Align.END
-        };
-
-        var search_grid = new Gtk.Grid () {
-            margin_bottom = 24,
-            margin_top = 12,
-            orientation = Gtk.Orientation.HORIZONTAL
-        };
-
-        search_grid.add (search_term_label);
-        search_grid.add (search_term_entry);
-
         case_switch = new Gtk.Switch () {
-            active = false
+            active = false,
+            halign = Gtk.Align.START,
+            hexpand = true
         };
 
         var case_label = new Gtk.Label (_("Case sensitive:")) {
-            margin_end = 6,
             halign = Gtk.Align.END
         };
 
         regex_switch = new Gtk.Switch () {
-            hexpand = false,
-            active = false
+            active = false,
+            halign = Gtk.Align.START
         };
 
         var regex_label = new Gtk.Label (_("Use regular expressions:")) {
-            margin_end = 6,
             halign = Gtk.Align.END
         };
 
-        var switch_grid = new Gtk.Grid ();
-        switch_grid.attach (case_label, 0, 0, 1, 1);
-        switch_grid.attach (case_switch, 1, 0, 1, 1);
-        switch_grid.attach (regex_label, 0, 1, 1, 1);
-        switch_grid.attach (regex_switch, 1, 1, 1, 1);
-
-        var layout = new Gtk.Grid ();
-        layout.attach (search_grid, 0, 0, 1, 1);
-        layout.attach (switch_grid, 0, 1, 1, 1);
+        var layout = new Gtk.Grid () {
+            column_spacing = 12,
+            row_spacing = 6
+        };
+        layout.attach (search_term_entry, 0, 0, 2);
+        layout.attach (case_label, 0, 1);
+        layout.attach (case_switch, 1, 1);
+        layout.attach (regex_label, 0, 2);
+        layout.attach (regex_switch, 1, 2);
         layout.show_all ();
 
         custom_bin.add (layout);
