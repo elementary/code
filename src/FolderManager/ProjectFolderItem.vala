@@ -58,6 +58,7 @@ namespace Scratch.FolderManager {
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
+                update_branch_name (monitored_repo.get_current_branch ());
             }
         }
 
@@ -219,6 +220,22 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public unowned List<string> get_branch_names () {
+            return is_git_repo ? monitored_repo.get_local_branches () : null;
+        }
+
+        public bool has_local_branch_name (string name) {
+            return is_git_repo ? monitored_repo.has_local_branch_name (name) : false;
+        }
+
+        public string get_current_branch_name () {
+            return is_git_repo ? monitored_repo.branch_name : "";
+        }
+
+        public bool is_valid_new_branch_name (string new_name) {
+            return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
+        }
+
         public void global_search (GLib.File start_folder = this.file.file) {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
@@ -248,6 +265,7 @@ namespace Scratch.FolderManager {
                         break;
 
                     default:
+                        term = null;
                         break;
                 }
 
@@ -427,12 +445,14 @@ namespace Scratch.FolderManager {
                  Object (
                      project_folder: project_folder
                  );
+            }
 
-                string current_branch_name = monitored_repo.get_current_branch ();
-                string[] local_branch_names = monitored_repo.get_local_branches ();
+            construct {
+                assert_nonnull (monitored_repo);
+                unowned var current_branch_name = monitored_repo.get_current_branch ();
                 var change_branch_menu = new Gtk.Menu ();
 
-                foreach (var branch_name in local_branch_names) {
+                foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
                     var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
                     branch_item.draw_as_radio = true;
 
@@ -446,7 +466,7 @@ namespace Scratch.FolderManager {
                         try {
                             monitored_repo.change_branch (branch_name);
                         } catch (GLib.Error e) {
-                            warning ("Failed to change branch to %s.  %s", name, e.message);
+                            warning ("Failed to change branch to %s. %s", name, e.message);
                         }
                     });
                 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -71,8 +71,8 @@ msgstr "Otevřít nějaké soubory"
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -86,67 +86,63 @@ msgstr "_Otevřít"
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
+#: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
-msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr ""
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
-msgid "Search for:"
-msgstr "Najít další"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 #, fuzzy
 #| msgid "Case Insensitive"
 msgid "Case sensitive:"
 msgstr "Nerozlišovat malá/VELKÁ písmna"
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
 msgstr "Najít další"
 
-#: src/Dialogs/NewBranchDialog.vala:44
+#: src/Dialogs/NewBranchDialog.vala:45
 #, fuzzy, c-format
 #| msgid "Create a new instance"
-msgid "Create a new branch of “%s”"
+msgid "Create a new branch of “%s/%s”"
 msgstr "Vytvořit novou instanci"
 
-#: src/Dialogs/NewBranchDialog.vala:45
-msgid ""
-"The branch name must be lower-case, start with a letter, and be at least 3 "
-"characters"
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:48
+#: src/Dialogs/NewBranchDialog.vala:59
+#, fuzzy
+#| msgid "Branch"
+msgid "Create Branch"
+msgstr "Větev"
+
+#: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:51
+#: src/Dialogs/NewBranchDialog.vala:87
 #, fuzzy
 #| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
 msgstr "Přidat složku projektu do bočního panelu."
 
-#: src/Dialogs/NewBranchDialog.vala:53
+#: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
-msgid "Create Branch"
-msgstr "Větev"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -277,7 +273,7 @@ msgid "Rename"
 msgstr "Přejmenovat"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:94
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
 
@@ -302,8 +298,8 @@ msgstr "Prázdný soubor"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:161
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Nový"
 
@@ -315,38 +311,38 @@ msgstr "složka bez názvu"
 msgid "new file"
 msgstr "nový soubor"
 
-#: src/FolderManager/ProjectFolderItem.vala:87
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Zavřít složku"
 
-#: src/FolderManager/ProjectFolderItem.vala:90
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "Zavřít ostatní složky"
 
-#: src/FolderManager/ProjectFolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:102
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "Otevřít složku projektu…"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:168
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:458
+#: src/FolderManager/ProjectFolderItem.vala:478
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Větev"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "Větev"
 
@@ -760,6 +756,11 @@ msgstr "Nainstalujte prosím alespoň jeden [aspell] slovník."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - dokončených slov"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "Najít další"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Zdroj dat Zeitgeist pro Code"

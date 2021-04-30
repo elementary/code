@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-28 14:12+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"PO-Revision-Date: 2021-04-30 14:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -71,8 +71,8 @@ msgstr "複数のファイルを開く"
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -86,61 +86,61 @@ msgstr "開く(_O)"
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
-#, c-format
-msgid "Search text in folder '%s'"
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, fuzzy, c-format
+#| msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr "フォルダー '%s' 内のテキストを検索"
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-msgid "Search for:"
-msgstr "検索するテキスト:"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
 msgstr "大文字と小文字を区別:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr "正規表現を使う:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
 msgstr "検索"
 
-#: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
-msgid "Create a new branch of “%s”"
-msgstr "新しいインスタンスを作成"
-
 #: src/Dialogs/NewBranchDialog.vala:45
-msgid ""
-"The branch name must be lower-case, start with a letter, and be at least 3 "
-"characters"
+#, fuzzy, c-format
+#| msgid "Create a new branch of “%s”"
+msgid "Create a new branch of “%s/%s”"
+msgstr "“%s” の新しいブランチを作成"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:48
+#: src/Dialogs/NewBranchDialog.vala:59
+msgid "Create Branch"
+msgstr "ブランチを作成"
+
+#: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
 msgstr ""
+"新しいブランチを作成するには、プロジェクトで Git を使用している必要がありま"
+"す。"
 
-#: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
+#: src/Dialogs/NewBranchDialog.vala:87
 msgid "Open a git project folder in the sidebar."
-msgstr "サイドバーにプロジェクトフォルダーを追加します。"
+msgstr ""
+"サイドバーに Git を使用しているプロジェクトフォルダーを開いてください。"
 
-#: src/Dialogs/NewBranchDialog.vala:53
+#: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
-msgid "Create Branch"
-msgstr "ブランチ"
+"Git を使用しているプロジェクトフォルダーのドキュメントをサイドバーに開くか、"
+"プロジェクトのコンテキストメニューを使用してください。"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -272,7 +272,7 @@ msgid "Rename"
 msgstr "名前を変更"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:94
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
@@ -281,10 +281,8 @@ msgid "Folders"
 msgstr "フォルダー"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Find text in this Folder…"
 msgid "Find in Folder…"
-msgstr "このフォルダー内のテキストを検索…"
+msgstr "フォルダー内を検索…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -297,8 +295,8 @@ msgstr "空のファイル"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:161
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "新規作成"
 
@@ -310,34 +308,32 @@ msgstr "名称未設定フォルダー"
 msgid "new file"
 msgstr "新しいファイル"
 
-#: src/FolderManager/ProjectFolderItem.vala:87
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "フォルダーを閉じる"
 
-#: src/FolderManager/ProjectFolderItem.vala:90
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "ほかのフォルダーを閉じる"
 
-#: src/FolderManager/ProjectFolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Find in Project…"
 msgstr "プロジェクト内を検索…"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr "変更済み"
 
-#: src/FolderManager/ProjectFolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
+#: src/FolderManager/ProjectFolderItem.vala:478
 msgid "New Branch…"
-msgstr "ブランチ"
+msgstr "新しいブランチ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "ブランチ"
 
@@ -743,6 +739,15 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid ""
+#~ "The branch name must be lower-case, start with a letter, and be at least "
+#~ "3 characters"
+#~ msgstr ""
+#~ "ブランチ名は、アルファベットで始まる3文字以上の小文字にする必要があります"
+
+#~ msgid "Search for:"
+#~ msgstr "検索するテキスト:"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Code 向けの Zeitgeist データソース"

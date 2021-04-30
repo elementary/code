@@ -19,10 +19,10 @@
 * Authored by: Jeremy Wootten <jeremy@elementaryos.org>
 */
 
-public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
+public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     public string folder_name { get; construct; }
     public bool is_repo { get; construct; }
-    private Gtk.Entry search_term_entry;
+    private Granite.ValidatedEntry search_term_entry;
     private Gtk.Switch case_switch;
     private Gtk.Switch regex_switch;
 
@@ -51,28 +51,24 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         Object (
             transient_for: parent,
             folder_name: folder_name,
-            is_repo: is_repo
+            is_repo: is_repo,
+            image_icon: new ThemedIcon ("edit-find")
         );
     }
 
     construct {
-        var header = new Gtk.Label (_("Search text in folder '%s'").printf (folder_name)) {
-            margin_bottom = 12
-        };
-        header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        primary_text = _("Search for text in “%s”").printf (folder_name);
+        secondary_text = _("The search term must be at least 3 characters long.");
 
-        search_term_entry = new Gtk.Entry () {
-            hexpand = true,
+        search_term_entry = new Granite.ValidatedEntry () {
+            margin_bottom = 12,
             width_chars = 30 //Most searches are less than this, can expand window if required
-        };
-        var search_term_label = new Gtk.Label (_("Search for:")) {
-            valign = Gtk.Align.CENTER,
-            halign = Gtk.Align.END
         };
 
         case_switch = new Gtk.Switch () {
+            active = false,
             halign = Gtk.Align.START,
-            active = false
+            hexpand = true
         };
 
         var case_label = new Gtk.Label (_("Case sensitive:")) {
@@ -80,8 +76,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
         };
 
         regex_switch = new Gtk.Switch () {
-            halign = Gtk.Align.START,
-            active = false
+            active = false,
+            halign = Gtk.Align.START
         };
 
         var regex_label = new Gtk.Label (_("Use regular expressions:")) {
@@ -90,37 +86,30 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.Dialog {
 
         var layout = new Gtk.Grid () {
             column_spacing = 12,
-            row_spacing = 6,
-            margin = 12,
-            margin_top = 0,
-            vexpand = true
+            row_spacing = 6
         };
-        layout.attach (header, 0, 0, 4);
-        layout.attach (search_term_label, 0, 1);
-        layout.attach (search_term_entry, 1, 1, 2);
-        layout.attach (case_label, 0, 2);
-        layout.attach (case_switch, 1, 2);
-        layout.attach (regex_label, 0, 3);
-        layout.attach (regex_switch, 1, 3);
+        layout.attach (search_term_entry, 0, 0, 2);
+        layout.attach (case_label, 0, 1);
+        layout.attach (case_switch, 1, 1);
+        layout.attach (regex_label, 0, 2);
+        layout.attach (regex_switch, 1, 2);
         layout.show_all ();
 
-        get_content_area ().add (layout);
+        custom_bin.add (layout);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var search_button = (Gtk.Button) add_button (_("Search"), Gtk.ResponseType.ACCEPT);
+        search_button.can_default = true;
+        search_button.has_default = true;
         search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        search_term_entry.bind_property ("text", search_button, "sensitive", BindingFlags.DEFAULT,
-             (binding, src_val, ref target_val) => {
-                target_val.set_boolean (src_val.get_string ().length >= 3);
-            }
+        search_term_entry.bind_property (
+            "is-valid", search_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
         );
 
-        search_term_entry.activate.connect (() => {
-            response (search_term_entry.text != "" ? Gtk.ResponseType.ACCEPT : Gtk.ResponseType.CLOSE);
+        search_term_entry.changed.connect (() => {
+            search_term_entry.is_valid = search_term_entry.text.length >= 3;
         });
-
-        set_default_response (Gtk.ResponseType.CLOSE);
     }
  }
