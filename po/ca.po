@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-30 11:44+0000\n"
+"PO-Revision-Date: 2021-04-30 13:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -126,22 +126,20 @@ msgid "You must have an active git project before creating a new branch."
 msgstr "Heu de tenir un projecte de git actiu abans de crear una branca nova."
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "Afegeix la carpeta d'un projecte a la barra lateral."
+msgstr "Obriu la carpeta d'un projecte de git a la barra lateral."
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Obriu un document d'una carpeta d'un projecte de git a la barra lateral o "
+"useu un menú contextual del projecte."
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Branca"
+msgstr "Crea'n una branca"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -284,10 +282,8 @@ msgid "Folders"
 msgstr "Carpetes"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Folder…"
-msgstr "Afegeix una carpeta de projecte…"
+msgstr "Troba a la carpeta…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -322,10 +318,8 @@ msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
 #: src/FolderManager/ProjectFolderItem.vala:101
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Project…"
-msgstr "Afegeix una carpeta de projecte…"
+msgstr "Troba al projecte…"
 
 #: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Modified"
@@ -334,13 +328,11 @@ msgstr "Modificat"
 #: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Error en crear una branca nova: %s"
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Branca"
+msgstr "Branca nova…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
