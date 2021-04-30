@@ -52,7 +52,7 @@ namespace Scratch.Services {
                 project_gitrepo_map.@set (root_path, monitored_repo);
                 return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
-                warning ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
+                debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
                 return null;
             }
         }
