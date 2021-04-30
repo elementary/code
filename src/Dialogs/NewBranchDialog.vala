@@ -43,7 +43,8 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         if (active_project != null) {
             assert (active_project.is_git_repo);
             branch_names = active_project.get_branch_names ();
-            primary_text = _("Create a new branch of “%s”").printf (active_project.file.file.get_basename ());
+            primary_text = _("Create a new branch of “%s/%s”").printf (
+                active_project.file.file.get_basename (), active_project.get_current_branch_name ());
             ///TRANSLATORS "Git" is a proper name and must not be translated
             secondary_text = _("The branch name must comply with Git rules and must not already exist.");
             badge_icon = new ThemedIcon ("list-add");
