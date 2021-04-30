@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-29 16:54+0000\n"
+"PO-Revision-Date: 2021-04-30 19:41+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,14 +88,13 @@ msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
-#, fuzzy, c-format
-#| msgid "Search text in folder '%s'"
+#, c-format
 msgid "Search for text in “%s”"
-msgstr "Procurar texto na pasta '%s'"
+msgstr "Procurar por texto em “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "O termo de pesquisa deve ter pelo menos 3 caracteres."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -110,15 +109,14 @@ msgid "Search"
 msgstr "Procurar"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new branch of “%s”"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Criar um novo ramo de “%s”"
+msgstr "Criar um novo ramo de “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
-msgstr ""
+msgstr "O nome do ramo deve cumprir as regras do Git e ainda não deve existir."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
