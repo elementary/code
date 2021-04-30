@@ -263,6 +263,7 @@ namespace Scratch.FolderManager {
                         break;
 
                     default:
+                        term = null;
                         break;
                 }
 

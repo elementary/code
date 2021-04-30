@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.code\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"POT-Creation-Date: 2021-04-30 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -85,25 +85,24 @@ msgstr ""
 msgid "_Cancel"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
+#: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
-msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr ""
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-msgid "Search for:"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
 msgstr ""
 
@@ -321,11 +320,11 @@ msgstr ""
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:458
+#: src/FolderManager/ProjectFolderItem.vala:459
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:472
 msgid "Branch"
 msgstr ""
 
