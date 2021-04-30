@@ -44,7 +44,8 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
             assert (active_project.is_git_repo);
             branch_names = active_project.get_branch_names ();
             primary_text = _("Create a new branch of “%s”").printf (active_project.file.file.get_basename ());
-            secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters. The name must not already exist.");
+            ///TRANSLATORS "Git" is a proper name and must not be translated
+            secondary_text = _("The branch name must comply with Git rules and must not already exist.");
             badge_icon = new ThemedIcon ("list-add");
         } else {
             primary_text = _("You must have an active git project before creating a new branch.");
@@ -57,21 +58,25 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         }
 
         try {
-            //Branch name must be lower-case, start with a letter and be at least 3 characters long
-            // new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].(?=[a-z0-9--]{2,}$)"));
-            new_branch_name_entry = new Granite.ValidatedEntry.from_regex (new Regex ("^[a-z].[a-z0-9--]{2,}$")) {
+            new_branch_name_entry = new Granite.ValidatedEntry () {
                 activates_default = true,
                 no_show_all = active_project == null
             };
 
             new_branch_name_entry.changed.connect (() => {
                 unowned var new_name = new_branch_name_entry.text;
-                foreach (unowned var name in branch_names) {
-                    if (new_name == name) {
-                        new_branch_name_entry.is_valid = false;
-                        break;
-                    }
+                if (!Ggit.Ref.is_valid_name ("refs/heads/" + new_name)) {
+                    new_branch_name_entry.is_valid = false;
+                    return;
                 }
+
+                if (active_project.has_local_branch_name (new_name)) {
+                    new_branch_name_entry.is_valid = false;
+                    return;
+                }
+
+                //Do we need to check remote branches as well?
+                new_branch_name_entry.is_valid = true;
             });
         } catch (GLib.Error e) {
             critical ("NewBranchDialog invalid Regex");

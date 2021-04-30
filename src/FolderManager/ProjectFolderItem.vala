@@ -222,6 +222,10 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.get_local_branches () : null;
         }
 
+        public bool has_local_branch_name (string name) {
+            return is_git_repo ? monitored_repo.has_local_branch_name (name) : false;
+        }
+
         public void global_search (GLib.File start_folder = this.file.file) {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
