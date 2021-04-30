@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"POT-Creation-Date: 2021-04-30 15:56+0000\n"
 "PO-Revision-Date: 2021-04-30 13:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -71,7 +71,7 @@ msgstr "Obriu alguns fitxers"
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -86,25 +86,25 @@ msgstr "_Obre"
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
-#, c-format
-msgid "Search text in folder '%s'"
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, fuzzy, c-format
+#| msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr "Cerca text a la carpeta %s"
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-msgid "Search for:"
-msgstr "Cerca el següent:"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
 msgstr "Distinció de majúscules:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr "Usa expressions regulars:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
 msgstr "Cerca"
 
@@ -330,11 +330,11 @@ msgstr "Modificat"
 msgid "Error while creating new branch: “%s”"
 msgstr "Error en crear una branca nova: %s"
 
-#: src/FolderManager/ProjectFolderItem.vala:458
+#: src/FolderManager/ProjectFolderItem.vala:459
 msgid "New Branch…"
 msgstr "Branca nova…"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:472
 msgid "Branch"
 msgstr "Branca"
 
@@ -743,6 +743,9 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "Search for:"
+#~ msgstr "Cerca el següent:"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Font de dades del Zeitgeist per al Codi"

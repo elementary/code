@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"POT-Creation-Date: 2021-04-30 15:56+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -71,7 +71,7 @@ msgstr "Apri alcuni file"
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -86,29 +86,26 @@ msgstr "_Apri"
 msgid "_Cancel"
 msgstr "_Annulla"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
+#: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
-msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr ""
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
-msgid "Search for:"
-msgstr "Cerca successivo"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 #, fuzzy
 #| msgid "Case Insensitive"
 msgid "Case sensitive:"
 msgstr "Nessuna distinzione fra maiuscolo e minuscolo"
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
@@ -342,13 +339,13 @@ msgstr "%s, modificato"
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:458
+#: src/FolderManager/ProjectFolderItem.vala:459
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Ramo di sviluppo"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:472
 msgid "Branch"
 msgstr "Ramo di sviluppo"
 
@@ -759,6 +756,11 @@ msgstr "Installa almeno un dizionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocompletamento parole"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "Cerca successivo"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Origine dati Zeitgeist per Codice"
