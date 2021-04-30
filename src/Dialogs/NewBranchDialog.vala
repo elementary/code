@@ -67,11 +67,10 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
             new_branch_name_entry.changed.connect (() => {
                 unowned var new_name = new_branch_name_entry.text;
                 foreach (unowned var name in branch_names) {
-                    if (new_name != name) {
-                        continue;
+                    if (new_name == name) {
+                        new_branch_name_entry.is_valid = false;
+                        break;
                     }
-
-                    new_branch_name_entry.is_valid = false;
                 }
             });
         } catch (GLib.Error e) {
