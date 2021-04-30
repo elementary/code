@@ -66,7 +66,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
 
             new_branch_name_entry.changed.connect (() => {
                 unowned var new_name = new_branch_name_entry.text;
-                if (!Ggit.Ref.is_valid_name ("refs/heads/" + new_name)) {
+                if (!active_project.is_valid_new_branch_name (new_name)) {
                     new_branch_name_entry.is_valid = false;
                     return;
                 }

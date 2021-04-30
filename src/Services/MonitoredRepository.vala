@@ -143,6 +143,15 @@ namespace Scratch.Services {
             return false;
         }
 
+        public bool is_valid_new_local_branch_name (string new_name) {
+            if (!Ggit.Ref.is_valid_name ("refs/heads/" + new_name) ||
+                has_local_branch_name (new_name) ) {
+                return false;
+            }
+
+            return true;
+        }
+
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
