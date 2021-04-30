@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-28 14:12+0000\n"
+"PO-Revision-Date: 2021-04-30 13:57+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -109,26 +109,23 @@ msgid "Search"
 msgstr "検索"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "新しいインスタンスを作成"
+msgstr "“%s” の新しいブランチを作成"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
-msgstr ""
+msgstr "ブランチ名は、アルファベットで始まる3文字以上の小文字にする必要があります"
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "新しいブランチを作成するには、プロジェクトで git を使用している必要があります。"
 
 #: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "サイドバーにプロジェクトフォルダーを追加します。"
+msgstr "サイドバーに git を使用しているプロジェクトフォルダーを開いてください。"
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
