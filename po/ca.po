@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-22 12:35+0000\n"
+"PO-Revision-Date: 2021-04-30 11:44+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -89,46 +89,41 @@ msgstr "_Cancel·la"
 #: src/Dialogs/GlobalSearchDialog.vala:59
 #, c-format
 msgid "Search text in folder '%s'"
-msgstr ""
+msgstr "Cerca text a la carpeta %s"
 
 #. Most searches are less than this, can expand window if required
 #: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
 msgid "Search for:"
-msgstr "Cerca el següent"
+msgstr "Cerca el següent:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:78
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "No distinció de majúscules"
+msgstr "Distinció de majúscules:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:87
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Usa expressions regulars:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Cerca el següent"
+msgstr "Cerca"
 
 #: src/Dialogs/NewBranchDialog.vala:44
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s”"
-msgstr "Crea una nova instància"
+msgstr "Crea una branca nova per a %s"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 msgid ""
 "The branch name must be lower-case, start with a letter, and be at least 3 "
 "characters"
 msgstr ""
+"El nom de la branca ha de ser en minúscula, ha de començar amb una lletra i "
+"ha de tenir com a mínim 3 caràcters."
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "Heu de tenir un projecte de git actiu abans de crear una branca nova."
 
 #: src/Dialogs/NewBranchDialog.vala:51
 #, fuzzy
