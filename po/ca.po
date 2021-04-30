@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 15:56+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2021-04-30 13:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -72,7 +72,7 @@ msgid "Open"
 msgstr "Obre"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -108,38 +108,36 @@ msgstr "Usa expressions regulars:"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create a new branch of “%s”"
+#: src/Dialogs/NewBranchDialog.vala:45
+#, fuzzy, c-format
+#| msgid "Create a new branch of “%s”"
+msgid "Create a new branch of “%s/%s”"
 msgstr "Crea una branca nova per a %s"
 
-#: src/Dialogs/NewBranchDialog.vala:45
-msgid ""
-"The branch name must be lower-case, start with a letter, and be at least 3 "
-"characters"
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
-"El nom de la branca ha de ser en minúscula, ha de començar amb una lletra i "
-"ha de tenir com a mínim 3 caràcters."
 
-#: src/Dialogs/NewBranchDialog.vala:48
+#: src/Dialogs/NewBranchDialog.vala:59
+msgid "Create Branch"
+msgstr "Crea'n una branca"
+
+#: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
 msgstr "Heu de tenir un projecte de git actiu abans de crear una branca nova."
 
-#: src/Dialogs/NewBranchDialog.vala:51
+#: src/Dialogs/NewBranchDialog.vala:87
 msgid "Open a git project folder in the sidebar."
 msgstr "Obriu la carpeta d'un projecte de git a la barra lateral."
 
-#: src/Dialogs/NewBranchDialog.vala:53
+#: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
 "Obriu un document d'una carpeta d'un projecte de git a la barra lateral o "
 "useu un menú contextual del projecte."
-
-#: src/Dialogs/NewBranchDialog.vala:73
-msgid "Create Branch"
-msgstr "Crea'n una branca"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -273,7 +271,7 @@ msgid "Rename"
 msgstr "Canvia'n el nom"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:94
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
 
@@ -296,8 +294,8 @@ msgstr "Fitxer buit"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:161
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Nou"
 
@@ -309,32 +307,32 @@ msgstr "carpeta sense nom"
 msgid "new file"
 msgstr "fitxer nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:87
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:90
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
-#: src/FolderManager/ProjectFolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Find in Project…"
 msgstr "Troba al projecte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr "Modificat"
 
-#: src/FolderManager/ProjectFolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Error en crear una branca nova: %s"
 
-#: src/FolderManager/ProjectFolderItem.vala:459
+#: src/FolderManager/ProjectFolderItem.vala:478
 msgid "New Branch…"
 msgstr "Branca nova…"
 
-#: src/FolderManager/ProjectFolderItem.vala:472
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "Branca"
 
@@ -743,6 +741,13 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid ""
+#~ "The branch name must be lower-case, start with a letter, and be at least "
+#~ "3 characters"
+#~ msgstr ""
+#~ "El nom de la branca ha de ser en minúscula, ha de començar amb una lletra "
+#~ "i ha de tenir com a mínim 3 caràcters."
 
 #~ msgid "Search for:"
 #~ msgstr "Cerca el següent:"
