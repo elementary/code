@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-30 13:57+0000\n"
+"PO-Revision-Date: 2021-04-30 14:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -121,23 +121,21 @@ msgstr "ブランチ名は、アルファベットで始まる3文字以上の�
 
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "You must have an active git project before creating a new branch."
-msgstr "新しいブランチを作成するには、プロジェクトで git を使用している必要があります。"
+msgstr "新しいブランチを作成するには、プロジェクトで Git を使用している必要があります。"
 
 #: src/Dialogs/NewBranchDialog.vala:51
 msgid "Open a git project folder in the sidebar."
-msgstr "サイドバーに git を使用しているプロジェクトフォルダーを開いてください。"
+msgstr "サイドバーに Git を使用しているプロジェクトフォルダーを開いてください。"
 
 #: src/Dialogs/NewBranchDialog.vala:53
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
-msgstr ""
+msgstr "Git を使用しているプロジェクトフォルダーのドキュメントをサイドバーに開くか、プロジェクトのコンテキストメニューを使用してください。"
 
 #: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "ブランチ"
+msgstr "ブランチを作成"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -278,10 +276,8 @@ msgid "Folders"
 msgstr "フォルダー"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Find text in this Folder…"
 msgid "Find in Folder…"
-msgstr "このフォルダー内のテキストを検索…"
+msgstr "フォルダー内を検索…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -326,13 +322,11 @@ msgstr "変更済み"
 #: src/FolderManager/ProjectFolderItem.vala:205
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "ブランチ"
+msgstr "新しいブランチ…"
 
 #: src/FolderManager/ProjectFolderItem.vala:465
 msgid "Branch"
