@@ -167,15 +167,27 @@ namespace Scratch.FolderManager {
             GLib.List<ProjectFolderItem> project_list;
             string? branch_name = null;
             unowned var active_project = get_active_project (current_doc_file, out project_list);
-            var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
-            dialog.show_all ();
-            if (dialog.run () == Gtk.ResponseType.APPLY) {
-                branch_name = dialog.new_branch_name;
+            if (active_project == null) {
+                var dialog = new Dialogs.ChooseProjectDialog (project_list, true);
+                var response = dialog.run ();
+                if (response == Gtk.ResponseType.ACCEPT) {
+                    active_project = dialog.active_project;
+                }
+
+                dialog.destroy ();
             }
 
-            dialog.destroy ();
-            if (active_project != null && branch_name != null) {
-                active_project.new_branch (branch_name);
+            if (active_project != null) {
+                var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
+                dialog.show_all ();
+                if (dialog.run () == Gtk.ResponseType.APPLY) {
+                    branch_name = dialog.new_branch_name;
+                }
+
+                dialog.destroy ();
+                if (branch_name != null) {
+                    active_project.new_branch (branch_name);
+                }
             }
         }
 

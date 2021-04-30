@@ -40,6 +40,8 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public string? branch_name { get; private set; default = null; }
+
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
         }

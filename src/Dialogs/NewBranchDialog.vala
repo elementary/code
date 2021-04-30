@@ -20,7 +20,7 @@
 */
 
 public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
-    public FolderManager.ProjectFolderItem? active_project { get; construct; }
+    public FolderManager.ProjectFolderItem active_project { get; construct; }
     public unowned List<FolderManager.ProjectFolderItem> project_list { get; construct; }
     private Granite.ValidatedEntry new_branch_name_entry;
     public string new_branch_name {
@@ -29,7 +29,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         }
     }
 
-    public NewBranchDialog (FolderManager.ProjectFolderItem? project, List<FolderManager.ProjectFolderItem> project_list) {
+    public NewBranchDialog (FolderManager.ProjectFolderItem project, List<FolderManager.ProjectFolderItem> project_list) {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
             active_project: project,
@@ -39,20 +39,10 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
     }
 
     construct {
-        if (active_project != null) {
-            assert (active_project.is_git_repo);
-            primary_text = _("Create a new branch of “%s”").printf (active_project.file.file.get_basename ());
-            secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters");
-            badge_icon = new ThemedIcon ("list-add");
-        } else {
-            primary_text = _("You must have an active git project before creating a new branch.");
-            badge_icon = new ThemedIcon ("dialog-warning");
-            if (project_list.length () == 0) {
-                secondary_text = _("Open a git project folder in the sidebar.");
-            } else {
-                secondary_text = _("Open a document in a git project folder in the sidebar or use a project context menu.");
-            }
-        }
+        assert (active_project.is_git_repo);
+        primary_text = _("Create a new branch of “%s”").printf (active_project.file.file.get_basename ());
+        secondary_text = _("The branch name must be lower-case, start with a letter, and be at least 3 characters");
+        badge_icon = new ThemedIcon ("list-add");
 
         try {
             //Branch name must be lower-case, start with a letter and be at least 3 characters long

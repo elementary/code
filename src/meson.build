@@ -19,6 +19,7 @@ code_files = files(
     'Dialogs/RestoreConfirmationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
     'Dialogs/NewBranchDialog.vala',
+    'Dialogs/ChooseProjectDialog.vala',
     'FolderManager/ContractMenuItem.vala',
     'FolderManager/File.vala',
     'FolderManager/FileItem.vala',
