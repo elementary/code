@@ -41,6 +41,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
 
     construct {
         assert (active_project.is_git_repo);
+        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         primary_text = _("Create a new branch of “%s/%s”").printf (
             active_project.file.file.get_basename (),
             active_project.get_current_branch_name ()
@@ -79,7 +80,5 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
             //Do we need to check remote branches as well?
             new_branch_name_entry.is_valid = true;
         });
-
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
     }
 }
