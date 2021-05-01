@@ -56,6 +56,8 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
 
             custom_bin.add (new_branch_name_entry);
 
+            add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+
             var create_button = (Gtk.Button) add_button (_("Create Branch"), Gtk.ResponseType.APPLY);
             create_button.can_default = true;
             create_button.has_default = true;
@@ -89,7 +91,5 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
                 secondary_text = _("Open a document in a git project folder in the sidebar or use a project context menu.");
             }
         }
-
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
     }
 }
