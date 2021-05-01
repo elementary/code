@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2021-03-21 11:04+0000\n"
 "Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
@@ -66,8 +66,8 @@ msgstr "Fayllarni ochish"
 msgid "Open"
 msgstr "Ochish"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -81,66 +81,62 @@ msgstr "_Ochish"
 msgid "_Cancel"
 msgstr "_Bekor qilish"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
+#: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
-msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
 msgstr ""
 
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
-msgid "Search for:"
-msgstr "Keyingisini izlash"
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:78
+#: src/Dialogs/GlobalSearchDialog.vala:74
 #, fuzzy
 #| msgid "Case Insensitive"
 msgid "Case sensitive:"
 msgstr "Katta-kichikligiga bog'liqmas"
 
-#: src/Dialogs/GlobalSearchDialog.vala:87
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:102
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
 msgstr "Keyingisini izlash"
 
-#: src/Dialogs/NewBranchDialog.vala:44
-#, c-format
-msgid "Create a new branch of “%s”"
-msgstr ""
-
 #: src/Dialogs/NewBranchDialog.vala:45
-msgid ""
-"The branch name must be lower-case, start with a letter, and be at least 3 "
-"characters"
+#, c-format
+msgid "Create a new branch of “%s/%s”"
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:48
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:59
+#, fuzzy
+#| msgid "Branch"
+msgid "Create Branch"
+msgstr "Brench"
+
+#: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:51
+#: src/Dialogs/NewBranchDialog.vala:87
 #, fuzzy
 #| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
 msgstr "Loyiha papkasini yon panelga qo'shish."
 
-#: src/Dialogs/NewBranchDialog.vala:53
+#: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
-msgid "Create Branch"
-msgstr "Brench"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -274,7 +270,7 @@ msgid "Rename"
 msgstr "Qayta nomlash"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:94
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Axlat savatchasiga o'tkazish"
 
@@ -299,8 +295,8 @@ msgstr "Bo'sh fayl"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:161
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Yaratish"
 
@@ -312,38 +308,38 @@ msgstr "nomsiz papka"
 msgid "new file"
 msgstr "yangi fayl"
 
-#: src/FolderManager/ProjectFolderItem.vala:87
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Papkani yopish"
 
-#: src/FolderManager/ProjectFolderItem.vala:90
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "Boshqa papkalarni yopish"
 
-#: src/FolderManager/ProjectFolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:102
 #, fuzzy
 #| msgid "Open Project Folder…"
 msgid "Find in Project…"
 msgstr "Loyiha papkasini ochish…"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:168
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, O'zgartirilgan"
 
-#: src/FolderManager/ProjectFolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:458
+#: src/FolderManager/ProjectFolderItem.vala:478
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Brench"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "Brench"
 
@@ -751,6 +747,11 @@ msgstr "Iltimos hech bo'lmasa bir dona [aspell] lug'at o'rnating."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - so'zlarni avtomatik tugatish"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "Keyingisini izlash"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Code uchun Zeitgeist Datasource"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 23:45+0000\n"
-"PO-Revision-Date: 2021-04-22 12:35+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"PO-Revision-Date: 2021-04-30 13:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -71,8 +71,8 @@ msgstr "Obriu alguns fitxers"
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:71 src/Services/Document.vala:398
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -86,67 +86,58 @@ msgstr "_Obre"
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/Dialogs/GlobalSearchDialog.vala:59
-#, c-format
-msgid "Search text in folder '%s'"
-msgstr ""
-
-#. Most searches are less than this, can expand window if required
-#: src/Dialogs/GlobalSearchDialog.vala:68
-#, fuzzy
-#| msgid "Search next"
-msgid "Search for:"
-msgstr "Cerca el següent"
-
-#: src/Dialogs/GlobalSearchDialog.vala:78
-#, fuzzy
-#| msgid "Case Insensitive"
-msgid "Case sensitive:"
-msgstr "No distinció de majúscules"
-
-#: src/Dialogs/GlobalSearchDialog.vala:87
-msgid "Use regular expressions:"
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
-msgid "Search"
-msgstr "Cerca el següent"
-
-#: src/Dialogs/NewBranchDialog.vala:44
+#: src/Dialogs/GlobalSearchDialog.vala:60
 #, fuzzy, c-format
-#| msgid "Create a new instance"
-msgid "Create a new branch of “%s”"
-msgstr "Crea una nova instància"
+#| msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
+msgstr "Cerca text a la carpeta %s"
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr "Distinció de majúscules:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr "Usa expressions regulars:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+msgid "Search"
+msgstr "Cerca"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-msgid ""
-"The branch name must be lower-case, start with a letter, and be at least 3 "
-"characters"
+#, fuzzy, c-format
+#| msgid "Create a new branch of “%s”"
+msgid "Create a new branch of “%s/%s”"
+msgstr "Crea una branca nova per a %s"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:48
+#: src/Dialogs/NewBranchDialog.vala:59
+msgid "Create Branch"
+msgstr "Crea'n una branca"
+
+#: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "Heu de tenir un projecte de git actiu abans de crear una branca nova."
 
-#: src/Dialogs/NewBranchDialog.vala:51
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
+#: src/Dialogs/NewBranchDialog.vala:87
 msgid "Open a git project folder in the sidebar."
-msgstr "Afegeix la carpeta d'un projecte a la barra lateral."
+msgstr "Obriu la carpeta d'un projecte de git a la barra lateral."
 
-#: src/Dialogs/NewBranchDialog.vala:53
+#: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:73
-#, fuzzy
-#| msgid "Branch"
-msgid "Create Branch"
-msgstr "Branca"
+"Obriu un document d'una carpeta d'un projecte de git a la barra lateral o "
+"useu un menú contextual del projecte."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -280,7 +271,7 @@ msgid "Rename"
 msgstr "Canvia'n el nom"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:94
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
 
@@ -289,10 +280,8 @@ msgid "Folders"
 msgstr "Carpetes"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Folder…"
-msgstr "Afegeix una carpeta de projecte…"
+msgstr "Troba a la carpeta…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -305,8 +294,8 @@ msgstr "Fitxer buit"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:161
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Nou"
 
@@ -318,36 +307,32 @@ msgstr "carpeta sense nom"
 msgid "new file"
 msgstr "fitxer nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:87
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:90
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
-#: src/FolderManager/ProjectFolderItem.vala:101
-#, fuzzy
-#| msgid "Add Project Folder…"
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Find in Project…"
-msgstr "Afegeix una carpeta de projecte…"
+msgstr "Troba al projecte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr "Modificat"
 
-#: src/FolderManager/ProjectFolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Error en crear una branca nova: %s"
 
-#: src/FolderManager/ProjectFolderItem.vala:458
-#, fuzzy
-#| msgid "Branch"
+#: src/FolderManager/ProjectFolderItem.vala:478
 msgid "New Branch…"
-msgstr "Branca"
+msgstr "Branca nova…"
 
-#: src/FolderManager/ProjectFolderItem.vala:465
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "Branca"
 
@@ -756,6 +741,16 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid ""
+#~ "The branch name must be lower-case, start with a letter, and be at least "
+#~ "3 characters"
+#~ msgstr ""
+#~ "El nom de la branca ha de ser en minúscula, ha de començar amb una lletra "
+#~ "i ha de tenir com a mínim 3 caràcters."
+
+#~ msgid "Search for:"
+#~ msgstr "Cerca el següent:"
 
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Font de dades del Zeitgeist per al Codi"
