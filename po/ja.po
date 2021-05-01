@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-30 14:24+0000\n"
+"PO-Revision-Date: 2021-05-01 02:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -87,14 +87,13 @@ msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
-#, fuzzy, c-format
-#| msgid "Search text in folder '%s'"
+#, c-format
 msgid "Search for text in “%s”"
-msgstr "フォルダー '%s' 内のテキストを検索"
+msgstr "フォルダー “%s” 内のテキストを検索"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "検索文字列は3文字以上にする必要があります。"
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -109,15 +108,14 @@ msgid "Search"
 msgstr "検索"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new branch of “%s”"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "“%s” の新しいブランチを作成"
+msgstr "“%s/%s” の新しいブランチを作成"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
-msgstr ""
+msgstr "ブランチ名は Git のルールに従っている必要があります。既存の名前は使えません。"
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
