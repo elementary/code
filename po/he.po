@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-29 16:54+0000\n"
+"PO-Revision-Date: 2021-05-01 11:26+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -87,14 +87,13 @@ msgid "_Cancel"
 msgstr "_ביטול"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
-#, fuzzy, c-format
-#| msgid "Search text in folder '%s'"
+#, c-format
 msgid "Search for text in “%s”"
-msgstr "חיפוש טקסט בתיקייה ‚%s’"
+msgstr "חיפוש טקסט בתוך „%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "על ביטוי החיפוש להיות באורך 3 תווים לפחות."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -109,15 +108,14 @@ msgid "Search"
 msgstr "חיפוש"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new branch of “%s”"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "יצירת ענף חדש של „%s”"
+msgstr "יצירת ענף חדש של „%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
-msgstr ""
+msgstr "שם הענף חייב לעמוד בכללים של Git ואסור שכבר יהיה קיים."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
