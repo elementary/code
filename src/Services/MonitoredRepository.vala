@@ -185,6 +185,7 @@ namespace Scratch.Services {
                         }
 
                         branch_name = target_name;
+
                         // SourceList shows files in working dir so only want status for those for now.
                         // No callback generated for current files.
                         // TODO Distinguish new untracked files from new tracked files
