@@ -60,7 +60,14 @@ namespace Scratch.Services {
             set {
                 source_file.set_location (value);
                 file_changed ();
-                label = get_basename ();
+                tab_name = get_basename ();
+            }
+        }
+
+        public string tab_name {
+            set {
+                label = value;
+                tooltip = get_tab_tooltip ();
             }
         }
 
@@ -107,10 +114,6 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-#if HAVE_ZEITGEIST
-        // Zeitgeist integration
-        private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
-#endif
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
             this.file = file;
@@ -343,11 +346,6 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.open_insert (file.get_uri (), mime_type);
-#endif
-
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
@@ -368,7 +366,7 @@ namespace Scratch.Services {
         }
 
         public bool do_close (bool app_closing = false) {
-            message ("Closing \"%s\"", get_basename ());
+            debug ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
                 load_cancellable.cancel ();
@@ -424,10 +422,6 @@ namespace Scratch.Services {
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
-#if HAVE_ZEITGEIST
-                // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), mime_type);
-#endif
                 doc_closed ();
             }
 
@@ -477,16 +471,12 @@ namespace Scratch.Services {
             }
 
             source_view.buffer.set_modified (false);
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), mime_type);
-#endif
 
             doc_saved ();
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
-            message ("File \"%s\" saved succesfully", get_basename ());
+            debug ("File \"%s\" saved succesfully", get_basename ());
 
             return true;
         }
@@ -537,7 +527,7 @@ namespace Scratch.Services {
                         // Delete temporary file
                         File.new_for_path (current_file).delete ();
                     } catch (Error err) {
-                        message ("Temporary file cannot be deleted: %s", current_file);
+                        warning ("Temporary file cannot be deleted: %s", current_file);
                     }
                 }
 
@@ -555,11 +545,6 @@ namespace Scratch.Services {
         public bool move (File new_dest) {
             this.file = new_dest;
             this.save.begin ();
-
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), mime_type);
-#endif
 
             return true;
         }
@@ -591,6 +576,15 @@ namespace Scratch.Services {
                 return _("New Document");
             } else {
                 return file.get_basename ();
+            }
+        }
+
+        // Get full file path
+        public string get_tab_tooltip () {
+            if (is_file_temporary) {
+                return _("New Document"); //No path for a new document
+            } else {
+                return file.get_path ();
             }
         }
 
@@ -821,10 +815,10 @@ namespace Scratch.Services {
 
             if (!val) {
                 if (!(unsaved_identifier in this.label)) {
-                    this.label = unsaved_identifier + this.label;
+                    tab_name = unsaved_identifier + this.label;
                 }
             } else {
-                this.label = this.label.replace (unsaved_identifier, "");
+                tab_name = this.label.replace (unsaved_identifier, "");
             }
         }
 

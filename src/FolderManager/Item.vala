@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
      */
-    internal abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+    public abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
         public File file { get; construct; }
 
         public FileView view { get; construct; }
@@ -90,6 +90,22 @@ namespace Scratch.FolderManager {
                 app_info.launch (file_list, null);
             } catch (Error e) {
                 warning (e.message);
+            }
+        }
+
+        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
+            } else if (start.parent != null) {
+                return get_root_folder (start.parent);
+            } else {
+                return null;
             }
         }
     }

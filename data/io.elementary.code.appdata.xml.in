@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 elementary, LLC <contact@elementary.io> -->
+<!-- Copyright 2018–2021 elementary, Inc. <contact@elementary.io> -->
 <component type="desktop">
   <id>io.elementary.code</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -51,12 +51,14 @@
         <p>New features:</p>
         <ul>
           <li>New Markdown plugin for WYSIWYG-like editing.</li>
+          <li>Full text search within project folder.</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
           <li>Allow Spell Checker extension in Markdown files</li>
           <li>Remember whether the sidebar is open</li>
-          <li>Add keyboard shortcuts for next and previous documents.</li>
+          <li>Add keyboard shortcuts for next and previous documents</li>
+          <li>Show full document path in tab tooltip</li>
         </ul>
       </description>
     </release>
@@ -208,11 +210,11 @@
     <content_attribute id="money-purchasing">none</content_attribute>
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
-  <developer_name>elementary LLC.</developer_name>
-  <url type="homepage">http://elementary.io/</url>
+  <developer_name>elementary, Inc.</developer_name>
+  <url type="homepage">https://elementary.io/</url>
   <url type="bugtracker">https://github.com/elementary/code/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/code</url>
+  <url type="help">https://github.com/elementary/code/discussions/categories/q-a</url>
   <url type="translate">https://l10n.elementary.io/projects/code</url>
   <update_contact>contact_AT_elementary.io</update_contact>
   <screenshots>
