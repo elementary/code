@@ -11,15 +11,15 @@ namespace Scratch.Widgets {
         // Use this to represent the color of a cell in the gutter before it is drawn
         private Gdk.RGBA gutter_color;
 
-        private string workdir_path = null;
-        private string doc_path = null;
+        private string workdir_path = "";
+        private string doc_path = "";
 
         // Use these to note what lines were modified, which lines are newly added, which lines were removed.
         private const string ADDED = "GREEN";
         private const string MODIFIED = "BLUE";
         private const string DELETED = "RED";//
 
-        public bool git_repo_set { get {return workdir_path != null;}}
+        public bool project_set { get {return workdir_path != "";}}
 
         public SourceGutterRenderer () {
             debug ("MAKING NEW DIFF GUTTER\n");
@@ -30,12 +30,13 @@ namespace Scratch.Widgets {
             set_visible (true);
         }
 
-        public void set_git_repo (Ggit.Repository? repo) {
+        public void set_project (FolderManager.ProjectFolderItem? project) {
             workdir_path = "";
-            if (repo != null) {
-                workdir_path = repo.workdir.get_path ();
+            if (project != null) {
+                assert (project.is_git_repo);
+                workdir_path = project.top_level_path;
                 try {
-                    repo_diff_list = new Ggit.Diff.index_to_workdir (repo, null, null);
+                    repo_diff_list = new Ggit.Diff.index_to_workdir (project.git_repo, null, null);
                 } catch (Error e) {
                     critical ("Error getting diff list %s", e.message);
                     workdir_path = "";

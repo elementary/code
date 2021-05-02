@@ -49,11 +49,6 @@ namespace Scratch {
 
         public Gtk.Clipboard clipboard;
 
-#if HAVE_ZEITGEIST
-        // Zeitgeist integration
-        private Zeitgeist.DataSourceRegistry registry;
-#endif
-
         // Delegates
         delegate void HookFunc ();
 
@@ -63,6 +58,7 @@ namespace Scratch {
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
+        public const string ACTION_FIND_GLOBAL = "action_find_global";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
@@ -92,13 +88,16 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
+        public const string ACTION_CLEAR_LINES = "action_clear_lines";
+        public const string ACTION_NEW_BRANCH = "action_new_branch";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_fetch },
+            { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
+            { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
@@ -129,6 +128,8 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
+            { ACTION_CLEAR_LINES, action_clear_lines },
+            { ACTION_NEW_BRANCH, action_new_branch, "s" }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -141,9 +142,10 @@ namespace Scratch {
         }
 
         static construct {
-            action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
+            action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -172,6 +174,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
+            action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
+            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -183,6 +187,9 @@ namespace Scratch {
         }
 
         construct {
+            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+            default_theme.add_resource_path ("/io/elementary/code");
+
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
@@ -263,28 +270,6 @@ namespace Scratch {
             // Crate folder for unsaved documents
             create_unsaved_documents_directory ();
 
-#if HAVE_ZEITGEIST
-            // Set up the Data Source Registry for Zeitgeist
-            registry = new Zeitgeist.DataSourceRegistry ();
-
-            var ds_event = new Zeitgeist.Event ();
-            ds_event.actor = "application://" + Constants.PROJECT_NAME + ".desktop";
-            ds_event.add_subject (new Zeitgeist.Subject ());
-            var ds_events = new GenericArray<Zeitgeist.Event> ();
-            ds_events.add (ds_event);
-            var ds = new Zeitgeist.DataSource.full ("code-logger",
-                                          _("Zeitgeist Datasource for Code"),
-                                          "A data source which logs Open, Close, Save and Move Events",
-                                          ds_events); // FIXME: templates!
-            registry.register_data_source.begin (ds, null, (obj, res) => {
-                try {
-                    registry.register_data_source.end (res);
-                } catch (Error reg_err) {
-                    critical (reg_err.message);
-                }
-            });
-#endif
-
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
         }
@@ -304,6 +289,9 @@ namespace Scratch {
             search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
                 search_bar.set_search_string ("");
                 search_bar.highlight_none ();
+            });
+            search_bar.search_empty.connect (() => {
+                folder_manager_view.clear_badges ();
             });
 
             Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
@@ -416,6 +404,9 @@ namespace Scratch {
                 });
 
                 hook_func ();
+            });
+
+            document_view.realize.connect (() => {
                 restore_opened_documents ();
             });
 
@@ -466,10 +457,12 @@ namespace Scratch {
 
         public void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
-                string[] uris = settings.get_strv ("opened-files-view1");
-                string focused_document = settings.get_string ("focused-document-view1");
-
-                foreach (string uri in uris) {
+                var doc_infos = settings.get_value ("opened-files");
+                var doc_info_iter = new VariantIter (doc_infos);
+                string focused_document = settings.get_string ("focused-document");
+                string uri;
+                int pos;
+                while (doc_info_iter.next ("(si)", out uri, out pos)) {
                    if (uri != "") {
                         GLib.File file;
                         if (Uri.parse_scheme (uri) != null) {
@@ -482,8 +475,13 @@ namespace Scratch {
                         */
                         if (file.query_exists ()) {
                             var doc = new Scratch.Services.Document (actions, file);
+                            bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
-                                open_document (doc, file.get_uri () == focused_document);
+                                open_document (doc, is_focused, pos);
+                            }
+
+                            if (is_focused) { //Maybe expand to show all opened documents?
+                                folder_manager_view.expand_to_path (file.get_path ());
                             }
                         }
                     }
@@ -555,13 +553,12 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc, bool focus = true) {
-            if (doc.source_view.git_repo_not_set ()) {
-                Ggit.Repository? repo = folder_manager_view.get_git_repo_for_file (doc.file);
-                doc.source_view.set_git_repo (repo);
+        public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
+            if (doc.source_view.project_not_set ()) {
+                FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+                doc.source_view.set_project (project);
             }
-
-            document_view.open_document (doc, focus);
+            document_view.open_document (doc, focus, cursor_position);
         }
 
         // Close a document
@@ -857,7 +854,10 @@ namespace Scratch {
         }
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
-        private void action_fetch () {
+        private string current_search_term = "";
+        private void action_fetch (SimpleAction action, Variant? param) {
+            current_search_term = param.get_string ();
+
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -879,21 +879,43 @@ namespace Scratch {
             search_bar.search_previous ();
         }
 
+        private void action_find_global (SimpleAction action, Variant? param) {
+            string path = "";
+            if (param != null) {
+                path = param.get_string ();
+            }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    path = current_doc.file.get_path ();
+                }
+            }
+
+            folder_manager_view.search_global (path);
+        }
+
         private void set_search_text () {
-            var current_doc = get_current_document ();
-            // This is also called when all documents are closed.
-            if (current_doc != null) {
-                var selected_text = current_doc.get_selected_text ();
-                if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                    search_bar.set_search_string (selected_text);
+            if (current_search_term != "") {
+                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.grab_focus ();
+                search_bar.search_next ();
+            } else {
+                var current_doc = get_current_document ();
+                // This is also called when all documents are closed.
+                if (current_doc != null) {
+                    var selected_text = current_doc.get_selected_text ();
+                    if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                        current_search_term = selected_text;
+                        search_bar.set_search_string (current_search_term);
+                    }
+
+                    search_bar.search_entry.grab_focus (); /* causes loss of document selection */
                 }
+            }
 
-                search_bar.search_entry.grab_focus (); /* causes loss of document selection */
-
-                if (selected_text != "") {
-                    search_bar.search_next (); /* this selects the next match (if any) */
-                }
-
+            if (current_search_term != "") {
+                search_bar.search_next (); /* this selects the next match (if any) */
             }
         }
 
@@ -976,6 +998,34 @@ namespace Scratch {
 
         private void action_previous_tab () {
             document_view.previous_document ();
+        }
+
+        private void action_clear_lines () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.clear_selected_lines ();
+        }
+
+        private void action_new_branch (SimpleAction action, Variant? param) {
+            string path = "";
+            File? file = null;
+            if (param != null) {
+                path = param.get_string ();
+            }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    file = current_doc.file;
+                }
+            } else {
+                file = File.new_for_path (path);
+            }
+
+            folder_manager_view.new_branch (file);
         }
     }
 }

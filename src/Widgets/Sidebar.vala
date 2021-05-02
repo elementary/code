@@ -22,9 +22,6 @@ public class Code.Sidebar : Gtk.Grid {
     private Gtk.StackSwitcher stack_switcher;
     construct {
         orientation = Gtk.Orientation.VERTICAL;
-        visible = false;
-        no_show_all = true;
-
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
         stack = new Gtk.Stack ();
@@ -76,15 +73,15 @@ public class Code.Sidebar : Gtk.Grid {
                 stack_switcher.show_all ();
             }
 
-            no_show_all = false;
-            show_all ();
+            stack.no_show_all = false;
+            stack.show_all ();
         });
 
         stack.remove.connect (() => {
             switch (stack.get_children ().length ()) {
                 case 0:
-                    no_show_all = true;
-                    hide ();
+                    stack.no_show_all = true;
+                    stack.hide ();
                     break;
                 case 1:
                     stack_switcher.no_show_all = true;
@@ -106,5 +103,9 @@ public class Code.Sidebar : Gtk.Grid {
         tab.notify["icon-name"].connect (() => {
             stack.child_set_property (tab, "icon-name", tab.icon_name);
         });
+    }
+
+    public void remove_tab (Code.PaneSwitcher tab) {
+        stack.remove (tab);
     }
 }

@@ -15,6 +15,10 @@ add_project_arguments(
     language: 'vala'
 )
 
+if get_option('have_pkexec')
+    add_project_arguments('--define=HAVE_PKEXEC', language: 'vala')
+endif
+
 libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
 pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
 
@@ -55,14 +59,6 @@ dependencies = [
     pangofc_dep,
     posix_dep,
 ]
-
-zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
-if zeitgeist_dep.found ()
-    add_project_arguments('--define=HAVE_ZEITGEIST', language : 'vala')
-    dependencies += zeitgeist_dep
-else
-    warning ('Zeitgeist integration will NOT be built due to missing dependency')
-endif
 
 subdir('data')
 subdir('src')
