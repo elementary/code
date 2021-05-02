@@ -29,7 +29,7 @@ namespace Scratch.Services {
             set {
                 if (_branch_name != value) {
                     _branch_name = value;
-                    branch_changed (value);
+                    branch_changed ();
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Scratch.Services {
             }
         }
 
-        public signal void branch_changed (string new_branch_name);
+        public signal void branch_changed ();
         public signal void ignored_changed ();
         public signal void file_status_change ();
 
