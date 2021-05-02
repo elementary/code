@@ -34,6 +34,16 @@ namespace Scratch.Services {
             }
         }
 
+        public bool head_is_branch {
+            get {
+                try {
+                    return git_repo.get_head ().is_branch ();
+                } catch (Error e) {
+                    return false;
+                }
+            }
+        }
+
         public signal void branch_changed (string new_branch_name);
         public signal void ignored_changed ();
         public signal void file_status_change ();
@@ -95,7 +105,7 @@ namespace Scratch.Services {
             }
         }
 
-        public string get_current_branch () {
+        public unowned string get_current_branch () {
             try {
                 var head = git_repo.get_head ();
                 if (head.is_branch ()) {
@@ -108,13 +118,13 @@ namespace Scratch.Services {
             return "";
         }
 
-        public string[] get_local_branches () {
-            string[] branches = {};
+        public unowned List<string> get_local_branches () {
+            unowned List<string> branches = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     if (branch_ref is Ggit.Branch) {
-                        branches += ((Ggit.Branch)branch_ref).get_name ();
+                        branches.append (((Ggit.Branch)branch_ref).get_name ());
                     }
                 }
             } catch (Error e) {
@@ -124,10 +134,34 @@ namespace Scratch.Services {
             return branches;
         }
 
+        public bool has_local_branch_name (string name) {
+            try {
+                git_repo.lookup_branch (name, Ggit.BranchType.LOCAL);
+                return true;
+            } catch (Error e) {}
+
+            return false;
+        }
+
+        public bool is_valid_new_local_branch_name (string new_name) {
+            if (!Ggit.Ref.is_valid_name ("refs/heads/" + new_name) ||
+                has_local_branch_name (new_name) ) {
+                return false;
+            }
+
+            return true;
+        }
+
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
             branch_name = new_branch_name;
+        }
+
+        public void create_new_branch (string name) throws Error {
+            Ggit.Object git_object = git_repo.get_head ().lookup ();
+            var new_branch = git_repo.create_branch (name, git_object, Ggit.CreateFlags.NONE);
+            git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
         }
 
         private bool do_update = false;

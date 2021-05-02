@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 23:02+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2018-06-22 00:03+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/code/code/"
@@ -45,52 +45,103 @@ msgstr "Bővítménykészlet"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Keresés…"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:279
-#, fuzzy
-msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist adatforrás a Scratch számára"
-
-#: src/MainWindow.vala:735 src/Services/Document.vala:508
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:512
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:746
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:747 src/Services/Document.vala:407
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_Mégsem"
+
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, c-format
+msgid "Search for text in “%s”"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "Következő keresése"
+
+#: src/Dialogs/NewBranchDialog.vala:45
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s/%s”"
+msgstr "Új példány létrehozása"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:59
+#, fuzzy
+msgid "Create Branch"
+msgstr "Scratch beállításainak módosítása"
+
+#: src/Dialogs/NewBranchDialog.vala:84
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:87
+#, fuzzy
+#| msgid "Add a project folder to the sidebar."
+msgid "Open a git project folder in the sidebar."
+msgstr "Adjon hozzá egy projektmappát az oldalsávhoz."
+
+#: src/Dialogs/NewBranchDialog.vala:89
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -204,11 +255,11 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Betöltés mindenképp"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
@@ -222,7 +273,7 @@ msgid "Rename"
 msgstr "Átnevezés"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
@@ -230,120 +281,142 @@ msgstr "Áthelyezés a kukába"
 msgid "Folders"
 msgstr "Mappák"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Folder…"
+msgstr "Mappa megnyitása"
+
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Üres fájl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "új fájl"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Mappa bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:91
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Mappa bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:102
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Project…"
+msgstr "Mappa megnyitása"
+
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:206
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:478
+#, fuzzy
+msgid "New Branch…"
+msgstr "Scratch beállításainak módosítása"
+
+#: src/FolderManager/ProjectFolderItem.vala:491
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch beállításainak módosítása"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "A(z) %s nem szövegfájl"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr "A Kód nem tölt be ilyen típusú fájlt."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr "Betöltés mindenképp"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr "Kérem várjon, amíg a Kód betölti a fájlt."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:295
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Betöltés megszakítása"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:388
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Menti a(z) %s dokumentumban történt változtatásokat bezárás előtt?"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:389
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ha nem menti, akkor az elmúlt 4 másodpercben történt változások véglegesen "
 "elvesznek."
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:395
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Bezárás mentés nélkül"
 
-#: src/Services/Document.vala:408 src/Services/Document.vala:519
-#: src/Services/Document.vala:756
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "Mentés"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "Fájl mentése"
 
-#: src/Services/Document.vala:598 src/Services/Document.vala:607
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "Új dokumentum"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:708
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "A(z) \"%s\" fájl nem olvasható"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:709
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Lehet, hogy sérült vagy nem rendelkezik a szükséges engedélyekkel ahhoz, "
 "hogy elolvashassa."
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -352,16 +425,16 @@ msgstr ""
 "A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került. Szeretné  "
 "máshová menteni?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "Mentés másként…"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "A(z) \"%s\" fájl törölve lett. Szeretné mégis menteni?"
 
-#: src/Services/Document.vala:770
+#: src/Services/Document.vala:748
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -370,11 +443,11 @@ msgstr ""
 "Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
 "módosításait egy másik helyre menteni?"
 
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "Változtatások mentése máshova"
 
-#: src/Services/Document.vala:807
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -383,11 +456,11 @@ msgstr ""
 "A(z) \"%s\" fájlt egy külső alkalmazás módosította. Szeretné újratölteni, "
 "vagy folytatja a szerkesztést?"
 
-#: src/Services/Document.vala:810
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "Betöltés"
 
-#: src/Services/Document.vala:813
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "Folytatás"
 
@@ -491,21 +564,21 @@ msgstr "Oldalsáv"
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:42
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Mappa megnyitása"
 
-#: src/Widgets/Sidebar.vala:48
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr ""
 
@@ -547,12 +620,12 @@ msgstr "Csere"
 msgid "Replace all"
 msgstr "Mindet cseréli"
 
-#: src/Widgets/SourceView.vala:476
+#: src/Widgets/SourceView.vala:492
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "A kiválasztott szöveghez"
 
-#: src/Widgets/SourceView.vala:489
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr ""
 
@@ -698,6 +771,15 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "Következő keresése"
+
+#, fuzzy
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Zeitgeist adatforrás a Scratch számára"
 
 #, fuzzy
 #~ msgid "File \"%s\" Cannot Be Created"
@@ -1135,9 +1217,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "Új dokumentum létrehozása sablonból"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Új példány létrehozása"
 
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Kívánja frissíteni?"

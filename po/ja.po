@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 23:02+0000\n"
-"PO-Revision-Date: 2021-04-21 01:09+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"PO-Revision-Date: 2021-05-01 02:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -43,51 +43,102 @@ msgstr "プラグイン"
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "コード"
 
-#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "検索…"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "検索バーを表示しない"
 
-#: src/MainWindow.vala:279
-msgid "Zeitgeist Datasource for Code"
-msgstr "Code 向けの Zeitgeist データソース"
-
-#: src/MainWindow.vala:735 src/Services/Document.vala:508
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:512
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "複数のファイルを開く"
 
-#: src/MainWindow.vala:746
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:747 src/Services/Document.vala:407
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
+
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, c-format
+msgid "Search for text in “%s”"
+msgstr "フォルダー “%s” 内のテキストを検索"
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr "検索文字列は3文字以上にする必要があります。"
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr "大文字と小文字を区別:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr "正規表現を使う:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+msgid "Search"
+msgstr "検索"
+
+#: src/Dialogs/NewBranchDialog.vala:45
+#, c-format
+msgid "Create a new branch of “%s/%s”"
+msgstr "“%s/%s” の新しいブランチを作成"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
+msgstr "ブランチ名は Git のルールに従っている必要があります。既存の名前は使えません。"
+
+#: src/Dialogs/NewBranchDialog.vala:59
+msgid "Create Branch"
+msgstr "ブランチを作成"
+
+#: src/Dialogs/NewBranchDialog.vala:84
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+"新しいブランチを作成するには、プロジェクトで Git を使用している必要がありま"
+"す。"
+
+#: src/Dialogs/NewBranchDialog.vala:87
+msgid "Open a git project folder in the sidebar."
+msgstr ""
+"サイドバーに Git を使用しているプロジェクトフォルダーを開いてください。"
+
+#: src/Dialogs/NewBranchDialog.vala:89
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
+"Git を使用しているプロジェクトフォルダーのドキュメントをサイドバーに開くか、"
+"プロジェクトのコンテキストメニューを使用してください。"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -202,11 +253,11 @@ msgstr "復元しない"
 msgid "Restore Anyway"
 msgstr "了解して復元"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "ほかのアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "指定した方法で開く"
 
@@ -219,7 +270,7 @@ msgid "Rename"
 msgstr "名前を変更"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
@@ -227,109 +278,126 @@ msgstr "ゴミ箱に移動"
 msgid "Folders"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find in Folder…"
+msgstr "フォルダー内を検索…"
+
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "空のファイル"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "名称未設定フォルダー"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "新しいファイル"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "フォルダーを閉じる"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "ほかのフォルダーを閉じる"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:102
+msgid "Find in Project…"
+msgstr "プロジェクト内を検索…"
+
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr "変更済み"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:206
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
+
+#: src/FolderManager/ProjectFolderItem.vala:478
+msgid "New Branch…"
+msgstr "新しいブランチ…"
+
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr "\"コード\" はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr "\"コード\" がファイルを読み込む間、お待ちください。"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:295
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:388
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "閉じる前に \"%s\" への変更を保存しますか？"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:389
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:395
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:408 src/Services/Document.vala:519
-#: src/Services/Document.vala:756
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:598 src/Services/Document.vala:607
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:708
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ファイル \"%s\" を読み込めません"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:709
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "ファイルが破損しているか、読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -338,16 +406,16 @@ msgstr ""
 "ファイル \"%s\" を含む場所はアンマウントされています。別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "名前を付けて保存…"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" は削除されています。それでも保存しますか？"
 
-#: src/Services/Document.vala:770
+#: src/Services/Document.vala:748
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -356,11 +424,11 @@ msgstr ""
 "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "別の場所に変更内容を保存"
 
-#: src/Services/Document.vala:807
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -369,11 +437,11 @@ msgstr ""
 "ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込み"
 "ますか？　または編集を続行しますか？"
 
-#: src/Services/Document.vala:810
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "変更を読み込む"
 
-#: src/Services/Document.vala:813
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "編集を続行"
 
@@ -474,19 +542,19 @@ msgstr "サイドバーを切り替え"
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:42
 msgid "Open Project Folder…"
 msgstr "プロジェクトフォルダーを開く…"
 
-#: src/Widgets/Sidebar.vala:48
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr "プロジェクトフォルダーを管理"
 
@@ -528,11 +596,11 @@ msgstr "置き換え"
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: src/Widgets/SourceView.vala:476
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
-#: src/Widgets/SourceView.vala:489
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr "コメントを切り替え"
 
@@ -670,6 +738,18 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
 
+#~ msgid ""
+#~ "The branch name must be lower-case, start with a letter, and be at least "
+#~ "3 characters"
+#~ msgstr ""
+#~ "ブランチ名は、アルファベットで始まる3文字以上の小文字にする必要があります"
+
+#~ msgid "Search for:"
+#~ msgstr "検索するテキスト:"
+
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Code 向けの Zeitgeist データソース"
+
 #~ msgid "%s, New"
 #~ msgstr "%s、新規"
 
@@ -730,9 +810,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Remove Current View"
 #~ msgstr "現在のビューを削除"
-
-#~ msgid "Add Project Folder…"
-#~ msgstr "プロジェクトフォルダーを追加…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "名称未設定フォルダー %d"
@@ -1109,9 +1186,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "プラグインへの引数"
-
-#~ msgid "Create a new instance"
-#~ msgstr "新しいインスタンスを作成"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "スクラッチに保存されてない変化が有ります！"

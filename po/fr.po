@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 23:02+0000\n"
-"PO-Revision-Date: 2021-04-22 12:35+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -43,51 +43,102 @@ msgstr "extension"
 msgid "[FILE…]"
 msgstr "[FICHIER…]"
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Rechercher…"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "Cacher la barre de recherche"
 
-#: src/MainWindow.vala:279
-msgid "Zeitgeist Datasource for Code"
-msgstr "Source de données Zeitgeist pour Code"
-
-#: src/MainWindow.vala:735 src/Services/Document.vala:508
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:512
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:746
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:747 src/Services/Document.vala:407
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_Annuler"
+
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, fuzzy, c-format
+#| msgid "Search text in folder '%s'"
+msgid "Search for text in “%s”"
+msgstr "Rechercher du texte dans le dossier « %s »"
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr "Sensible à la casse :"
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr "Utiliser des expressions régulières :"
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+msgid "Search"
+msgstr "Rechercher"
+
+#: src/Dialogs/NewBranchDialog.vala:45
+#, fuzzy, c-format
+#| msgid "Create a new branch of “%s”"
+msgid "Create a new branch of “%s/%s”"
+msgstr "Créer une nouvelle branche à partir de « %s »"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:59
+msgid "Create Branch"
+msgstr "Créer une branche"
+
+#: src/Dialogs/NewBranchDialog.vala:84
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+"Vous devez posséder un projet git actif avant de créer une nouvelle branche."
+
+#: src/Dialogs/NewBranchDialog.vala:87
+msgid "Open a git project folder in the sidebar."
+msgstr "Ouvrir le dossier d'un projet git dans la barre latérale."
+
+#: src/Dialogs/NewBranchDialog.vala:89
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
+"Ouvrir un document dans un dossier de projet git dans la barre latérale ou "
+"utiliser un menu contextuel de projet."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -204,11 +255,11 @@ msgstr "Ne pas restaurer"
 msgid "Restore Anyway"
 msgstr "Restaurer quand-même"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr "Ouvrir dans"
 
@@ -221,7 +272,7 @@ msgid "Rename"
 msgstr "Renommer"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
@@ -229,111 +280,128 @@ msgstr "Déplacer dans la corbeille"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find in Folder…"
+msgstr "Rechercher dans le dossier…"
+
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:91
 msgid "Close Other Folders"
 msgstr "Fermer les autres dossiers"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:102
+msgid "Find in Project…"
+msgstr "Rechercher dans le projet…"
+
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr "Modifié"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:206
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr "Erreur lors de la création de la nouvelle branche : « %s »"
+
+#: src/FolderManager/ProjectFolderItem.vala:478
+msgid "New Branch…"
+msgstr "Nouvelle branche…"
+
+#: src/FolderManager/ProjectFolderItem.vala:491
 msgid "Branch"
 msgstr "Branche"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s n'est pas un fichier texte"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr "Code ne chargera pas ce type de fichier."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr "Ouvrir quand-même"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Le chargement du fichier « %s » semble prendre beaucoup de temps"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr "Veuillez patienter pendant que Code charge le fichier."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:295
 msgid "Cancel Loading"
 msgstr "Annuler le chargement"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:388
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr ""
 "Voulez-vous enregistrer les modifications apportées à %s avant de fermer ?"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:389
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Si vous n'enregistrez pas, les modifications seront perdues définitivement."
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:395
 msgid "Close Without Saving"
 msgstr "Fermer sans enregistrer"
 
-#: src/Services/Document.vala:408 src/Services/Document.vala:519
-#: src/Services/Document.vala:756
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "Enregistrer le fichier"
 
-#: src/Services/Document.vala:598 src/Services/Document.vala:607
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "Nouveau document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:708
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Impossible de lire le fichier « %s »"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:709
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Il peut être corrompu ou vous n'avez pas la permission de le lire."
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -342,17 +410,17 @@ msgstr ""
 "Le répertoire contenant le fichier « %s » a été démonté. Voulez-vous "
 "l'enregistrer ailleurs ?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "Enregistrer sous…"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 "Le fichier « %s » a été supprimé. Voulez-vous tout de même l'enregistrer ?"
 
-#: src/Services/Document.vala:770
+#: src/Services/Document.vala:748
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -361,11 +429,11 @@ msgstr ""
 "Impossible d'enregistrer les changements dans le fichier « %s ». Voulez-vous "
 "les enregistrer dans un emplacement différent ?"
 
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "Enregistrer les modifications ailleurs"
 
-#: src/Services/Document.vala:807
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -374,11 +442,11 @@ msgstr ""
 "Le fichier « %s » a été modifié par une application externe. Voulez-vous le "
 "recharger ou continuer votre édition ?"
 
-#: src/Services/Document.vala:810
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "Charger"
 
-#: src/Services/Document.vala:813
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "Continuer"
 
@@ -481,19 +549,19 @@ msgstr "Panneau latéral"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:42
 msgid "Open Project Folder…"
 msgstr "Ouvrir le dossier du projet…"
 
-#: src/Widgets/Sidebar.vala:48
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr "Tout réduire"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr "Trier par ordre alphabétique"
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr "Gérer les dossiers du projet"
 
@@ -535,11 +603,11 @@ msgstr "Remplacer"
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SourceView.vala:476
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:489
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 
@@ -677,6 +745,19 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
 
+#~ msgid ""
+#~ "The branch name must be lower-case, start with a letter, and be at least "
+#~ "3 characters"
+#~ msgstr ""
+#~ "Le nom de la branche doit être en minuscules, commencer par une lettre et "
+#~ "comporter au moins 3 caractères"
+
+#~ msgid "Search for:"
+#~ msgstr "Rechercher :"
+
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Source de données Zeitgeist pour Code"
+
 #~ msgid "%s, New"
 #~ msgstr "%s, Nouveau"
 
@@ -737,9 +818,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "Remove Current View"
 #~ msgstr "Supprimer la vue courante"
-
-#~ msgid "Add Project Folder…"
-#~ msgstr "Ajouter un dossier de projet…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "dossier sans-titre %d"
@@ -1148,9 +1226,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Paramètre pour le réglage des greffons"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Créer une nouvelle instance"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Des changements dans Scratch n'ont pas été enregistrés !"

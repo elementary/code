@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 23:02+0000\n"
+"POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2016-06-14 15:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -43,52 +43,101 @@ msgstr "Pluginate kogu"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:198 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
 msgid "Find…"
 msgstr "Leia…"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "Peida leidmise tööriistariba"
 
-#: src/MainWindow.vala:279
-#, fuzzy
-msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist'i andmeallikad Scratch'i jaoks"
-
-#: src/MainWindow.vala:735 src/Services/Document.vala:508
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "Kõik Failid"
 
-#: src/MainWindow.vala:739 src/Services/Document.vala:512
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "Tekstifailid"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "Faili avamine"
 
-#: src/MainWindow.vala:746
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "Ava"
 
-#: src/MainWindow.vala:747 src/Services/Document.vala:407
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Loobu"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "_Ava"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "_Loobu"
+
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, c-format
+msgid "Search for text in “%s”"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "Leia järgmine"
+
+#: src/Dialogs/NewBranchDialog.vala:45
+#, fuzzy, c-format
+#| msgid "Create a new instance"
+msgid "Create a new branch of “%s/%s”"
+msgstr "Loo uus näide"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:50
+msgid "The branch name must comply with Git rules and must not already exist."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:59
+#, fuzzy
+msgid "Create Branch"
+msgstr "Scratch'i eelistuste muutmine"
+
+#: src/Dialogs/NewBranchDialog.vala:84
+msgid "You must have an active git project before creating a new branch."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:87
+msgid "Open a git project folder in the sidebar."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:89
+msgid ""
+"Open a document in a git project folder in the sidebar or use a project "
+"context menu."
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -201,11 +250,11 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 #, fuzzy
 msgid "Open In"
 msgstr "Ava"
@@ -220,7 +269,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:89
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Move to Trash"
 msgstr ""
 
@@ -228,125 +277,147 @@ msgstr ""
 msgid "Folders"
 msgstr "Kaustad"
 
-#: src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FolderItem.vala:106
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Folder…"
+msgstr "Ava kaust"
+
+#: src/FolderManager/FolderItem.vala:173
 #, fuzzy
 msgid "Folder"
 msgstr "Kaustad"
 
-#: src/FolderManager/FolderItem.vala:169
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:176
-#: src/FolderManager/ProjectFolderItem.vala:144
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:162
+#: src/FolderManager/ProjectFolderItem.vala:168
 #, fuzzy
 msgid "New"
 msgstr "Uus kaart"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:344
 #, fuzzy
 msgid "new file"
 msgstr "Loo fail"
 
-#: src/FolderManager/ProjectFolderItem.vala:82
+#: src/FolderManager/ProjectFolderItem.vala:88
 msgid "Close Folder"
 msgstr "Sulge kaust"
 
-#: src/FolderManager/ProjectFolderItem.vala:85
+#: src/FolderManager/ProjectFolderItem.vala:91
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Sulge kaust"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:102
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Project…"
+msgstr "Ava kaust"
+
+#: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:206
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:478
+#, fuzzy
+msgid "New Branch…"
+msgstr "Scratch'i eelistuste muutmine"
+
+#: src/FolderManager/ProjectFolderItem.vala:491
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch'i eelistuste muutmine"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:295
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Loobu"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:388
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Kas salvestada faili %s muudatused enne sulgemist?"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:389
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Kui sa ei salvesta, siis viimase 4 sekundi jooksul tehtud muudatused lähevad "
 "kaotsi."
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:395
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Sulge ilma salvestamata"
 
-#: src/Services/Document.vala:408 src/Services/Document.vala:519
-#: src/Services/Document.vala:756
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "Salvesta"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "Faili salvestamine"
 
-#: src/Services/Document.vala:598 src/Services/Document.vala:607
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "Uus fail"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:708
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Faili \"%s\" pole võimalik luua.\n"
 "%s"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:709
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Faili \"%s\" polnud võimalik lugeda. See võib olla rikutud\n"
 "või sul puuduvad selle lugemiseks vajalikud õigused."
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -354,16 +425,16 @@ msgid ""
 msgstr ""
 "Faili \"%s\" sisaldav asukoht haagiti lahti. Soovid teise kohta salvestada?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "Salvesta kui…"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fail \"%s\" kustutati. Soovid sellegipoolest salvestada?"
 
-#: src/Services/Document.vala:770
+#: src/Services/Document.vala:748
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -372,11 +443,11 @@ msgstr ""
 "Faili \"%s\" muudatusi pole võimalik salvestada. Soovid faili teise kohta "
 "salvestada?"
 
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "Salvesta muudatused teise kohta"
 
-#: src/Services/Document.vala:807
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -385,11 +456,11 @@ msgstr ""
 "Faili \"%s\" muudeti teise rakenduse poolt. Soovid sa selle uuesti laadida "
 "või jätkata juba tehtud muudatustega?"
 
-#: src/Services/Document.vala:810
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "Värskenda"
 
-#: src/Services/Document.vala:813
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "Katkesta"
 
@@ -496,21 +567,21 @@ msgstr "Külgriba"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:42
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Ava kaust"
 
-#: src/Widgets/Sidebar.vala:48
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr ""
 
@@ -552,11 +623,11 @@ msgstr "Asenda"
 msgid "Replace all"
 msgstr "Asenda kõik"
 
-#: src/Widgets/SourceView.vala:476
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:489
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr ""
 
@@ -706,6 +777,15 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - sõnade lõpetamine"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "Leia järgmine"
+
+#, fuzzy
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Zeitgeist'i andmeallikad Scratch'i jaoks"
 
 #, fuzzy
 #~ msgid "File \"%s\" Cannot Be Created"
@@ -1150,9 +1230,6 @@ msgstr "%s - sõnade lõpetamine"
 
 #~ msgid "Context View"
 #~ msgstr "Konteksti vaade"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Loo uus näide"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Lisade kogu"

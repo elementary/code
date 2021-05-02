@@ -18,7 +18,7 @@
  */
 
 namespace Scratch.FolderManager {
-    internal class ProjectFolderItem : FolderItem {
+    public class ProjectFolderItem : FolderItem {
         struct VisibleItem {
             public string rel_path;
             public Item item;
@@ -34,6 +34,11 @@ namespace Scratch.FolderManager {
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
+        public bool is_git_repo {
+            get {
+                return monitored_repo != null;
+            }
+        }
 
         public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -51,6 +56,7 @@ namespace Scratch.FolderManager {
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
+                update_branch_name (monitored_repo.get_current_branch ());
             }
         }
 
@@ -92,6 +98,17 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            var search_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Find in Project…"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL + "::"
+            );
+
+            var search_item = new Gtk.MenuItem () {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            search_item.add (search_accellabel);
+
             GLib.FileInfo info = null;
             unowned string? file_type = null;
 
@@ -108,14 +125,15 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (monitored_repo));
+                menu.append (new ChangeBranchMenu (this));
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
             menu.append (delete_item);
-
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (search_item);
             menu.show_all ();
 
             return menu;
@@ -176,13 +194,263 @@ namespace Scratch.FolderManager {
             });
         }
 
+        public void new_branch (string branch_name) {
+            try {
+                if (monitored_repo.head_is_branch) {
+                    monitored_repo.create_new_branch (branch_name);
+                } else {
+                    throw new IOError.NOT_FOUND ("Cannot create a new branch when head is detached");
+                }
+            } catch (Error e) {
+                var dialog = new Granite.MessageDialog (
+                    _("Error while creating new branch: “%s”").printf (branch_name),
+                    e.message,
+                    new ThemedIcon ("git"),
+                    Gtk.ButtonsType.CLOSE
+                ) {
+                    badge_icon = new ThemedIcon ("dialog-error")
+                };
+                dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
+                dialog.response.connect (() => {
+                    dialog.destroy ();
+                });
+                dialog.run ();
+            }
+        }
+
+        public unowned List<string> get_branch_names () {
+            return is_git_repo ? monitored_repo.get_local_branches () : null;
+        }
+
+        public bool has_local_branch_name (string name) {
+            return is_git_repo ? monitored_repo.has_local_branch_name (name) : false;
+        }
+
+        public string get_current_branch_name () {
+            return is_git_repo ? monitored_repo.branch_name : "";
+        }
+
+        public bool is_valid_new_branch_name (string new_name) {
+            return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
+        }
+
+        public void global_search (GLib.File start_folder = this.file.file) {
+            /* For now set all options to the most inclusive (except case).
+             * The ability to set these in the dialog (or by parameter) may be added later. */
+            string? term = null;
+            bool use_regex = false;
+            bool search_tracked_only = false;
+            bool recurse_subfolders = true;
+            bool check_is_text = true;
+            string[] path_spec = {"*.*"};
+            bool modified_only = false;
+            bool case_sensitive = false;
+            Regex? pattern = null;
+
+            var dialog = new Scratch.Dialogs.GlobalSearchDialog (
+                null, start_folder.get_basename (), monitored_repo.git_repo != null
+            ) {
+                case_sensitive = case_sensitive,
+                use_regex = use_regex
+            };
+
+            dialog.response.connect ((response) => {
+                switch (response) {
+                    case Gtk.ResponseType.ACCEPT:
+                        term = dialog.search_term;
+                        use_regex = dialog.use_regex;
+                        case_sensitive = dialog.case_sensitive;
+                        break;
+
+                    default:
+                        term = null;
+                        break;
+                }
+
+                dialog.destroy ();
+            });
+
+            dialog.run ();
+
+            if (term != null) {
+                /* Put search term in search bar to help user locate the position of the matches in each doc */
+                var search_variant = new Variant.string (term);
+                var app = (Gtk.Application)GLib.Application.get_default ();
+                var win = (Scratch.MainWindow)(app.get_active_window ());
+                win.actions.lookup_action ("action_find").activate (search_variant);
+
+                if (!use_regex) {
+                    term = Regex.escape_string (term);
+                }
+
+                try {
+                    var flags = RegexCompileFlags.MULTILINE;
+                    if (!case_sensitive) {
+                        flags |= RegexCompileFlags.CASELESS;
+                    }
+
+                    pattern = new Regex (term, flags);
+                } catch (Error e) {
+                    critical ("Error creating regex from '%s': %s", term, e.message);
+                    return;
+                }
+            } else {
+                return;
+            }
+
+            var status_scope = Ggit.StatusOption.DEFAULT;
+            if (!modified_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNMODIFIED;
+            }
+            if (!search_tracked_only) {
+                status_scope |= Ggit.StatusOption.INCLUDE_UNTRACKED;
+            }
+            var status_options = new Ggit.StatusOptions (
+                status_scope,
+                Ggit.StatusShow.WORKDIR_ONLY,
+                path_spec
+            );
+
+            remove_all_badges ();
+            collapse_all ();
+
+            if (monitored_repo != null) {
+                try {
+                    monitored_repo.git_repo.file_status_foreach (status_options, (rel_path, status) => {
+                        var target = file.file.resolve_relative_path (rel_path);
+                        if (check_is_text && rel_path.has_prefix ("po/")) { // Ignore translation files
+                            return 0;
+                        }
+
+                        if ((recurse_subfolders && start_folder.get_relative_path (target) != null) ||
+                             start_folder.equal (target.get_parent ())) {
+
+                            perform_match (target, pattern, check_is_text);
+                        }
+
+                        return 0; //TODO Allow cancelling?
+                    });
+                } catch (Error err) {
+                    warning ("Error getting file status: %s", err.message);
+                }
+            } else {
+                search_folder_children (start_folder, pattern, recurse_subfolders);
+            }
+
+            return;
+        }
+
+        private void search_folder_children (GLib.File start_folder, Regex pattern, bool recurse_subfolders) {
+            try {
+                var enumerator = start_folder.enumerate_children (
+                    FileAttribute.STANDARD_CONTENT_TYPE + "," + FileAttribute.STANDARD_TYPE,
+                    FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                    null
+                );
+
+                unowned FileInfo info = null;
+                unowned GLib.File child = null;
+                while (enumerator.iterate (out info, out child, null) && info != null) {
+                    if (info != null && info.has_attribute (FileAttribute.STANDARD_TYPE)) {
+                        if (info.get_file_type () == FileType.DIRECTORY) {
+                            if (recurse_subfolders) {
+                                search_folder_children (child, pattern, false); //Limit depth to 1
+                            }
+                        } else {
+                            perform_match (child, pattern, true, info);
+                        }
+                    }
+                }
+            } catch (Error enumerate_error) {
+                warning ("Error enumerating children of %s: %s", start_folder.get_path (), enumerate_error.message);
+            }
+        }
+
+        private void perform_match (GLib.File target,
+                                    Regex pattern,
+                                    bool check_is_text = false,
+                                    FileInfo? target_info = null) {
+            string contents;
+            string target_path = target.get_path ();
+            if (check_is_text) {
+                FileInfo? info = null;
+                if (target_info == null) {
+                    try {
+                        info = target.query_info (
+                            FileAttribute.STANDARD_CONTENT_TYPE,
+                            FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                            null
+                        );
+                    } catch (Error query_error) {
+                        warning (
+                            "Error getting file info for %s: %s.  Ignoring.", target.get_path (), query_error.message
+                        );
+                    }
+                } else {
+                    info = target_info;
+                }
+
+                if (info == null) {
+                    return;
+                }
+
+                var type = info.get_content_type ();
+                if (!ContentType.is_mime_type (type, "text/*") ||
+                    ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
+
+                    return;
+                }
+            }
+
+            try {
+                FileUtils.get_contents (target_path, out contents);
+            } catch (Error e) {
+                warning ("error getting contents: %s", e.message);
+                return;
+            }
+
+            MatchInfo? match_info = null;
+            int match_count = 0;
+            try {
+                for (pattern.match (contents, 0, out match_info);
+                    match_info.matches ();
+                    match_info.next ()) {
+
+                    match_count++;
+                }
+            } catch (RegexError next_error) {
+                critical ("Error getting next match: %s", next_error.message);
+            }
+
+            if (match_count > 0) {
+                unowned var item = view.expand_to_path (target_path);
+                if (item != null) {
+                    item.badge = match_count.to_string ();
+                }
+            }
+
+            return;
+        }
+
         private class ChangeBranchMenu : Gtk.MenuItem {
-            public ChangeBranchMenu (Scratch.Services.MonitoredRepository monitored_repo) requires (monitored_repo != null) {
-                string current_branch_name = monitored_repo.get_current_branch ();
-                string[] local_branch_names = monitored_repo.get_local_branches ();
+            public Scratch.Services.MonitoredRepository monitored_repo {
+                get {
+                    return project_folder.monitored_repo;
+                }
+            }
+            public ProjectFolderItem project_folder { get; construct; }
+            public ChangeBranchMenu (ProjectFolderItem project_folder) {
+                 Object (
+                     project_folder: project_folder
+                 );
+            }
+
+            construct {
+                assert_nonnull (monitored_repo);
+                unowned var current_branch_name = monitored_repo.get_current_branch ();
                 var change_branch_menu = new Gtk.Menu ();
 
-                foreach (var branch_name in local_branch_names) {
+                foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
                     var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
                     branch_item.draw_as_radio = true;
 
@@ -196,10 +464,29 @@ namespace Scratch.FolderManager {
                         try {
                             monitored_repo.change_branch (branch_name);
                         } catch (GLib.Error e) {
-                            warning ("Failed to change branch to %s.  %s", name, e.message);
+                            warning ("Failed to change branch to %s. %s", name, e.message);
                         }
                     });
                 }
+
+                var main_window = (MainWindow)((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+                Utils.action_from_group (
+                    MainWindow.ACTION_NEW_BRANCH, main_window.actions
+                ).set_enabled (monitored_repo.head_is_branch);
+
+                var accel_label = new Granite.AccelLabel.from_action_name (
+                    _("New Branch…"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH + "::"
+                );
+
+                var branch_item = new Gtk.MenuItem () {
+                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                    action_target = project_folder.file.file.get_path ()
+                };
+                branch_item.add (accel_label);
+
+                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
+                change_branch_menu.add (branch_item);
 
                 label = _("Branch");
                 submenu = change_branch_menu;
