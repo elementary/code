@@ -177,7 +177,9 @@ namespace Scratch.Services {
                             } else {
                                 var target = head.get_target ();
                                 if (target != null) {
-                                    target_name = "%.8s..".printf (target.to_string ());
+                                    ///TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+                                    target_name = _("%.8s (detached)").printf (target.to_string ());
+                                    // Do we need to expose a warning regarding the detached-head state like Git does?
                                 }
                             }
                         } catch (Error e) {
