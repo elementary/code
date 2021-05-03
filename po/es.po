@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-29 16:54+0000\n"
+"PO-Revision-Date: 2021-05-02 17:33+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -87,14 +87,13 @@ msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
-#, fuzzy, c-format
-#| msgid "Search text in folder '%s'"
+#, c-format
 msgid "Search for text in “%s”"
-msgstr "Buscar texto en la carpeta '%s'"
+msgstr "Buscar texto en “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "El término de búsqueda debe tener al menos 3 caracteres."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -109,15 +108,16 @@ msgid "Search"
 msgstr "Buscar"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new branch of “%s”"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Crea una nueva rama de “%s”"
+msgstr "Crea una nueva rama de “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
+"El nombre de la rama debe cumplir con las reglas de Git y no debe existir "
+"todavía."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
