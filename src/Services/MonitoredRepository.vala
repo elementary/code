@@ -110,7 +110,6 @@ namespace Scratch.Services {
                 git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
                 git_monitor.changed.connect (() => {
                     update_status_map ();
-                    file_content_changed (); //If displayed in SourceView signal update of gutter
                 });
             } catch (IOError e) {
                 warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
@@ -237,6 +236,8 @@ namespace Scratch.Services {
                         return Source.CONTINUE;
                     }
                 });
+
+                file_content_changed (); //If displayed in SourceView signal update of gutter
             } else {
                 do_update = false;
             }
@@ -247,23 +248,21 @@ namespace Scratch.Services {
         }
 
         private bool refreshing = false;
-        public bool refresh_diff (string file_path,
+        public void refresh_diff (string file_path,
                                   ref Gee.HashMap<int, VCStatus> line_status_map) {
 
-
-
             if (refreshing) {
-                return false;
+                return;
+            } else {
+                refreshing = true;
             }
+
             // Need to have our own map since the callback closures cannot capture
             // a reference to the ref parameter. Vala bug??
             // var status_map = new Gee.HashMap<int, VCStatus> ();
-            line_status_map.clear ();
             var status_map = line_status_map;
 
-            bool result = false;
-            refreshing = true;
-            int prev_deletion = -1;
+            int prev_deletion = -2;
             int prev_delta = 0;
             try {
                 var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
@@ -291,11 +290,8 @@ namespace Scratch.Services {
                         );
 
                         return 0;
-
                     }
                 );
-
-                result = true;
             } catch (Error e) {
                 critical ("Error getting diff list %s", e.message);
             } finally {
@@ -303,7 +299,6 @@ namespace Scratch.Services {
             }
 
             line_status_map = status_map;
-            return result;
         }
 
         private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,

@@ -66,6 +66,12 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public void child_folder_changed (FolderItem folder) {
+            if (monitored_repo != null) {
+                monitored_repo.update_status_map ();
+            }
+        }
+
         public void child_folder_loaded (FolderItem folder) {
             foreach (var child in folder.children) {
                 if (child is Item) {
@@ -437,8 +443,8 @@ namespace Scratch.FolderManager {
             return;
         }
 
-        public bool refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
-            return monitored_repo.refresh_diff (doc_path, ref line_status_map);
+        public void refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
+            monitored_repo.refresh_diff (doc_path, ref line_status_map);
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {

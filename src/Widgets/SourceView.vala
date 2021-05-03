@@ -28,6 +28,7 @@ namespace Scratch.Widgets {
         public Gtk.TextTag error_tag;
 
         public GLib.File location { get; set; }
+        public FolderManager.ProjectFolderItem project { get; set; default = null; }
 
         private string font;
         private uint selection_changed_timer = 0;
@@ -184,8 +185,15 @@ namespace Scratch.Widgets {
             // Make the gutter renderer and insert into the left side of the source view.
             git_diff_gutter_renderer = new SourceGutterRenderer ();
             get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
-            notify["location"].connect (() => {
-                git_diff_gutter_renderer.doc_path = location.get_path ();
+
+            notify["project"].connect (() => {
+                //Assuming project will not change again
+                if (project.is_git_repo) {
+                    schedule_refresh_diff ();
+                    project.monitored_repo.file_content_changed.connect (() => {
+                        schedule_refresh_diff ();
+                    });
+                }
             });
         }
 
@@ -583,8 +591,19 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        public void set_project (FolderManager.ProjectFolderItem? project) {
-            git_diff_gutter_renderer.project = project;
+        uint refresh_diff_timeout_id = 0;
+        private void schedule_refresh_diff () {
+            if (refresh_diff_timeout_id > 0) {
+                Source.remove (refresh_diff_timeout_id);
+            }
+
+            refresh_diff_timeout_id = Timeout.add (250, () => {
+                refresh_diff_timeout_id = 0;
+                git_diff_gutter_renderer.line_status_map.clear ();
+                project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
+                queue_draw ();
+                return Source.REMOVE;
+            });
         }
     }
 }
