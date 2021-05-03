@@ -583,19 +583,8 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        public void refresh_gutter () {
-            if (git_diff_gutter_renderer.project_set) {
-                git_diff_gutter_renderer.refresh ();
-            }
-        }
-
         public void set_project (FolderManager.ProjectFolderItem? project) {
             git_diff_gutter_renderer.project = project;
-            refresh_gutter ();
-        }
-
-        public bool project_not_set () {
-            return !git_diff_gutter_renderer.project_set;
         }
     }
 }

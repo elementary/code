@@ -16,20 +16,22 @@ namespace Scratch.Widgets {
 
             set {
                 _doc_path = value;
-                refresh ();
             }
         }
 
-        public bool project_set {
-            get {
-                return project != null;
-            }
-        }
-
-        public SourceGutterRenderer () {
+        construct {
             line_status_map = new Gee.HashMap<int, Services.VCStatus> ();
             set_size (3);
             set_visible (true);
+            notify["project"].connect (() => {
+                //Assuming project will not change again
+                if (project.is_git_repo) {
+                    project.refresh_diff (ref line_status_map, _doc_path);
+                    project.monitored_repo.file_content_changed.connect (() => {
+                        project.refresh_diff (ref line_status_map, _doc_path);
+                    });
+                }
+            });
         }
 
         public override void draw (Cairo.Context cr,
@@ -39,17 +41,14 @@ namespace Scratch.Widgets {
                                    Gtk.TextIter end,
                                    Gtk.SourceGutterRendererState state) {
 
-            base.draw (cr, bg, area, start, end, state);
             var gutter_line_no = start.get_line () + 2; // For some reason, all the diffs are off by two lines...?
             if (line_status_map.has_key (gutter_line_no)) {
                 set_background (line_status_map.get (gutter_line_no).to_rgba ());
             } else {
                 set_background (Services.VCStatus.NONE.to_rgba ());
             }
-        }
 
-        public void refresh () {
-            project.refresh_diff (ref line_status_map, _doc_path);
+            base.draw (cr, bg, area, start, end, state);
         }
     }
 }

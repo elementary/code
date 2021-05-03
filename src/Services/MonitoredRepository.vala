@@ -78,6 +78,7 @@ namespace Scratch.Services {
         public signal void branch_changed (string new_branch_name);
         public signal void ignored_changed ();
         public signal void file_status_change ();
+        public signal void file_content_changed ();
 
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
@@ -107,7 +108,10 @@ namespace Scratch.Services {
 
             try {
                 git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                git_monitor.changed.connect (update);
+                git_monitor.changed.connect (() => {
+                    update_status_map ();
+                    file_content_changed (); //If displayed in SourceView signal update of gutter
+                });
             } catch (IOError e) {
                 warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
             }
@@ -196,7 +200,7 @@ namespace Scratch.Services {
         }
 
         private bool do_update = false;
-        public void update () {
+        public void update_status_map () {
             if (update_timer_id == 0) {
                 update_timer_id = Timeout.add (150, () => {
                     if (do_update) {
@@ -246,19 +250,21 @@ namespace Scratch.Services {
         public bool refresh_diff (string file_path,
                                   ref Gee.HashMap<int, VCStatus> line_status_map) {
 
+
+
+            if (refreshing) {
+                return false;
+            }
             // Need to have our own map since the callback closures cannot capture
             // a reference to the ref parameter. Vala bug??
             // var status_map = new Gee.HashMap<int, VCStatus> ();
             line_status_map.clear ();
             var status_map = line_status_map;
 
-            if (refreshing) {
-                return false;
-            }
-
             bool result = false;
             refreshing = true;
             int prev_deletion = -1;
+            int prev_delta = 0;
             try {
                 var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
                 repo_diff_list.foreach (null, null, null,
@@ -280,7 +286,8 @@ namespace Scratch.Services {
                                            line.get_new_lineno (),
                                            line.get_old_lineno (),
                                            ref status_map,
-                                           ref prev_deletion
+                                           ref prev_deletion,
+                                           ref prev_delta
                         );
 
                         return 0;
@@ -301,19 +308,26 @@ namespace Scratch.Services {
 
         private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,
                                         ref Gee.HashMap<int, VCStatus> line_status_map,
-                                        ref int prev_deletion) {
-
+                                        ref int prev_deletion,
+                                        ref int prev_delta) {
 
             if (line_type == Ggit.DiffLineType.CONTEXT) {
                 return;
-            } else if (new_line_no < 0) {
+            }
+
+            if (new_line_no < 0) {
                 prev_deletion = old_line_no; //TODO deal with showing deleted lines (no longer present in SourceView)
+                prev_delta--;
                 return;
             } else {
                 if (old_line_no < 0) { //Line added
-                    line_status_map.set (
-                        new_line_no, new_line_no == prev_deletion ? VCStatus.MODIFIED :VCStatus.ADDED
-                    );
+                    prev_delta++;
+                    if (new_line_no != prev_deletion + prev_delta) {
+                        line_status_map.set (new_line_no, VCStatus.ADDED);
+                    } else {
+                        line_status_map.set (new_line_no, VCStatus.MODIFIED);
+                    }
+
                 } else {
                     line_status_map.set (new_line_no, VCStatus.OTHER);
                 }

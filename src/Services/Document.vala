@@ -206,8 +206,6 @@ namespace Scratch.Services {
                 } else {
                     set_saved_status (true);
                 }
-
-                source_view.refresh_gutter ();
             });
 
             /* Create as loaded - could be new document */
@@ -567,14 +565,8 @@ namespace Scratch.Services {
             }
         }
 
-        // When switching between tabs, refresh the source view gutter
-        public void refresh_sourceview_gutter () {
-            source_view.refresh_gutter ();
-        }
-
         // Focus the SourceView
         public new void focus () {
-            source_view.refresh_gutter ();
             source_view.grab_focus ();
         }
 
