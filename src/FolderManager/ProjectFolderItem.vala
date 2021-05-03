@@ -40,8 +40,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        // Temporarily expose for SourceGutterRenderer.
-        public Ggit.Repository? git_repo {
+        private Ggit.Repository? git_repo {
             get {
                 return (is_git_repo ? monitored_repo.git_repo : null);
             }

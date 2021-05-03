@@ -25,8 +25,6 @@ namespace Scratch.Services {
         READONLY
     }
 
-
-
     public class Document : Granite.Widgets.Tab {
         private const uint LOAD_TIMEOUT_MSEC = 5000;
 

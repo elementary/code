@@ -192,7 +192,8 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file, out List<ProjectFolderItem> project_list) {
+        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file,
+                                                              out List<ProjectFolderItem> project_list) {
             unowned ProjectFolderItem? project = null;
             project_list = null;
             foreach (var child in root.children) {
@@ -204,7 +205,6 @@ namespace Scratch.FolderManager {
 
                 if (active_file != null)
                     if (project.file.file.equal (active_file) ||
-                        // project.file.file.get_relative_path (active_file) != null) {
                         project.contains_file (active_file)) {
 
                     return project;

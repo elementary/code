@@ -248,8 +248,7 @@ namespace Scratch.Services {
         }
 
         private bool refreshing = false;
-        public void refresh_diff (string file_path,
-                                  ref Gee.HashMap<int, VCStatus> line_status_map) {
+        public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {
 
             if (refreshing) {
                 return;
