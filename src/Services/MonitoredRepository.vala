@@ -261,8 +261,8 @@ namespace Scratch.Services {
             // var status_map = new Gee.HashMap<int, VCStatus> ();
             var status_map = line_status_map;
 
-            int prev_deletion = -2;
-            int prev_delta = 0;
+            int prev_deletions = 0;
+            int prev_additions = 0;
             try {
                 var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
                 repo_diff_list.foreach (null, null, null,
@@ -284,8 +284,8 @@ namespace Scratch.Services {
                                            line.get_new_lineno (),
                                            line.get_old_lineno (),
                                            ref status_map,
-                                           ref prev_deletion,
-                                           ref prev_delta
+                                           ref prev_deletions,
+                                           ref prev_additions
                         );
 
                         return 0;
@@ -302,24 +302,27 @@ namespace Scratch.Services {
 
         private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,
                                         ref Gee.HashMap<int, VCStatus> line_status_map,
-                                        ref int prev_deletion,
-                                        ref int prev_delta) {
+                                        ref int prev_deletions,
+                                        ref int prev_additions) {
 
             if (line_type == Ggit.DiffLineType.CONTEXT) {
+                prev_deletions = 0;
+                prev_additions = 0;
                 return;
             }
 
             if (new_line_no < 0) {
-                prev_deletion = old_line_no; //TODO deal with showing deleted lines (no longer present in SourceView)
-                prev_delta--;
+                prev_deletions++;
+                prev_additions = 0;
                 return;
             } else {
                 if (old_line_no < 0) { //Line added
-                    prev_delta++;
-                    if (new_line_no != prev_deletion + prev_delta) {
-                        line_status_map.set (new_line_no, VCStatus.ADDED);
-                    } else {
+                    prev_additions++;
+                    if (prev_deletions >= prev_additions) {
                         line_status_map.set (new_line_no, VCStatus.MODIFIED);
+                    } else {
+                        line_status_map.set (new_line_no, VCStatus.ADDED);
+                        prev_deletions = 0;
                     }
 
                 } else {
@@ -327,8 +330,6 @@ namespace Scratch.Services {
                 }
 
             }
-
-            prev_deletion = -1;
         }
     }
 }
