@@ -19,6 +19,33 @@
  */
 
 namespace Scratch.Services {
+    public enum VCStatus {
+        NONE,
+        ADDED,
+        MODIFIED,
+        DELETED;
+
+        public Gdk.RGBA to_rgba () {
+            var color = Gdk.RGBA ();
+            switch (this) {
+                case ADDED:
+                    color.parse ("#68b723");
+                    break;
+                case MODIFIED:
+                    color.parse ("#f37329");
+                    break;
+                case DELETED:
+                    color.parse ("#c6262e");
+                    break;
+                default:
+                    color.parse ("#000000");
+                    break;
+            }
+
+            return color;
+        }
+    }
+
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
         public string branch_name {
@@ -209,6 +236,85 @@ namespace Scratch.Services {
 
         public bool path_is_ignored (string path) throws Error {
             return git_repo.path_is_ignored (path);
+        }
+
+        private bool refreshing = false;
+        public bool refresh_diff (string file_path,
+                                  ref Gee.HashMap<int, VCStatus> line_status_map) {
+
+            // Need to have our own map since the callback closures cannot capture
+            // a reference to the ref parameter. Vala bug??
+            // var status_map = new Gee.HashMap<int, VCStatus> ();
+            var status_map = line_status_map;
+
+            if (refreshing) {
+                return false;
+            }
+
+            bool result = false;
+            refreshing = true;
+            bool? prev_addition = null;
+            bool? prev_deletion = null;
+            try {
+                var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+                repo_diff_list.foreach (null, null, null,
+                    (delta, hunk, line) => {
+                        unowned var file_diff = delta.get_old_file ();
+                        string? diff_file_path = null;
+                        if (file_diff != null) {
+                            diff_file_path = file_diff.get_path ();
+                        }
+
+                        // Only process the diff if its for the file in focus.
+                        if (diff_file_path == null ||
+                            !(file_path.has_suffix (diff_file_path))) {
+                            return 0;
+                        }
+
+                        process_diff_line (line.get_origin (), line.get_new_lineno (),
+                                           ref status_map,
+                                           ref prev_addition,
+                                           ref prev_deletion
+                        );
+
+                        return 0;
+
+                    }
+                );
+
+                result = true;
+            } catch (Error e) {
+                critical ("Error getting diff list %s", e.message);
+            } finally {
+                refreshing = false;
+            }
+
+            line_status_map = status_map;
+            return result;
+        }
+
+        private void process_diff_line (Ggit.DiffLineType line_type, int line_no,
+                                        ref Gee.HashMap<int, VCStatus> line_status_map,
+                                        ref bool? prev_addition,
+                                        ref bool? prev_deletion) {
+
+            bool is_addition = line_type == Ggit.DiffLineType.ADDITION;
+            bool is_deletion = line_type == Ggit.DiffLineType.DELETION;
+            bool addition_match = is_addition == prev_addition;
+            bool deletion_match = is_deletion == prev_deletion;
+            bool is_modified = prev_addition != null ? !(addition_match || deletion_match) : false;
+            bool is_deleted = prev_addition != null ? addition_match && !deletion_match : false;
+
+            if (is_modified) {
+                line_status_map.set (line_no, VCStatus.MODIFIED);
+            } else if (is_addition) {
+                line_status_map.set (line_no, VCStatus.ADDED);
+            } else if (is_deleted) {
+                line_status_map.set (line_no, VCStatus.DELETED);
+            }
+
+            prev_addition = is_addition;
+            prev_deletion = is_deletion;
         }
     }
 }

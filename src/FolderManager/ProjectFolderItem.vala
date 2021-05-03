@@ -443,6 +443,10 @@ namespace Scratch.FolderManager {
             return;
         }
 
+        public bool refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
+            return monitored_repo.refresh_diff (doc_path, ref line_status_map);
+        }
+
         private class ChangeBranchMenu : Gtk.MenuItem {
             public Scratch.Services.MonitoredRepository monitored_repo {
                 get {

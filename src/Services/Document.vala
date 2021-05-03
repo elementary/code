@@ -25,6 +25,8 @@ namespace Scratch.Services {
         READONLY
     }
 
+
+
     public class Document : Granite.Widgets.Tab {
         private const uint LOAD_TIMEOUT_MSEC = 5000;
 
@@ -204,6 +206,8 @@ namespace Scratch.Services {
                 } else {
                     set_saved_status (true);
                 }
+
+                source_view.refresh_gutter ();
             });
 
             /* Create as loaded - could be new document */

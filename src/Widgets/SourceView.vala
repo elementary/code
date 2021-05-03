@@ -184,6 +184,9 @@ namespace Scratch.Widgets {
             // Make the gutter renderer and insert into the left side of the source view.
             git_diff_gutter_renderer = new SourceGutterRenderer ();
             get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
+            notify["location"].connect (() => {
+                git_diff_gutter_renderer.doc_path = location.get_path ();
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -582,12 +585,12 @@ namespace Scratch.Widgets {
 
         public void refresh_gutter () {
             if (git_diff_gutter_renderer.project_set) {
-                git_diff_gutter_renderer.reload (location.get_path ());
+                git_diff_gutter_renderer.refresh ();
             }
         }
 
         public void set_project (FolderManager.ProjectFolderItem? project) {
-            git_diff_gutter_renderer.set_project (project);
+            git_diff_gutter_renderer.project = project;
             refresh_gutter ();
         }
 
