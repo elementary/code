@@ -49,7 +49,7 @@ namespace Scratch.Widgets {
         }
 
         public void refresh () {
-            project.refresh_diff (ref line_status_map, _doc_path); 
+            project.refresh_diff (ref line_status_map, _doc_path);
         }
     }
 }
