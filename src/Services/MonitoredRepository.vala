@@ -23,22 +23,26 @@ namespace Scratch.Services {
         NONE,
         ADDED,
         MODIFIED,
-        DELETED;
+        DELETED,
+        OTHER;
 
         public Gdk.RGBA to_rgba () {
             var color = Gdk.RGBA ();
             switch (this) {
                 case ADDED:
-                    color.parse ("#68b723");
+                    color.parse ("#68b723"); //Lime 500
                     break;
                 case MODIFIED:
-                    color.parse ("#f37329");
+                    color.parse ("#f37329"); //Orange 500
                     break;
                 case DELETED:
-                    color.parse ("#c6262e");
+                    color.parse ("#c6262e"); //Strawberry 500
+                    break;
+                case OTHER:
+                    color.parse ("#3689e6"); //Blueberry 500
                     break;
                 default:
-                    color.parse ("#000000");
+                    color.parse ("#000000"); //Transparent
                     break;
             }
 
@@ -245,6 +249,7 @@ namespace Scratch.Services {
             // Need to have our own map since the callback closures cannot capture
             // a reference to the ref parameter. Vala bug??
             // var status_map = new Gee.HashMap<int, VCStatus> ();
+            line_status_map.clear ();
             var status_map = line_status_map;
 
             if (refreshing) {
@@ -253,27 +258,28 @@ namespace Scratch.Services {
 
             bool result = false;
             refreshing = true;
-            bool? prev_addition = null;
-            bool? prev_deletion = null;
+            int prev_deletion = -1;
             try {
                 var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
                 repo_diff_list.foreach (null, null, null,
                     (delta, hunk, line) => {
                         unowned var file_diff = delta.get_old_file ();
-                        string? diff_file_path = null;
-                        if (file_diff != null) {
-                            diff_file_path = file_diff.get_path ();
-                        }
-
-                        // Only process the diff if its for the file in focus.
-                        if (diff_file_path == null ||
-                            !(file_path.has_suffix (diff_file_path))) {
+                        if (file_diff == null) {
                             return 0;
                         }
 
-                        process_diff_line (line.get_origin (), line.get_new_lineno (),
+                        unowned var diff_file_path = file_diff.get_path ();
+                        // Only process the diff if its for the file in focus.
+                        if (diff_file_path == null ||
+                            !(file_path.has_suffix (diff_file_path))) {
+
+                            return 0;
+                        }
+
+                        process_diff_line (line.get_origin (),
+                                           line.get_new_lineno (),
+                                           line.get_old_lineno (),
                                            ref status_map,
-                                           ref prev_addition,
                                            ref prev_deletion
                         );
 
@@ -293,28 +299,29 @@ namespace Scratch.Services {
             return result;
         }
 
-        private void process_diff_line (Ggit.DiffLineType line_type, int line_no,
+        private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,
                                         ref Gee.HashMap<int, VCStatus> line_status_map,
-                                        ref bool? prev_addition,
-                                        ref bool? prev_deletion) {
+                                        ref int prev_deletion) {
 
-            bool is_addition = line_type == Ggit.DiffLineType.ADDITION;
-            bool is_deletion = line_type == Ggit.DiffLineType.DELETION;
-            bool addition_match = is_addition == prev_addition;
-            bool deletion_match = is_deletion == prev_deletion;
-            bool is_modified = prev_addition != null ? !(addition_match || deletion_match) : false;
-            bool is_deleted = prev_addition != null ? addition_match && !deletion_match : false;
 
-            if (is_modified) {
-                line_status_map.set (line_no, VCStatus.MODIFIED);
-            } else if (is_addition) {
-                line_status_map.set (line_no, VCStatus.ADDED);
-            } else if (is_deleted) {
-                line_status_map.set (line_no, VCStatus.DELETED);
+            if (line_type == Ggit.DiffLineType.CONTEXT) {
+                return;
+            } else if (new_line_no < 0) {
+                prev_deletion = old_line_no; //TODO deal with showing deleted lines (no longer present in SourceView)
+                return;
+            } else {
+                if (old_line_no < 0) { //Line added
+                    line_status_map.set (
+                        new_line_no, new_line_no == prev_deletion ? VCStatus.MODIFIED :VCStatus.ADDED
+                    );
+                } else {
+                    line_status_map.set (new_line_no, VCStatus.OTHER);
+                }
+
             }
 
-            prev_addition = is_addition;
-            prev_deletion = is_deletion;
+            prev_deletion = -1;
         }
     }
 }
+

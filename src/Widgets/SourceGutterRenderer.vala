@@ -43,6 +43,8 @@ namespace Scratch.Widgets {
             var gutter_line_no = start.get_line () + 2; // For some reason, all the diffs are off by two lines...?
             if (line_status_map.has_key (gutter_line_no)) {
                 set_background (line_status_map.get (gutter_line_no).to_rgba ());
+            } else {
+                set_background (Services.VCStatus.NONE.to_rgba ());
             }
         }
 
