@@ -23,7 +23,8 @@ namespace Scratch.Services {
         NONE,
         ADDED,
         MODIFIED,
-        DELETED,
+        DELETED, //Cannot show in normal SourceView but for future use in Diff view?
+        REPLACES_DELETED, //For unmodified lines that replace deleted lines
         OTHER;
 
         public Gdk.RGBA to_rgba () {
@@ -38,7 +39,7 @@ namespace Scratch.Services {
                 case DELETED:
                     color.parse ("#c6262e"); //Strawberry 500
                     break;
-                case OTHER:
+                case REPLACES_DELETED:
                     color.parse ("#3689e6"); //Blueberry 500
                     break;
                 default:
@@ -317,6 +318,9 @@ namespace Scratch.Services {
                                         ref int prev_additions) {
 
             if (line_type == Ggit.DiffLineType.CONTEXT) {
+                if (prev_deletions > 0) {
+                    line_status_map.set (new_line_no, VCStatus.REPLACES_DELETED);
+                }
                 prev_deletions = 0;
                 prev_additions = 0;
                 return;
@@ -327,10 +331,11 @@ namespace Scratch.Services {
                 prev_additions = 0;
                 return;
             } else {
-                if (old_line_no < 0) { //Line added
+                if (line_type == Ggit.DiffLineType.ADDITION) { //Line added
                     prev_additions++;
                     if (prev_deletions >= prev_additions) {
                         line_status_map.set (new_line_no, VCStatus.MODIFIED);
+                        prev_deletions--;
                     } else {
                         line_status_map.set (new_line_no, VCStatus.ADDED);
                         prev_deletions = 0;
