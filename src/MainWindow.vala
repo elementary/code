@@ -1111,11 +1111,11 @@ namespace Scratch {
             );
             message_dialog.badge_icon = new ThemedIcon ("dialog-error");
             message_dialog.transient_for = this;
-    
+
             message_dialog.show_error_details (string.joinv ("\n", project_output.data));
-    
+
             message_dialog.show_all ();
-            message_dialog.response.connect ((response_id) => {    
+            message_dialog.response.connect ((response_id) => {
                 message_dialog.destroy ();
             });
         }
