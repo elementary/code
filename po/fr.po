@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-29 16:54+0000\n"
+"PO-Revision-Date: 2021-05-03 15:13+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -87,14 +87,13 @@ msgid "_Cancel"
 msgstr "_Annuler"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
-#, fuzzy, c-format
-#| msgid "Search text in folder '%s'"
+#, c-format
 msgid "Search for text in “%s”"
 msgstr "Rechercher du texte dans le dossier « %s »"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "La recherche doit faire au moins 3 caractères de long."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -109,15 +108,16 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new branch of “%s”"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Créer une nouvelle branche à partir de « %s »"
+msgstr "Créer une nouvelle branche à partir de « %s/%s »"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
+"Le nom de la branche doit être conforme aux principes de Git et ne doit pas "
+"déjà exister."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
