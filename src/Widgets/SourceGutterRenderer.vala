@@ -12,7 +12,6 @@ namespace Scratch.Widgets {
             line_status_map = new Gee.HashMap<int, Services.VCStatus> ();
             set_size (3);
             set_visible (true);
-
         }
 
         public override void draw (Cairo.Context cr,

@@ -23,8 +23,8 @@ namespace Scratch.Services {
         NONE,
         ADDED,
         MODIFIED,
-        DELETED, //Cannot show in normal SourceView but for future use in Diff view?
-        REPLACES_DELETED, //For unmodified lines that replace deleted lines
+        DELETED, // Cannot show in normal SourceView but for future use in Diff view?
+        REPLACES_DELETED, // For unmodified lines that replace deleted lines
         OTHER;
 
         public Gdk.RGBA to_rgba () {
@@ -255,7 +255,6 @@ namespace Scratch.Services {
 
         private bool refreshing = false;
         public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {
-
             if (refreshing) {
                 return;
             } else {
@@ -315,6 +314,7 @@ namespace Scratch.Services {
                 if (prev_deletions > 0) {
                     line_status_map.set (new_line_no, VCStatus.REPLACES_DELETED);
                 }
+
                 prev_deletions = 0;
                 prev_additions = 0;
                 return;
@@ -334,11 +334,9 @@ namespace Scratch.Services {
                         line_status_map.set (new_line_no, VCStatus.ADDED);
                         prev_deletions = 0;
                     }
-
                 } else {
                     line_status_map.set (new_line_no, VCStatus.OTHER);
                 }
-
             }
         }
     }
