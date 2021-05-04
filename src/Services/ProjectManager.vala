@@ -28,7 +28,7 @@ public class Scratch.Services.ProjectManager : Object {
 
     private Pid command_pid;
 
-    public FlatpakManifest? flatpak_manifest () {
+    public FlatpakManifest? get_flatpak_manifest () {
         Dir dir;
         try {
             dir = Dir.open (project_path, 0);
@@ -52,7 +52,7 @@ public class Scratch.Services.ProjectManager : Object {
 
                         var flatpak_manifest = new FlatpakManifest () {
                             manifest = f,
-                            build_dir = Path.build_filename (project_path, "build")
+                            build_dir = Path.build_filename (project_path, "flatpak-build")
                         };
 
                         MatchInfo mi;
@@ -81,7 +81,7 @@ public class Scratch.Services.ProjectManager : Object {
 
                         return new FlatpakManifest () {
                             manifest = f,
-                            build_dir = Path.build_filename (project_path, "build"),
+                            build_dir = Path.build_filename (project_path, "flatpak-build"),
                             app_id = object.get_string_member ("app-id"),
                             command = object.get_string_member ("command")
                         };
@@ -186,7 +186,7 @@ public class Scratch.Services.ProjectManager : Object {
     }
 
     private async bool build_project () {
-        var flatpak_manifest = flatpak_manifest ();
+        var flatpak_manifest = get_flatpak_manifest ();
         if (flatpak_manifest != null) {
             return yield run_command ({
                 "flatpak-builder",
@@ -200,7 +200,7 @@ public class Scratch.Services.ProjectManager : Object {
     }
 
     private async bool run_project () {
-        var flatpak_manifest = flatpak_manifest ();
+        var flatpak_manifest = get_flatpak_manifest ();
         if (flatpak_manifest != null) {
             return yield run_command ({
                 "flatpak-builder",
