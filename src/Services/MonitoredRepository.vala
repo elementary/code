@@ -52,6 +52,7 @@ namespace Scratch.Services {
 
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
+        private Ggit.Diff repo_diff_list;
         public string branch_name {
             get {
                 return _branch_name;
@@ -100,10 +101,19 @@ namespace Scratch.Services {
             status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
                                                      Ggit.StatusShow.INDEX_AND_WORKDIR,
                                                      null);
+
+            try {
+                repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+            } catch (Error e) {
+                critical ("Error creating diff");
+            }
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
-            git_repo = _git_repo;
+            Object (
+                git_repo: _git_repo
+            );
+
             var git_folder = git_repo.get_location ();
 
             try {
@@ -264,7 +274,6 @@ namespace Scratch.Services {
             int prev_deletions = 0;
             int prev_additions = 0;
             try {
-                var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
                 repo_diff_list.foreach (null, null, null,
                     (delta, hunk, line) => {
                         unowned var file_diff = delta.get_old_file ();
