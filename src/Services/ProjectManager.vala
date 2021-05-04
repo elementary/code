@@ -21,10 +21,16 @@
 
 public class Scratch.Services.ProjectManager : Object {
     public string project_path { get; set; }
+    public string project_name {
+        owned get {
+            return Path.get_basename (project_path);
+        }
+    }
     public bool is_running { get; set; }
 
     public signal void on_standard_output (string line);
     public signal void on_standard_error (string line);
+    public signal void on_clear ();
 
     private Pid command_pid;
 
@@ -220,6 +226,8 @@ public class Scratch.Services.ProjectManager : Object {
             return false;
         }
 
+        on_clear ();
+
         is_running = true;
         var result = yield build_project ();
         is_running = false;
@@ -232,6 +240,8 @@ public class Scratch.Services.ProjectManager : Object {
             debug ("Project “%s“ is already running", project_path);
             return false;
         }
+
+        on_clear ();
 
         is_running = true;
         if (!yield build_project ()) {

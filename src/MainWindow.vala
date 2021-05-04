@@ -25,6 +25,7 @@ namespace Scratch {
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
         private Services.ProjectManager project_manager;
+        private Array<string> project_output;
 
         public weak Scratch.Application app { get; construct; }
 
@@ -271,6 +272,20 @@ namespace Scratch {
             show_all ();
 
             project_manager = new Services.ProjectManager ();
+            project_output = new Array<string> ();
+
+            project_manager.on_standard_output.connect ((line) => {
+                project_output.append_val (line);
+            });
+
+            project_manager.on_standard_error.connect ((line) => {
+                project_output.append_val (line);
+            });
+
+            project_manager.on_clear.connect ((line) => {
+                project_output.set_size (0);
+            });
+
             set_build_run_widgets_sensitive ();
             project_manager.notify.connect ((s, p) => {
                 set_build_run_widgets_sensitive ();
@@ -858,13 +873,19 @@ namespace Scratch {
 
         private void action_build () {
             project_manager.build.begin ((obj, res) => {
-                project_manager.build.end (res);
+                var success = project_manager.build.end (res);
+                if (!success) {
+                    show_error_dialog ();
+                }
             });
         }
 
         private void action_run () {
             project_manager.build_install_run.begin ((obj, res) => {
-                project_manager.build_install_run.end (res);
+                var success = project_manager.build_install_run.end (res);
+                if (!success) {
+                    show_error_dialog ();
+                }
             });
         }
 
@@ -1080,6 +1101,23 @@ namespace Scratch {
             }
 
             folder_manager_view.new_branch (file);
+        }
+
+        private void show_error_dialog () {
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Project “%s“ could not be built").printf (project_manager.project_name),
+                "",
+                "media-playback-start"
+            );
+            message_dialog.badge_icon = new ThemedIcon ("dialog-error");
+            message_dialog.transient_for = this;
+    
+            message_dialog.show_error_details (string.joinv ("\n", project_output.data));
+    
+            message_dialog.show_all ();
+            message_dialog.response.connect ((response_id) => {    
+                message_dialog.destroy ();
+            });
         }
     }
 }
