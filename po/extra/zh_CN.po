@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-05 08:36+0000\n"
+"PO-Revision-Date: 2021-05-05 10:47+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -107,11 +107,11 @@ msgstr "新特性："
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件"
+msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件。"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "在项目文件夹中进行全文搜索。"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
@@ -276,58 +276,56 @@ msgstr "修复移除当前视图的问题"
 
 #: data/io.elementary.code.appdata.xml.in:148
 msgid "Fix New Window desktop action behavior"
-msgstr "修复新的窗口桌面操作行为"
+msgstr "修复“新窗口”桌面操作行为"
 
 #: data/io.elementary.code.appdata.xml.in:149
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
-msgstr ""
+msgstr "按下 Ctrl+N 组合键次数与生成的新文档数量现已正确同步"
 
 #: data/io.elementary.code.appdata.xml.in:150
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "为 editorconfig 依赖构建系统修复"
 
 #: data/io.elementary.code.appdata.xml.in:151
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "添加“更改分支”上下文菜单项"
 
 #: data/io.elementary.code.appdata.xml.in:152
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "避免与插件加载方式相关的启动崩溃"
 
 #: data/io.elementary.code.appdata.xml.in:160
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "更智能的文件保存行为"
 
 #: data/io.elementary.code.appdata.xml.in:161
 msgid "File saving fixes"
-msgstr ""
+msgstr "修复文件保存相关问题"
 
 #: data/io.elementary.code.appdata.xml.in:162
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "不再将临时文件添加到还原选项卡"
 
 #: data/io.elementary.code.appdata.xml.in:170
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "还原会话时不重新创建已删除的文件"
 
 #: data/io.elementary.code.appdata.xml.in:171
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "恢复换行首选项"
 
 #: data/io.elementary.code.appdata.xml.in:172
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "添加 accel 工具提示"
 
 #: data/io.elementary.code.appdata.xml.in:173
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "次要问题修复"
 
 #: data/io.elementary.code.appdata.xml.in:213
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -355,11 +353,11 @@ msgstr "新窗口"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "以管理员身份运行"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "以管理员身份运行需要进行验证"
 
 #~ msgid "New Document"
 #~ msgstr "新文件"
