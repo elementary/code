@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-05 08:42+0000\n"
+"PO-Revision-Date: 2021-05-05 10:47+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -94,7 +94,7 @@ msgstr "在“%s”中查找文本"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr "搜索字段最低长度为3个字符"
+msgstr "搜索字段最低长度为3个字符。"
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -105,10 +105,8 @@ msgid "Use regular expressions:"
 msgstr "使用正则表达式："
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "下一个"
+msgstr "搜索"
 
 #: src/Dialogs/NewBranchDialog.vala:45
 #, c-format
@@ -276,7 +274,7 @@ msgstr "文件夹"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find in Folder…"
-msgstr "打开文件夹…"
+msgstr "在文件夹中查找…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -311,10 +309,8 @@ msgid "Close Other Folders"
 msgstr "关闭其他文件夹"
 
 #: src/FolderManager/ProjectFolderItem.vala:102
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Project…"
-msgstr "打开项目文件夹…"
+msgstr "在项目中查找…"
 
 #: src/FolderManager/ProjectFolderItem.vala:168
 msgid "Modified"
@@ -323,7 +319,7 @@ msgstr "已修改"
 #: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr "创建新分支 “%s” 时发生错误"
+msgstr "创建新分支： “%s” 时发生错误"
 
 #: src/FolderManager/ProjectFolderItem.vala:478
 #, fuzzy
