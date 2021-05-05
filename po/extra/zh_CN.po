@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-05 08:42+0000\n"
+"PO-Revision-Date: 2021-05-05 10:47+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -107,11 +107,11 @@ msgstr "新特性："
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件"
+msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件。"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "在项目文件夹中进行全文搜索。"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
@@ -324,10 +324,8 @@ msgid "Minor bug fixes"
 msgstr "次要问题修复"
 
 #: data/io.elementary.code.appdata.xml.in:213
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -359,7 +357,7 @@ msgstr "以管理员身份运行"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr "作为管理员运行需要身份验证"
+msgstr "以管理员身份运行需要进行验证"
 
 #~ msgid "New Document"
 #~ msgstr "新文件"
