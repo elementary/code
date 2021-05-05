@@ -96,7 +96,7 @@ namespace Scratch.Services {
         }
 
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view { get; construct; }
+        public Scratch.Widgets.SourceView source_view;
 
         public string original_content;
         private string last_save_content;
