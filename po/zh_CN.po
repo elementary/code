@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
 "PO-Revision-Date: 2021-05-05 08:19+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"Last-Translator: Chengyu Liu <wer5lcy@live.cn>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -129,10 +129,8 @@ msgid "You must have an active git project before creating a new branch."
 msgstr "在创建一个新的分支之前，你必须有一个活跃的Git项目。"
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "侧边栏新建项目文件夹。"
+msgstr "在侧边栏中打开Git项目文件夹。"
 
 #: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
