@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-01-29 13:51+0000\n"
+"PO-Revision-Date: 2021-05-05 08:42+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -90,21 +90,19 @@ msgstr "取消(_C)"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "在“%s”中查找文本"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "搜索字段最低长度为3个字符"
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "不区分大小写"
+msgstr "区分大小写："
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "使用正则表达式："
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
 #, fuzzy
@@ -113,37 +111,32 @@ msgid "Search"
 msgstr "下一个"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "创建新例程"
+msgstr "创建 “%s/%s” 的新分支"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
-msgstr ""
+msgstr "分支名称必须符合 Git 规则，并且不能已经存在。"
 
 #: src/Dialogs/NewBranchDialog.vala:59
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "分支"
+msgstr "创建分支"
 
 #: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
-msgstr ""
+msgstr "在创建一个新的分支之前，您必须有一个活动中的 Git 项目。"
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
 msgid "Open a git project folder in the sidebar."
-msgstr "侧边栏新建项目文件夹。"
+msgstr "从侧边栏打开 Git 项目文件夹。"
 
 #: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
-msgstr ""
+msgstr "使用侧边栏或者项目上下文菜单打开 Git 项目文件夹里的文档。"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -282,10 +275,8 @@ msgid "Folders"
 msgstr "文件夹"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Folder…"
-msgstr "打开项目文件夹…"
+msgstr "打开文件夹…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -326,15 +317,13 @@ msgid "Find in Project…"
 msgstr "打开项目文件夹…"
 
 #: src/FolderManager/ProjectFolderItem.vala:168
-#, fuzzy
-#| msgid "%s, Modified"
 msgid "Modified"
-msgstr "%s, 已修改"
+msgstr "已修改"
 
 #: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "创建新分支 “%s” 时发生错误"
 
 #: src/FolderManager/ProjectFolderItem.vala:478
 #, fuzzy

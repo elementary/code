@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-29 16:54+0000\n"
+"PO-Revision-Date: 2021-05-05 08:42+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -224,104 +224,104 @@ msgstr "不要在文件夹管理器中显示临时文件"
 
 #: data/io.elementary.code.appdata.xml.in:119
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "默认情况下添加括号补全和自动缩进"
 
 #: data/io.elementary.code.appdata.xml.in:120
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "使用键盘缩放终端插件"
 
 #: data/io.elementary.code.appdata.xml.in:121
 msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
+msgstr "保存与恢复遵从全局隐私设置"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "简化“绘制空间”首选项"
 
 #: data/io.elementary.code.appdata.xml.in:126
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "修复了在搜索结果中后退的键盘快捷键问题"
 
 #: data/io.elementary.code.appdata.xml.in:127
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "修复了终端中从对应路径打开文件的问题"
 
 #: data/io.elementary.code.appdata.xml.in:128
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "修复通过程序坞打开新窗口时空文件对话框的问题"
 
 #: data/io.elementary.code.appdata.xml.in:129
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "添加 \"=\" 键作为缩放键"
 
 #: data/io.elementary.code.appdata.xml.in:130
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "当没有找到结果时，更改搜索条目图标"
 
 #: data/io.elementary.code.appdata.xml.in:131
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "在创建新文件之前输入文件名"
 
 #: data/io.elementary.code.appdata.xml.in:139
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "始终使用 Granite.MessageDialog 对话框"
 
 #: data/io.elementary.code.appdata.xml.in:140
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "在侧边栏中包含非文本文件"
 
 #: data/io.elementary.code.appdata.xml.in:141
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "修复移除当前视图的问题"
 
 #: data/io.elementary.code.appdata.xml.in:148
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "修复“新窗口”桌面操作行为"
 
 #: data/io.elementary.code.appdata.xml.in:149
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
-msgstr ""
+msgstr "按下 Ctrl+N 组合键次数与生成的新文档数量现已正确同步"
 
 #: data/io.elementary.code.appdata.xml.in:150
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "为 editorconfig 依赖构建系统修复"
 
 #: data/io.elementary.code.appdata.xml.in:151
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "添加“更改分支”上下文菜单项"
 
 #: data/io.elementary.code.appdata.xml.in:152
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "避免与插件加载方式相关的启动崩溃"
 
 #: data/io.elementary.code.appdata.xml.in:160
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "更智能的文件保存行为"
 
 #: data/io.elementary.code.appdata.xml.in:161
 msgid "File saving fixes"
-msgstr ""
+msgstr "修复文件保存相关问题"
 
 #: data/io.elementary.code.appdata.xml.in:162
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "不再将临时文件添加到还原选项卡"
 
 #: data/io.elementary.code.appdata.xml.in:170
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "还原会话时不重新创建已删除的文件"
 
 #: data/io.elementary.code.appdata.xml.in:171
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "恢复换行首选项"
 
 #: data/io.elementary.code.appdata.xml.in:172
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "添加 accel 工具提示"
 
 #: data/io.elementary.code.appdata.xml.in:173
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "次要问题修复"
 
 #: data/io.elementary.code.appdata.xml.in:213
 #, fuzzy
@@ -355,11 +355,11 @@ msgstr "新窗口"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "以管理员身份运行"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "作为管理员运行需要身份验证"
 
 #~ msgid "New Document"
 #~ msgstr "新文件"
