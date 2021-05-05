@@ -344,6 +344,14 @@ namespace Scratch {
                 });
             });
 
+            folder_manager_view.project_added.connect ((project) => {
+warning ("Main Window project added");
+                toolbar.project_combo.add_project (project);
+            });
+            folder_manager_view.project_removed.connect ((name) => {
+                toolbar.project_combo.remove_project (name);
+            });
+
             folder_manager_view.restore_saved_state ();
 
             bottombar = new Gtk.Notebook ();
@@ -1005,23 +1013,27 @@ namespace Scratch {
             doc.source_view.clear_selected_lines ();
         }
 
+        // param contains path of the target project which may or may not be the currently active one
         private void action_new_branch (SimpleAction action, Variant? param) {
             string path = "";
-            File? file = null;
             if (param != null) {
                 path = param.get_string ();
+            }
+
+            if (path == "") { // Happens when keyboard accelerator is used
+                path = toolbar.active_project.path;
             }
 
             if (path == "") {
                 var current_doc = get_current_document ();
                 if (current_doc != null) {
-                    file = current_doc.file;
+                    path = current_doc.file.get_path ();
+                } else {
+                    return; // Cannot determine target project
                 }
-            } else {
-                file = File.new_for_path (path);
             }
 
-            folder_manager_view.new_branch (file);
+            folder_manager_view.new_branch (path);
         }
     }
 }

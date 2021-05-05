@@ -111,7 +111,7 @@ namespace Scratch.FolderManager {
 
             var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
                 action_name = "win.action_find_global",
-                action_target = new Variant.string (file.file.get_path ())
+                action_target = new Variant.string (path)
             };
 
             var menu = new Gtk.Menu ();

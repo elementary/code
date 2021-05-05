@@ -21,7 +21,7 @@
 
 public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
     public FolderManager.ProjectFolderItem active_project { get; construct; }
-    public unowned List<FolderManager.ProjectFolderItem> project_list { get; construct; }
+    // public unowned List<FolderManager.ProjectFolderItem> project_list { get; construct; }
 
     private Granite.ValidatedEntry new_branch_name_entry;
     public string new_branch_name {
@@ -30,11 +30,10 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         }
     }
 
-    public NewBranchDialog (FolderManager.ProjectFolderItem project, List<FolderManager.ProjectFolderItem> project_list) {
+    public NewBranchDialog (FolderManager.ProjectFolderItem project) {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
             active_project: project,
-            project_list: project_list,
             image_icon: new ThemedIcon ("git")
         );
     }
