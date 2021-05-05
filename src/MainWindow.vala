@@ -1112,6 +1112,10 @@ namespace Scratch {
             message_dialog.badge_icon = new ThemedIcon ("dialog-error");
             message_dialog.transient_for = this;
 
+            if (project_output.length > 0) {
+                message_dialog.secondary_text = project_output.index (project_output.length - 1);
+            }
+
             message_dialog.show_error_details (string.joinv ("\n", project_output.data));
 
             message_dialog.show_all ();
