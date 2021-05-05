@@ -47,7 +47,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
                 active_project.get_current_branch_name ()
             );
             ///TRANSLATORS "Git" is a proper name and must not be translated
-            secondary_text = _("The branch name must comply with Git rules and must not already exist.");
+            secondary_text = _("The branch name must comply with Git rules and can't already exist.");
             badge_icon = new ThemedIcon ("list-add");
 
             new_branch_name_entry = new Granite.ValidatedEntry () {
@@ -81,12 +81,12 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
                 new_branch_name_entry.is_valid = true;
             });
         } else {
-            primary_text = _("You must have an active git project before creating a new branch.");
+            primary_text = _("You must have an active Git project before creating a new branch.");
             badge_icon = new ThemedIcon ("dialog-warning");
             if (project_list.length () == 0) {
-                secondary_text = _("Open a git project folder in the sidebar.");
+                secondary_text = _("Open a Git project folder in the sidebar.");
             } else {
-                secondary_text = _("Open a document in a git project folder in the sidebar or use a project context menu.");
+                secondary_text = _("Open a document in a Git project folder in the sidebar or use a project context menu.");
             }
         }
 
