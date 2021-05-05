@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-04-27 21:07+0000\n"
+"PO-Revision-Date: 2021-05-06 00:46+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -90,33 +90,28 @@ msgstr "_Avbryt"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Søk etter tekst i «%s»"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "Søket må inneholde minst tre tegn."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Ingen forskjell på store og små bokstaver"
+msgstr "Forskjell på store og små bokstaver:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Bruk regulære uttrykk:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Søk neste"
+msgstr "Søk"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Lag en ny instans"
+msgstr "Opprett ny forgrening av «%s/%s»"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
@@ -124,10 +119,8 @@ msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:59
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Gren"
+msgstr "Opprett forgrening"
 
 #: src/Dialogs/NewBranchDialog.vala:84
 msgid "You must have an active git project before creating a new branch."
