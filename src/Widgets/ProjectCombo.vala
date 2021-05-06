@@ -59,6 +59,17 @@ public class Scratch.Widgets.ProjectCombo : Gtk.Stack {
     }
 
     public void remove_project (string name) {
-
+        if (name_project_map.has_key (name)) {
+            name_project_map.unset (name);
+            // There does seem to a simple or builtin method to remove a certain item_id from Gtk.ComboBoxText so we remove all and rebuild
+            project_list.remove_all ();
+            if (name_project_map.size > 0) {
+                foreach (string key in name_project_map.keys) {
+                    project_list.append (key, key);
+                }
+            } else {
+                set_visible_child (no_projects_label);
+            }
+        }
     }
  }
