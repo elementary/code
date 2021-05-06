@@ -175,7 +175,7 @@ namespace Scratch.FolderManager {
 
         public void new_branch (string path) {
             var project = get_project_for_path (path);
-            if (project!= null) {
+            if (project != null) {
                 string? branch_name = null;
                 var dialog = new Dialogs.NewBranchDialog (project);
                 dialog.show_all ();
