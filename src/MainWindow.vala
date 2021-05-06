@@ -440,6 +440,10 @@ namespace Scratch {
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
+                    var active_project = folder_manager_view.get_git_project_for_file (doc.file);
+                    if (active_project != null) {
+                        toolbar.active_project = active_project; 
+                    } // Else leave as it is.
                 }
 
                 // Set actions sensitive property

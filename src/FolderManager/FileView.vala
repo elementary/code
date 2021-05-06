@@ -190,36 +190,17 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file) {
-            unowned ProjectFolderItem? project = null;
-            unowned List<ProjectFolderItem?> project_list = null;
-            foreach (var child in root.children) {
-                project = (ProjectFolderItem)child;
-                if (!project.is_git_repo) {
-                    // Ignore sidebar folders that are not git repos
-                    continue;
-                }
-
-                if (active_file != null)
-                    if (project.file.file.equal (active_file) ||
-                        project.file.file.get_relative_path (active_file) != null) {
-
-                    return project;
-                }
-
-                project_list.prepend (project);
+        public ProjectFolderItem? get_git_project_for_file (GLib.File? active_file) {
+            // This method must not rely on the file corresponding to a visible item in the sidebar
+            var project_for_path = get_project_for_path (active_file.get_path ());
+            if (project_for_path == null && root.children.size == 1) {
+                project_for_path = (ProjectFolderItem)(root.children.to_array ()[1]);
             }
 
-            if (project_list.length () == 1) {
-                //There was only one project so use that
-                return project_list.data;
-            }
-
-            return null;
+            return project_for_path;
         }
 
         private void add_folder (File folder, bool expand) {
-warning ("FileView add folder");
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
                 return;
@@ -250,7 +231,6 @@ warning ("FileView add folder");
             });
 
             write_settings ();
-warning ("emitting signal");
             project_added (folder_root);
         }
 
