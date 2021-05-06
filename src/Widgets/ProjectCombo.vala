@@ -26,19 +26,28 @@ public class Scratch.Widgets.ProjectCombo : Gtk.Stack {
 
     public FolderManager.ProjectFolderItem? active_project {
         owned get {
-            var name = project_list.active_id;
-            return name_project_map.get (name);
+            if (project_list.active == -1) {
+                return null;
+            } else {
+                var name = project_list.active_id;
+                return name_project_map.get (name);
+            }
         }
 
         set {
-            var name = value.file.name;
-            if (name_project_map.has_key (name)) {
-                project_list.active_id = name;
+            if (value == null) {
+                project_list.active = -1;
             } else {
-                add_project (value);
+                var name = value.file.name;
+                if (name_project_map.has_key (name)) {
+                    project_list.active_id = name;
+                } else {
+                    add_project (value);
+                }
             }
         }
     }
+
     construct {
         project_list = new Gtk.ComboBoxText ();
         name_project_map = new Gee.HashMap<string, FolderManager.ProjectFolderItem?> ();

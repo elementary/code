@@ -146,7 +146,11 @@ namespace Scratch.FolderManager {
              return find_item_for_path (root, path, true);
         }
 
-        private ProjectFolderItem? get_project_for_path (string path) {
+        private ProjectFolderItem? get_project_for_path (string? path) {
+            if (path == null) {
+                return null;
+            }
+
             foreach (var child in root.children) {
                 var project = (ProjectFolderItem)child;
                 if (path.has_prefix (project.path)) {
@@ -158,9 +162,9 @@ namespace Scratch.FolderManager {
         }
 
         /* Do global search on project containing the file path supplied in parameter */
-        public void search_global (string path) {
+        public void search_global (string? path) {
             var search_root = get_project_for_path (path);
-            if (search_root != null && search_root is ProjectFolderItem) {
+            if (search_root != null) {
                 search_root.global_search (search_root.file.file);
             }
         }
@@ -173,7 +177,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void new_branch (string path) {
+        public void new_branch (string? path) {
             var project = get_project_for_path (path);
             if (project != null) {
                 string? branch_name = null;

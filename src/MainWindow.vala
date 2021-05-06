@@ -887,19 +887,7 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            string path = "";
-            if (param != null) {
-                path = param.get_string ();
-            }
-
-            if (path == "") {
-                var current_doc = get_current_document ();
-                if (current_doc != null) {
-                    path = current_doc.file.get_path ();
-                }
-            }
-
-            folder_manager_view.search_global (path);
+            folder_manager_view.search_global (get_target_path_for_git_actions (param));
         }
 
         private void set_search_text () {
@@ -1018,25 +1006,28 @@ namespace Scratch {
 
         // param contains path of the target project which may or may not be the currently active one
         private void action_new_branch (SimpleAction action, Variant? param) {
-            string path = "";
-            if (param != null) {
-                path = param.get_string ();
+            folder_manager_view.new_branch (get_target_path_for_git_actions (param));
+        }
+
+        private string? get_target_path_for_git_actions (Variant? path_variant) {
+            string? path = "";
+            if (path_variant != null) {
+                path = path_variant.get_string ();
             }
 
             if (path == "") { // Happens when keyboard accelerator is used
                 path = toolbar.active_project.path;
-            }
-
-            if (path == "") {
-                var current_doc = get_current_document ();
-                if (current_doc != null) {
-                    path = current_doc.file.get_path ();
-                } else {
-                    return; // Cannot determine target project
+                if (path == null) {
+                    var current_doc = get_current_document ();
+                    if (current_doc != null) {
+                        path = current_doc.file.get_path ();
+                    } else {
+                        return null; // Cannot determine target project
+                    }
                 }
             }
 
-            folder_manager_view.new_branch (path);
+            return path;
         }
     }
 }
