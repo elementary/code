@@ -345,7 +345,6 @@ namespace Scratch {
             });
 
             folder_manager_view.project_added.connect ((project) => {
-warning ("Main Window project added");
                 toolbar.project_combo.add_project (project);
             });
             folder_manager_view.project_removed.connect ((name) => {

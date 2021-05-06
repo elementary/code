@@ -41,6 +41,7 @@ public class Scratch.Widgets.ProjectCombo : Gtk.Stack {
     }
     construct {
         project_list = new Gtk.ComboBoxText ();
+        name_project_map = new Gee.HashMap<string, FolderManager.ProjectFolderItem?> ();
         no_projects_label = new Gtk.Label (_("No Projects Loaded"));
 
         add (project_list);
