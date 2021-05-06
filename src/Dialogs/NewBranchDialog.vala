@@ -47,7 +47,7 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
                 active_project.get_current_branch_name ()
             );
             ///TRANSLATORS "Git" is a proper name and must not be translated
-            secondary_text = _("The branch name must comply with Git rules and can't already exist.");
+            secondary_text = _("The branch name must be unique and comply with Git standards.");
             badge_icon = new ThemedIcon ("list-add");
 
             new_branch_name_entry = new Granite.ValidatedEntry () {
