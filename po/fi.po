@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-04 14:47+0000\n"
+"PO-Revision-Date: 2021-05-06 08:36+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -89,7 +89,7 @@ msgstr "_Peru"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Etsi tekstiä kohteesta “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
@@ -108,15 +108,16 @@ msgid "Search"
 msgstr "Etsi"
 
 #: src/Dialogs/NewBranchDialog.vala:45
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Luo uusi instanssi"
+msgstr "Luo uusi haara pohjautuen “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must comply with Git rules and must not already exist."
 msgstr ""
+"Haaran nimen tulee noudattaa Git-sääntöjä, eikä nimeä saa olla käytetty "
+"entuudestaan."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
@@ -135,6 +136,8 @@ msgid ""
 "Open a document in a git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
+"Avaa sivupaneelin git-projektikansiossa oleva asiakirja tai käytä projektin "
+"kontekstivalikkoa."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -162,7 +165,7 @@ msgstr "Älykäs rivien leikkaus/kopiointi:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
-msgstr "Välilehdet"
+msgstr "Sarkaimet"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
@@ -473,8 +476,8 @@ msgstr "Tavallinen teksti"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "&d Välilyönti"
-msgstr[1] "%d Välilyöntiä"
+msgstr[0] "%d välilyönti"
+msgstr[1] "%d välilyöntiä"
 
 #: src/Widgets/FormatBar.vala:191
 #, c-format
@@ -553,7 +556,7 @@ msgstr "Supista kaikki"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Aakkosta"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
