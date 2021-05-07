@@ -192,6 +192,17 @@ namespace Scratch.FolderManager {
             }
         }
 
+        // Returns diff of entire project associated with param file
+        public string? get_project_diff (GLib.File? current_doc_file) throws GLib.Error {
+            GLib.List<ProjectFolderItem> project_list;
+            unowned var active_project = get_active_project (current_doc_file, out project_list);
+            if (active_project != null) {
+                return active_project.get_project_diff ();
+            }
+
+            throw new GLib.IOError.FAILED ("Could not determine the active Git project");
+        }
+
         public unowned ProjectFolderItem? get_active_project (GLib.File? active_file,
                                                               out List<ProjectFolderItem> project_list) {
             unowned ProjectFolderItem? project = null;

@@ -90,6 +90,7 @@ namespace Scratch {
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
+        public const string ACTION_SHOW_DIFF = "action_show_diff";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -129,7 +130,8 @@ namespace Scratch {
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" }
+            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_SHOW_DIFF, action_show_diff, "s" }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -176,6 +178,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_SHOW_DIFF + "::", "<Control><Shift>D");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -1024,6 +1027,40 @@ namespace Scratch {
             }
 
             folder_manager_view.new_branch (file);
+        }
+
+        private void action_show_diff (SimpleAction action, Variant? param) {
+            string path = "";
+            File? file = null;
+            if (param != null) {
+                path = param.get_string ();
+            }
+
+            if (path == "") {
+                var current_doc = get_current_document ();
+                if (current_doc != null) {
+                    file = current_doc.file;
+                }
+            } else {
+                file = File.new_for_path (path);
+            }
+
+            try {
+                string diff_text = folder_manager_view.get_project_diff (file);
+                FileIOStream iostream;
+                File diff_file = File.new_tmp ("git-diff-XXXXXX.diff", out iostream);
+                warning ("tmp file name: %s\n", diff_file.get_path ());
+
+                var ostream = iostream.output_stream;
+                var dostream = new DataOutputStream (ostream);
+                dostream.put_string (diff_text);
+                iostream.close ();
+
+                var doc = new Services.Document (actions, diff_file);
+                document_view.open_document (doc);
+            } catch (Error e) {
+                warning ("Unable to get project diff: %s", e.message);
+            }
         }
     }
 }
