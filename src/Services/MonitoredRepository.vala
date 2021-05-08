@@ -166,7 +166,7 @@ namespace Scratch.Services {
                 strategy = Ggit.CheckoutStrategy.FORCE
             };
 
-            git_repo.checkout_head (options); //Use default options for now
+            git_repo.checkout_head (options);
 
             branch_name = new_branch_name;
         }
