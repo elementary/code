@@ -93,14 +93,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
-
-        /* SplitView shows view as required */
     }
 
     private void update_inline_tab_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_context = get_style_context ();
-
         if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
             var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
             var text_color_data = theme.get_style ("text");
@@ -113,7 +109,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             try {
                 style_provider.load_from_data (define);
                 return;
@@ -121,9 +116,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 critical ("Unable to set inline tab styling, going back to classic notebook tabs");
             }
         }
-
-        // Fallback to a non inline toolbar if something went wrong above
-        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder (string extension = "txt") {
