@@ -86,19 +86,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         style_provider = new Gtk.CssProvider ();
-        update_inline_tab_colors ();
-        settings.notify["style-scheme"].connect (update_inline_tab_colors);
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
+
+        update_inline_tab_colors ();
+        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
     }
 
     private void update_inline_tab_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
+        var style_scheme = Scratch.settings.get_string ("style-scheme");
+        if (style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -111,7 +113,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var define = "@define-color tab_base_color %s;".printf (color);
             try {
                 style_provider.load_from_data (define);
-                return;
             } catch (Error e) {
                 critical ("Unable to set inline tab styling, going back to classic notebook tabs");
             }
