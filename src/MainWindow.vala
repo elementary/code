@@ -874,7 +874,7 @@ namespace Scratch {
         private void action_build () {
             project_manager.build.begin ((obj, res) => {
                 var success = project_manager.build.end (res);
-                if (!success) {
+                if (!success && !project_manager.was_stopped) {
                     show_error_dialog ();
                 }
             });
@@ -883,7 +883,7 @@ namespace Scratch {
         private void action_run () {
             project_manager.build_install_run.begin ((obj, res) => {
                 var success = project_manager.build_install_run.end (res);
-                if (!success) {
+                if (!success && !project_manager.was_stopped) {
                     show_error_dialog ();
                 }
             });

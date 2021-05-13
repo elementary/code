@@ -27,6 +27,7 @@ public class Scratch.Services.ProjectManager : Object {
         }
     }
     public bool is_running { get; set; }
+    public bool was_stopped { get; set; }
 
     public signal void on_standard_output (string line);
     public signal void on_standard_error (string line);
@@ -226,6 +227,7 @@ public class Scratch.Services.ProjectManager : Object {
             return false;
         }
 
+        was_stopped = false;
         on_clear ();
 
         is_running = true;
@@ -241,6 +243,7 @@ public class Scratch.Services.ProjectManager : Object {
             return false;
         }
 
+        was_stopped = false;
         on_clear ();
 
         is_running = true;
@@ -261,6 +264,7 @@ public class Scratch.Services.ProjectManager : Object {
             return true;
         }
 
+        was_stopped = true;
         var result = Posix.kill (command_pid, Posix.Signal.TERM) == 0;
         is_running = !result;
 
