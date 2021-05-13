@@ -25,7 +25,7 @@ namespace Scratch {
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
         private Services.ProjectManager project_manager;
-        private Array<string> project_output;
+        private Gee.ArrayList<string> project_output;
 
         public weak Scratch.Application app { get; construct; }
 
@@ -272,18 +272,18 @@ namespace Scratch {
             show_all ();
 
             project_manager = new Services.ProjectManager ();
-            project_output = new Array<string> ();
+            project_output = new Gee.ArrayList<string> ();
 
             project_manager.on_standard_output.connect ((line) => {
-                project_output.append_val (line);
+                project_output.add (line);
             });
 
             project_manager.on_standard_error.connect ((line) => {
-                project_output.append_val (line);
+                project_output.add (line);
             });
 
             project_manager.on_clear.connect ((line) => {
-                project_output.set_size (0);
+                project_output.clear ();
             });
 
             set_build_run_widgets_sensitive ();
@@ -1112,11 +1112,11 @@ namespace Scratch {
             message_dialog.badge_icon = new ThemedIcon ("dialog-error");
             message_dialog.transient_for = this;
 
-            if (project_output.length > 0) {
-                message_dialog.secondary_text = project_output.index (project_output.length - 1);
+            if (project_output.size > 0) {
+                message_dialog.secondary_text = project_output.get (project_output.size - 1);
             }
 
-            message_dialog.show_error_details (string.joinv ("\n", project_output.data));
+            message_dialog.show_error_details (string.joinv ("\n", project_output.to_array ()));
 
             message_dialog.show_all ();
             message_dialog.response.connect ((response_id) => {
