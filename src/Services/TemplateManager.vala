@@ -173,7 +173,7 @@ public class TemplateButton : Gtk.Button {
  * a reference can be got from the plugin manager.
  **/
 public class Scratch.TemplateManager : GLib.Object {
-    private Gtk.Dialog dialog;
+    private Granite.Dialog dialog;
     private Scratch.Template current_template;
     private Gtk.Widget? parent = null;
     private Gtk.Grid grid;
@@ -188,7 +188,7 @@ public class Scratch.TemplateManager : GLib.Object {
     public signal void template_loaded (Template template, File file);
 
     public TemplateManager () {
-        dialog = new Gtk.Dialog ();
+        dialog = new Granite.Dialog ();
         dialog.title = _("Templates");
 
         this.grid = new Gtk.Grid ();
@@ -226,7 +226,7 @@ public class Scratch.TemplateManager : GLib.Object {
         button.clicked.connect (() => {
             current_template = (Scratch.Template) Object.new (template_type);
             this.dialog.hide ();
-            var window = new Gtk.Dialog ();
+            var window = new Granite.Dialog ();
             window.title = label;
             if (parent != null) window.set_transient_for ((Gtk.Window)parent);
             window.add (current_template.get_creation_box ());

@@ -50,14 +50,9 @@
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
-    <key name="opened-files-view1" type="as">
+    <key name="opened-files" type="a(si)">
       <default>[]</default>
-      <summary>Files opened in the previously session of Code on the first view</summary>
-      <description>It is used to open the files opened in the last Code session</description>
-    </key>
-    <key name="opened-files-view2" type="as">
-      <default>[]</default>
-      <summary>Files opened in the previously session of Code on the second view</summary>
+      <summary>Files opened in the previously session of Code and the cursor position</summary>
       <description>It is used to open the files opened in the last Code session</description>
     </key>
     <key name="autosave" type="b">
@@ -130,12 +125,7 @@
       <summary>Preferred Style Scheme</summary>
       <description>Set the preferred style scheme.</description>
     </key>
-    <key name="focused-document-view1" type="s">
-      <default>''</default>
-      <summary>Remember the last focused document.</summary>
-      <description>Restore the focused document from a previous session when opening Code.</description>
-    </key>
-    <key name="focused-document-view2" type="s">
+    <key name="focused-document" type="s">
       <default>''</default>
       <summary>Remember the last focused document.</summary>
       <description>Restore the focused document from a previous session when opening Code.</description>
