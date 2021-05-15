@@ -37,6 +37,9 @@ namespace Scratch.Services {
             return instance;
         }
 
+        public signal void project_added (string root_path);
+        public signal void project_removed (string root_path);
+
         private GitManager () {}
 
         public MonitoredRepository? add_project (GLib.File root_folder) {
@@ -50,6 +53,7 @@ namespace Scratch.Services {
                 var monitored_repo = new MonitoredRepository (git_repo);
 
                 project_gitrepo_map.@set (root_path, monitored_repo);
+                project_added (root_path);
                 return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
                 debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
@@ -62,6 +66,10 @@ namespace Scratch.Services {
             if (project_gitrepo_map.has_key (root_path)) {
                 project_gitrepo_map.unset (root_path);
             }
+        }
+
+        public string[] get_project_paths () {
+            return project_gitrepo_map.keys.to_array ();
         }
     }
 }
