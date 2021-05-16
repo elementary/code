@@ -140,6 +140,27 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         });
     }
 
+    public void set_active_path (string active_path) {
+        project_selection_listbox.get_children ().foreach ((child) => {
+            var project_entry = ((ProjectEntry) child);
+            if (active_path.has_prefix (project_entry.project_path)) {
+                select_project (project_entry);
+            }
+        });
+    }
+
+    public string? get_active_path () {
+        string? active_path = null;
+        project_selection_listbox.get_children ().foreach ((child) => {
+            var project_entry = ((ProjectEntry) child);
+            if (project_entry.active) {
+                active_path = project_entry.project_path;
+            }
+        });
+
+        return active_path;
+    }
+
     public class ProjectEntry : Gtk.ListBoxRow {
         public string project_path { get; construct; }
         public string project_name {

@@ -163,48 +163,19 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void new_branch (GLib.File? current_doc_file) {
-            GLib.List<ProjectFolderItem> project_list;
+        public void new_branch (string active_project_path) {
             string? branch_name = null;
-            unowned var active_project = get_active_project (current_doc_file, out project_list);
-            var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
+            unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
+            var dialog = new Dialogs.NewBranchDialog (active_project);
             dialog.show_all ();
             if (dialog.run () == Gtk.ResponseType.APPLY) {
                 branch_name = dialog.new_branch_name;
             }
 
             dialog.destroy ();
-            if (active_project != null && branch_name != null) {
+            if (branch_name != null) {
                 active_project.new_branch (branch_name);
             }
-        }
-
-        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file, out List<ProjectFolderItem> project_list) {
-            unowned ProjectFolderItem? project = null;
-            project_list = null;
-            foreach (var child in root.children) {
-                project = (ProjectFolderItem)child;
-                if (!project.is_git_repo) {
-                    // Ignore sidebar folders that are not git repos
-                    continue;
-                }
-
-                if (active_file != null)
-                    if (project.file.file.equal (active_file) ||
-                        project.file.file.get_relative_path (active_file) != null) {
-
-                    return project;
-                }
-
-                project_list.prepend (project);
-            }
-
-            if (project_list.length () == 1) {
-                //There was only one project so use that
-                return project_list.data;
-            }
-
-            return null;
         }
 
         private void add_folder (File folder, bool expand) {
