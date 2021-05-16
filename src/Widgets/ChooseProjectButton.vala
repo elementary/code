@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright (c) 2021 elementary Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
 public class Code.ChooseProjectButton : Gtk.ToggleButton {
