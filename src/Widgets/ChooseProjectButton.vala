@@ -18,35 +18,26 @@
  */
 
 public class Code.ChooseProjectButton : Gtk.ToggleButton {
-    public string text {
-        set {
-            label_widget.label = value;
-        }
-    }
-
-    public GLib.Icon? icon {
-        owned get {
-            return img.gicon;
-        }
-        set {
-            img.gicon = value;
-        }
-    }
-
+    private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private Scratch.Services.GitManager manager;
-
     private Gtk.Image img;
     private Gtk.Label label_widget;
     private Gtk.ListBox project_selection_listbox;
+    private ProjectEntry? last_entry = null;
+
+    private Scratch.Services.Document? current_doc = null;
 
     construct {
         img = new Gtk.Image () {
+            gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
         };
 
-        label_widget = new Gtk.Label (null) {
+        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             ellipsize = Pango.EllipsizeMode.END
         };
+
+        tooltip_text = _("Active Git project");
 
         var grid = new Gtk.Grid () {
             halign = Gtk.Align.CENTER,
@@ -57,17 +48,6 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         grid.add (label_widget);
         add (grid);
 
-        // get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-
-        manager = Scratch.Services.GitManager.get_instance ();
-
-        icon = new ThemedIcon ("git-symbolic");
-        tooltip_text = _("Active Git project");
-
-        create_project_popover ();
-    }
-
-    private void create_project_popover () {
         project_selection_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
@@ -80,7 +60,7 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
             return ((ProjectEntry) row1).project_name.collate (((ProjectEntry) row2).project_name);
         });
 
-       project_selection_listbox.set_filter_func ((row) => {
+        project_selection_listbox.set_filter_func ((row) => {
             //Both are lowercased so that the case doesn't matter when comparing.
             return (((ProjectEntry) row).project_name.down ().contains (project_selection_filter.text.down ().strip ()));
         });
@@ -99,14 +79,6 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
 
         project_scrolled.add (project_selection_listbox);
 
-        var paths = manager.get_project_paths ();
-        unowned SList<Gtk.RadioButton> group = null;
-        foreach (unowned string path in paths) {
-            var entry = new ProjectEntry (path, group);
-            group = entry.get_radio_group ();
-            project_selection_listbox.add (entry);
-        }
-
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         popover_content.add (project_selection_filter);
         popover_content.add (project_scrolled);
@@ -124,11 +96,38 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
             var project_entry = ((ProjectEntry) row);
             select_project (project_entry);
         });
+
+        manager = Scratch.Services.GitManager.get_instance ();
+        manager.project_added.connect (add_project);
+
+        manager.project_removed.connect ((project_path) => {
+            project_selection_listbox.get_children ().foreach ((child) => {
+                project_selection_listbox.remove (child);
+            });
+
+            label_widget.label = _(NO_PROJECT_SELECTED);
+            foreach (string path in manager.get_project_paths ()) {
+                add_project (path);
+            }
+
+            set_document (current_doc);
+        });
+    }
+
+    private void add_project (string project_path) {
+        var project_entry = new ProjectEntry (project_path);
+        if (last_entry != null) {
+            project_entry.project_radio.join_group (last_entry.project_radio);
+        }
+
+        last_entry = project_entry;
+        project_selection_listbox.add (project_entry);
+        select_project (project_entry);
     }
 
     private void select_project (ProjectEntry project_entry) {
         project_selection_listbox.select_row (project_entry);
-        this.text = project_entry.project_name;
+        label_widget.label = project_entry.project_name;
         project_entry.selected = true;
     }
 
@@ -150,7 +149,7 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
             }
         }
 
-        public unowned SList<Gtk.RadioButton> group { get; construct; }
+        public Gtk.RadioButton project_radio { get; construct; }
 
         public bool active {
             get {
@@ -174,10 +173,8 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
             }
         }
 
-        private Gtk.RadioButton project_radio;
-        public ProjectEntry (string project_path, SList<Gtk.RadioButton> group) {
+        public ProjectEntry (string project_path) {
             Object (
-                group: group,
                 project_path: project_path
             );
         }
@@ -187,10 +184,10 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         }
 
         construct {
-            project_radio = new Gtk.RadioButton.with_label (group, project_name);
-
+            project_radio = new Gtk.RadioButton.with_label (null, project_name);
             add (project_radio);
             project_radio.toggled.connect (radio_toggled);
+            show_all ();
         }
 
         private void radio_toggled () {

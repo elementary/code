@@ -65,6 +65,7 @@ namespace Scratch.Services {
             var root_path = root_folder.get_path ();
             if (project_gitrepo_map.has_key (root_path)) {
                 project_gitrepo_map.unset (root_path);
+                project_removed (root_path);
             }
         }
 
