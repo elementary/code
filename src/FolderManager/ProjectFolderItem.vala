@@ -97,7 +97,7 @@ namespace Scratch.FolderManager {
 
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => { 
+            close_item.activate.connect (() => {
                 closed ();
                 Scratch.Services.GitManager.get_instance ().remove_project (file.file);
             });

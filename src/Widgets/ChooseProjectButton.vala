@@ -142,7 +142,7 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
 
     public class ProjectEntry : Gtk.ListBoxRow {
         public string project_path { get; construct; }
-        public string project_name { 
+        public string project_name {
             owned get {
                 return Path.get_basename (project_path);
             }
