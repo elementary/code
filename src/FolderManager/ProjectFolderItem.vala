@@ -99,7 +99,6 @@ namespace Scratch.FolderManager {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => {
                 closed ();
-                Scratch.Services.GitManager.get_instance ().remove_project (file.file);
             });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));

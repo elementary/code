@@ -187,20 +187,23 @@ namespace Scratch.FolderManager {
                 return;
             }
 
-            var folder_root = new ProjectFolderItem (folder, this);
+            var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
             this.root.add (folder_root);
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
                 close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
                 write_settings ();
             });
 
             folder_root.close_all_except.connect (() => {
                 foreach (var child in root.children) {
-                    if (child != folder_root) {
-                        root.remove (child);
+                    var project_folder_item = (ProjectFolderItem)child;
+                    if (project_folder_item != folder_root) {
+                        root.remove (project_folder_item);
+                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item.file.file);
                     }
                 }
 
