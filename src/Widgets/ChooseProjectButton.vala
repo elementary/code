@@ -27,21 +27,20 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
     private Scratch.Services.Document? current_doc = null;
 
     construct {
+        margin_top = margin_bottom = 6;
+        hexpand = true;
+
         img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
         };
 
-        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
-            ellipsize = Pango.EllipsizeMode.END
-        };
+        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED));
 
         tooltip_text = _("Active Git project");
 
         var grid = new Gtk.Grid () {
-            halign = Gtk.Align.CENTER,
-            margin_start = 6,
-            margin_end = 6
+            halign = Gtk.Align.START
         };
         grid.add (img);
         grid.add (label_widget);
