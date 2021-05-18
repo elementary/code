@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"POT-Creation-Date: 2021-05-18 17:18+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -111,7 +111,7 @@ msgstr ""
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
+msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:59
@@ -119,20 +119,22 @@ msgid "Create Branch"
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
+msgid "You must have an active Git project before creating a new branch."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:87
 #, fuzzy
 #| msgid "Add a project folder to the sidebar."
-msgid "Open a git project folder in the sidebar."
+msgid "Open a Git project folder in the sidebar."
 msgstr "Adăugați un director de proiect în bara laterală."
 
 #: src/Dialogs/NewBranchDialog.vala:89
+#, fuzzy
+#| msgid "Add a project folder to the sidebar."
 msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
+"Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
-msgstr ""
+msgstr "Adăugați un director de proiect în bara laterală."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -264,7 +266,7 @@ msgid "Rename"
 msgstr "Redenumiți"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Move to Trash"
 msgstr "Aruncă la gunoi"
 
@@ -289,8 +291,8 @@ msgstr "Fișier gol"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:173
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "New"
 msgstr "Nou"
 
@@ -302,36 +304,36 @@ msgstr "un dosar fără titlu"
 msgid "new file"
 msgstr "Fișier nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "Închideți dosarul"
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:102
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Închideți dosarul"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:113
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Deschideți un dosar"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
 msgstr ""
 
@@ -455,7 +457,7 @@ msgstr "Continuați"
 msgid "Templates"
 msgstr "Șabloane"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Fișier text de la %s"
