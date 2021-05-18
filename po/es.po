@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-05-02 17:33+0000\n"
+"PO-Revision-Date: 2021-05-18 18:14+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -116,6 +116,8 @@ msgstr "Crea una nueva rama de “%s/%s”"
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"El nombre de la rama debe ser único y seguir las reglas de nomenclatura de "
+"Git."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
