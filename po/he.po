@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"POT-Creation-Date: 2021-05-18 17:18+0000\n"
 "PO-Revision-Date: 2021-05-01 11:26+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -114,24 +114,32 @@ msgstr "יצירת ענף חדש של „%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
-msgstr "שם הענף חייב לעמוד בכללים של Git ואסור שכבר יהיה קיים."
+msgid "The branch name must be unique and follow Git naming rules."
+msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
+#, fuzzy
+#| msgid "You must have an active git project before creating a new branch."
+msgid "You must have an active Git project before creating a new branch."
 msgstr "חייב להיות לך מיזם git פעיל בטרם יצירת ענף חדש."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a git project folder in the sidebar."
+#, fuzzy
+#| msgid "Open a git project folder in the sidebar."
+msgid "Open a Git project folder in the sidebar."
 msgstr "פתיחת תיקיית מיזם git בסרגל הצד."
 
 #: src/Dialogs/NewBranchDialog.vala:89
+#, fuzzy
+#| msgid ""
+#| "Open a document in a git project folder in the sidebar or use a project "
+#| "context menu."
 msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
+"Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr "לפתוח מסמך בתיקיית מיזם git בסרגל הצד או להשתמש בתפריט ההקשר של המיזם."
 
@@ -264,7 +272,7 @@ msgid "Rename"
 msgstr "שינוי שם"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
 
@@ -287,8 +295,8 @@ msgstr "קובץ ריק"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:173
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "New"
 msgstr "חדש"
 
@@ -300,32 +308,32 @@ msgstr "תיקייה ללא שם"
 msgid "new file"
 msgstr "קובץ חדש"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "סגירת תיקייה"
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Close Other Folders"
 msgstr "לסגור את התיקיות האחרות"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:113
 msgid "Find in Project…"
 msgstr "איתור במיזם…"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Modified"
 msgstr "נערכה"
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "שגיאה ביצירת ענף חדש: „%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
 msgstr "ענף חדש…"
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
 msgstr "ענף"
 
@@ -438,7 +446,7 @@ msgstr "המשך"
 msgid "Templates"
 msgstr "תבניות"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "קובץ טקסט מ־%s:‏%d"
@@ -728,6 +736,10 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#~ msgid ""
+#~ "The branch name must comply with Git rules and must not already exist."
+#~ msgstr "שם הענף חייב לעמוד בכללים של Git ואסור שכבר יהיה קיים."
 
 #~ msgid ""
 #~ "The branch name must be lower-case, start with a letter, and be at least "
