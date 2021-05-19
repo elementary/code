@@ -53,7 +53,9 @@ namespace Scratch.Widgets {
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
-            choose_project_button = new Code.ChooseProjectButton ();
+            choose_project_button = new Code.ChooseProjectButton () {
+                valign = Gtk.Align.CENTER
+            };
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
