@@ -33,7 +33,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             width_chars = 24,
-            ellipsize = Pango.EllipsizeMode.END,
+            ellipsize = Pango.EllipsizeMode.MIDDLE,
             max_width_chars = 24,
             xalign = 0.0f
         };
@@ -95,7 +95,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         var hsizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
         hsizegroup.add_widget (this);
-        hsizegroup.add_widget (project_listbox);
+        hsizegroup.add_widget (project_scrolled);
 
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
@@ -196,7 +196,14 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
-            project_radio = new Gtk.RadioButton.with_label (null, project_name);
+            var label = new Gtk.Label (project_name) {
+                ellipsize = Pango.EllipsizeMode.MIDDLE,
+                halign = Gtk.Align.START
+            };
+
+            project_radio = new Gtk.RadioButton (null);
+            project_radio.add (label);
+
             add (project_radio);
             show_all ();
 
