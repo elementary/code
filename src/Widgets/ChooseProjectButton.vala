@@ -39,7 +39,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             xalign = 0.0f
         };
 
-        tooltip_text = _("Active Git project");
+        tooltip_text = _("Active Git project: %s").printf (_(NO_PROJECT_SELECTED));
 
         var grid = new Gtk.Grid () {
             halign = Gtk.Align.START
@@ -130,6 +130,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private void select_project (ProjectEntry project_entry) {
         project_selection_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
+        label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
         project_entry.selected = true;
     }
 
