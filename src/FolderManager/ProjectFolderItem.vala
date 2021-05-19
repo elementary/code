@@ -52,11 +52,22 @@ namespace Scratch.FolderManager {
         construct {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
-                monitored_repo.branch_changed.connect ((update_branch_name));
+                monitored_repo.branch_changed.connect (() => {
+                    //As SourceList items are not widgets we have to use markup to change appearance of text.
+                    if (monitored_repo.head_is_branch) {
+                        markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                            file.name, monitored_repo.branch_name
+                        );
+                    } else { //Distinguish detached heads visually
+                        markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                            file.name, monitored_repo.branch_name
+                        );
+                    }
+                });
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
-                update_branch_name (monitored_repo.get_current_branch ());
+                monitored_repo.branch_changed ();
             }
         }
 
@@ -173,10 +184,6 @@ namespace Scratch.FolderManager {
                     }
                 });
             });
-        }
-
-        private void update_branch_name (string branch_name) requires (monitored_repo != null) {
-            markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
         }
 
         private void deprioritize_git_ignored () requires (monitored_repo != null) {

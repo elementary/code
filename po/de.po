@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"POT-Creation-Date: 2021-05-18 17:18+0000\n"
 "PO-Revision-Date: 2021-05-01 20:32+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -114,28 +114,34 @@ msgstr "Neuen Zweig von »%s/%s« erstellen"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
+msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
-"Die Bezeichnung des Zweigs muss den git-Regeln entsprechen und darf noch "
-"nicht vorhanden sein."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "Zweig erstellen"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
+#, fuzzy
+#| msgid "You must have an active git project before creating a new branch."
+msgid "You must have an active Git project before creating a new branch."
 msgstr ""
 "Bevor ein neuer Zweig erstellt werden kann, muss ein aktives git-Projekt zur "
 "Verfügung stehen."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a git project folder in the sidebar."
+#, fuzzy
+#| msgid "Open a git project folder in the sidebar."
+msgid "Open a Git project folder in the sidebar."
 msgstr "git-Projekt-Ordner in der Seitenleiste öffnen."
 
 #: src/Dialogs/NewBranchDialog.vala:89
+#, fuzzy
+#| msgid ""
+#| "Open a document in a git project folder in the sidebar or use a project "
+#| "context menu."
 msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
+"Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
 "Dokument in einem git-Projekt-Ordner in der Seitenleiste oder über das "
@@ -273,7 +279,7 @@ msgid "Rename"
 msgstr "Umbenennen"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
@@ -296,8 +302,8 @@ msgstr "Leere Datei"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:173
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "New"
 msgstr "Neu"
 
@@ -309,32 +315,32 @@ msgstr "unbenannter Ordner"
 msgid "new file"
 msgstr "neue Datei"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Close Other Folders"
 msgstr "Andere Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:113
 msgid "Find in Project…"
 msgstr "Im Projekt suchen …"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Modified"
 msgstr "Geändert"
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fehler beim Erstellen eines neuen Zweigs: »%s«"
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
 msgstr "Neuer Zweig …"
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
 msgstr "Branch"
 
@@ -455,7 +461,7 @@ msgstr "Fortfahren"
 msgid "Templates"
 msgstr "Vorlagen"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Textdatei aus %s:%d"
@@ -745,6 +751,12 @@ msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Wortvervollständigung"
+
+#~ msgid ""
+#~ "The branch name must comply with Git rules and must not already exist."
+#~ msgstr ""
+#~ "Die Bezeichnung des Zweigs muss den git-Regeln entsprechen und darf noch "
+#~ "nicht vorhanden sein."
 
 #~ msgid ""
 #~ "The branch name must be lower-case, start with a letter, and be at least "
