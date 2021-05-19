@@ -81,9 +81,5 @@ namespace Scratch.Services {
                 project_gitrepo_map.unset (root_path);
             }
         }
-
-        public string[] get_project_paths () {
-            return project_gitrepo_map.keys.to_array ();
-        }
     }
 }
