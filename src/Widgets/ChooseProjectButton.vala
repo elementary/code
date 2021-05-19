@@ -134,7 +134,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
         label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
-        project_entry.selected = true;
+        project_entry.active = true;
     }
 
     public void set_document (Scratch.Services.Document doc) {
@@ -173,18 +173,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         public Gtk.RadioButton project_radio { get; construct; }
 
-        public bool selected {
-            get {
-                return project_radio.active;
-            }
-
-            set {
-                project_radio.toggled.disconnect (radio_toggled);
-                project_radio.active = value;
-                project_radio.toggled.connect (radio_toggled);
-            }
-        }
-
         public ProjectRow (string project_path) {
             Object (
                 project_path: project_path
@@ -201,13 +189,12 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             show_all ();
 
             bind_property ("active", project_radio, "active", BindingFlags.BIDIRECTIONAL);
-            project_radio.toggled.connect (radio_toggled);
-        }
 
-        private void radio_toggled () {
-            if (project_radio.active) {
-                activate ();
-            }
+            project_radio.clicked.connect (() => {
+                if (project_radio.active) {
+                    activate ();
+                }
+            });
         }
     }
 }
