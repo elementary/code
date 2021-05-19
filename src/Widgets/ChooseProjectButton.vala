@@ -18,6 +18,7 @@
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
+
     private Scratch.Services.GitManager manager;
     private Gtk.Image img;
     private Gtk.Label label_widget;
@@ -27,35 +28,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Scratch.Services.Document? current_doc = null;
 
     construct {
-        img = new Gtk.Image () {
-            gicon = new ThemedIcon ("git-symbolic"),
-            icon_size = Gtk.IconSize.SMALL_TOOLBAR
-        };
-
-        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
-            width_chars = 24,
-            ellipsize = Pango.EllipsizeMode.END,
-            max_width_chars = 24,
-            xalign = 0.0f
-        };
-
-        tooltip_text = _("Active Git project: %s").printf (_(NO_PROJECT_SELECTED));
-
-        var grid = new Gtk.Grid () {
-            halign = Gtk.Align.START
-        };
-        grid.add (img);
-        grid.add (label_widget);
-        add (grid);
-
         project_selection_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
+
         var project_selection_filter = new Gtk.SearchEntry () {
             margin = 12,
             margin_bottom = 6,
             placeholder_text = _("Filter projects")
         };
+
         project_selection_listbox.set_sort_func ((row1, row2) => {
             return ((ProjectEntry) row1).project_name.collate (((ProjectEntry) row2).project_name);
         });
@@ -77,7 +59,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             max_content_height = 350,
             propagate_natural_height = true
         };
-
         project_scrolled.add (project_selection_listbox);
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
@@ -92,7 +73,32 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         project_popover.add (popover_content);
 
+        img = new Gtk.Image () {
+            gicon = new ThemedIcon ("git-symbolic"),
+            icon_size = Gtk.IconSize.SMALL_TOOLBAR
+        };
+
+        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
+            width_chars = 24,
+            ellipsize = Pango.EllipsizeMode.END,
+            max_width_chars = 24,
+            xalign = 0
+        };
+
+        var grid = new Gtk.Grid () {
+            column_spacing = 3,
+            halign = Gtk.Align.START
+        };
+        grid.add (img);
+        grid.add (label_widget);
+
         popover = project_popover;
+        tooltip_text = _("Active Git project");
+        add (grid);
+
+        var hsizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+        hsizegroup.add_widget (this);
+        hsizegroup.add_widget (project_selection_listbox);
 
         project_selection_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectEntry) row);
@@ -166,7 +172,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     public class ProjectEntry : Gtk.ListBoxRow {
-        public bool active;
+        public bool active { get; set; }
         public string project_path { get; construct; }
         public string project_name {
             owned get {
@@ -174,7 +180,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         }
 
-        public Gtk.RadioButton project_radio { get; construct; }
+        public Gtk.RadioButton project_radio { get; private set; }
 
         public bool selected {
             get {
@@ -200,6 +206,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         construct {
             project_radio = new Gtk.RadioButton.with_label (null, project_name);
+
             add (project_radio);
             show_all ();
 
@@ -212,4 +219,5 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 activate ();
             }
         }
+    }
 }
