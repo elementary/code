@@ -190,10 +190,9 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
             bind_property ("active", project_radio, "active", BindingFlags.BIDIRECTIONAL);
 
-            project_radio.clicked.connect (() => {
-                if (project_radio.active) {
-                    activate ();
-                }
+            project_radio.button_release_event.connect (() => {
+                activate ();
+                return Gdk.EVENT_PROPAGATE;
             });
         }
     }
