@@ -211,9 +211,4 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 activate ();
             }
         }
-
-        public unowned SList<Gtk.RadioButton> get_radio_group () {
-            return project_radio.get_group ();
-        }
-    }
 }
