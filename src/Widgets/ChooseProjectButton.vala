@@ -18,7 +18,6 @@
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
-    private Scratch.Services.GitManager manager;
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
@@ -92,9 +91,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         hsizegroup.add_widget (this);
         hsizegroup.add_widget (project_listbox);
 
-        manager = Scratch.Services.GitManager.get_instance ();
-
-        project_listbox.bind_model (manager.project_liststore, create_project_row);
+        project_listbox.bind_model (
+            Scratch.Services.GitManager.get_instance ().project_liststore,
+            create_project_row
+        );
 
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
@@ -104,12 +104,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     private Gtk.Widget create_project_row (GLib.Object object) {
         unowned var project_folder = (File) object;
-
         var project_row = new ProjectRow (project_folder.get_path ());
         if (last_entry != null) {
             project_row.project_radio.join_group (last_entry.project_radio);
         }
-
         last_entry = project_row;
 
         return project_row;
