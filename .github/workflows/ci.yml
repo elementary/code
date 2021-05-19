@@ -38,10 +38,10 @@ jobs:
 
     steps:
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: Build
-    - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
+      uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
       with:
         bundle: code.flatpak
         manifest-path: io.elementary.code.yml
