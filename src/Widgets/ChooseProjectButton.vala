@@ -21,7 +21,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Scratch.Services.GitManager manager;
     private Gtk.Image img;
     private Gtk.Label label_widget;
-    private Gtk.ListBox project_selection_listbox;
+    private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
 
     private Scratch.Services.Document? current_doc = null;
@@ -48,25 +48,25 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         grid.add (label_widget);
         add (grid);
 
-        project_selection_listbox = new Gtk.ListBox () {
+        project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
-        var project_selection_filter = new Gtk.SearchEntry () {
+        var project_filter = new Gtk.SearchEntry () {
             margin = 12,
             margin_bottom = 6,
             placeholder_text = _("Filter projects")
         };
-        project_selection_listbox.set_sort_func ((row1, row2) => {
+        project_listbox.set_sort_func ((row1, row2) => {
             return ((ProjectRow) row1).project_name.collate (((ProjectRow) row2).project_name);
         });
 
-        project_selection_listbox.set_filter_func ((row) => {
+        project_listbox.set_filter_func ((row) => {
             //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectRow) row).project_name.down ().contains (project_selection_filter.text.down ().strip ()));
+            return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
         });
 
-        project_selection_filter.changed.connect (() => {
-            project_selection_listbox.invalidate_filter ();
+        project_filter.changed.connect (() => {
+            project_listbox.invalidate_filter ();
         });
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
@@ -78,10 +78,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             propagate_natural_height = true
         };
 
-        project_scrolled.add (project_selection_listbox);
+        project_scrolled.add (project_listbox);
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (project_selection_filter);
+        popover_content.add (project_filter);
         popover_content.add (project_scrolled);
 
         popover_content.show_all ();
@@ -96,9 +96,9 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         var hsizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
         hsizegroup.add_widget (this);
-        hsizegroup.add_widget (project_selection_listbox);
+        hsizegroup.add_widget (project_listbox);
 
-        project_selection_listbox.row_activated.connect ((row) => {
+        project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
         });
@@ -107,8 +107,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         manager.project_added.connect (add_project);
 
         manager.project_removed.connect ((project_path) => {
-            project_selection_listbox.get_children ().foreach ((child) => {
-                project_selection_listbox.remove (child);
+            project_listbox.get_children ().foreach ((child) => {
+                project_listbox.remove (child);
             });
 
             label_widget.label = _(NO_PROJECT_SELECTED);
@@ -127,12 +127,12 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         last_entry = project_entry;
-        project_selection_listbox.add (project_entry);
+        project_listbox.add (project_entry);
         select_project (project_entry);
     }
 
     private void select_project (ProjectRow project_entry) {
-        project_selection_listbox.select_row (project_entry);
+        project_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
         label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
         project_entry.selected = true;
@@ -143,7 +143,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     public void set_active_path (string active_path) {
-        project_selection_listbox.get_children ().foreach ((child) => {
+        project_listbox.get_children ().foreach ((child) => {
             var project_entry = ((ProjectRow) child);
             if (active_path.has_prefix (project_entry.project_path)) {
                 select_project (project_entry);
@@ -153,7 +153,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     public string? get_active_path () {
         string? active_path = null;
-        project_selection_listbox.get_children ().foreach ((child) => {
+        project_listbox.get_children ().foreach ((child) => {
             var project_entry = ((ProjectRow) child);
             if (project_entry.active) {
                 active_path = project_entry.project_path;
