@@ -28,14 +28,16 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
 
     construct {
         margin_top = margin_bottom = 6;
-        hexpand = true;
 
         img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
         };
 
-        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED));
+        label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
+            width_chars = 24,
+            xalign = 0.0f
+        };
 
         tooltip_text = _("Active Git project");
 
