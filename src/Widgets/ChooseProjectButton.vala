@@ -16,7 +16,7 @@
  *
  */
 
-public class Code.ChooseProjectButton : Gtk.ToggleButton {
+public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private Scratch.Services.GitManager manager;
     private Gtk.Image img;
@@ -93,7 +93,8 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         };
 
         project_popover.add (popover_content);
-        this.bind_property ("active", project_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+
+        popover = project_popover;
 
         project_selection_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectEntry) row);
