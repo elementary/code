@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-05-02 11:56+0000\n"
+"PO-Revision-Date: 2021-05-19 11:45+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -116,33 +116,27 @@ msgstr "Crea una branca nova per a %s/%s"
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"El nom de la branca ha de ser únic i ha de seguir les regles de denominació "
+"de Git."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "Crea'n una branca"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
 msgid "You must have an active Git project before creating a new branch."
-msgstr "Heu de tenir un projecte de git actiu abans de crear una branca nova."
+msgstr "Heu de tenir un projecte de Git actiu abans de crear una branca nova."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
 msgid "Open a Git project folder in the sidebar."
-msgstr "Obriu la carpeta d'un projecte de git a la barra lateral."
+msgstr "Obriu la carpeta d'un projecte de Git a la barra lateral."
 
 #: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
 msgid ""
 "Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-"Obriu un document d'una carpeta d'un projecte de git a la barra lateral o "
+"Obriu un document d'una carpeta d'un projecte de Git a la barra lateral o "
 "useu un menú contextual del projecte."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
