@@ -212,4 +212,5 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 activate ();
             }
         }
+    }
 }
