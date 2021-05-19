@@ -22,7 +22,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Image img;
     private Gtk.Label label_widget;
     private Gtk.ListBox project_selection_listbox;
-    private ProjectEntry? last_entry = null;
+    private ProjectRow? last_entry = null;
 
     private Scratch.Services.Document? current_doc = null;
 
@@ -57,12 +57,12 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             placeholder_text = _("Filter projects")
         };
         project_selection_listbox.set_sort_func ((row1, row2) => {
-            return ((ProjectEntry) row1).project_name.collate (((ProjectEntry) row2).project_name);
+            return ((ProjectRow) row1).project_name.collate (((ProjectRow) row2).project_name);
         });
 
         project_selection_listbox.set_filter_func ((row) => {
             //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectEntry) row).project_name.down ().contains (project_selection_filter.text.down ().strip ()));
+            return (((ProjectRow) row).project_name.down ().contains (project_selection_filter.text.down ().strip ()));
         });
 
         project_selection_filter.changed.connect (() => {
@@ -95,7 +95,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         popover = project_popover;
 
         project_selection_listbox.row_activated.connect ((row) => {
-            var project_entry = ((ProjectEntry) row);
+            var project_entry = ((ProjectRow) row);
             select_project (project_entry);
         });
 
@@ -117,7 +117,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     private void add_project (string project_path) {
-        var project_entry = new ProjectEntry (project_path);
+        var project_entry = new ProjectRow (project_path);
         if (last_entry != null) {
             project_entry.project_radio.join_group (last_entry.project_radio);
         }
@@ -127,7 +127,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         select_project (project_entry);
     }
 
-    private void select_project (ProjectEntry project_entry) {
+    private void select_project (ProjectRow project_entry) {
         project_selection_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
         label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
@@ -137,7 +137,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     public void set_document (Scratch.Services.Document doc) {
         var path = doc.file.get_path ();
         project_selection_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectEntry) child);
+            var project_entry = ((ProjectRow) child);
             if (path.has_prefix (project_entry.project_path)) {
                 select_project (project_entry);
             }
@@ -146,7 +146,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     public void set_active_path (string active_path) {
         project_selection_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectEntry) child);
+            var project_entry = ((ProjectRow) child);
             if (active_path.has_prefix (project_entry.project_path)) {
                 select_project (project_entry);
             }
@@ -156,7 +156,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     public string? get_active_path () {
         string? active_path = null;
         project_selection_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectEntry) child);
+            var project_entry = ((ProjectRow) child);
             if (project_entry.active) {
                 active_path = project_entry.project_path;
             }
@@ -165,7 +165,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         return active_path;
     }
 
-    public class ProjectEntry : Gtk.ListBoxRow {
+    public class ProjectRow : Gtk.ListBoxRow {
         public bool active;
         public string project_path { get; construct; }
         public string project_name {
@@ -188,7 +188,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         }
 
-        public ProjectEntry (string project_path) {
+        public ProjectRow (string project_path) {
             Object (
                 project_path: project_path
             );
