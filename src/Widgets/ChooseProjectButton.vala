@@ -166,6 +166,7 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
     }
 
     public class ProjectEntry : Gtk.ListBoxRow {
+        public bool active;
         public string project_path { get; construct; }
         public string project_name {
             owned get {
@@ -174,16 +175,6 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         }
 
         public Gtk.RadioButton project_radio { get; construct; }
-
-        public bool active {
-            get {
-                return project_radio.active;
-            }
-
-            set {
-                project_radio.active = value;
-            }
-        }
 
         public bool selected {
             get {
@@ -210,8 +201,10 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
         construct {
             project_radio = new Gtk.RadioButton.with_label (null, project_name);
             add (project_radio);
-            project_radio.toggled.connect (radio_toggled);
             show_all ();
+
+            bind_property ("active", project_radio, "active", BindingFlags.BIDIRECTIONAL);
+            project_radio.toggled.connect (radio_toggled);
         }
 
         private void radio_toggled () {
