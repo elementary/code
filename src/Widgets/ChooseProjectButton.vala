@@ -164,7 +164,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
-        public bool active;
+        public bool active { get; set; }
         public string project_path { get; construct; }
         public string project_name {
             owned get {
