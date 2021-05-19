@@ -19,7 +19,6 @@
 public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private Scratch.Services.GitManager manager;
-    private Gtk.Image img;
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
@@ -27,7 +26,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Scratch.Services.Document? current_doc = null;
 
     construct {
-        img = new Gtk.Image () {
+        var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
         };
