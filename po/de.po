@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-05-01 20:32+0000\n"
+"PO-Revision-Date: 2021-05-19 14:59+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -115,36 +115,28 @@ msgstr "Neuen Zweig von »%s/%s« erstellen"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "Der Zweigname muss eindeutig sein und den Git-Namensregeln entsprechen."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "Zweig erstellen"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
 msgid "You must have an active Git project before creating a new branch."
 msgstr ""
-"Bevor ein neuer Zweig erstellt werden kann, muss ein aktives git-Projekt zur "
+"Bevor ein neuer Zweig erstellt werden kann, muss ein aktives Git-Projekt zur "
 "Verfügung stehen."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
 msgid "Open a Git project folder in the sidebar."
-msgstr "git-Projekt-Ordner in der Seitenleiste öffnen."
+msgstr "Git-Projekt-Ordner in der Seitenleiste öffnen."
 
 #: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
 msgid ""
 "Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-"Dokument in einem git-Projekt-Ordner in der Seitenleiste oder über das "
+"Dokument in einem Git-Projekt-Ordner in der Seitenleiste oder über das "
 "Projekt-Kontextmenü öffnen."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
