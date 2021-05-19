@@ -94,6 +94,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         popover = project_popover;
 
+        var hsizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+        hsizegroup.add_widget (this);
+        hsizegroup.add_widget (project_selection_listbox);
+
         project_selection_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
