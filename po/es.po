@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-05-18 18:14+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"PO-Revision-Date: 2021-05-19 11:45+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "_Cancelar"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr "Buscar texto en “%s”"
+msgstr "Buscar texto en «%s»"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
@@ -97,7 +97,7 @@ msgstr "El término de búsqueda debe tener al menos 3 caracteres."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr "Sensible a mayúsculas y minúsculas:"
+msgstr "Distinguir mayúsculas y minúsculas:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
@@ -110,7 +110,7 @@ msgstr "Buscar"
 #: src/Dialogs/NewBranchDialog.vala:45
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Crea una nueva rama de “%s/%s”"
+msgstr "Crea una rama nueva de «%s/%s»"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
@@ -124,28 +124,20 @@ msgid "Create Branch"
 msgstr "Crear rama"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
 msgid "You must have an active Git project before creating a new branch."
-msgstr "Debes tener un proyecto de Git activo antes de crear una nueva rama."
+msgstr "Debe tener un proyecto de Git activo antes de crear una rama nueva."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
 msgid "Open a Git project folder in the sidebar."
 msgstr "Abrir una carpeta de proyecto Git en la barra lateral."
 
 #: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
 msgid ""
 "Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
 "Abrir un documento en una carpeta de proyecto Git en la barra lateral o "
-"utilizar un menú de contexto del proyecto."
+"utilizar un menú contextual del proyecto."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
@@ -333,11 +325,11 @@ msgstr "Modificado"
 #: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr "Error al crear una nueva rama: “%s”"
+msgstr "Error al crear una rama nueva: «%s»"
 
 #: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
-msgstr "Nueva rama…"
+msgstr "Rama nueva…"
 
 #: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
