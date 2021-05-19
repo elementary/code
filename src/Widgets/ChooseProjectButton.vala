@@ -36,6 +36,8 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             width_chars = 24,
+            ellipsize = Pango.EllipsizeMode.END,
+            max_width_chars = 24,
             xalign = 0.0f
         };
 
