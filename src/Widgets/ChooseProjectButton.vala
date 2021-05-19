@@ -135,13 +135,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     public void set_document (Scratch.Services.Document doc) {
-        var path = doc.file.get_path ();
-        project_selection_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectRow) child);
-            if (path.has_prefix (project_entry.project_path)) {
-                select_project (project_entry);
-            }
-        });
+        set_active_path (doc.file.get_path ());
     }
 
     public void set_active_path (string active_path) {
