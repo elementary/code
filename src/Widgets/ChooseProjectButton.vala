@@ -73,10 +73,11 @@ public class Code.ChooseProjectButton : Gtk.ToggleButton {
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
-            height_request = 350,
             expand = true,
             margin_top = 3,
-            margin_bottom = 3
+            margin_bottom = 3,
+            max_content_height = 350,
+            propagate_natural_height = true
         };
 
         project_scrolled.add (project_selection_listbox);
