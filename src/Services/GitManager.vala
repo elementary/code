@@ -44,8 +44,6 @@ namespace Scratch.Services {
         }
 
         public MonitoredRepository? add_project (GLib.File root_folder) {
-            project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
-
             var root_path = root_folder.get_path ();
             try {
                 var git_repo = Ggit.Repository.open (root_folder);
@@ -56,6 +54,7 @@ namespace Scratch.Services {
                 var monitored_repo = new MonitoredRepository (git_repo);
 
                 project_gitrepo_map.@set (root_path, monitored_repo);
+                project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
                 return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
                 debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
