@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-04-30 19:41+0000\n"
+"PO-Revision-Date: 2021-05-19 11:45+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,33 +117,26 @@ msgstr "Criar um novo ramo de “%s/%s”"
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"O nome do ramo deve ser único e seguir as regras de nomenclatura do Git."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "Criar Ramo"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
 msgid "You must have an active Git project before creating a new branch."
-msgstr "Deve ter um projecto ativo de git antes de criar um novo ramo."
+msgstr "Deve ter um projecto ativo do Git antes de criar um novo ramo."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
 msgid "Open a Git project folder in the sidebar."
-msgstr "Abrir uma pasta de projecto git na barra lateral."
+msgstr "Abrir uma pasta de projecto Git na barra lateral."
 
 #: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
 msgid ""
 "Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-"Abrir um documento numa pasta de projeto git na barra lateral ou utilizar um "
+"Abrir um documento numa pasta de projeto Git na barra lateral ou utilizar um "
 "menu de contexto de projeto."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-18 17:18+0000\n"
-"PO-Revision-Date: 2021-05-01 11:26+0000\n"
+"PO-Revision-Date: 2021-05-19 11:45+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -115,33 +115,25 @@ msgstr "יצירת ענף חדש של „%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "שם הענף חייב להיות ייחודי ולהיצמד לכללי מתן השמות של Git."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
 msgid "You must have an active Git project before creating a new branch."
-msgstr "חייב להיות לך מיזם git פעיל בטרם יצירת ענף חדש."
+msgstr "חייב להיות לך מיזם Git פעיל בטרם יצירת ענף חדש."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
 msgid "Open a Git project folder in the sidebar."
-msgstr "פתיחת תיקיית מיזם git בסרגל הצד."
+msgstr "פתיחת תיקיית מיזם Git בסרגל הצד."
 
 #: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
 msgid ""
 "Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
-msgstr "לפתוח מסמך בתיקיית מיזם git בסרגל הצד או להשתמש בתפריט ההקשר של המיזם."
+msgstr "לפתוח מסמך בתיקיית מיזם Git בסרגל הצד או להשתמש בתפריט ההקשר של המיזם."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
 msgid "Preferences"
