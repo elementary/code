@@ -33,10 +33,6 @@ namespace Scratch.Widgets {
             owned get {
                 return choose_project_button.get_active_path ();
             }
-
-            set {
-                choose_project_button.set_active_path (value);
-            }
         }
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
