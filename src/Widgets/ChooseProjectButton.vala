@@ -118,6 +118,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         label_widget.label = project_entry.project_name;
         label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
         project_entry.selected = true;
+        Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
     }
 
     public void set_document (Scratch.Services.Document doc) {
@@ -131,18 +132,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 select_project (project_entry);
             }
         });
-    }
-
-    public string? get_active_path () {
-        string? active_path = null;
-        project_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectRow) child);
-            if (project_entry.active) {
-                active_path = project_entry.project_path;
-            }
-        });
-
-        return active_path;
     }
 
     public class ProjectRow : Gtk.ListBoxRow {

@@ -29,12 +29,6 @@ namespace Scratch.Widgets {
         public Code.FormatBar format_bar;
         public Code.ChooseProjectButton choose_project_button;
 
-        public string? active_project_path {
-            owned get {
-                return choose_project_button.get_active_path ();
-            }
-        }
-
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "solarized-light";
         private const string STYLE_SCHEME_DARK = "solarized-dark";
