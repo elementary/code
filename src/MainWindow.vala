@@ -1004,7 +1004,7 @@ namespace Scratch {
              }
 
              if (path == "") { // Happens when keyboard accelerator is used
-                 path = toolbar.active_project_path;
+                 path = Services.GitManager.get_instance ().active_project_path;
                  if (path == null) {
                      var current_doc = get_current_document ();
                      if (current_doc != null) {
