@@ -20,6 +20,8 @@
 
 namespace Scratch.Services {
     public class GitManager : Object {
+        public ListStore project_liststore { get; private set; }
+
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
 
@@ -37,10 +39,9 @@ namespace Scratch.Services {
             return instance;
         }
 
-        public signal void project_added (string root_path);
-        public signal void project_removed (string root_path);
-
-        private GitManager () {}
+        private GitManager () {
+            project_liststore = new ListStore (typeof (File));
+        }
 
         public MonitoredRepository? add_project (GLib.File root_folder) {
             var root_path = root_folder.get_path ();
@@ -53,7 +54,7 @@ namespace Scratch.Services {
                 var monitored_repo = new MonitoredRepository (git_repo);
 
                 project_gitrepo_map.@set (root_path, monitored_repo);
-                project_added (root_path);
+                project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
                 return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
                 debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
@@ -61,16 +62,24 @@ namespace Scratch.Services {
             }
         }
 
-        public void remove_project (GLib.File root_folder) {
-            var root_path = root_folder.get_path ();
-            if (project_gitrepo_map.has_key (root_path)) {
-                project_gitrepo_map.unset (root_path);
-                project_removed (root_path);
-            }
+        [CCode (instance_pos = -1)]
+        private int project_sort_func (File a, File b) {
+            return Path.get_basename (a.get_path ()).collate (Path.get_basename (b.get_path ()));
         }
 
-        public string[] get_project_paths () {
-            return project_gitrepo_map.keys.to_array ();
+        public void remove_project (GLib.File root_folder) {
+            var root_path = root_folder.get_path ();
+
+            uint position;
+            if (project_liststore.find (root_folder, out position)) {
+                project_liststore.remove (position);
+            } else {
+                critical ("Can't remove: %s", root_path);
+            }
+
+            if (project_gitrepo_map.has_key (root_path)) {
+                project_gitrepo_map.unset (root_path);
+            }
         }
     }
 }

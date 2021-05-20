@@ -18,12 +18,9 @@
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
-    private Scratch.Services.GitManager manager;
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
-
-    private Scratch.Services.Document? current_doc = null;
 
     construct {
         var img = new Gtk.Image () {
@@ -55,9 +52,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             margin_bottom = 6,
             placeholder_text = _("Filter projects")
         };
-        project_listbox.set_sort_func ((row1, row2) => {
-            return ((ProjectRow) row1).project_name.collate (((ProjectRow) row2).project_name);
-        });
 
         project_listbox.set_filter_func ((row) => {
             //Both are lowercased so that the case doesn't matter when comparing.
@@ -97,37 +91,26 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         hsizegroup.add_widget (this);
         hsizegroup.add_widget (project_listbox);
 
+        project_listbox.bind_model (
+            Scratch.Services.GitManager.get_instance ().project_liststore,
+            create_project_row
+        );
+
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
         });
-
-        manager = Scratch.Services.GitManager.get_instance ();
-        manager.project_added.connect (add_project);
-
-        manager.project_removed.connect ((project_path) => {
-            project_listbox.get_children ().foreach ((child) => {
-                project_listbox.remove (child);
-            });
-
-            label_widget.label = _(NO_PROJECT_SELECTED);
-            foreach (string path in manager.get_project_paths ()) {
-                add_project (path);
-            }
-
-            set_document (current_doc);
-        });
     }
 
-    private void add_project (string project_path) {
-        var project_entry = new ProjectRow (project_path);
+    private Gtk.Widget create_project_row (GLib.Object object) {
+        unowned var project_folder = (File) object;
+        var project_row = new ProjectRow (project_folder.get_path ());
         if (last_entry != null) {
-            project_entry.project_radio.join_group (last_entry.project_radio);
+            project_row.project_radio.join_group (last_entry.project_radio);
         }
+        last_entry = project_row;
 
-        last_entry = project_entry;
-        project_listbox.add (project_entry);
-        select_project (project_entry);
+        return project_row;
     }
 
     private void select_project (ProjectRow project_entry) {
