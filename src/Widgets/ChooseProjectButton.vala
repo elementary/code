@@ -99,7 +99,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
-
         });
     }
 
