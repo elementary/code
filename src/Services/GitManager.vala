@@ -21,6 +21,7 @@
 namespace Scratch.Services {
     public class GitManager : Object {
         public ListStore project_liststore { get; private set; }
+        public string active_project_path { get; set; default = "";}
 
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
