@@ -164,8 +164,13 @@ namespace Scratch.FolderManager {
         }
 
         public void new_branch (string active_project_path) {
-            string? branch_name = null;
             unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
+            if (active_project == null || !active_project.is_git_repo) {
+                Gdk.beep ();
+                return;
+            }
+
+            string? branch_name = null;
             var dialog = new Dialogs.NewBranchDialog (active_project);
             dialog.show_all ();
             if (dialog.run () == Gtk.ResponseType.APPLY) {
