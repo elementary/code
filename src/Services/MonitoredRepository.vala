@@ -43,7 +43,7 @@ namespace Scratch.Services {
                     color.parse ("#3689e6"); //Blueberry 500
                     break;
                 default:
-                    color.parse ("#000000"); //Transparent
+                    color.parse ("#00000000"); //Transparent
                     break;
             }
 
