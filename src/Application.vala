@@ -129,7 +129,7 @@ namespace Scratch {
                 window.show ();
                 window.restore_opened_documents ();
             } else {
-                window.present ();
+                window.present_with_time ((uint32) GLib.get_monotonic_time ());
             }
 
             // Create a new document if requested
