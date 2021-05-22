@@ -21,12 +21,6 @@ namespace Code.Plugins {
         public Object object { owned get; construct; }
 
         Scratch.Services.Interface scratch_interface;
-        SymbolOutline? current_view = null;
-        unowned Scratch.MainWindow window;
-
-        OutlinePane? container = null;
-
-        Gee.LinkedList<SymbolOutline> views;
 
         private Gtk.Grid placeholder;
 
@@ -41,7 +35,6 @@ namespace Code.Plugins {
             placeholder.attach (new Gtk.Image.from_icon_name ("plugin-outline-symbolic", Gtk.IconSize.DND), 0, 0);
             placeholder.attach (placeholder_label, 0, 1);
 
-            views = new Gee.LinkedList<SymbolOutline> ();
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code/plugin/outline");
         }
@@ -49,50 +42,19 @@ namespace Code.Plugins {
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
-            scratch_interface.hook_window.connect (on_hook_window);
         }
 
         public void deactivate () {
-            remove_container ();
             scratch_interface.hook_document.disconnect (on_hook_document);
             scratch_interface.hook_window.disconnect (on_hook_window);
         }
 
         public void update_state () {
-
-        }
-
-        void on_hook_window (Scratch.MainWindow window) {
-            if (container != null) {
-                return;
-            }
-
-            this.window = window;
-
-            container = new OutlinePane ();
-            container.add (placeholder);
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
-            if (current_view != null &&
-                current_view.doc == doc &&
-                current_view.get_source_list ().get_parent () != null) {
-
-                /* Ensure correct source list shown */
-                container.set_visible_child (current_view.get_source_list ());
-
-                return;
-            }
-
-            SymbolOutline view = null;
-            foreach (var v in views) {
-                if (v.doc == doc) {
-                    view = v;
-                    break;
-                }
-            }
-
-            if (view == null && doc.file != null) {
+            if (doc.file != null && !doc.has_extra_widget ()) {
+                SymbolOutline view = null;
                 var mime_type = doc.mime_type;
                 switch (mime_type) {
                     case "text/x-vala":
@@ -107,66 +69,22 @@ namespace Code.Plugins {
                 }
 
                 if (view != null) {
-                    view.closed.connect (() => {remove_view (view);});
-                    view.goto.connect (goto);
-                    views.add (view);
+                    view.closed.connect (() => {
+                        doc.remove_extra_widget (view.get_source_list ());
+                    });
+                    view.goto.connect ((doc, line) => {
+                        scratch_interface.open_file (doc.file);
+
+                        var text = doc.source_view;
+                        Gtk.TextIter iter;
+                        text.buffer.get_iter_at_line (out iter, line - 1);
+                        text.buffer.place_cursor (iter);
+                        text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+                    });
                     view.parse_symbols ();
+                    doc.add_extra_widget (view.get_source_list ());
                 }
             }
-
-            if (view != null) {
-                var source_list = view.get_source_list ();
-                if (source_list.parent == null) {
-                    container.add (source_list);
-                }
-
-                container.set_visible_child (source_list);
-                container.show_all ();
-                current_view = view;
-                add_container ();
-            } else {
-                container.set_visible_child (placeholder);
-            }
-        }
-
-        void add_container () {
-            if (container.get_parent () == null) {
-                window.sidebar.add_tab (container);
-                container.show_all ();
-            }
-        }
-
-        void remove_container () {
-            var parent = container.get_parent ();
-            if (parent != null) {
-                window.sidebar.remove_tab (container);
-            }
-
-            container.destroy ();
-        }
-
-        void remove_view (SymbolOutline view) {
-            views.remove (view);
-            var source_list = view.get_source_list ();
-            if (source_list.parent == container) {
-                container.remove (source_list);
-            }
-
-            if (views.is_empty) {
-                remove_container ();
-            }
-
-            view.goto.disconnect (goto);
-        }
-
-        void goto (Scratch.Services.Document doc, int line) {
-            scratch_interface.open_file (doc.file);
-
-            var text = doc.source_view;
-            Gtk.TextIter iter;
-            text.buffer.get_iter_at_line (out iter, line - 1);
-            text.buffer.place_cursor (iter);
-            text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
     }
 }
