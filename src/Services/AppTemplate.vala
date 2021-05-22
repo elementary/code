@@ -27,22 +27,30 @@ public class Scratch.Services.AppTemplate {
     }
 
     public string render (Gee.HashMap<string, string> context) {
-        if (!_content.contains ("{{")) {
-            return _content;
-        }
-
         int index = 0;
         string s = "";
-        while (_content.substring (index).contains ("{{")) {
+        do {
             int start_index = index;
             int found_start_index = _content.index_of ("{{", start_index);
+            if (found_start_index == -1) {
+                break;
+            }
+
             int found_end_index = _content.index_of ("}}", found_start_index + 2);
+            if (found_end_index == -1) {
+                break;
+            }
+
             var key = _content.substring (found_start_index + 2, found_end_index - found_start_index - 2).strip ();
 
             s += _content.substring (index, found_start_index - index);
             s += context[key];
 
             index = found_end_index + 2;
+        } while (index < _content.length);
+
+        if (index == 0) {
+            return _content;
         }
 
         s += _content.substring (index);
