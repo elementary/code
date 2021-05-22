@@ -48,9 +48,7 @@ namespace Code.Plugins {
         public void deactivate () {
             scratch_interface.hook_document.disconnect (on_hook_document);
             scratch_interface.hook_window.disconnect (on_hook_window);
-            scratch_interface.manager.window.document_view.docs.foreach ((doc) => {
-                doc.remove_outline_widget ();
-            });
+            scratch_interface.manager.window.document_view.docs.foreach (remove_outline_from_doc);
         }
 
         public void update_state () {
@@ -64,34 +62,43 @@ namespace Code.Plugins {
 
         void on_hook_document (Scratch.Services.Document? doc) {
             if (doc != null && doc.file != null && !doc.has_outline_widget ()) {
-                SymbolOutline view = null;
+                SymbolOutline outline = null;
                 var mime_type = doc.mime_type;
                 switch (mime_type) {
                     case "text/x-vala":
-                        view = new ValaSymbolOutline (doc);
+                        outline = new ValaSymbolOutline (doc);
                         break;
                     case "text/x-csrc":
                     case "text/x-chdr":
                     case "text/x-c++src":
                     case "text/x-c++hdr":
-                        view = new CtagsSymbolOutline (doc);
+                        outline = new CtagsSymbolOutline (doc);
                         break;
                 }
-
-                if (view != null) {
-                    view.goto.connect ((doc, line) => {
-                        scratch_interface.open_file (doc.file);
-
-                        var text = doc.source_view;
-                        Gtk.TextIter iter;
-                        text.buffer.get_iter_at_line (out iter, line - 1);
-                        text.buffer.place_cursor (iter);
-                        text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
-                    });
-                    view.parse_symbols ();
-                    doc.add_outline_widget (view.get_source_list ());
+                if (outline != null) {
+                    add_outline_to_doc (doc, outline);
                 }
             }
+        }
+
+        private void add_outline_to_doc (Scratch.Services.Document doc, SymbolOutline outline) {
+            outline.goto.connect ((doc, line) => {
+                scratch_interface.open_file (doc.file);
+
+                var text = doc.source_view;
+                Gtk.TextIter iter;
+                text.buffer.get_iter_at_line (out iter, line - 1);
+                text.buffer.place_cursor (iter);
+                text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+            });
+            outline.parse_symbols ();
+            doc.add_outline_widget (outline.get_source_list ());
+            doc.set_data<SymbolOutline> ("SymbolOutline", outline);
+        }
+
+        private void remove_outline_from_doc (Scratch.Services.Document doc) {
+            doc.remove_outline_widget ();
+            doc.steal_data<SymbolOutline> ("SymbolOutline");
         }
     }
 }
