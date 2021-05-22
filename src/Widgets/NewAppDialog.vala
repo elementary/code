@@ -171,31 +171,35 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         your_github_entry.text = Environment.get_user_name ();
 
         response.connect ((response_id) => {
-            try {
-                if (response_id == Gtk.ResponseType.OK) {
-                    var context = new Gee.HashMap<string, string> ();
-                    context["app_name"] = app_name_entry.text;
-                    context["app_summary"] = app_summary_entry.text;
-                    context["app_description"] = app_description_entry.text;
-                    context["your_name"] = your_name_entry.text;
-                    context["your_email"] = your_email_entry.text;
-                    context["github_username"] = your_github_entry.text;
-                    context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
-                    context["license_code"] = "gpl-3.0";
-                    context["license_spdx"] = "GPL-3.0-or-later";
-                    context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
+            if (response_id == Gtk.ResponseType.OK) {
+                var context = new Gee.HashMap<string, string> ();
+                context["app_name"] = app_name_entry.text;
+                context["app_summary"] = app_summary_entry.text;
+                context["app_description"] = app_description_entry.text;
+                context["your_name"] = your_name_entry.text;
+                context["your_email"] = your_email_entry.text;
+                context["github_username"] = your_github_entry.text;
+                context["github_repository"] = app_name_entry.text.down ().replace (" ", "-");
+                context["license_code"] = "gpl-3.0";
+                context["license_spdx"] = "GPL-3.0-or-later";
+                context["current_year"] = "%d".printf (new DateTime.now_local ().get_year ());
 
-                    var src = app_template_folder_path;
-                    var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
-                    copy_recursive_with_context (src, dest, context);
+                var src = app_template_folder_path;
+                var dest = Path.build_filename (location_chooser.get_filename (), context["github_repository"]);
+                copy_recursive_with_context.begin (src, dest, context, FileCopyFlags.NONE, null, (obj, res) => {
+                    try {
+                        copy_recursive_with_context.end (res);
 
-                    open_folder (dest);
-                }
-            } catch (Error e) {
-                show_error_dialog (app_name_entry.text, e.message);
+                        open_folder (dest);
+
+                        destroy ();
+                    } catch (Error e) {
+                        show_error_dialog (app_name_entry.text, e.message);
+                    }
+                });
+            } else {
+                destroy ();
             }
-
-            destroy ();
         });
     }
 
@@ -217,7 +221,7 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
         }
     }
 
-    private bool copy_recursive_with_context (string src, string dest, Gee.HashMap<string, string> context, FileCopyFlags flags = FileCopyFlags.NONE, Cancellable? cancellable = null) throws Error {
+    private static async void copy_recursive_with_context (string src, string dest, Gee.HashMap<string, string> context, FileCopyFlags flags = FileCopyFlags.NONE, Cancellable? cancellable = null) throws Error {
         var template = new Services.AppTemplate (dest);
         var src_path = src;
         var dest_path = template.render (context);
@@ -227,12 +231,12 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
 
         FileType src_type = src_file.query_file_type (FileQueryInfoFlags.NONE, cancellable);
         if (src_type == FileType.DIRECTORY) {
-            dest_file.make_directory (cancellable);
+            yield dest_file.make_directory_async (GLib.Priority.DEFAULT, cancellable);
             src_file.copy_attributes (dest_file, flags, cancellable);
 
             FileEnumerator enumerator = src_file.enumerate_children (FileAttribute.STANDARD_NAME, FileQueryInfoFlags.NONE, cancellable);
             for (FileInfo? info = enumerator.next_file (cancellable); info != null; info = enumerator.next_file (cancellable)) {
-                copy_recursive_with_context (
+                yield copy_recursive_with_context (
                     Path.build_filename (src_path, info.get_name ()),
                     Path.build_filename (dest_path, info.get_name ()),
                     context,
@@ -241,15 +245,18 @@ public class Scratch.Widgets.NewAppDialog : Granite.Dialog {
                 );
             }
         } else if (src_type == FileType.REGULAR) {
-            src_file.copy (dest_file, flags, cancellable);
-            string content;
-            FileUtils.get_contents (dest_path, out content);
-            template = new Services.AppTemplate (content);
-            string new_content = template.render (context);
-            FileUtils.set_contents (dest_path, new_content);
-        }
+            yield src_file.copy_async (dest_file, flags, GLib.Priority.DEFAULT, cancellable);
 
-        return true;
+            uint8[] contents;
+            string etag_out;
+
+            yield src_file.load_contents_async (cancellable, out contents, out etag_out);
+
+            template = new Services.AppTemplate ((string) contents);
+            string new_content = template.render (context);
+
+            yield dest_file.replace_contents_async (new_content.data, null, false, FileCreateFlags.NONE, cancellable, null);
+        }
     }
 
     private void show_error_dialog (string app_name, string message) {
