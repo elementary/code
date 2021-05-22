@@ -42,18 +42,28 @@ namespace Code.Plugins {
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
+            scratch_interface.hook_window.connect (on_hook_window);
         }
 
         public void deactivate () {
             scratch_interface.hook_document.disconnect (on_hook_document);
             scratch_interface.hook_window.disconnect (on_hook_window);
+            scratch_interface.manager.window.document_view.docs.foreach ((doc) => {
+                doc.remove_outline_widget ();
+            });
         }
 
         public void update_state () {
         }
 
-        void on_hook_document (Scratch.Services.Document doc) {
-            if (doc.file != null && !doc.has_extra_widget ()) {
+        public void on_hook_window (Scratch.MainWindow window) {
+            if (window != null) {
+                on_hook_document (window.get_current_document ());
+            }
+        }
+
+        void on_hook_document (Scratch.Services.Document? doc) {
+            if (doc != null && doc.file != null && !doc.has_outline_widget ()) {
                 SymbolOutline view = null;
                 var mime_type = doc.mime_type;
                 switch (mime_type) {
@@ -69,9 +79,6 @@ namespace Code.Plugins {
                 }
 
                 if (view != null) {
-                    view.closed.connect (() => {
-                        doc.remove_extra_widget (view.get_source_list ());
-                    });
                     view.goto.connect ((doc, line) => {
                         scratch_interface.open_file (doc.file);
 
@@ -82,7 +89,7 @@ namespace Code.Plugins {
                         text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
                     });
                     view.parse_symbols ();
-                    doc.add_extra_widget (view.get_source_list ());
+                    doc.add_outline_widget (view.get_source_list ());
                 }
             }
         }
