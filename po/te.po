@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
+"POT-Creation-Date: 2021-05-18 17:18+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
+msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:59
@@ -116,16 +116,16 @@ msgid "Create Branch"
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
+msgid "You must have an active Git project before creating a new branch."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a git project folder in the sidebar."
+msgid "Open a Git project folder in the sidebar."
 msgstr ""
 
 #: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
+"Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
 
@@ -257,7 +257,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Move to Trash"
 msgstr ""
 
@@ -281,8 +281,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:173
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "New"
 msgstr ""
 
@@ -295,34 +295,34 @@ msgstr ""
 msgid "new file"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:102
 #, fuzzy
 msgid "Close Other Folders"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:113
 #, fuzzy
 msgid "Find in Project…"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
 msgstr ""
 
@@ -434,7 +434,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, c-format
 msgid "Text file from %s:%d"
 msgstr ""
