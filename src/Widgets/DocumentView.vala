@@ -325,7 +325,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (!doc.is_file_temporary) {
             rename_tabs_with_same_title (doc.file.get_basename ());
         }
-        
 
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
