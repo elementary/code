@@ -884,9 +884,18 @@ namespace Scratch {
             var current_doc = get_current_document ();
             var selected_text = current_doc.get_selected_text ();
 
+            // If search entry focused use its text for search term, else use selected text
             var term = search_bar.search_entry.has_focus ?
                           search_bar.search_entry.text :
                           selected_text;
+
+            // If no focused selected text fallback to search entry text if visible
+            if (term == "" &&
+                !search_bar.search_entry.has_focus &&
+                search_revealer.reveal_child) {
+
+                term = search_bar.search_entry.text;
+            }
 
             if (path == "") {
                 if (current_doc != null) {
