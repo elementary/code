@@ -287,7 +287,7 @@ namespace Scratch {
                 set_search_text ();
             });
             search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
-                search_bar.set_search_string ("");
+                search_bar.search_entry.text = "";
                 search_bar.highlight_none ();
             });
             search_bar.search_empty.connect (() => {
@@ -881,19 +881,22 @@ namespace Scratch {
                 path = param.get_string ();
             }
 
+            var current_doc = get_current_document ();
+            var selected_text = current_doc.get_selected_text ();
+
+            string term = selected_text != "" ? selected_text : search_bar.search_entry.text;
             if (path == "") {
-                var current_doc = get_current_document ();
                 if (current_doc != null) {
                     path = current_doc.file.get_path ();
                 }
             }
 
-            folder_manager_view.search_global (path);
+            folder_manager_view.search_global (path, term);
         }
 
         private void set_search_text () {
             if (current_search_term != "") {
-                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
             } else {
@@ -903,7 +906,7 @@ namespace Scratch {
                     var selected_text = current_doc.get_selected_text ();
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                         current_search_term = selected_text;
-                        search_bar.set_search_string (current_search_term);
+                        search_bar.search_entry.text = current_search_term;
                     }
 
                     search_bar.search_entry.grab_focus (); /* causes loss of document selection */

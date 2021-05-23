@@ -240,10 +240,6 @@ namespace Scratch.Widgets {
             this.window.get_current_document ().toggle_changed_handlers (true);
         }
 
-        public void set_search_string (string to_search) {
-            search_entry.text = to_search;
-        }
-
         private void on_search_entry_text_changed () {
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
