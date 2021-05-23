@@ -884,7 +884,10 @@ namespace Scratch {
             var current_doc = get_current_document ();
             var selected_text = current_doc.get_selected_text ();
 
-            string term = selected_text != "" ? selected_text : search_bar.search_entry.text;
+            var term = search_bar.search_entry.has_focus ?
+                          search_bar.search_entry.text :
+                          selected_text;
+
             if (path == "") {
                 if (current_doc != null) {
                     path = current_doc.file.get_path ();

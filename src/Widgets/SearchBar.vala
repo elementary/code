@@ -107,10 +107,16 @@ namespace Scratch.Widgets {
             case_sensitive_button.clicked.connect (on_search_entry_text_changed);
 
             global_search_button = new Gtk.Button.from_icon_name ("gnome-globe") {
+                can_focus = false,
                 tooltip_markup = Granite.markup_accel_tooltip ({"<Control><Shift>F"}, "Global Search"),
                 action_name = "win.action_find_global",
                 action_target = new Variant.string ("") // Search in current active project
             };
+
+            global_search_button.button_press_event.connect (() => {
+                search_entry.grab_focus ();
+                return false;
+            });
 
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
