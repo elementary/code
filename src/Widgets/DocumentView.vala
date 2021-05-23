@@ -284,11 +284,46 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         current_document.focus ();
     }
 
+    private File find_common_parent (File f1, File f2) {
+        File par = f1;
+        while (par != null && par.get_relative_path (f2) == null &&
+               par.get_path () != f2.get_path ()) {
+            par = par.get_parent ();
+        }
+
+        return par;
+    }
+
+    private void rename_tabs_with_same_title (string title) {
+        File? common_parent = null;
+        foreach (var d in docs) {
+            var tab_basename = d.file.get_basename ();
+
+            if (title == tab_basename) {
+                if (common_parent == null) {
+                    common_parent = d.file.get_parent ();
+                } else {
+                    common_parent = find_common_parent (d.file, common_parent);
+                }
+            }
+        }
+
+        foreach (var d in docs) {
+            var tab_basename = d.file.get_basename ();
+            if (title == tab_basename) {
+                d.tab_name = common_parent.get_relative_path (d.file);
+                d.ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
+            }
+        }
+    }
+
     private void on_doc_added (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
         doc.actions = window.actions;
 
         docs.append (doc);
+        rename_tabs_with_same_title (doc.file.get_basename ());
+
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
     }
@@ -303,6 +338,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         // Check if the view is empty
         if (is_empty ()) {
             empty ();
+        } else {
+            rename_tabs_with_same_title (doc.file.get_basename ());
         }
 
         if (!is_closing) {
