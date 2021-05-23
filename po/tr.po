@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-01 22:49+0000\n"
-"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"PO-Revision-Date: 2021-05-21 22:08+0000\n"
+"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -114,27 +114,27 @@ msgstr "\"%s/%s\" için yeni bir dal oluştur"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
-msgstr "Dal adı Git kurallarına uygun olmalı ve halihazırda mevcut olmamalıdır."
+msgid "The branch name must be unique and follow Git naming rules."
+msgstr "Dal adı benzersiz olmalı ve Git adlandırma kurallarına uymalıdır."
 
 #: src/Dialogs/NewBranchDialog.vala:59
 msgid "Create Branch"
 msgstr "Dal Oluştur"
 
 #: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
-msgstr "Yeni bir dal oluşturmadan önce aktif bir git projeniz olmalıdır."
+msgid "You must have an active Git project before creating a new branch."
+msgstr "Yeni bir dal oluşturmadan önce aktif bir Git projeniz olmalıdır."
 
 #: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a git project folder in the sidebar."
-msgstr "Kenar çubuğuna bir git proje klasörü açın."
+msgid "Open a Git project folder in the sidebar."
+msgstr "Kenar çubuğuna bir Git proje klasörü açın."
 
 #: src/Dialogs/NewBranchDialog.vala:89
 msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
+"Open a document in a Git project folder in the sidebar or use a project "
 "context menu."
 msgstr ""
-"Kenar çubuğundaki git proje klasöründeki bir belgeyi açın veya projenin "
+"Kenar çubuğundaki Git proje klasöründeki bir belgeyi açın veya projenin "
 "içerik menüsünü kullanın."
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
@@ -269,7 +269,7 @@ msgid "Rename"
 msgstr "Yeniden Adlandır"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
 
@@ -292,8 +292,8 @@ msgstr "Boş Dosya"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:173
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "New"
 msgstr "Yeni"
 
@@ -305,32 +305,32 @@ msgstr "adsız klasör"
 msgid "new file"
 msgstr "yeni dosya"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:102
 msgid "Close Other Folders"
 msgstr "Diğer Klasörleri Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:113
 msgid "Find in Project…"
 msgstr "Projede Bul…"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:213
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Yeni dal oluşturulurken hata meydana geldi: \"%s\""
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:485
 msgid "New Branch…"
 msgstr "Yeni Dal…"
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:498
 msgid "Branch"
 msgstr "Dal"
 
@@ -448,7 +448,7 @@ msgstr "Devam Et"
 msgid "Templates"
 msgstr "Şablonlar"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Metin dosyası %s:%d"
@@ -738,6 +738,11 @@ msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
+
+#~ msgid ""
+#~ "The branch name must comply with Git rules and must not already exist."
+#~ msgstr ""
+#~ "Dal adı Git kurallarına uygun olmalı ve halihazırda mevcut olmamalıdır."
 
 #~ msgid ""
 #~ "The branch name must be lower-case, start with a letter, and be at least "
