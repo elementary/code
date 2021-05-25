@@ -153,7 +153,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         construct {
             project_radio = new Gtk.RadioButton.with_label (null, project_name);
-
             add (project_radio);
             show_all ();
 
