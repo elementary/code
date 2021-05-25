@@ -20,6 +20,9 @@
 
 namespace Scratch.Services {
     public class GitManager : Object {
+        public ListStore project_liststore { get; private set; }
+        public string active_project_path { get; set; default = "";}
+
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
 
@@ -37,9 +40,13 @@ namespace Scratch.Services {
             return instance;
         }
 
-        private GitManager () {}
+        private GitManager () {
+            project_liststore = new ListStore (typeof (File));
+        }
 
         public MonitoredRepository? add_project (GLib.File root_folder) {
+            project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
+
             var root_path = root_folder.get_path ();
             try {
                 var git_repo = Ggit.Repository.open (root_folder);
@@ -57,8 +64,21 @@ namespace Scratch.Services {
             }
         }
 
+        [CCode (instance_pos = -1)]
+        private int project_sort_func (File a, File b) {
+            return Path.get_basename (a.get_path ()).collate (Path.get_basename (b.get_path ()));
+        }
+
         public void remove_project (GLib.File root_folder) {
             var root_path = root_folder.get_path ();
+
+            uint position;
+            if (project_liststore.find (root_folder, out position)) {
+                project_liststore.remove (position);
+            } else {
+                critical ("Can't remove: %s", root_path);
+            }
+
             if (project_gitrepo_map.has_key (root_path)) {
                 project_gitrepo_map.unset (root_path);
             }
