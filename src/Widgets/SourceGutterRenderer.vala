@@ -1,5 +1,4 @@
-namespace Scratch.Widgets {
-    public class SourceGutterRenderer : Gtk.SourceGutterRenderer {
+    public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
         public Gee.HashMap<int, Services.VCStatus> line_status_map;
         public FolderManager.ProjectFolderItem? project { get; set; default = null; }
         public string workdir_path {
