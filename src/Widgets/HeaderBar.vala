@@ -27,6 +27,7 @@ namespace Scratch.Widgets {
         public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
+        public Code.ChooseProjectButton choose_project_button;
         public Gtk.Button build_button;
         public Gtk.Button run_button;
         public Gtk.Button stop_button;
@@ -44,6 +45,10 @@ namespace Scratch.Widgets {
 
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
+
+            choose_project_button = new Code.ChooseProjectButton () {
+                valign = Gtk.Align.CENTER
+            };
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
@@ -214,6 +219,7 @@ namespace Scratch.Widgets {
             };
             set_custom_title (format_bar);
 
+            pack_start (choose_project_button);
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
@@ -305,6 +311,7 @@ namespace Scratch.Widgets {
 
         public void set_document_focus (Scratch.Services.Document doc) {
             format_bar.set_document (doc);
+            choose_project_button.set_document (doc);
         }
     }
 }

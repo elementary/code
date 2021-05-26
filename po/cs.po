@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "Hledat…"
 
@@ -72,7 +72,7 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -111,42 +111,24 @@ msgstr ""
 msgid "Search"
 msgstr "Najít další"
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, fuzzy, c-format
 #| msgid "Create a new instance"
 msgid "Create a new branch of “%s/%s”"
 msgstr "Vytvořit novou instanci"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
+#: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 #, fuzzy
 #| msgid "Branch"
 msgid "Create Branch"
 msgstr "Větev"
 
-#: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active Git project before creating a new branch."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid "Open a Git project folder in the sidebar."
-msgstr "Přidat složku projektu do bočního panelu."
-
-#: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid ""
-"Open a document in a Git project folder in the sidebar or use a project "
-"context menu."
-msgstr "Přidat složku projektu do bočního panelu."
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Předvolby"
 
@@ -275,7 +257,7 @@ msgid "Rename"
 msgstr "Přejmenovat"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
 
@@ -300,8 +282,8 @@ msgstr "Prázdný soubor"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:173
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "New"
 msgstr "Nový"
 
@@ -317,34 +299,34 @@ msgstr "nový soubor"
 msgid "Close Folder"
 msgstr "Zavřít složku"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:104
 msgid "Close Other Folders"
 msgstr "Zavřít ostatní složky"
 
-#: src/FolderManager/ProjectFolderItem.vala:113
+#: src/FolderManager/ProjectFolderItem.vala:115
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "Otevřít složku projektu…"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:181
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:213
+#: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:485
+#: src/FolderManager/ProjectFolderItem.vala:488
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Větev"
 
-#: src/FolderManager/ProjectFolderItem.vala:498
+#: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
 msgstr "Větev"
 
@@ -501,59 +483,59 @@ msgstr[2] "%d tabulátorů"
 msgid "Go To Line:"
 msgstr "Přejít na řádek:"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "Otevřít soubor"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "Šablony projektu"
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "Uložit"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "Uložit soubor pod jiným názvem"
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "Obnovit tento soubor"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "Sdílet"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "Zvětšení 1:1"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: src/Widgets/HeaderBar.vala:127
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr "Vysoký kontrast"
 
-#: src/Widgets/HeaderBar.vala:135
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr "Solarizovaný světlý"
 
-#: src/Widgets/HeaderBar.vala:143
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr "Solarizovaný tmavý"
 
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr "Skrýt/Zobrazit postranní panel"
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr "Menu"
 
@@ -758,6 +740,18 @@ msgstr "Nainstalujte prosím alespoň jeden [aspell] slovník."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - dokončených slov"
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid "Open a Git project folder in the sidebar."
+#~ msgstr "Přidat složku projektu do bočního panelu."
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid ""
+#~ "Open a document in a Git project folder in the sidebar or use a project "
+#~ "context menu."
+#~ msgstr "Přidat složku projektu do bočního panelu."
 
 #, fuzzy
 #~| msgid "Search next"
