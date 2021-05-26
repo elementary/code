@@ -273,7 +273,6 @@ namespace Scratch.Services {
 
             // Need to have our own map since the callback closures cannot capture
             // a reference to the ref parameter. Vala bug??
-            // var status_map = new Gee.HashMap<int, VCStatus> ();
             var status_map = line_status_map;
 
             int prev_deletions = 0;

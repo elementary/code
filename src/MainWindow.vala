@@ -212,7 +212,7 @@ namespace Scratch {
                 }
             });
 
-           foreach (var action in action_accelerators.get_keys ()) {
+            foreach (var action in action_accelerators.get_keys ()) {
                 var accels_array = action_accelerators[action].to_array ();
                 accels_array += null;
 
