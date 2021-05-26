@@ -176,49 +176,24 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void new_branch (GLib.File? current_doc_file) {
-            GLib.List<ProjectFolderItem> project_list;
+        public void new_branch (string active_project_path) {
+            unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
+            if (active_project == null || !active_project.is_git_repo) {
+                Gdk.beep ();
+                return;
+            }
+
             string? branch_name = null;
-            unowned var active_project = get_active_project (current_doc_file, out project_list);
-            var dialog = new Dialogs.NewBranchDialog (active_project, project_list);
+            var dialog = new Dialogs.NewBranchDialog (active_project);
             dialog.show_all ();
             if (dialog.run () == Gtk.ResponseType.APPLY) {
                 branch_name = dialog.new_branch_name;
             }
 
             dialog.destroy ();
-            if (active_project != null && branch_name != null) {
+            if (branch_name != null) {
                 active_project.new_branch (branch_name);
             }
-        }
-
-        public unowned ProjectFolderItem? get_active_project (GLib.File? active_file,
-                                                              out List<ProjectFolderItem> project_list) {
-            unowned ProjectFolderItem? project = null;
-            project_list = null;
-            foreach (var child in root.children) {
-                project = (ProjectFolderItem)child;
-                if (!project.is_git_repo) {
-                    // Ignore sidebar folders that are not git repos
-                    continue;
-                }
-
-                if (active_file != null)
-                    if (project.file.file.equal (active_file) ||
-                        project.contains_file (active_file)) {
-
-                    return project;
-                }
-
-                project_list.prepend (project);
-            }
-
-            if (project_list.length () == 1) {
-                //There was only one project so use that
-                return project_list.data;
-            }
-
-            return null;
         }
 
         private void add_folder (File folder, bool expand) {
@@ -230,20 +205,23 @@ namespace Scratch.FolderManager {
                 return;
             }
 
-            var folder_root = new ProjectFolderItem (folder, this);
+            var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
             this.root.add (folder_root);
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
                 close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
                 write_settings ();
             });
 
             folder_root.close_all_except.connect (() => {
                 foreach (var child in root.children) {
-                    if (child != folder_root) {
-                        root.remove (child);
+                    var project_folder_item = (ProjectFolderItem)child;
+                    if (project_folder_item != folder_root) {
+                        root.remove (project_folder_item);
+                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item.file.file);
                     }
                 }
 
