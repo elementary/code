@@ -30,7 +30,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             width_chars = 24,
-            ellipsize = Pango.EllipsizeMode.END,
+            ellipsize = Pango.EllipsizeMode.MIDDLE,
             max_width_chars = 24,
             xalign = 0.0f
         };
@@ -86,10 +86,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_popover.add (popover_content);
 
         popover = project_popover;
-
-        var hsizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
-        hsizegroup.add_widget (this);
-        hsizegroup.add_widget (project_listbox);
 
         project_listbox.bind_model (
             Scratch.Services.GitManager.get_instance ().project_liststore,
