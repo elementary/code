@@ -52,11 +52,22 @@ namespace Scratch.FolderManager {
         construct {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
             if (monitored_repo != null) {
-                monitored_repo.branch_changed.connect ((update_branch_name));
+                monitored_repo.branch_changed.connect (() => {
+                    //As SourceList items are not widgets we have to use markup to change appearance of text.
+                    if (monitored_repo.head_is_branch) {
+                        markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                            file.name, monitored_repo.branch_name
+                        );
+                    } else { //Distinguish detached heads visually
+                        markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                            file.name, monitored_repo.branch_name
+                        );
+                    }
+                });
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update ();
-                update_branch_name (monitored_repo.get_current_branch ());
+                monitored_repo.branch_changed ();
             }
         }
 
@@ -86,7 +97,9 @@ namespace Scratch.FolderManager {
 
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => { closed (); });
+            close_item.activate.connect (() => {
+                closed ();
+            });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
@@ -178,10 +191,6 @@ namespace Scratch.FolderManager {
             });
         }
 
-        private void update_branch_name (string branch_name) requires (monitored_repo != null) {
-            markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch_name);
-        }
-
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
             visible_item_list.@foreach ((visible_item) => {
                 var item = visible_item.item;
@@ -251,7 +260,9 @@ namespace Scratch.FolderManager {
             Regex? pattern = null;
 
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                null, start_folder.get_basename (), monitored_repo.git_repo != null
+                null,
+                start_folder.get_basename (),
+                monitored_repo != null && monitored_repo.git_repo != null
             ) {
                 case_sensitive = case_sensitive,
                 use_regex = use_regex
@@ -357,7 +368,7 @@ namespace Scratch.FolderManager {
                     if (info != null && info.has_attribute (FileAttribute.STANDARD_TYPE)) {
                         if (info.get_file_type () == FileType.DIRECTORY) {
                             if (recurse_subfolders) {
-                                search_folder_children (child, pattern, false); //Limit depth to 1
+                                search_folder_children (child, pattern, recurse_subfolders);
                             }
                         } else {
                             perform_match (child, pattern, true, info);
@@ -400,7 +411,6 @@ namespace Scratch.FolderManager {
                 var type = info.get_content_type ();
                 if (!ContentType.is_mime_type (type, "text/*") ||
                     ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
-
                     return;
                 }
             }

@@ -29,7 +29,7 @@ namespace Scratch.Services {
             set {
                 if (_branch_name != value) {
                     _branch_name = value;
-                    branch_changed (value);
+                    branch_changed ();
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Scratch.Services {
             }
         }
 
-        public signal void branch_changed (string new_branch_name);
+        public signal void branch_changed ();
         public signal void ignored_changed ();
         public signal void file_status_change ();
 
@@ -182,14 +182,24 @@ namespace Scratch.Services {
             if (update_timer_id == 0) {
                 update_timer_id = Timeout.add (150, () => {
                     if (do_update) {
+                        var target_name = ""; //Do we need a user visible indication if no target?
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                branch_name = ((Ggit.Branch)head).get_name ();
+                                target_name = ((Ggit.Branch)head).get_name ();
+                            } else {
+                                var target = head.get_target ();
+                                if (target != null) {
+                                    ///TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+                                    target_name = _("%.8s (detached)").printf (target.to_string ());
+                                    // Do we need to expose a warning regarding the detached-head state like Git does?
+                                }
                             }
                         } catch (Error e) {
                             warning ("An error occured while fetching the current git branch name: %s", e.message);
                         }
+
+                        branch_name = target_name;
 
                         // SourceList shows files in working dir so only want status for those for now.
                         // No callback generated for current files.

@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2019-01-08 08:54+0000\n"
-"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/code/extra/fi/"
-">\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"PO-Revision-Date: 2021-05-10 21:17+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/code/extra/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -106,7 +105,7 @@ msgstr "paljon muuta"
 #: data/io.elementary.code.appdata.xml.in:96
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "New features:"
-msgstr ""
+msgstr "Uudet ominaisuudet:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New Markdown plugin for WYSIWYG-like editing."
@@ -139,7 +138,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Fixes:"
-msgstr ""
+msgstr "Korjaukset:"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
@@ -161,7 +160,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:163
 #: data/io.elementary.code.appdata.xml.in:174
 msgid "Updated translations"
-msgstr ""
+msgstr "Päivitetyt käännökset"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Include Git status in file tooltips"
@@ -175,7 +174,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:101
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Other updates:"
-msgstr ""
+msgstr "Muut päivitykset:"
 
 #: data/io.elementary.code.appdata.xml.in:88
 msgid "Correctly show Toggle Comment menu item when no text is selected"
@@ -203,7 +202,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:105
 msgid "Center new windows"
-msgstr ""
+msgstr "Keskitä uudet ikkunat"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Visually deprioritize .gitignored files in project sidebar"
