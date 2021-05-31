@@ -145,7 +145,6 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
-                menu.append (new ChangeBranchMenu (this));
                 var diff_accellabel = new Granite.AccelLabel.from_action_name (
                     _("Show Diff"),
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_DIFF + "::"
@@ -157,6 +156,10 @@ namespace Scratch.FolderManager {
                 };
                 diff_item.add (diff_accellabel);
                 menu.append (diff_item);
+                var branch_menu = new ChangeBranchMenu (this) {
+                    sensitive = !monitored_repo.has_uncommitted
+                };
+                menu.append (branch_menu);
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
