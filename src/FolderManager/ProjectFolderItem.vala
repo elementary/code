@@ -146,6 +146,17 @@ namespace Scratch.FolderManager {
 
             if (monitored_repo != null) {
                 menu.append (new ChangeBranchMenu (this));
+                var diff_accellabel = new Granite.AccelLabel.from_action_name (
+                    _("Show Diff"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_DIFF + "::"
+                );
+
+                var diff_item = new Gtk.MenuItem () {
+                    action_name = "win.action_show_diff",
+                    action_target = new Variant.string (file.file.get_path ())
+                };
+                diff_item.add (diff_accellabel);
+                menu.append (diff_item);
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -455,6 +466,10 @@ namespace Scratch.FolderManager {
 
         public void refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
             monitored_repo.refresh_diff (doc_path, ref line_status_map);
+        }
+
+        public string? get_project_diff () throws GLib.Error {
+            return monitored_repo.get_project_diff ();
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
