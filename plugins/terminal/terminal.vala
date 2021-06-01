@@ -246,7 +246,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
         string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
         terminal.spawn_async (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH,
-            null,  null, -1, null, spawn_async_cb);
+            null, null, -1, null, spawn_async_cb);
 
         grid = new Gtk.Grid ();
         var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
