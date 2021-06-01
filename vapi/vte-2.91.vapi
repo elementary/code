@@ -361,7 +361,7 @@ namespace Vte {
 	public delegate bool SelectionFunc (Vte.Terminal terminal, long column, long row);
 	[CCode (cheader_filename = "vte/vte.h", instance_pos = 3.9)]
 	[Version (since = "0.48")]
-	public delegate void TerminalSpawnAsyncCallback (Vte.Terminal terminal, GLib.Pid pid, GLib.Error error);
+	public delegate void TerminalSpawnAsyncCallback (Vte.Terminal terminal, GLib.Pid pid, GLib.Error? error);
 	[CCode (cheader_filename = "vte/vte.h", cname = "VTE_MAJOR_VERSION")]
 	public const int MAJOR_VERSION;
 	[CCode (cheader_filename = "vte/vte.h", cname = "VTE_MICRO_VERSION")]

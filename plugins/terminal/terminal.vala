@@ -181,11 +181,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     public string get_shell_location () {
         int pid = (!) (this.child_pid);
-
         try {
             return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
         } catch (GLib.FileError error) {
-            warning ("An error occured while fetching the current dir of shell");
+            warning ("An error occured while fetching the current dir of shell: %s", error.message);
             return "";
         }
     }
@@ -261,7 +260,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         grid.show_all ();
     }
 
-    public void spawn_async_cb (Vte.Terminal terminal, GLib.Pid pid, Error e) {
+    public void spawn_async_cb (Vte.Terminal terminal, GLib.Pid pid, Error? e) {
         if (e != null) {
             critical ("Error spawning process: %s", e.message);
             child_pid = -1;
