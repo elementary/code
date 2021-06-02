@@ -47,6 +47,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_duplication = true;
         group_name = Constants.PROJECT_NAME;
         this.window = window;
+        expand = true;
     }
 
     construct {
