@@ -455,7 +455,7 @@ namespace Scratch {
             }
         }
 
-        public void restore_opened_documents () {
+        private void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var doc_infos = settings.get_value ("opened-files");
                 var doc_info_iter = new VariantIter (doc_infos);
