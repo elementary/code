@@ -410,7 +410,7 @@ namespace Scratch {
                 restore_opened_documents ();
             });
 
-            document_view.empty.connect (() => {
+            document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
                 toolbar.title = app.app_cmd_name;
                 toolbar.document_available (false);
@@ -488,9 +488,7 @@ namespace Scratch {
                 }
             }
 
-            if (document_view.is_empty ()) {
-                document_view.empty ();
-            }
+            document_view.request_placeholder_if_empty ();
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
