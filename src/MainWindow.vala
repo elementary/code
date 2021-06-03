@@ -298,7 +298,6 @@ namespace Scratch {
 
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
-
             // Handle Drag-and-drop for files functionality on welcome screen
             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
             Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
@@ -363,9 +362,10 @@ namespace Scratch {
                 expand = true,
                 width_request = 200
             };
-            content_stack.add (welcome_view);
-            content_stack.add (view_grid);
 
+            content_stack.add (view_grid);  // Must be added first to avoid terminal warnings
+            content_stack.add (welcome_view);
+            content_stack.visible_child = view_grid; // Must be visible while restoring
 
             // Set a proper position for ThinPaned widgets
             int width, height;
@@ -455,7 +455,7 @@ namespace Scratch {
             }
         }
 
-        public void restore_opened_documents () {
+        private void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var doc_infos = settings.get_value ("opened-files");
                 var doc_info_iter = new VariantIter (doc_infos);
@@ -486,6 +486,10 @@ namespace Scratch {
                         }
                     }
                 }
+            }
+
+            if (document_view.is_empty ()) {
+                document_view.empty ();
             }
         }
 
