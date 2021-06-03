@@ -20,7 +20,7 @@
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document, DocumentView parent);
-    public signal void empty ();
+    public signal void request_placeholder ();
 
     public unowned MainWindow window { get; construct set; }
 
@@ -277,8 +277,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public bool is_empty () {
-        return docs.length () == 0;
+    public void request_placeholder_if_empty () {
+        if (docs.length () == 0) {
+            request_placeholder ();
+        }
     }
 
     public new void focus () {
@@ -301,10 +303,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
 
-        // Check if the view is empty
-        if (is_empty ()) {
-            empty ();
-        }
+        request_placeholder_if_empty ();
 
         if (!is_closing) {
             save_opened_files ();
