@@ -1,8 +1,9 @@
 public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
+    // These style_ids must be present in the "classic" SourceStyleScheme (or allowed Code SourceStyleSchemes) to avoid terminal spam)
     public const string ADDED_STYLE_ID = "diff:added-line";
     public const string REMOVED_STYLE_ID = "diff:removed-line";
     public const string CHANGED_STYLE_ID = "diff:changed-line";
-    public const string REPLACES_DELETED_STYLE_ID = "diff:removed-line";
+    public const string REPLACES_DELETED_STYLE_ID = "diff:special-case";
     public const string NONE_STYLE_ID = "background-pattern";
 
     private static Gtk.SourceStyleScheme? fallback_scheme;
@@ -17,26 +18,26 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
     }
 
     public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
-            update_status_color_map (Services.VCStatus.ADDED, get_style (scheme, ADDED_STYLE_ID), true);
-            update_status_color_map (Services.VCStatus.REMOVED, get_style (scheme, REMOVED_STYLE_ID), true);
-            update_status_color_map (Services.VCStatus.CHANGED, get_style (scheme, CHANGED_STYLE_ID), true);
-            update_status_color_map (Services.VCStatus.REPLACES_DELETED, get_style (scheme, REPLACES_DELETED_STYLE_ID), true);
-            update_status_color_map (Services.VCStatus.NONE, get_style (scheme, NONE_STYLE_ID, false), false);
+        update_status_color_map (Services.VCStatus.ADDED, get_style (scheme, ADDED_STYLE_ID));
+        update_status_color_map (Services.VCStatus.REMOVED, get_style (scheme, REMOVED_STYLE_ID));
+        update_status_color_map (Services.VCStatus.CHANGED, get_style (scheme, CHANGED_STYLE_ID));
+        update_status_color_map (Services.VCStatus.REPLACES_DELETED, get_style (scheme, REPLACES_DELETED_STYLE_ID));
+        update_status_color_map (Services.VCStatus.NONE, get_style (scheme, NONE_STYLE_ID, false), false);
     }
 
     static construct {
-        fallback_scheme = Gtk.SourceStyleSchemeManager.get_default ().get_scheme ("classic"); // Assume this always exists?
+        fallback_scheme = Gtk.SourceStyleSchemeManager.get_default ().get_scheme ("classic"); // We can assume this always exists
     }
 
     construct {
         line_status_map = new Gee.HashMap<int, Services.VCStatus> ();
         status_color_map = new Gee.HashMap<Services.VCStatus, Gdk.RGBA?> ();
 
-        set_size (3);
+        set_size (5);
         set_visible (true);
     }
 
-    private Gtk.SourceStyle? get_style (Gtk.SourceStyleScheme? scheme, string style_id, bool use_foreground = true) {
+    private Gtk.SourceStyle get_style (Gtk.SourceStyleScheme? scheme, string style_id, bool use_foreground = true) {
         if (scheme != null) {
             var style = scheme.get_style (style_id);
             if (style != null) {
@@ -46,33 +47,20 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
             }
         }
 
-        if (fallback_scheme != null) {
-            var style = fallback_scheme.get_style (style_id);
-            if (use_foreground && style.foreground != null || !use_foreground && style.background != null) {
-                return style;
-            }
-        }
-
-        return null;
+        var style = fallback_scheme.get_style (style_id);
+        return fallback_scheme.get_style (style_id); // We know required styles are present in "classic"
     }
 
-    private void update_status_color_map (Services.VCStatus status, Gtk.SourceStyle? style, bool use_foreground = true) {
+    private void update_status_color_map (Services.VCStatus status, Gtk.SourceStyle style, bool use_foreground = true) {
         var color = Gdk.RGBA ();
         string? spec = null;
-        if (style != null) {
-            if (use_foreground) {
-                spec = style.foreground;
-            } else {
-                spec = style.background;
-            }
-        }
-
-        if (spec == null) {
-            spec = status.get_default_rgba_s ();
+        if (use_foreground) {
+            spec = style.foreground;
+        } else {
+            spec = style.background;
         }
 
         color.parse (spec);
-        status_color_map.unset (status);
         status_color_map.set (status, color);
     }
 

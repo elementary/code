@@ -26,22 +26,6 @@ namespace Scratch.Services {
         REMOVED, // Cannot show in normal SourceView but for future use in Diff view?
         REPLACES_DELETED, // For unmodified lines that replace deleted lines
         OTHER;
-
-        public string get_default_rgba_s () {
-
-            switch (this) {
-                case ADDED:
-                    return "#68b723"; //Lime 500
-                case CHANGED:
-                    return "#f37329"; //Orange 500
-                case REMOVED:
-                    return "#c6262e"; //Strawberry 500
-                case REPLACES_DELETED:
-                    return "#3689e6"; //Blueberry 500
-                default:
-                    return "#00000000"; //Transparent
-            }
-        }
     }
 
     public class MonitoredRepository : Object {
