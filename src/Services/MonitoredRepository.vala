@@ -22,33 +22,10 @@ namespace Scratch.Services {
     public enum VCStatus {
         NONE,
         ADDED,
-        MODIFIED,
-        DELETED, // Cannot show in normal SourceView but for future use in Diff view?
+        CHANGED,
+        REMOVED, // Cannot show in normal SourceView but for future use in Diff view?
         REPLACES_DELETED, // For unmodified lines that replace deleted lines
         OTHER;
-
-        public Gdk.RGBA to_rgba () {
-            var color = Gdk.RGBA ();
-            switch (this) {
-                case ADDED:
-                    color.parse ("#68b723"); //Lime 500
-                    break;
-                case MODIFIED:
-                    color.parse ("#f37329"); //Orange 500
-                    break;
-                case DELETED:
-                    color.parse ("#c6262e"); //Strawberry 500
-                    break;
-                case REPLACES_DELETED:
-                    color.parse ("#3689e6"); //Blueberry 500
-                    break;
-                default:
-                    color.parse ("#00000000"); //Transparent
-                    break;
-            }
-
-            return color;
-        }
     }
 
     public class MonitoredRepository : Object {
@@ -337,7 +314,7 @@ namespace Scratch.Services {
                 if (line_type == Ggit.DiffLineType.ADDITION) { //Line added
                     prev_additions++;
                     if (prev_deletions >= prev_additions) {
-                        line_status_map.set (new_line_no, VCStatus.MODIFIED);
+                        line_status_map.set (new_line_no, VCStatus.CHANGED);
                         prev_deletions--;
                     } else {
                         line_status_map.set (new_line_no, VCStatus.ADDED);
