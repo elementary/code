@@ -30,13 +30,19 @@ namespace Scratch.FolderManager {
         public signal void closed ();
         public signal void close_all_except ();
 
-        private Scratch.Services.MonitoredRepository? monitored_repo = null;
+        public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
         public bool is_git_repo {
             get {
                 return monitored_repo != null;
+            }
+        }
+
+        private Ggit.Repository? git_repo {
+            get {
+                return (is_git_repo ? monitored_repo.git_repo : null);
             }
         }
 
@@ -66,14 +72,14 @@ namespace Scratch.FolderManager {
                 });
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
-                monitored_repo.update ();
+                monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
             }
         }
 
         public void child_folder_changed (FolderItem folder) {
             if (monitored_repo != null) {
-                monitored_repo.update ();
+                monitored_repo.update_status_map ();
             }
         }
 
@@ -90,6 +96,7 @@ namespace Scratch.FolderManager {
             }
 
             if (monitored_repo != null) {
+                monitored_repo.update_status_map ();
                 update_item_status (folder);
                 deprioritize_git_ignored ();
             }
@@ -186,6 +193,10 @@ namespace Scratch.FolderManager {
                     }
                 });
             });
+        }
+
+        public bool contains_file (GLib.File descendant) {
+            return file.file.get_relative_path (descendant) != null;
         }
 
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
@@ -440,6 +451,10 @@ namespace Scratch.FolderManager {
             }
 
             return;
+        }
+
+        public void refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
+            monitored_repo.refresh_diff (doc_path, ref line_status_map);
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {

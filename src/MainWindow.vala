@@ -556,6 +556,8 @@ namespace Scratch {
         }
 
         public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
+            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
             document_view.open_document (doc, focus, cursor_position);
         }
 
