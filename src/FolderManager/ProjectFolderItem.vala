@@ -30,7 +30,7 @@ namespace Scratch.FolderManager {
         public signal void closed ();
         public signal void close_all_except ();
 
-        public Scratch.Services.MonitoredRepository? monitored_repo = null;
+        public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
