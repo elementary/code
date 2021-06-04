@@ -18,11 +18,11 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
     }
 
     public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
-        update_status_color_map (Services.VCStatus.ADDED, get_style (scheme, ADDED_STYLE_ID));
-        update_status_color_map (Services.VCStatus.REMOVED, get_style (scheme, REMOVED_STYLE_ID));
-        update_status_color_map (Services.VCStatus.CHANGED, get_style (scheme, CHANGED_STYLE_ID));
-        update_status_color_map (Services.VCStatus.REPLACES_DELETED, get_style (scheme, REPLACES_DELETED_STYLE_ID));
-        update_status_color_map (Services.VCStatus.NONE, get_style (scheme, NONE_STYLE_ID, false), false);
+        update_status_color_map (Services.VCStatus.ADDED, scheme, ADDED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.REMOVED, scheme, REMOVED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.CHANGED, scheme, CHANGED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.REPLACES_DELETED, scheme, REPLACES_DELETED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.NONE, scheme, NONE_STYLE_ID, false);
     }
 
     static construct {
@@ -37,30 +37,27 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
         set_visible (true);
     }
 
-    private Gtk.SourceStyle get_style (Gtk.SourceStyleScheme? scheme, string style_id, bool use_foreground = true) {
+    private void update_status_color_map (Services.VCStatus status,
+                                          Gtk.SourceStyleScheme? scheme,
+                                          string style_id,
+                                          bool use_foreground = true) {
+
+        Gtk.SourceStyle style = null;
         if (scheme != null) {
-            var style = scheme.get_style (style_id);
+            style = scheme.get_style (style_id);
             if (style != null) {
-                if (use_foreground && style.foreground != null || !use_foreground && style.background != null) {
-                    return style;
+                if (use_foreground && style.foreground == null || !use_foreground && style.background == null) {
+                    style = null;
                 }
             }
         }
 
-        var style = fallback_scheme.get_style (style_id);
-        return fallback_scheme.get_style (style_id); // We know required styles are present in "classic"
-    }
-
-    private void update_status_color_map (Services.VCStatus status, Gtk.SourceStyle style, bool use_foreground = true) {
-        var color = Gdk.RGBA ();
-        string? spec = null;
-        if (use_foreground) {
-            spec = style.foreground;
-        } else {
-            spec = style.background;
+        if (style == null) {
+            style = fallback_scheme.get_style (style_id);
         }
 
-        color.parse (spec);
+        var color = Gdk.RGBA ();
+        color.parse (use_foreground ? style.foreground : style.background);
         status_color_map.set (status, color);
     }
 
@@ -74,11 +71,6 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
         //Gutter and diff lines numbers start at one, source lines start at 0
         var gutter_line_no = start.get_line () + 1;
         if (line_status_map.has_key (gutter_line_no)) {
-            var status = line_status_map [gutter_line_no];
-            if (status_color_map.has_key (status)) {
-                var color = status_color_map[status];
-                set_background (color);
-            }
             set_background (status_color_map[line_status_map[gutter_line_no]]);
         } else {
             set_background (status_color_map [Services.VCStatus.NONE]);
