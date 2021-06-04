@@ -17,14 +17,6 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
         }
     }
 
-    public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
-        update_status_color_map (Services.VCStatus.ADDED, scheme, ADDED_STYLE_ID);
-        update_status_color_map (Services.VCStatus.REMOVED, scheme, REMOVED_STYLE_ID);
-        update_status_color_map (Services.VCStatus.CHANGED, scheme, CHANGED_STYLE_ID);
-        update_status_color_map (Services.VCStatus.REPLACES_DELETED, scheme, REPLACES_DELETED_STYLE_ID);
-        update_status_color_map (Services.VCStatus.NONE, scheme, NONE_STYLE_ID, false);
-    }
-
     static construct {
         fallback_scheme = Gtk.SourceStyleSchemeManager.get_default ().get_scheme ("classic"); // We can assume this always exists
     }
@@ -35,6 +27,14 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
 
         set_size (5);
         set_visible (true);
+    }
+
+    public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
+        update_status_color_map (Services.VCStatus.ADDED, scheme, ADDED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.REMOVED, scheme, REMOVED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.CHANGED, scheme, CHANGED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.REPLACES_DELETED, scheme, REPLACES_DELETED_STYLE_ID);
+        update_status_color_map (Services.VCStatus.NONE, scheme, NONE_STYLE_ID, false);
     }
 
     private void update_status_color_map (Services.VCStatus status,
