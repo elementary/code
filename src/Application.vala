@@ -125,9 +125,8 @@ namespace Scratch {
                 create_new_window = false;
                 this.new_window ();
             } else if (window == null) {
-                window = this.new_window ();
+                window = this.new_window (); // Will restore documents if required
                 window.show ();
-                window.restore_opened_documents ();
             } else {
                 window.present ();
             }

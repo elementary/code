@@ -19,6 +19,15 @@
  */
 
 namespace Scratch.Services {
+    public enum VCStatus {
+        NONE,
+        ADDED,
+        CHANGED,
+        REMOVED, // Cannot show in normal SourceView but for future use in Diff view?
+        REPLACES_DELETED, // For unmodified lines that replace deleted lines
+        OTHER;
+    }
+
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
         public string branch_name {
@@ -29,7 +38,7 @@ namespace Scratch.Services {
             set {
                 if (_branch_name != value) {
                     _branch_name = value;
-                    branch_changed (value);
+                    branch_changed ();
                 }
             }
         }
@@ -44,9 +53,10 @@ namespace Scratch.Services {
             }
         }
 
-        public signal void branch_changed (string new_branch_name);
+        public signal void branch_changed ();
         public signal void ignored_changed ();
         public signal void file_status_change ();
+        public signal void file_content_changed ();
 
         private FileMonitor? git_monitor = null;
         private FileMonitor? gitignore_monitor = null;
@@ -65,18 +75,25 @@ namespace Scratch.Services {
 
         construct {
             file_status_map = new Gee.HashMap<string, Ggit.StatusFlags?> ();
-            status_options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
-                                                     Ggit.StatusShow.INDEX_AND_WORKDIR,
-                                                     null);
+            status_options = new Ggit.StatusOptions (
+                Ggit.StatusOption.INCLUDE_UNTRACKED | Ggit.StatusOption.RECURSE_UNTRACKED_DIRS,
+                Ggit.StatusShow.INDEX_AND_WORKDIR,
+                null
+            );
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
-            git_repo = _git_repo;
+            Object (
+                git_repo: _git_repo
+            );
+
             var git_folder = git_repo.get_location ();
 
             try {
                 git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                git_monitor.changed.connect (update);
+                git_monitor.changed.connect (() => {
+                    update_status_map ();
+                });
             } catch (IOError e) {
                 warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
             }
@@ -165,18 +182,28 @@ namespace Scratch.Services {
         }
 
         private bool do_update = false;
-        public void update () {
+        public void update_status_map () {
             if (update_timer_id == 0) {
                 update_timer_id = Timeout.add (150, () => {
                     if (do_update) {
+                        var target_name = ""; //Do we need a user visible indication if no target?
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                branch_name = ((Ggit.Branch)head).get_name ();
+                                target_name = ((Ggit.Branch)head).get_name ();
+                            } else {
+                                var target = head.get_target ();
+                                if (target != null) {
+                                    ///TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+                                    target_name = _("%.8s (detached)").printf (target.to_string ());
+                                    // Do we need to expose a warning regarding the detached-head state like Git does?
+                                }
                             }
                         } catch (Error e) {
                             warning ("An error occured while fetching the current git branch name: %s", e.message);
                         }
+
+                        branch_name = target_name;
 
                         // SourceList shows files in working dir so only want status for those for now.
                         // No callback generated for current files.
@@ -202,6 +229,8 @@ namespace Scratch.Services {
                         return Source.CONTINUE;
                     }
                 });
+
+                file_content_changed (); //If displayed in SourceView signal update of gutter
             } else {
                 do_update = false;
             }
@@ -209,6 +238,92 @@ namespace Scratch.Services {
 
         public bool path_is_ignored (string path) throws Error {
             return git_repo.path_is_ignored (path);
+        }
+
+        private bool refreshing = false;
+        public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {
+            if (refreshing) {
+                return;
+            } else {
+                refreshing = true;
+            }
+
+            // Need to have our own map since the callback closures cannot capture
+            // a reference to the ref parameter. Vala bug??
+            var status_map = line_status_map;
+
+            int prev_deletions = 0;
+            int prev_additions = 0;
+            try {
+                var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+                repo_diff_list.foreach (null, null, null,
+                    (delta, hunk, line) => {
+                        unowned var file_diff = delta.get_old_file ();
+                        if (file_diff == null) {
+                            return 0;
+                        }
+
+                        unowned var diff_file_path = file_diff.get_path ();
+                        // Only process the diff if its for the file in focus.
+                        if (diff_file_path == null ||
+                            !(file_path.has_suffix (diff_file_path))) {
+
+                            return 0;
+                        }
+
+                        process_diff_line (line.get_origin (),
+                                           line.get_new_lineno (),
+                                           line.get_old_lineno (),
+                                           ref status_map,
+                                           ref prev_deletions,
+                                           ref prev_additions
+                        );
+
+                        return 0;
+                    }
+                );
+            } catch (Error e) {
+                critical ("Error getting diff list %s", e.message);
+            } finally {
+                refreshing = false;
+            }
+
+            line_status_map = status_map;
+        }
+
+        private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,
+                                        ref Gee.HashMap<int, VCStatus> line_status_map,
+                                        ref int prev_deletions,
+                                        ref int prev_additions) {
+
+            if (line_type == Ggit.DiffLineType.CONTEXT) {
+                if (prev_deletions > 0) {
+                    line_status_map.set (new_line_no, VCStatus.REPLACES_DELETED);
+                }
+
+                prev_deletions = 0;
+                prev_additions = 0;
+                return;
+            }
+
+            if (new_line_no < 0) {
+                prev_deletions++;
+                prev_additions = 0;
+                return;
+            } else {
+                if (line_type == Ggit.DiffLineType.ADDITION) { //Line added
+                    prev_additions++;
+                    if (prev_deletions >= prev_additions) {
+                        line_status_map.set (new_line_no, VCStatus.CHANGED);
+                        prev_deletions--;
+                    } else {
+                        line_status_map.set (new_line_no, VCStatus.ADDED);
+                        prev_deletions = 0;
+                    }
+                } else {
+                    line_status_map.set (new_line_no, VCStatus.OTHER);
+                }
+            }
         }
     }
 }

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 16:16+0000\n"
-"PO-Revision-Date: 2021-05-01 20:32+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"PO-Revision-Date: 2021-05-19 14:59+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -47,7 +47,7 @@ msgstr "[DATEI…]"
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "Suchen …"
 
@@ -72,7 +72,7 @@ msgid "Open"
 msgstr "Öffnen"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -107,41 +107,22 @@ msgstr "Reguläre Ausdrücke verwenden:"
 msgid "Search"
 msgstr "Suchen"
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
 msgstr "Neuen Zweig von »%s/%s« erstellen"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
-msgid "The branch name must comply with Git rules and must not already exist."
+#: src/Dialogs/NewBranchDialog.vala:48
+msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
-"Die Bezeichnung des Zweigs muss den git-Regeln entsprechen und darf noch "
-"nicht vorhanden sein."
+"Der Zweigname muss eindeutig sein und den Git-Namensregeln entsprechen."
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
 msgstr "Zweig erstellen"
 
-#: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active git project before creating a new branch."
-msgstr ""
-"Bevor ein neuer Zweig erstellt werden kann, muss ein aktives git-Projekt zur "
-"Verfügung stehen."
-
-#: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a git project folder in the sidebar."
-msgstr "git-Projekt-Ordner in der Seitenleiste öffnen."
-
-#: src/Dialogs/NewBranchDialog.vala:89
-msgid ""
-"Open a document in a git project folder in the sidebar or use a project "
-"context menu."
-msgstr ""
-"Dokument in einem git-Projekt-Ordner in der Seitenleiste oder über das "
-"Projekt-Kontextmenü öffnen."
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Einstellungen"
 
@@ -273,7 +254,7 @@ msgid "Rename"
 msgstr "Umbenennen"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
@@ -296,8 +277,8 @@ msgstr "Leere Datei"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:162
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "New"
 msgstr "Neu"
 
@@ -309,32 +290,32 @@ msgstr "unbenannter Ordner"
 msgid "new file"
 msgstr "neue Datei"
 
-#: src/FolderManager/ProjectFolderItem.vala:88
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:104
 msgid "Close Other Folders"
 msgstr "Andere Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Find in Project…"
 msgstr "Im Projekt suchen …"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Modified"
 msgstr "Geändert"
 
-#: src/FolderManager/ProjectFolderItem.vala:206
+#: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fehler beim Erstellen eines neuen Zweigs: »%s«"
 
-#: src/FolderManager/ProjectFolderItem.vala:478
+#: src/FolderManager/ProjectFolderItem.vala:488
 msgid "New Branch…"
 msgstr "Neuer Zweig …"
 
-#: src/FolderManager/ProjectFolderItem.vala:491
+#: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
 msgstr "Branch"
 
@@ -455,7 +436,7 @@ msgstr "Fortfahren"
 msgid "Templates"
 msgstr "Vorlagen"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:125
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Textdatei aus %s:%d"
@@ -494,59 +475,59 @@ msgstr[1] "%d Tabulatoren"
 msgid "Go To Line:"
 msgstr "Zur Zeile gehen:"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "Datei öffnen"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "Projektvorlagen"
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "Diese Datei speichern"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "Diese Datei unter anderem Namen speichern"
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "Diese Datei wiederherstellen"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "Freigeben"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr "Verkleinern"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "Normale Ansichtsgröße"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr "Vergrößern"
 
-#: src/Widgets/HeaderBar.vala:127
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr "Hoher Kontrast"
 
-#: src/Widgets/HeaderBar.vala:135
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr "Solarisiert Hell"
 
-#: src/Widgets/HeaderBar.vala:143
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr "Solarisiert Dunkel"
 
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr "Seitenleiste umschalten"
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr "Menü"
 
@@ -745,6 +726,27 @@ msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Wortvervollständigung"
+
+#~ msgid "You must have an active Git project before creating a new branch."
+#~ msgstr ""
+#~ "Bevor ein neuer Zweig erstellt werden kann, muss ein aktives Git-Projekt "
+#~ "zur Verfügung stehen."
+
+#~ msgid "Open a Git project folder in the sidebar."
+#~ msgstr "Git-Projekt-Ordner in der Seitenleiste öffnen."
+
+#~ msgid ""
+#~ "Open a document in a Git project folder in the sidebar or use a project "
+#~ "context menu."
+#~ msgstr ""
+#~ "Dokument in einem Git-Projekt-Ordner in der Seitenleiste oder über das "
+#~ "Projekt-Kontextmenü öffnen."
+
+#~ msgid ""
+#~ "The branch name must comply with Git rules and must not already exist."
+#~ msgstr ""
+#~ "Die Bezeichnung des Zweigs muss den git-Regeln entsprechen und darf noch "
+#~ "nicht vorhanden sein."
 
 #~ msgid ""
 #~ "The branch name must be lower-case, start with a letter, and be at least "

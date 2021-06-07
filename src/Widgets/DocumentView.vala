@@ -20,7 +20,7 @@
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document, DocumentView parent);
-    public signal void empty ();
+    public signal void request_placeholder ();
 
     public unowned MainWindow window { get; construct set; }
 
@@ -47,6 +47,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_duplication = true;
         group_name = Constants.PROJECT_NAME;
         this.window = window;
+        expand = true;
     }
 
     construct {
@@ -86,23 +87,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         style_provider = new Gtk.CssProvider ();
-        update_inline_tab_colors ();
-        settings.notify["style-scheme"].connect (update_inline_tab_colors);
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        /* SplitView shows view as required */
+        update_inline_tab_colors ();
+        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
     }
 
     private void update_inline_tab_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_context = get_style_context ();
-
-        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
+        var style_scheme = Scratch.settings.get_string ("style-scheme");
+        if (style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -113,17 +112,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             try {
                 style_provider.load_from_data (define);
-                return;
             } catch (Error e) {
                 critical ("Unable to set inline tab styling, going back to classic notebook tabs");
             }
         }
-
-        // Fallback to a non inline toolbar if something went wrong above
-        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder (string extension = "txt") {
@@ -283,8 +277,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public bool is_empty () {
-        return docs.length () == 0;
+    public void request_placeholder_if_empty () {
+        if (docs.length () == 0) {
+            request_placeholder ();
+        }
     }
 
     public new void focus () {
@@ -307,10 +303,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
 
-        // Check if the view is empty
-        if (is_empty ()) {
-            empty ();
-        }
+        request_placeholder_if_empty ();
 
         if (!is_closing) {
             save_opened_files ();
