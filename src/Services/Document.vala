@@ -53,12 +53,14 @@ namespace Scratch.Services {
         }
 
         private Gtk.SourceFile source_file;
-        public File file {
+        public GLib.File file {
             get {
                 return source_file.location;
             }
-            set {
+
+            private set {
                 source_file.set_location (value);
+                source_view.location = value;
                 file_changed ();
                 tab_name = get_basename ();
             }
@@ -115,7 +117,8 @@ namespace Scratch.Services {
         private static Pango.FontMap? builder_font_map = null;
 
         public Document (SimpleActionGroup actions, File? file = null) {
-            this.actions = actions;
+            Object (actions: actions);
+
             this.file = file;
             page = main_stack;
         }
@@ -562,7 +565,7 @@ namespace Scratch.Services {
 
         // Focus the SourceView
         public new void focus () {
-            this.source_view.grab_focus ();
+            source_view.grab_focus ();
         }
 
         // Get file uri
