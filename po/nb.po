@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-25 18:04+0000\n"
-"PO-Revision-Date: 2021-05-06 00:46+0000\n"
+"PO-Revision-Date: 2021-06-03 15:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -116,7 +116,7 @@ msgstr "Opprett ny forgrening av «%s/%s»"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "Forgreningsnavnet må være unikt og være i samsvar med Git-navnereglene."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
@@ -263,9 +263,8 @@ msgid "Folders"
 msgstr "Mapper"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
 msgid "Find in Folder…"
-msgstr "Finn tekst i denne mappen …"
+msgstr "Finn i denne mappen …"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -312,13 +311,11 @@ msgstr "Endret"
 #: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Kunne ikke opprette ny forgrening: «%s»"
 
 #: src/FolderManager/ProjectFolderItem.vala:488
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Gren"
+msgstr "Ny forgrening …"
 
 #: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
