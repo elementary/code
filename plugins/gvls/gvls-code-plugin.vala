@@ -175,39 +175,41 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     public void update_state () {}
 
     private bool push_document_changes () {
-         if (lsp_sync_in_progress) {
-             return true;
-         }
-         var gvls_client = plugins.get_data<GVls.Client> ("gvls-client");
-         if (gvls_client == null) {
-             return true;
-         }
+        if (lsp_sync_in_progress) {
+            return true;
+        }
 
-         var doc = main_window.get_current_document ();
-		if (doc == null) {
-			return Source.CONTINUE;
-		}
-         var view = doc.source_view;
-         var file = doc.file;
-         var gvls_changes = view.get_data<GVls.Container> ("gvls-changes");
-         if (gvls_changes == null) {
-             return true;
-         }
+        var gvls_client = plugins.get_data<GVls.Client> ("gvls-client");
+        if (gvls_client == null) {
+            return true;
+        }
 
-         if (gvls_changes.get_n_items () != 0) {
-             GVls.Container current_changes = gvls_changes;
-             gvls_changes = new GVls.ContainerHashList.for_type (typeof (GVls.TextDocumentContentChangeEventInfo));
-             view.set_data<GVls.Container> ("gvls-changes", gvls_changes);
-             lsp_sync_in_progress = true;
-             gvls_client.document_change.begin (file.get_uri (), current_changes, (obj, res)=>{
-                 try {
-                     gvls_client.document_change.end (res);
-                     lsp_sync_in_progress = false;
-                 } catch (GLib.Error e) {
-                     warning ("Error while pushing changes to the server: %s", e.message);
-                 }
-             });
-         }
+        var doc = main_window.get_current_document ();
+        if (doc == null) {
+            return Source.CONTINUE;
+        }
+
+        var view = doc.source_view;
+        var file = doc.file;
+        var gvls_changes = view.get_data<GVls.Container> ("gvls-changes");
+        if (gvls_changes == null) {
+            return true;
+        }
+
+        if (gvls_changes.get_n_items () != 0) {
+            GVls.Container current_changes = gvls_changes;
+            gvls_changes = new GVls.ContainerHashList.for_type (typeof (GVls.TextDocumentContentChangeEventInfo));
+            view.set_data<GVls.Container> ("gvls-changes", gvls_changes);
+            lsp_sync_in_progress = true;
+            gvls_client.document_change.begin (file.get_uri (), current_changes, (obj, res) => {
+                try {
+                    gvls_client.document_change.end (res);
+                    lsp_sync_in_progress = false;
+                } catch (GLib.Error e) {
+                    warning ("Error while pushing changes to the server: %s", e.message);
+                }
+            });
+        }
 
         return Source.CONTINUE;
     }
