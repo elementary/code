@@ -1,25 +1,27 @@
 module_name = 'gvls-code'
 
 gvls_plugin_sources = files([
-	'gvls-code-plugin.vala'
-	])
+    'gvls-code-plugin.vala'
+    ])
 
 gvls_install_dir=join_paths(pluginsdir, module_name)
 
 install_data('gvls-code.plugin', install_dir: gvls_install_dir)
 
 plugin_deps = [
-	gvls_dep,
-	codecore_dep,
-	]
+    gvls_dep,
+    gvlsp_dep,
+    gvlsui_dep,
+    codecore_dep,
+    ]
 
 shared_module(module_name, gvls_plugin_sources,
-	dependencies: plugin_deps,
-	install: true,
-	install_dir: gvls_install_dir,
-	vala_args: [
-		'--target-glib=2.52',
-	]
+    dependencies: plugin_deps,
+    install: true,
+    install_dir: gvls_install_dir,
+    vala_args: [
+        '--target-glib=2.52',
+    ]
 )
 
 custom_target(module_name + '.plugin_merge',
