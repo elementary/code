@@ -20,7 +20,7 @@
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document, DocumentView parent);
-    public signal void empty ();
+    public signal void request_placeholder ();
 
     public unowned MainWindow window { get; construct set; }
 
@@ -39,7 +39,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public GLib.List<Services.Document> docs;
 
-    public uint view_id = -1;
     public bool is_closing = false;
 
     private Gtk.CssProvider style_provider;
@@ -52,6 +51,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_duplication = true;
         group_name = Constants.PROJECT_NAME;
         this.window = window;
+        expand = true;
     }
 
     construct {
@@ -77,7 +77,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document, this);
+            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
             save_focused_document_uri (new_tab as Services.Document);
         });
 
@@ -91,23 +91,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         style_provider = new Gtk.CssProvider ();
-        update_inline_tab_colors ();
-        settings.notify["style-scheme"].connect (update_inline_tab_colors);
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        /* SplitView shows view as required */
+        update_inline_tab_colors ();
+        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
     }
 
     private void update_inline_tab_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_context = get_style_context ();
-
-        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
+        var style_scheme = Scratch.settings.get_string ("style-scheme");
+        if (style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -118,25 +116,32 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             try {
                 style_provider.load_from_data (define);
-                return;
             } catch (Error e) {
                 critical ("Unable to set inline tab styling, going back to classic notebook tabs");
             }
         }
-
-        // Fallback to a non inline toolbar if something went wrong above
-        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
-    private string unsaved_file_path_builder () {
+    private string unsaved_file_path_builder (string extension = "txt") {
         var timestamp = new DateTime.now_local ();
 
-        string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
+        string new_text_file = _("Text file from %s:%d").printf (
+                                    timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ()
+                                );
 
-        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (window.app.data_home_folder_unsaved, new_text_file) + "." + extension;
+    }
+
+    private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string extension = "txt";
+        string[] parts = original_filename.split (".", 2);
+        if (parts.length > 1) {
+            extension = parts[parts.length - 1];
+        }
+
+        return unsaved_file_path_builder (extension);
     }
 
     public void new_document () {
@@ -176,7 +181,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true) {
+    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -184,8 +189,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                current_document = nth_doc;
-                warning ("This Document was already opened! Not opening a duplicate!");
+                if (focus) {
+                    current_document = nth_doc;
+                }
+
+                debug ("This Document was already opened! Not opening a duplicate!");
                 return;
             }
         }
@@ -198,7 +206,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                doc.focus ();
+                if (focus) {
+                    doc.focus ();
+                }
+
+                if (cursor_position > 0) {
+                    doc.source_view.cursor_position = cursor_position;
+                }
                 save_opened_files ();
             });
 
@@ -209,12 +223,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     // Set a copy of content
     public void duplicate_document (Services.Document original) {
         try {
-            var file = File.new_for_path (unsaved_file_path_builder ());
+            var file = File.new_for_path (unsaved_duplicated_file_path_builder (original.file.get_basename ()));
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
-
+            doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
@@ -233,6 +247,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var next_doc = docs.nth_data (current_index++);
             current_document = next_doc;
             next_doc.focus ();
+        } else if (docs.length () > 0) {
+            var next_doc = docs.nth_data (0);
+            current_document = next_doc;
+            next_doc.focus ();
         }
     }
 
@@ -240,6 +258,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         uint current_index = docs.index (current_document);
         if (current_index > 0) {
             var previous_doc = docs.nth_data (--current_index);
+            current_document = previous_doc;
+            previous_doc.focus ();
+        } else if (docs.length () > 0) {
+            var previous_doc = docs.nth_data (docs.length () - 1);
             current_document = previous_doc;
             previous_doc.focus ();
         }
@@ -259,8 +281,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public bool is_empty () {
-        return docs.length () == 0;
+    public void request_placeholder_if_empty () {
+        if (docs.length () == 0) {
+            request_placeholder ();
+        }
     }
 
     public new void focus () {
@@ -283,10 +307,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
 
-        // Check if the view is empty
-        if (is_empty ()) {
-            empty ();
-        }
+        request_placeholder_if_empty ();
 
         if (!is_closing) {
             save_opened_files ();
@@ -299,13 +320,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var other_window = window.app.new_window ();
         other_window.move (x, y);
 
-        DocumentView other_view = other_window.add_view ();
-
         // We need to make sure switch back to the main thread
         // when we are modifiying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
-            other_view.insert_tab (doc, -1);
+            other_window.document_view.insert_tab (doc, -1);
 
             return false;
         });
@@ -333,7 +352,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return false;
     }
 
-    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel, uint info, uint time) {
+    private void drag_received (Gtk.Widget w,
+                                Gdk.DragContext ctx,
+                                int x,
+                                int y,
+                                Gtk.SelectionData sel,
+                                uint info,
+                                uint time) {
+
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
@@ -345,21 +371,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     public void save_opened_files () {
-        string[] opened_files = {};
-
         if (privacy_settings.get_boolean ("remember-recent-files")) {
+            var vb = new VariantBuilder (new VariantType ("a(si)"));
             tabs.foreach ((tab) => {
                 var doc = (Scratch.Services.Document)tab;
                 if (doc.file != null && doc.exists ()) {
-                    opened_files += doc.file.get_uri ();
+                    vb.add ("(si)", doc.file.get_uri (), doc.source_view.cursor_position);
                 }
             });
-        }
 
-        if (view_id == 1) {
-            Scratch.settings.set_strv ("opened-files-view1", opened_files);
-        } else {
-            Scratch.settings.set_strv ("opened-files-view2", opened_files);
+            Scratch.settings.set_value ("opened-files", vb.end ());
         }
     }
 
@@ -371,11 +392,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 file_uri = current_document.file.get_uri ();
             }
 
-            if (view_id == 1) {
-                Scratch.settings.set_string ("focused-document-view1", file_uri);
-            } else {
-                Scratch.settings.set_string ("focused-document-view2", file_uri);
-            }
+            Scratch.settings.set_string ("focused-document", file_uri);
         }
     }
 }

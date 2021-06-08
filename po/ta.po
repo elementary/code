@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -18,205 +18,201 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:134
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr ""
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:138
-msgid "Maybe you do not have the necessary permissions."
-msgstr ""
-
-#: src/Application.vala:140
-msgid "Maybe the file path provided is not valid."
-msgstr ""
-
-#: src/Application.vala:142
-msgid "The location is read-only."
-msgstr ""
-
-#: src/Application.vala:144
-msgid "The parent directory doesn't exist."
-msgstr ""
-
-#: src/Application.vala:165
-msgid "It is a mountable location."
-msgstr ""
-
-#: src/Application.vala:168
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-
-#: src/Application.vala:171
-msgid "It is an \"unknown\" file type."
-msgstr ""
-
-#: src/Application.vala:176
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
-
-#: src/Application.vala:248
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "புதிய தாவல்"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "புதிய சாளரம்"
 
-#: src/Application.vala:250
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "பதிப்பின் தகவல்களை அச்சிட்டு வெளியேறவும்"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "சொருகல்கள் தொகுப்பு"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "சொருகல்கள் தொகுப்பு"
 
-#: src/MainWindow.vala:137
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "தேடுக..."
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:267
-msgid "Zeitgeist Datasource for Code"
-msgstr ""
-
-#: src/MainWindow.vala:763 src/Services/Document.vala:502
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "எல்லா கோப்புகள்"
 
-#: src/MainWindow.vala:767 src/Services/Document.vala:506
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "உரை கோப்புகள்"
 
-#: src/MainWindow.vala:771
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:774
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ரத்துசெய்"
 
-#: src/MainWindow.vala:800
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:801
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, c-format
+msgid "Search for text in “%s”"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+msgid "Search"
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:43
+#, c-format
+msgid "Create a new branch of “%s/%s”"
+msgstr ""
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:48
+msgid "The branch name must be unique and follow Git naming rules."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:56
+msgid "Create Branch"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: src/Dialogs/PreferencesDialog.vala:88
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "மூடு"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr ""
 
@@ -236,142 +232,157 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:106
+msgid "Find in Folder…"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 #, fuzzy
 msgid "New"
 msgstr "புதிய தாவல்"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:344
 #, fuzzy
 msgid "new file"
 msgstr "உரை கோப்புகள்"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:104
 msgid "Close Other Folders"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:188
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:115
+msgid "Find in Project…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:197
-#, c-format
-msgid "%s, New"
+#: src/FolderManager/ProjectFolderItem.vala:181
+msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:215
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:488
+msgid "New Branch…"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:295
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "ரத்துசெய்"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:388
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "ஆவணம் %s ஐ மூடும் முன் சேமிக்கவும்"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:389
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "நீங்கள் செமிக்கவில்லையெனில், கடைசி 4 நொடிகள் செய்த மாற்றங்கள் அழிந்துவிடும்"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:395
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "சேமிக்காமல் மூடு"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "சேமி"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "கோப்பை சேமி"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "புதிய ஆவணம்"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:708
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:709
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "ஆவணம் %s ஐ திறக்க இயலவில்லை, அது பாதிக்கப்பட்டிருக்கலாம்"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -379,17 +390,16 @@ msgid ""
 msgstr ""
 "கோப்பு \"%s\" ஐ கொண்டிருக்கும் இடம் ஏற்றப்படவில்லை. வேறு இடத்தில் சேமிக்க வேண்டுமா?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "இவ்வாறு சேமி"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "கோப்பு \"%s\" அழிக்கப்பட்டது. இருப்பினும் சேமிக்க விருப்பமா?"
 
-#. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:748
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -398,7 +408,7 @@ msgstr ""
 "உங்களால் கோப்பு \"%s\" இன் மாற்றங்களை சேமிக்க முடியாது. இந்த கோப்பின் மாற்றங்களை வேறு "
 "இடத்தில் சேமிக்க விருப்பமா?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr ""
 
@@ -409,11 +419,11 @@ msgid ""
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr ""
 
@@ -421,122 +431,114 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:125
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "உரை கோப்புகள்"
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "புதிய தாவல்"
 msgstr[1] "புதிய தாவல்"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Sidebar.vala:42
+msgid "Open Project Folder…"
 msgstr ""
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr ""
 
@@ -544,43 +546,45 @@ msgstr ""
 msgid "Find"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:112
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "மாற்று"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr ""
 
@@ -618,67 +622,64 @@ msgstr ""
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
+#: plugins/pastebin/pastebin_dialog.vala:268
+msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:290
+msgid "Expiration:"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
+#: plugins/pastebin/pastebin_dialog.vala:354
+msgid "Available Formats"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr ""
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
 msgstr ""
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr ""
@@ -687,40 +688,27 @@ msgstr ""
 msgid "No Symbols Found"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr ""
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr ""
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
-msgstr ""
-
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
-msgid "Show Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:88
-msgid "Hide Preview"
 msgstr ""
 
 #: plugins/spell/spell.vala:73

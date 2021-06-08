@@ -148,12 +148,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             return;
         }
 
-        var docview = main_window.get_current_view ();
-        if (!(docview is Scratch.Widgets.DocumentView)) {
-            return;
-        }
-
-        foreach (Services.Document doc in docview.docs) {
+        foreach (Services.Document doc in main_window.document_view.docs) {
             var view = doc.source_view;
             var gvls_provider = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
             if (gvls_provider == null) {

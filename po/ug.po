@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -13,213 +13,204 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:134
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr ""
-"ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
-"\"%s\""
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:138
-msgid "Maybe you do not have the necessary permissions."
-msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
-
-#: src/Application.vala:140
-msgid "Maybe the file path provided is not valid."
-msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
-
-#: src/Application.vala:142
-msgid "The location is read-only."
-msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
-
-#: src/Application.vala:144
-msgid "The parent directory doesn't exist."
-msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
-
-#: src/Application.vala:165
-msgid "It is a mountable location."
-msgstr "بۇ يۈكلىگىلى بولىدىغان ئادىرىس."
-
-#: src/Application.vala:168
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"بۇ بىر Socket قا ئوخشاش ئالاھىدە ھۆججەت،\n"
-"FIFO ھۆججىتى، بۆلەك ئۈسكىنىسى ياكى ھەرپ-بەلگە ئۈسكۈنىسى."
-
-#: src/Application.vala:171
-msgid "It is an \"unknown\" file type."
-msgstr "بۇ بىر نامەلۇم ھۆججەت تۈرى."
-
-#: src/Application.vala:176
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
-"ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
-"\"%s\""
-
-#: src/Application.vala:248
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "يىڭى كۆزنەك"
 
-#: src/Application.vala:250
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "نەشىر ئۇچۇرلىرىنى بىسىش ۋە چىكىنىش"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "قىستۇرمىلار توپلىمى"
 
-#: src/Application.vala:251
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "قىستۇرمىلار توپلىمى"
 
-#: src/MainWindow.vala:137
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:140
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "ئىزدەش......"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:207
 msgid "Hide search bar"
 msgstr "ئىزدەش سىتونىنى يوشۇرۇش"
 
-#: src/MainWindow.vala:267
-#, fuzzy
-msgid "Zeitgeist Datasource for Code"
-msgstr "Scratchئۈچۈن Zeitgeist سانلىق مەلۇمات مەنبەسى"
-
-#: src/MainWindow.vala:763 src/Services/Document.vala:502
+#: src/MainWindow.vala:724 src/Services/Document.vala:491
 msgid "All files"
 msgstr "بارلىق ھۆججەتلەر"
 
-#: src/MainWindow.vala:767 src/Services/Document.vala:506
+#: src/MainWindow.vala:728 src/Services/Document.vala:495
 msgid "Text files"
 msgstr "تېكىست ھۆججەتلىرى"
 
-#: src/MainWindow.vala:771
+#: src/MainWindow.vala:732
 msgid "Open some files"
 msgstr "بەزى ھۆججەتلەرنى ئىچىش"
 
-#: src/MainWindow.vala:774
+#: src/MainWindow.vala:735
 msgid "Open"
 msgstr "ئىچىش"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
+#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/MainWindow.vala:800
+#: src/MainWindow.vala:761
 msgid "_Open"
 msgstr "ئىچىش(_O)"
 
-#: src/MainWindow.vala:801
+#: src/MainWindow.vala:762
 msgid "_Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش(_C)"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/GlobalSearchDialog.vala:60
+#, c-format
+msgid "Search for text in “%s”"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:61
+msgid "The search term must be at least 3 characters long."
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:74
+msgid "Case sensitive:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Use regular expressions:"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:102
+#, fuzzy
+#| msgid "Search next"
+msgid "Search"
+msgstr "كىيىنكىىسنى ئىزدەش"
+
+#: src/Dialogs/NewBranchDialog.vala:43
+#, c-format
+msgid "Create a new branch of “%s/%s”"
+msgstr ""
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/NewBranchDialog.vala:48
+msgid "The branch name must be unique and follow Git naming rules."
+msgstr ""
+
+#: src/Dialogs/NewBranchDialog.vala:56
+#, fuzzy
+msgid "Create Branch"
+msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
+
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "ياقتۇرغان تۈرلەر"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
 msgstr "ئادەتتىكى تەڭشەكلەر"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
 msgstr "ھۆججەت ئۆزگەرتىلگەن ۋاقىتتا ساقلاش"
 
-#: src/Dialogs/PreferencesDialog.vala:59
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
 msgstr "خەتكۈچلەر"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
 msgstr "ئاپتوماتىك بوش ئورۇن قالدۇرۇش"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
 msgstr "خەتكۈچلەرنى بوشلۇققا ئالماشتۇرۇش"
 
-#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
 msgstr "خەتكۈچ كەڭلىكى:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
 msgstr "ھەركەت"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "كۆرۈنمە يۈز"
 
-#: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: src/Dialogs/PreferencesDialog.vala:88
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "تاقاش"
 
-#: src/Dialogs/PreferencesDialog.vala:103
+#: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
 msgstr "قىستۇرمىلار"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "تەھرىرلىگۈچ"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
 msgstr "ماس تېرناقلارنى ئالاھىدە كۆرسىتىش"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
 msgstr "ئاپتوماتىك قۇر ئالماشتۇرۇش"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
 msgstr "بوشلۇقنى بەلگە بىلەن كۆرسىتىش"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
 msgstr "ئومۇمىي ئەھۋالىنى كۆرسىتىش"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
 msgstr "قۇركەڭلىك تەۋسىيەسى"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
 msgstr "خەت نۇسخىسىنى ئۆزگەرتىش:"
 
@@ -239,152 +230,172 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 #, fuzzy
 msgid "Open In"
 msgstr "ئىچىش"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 #, fuzzy
 msgid "Other Actions"
 msgstr "باشقا فورماتلار"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
-#: src/FolderManager/ProjectFolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:40
 msgid "Folders"
 msgstr "مۇندەرىجلەر"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:106
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Folder…"
+msgstr "مۇندەرىجە ئىچىش"
+
+#: src/FolderManager/FolderItem.vala:173
 #, fuzzy
 msgid "Folder"
 msgstr "مۇندەرىجلەر"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:174
+#. scan all children
+#. No need to show status when children shown
+#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 #, fuzzy
 msgid "New"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:344
 #, fuzzy
 msgid "new file"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
-#: src/FolderManager/ProjectFolderItem.vala:96
+#: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Folder"
 msgstr "مۇندەرىجىنى تاقاش"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:104
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "مۇندەرىجىنى تاقاش"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
-#, c-format
-msgid "%s, Modified"
+#: src/FolderManager/ProjectFolderItem.vala:115
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find in Project…"
+msgstr "مۇندەرىجە ئىچىش"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
+msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:197
+#: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
-msgid "%s, New"
+msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:347
+#: src/FolderManager/ProjectFolderItem.vala:488
+#, fuzzy
+msgid "New Branch…"
+msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
+
+#: src/FolderManager/ProjectFolderItem.vala:501
 #, fuzzy
 msgid "Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:268
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:269
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:271
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:292
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:293
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:295
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:388
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "تاقاشتىن بۇرۇن ئۆزگەرتىلگەن مەزمۇننى %s ھۆججىتىگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:389
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ئەگەر ساقلىمىسىڭىز 4 سىكۈنىت ئىچىدە ئۆزگەرتىلگەن مەزمۇن يوقاپ كىتىدۇ."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:395
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "ساقلىمايلا تاقاش"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:399 src/Services/Document.vala:502
+#: src/Services/Document.vala:734
 msgid "Save"
 msgstr "ساقلاش"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:499
 msgid "Save File"
 msgstr "ھۆججەتنى ساقلاش"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:576 src/Services/Document.vala:585
 msgid "New Document"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:708
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:709
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "ھۆججەت  \"%s\" نى ئوقۇغىلى بولمىدى. ھۆججەت بۇزغۇنچىلىققا ئۇچرىغان بولىشى "
 "ياكى سىزنىڭ ئوقۇش ھوقۇقىڭىز يوق بولىشى مۇمكىن."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -393,17 +404,16 @@ msgstr ""
 "ھۆججەت \"%s\" ساقلانغان ئورۇنغا يىڭى مەزمۇن يازغىلى بولمايدۇ.باشقا يەرگە "
 "ساقلامسىز؟"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:725
 msgid "Save As…"
 msgstr "باشقا يەرگە ساقلاش"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:731
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "ھۆججەت \"%s\" ئۆچۈرۈلگەن. يىڭى نۇسخىسىنى ساقلامسىز؟"
 
-#. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:748
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -411,7 +421,7 @@ msgid ""
 msgstr ""
 "ھۆججەت  \"%s\" تىكى ئۆزگەرتىشلەرنى ساقلىغىلى بولمىدى. باشقا يەرگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:751
 msgid "Save changes elsewhere"
 msgstr "ئۆزگەرتىشلەرنى باشقا يەرگە ساقلاش"
 
@@ -424,11 +434,11 @@ msgstr ""
 "ھۆججەت  \"%s\"نىڭ مەزمۇنى باشقا پروگرامما تەرىپىدىن ئۆزگەرتىلگەن. قايتىدىن "
 "يۈكلەمسىز ياكى داۋاملىق تەھرىرلەمسىز؟"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:788
 msgid "Load"
 msgstr "يۈكلەش"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:791
 msgid "Continue"
 msgstr "داۋاملاشتۇرۇش"
 
@@ -436,127 +446,119 @@ msgstr "داۋاملاشتۇرۇش"
 msgid "Templates"
 msgstr "قېلىپ"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:125
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "تېكىست ھۆججىتى مەنبەسى "
 
-#: src/Widgets/FormatBar.vala:67
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "گىرامماتىكىلىق كۆرسىتىش"
 
-#: src/Widgets/FormatBar.vala:75
+#: src/Widgets/FormatBar.vala:56
 #, fuzzy
 msgid "Line number"
 msgstr "قۇر نومۇرىنى كۆرسىتىش"
 
-#: src/Widgets/FormatBar.vala:101
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:123
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:189
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "بوشلۇقنى بەلگە بىلەن كۆرسىتىش"
 msgstr[1] "بوشلۇقنى بەلگە بىلەن كۆرسىتىش"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:191
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "يىڭى خەتكۈچ"
 msgstr[1] "يىڭى خەتكۈچ"
 
-#: src/Widgets/FormatBar.vala:223
+#: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
 msgstr "ئاتلايدىغان قۇر:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "ھۆججەت ئىچىش"
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "تۈر قېلىپى"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "بۇ ھۆججەتنى ساقلاش"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "باشقا ئىسىم بىلەن بۆلەك يەرگە ساقلاش"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "بۇ ھۆججەتنى ئەسلىگە كەلتۈرۈش"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "ھەمبەھىرلەش"
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:101
 #, fuzzy
 msgid "Zoom Out"
 msgstr "كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "1:1 بويىچە كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:115
 #, fuzzy
 msgid "Zoom In"
 msgstr "كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr "يىڭى كۆرۈنۈش قىتىش"
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr "ھازىرقى كۆرۈنۈشنى ئۆچۈرۈش"
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:44
+#: src/Widgets/Sidebar.vala:42
 #, fuzzy
 #| msgid "Open a folder"
-msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "مۇندەرىجە ئىچىش"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
 msgstr ""
 
@@ -564,43 +566,45 @@ msgstr ""
 msgid "Find"
 msgstr "ئىزدەش"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr "كىيىنكىىسنى ئىزدەش"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr "ئالدىنقىسىنى ئىزدەش"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr "دەۋرىي ئىزدەش"
 
-#: src/Widgets/SearchBar.vala:93
+#. Need to SYNC_CREATE so tooltip present before toggled
+#. tooltip_val.set_string () does not work (?)
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:112
+#: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
 msgstr "بەلگىلەنگەن مەزمۇن بىلەن ئالماشتۇرۇش"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:125
 msgid "Replace"
 msgstr "ئالماشتۇرۇش"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
 msgstr "ھەممىسىنى ئالماشتۇرۇش"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:492
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:505
 msgid "Toggle Comment"
 msgstr ""
 
@@ -639,70 +643,68 @@ msgstr "مۇندەرىجە ئىچىش"
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
-msgid "Share via Pastebin"
-msgstr "PasteBin ئارقىلىق ھەمبەھىرلەش"
+#: plugins/pastebin/pastebin_dialog.vala:248
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Pastebin غا چىقىرىش"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "ئىسمى:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:261
 #, fuzzy
 msgid "Format:"
 msgstr "فورماتى: "
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "باشقىلار......."
+#: plugins/pastebin/pastebin_dialog.vala:268
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:290
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "مۇددىتى ئۆتۈپ كىتىش ۋاقتى:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
 msgstr "بۇ نۇسخىنى شەخسىي ساقلاش"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "چىقىرىش"
+#: plugins/pastebin/pastebin_dialog.vala:354
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "باشقا فورماتلار"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+msgid "Select Format"
+msgstr "فورماتى: "
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "ھەرگىزمۇ"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "بىر مىنۇت"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "بىر سائەت"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "بىر كۈن"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "بىر ئاي"
 
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Pastebin غا چىقىرىش"
-
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "بەلگىلەر"
@@ -713,41 +715,28 @@ msgstr "بەلگىلەر"
 msgid "No Symbols Found"
 msgstr "بەلگىلەر"
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr "تېرمىنالنى كۆرسىتىش"
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr "تېرمىنالنى يوشۇرۇش"
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr "تېرمىنال"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr "كۆچۈرۈش"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "چاپلاش"
-
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "توربەتتىكى ئۈنۈمى"
-
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
-msgid "Show Preview"
-msgstr "ئۈنۈمىنى كۆرسىتىش"
-
-#: plugins/browser-preview/browser-preview.vala:88
-msgid "Hide Preview"
-msgstr "ئۈنۈمىنى كۆرسەتمەسلىك"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
@@ -764,6 +753,82 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - سۆز تولۇقلاندى"
+
+#, fuzzy
+#~| msgid "Search next"
+#~ msgid "Search for:"
+#~ msgstr "كىيىنكىىسنى ئىزدەش"
+
+#, fuzzy
+#~ msgid "Zeitgeist Datasource for Code"
+#~ msgstr "Scratchئۈچۈن Zeitgeist سانلىق مەلۇمات مەنبەسى"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr ""
+#~ "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
+#~ "\"%s\""
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
+
+#~ msgid "The location is read-only."
+#~ msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "بۇ يۈكلىگىلى بولىدىغان ئادىرىس."
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "بۇ بىر Socket قا ئوخشاش ئالاھىدە ھۆججەت،\n"
+#~ "FIFO ھۆججىتى، بۆلەك ئۈسكىنىسى ياكى ھەرپ-بەلگە ئۈسكۈنىسى."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "بۇ بىر نامەلۇم ھۆججەت تۈرى."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr ""
+#~ "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
+#~ "\"%s\""
+
+#~ msgid "Web Preview"
+#~ msgstr "توربەتتىكى ئۈنۈمى"
+
+#~ msgid "Show Preview"
+#~ msgstr "ئۈنۈمىنى كۆرسىتىش"
+
+#~ msgid "Hide Preview"
+#~ msgstr "ئۈنۈمىنى كۆرسەتمەسلىك"
+
+#, fuzzy
+#~ msgid "Share via Pastebin"
+#~ msgstr "PasteBin ئارقىلىق ھەمبەھىرلەش"
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "باشقىلار......."
+
+#~ msgid "Upload"
+#~ msgstr "چىقىرىش"
+
+#~ msgid "Other formats"
+#~ msgstr "باشقا فورماتلار"
+
+#~ msgid "Add New View"
+#~ msgstr "يىڭى كۆرۈنۈش قىتىش"
+
+#~ msgid "Remove Current View"
+#~ msgstr "ھازىرقى كۆرۈنۈشنى ئۆچۈرۈش"
 
 #, fuzzy
 #~ msgid "new file %d"

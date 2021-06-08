@@ -15,6 +15,10 @@ add_project_arguments(
     language: 'vala'
 )
 
+if get_option('have_pkexec')
+    add_project_arguments('--define=HAVE_PKEXEC', language: 'vala')
+endif
+
 libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
 pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
 
@@ -25,8 +29,9 @@ glib_dep = dependency('glib-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
-granite_dep = dependency('granite', version: '>=5.2.0')
-gtksourceview_dep = dependency('gtksourceview-3.0', version: '>=3.24')
+granite_dep = dependency('granite', version: '>=6.0.0')
+handy_dep = dependency('libhandy-1', version: '>=0.90.0')
+gtksourceview_dep = dependency('gtksourceview-4')
 peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 git_dep = dependency('libgit2-glib-1.0')
@@ -45,6 +50,7 @@ dependencies = [
     gee_dep,
     gtk_dep,
     granite_dep,
+    handy_dep,
     gtksourceview_dep,
     peas_dep,
     peasgtk_dep,
@@ -53,14 +59,6 @@ dependencies = [
     pangofc_dep,
     posix_dep,
 ]
-
-zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
-if zeitgeist_dep.found ()
-    add_project_arguments('--define=HAVE_ZEITGEIST', language : 'vala')
-    dependencies += zeitgeist_dep
-else
-    warning ('Zeitgeist integration will NOT be built due to missing dependency')
-endif
 
 subdir('data')
 subdir('src')

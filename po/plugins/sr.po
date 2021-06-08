@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2018-07-15 00:09+0000\n"
-"Last-Translator: Milan Radojević <mikister2012@gmail.com>\n"
-"Language-Team: Serbian <https://weblate.elementary.io/projects/code/plugins/"
-"sr/>\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"PO-Revision-Date: 2020-12-19 14:16+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <https://l10n.elementary.io/projects/code/plugins/sr/"
+">\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -28,101 +28,97 @@ msgstr "Затварање заграда"
 msgid "Complete brackets while typing"
 msgstr "Затвори заграде приликом куцања"
 
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Преглед у претраживачу"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr ""
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Откривање увлачења"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Искуствено откриј подешавања картице или простора"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "Подешавања уређивача"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Учитај подешавања из датотеке подешавања уређивача"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Истакни избор речи"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Истиче сва појављивања речи које су изабране"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "Контура"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
-msgstr ""
+msgstr "Симболи контуре у вашој текућој датотеци за Вала"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Пастебин"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Дели датотеке пастебин услугом"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Очувава увлачење"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Одржава релативан ниво увлачења убаченог текста"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Провера писања"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Проверите писање у вашим документима"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Уклоните пратећу празнину"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Уклоните пратећу празнину приликом чувања"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Терминал"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your code editor"
-msgstr ""
+msgstr "Терминнал у вашем уређивачу кода"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Опонашање Вима"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
-msgstr ""
+msgstr "Користите наредбе Вима у Коду"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Довршавање речи"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Приказује прозорче довршавања са најкоришћенијим речима из ваших датотека"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Преглед у претраживачу"
 
 #~ msgid "Open With"
 #~ msgstr "Отвори са"

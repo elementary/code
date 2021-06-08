@@ -37,6 +37,11 @@
       <summary></summary>
       <description></description>
     </key>
+    <key name="sidebar-visible" type="b">
+      <default>true</default>
+      <summary>Sidebar visibility</summary>
+      <description>Whether or not the sidebar is open</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
@@ -45,14 +50,9 @@
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
-    <key name="opened-files-view1" type="as">
+    <key name="opened-files" type="a(si)">
       <default>[]</default>
-      <summary>Files opened in the previously session of Code on the first view</summary>
-      <description>It is used to open the files opened in the last Code session</description>
-    </key>
-    <key name="opened-files-view2" type="as">
-      <default>[]</default>
-      <summary>Files opened in the previously session of Code on the second view</summary>
+      <summary>Files opened in the previously session of Code and the cursor position</summary>
       <description>It is used to open the files opened in the last Code session</description>
     </key>
     <key name="autosave" type="b">
@@ -125,12 +125,7 @@
       <summary>Preferred Style Scheme</summary>
       <description>Set the preferred style scheme.</description>
     </key>
-    <key name="focused-document-view1" type="s">
-      <default>''</default>
-      <summary>Remember the last focused document.</summary>
-      <description>Restore the focused document from a previous session when opening Code.</description>
-    </key>
-    <key name="focused-document-view2" type="s">
+    <key name="focused-document" type="s">
       <default>''</default>
       <summary>Remember the last focused document.</summary>
       <description>Restore the focused document from a previous session when opening Code.</description>
@@ -146,6 +141,7 @@
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
     </key>
   </schema>
+
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
     <key name="paste-format-code" type="s">
       <default>'None'</default>
@@ -163,11 +159,12 @@
       <description>Set the preferred policy.</description>
     </key>
   </schema>
-    <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
-        <key name="opened-folders" type="as">
-            <default>[]</default>
-            <summary>Opened folders.</summary>
-            <description>Opened folders that should be restored in startup.</description>
-        </key>
-    </schema>
+
+  <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
+    <key name="opened-folders" type="as">
+      <default>[]</default>
+      <summary>Opened folders.</summary>
+      <description>Opened folders that should be restored in startup.</description>
+    </key>
+  </schema>
 </schemalist>

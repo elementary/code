@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2020-04-11 21:10+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"PO-Revision-Date: 2021-04-29 16:54+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/plugins/"
 "pt/>\n"
@@ -17,23 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr "Completar parênteses"
+msgstr "Conclusão dos Parênteses"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr "Completar parênteses enquanto escreve"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Pré-visualizar no navegador"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Obtenha uma pré-visualização do seu trabalho numa página web"
+msgstr "Completar parênteses enquanto digita"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -49,7 +41,7 @@ msgstr "Editor de Configurações"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr "Carregar definições de um ficheiro Editor de Configurações"
+msgstr "Carregar definições de um ficheiro de Editor de Configurações"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -122,6 +114,12 @@ msgstr "Completar palavras"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Mostra um diálogo de conclusão com as palavras mais usadas"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Pré-visualizar no navegador"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Obtenha uma pré-visualização do seu trabalho numa página web"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"

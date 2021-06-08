@@ -36,7 +36,7 @@ namespace Scratch.Services {
 
             if (paste_code.length == 0) { link = "No text to paste"; return false; }
 
-            string api_url = "http://pastebin.com/api/api_post.php";
+            string api_url = "https://pastebin.com/api/api_post.php";
 
             var session = new Soup.Session ();
             var message = new Soup.Message ("POST", api_url);
@@ -58,7 +58,7 @@ namespace Scratch.Services {
             var output = (string) message.response_body.data;
             link = output;
 
-            if (Uri.parse_scheme (output) == null) {
+            if (Uri.parse_scheme (output) == null || message.status_code != 200) {
                 // A URI was not returned
                 return false;
             }
@@ -71,8 +71,9 @@ namespace Scratch.Services {
 public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     Gtk.MenuItem? menuitem = null;
 
-    [NoAcessorMethod]
     public Object object { owned get; construct; }
+
+    Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
 
     public void update_state () {
@@ -81,27 +82,29 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
 
-        plugins.hook_share_menu.connect (on_hook);
+        plugins.hook_document.connect ((doc) => {
+            this.doc = doc;
+        });
+
+        plugins.hook_share_menu.connect (on_hook_share_menu);
     }
 
-    void on_hook (Gtk.Menu menu) {
-        plugins.hook_document.connect ((doc) => {
-            if (menuitem != null)
-                menuitem.destroy ();
-            menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
-            menuitem.activate.connect (() => {
-                MainWindow window = plugins.manager.window;
-                new Dialogs.PasteBinDialog (window, doc);
-            });
-            menu.append (menuitem);
-            menuitem.show_all ();
+    void on_hook_share_menu (Gtk.Menu menu) {
+        if (menuitem != null)
+            return;
+
+        menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
+        menuitem.activate.connect (() => {
+            MainWindow window = plugins.manager.window;
+            new Dialogs.PasteBinDialog (window, doc);
         });
+        menu.append (menuitem);
+        menuitem.show_all ();
     }
 
     public void deactivate () {
         menuitem.destroy ();
     }
-
 }
 
 [ModuleInit]

@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
     /**
      * Class for easily dealing with files.
      */
-    internal class File : GLib.Object {
+    public class File : GLib.Object {
         public GLib.File file { get; private set; }
         private GLib.FileInfo info;
 
@@ -77,19 +77,20 @@ namespace Scratch.FolderManager {
             get { return file.query_exists (); }
         }
 
-        // checks if we're dealing with a non-hidden, non-backup directory
-        public bool is_valid_directory {
-            get {
-                if (info.get_is_hidden () || info.get_is_backup ()) {
-                    return false;
-                }
-
-                if (info.get_file_type () == FileType.DIRECTORY) {
-                    return true;
-                }
+        // Checks if we're dealing with a non-backup directory
+        // Hidden subfolders are not shown by default, but we need to allow hidden top-level folder
+        public bool is_valid_directory (bool allow_hidden = false) {
+            if ((!allow_hidden && name.has_prefix (".")) || // If parent is hidden then inherit validity from parent
+                 info.get_is_backup ()) {
 
                 return false;
             }
+
+            if (info.get_file_type () == FileType.DIRECTORY) {
+                return true;
+            }
+
+            return false;
         }
 
         public bool is_temporary {
@@ -145,7 +146,6 @@ namespace Scratch.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
-                        var file = new File (child.get_path ());
                         _children.add (new File (child.get_path ()));
                     }
 
@@ -201,10 +201,10 @@ namespace Scratch.FolderManager {
         }
 
         public static int compare (File a, File b) {
-            if (a.is_valid_directory && b.is_valid_textfile) {
+            if (a.is_valid_directory () && b.is_valid_textfile) {
                 return -1;
             }
-            if (a.is_valid_textfile && b.is_valid_directory) {
+            if (a.is_valid_textfile && b.is_valid_directory ()) {
                 return 1;
             }
 

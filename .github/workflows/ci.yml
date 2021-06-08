@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: elementary/docker:unstable
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        apt update
+        apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgit2-glib-1.0-dev libgranite-dev libgtk-3-dev libgtksourceview-4-dev libgtkspell3-3-dev libhandy-1-dev libpeas-dev libsoup2.4-dev libvala-dev libvte-2.91-dev meson valac
+    - name: Build
+      env:
+        DESTDIR: out
+      run: |
+        meson build
+        ninja -C build
+        ninja -C build install
+
+  flatpak:
+    name: Flatpak
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/elementary/flatpak-platform/runtime:daily
+      options: --privileged
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build
+      uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
+      with:
+        bundle: code.flatpak
+        manifest-path: io.elementary.code.yml
+        repository-name: appcenter
+        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+        cache-key: "flatpak-builder-${{ github.sha }}"
+
+  lint:
+    runs-on: ubuntu-latest
+
+    container:
+      image: valalang/lint
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint
+      run: io.elementary.vala-lint -d .
