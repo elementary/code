@@ -23,7 +23,6 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     private ulong hook_document_handle = 0;
     private uint timed_id = 0;
     private bool lsp_sync_in_progress = false;
-    private bool initiated = false;
 
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
@@ -39,13 +38,6 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
-
-        GVlsp.ServerInetLocal server = new GVlsp.ServerInetLocal ();
-
-        server.run ();
-        server.target_manager.add_default_vapi_dirs ();
-        plugins.set_data<GVls.Server> ("gvls-server", server);
-        plugins.set_data<GVls.Client> ("gvls-client", new GVlsp.ClientInetLocal ());
 
         timed_id = Timeout.add (1000, push_document_changes);
 
@@ -65,23 +57,28 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 var gvls_manager = project.get_data<GVlsp.ProjectManager> ("gvls-manager");
                 if (gvls_manager == null) {
                     var project_file = GLib.File.new_for_path (project.top_level_path);
+                    var build_system = new GVlsp.BuildSystemMesonVala (project_file);
+
                     gvls_manager = new GVlsp.ProjectManager (
                         project_file,
-                        new GVlsp.BuildSystemMesonVala (project_file)
+                        build_system
                     );
+
                     project.set_data<GVlsp.ProjectManager> ("gvls-manager", gvls_manager);
-
-                    gvls_manager.client_initialized.connect (() => {
-                    });
-
-                    gvls_manager.initialize_inet_manager.begin ((obj, res) => {
+                    gvls_manager.initialize_stdio.begin ((obj, res) => { // Also inits client
                         try {
-                            gvls_manager.initialize_inet_manager.end (res);
+                            gvls_manager.initialize_stdio.end (res);
                             init_doc (doc);
                         } catch (Error e) {
-                            warning ("Error initializing gvls project manager: %s", e.message);
+                            warning ("Error occurred intializing stdio server %s", e.message);
                         }
                     });
+                } else {
+                    try {
+                        init_doc (doc);
+                    } catch (Error e) {
+                        warning ("Error initializing doc %s", e.message);
+                    }
                 }
             }
         });
@@ -94,9 +91,19 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             return;
         }
 
+        var gvls_manager = view.project.get_data<GVlsp.ProjectManager> ("gvls-manager");
+        if (gvls_manager == null) {
+            critical ("Doc %s has no gvls manager", doc.file.get_uri ());
+            return;
+        }
+
+        if (gvls_manager.client == null) {
+            critical ("Manager has no client");
+        }
+
         var completion_provider = new GVlsui.CompletionProvider ();
-        var gvls_manager = doc.source_view.project.get_data<GVlsp.ProjectManager> ("gvls_manager");
         completion_provider.manager = gvls_manager;
+        completion_provider.uri = doc.file.get_uri ();
 
         view.get_completion ().add_provider (completion_provider);
         view.set_data<GVlsui.CompletionProvider> ("gvls-provider", completion_provider);
@@ -180,10 +187,11 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         var view = doc.source_view;
         var file = doc.file;
+        var project = view.project;
         var gvls_changes = view.get_data<GVls.Container> ("gvls-changes");
-        var gvls_manager = view.get_data<GVlsp.ProjectManager> ("gvls-manager");
+        var gvls_manager = project.get_data<GVlsp.ProjectManager> ("gvls-manager");
         if (gvls_changes == null || gvls_manager == null) {
-            return true;
+           return Source.CONTINUE;
         }
 
         if (gvls_changes.get_n_items () != 0) {
@@ -192,6 +200,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             gvls_changes = new GVls.ContainerHashList.for_type (typeof (GVls.TextDocumentContentChangeEventInfo));
             view.set_data<GVls.Container> ("gvls-changes", gvls_changes);
             lsp_sync_in_progress = true;
+
             gvls_client.document_change.begin (file.get_uri (), current_changes, (obj, res) => {
                 try {
                     gvls_client.document_change.end (res);
