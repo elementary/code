@@ -102,7 +102,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         }
 
         var completion_provider = new GVlsui.CompletionProvider ();
-        // completion_provider.client = client; GVlsui.CompletionProvider does not have property "client" in version 20
+        completion_provider.client = client; GVlsui.CompletionProvider does not have property "client" in version 20
 
         view.get_completion ().add_provider (completion_provider);
         view.set_data<GVlsui.CompletionProvider> ("gvls-provider", completion_provider);
