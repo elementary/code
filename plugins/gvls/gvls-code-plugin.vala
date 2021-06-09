@@ -44,65 +44,59 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         server.run ();
         server.target_manager.add_default_vapi_dirs ();
-
         plugins.set_data<GVls.Server> ("gvls-server", server);
-
-        GVls.Client client = new GVlsp.ClientInetLocal ();
-        plugins.set_data<GVls.Client> ("gvls-client", client);
+        plugins.set_data<GVls.Client> ("gvls-client", new GVlsp.ClientInetLocal ());
 
         timed_id = Timeout.add (1000, push_document_changes);
 
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
         });
-        hook_document_handle = plugins.hook_document.connect ((doc)=>{
-            try {
-                var gvls_client = plugins.get_data<GVls.Client> ("gvls-client");
-                if (gvls_client == null) {
+        hook_document_handle = plugins.hook_document.connect ((doc) => {
+            var project = doc.source_view.project;
+            if (project == null) {
+                return;
+            } else {
+                var project_path = project.top_level_path;
+                if (project_path == null) {
                     return;
                 }
-                var file = doc.file;
-                if (file == null) {
-                    return;
-                }
-                if (!initiated) {
-                    gvls_client.initialize.begin (file.get_uri (), (obj, res)=>{
+
+                var gvls_manager = project.get_data<GVlsp.ProjectManager> ("gvls-manager");
+                if (gvls_manager == null) {
+                    var project_file = GLib.File.new_for_path (project.top_level_path);
+                    gvls_manager = new GVlsp.ProjectManager (
+                        project_file,
+                        new GVlsp.BuildSystemMesonVala (project_file)
+                    );
+                    project.set_data<GVlsp.ProjectManager> ("gvls-manager", gvls_manager);
+
+                    gvls_manager.client_initialized.connect (() => {
+                    });
+
+                    gvls_manager.initialize_inet_manager.begin ((obj, res) => {
                         try {
-                            gvls_client.initialize.end (res);
-                            initiated = true;
-                            init_doc (doc, gvls_client);
-                        } catch (GLib.Error e) {
-                            warning ("Error setting completion provider: %s", e.message);
+                            gvls_manager.initialize_inet_manager.end (res);
+                            init_doc (doc);
+                        } catch (Error e) {
+                            warning ("Error initializing gvls project manager: %s", e.message);
                         }
                     });
-                } else {
-                    init_doc (doc, gvls_client);
                 }
-            } catch (GLib.Error e) {
-                warning ("Error setting completion provider: %s", e.message);
             }
         });
     }
 
-    private void init_doc (Scratch.Services.Document doc, GVls.Client client) throws GLib.Error {
-        var gvls_client = plugins.get_data<GVls.Client> ("gvls-client");
-        if (gvls_client == null) {
-            return;
-        }
-
+    private void init_doc (Scratch.Services.Document doc) throws GLib.Error {
         var view = doc.source_view;
-        var file = doc.file;
-        if (file == null) {
-            return;
-        }
-
         var gvls_provider = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
         if (gvls_provider != null) {
             return;
         }
 
         var completion_provider = new GVlsui.CompletionProvider ();
-        completion_provider.client = client; GVlsui.CompletionProvider does not have property "client" in version 20
+        var gvls_manager = doc.source_view.project.get_data<GVlsp.ProjectManager> ("gvls_manager");
+        completion_provider.manager = gvls_manager;
 
         view.get_completion ().add_provider (completion_provider);
         view.set_data<GVlsui.CompletionProvider> ("gvls-provider", completion_provider);
@@ -132,9 +126,9 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             gvls_changes.add (content_change);
         });
 
-        client.document_open.begin (file.get_uri (), buffer.text, (obj, res)=>{
+        gvls_manager.client.document_open.begin (doc.file.get_uri (), buffer.text, (obj, res)=>{
             try {
-                client.document_open.end (res);
+                gvls_manager.client.document_open.end (res);
             } catch (GLib.Error e) {
                 warning ("Error while send didOpen notification: %s", e.message);
             }
@@ -179,11 +173,6 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             return true;
         }
 
-        var gvls_client = plugins.get_data<GVls.Client> ("gvls-client");
-        if (gvls_client == null) {
-            return true;
-        }
-
         var doc = main_window.get_current_document ();
         if (doc == null) {
             return Source.CONTINUE;
@@ -192,11 +181,13 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         var view = doc.source_view;
         var file = doc.file;
         var gvls_changes = view.get_data<GVls.Container> ("gvls-changes");
-        if (gvls_changes == null) {
+        var gvls_manager = view.get_data<GVlsp.ProjectManager> ("gvls-manager");
+        if (gvls_changes == null || gvls_manager == null) {
             return true;
         }
 
         if (gvls_changes.get_n_items () != 0) {
+            var gvls_client = gvls_manager.client;
             GVls.Container current_changes = gvls_changes;
             gvls_changes = new GVls.ContainerHashList.for_type (typeof (GVls.TextDocumentContentChangeEventInfo));
             view.set_data<GVls.Container> ("gvls-changes", gvls_changes);
