@@ -40,15 +40,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
 
-        GVlsp.ServerInetLocal server = new GVlsp.ServerInetLocal ();
-
-        server.run ();
-        server.target_manager.add_default_vapi_dirs ();
-
-        plugins.set_data<GVls.Server> ("gvls-server", server);
-
-        GVls.Client client = new GVlsp.ClientInetLocal ();
-        plugins.set_data<GVls.Client> ("gvls-client", client);
+        //plugins.set_data<GVls.Client> ("gvls-client", client);
 
         timed_id = Timeout.add (1000, push_document_changes);
 
