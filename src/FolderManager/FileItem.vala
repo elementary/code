@@ -24,7 +24,7 @@ namespace Scratch.FolderManager {
      */
     public class FileItem : Item {
         public FileItem (File file, FileView view) {
-            Object (file: file, view: view, tooltip: file.path);
+            Object (file: file, view: view);
         }
 
         public override Gtk.Menu? get_context_menu () {

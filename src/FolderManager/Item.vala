@@ -36,12 +36,12 @@ namespace Scratch.FolderManager {
             editable = true;
             name = file.name;
             icon = file.icon;
-
             edited.connect (rename);
+            tooltip = Scratch.Utils.replace_home_dir_by_tilde (file.path);
 
             notify["activatable-tooltip"].connect (() => {
                 tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
-                    file.path,
+                    Scratch.Utils.replace_home_dir_by_tilde (file.path),
                     activatable_tooltip
                 );
             });
