@@ -29,7 +29,7 @@ namespace Scratch.FolderManager {
         private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
-            Object (file: file, view: view);
+            Object (file: file, view: view, tooltip: file.path);
         }
 
         ~FolderItem () {
