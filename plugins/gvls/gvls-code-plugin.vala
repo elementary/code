@@ -53,18 +53,25 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 doc.source_view.project.set_data<GVlsui.ProjectManager> ("gvls-manager", gvls_manager);
                 gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
                     try {
-                      gvls_manager.manager.initialize_stdio.end (res);
+                        gvls_manager.manager.initialize_stdio.end (res);
+                        gvls_manager.set_completion_provider (doc.source_view, doc.file);
+                        gvls_manager.open_document (doc.source_view);
+
+                        main_window.destroy.connect (()=>{
+                            gvls_manager.manager.client.server_exit.begin ();
+                        });
                     } catch (GLib.Error e) {
                         warning ("Error Opening File: %s", e.message);
                     }
                 });
-            }
-            gvls_manager.set_completion_provider (doc.source_view, doc.file);
-            gvls_manager.open_document (doc.source_view);
-            main_window.destroy.connect (()=>{
-                gvls_manager.manager.client.server_exit.begin ();
-            });
+            } else {
+                gvls_manager.set_completion_provider (doc.source_view, doc.file);
+                gvls_manager.open_document (doc.source_view);
 
+                main_window.destroy.connect (()=>{
+                    gvls_manager.manager.client.server_exit.begin ();
+                });
+            }
         });
     }
 
