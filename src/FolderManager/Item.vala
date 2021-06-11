@@ -38,6 +38,13 @@ namespace Scratch.FolderManager {
             icon = file.icon;
 
             edited.connect (rename);
+
+            notify["activatable-tooltip"].connect (() => {
+                tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
+                    file.path,
+                    activatable_tooltip
+                );
+            });
         }
 
         protected void rename (string new_name) {
