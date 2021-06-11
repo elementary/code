@@ -55,7 +55,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                     try {
                         gvls_manager.manager.initialize_stdio.end (res);
                         gvls_manager.set_completion_provider (doc.source_view, doc.file);
-                        gvls_manager.open_document (doc.source_view);
+                        gvls_manager.open (doc.source_view, doc.file);
 
                         main_window.destroy.connect (()=>{
                             gvls_manager.manager.client.server_exit.begin ();
@@ -66,7 +66,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 });
             } else {
                 gvls_manager.set_completion_provider (doc.source_view, doc.file);
-                gvls_manager.open_document (doc.source_view);
+                gvls_manager.open (doc.source_view, doc.file);
 
                 main_window.destroy.connect (()=>{
                     gvls_manager.manager.client.server_exit.begin ();
