@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"POT-Creation-Date: 2021-06-11 17:12+0000\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -52,34 +52,34 @@ msgstr "Hanapin…"
 msgid "Hide search bar"
 msgstr "Itago ang search bar"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:728 src/Services/Document.vala:494
 msgid "All files"
 msgstr "Lahat ng mga File"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:498
 msgid "Text files"
 msgstr "Tekstong mga file"
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Magbukas ng ilang mga file"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:739
 msgid "Open"
 msgstr "Buksan"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
+#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ikansela"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:765
 msgid "_Open"
 msgstr "_Buksan"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:766
 msgid "_Cancel"
 msgstr "I_kansela"
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Mga Kagustuhan"
 
@@ -251,7 +251,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:108
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr ""
 
@@ -277,8 +277,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:175
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:188
 #, fuzzy
 msgid "New"
 msgstr "Bagong Tab"
@@ -292,114 +292,114 @@ msgstr ""
 msgid "new file"
 msgstr "Bagong File"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:104
+#: src/FolderManager/ProjectFolderItem.vala:111
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Magbukas ng Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:188
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:215
+#: src/FolderManager/ProjectFolderItem.vala:226
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:488
+#: src/FolderManager/ProjectFolderItem.vala:503
 #, fuzzy
 msgid "New Branch…"
 msgstr "Ibahin ang mga setting ng Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:501
+#: src/FolderManager/ProjectFolderItem.vala:516
 #, fuzzy
 msgid "Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:271
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:272
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:274
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:295
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:296
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:298
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ikansela"
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:391
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "I-save ang mga nabago sa dokumento bago isara?"
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Kung hindi mo ise-save ang mga nagawa mong pagbabago, mawawala lahat ng "
 "nagawa mo sa nakalipas na apat na segundo."
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:398
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Isara ng hindi sine-save"
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:402 src/Services/Document.vala:505
+#: src/Services/Document.vala:737
 msgid "Save"
 msgstr "I-save"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:502
 msgid "Save File"
 msgstr "I-Save ang File"
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:579 src/Services/Document.vala:588
 msgid "New Document"
 msgstr "Bagong Dokumento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:711
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Ang file na \"%s\" ay hindi maaaring mailikha.b'↵'\n"
 "%s"
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:712
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Ang file na \"%s\" ay hindi mabasa. Maaaring may sira ito\n"
 "o wala kang sapat na pahintulot para basahin ito."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:725
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -408,16 +408,16 @@ msgstr ""
 "Ang lokasyon na naglalaman ng file na \"%s\" ay hindi makita. Gusto mo bang "
 "i-save sa iba pang lugar?"
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:728
 msgid "Save As…"
 msgstr "I-save bilang…"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:734
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Ang file na \"%s\" ay tinanggal na. Gusto mo bang i-save gayon pa man?"
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -426,11 +426,11 @@ msgstr ""
 "Hindi mo maaaraing i-save ang mga pagbabago sa file na \"%s\". Gusto mo bang "
 "i-save ang mga pagbabago sa file na ito sa ibang lugar?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:754
 msgid "Save changes elsewhere"
 msgstr "I-save ang mga pagbabago sa ibang lugar"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:788
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -439,11 +439,11 @@ msgstr ""
 "Ang file na \"%s\" ay nabago ng eksternal na aplikasyon. Gusto mo bang i-"
 "load ito ulit o ituloy ang iyong pag-edit?"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:791
 msgid "Load"
 msgstr "I-load"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "Continue"
 msgstr "Magpatuloy"
 
@@ -451,7 +451,7 @@ msgstr "Magpatuloy"
 msgid "Templates"
 msgstr "Mga Templeyt"
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Text file mula sa "
@@ -527,23 +527,11 @@ msgstr "Palakihin 1:1"
 msgid "Zoom In"
 msgstr "Palakihin"
 
-#: src/Widgets/HeaderBar.vala:132
-msgid "High Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:140
-msgid "Solarized Light"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:148
-msgid "Solarized Dark"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:158
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:189
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr ""
 
@@ -603,11 +591,11 @@ msgstr "Palitan"
 msgid "Replace all"
 msgstr "Palitan lahat"
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr ""
 
