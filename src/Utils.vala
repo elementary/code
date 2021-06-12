@@ -134,7 +134,7 @@ namespace Scratch.Utils {
         return sb.str;
     }
 
-    public string replace_home_dir_by_tilde (string path) {
+    public string replace_home_with_tilde (string path) {
         var home_dir = Environment.get_home_dir ();
         if (path.has_prefix (home_dir)) {
             return "~" + path[home_dir.length:-1];
