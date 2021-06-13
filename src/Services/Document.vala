@@ -205,7 +205,6 @@ namespace Scratch.Services {
 
             /* Create as loaded - could be new document */
             loaded = true;
-            
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 

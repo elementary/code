@@ -306,7 +306,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             if (doc != d) {
                 string new_tabname_doc, new_tabname_d;
                 find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc);
-                
+
                 if (d.label.length < new_tabname_d.length) {
                     d.tab_name = new_tabname_d;
                 }
