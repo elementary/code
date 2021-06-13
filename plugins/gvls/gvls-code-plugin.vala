@@ -20,28 +20,36 @@
 
 public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatable {
     private MainWindow main_window;
-    private ulong hook_document_handle = 0;
-    private uint timed_id = 0;
 
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
 
-    ~GVlsCompletion () {
-        if (timed_id != 0) {
-            var source = MainContext.@default ().find_source_by_id (timed_id);
-            if (source != null) {
-                source.destroy ();
-            }
-        }
-    }
-
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
+        this.main_window = plugins.manager.window;
 
-        plugins.hook_window.connect ((w) => {
-            this.main_window = w;
+        main_window.folder_opened.connect ((project)=>{
+            var gvls_manager = project.get_data<GVlsui.ProjectManager> ("gvls-manager");
+            if (gvls_manager == null) {
+                GLib.File f = project.file.file;
+                gvls_manager = new GVlsui.ProjectManager.for_meson (f);
+                project.set_data<GVlsui.ProjectManager> ("gvls-manager", gvls_manager);
+                gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
+                    try {
+                        gvls_manager.manager.initialize_stdio.end (res);
+                        debug ("gvls-plugin: Started GVls server");
+
+                        main_window.destroy.connect (()=>{
+                            gvls_manager.manager.client.server_exit.begin ();
+                        });
+                    } catch (GLib.Error e) {
+                        warning ("Error Opening File: %s", e.message);
+                    }
+                });
+            }
         });
-        hook_document_handle = plugins.hook_document.connect ((doc)=>{
+
+        main_window.document_opened.connect ((doc)=>{
             if (doc.source_view.project == null) {
                 return;
             }
@@ -54,6 +62,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
                     try {
                         gvls_manager.manager.initialize_stdio.end (res);
+                        debug ("gvls-plugin: Started GVls server");
                         gvls_manager.set_completion_provider (doc.source_view, doc.file);
                         gvls_manager.open_document (doc.source_view);
 
@@ -77,7 +86,6 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
 
     public void deactivate () {
-        plugins.disconnect (hook_document_handle);
         if (main_window == null) {
             message ("No MainWindow was set");
             return;
