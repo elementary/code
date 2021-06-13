@@ -37,6 +37,7 @@ code_files = files(
     'Widgets/ChooseProjectButton.vala',
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
+    'Widgets/SourceGutterRenderer.vala',
     'Widgets/HeaderBar.vala',
     'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
