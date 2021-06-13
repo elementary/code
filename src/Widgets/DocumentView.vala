@@ -345,7 +345,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         request_placeholder_if_empty ();
 
-        if (docs.length () > 0){
+        if (docs.length () > 0) {
             if (!doc.is_file_temporary) {
                 foreach (var d in docs) {
                     rename_tabs_with_same_title (d);
