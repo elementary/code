@@ -284,37 +284,40 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         current_document.focus ();
     }
 
-    private File find_common_parent (File f1, File f2) {
-        File par = f1;
-        while (par != null && par.get_relative_path (f2) == null &&
-               par.get_path () != f2.get_path ()) {
-            par = par.get_parent ();
+    private void find_unique_path (File f1, File f2, out string? path1, out string? path2) {
+        if (f1 == f2) return;
+
+        var f1_parent = f1.get_parent ();
+        var f2_parent = f2.get_parent ();
+
+        while (f1_parent.get_relative_path (f1) == f2_parent.get_relative_path (f2)) {
+            f1_parent = f1_parent.get_parent ();
+            f2_parent = f2_parent.get_parent ();
         }
 
-        return par;
+        path1 = f1_parent.get_relative_path (f1);
+        path2 = f2_parent.get_relative_path (f2);
     }
 
-    private void rename_tabs_with_same_title (string title) {
-        File? common_parent = null;
-        foreach (var d in docs) {
-            var tab_basename = d.file.get_basename ();
+    private void rename_tabs_with_same_title (Services.Document doc) {
+        string doc_tab_name = doc.file.get_basename ();
 
-            if (title == tab_basename) {
-                if (common_parent == null) {
-                    common_parent = d.file.get_parent ();
-                } else {
-                    common_parent = find_common_parent (d.file, common_parent);
+        foreach (var d in docs) {
+            if (doc != d) {
+                string new_tabname_doc, new_tabname_d;
+                find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc);
+                
+                if (d.label.length < new_tabname_d.length) {
+                    d.tab_name = new_tabname_d;
+                }
+
+                if (doc_tab_name.length < new_tabname_doc.length) {
+                    doc_tab_name = new_tabname_doc;
                 }
             }
         }
 
-        foreach (var d in docs) {
-            var tab_basename = d.file.get_basename ();
-            if (title == tab_basename) {
-                d.tab_name = common_parent.get_relative_path (d.file);
-                d.ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
-            }
-        }
+        doc.tab_name = doc_tab_name;
     }
 
     private void on_doc_added (Granite.Widgets.Tab tab) {
@@ -323,7 +326,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         docs.append (doc);
         if (!doc.is_file_temporary) {
-            rename_tabs_with_same_title (doc.file.get_basename ());
+            rename_tabs_with_same_title (doc);
         }
 
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
@@ -342,7 +345,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             empty ();
         } else {
             if (!doc.is_file_temporary) {
-                rename_tabs_with_same_title (doc.file.get_basename ());
+                foreach (var d in docs) {
+                    rename_tabs_with_same_title (d);
+                }
             }
         }
 
