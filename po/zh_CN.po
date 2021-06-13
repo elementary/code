@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
 "PO-Revision-Date: 2021-05-05 10:47+0000\n"
 "Last-Translator: Chengyu Liu <wer5lcy@live.cn>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -48,7 +48,7 @@ msgstr "[文件…]"
 msgid "Code"
 msgstr "代码"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "查找…"
 
@@ -73,7 +73,7 @@ msgid "Open"
 msgstr "打开"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -108,43 +108,21 @@ msgstr "使用正则表达式："
 msgid "Search"
 msgstr "搜索"
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
 msgstr "创建 “%s/%s” 的新分支"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
+#: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
 msgstr "创建分支"
 
-#: src/Dialogs/NewBranchDialog.vala:84
-#, fuzzy
-#| msgid "You must have an active git project before creating a new branch."
-msgid "You must have an active Git project before creating a new branch."
-msgstr "在创建一个新的分支之前，您必须有一个活动中的 Git 项目。"
-
-#: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Open a git project folder in the sidebar."
-msgid "Open a Git project folder in the sidebar."
-msgstr "从侧边栏打开 Git 项目文件夹。"
-
-#: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid ""
-#| "Open a document in a git project folder in the sidebar or use a project "
-#| "context menu."
-msgid ""
-"Open a document in a Git project folder in the sidebar or use a project "
-"context menu."
-msgstr "使用侧边栏或者项目上下文菜单打开 Git 项目文件夹里的文档。"
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "首选项"
 
@@ -272,7 +250,7 @@ msgid "Rename"
 msgstr "重命名"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr "移至回收站"
 
@@ -295,8 +273,8 @@ msgstr "空白文件"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:173
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "New"
 msgstr "新建"
 
@@ -312,28 +290,28 @@ msgstr "新文件"
 msgid "Close Folder"
 msgstr "关闭文件夹"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:104
 msgid "Close Other Folders"
 msgstr "关闭其他文件夹"
 
-#: src/FolderManager/ProjectFolderItem.vala:113
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Find in Project…"
 msgstr "在项目中查找…"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Modified"
 msgstr "已修改"
 
-#: src/FolderManager/ProjectFolderItem.vala:213
+#: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "创建新分支： “%s” 时发生错误"
 
-#: src/FolderManager/ProjectFolderItem.vala:485
+#: src/FolderManager/ProjectFolderItem.vala:488
 msgid "New Branch…"
 msgstr "新分支…"
 
-#: src/FolderManager/ProjectFolderItem.vala:498
+#: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
 msgstr "分支"
 
@@ -482,59 +460,59 @@ msgstr[0] "%d 标签"
 msgid "Go To Line:"
 msgstr "跳转至："
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "打开文件"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "项目模板"
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "保存此文件"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "另存为"
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "恢复此文件"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "分享"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr "缩小"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "原始大小"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr "放大"
 
-#: src/Widgets/HeaderBar.vala:127
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr "高对比度"
 
-#: src/Widgets/HeaderBar.vala:135
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr "Solarized 明亮"
 
-#: src/Widgets/HeaderBar.vala:143
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr "Solarized 深色"
 
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr "激活侧边栏"
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr "菜单"
 
@@ -733,6 +711,25 @@ msgstr "请安装至少一个 [aspell] 词典。"
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 词语补全"
+
+#, fuzzy
+#~| msgid "You must have an active git project before creating a new branch."
+#~ msgid "You must have an active Git project before creating a new branch."
+#~ msgstr "在创建一个新的分支之前，您必须有一个活动中的 Git 项目。"
+
+#, fuzzy
+#~| msgid "Open a git project folder in the sidebar."
+#~ msgid "Open a Git project folder in the sidebar."
+#~ msgstr "从侧边栏打开 Git 项目文件夹。"
+
+#, fuzzy
+#~| msgid ""
+#~| "Open a document in a git project folder in the sidebar or use a project "
+#~| "context menu."
+#~ msgid ""
+#~ "Open a document in a Git project folder in the sidebar or use a project "
+#~ "context menu."
+#~ msgstr "使用侧边栏或者项目上下文菜单打开 Git 项目文件夹里的文档。"
 
 #~ msgid ""
 #~ "The branch name must comply with Git rules and must not already exist."

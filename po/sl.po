@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"POT-Creation-Date: 2021-05-25 18:04+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Code"
 msgstr "Koda"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "Išči…"
 
@@ -74,7 +74,7 @@ msgid "Open"
 msgstr "Odpri"
 
 #: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
 #: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -111,42 +111,24 @@ msgstr ""
 msgid "Search"
 msgstr "Išči naprej"
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, fuzzy, c-format
 #| msgid "Create a new instance"
 msgid "Create a new branch of “%s/%s”"
 msgstr "Ustari nov primerek"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
+#: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 #, fuzzy
 #| msgid "Branch"
 msgid "Create Branch"
 msgstr "Veja"
 
-#: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active Git project before creating a new branch."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid "Open a Git project folder in the sidebar."
-msgstr "Dodaj projektno mapo v stransko vrstico."
-
-#: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid ""
-"Open a document in a Git project folder in the sidebar or use a project "
-"context menu."
-msgstr "Dodaj projektno mapo v stransko vrstico."
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Možnosti"
 
@@ -277,7 +259,7 @@ msgid "Rename"
 msgstr "Preimenuj"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:108
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -302,8 +284,8 @@ msgstr "Prazna datoteka"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:173
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "New"
 msgstr "Nov zavihek"
 
@@ -319,32 +301,32 @@ msgstr "nova datoteka"
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:104
 msgid "Close Other Folders"
 msgstr "Zapri druge mape"
 
-#: src/FolderManager/ProjectFolderItem.vala:113
+#: src/FolderManager/ProjectFolderItem.vala:115
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "Dodaj projektno mapo…"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:213
+#: src/FolderManager/ProjectFolderItem.vala:215
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:485
+#: src/FolderManager/ProjectFolderItem.vala:488
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Veja"
 
-#: src/FolderManager/ProjectFolderItem.vala:498
+#: src/FolderManager/ProjectFolderItem.vala:501
 msgid "Branch"
 msgstr "Veja"
 
@@ -505,59 +487,59 @@ msgstr[3] "%d tabulatorjev"
 msgid "Go To Line:"
 msgstr "Pojdi na vrstico:"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "Odpri datoteko"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "Predloge projektov"
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "Shrani to datoteko"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "Shrani datoteko pod drugim imenom"
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "Obnovi to datoteko"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "Deli"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr "Pomanjšaj"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "1:1"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr "Povečaj"
 
-#: src/Widgets/HeaderBar.vala:127
+#: src/Widgets/HeaderBar.vala:132
 msgid "High Contrast"
 msgstr "Visok kontrast"
 
-#: src/Widgets/HeaderBar.vala:135
+#: src/Widgets/HeaderBar.vala:140
 msgid "Solarized Light"
 msgstr "Solarized svetla"
 
-#: src/Widgets/HeaderBar.vala:143
+#: src/Widgets/HeaderBar.vala:148
 msgid "Solarized Dark"
 msgstr "Solarized temna"
 
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:158
 msgid "Toggle Sidebar"
 msgstr "Preklopi stransko vrstico"
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:189
 msgid "Menu"
 msgstr "Meni"
 
@@ -764,6 +746,18 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid "Open a Git project folder in the sidebar."
+#~ msgstr "Dodaj projektno mapo v stransko vrstico."
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid ""
+#~ "Open a document in a Git project folder in the sidebar or use a project "
+#~ "context menu."
+#~ msgstr "Dodaj projektno mapo v stransko vrstico."
 
 #, fuzzy
 #~| msgid "Search next"
