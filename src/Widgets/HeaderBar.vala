@@ -27,6 +27,7 @@ namespace Scratch.Widgets {
         public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
+        public Code.ChooseProjectButton choose_project_button;
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "solarized-light";
@@ -41,6 +42,10 @@ namespace Scratch.Widgets {
 
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
+
+            choose_project_button = new Code.ChooseProjectButton () {
+                valign = Gtk.Align.CENTER
+            };
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
@@ -124,27 +129,15 @@ namespace Scratch.Widgets {
 
             var color_button_white = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_white.halign = Gtk.Align.CENTER;
-            color_button_white.tooltip_text = _("High Contrast");
-
-            var color_button_white_context = color_button_white.get_style_context ();
-            color_button_white_context.add_class ("color-button");
-            color_button_white_context.add_class ("color-white");
+            style_color_button (color_button_white, STYLE_SCHEME_HIGH_CONTRAST);
 
             var color_button_light = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_light.halign = Gtk.Align.CENTER;
-            color_button_light.tooltip_text = _("Solarized Light");
-
-            var color_button_light_context = color_button_light.get_style_context ();
-            color_button_light_context.add_class ("color-button");
-            color_button_light_context.add_class ("color-light");
+            style_color_button (color_button_light, STYLE_SCHEME_LIGHT);
 
             var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_dark.halign = Gtk.Align.CENTER;
-            color_button_dark.tooltip_text = _("Solarized Dark");
-
-            var color_button_dark_context = color_button_dark.get_style_context ();
-            color_button_dark_context.add_class ("color-button");
-            color_button_dark_context.add_class ("color-dark");
+            style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
@@ -190,6 +183,7 @@ namespace Scratch.Widgets {
             };
             set_custom_title (format_bar);
 
+            pack_start (choose_project_button);
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
@@ -253,6 +247,49 @@ namespace Scratch.Widgets {
             });
         }
 
+        private void style_color_button (Gtk.Widget color_button, string style_id) {
+            string background = "#FFF";
+            string foreground = "#333";
+
+            var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+            if (style_id in sssm.scheme_ids) {
+                var scheme = sssm.get_scheme (style_id);
+                color_button.tooltip_text = scheme.name;
+
+                var background_style = scheme.get_style ("background-pattern");
+                var foreground_style = scheme.get_style ("text");
+
+                if (background_style != null && background_style.background_set && !("rgba" in background_style.background)) {
+                    background = background_style.background;
+                }
+
+                if (foreground_style != null && foreground_style.foreground_set) {
+                    foreground = foreground_style.foreground;
+                }
+            }
+
+            var style_css = """
+                .color-button radio {
+                    background-color: %s;
+                    color: %s;
+                    padding: 10px;
+                    -gtk-icon-shadow: none;
+                }
+            """.printf (background, foreground);
+
+            var css_provider = new Gtk.CssProvider ();
+
+            try {
+                css_provider.load_from_data (style_css);
+            } catch (Error e) {
+                critical ("Unable to style color button: %s", e.message);
+            }
+
+            unowned var style_context = color_button.get_style_context ();
+            style_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
+            style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        }
+
         private void on_share_menu_changed () {
             if (share_menu.get_children ().length () > 0) {
                 share_app_menu.no_show_all = false;
@@ -277,6 +314,7 @@ namespace Scratch.Widgets {
 
         public void set_document_focus (Scratch.Services.Document doc) {
             format_bar.set_document (doc);
+            choose_project_button.set_document (doc);
         }
     }
 }

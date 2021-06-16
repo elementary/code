@@ -30,13 +30,19 @@ namespace Scratch.FolderManager {
         public signal void closed ();
         public signal void close_all_except ();
 
-        private Scratch.Services.MonitoredRepository? monitored_repo = null;
+        public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
         public string top_level_path { get; construct; }
         public bool is_git_repo {
             get {
                 return monitored_repo != null;
+            }
+        }
+
+        private Ggit.Repository? git_repo {
+            get {
+                return (is_git_repo ? monitored_repo.git_repo : null);
             }
         }
 
@@ -66,14 +72,14 @@ namespace Scratch.FolderManager {
                 });
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
-                monitored_repo.update ();
+                monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
             }
         }
 
         public void child_folder_changed (FolderItem folder) {
             if (monitored_repo != null) {
-                monitored_repo.update ();
+                monitored_repo.update_status_map ();
             }
         }
 
@@ -90,6 +96,7 @@ namespace Scratch.FolderManager {
             }
 
             if (monitored_repo != null) {
+                monitored_repo.update_status_map ();
                 update_item_status (folder);
                 deprioritize_git_ignored ();
             }
@@ -97,7 +104,9 @@ namespace Scratch.FolderManager {
 
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => { closed (); });
+            close_item.activate.connect (() => {
+                closed ();
+            });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
@@ -186,6 +195,10 @@ namespace Scratch.FolderManager {
             });
         }
 
+        public bool contains_file (GLib.File descendant) {
+            return file.file.get_relative_path (descendant) != null;
+        }
+
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
             visible_item_list.@foreach ((visible_item) => {
                 var item = visible_item.item;
@@ -196,7 +209,7 @@ namespace Scratch.FolderManager {
                         item.markup = item.name;
                     }
                 } catch (Error e) {
-                    warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
+                    warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
                 }
             });
         }
@@ -255,7 +268,9 @@ namespace Scratch.FolderManager {
             Regex? pattern = null;
 
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                null, start_folder.get_basename (), monitored_repo.git_repo != null
+                null,
+                start_folder.get_basename (),
+                monitored_repo != null && monitored_repo.git_repo != null
             ) {
                 case_sensitive = case_sensitive,
                 use_regex = use_regex
@@ -361,7 +376,7 @@ namespace Scratch.FolderManager {
                     if (info != null && info.has_attribute (FileAttribute.STANDARD_TYPE)) {
                         if (info.get_file_type () == FileType.DIRECTORY) {
                             if (recurse_subfolders) {
-                                search_folder_children (child, pattern, false); //Limit depth to 1
+                                search_folder_children (child, pattern, recurse_subfolders);
                             }
                         } else {
                             perform_match (child, pattern, true, info);
@@ -404,7 +419,6 @@ namespace Scratch.FolderManager {
                 var type = info.get_content_type ();
                 if (!ContentType.is_mime_type (type, "text/*") ||
                     ContentType.is_mime_type (type, "image/*")) { //Do not search svg images
-
                     return;
                 }
             }
@@ -437,6 +451,10 @@ namespace Scratch.FolderManager {
             }
 
             return;
+        }
+
+        public void refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
+            monitored_repo.refresh_diff (doc_path, ref line_status_map);
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {
