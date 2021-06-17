@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-05-06 11:07+0000\n"
+"PO-Revision-Date: 2021-06-16 20:30+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -109,10 +109,9 @@ msgid "Search"
 msgstr "Поиск"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Создать новый экземпляр"
+msgstr "Создать новую ветку «%s/%s»"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
@@ -308,7 +307,7 @@ msgstr "Изменено"
 #: src/FolderManager/ProjectFolderItem.vala:226
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Ошибка создания новой ветки: «%s»"
 
 #: src/FolderManager/ProjectFolderItem.vala:503
 msgid "New Branch…"
