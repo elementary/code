@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-06-16 20:30+0000\n"
+"PO-Revision-Date: 2021-06-22 14:50+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -117,6 +117,7 @@ msgstr "Создать новую ветку «%s/%s»"
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"Имя ветки должно быть уникальным и соответствовать правилам именования Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
