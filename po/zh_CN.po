@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-05-05 10:47+0000\n"
-"Last-Translator: Chengyu Liu <wer5lcy@live.cn>\n"
+"PO-Revision-Date: 2021-06-20 06:39+0000\n"
+"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -116,7 +116,7 @@ msgstr "创建 “%s/%s” 的新分支"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "分支名称不能与其他分支相同，且必须遵循 Git 的命名规则。"
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
