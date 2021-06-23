@@ -95,7 +95,7 @@ namespace Scratch.Services {
                     update_status_map ();
                 });
             } catch (IOError e) {
-                warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
+                warning ("An error occurred setting up a file monitor on the git folder: %s", e.message);
             }
 
             // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
@@ -107,7 +107,7 @@ namespace Scratch.Services {
                     gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
                     gitignore_monitor.changed.connect (() => {ignored_changed ();});
                 } catch (IOError e) {
-                    warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
+                    warning ("An error occurred setting up a file monitor on the gitignore file: %s", e.message);
                 }
             }
         }
@@ -200,7 +200,7 @@ namespace Scratch.Services {
                                 }
                             }
                         } catch (Error e) {
-                            warning ("An error occured while fetching the current git branch name: %s", e.message);
+                            warning ("An error occurred while fetching the current git branch name: %s", e.message);
                         }
 
                         branch_name = target_name;

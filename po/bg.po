@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"POT-Creation-Date: 2021-06-11 17:12+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/code/code/bg/"
@@ -57,34 +57,34 @@ msgstr "Търсене…"
 msgid "Hide search bar"
 msgstr "Скриване на лентата за търсене"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:728 src/Services/Document.vala:494
 msgid "All files"
 msgstr "Всички файлове"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:498
 msgid "Text files"
 msgstr "Текстови файлове"
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Отваряне на файлове"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:739
 msgid "Open"
 msgstr "Отваряне"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
+#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:765
 msgid "_Open"
 msgstr "_Отвори"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:766
 msgid "_Cancel"
 msgstr "_Отмени"
 
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Промяна на настройките на програмата"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Предпочитания"
 
@@ -257,7 +257,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:108
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr ""
 
@@ -283,8 +283,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:175
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:188
 #, fuzzy
 msgid "New"
 msgstr "Нов раздел"
@@ -298,112 +298,112 @@ msgstr ""
 msgid "new file"
 msgstr "Нов файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr "Затвори Папка"
 
-#: src/FolderManager/ProjectFolderItem.vala:104
+#: src/FolderManager/ProjectFolderItem.vala:111
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Затвори Папка"
 
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Отвори папка"
 
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:188
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:215
+#: src/FolderManager/ProjectFolderItem.vala:226
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:488
+#: src/FolderManager/ProjectFolderItem.vala:503
 #, fuzzy
 msgid "New Branch…"
 msgstr "Промяна на настройките на програмата"
 
-#: src/FolderManager/ProjectFolderItem.vala:501
+#: src/FolderManager/ProjectFolderItem.vala:516
 #, fuzzy
 msgid "Branch"
 msgstr "Промяна на настройките на програмата"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:271
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:272
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:274
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:295
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:296
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:298
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Отказ"
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:391
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Записване на промените в документа %s преди затваряне?"
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ако не съхраните файла, промените от предходните 4 секунди ще бъдат загубени "
 "окончателно."
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:398
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Затваряне без запазване"
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:402 src/Services/Document.vala:505
+#: src/Services/Document.vala:737
 msgid "Save"
 msgstr "Запазване"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:502
 msgid "Save File"
 msgstr "Запазване на файл"
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:579 src/Services/Document.vala:588
 msgid "New Document"
 msgstr "Нов документ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:711
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:712
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Файлът \"%s\" не може да бъде прочетен. Възможно е да е повреден или вие "
 "нямате необходимите права, за да го прочетете."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:725
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -412,16 +412,16 @@ msgstr ""
 "Източникът съдържащ файлът \"%s\" бе демонтиран. Искате ли да го запазите на "
 "друго място?"
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:728
 msgid "Save As…"
 msgstr "Запазване като…"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:734
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Файла \"%s\" бе изтрит. Искате ли да го запазите все пак?"
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -430,11 +430,11 @@ msgstr ""
 "Не можете да запазите промените на файл \"%s\". Искате ли да запазите "
 "промените на файла на друго място?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:754
 msgid "Save changes elsewhere"
 msgstr "Запазване на промените другаде"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:788
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -443,11 +443,11 @@ msgstr ""
 "Файла \"%s\" се модифицира от друго приложение. Искате ли да го заредите "
 "отново или да продължите редактирането си?"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:791
 msgid "Load"
 msgstr "Зареждане"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "Continue"
 msgstr "Продължаване"
 
@@ -455,7 +455,7 @@ msgstr "Продължаване"
 msgid "Templates"
 msgstr "Шаблони"
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Текстови файлове"
@@ -533,24 +533,12 @@ msgstr "Мащаб 1:1"
 msgid "Zoom In"
 msgstr "Приближаване"
 
-#: src/Widgets/HeaderBar.vala:132
-msgid "High Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:140
-msgid "Solarized Light"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:148
-msgid "Solarized Dark"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:158
+#: src/Widgets/HeaderBar.vala:146
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Странична лента"
 
-#: src/Widgets/HeaderBar.vala:189
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr ""
 
@@ -610,11 +598,11 @@ msgstr "Заместване"
 msgid "Replace all"
 msgstr "Заместване на всички"
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr ""
 
