@@ -93,13 +93,13 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         foreach (Services.Document doc in main_window.document_view.docs) {
             var p = doc.source_view.project;
-            var gvls_manager = p.get_data<GVlsui.CompletionProvider> ("gvls-manager");
+            var gvls_manager = p.get_data<GVlsui.ProjectManager> ("gvls-manager");
             if (gvls_manager == null) {
                 continue;
             }
 
             gvls_manager.manager.client.server_exit.begin (()=>{
-                p.set_data<GVlsui.CompletionProvider?> ("gvls-manager", null);
+                p.set_data<GVlsui.ProjectManager?> ("gvls-manager", null);
             });
 
         }
