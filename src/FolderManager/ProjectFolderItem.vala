@@ -212,7 +212,7 @@ namespace Scratch.FolderManager {
                         item.markup = item.name;
                     }
                 } catch (Error e) {
-                    warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
+                    warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
                 }
             });
         }

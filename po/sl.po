@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"POT-Creation-Date: 2021-06-11 17:12+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -57,34 +57,34 @@ msgstr "Išči…"
 msgid "Hide search bar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:728 src/Services/Document.vala:494
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:498
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:739
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
+#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:765
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:766
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Veja"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Možnosti"
 
@@ -259,7 +259,7 @@ msgid "Rename"
 msgstr "Preimenuj"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:108
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -284,8 +284,8 @@ msgstr "Prazna datoteka"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:175
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/ProjectFolderItem.vala:188
 msgid "New"
 msgstr "Nov zavihek"
 
@@ -297,102 +297,102 @@ msgstr "neimenovana mapa"
 msgid "new file"
 msgstr "nova datoteka"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
-#: src/FolderManager/ProjectFolderItem.vala:104
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Other Folders"
 msgstr "Zapri druge mape"
 
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "Dodaj projektno mapo…"
 
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:188
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:215
+#: src/FolderManager/ProjectFolderItem.vala:226
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:488
+#: src/FolderManager/ProjectFolderItem.vala:503
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Veja"
 
-#: src/FolderManager/ProjectFolderItem.vala:501
+#: src/FolderManager/ProjectFolderItem.vala:516
 msgid "Branch"
 msgstr "Veja"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:271
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ni tekstovna datoteka"
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:272
 msgid "Code will not load this type of file."
 msgstr "Koda ne bo naložila tega tipa datoteke."
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:274
 msgid "Load Anyway"
 msgstr "Vseeno naloži"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:295
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Nalaganje \"%s\" traja precej časa"
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:296
 msgid "Please wait while Code is loading the file."
 msgstr "Prosimo počakajte da Koda naloži datoteko."
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:298
 msgid "Cancel Loading"
 msgstr "Prekliči nalaganje"
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:391
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ali želite pred zaprtjem shraniti spremembe v \"%s\"?"
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:392
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Če ne boste shranili, bodo spremembe trajno izgubljene."
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:398
 msgid "Close Without Saving"
 msgstr "Zapri brez shranjevanja"
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:402 src/Services/Document.vala:505
+#: src/Services/Document.vala:737
 msgid "Save"
 msgstr "Shrani"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:502
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:579 src/Services/Document.vala:588
 msgid "New Document"
 msgstr "Nov dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:711
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Datoteke \"%s\" ni mogoče prebrati"
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:712
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Morda je poškodovana ali pa nimate dovoljenja za branje."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:725
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -401,16 +401,16 @@ msgstr ""
 "Imenik z datoteko \"%s\" je bil odklopljen. Ali želite datoteko shraniti kam "
 "drugam?"
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:728
 msgid "Save As…"
 msgstr "Shrani kot …"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:734
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je bila izbrisana. Ali jo želite vseeno shraniti?"
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -419,11 +419,11 @@ msgstr ""
 "Sprememb v datoteki \"%s\" ne morete shraniti. Ali jo želite shraniti v kam "
 "drugam?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:754
 msgid "Save changes elsewhere"
 msgstr "Shrani spremembe drugje"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:788
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -432,11 +432,11 @@ msgstr ""
 "Datoteko \"%s\" je spremenila druga apliakcija. Ali jo želite ponovno "
 "naložiti?"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:791
 msgid "Load"
 msgstr "Naloži"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "Continue"
 msgstr "Nadaljuj"
 
@@ -444,7 +444,7 @@ msgstr "Nadaljuj"
 msgid "Templates"
 msgstr "Predloge"
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/DocumentView.vala:126
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstovna datoteka iz %s:%d"
@@ -523,23 +523,11 @@ msgstr "1:1"
 msgid "Zoom In"
 msgstr "Povečaj"
 
-#: src/Widgets/HeaderBar.vala:132
-msgid "High Contrast"
-msgstr "Visok kontrast"
-
-#: src/Widgets/HeaderBar.vala:140
-msgid "Solarized Light"
-msgstr "Solarized svetla"
-
-#: src/Widgets/HeaderBar.vala:148
-msgid "Solarized Dark"
-msgstr "Solarized temna"
-
-#: src/Widgets/HeaderBar.vala:158
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr "Preklopi stransko vrstico"
 
-#: src/Widgets/HeaderBar.vala:189
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "Meni"
 
@@ -599,11 +587,11 @@ msgstr "Zamenjaj"
 msgid "Replace all"
 msgstr "Zamenjaj vse"
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr "Sortiraj izbrane vrstice"
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr "Preklopi komentar"
 
@@ -746,6 +734,15 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#~ msgid "High Contrast"
+#~ msgstr "Visok kontrast"
+
+#~ msgid "Solarized Light"
+#~ msgstr "Solarized svetla"
+
+#~ msgid "Solarized Dark"
+#~ msgstr "Solarized temna"
 
 #, fuzzy
 #~| msgid "Add a project folder to the sidebar."
