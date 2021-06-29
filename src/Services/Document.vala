@@ -208,6 +208,7 @@ namespace Scratch.Services {
 
             /* Create as loaded - could be new document */
             loaded = true;
+            ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -479,7 +480,7 @@ namespace Scratch.Services {
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
-            debug ("File \"%s\" saved succesfully", get_basename ());
+            debug ("File \"%s\" saved successfully", get_basename ());
 
             return true;
         }

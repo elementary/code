@@ -488,7 +488,10 @@ namespace Scratch {
                 }
             }
 
-            document_view.request_placeholder_if_empty ();
+            Idle.add (() => {
+                document_view.request_placeholder_if_empty ();
+                return Source.REMOVE;
+            });
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {

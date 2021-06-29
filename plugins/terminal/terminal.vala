@@ -184,7 +184,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         try {
             return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
         } catch (GLib.FileError error) {
-            warning ("An error occured while fetching the current dir of shell: %s", error.message);
+            warning ("An error occurred while fetching the current dir of shell: %s", error.message);
             return "";
         }
     }
