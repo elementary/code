@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-07-05 09:53+0000\n"
+"PO-Revision-Date: 2021-07-06 18:14+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
 "\n"
@@ -243,7 +243,7 @@ msgstr "Інший Застосунок…"
 
 #: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
-msgstr "Відкрити в"
+msgstr "Відкрити у"
 
 #: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
@@ -418,8 +418,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Файл \"%s\" було змінено іншою програмою. Бажаєте завантажити оновлену "
-"версію чи продовжити редагування?"
+"Файл «%s» було змінено іншою програмою. Бажаєте завантажити оновлену версію "
+"чи продовжити редагування?"
 
 #: src/Services/Document.vala:791
 msgid "Load"
