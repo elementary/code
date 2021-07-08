@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-05-12 16:08+0000\n"
+"PO-Revision-Date: 2021-07-05 09:53+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -116,7 +116,7 @@ msgstr "Create a new branch of “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "The branch name must be unique and follow Git naming rules."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
