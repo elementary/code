@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2021-07-11 21:35+0000\n"
+"PO-Revision-Date: 2021-07-12 00:35+0000\n"
 "Last-Translator: lucaspifonseca <lucaspifonseca@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "code/pt_BR/>\n"
@@ -314,7 +314,7 @@ msgstr "Erro ao criar nova branch: “%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:503
 msgid "New Branch…"
-msgstr "Nova Branch"
+msgstr "Nova Branch…"
 
 #: src/FolderManager/ProjectFolderItem.vala:516
 msgid "Branch"
@@ -376,8 +376,7 @@ msgstr "Novo Documento"
 #: src/Services/Document.vala:711
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Exibir uma visualização de erro que diz \"Ei, não consigo ler esse arquivo!\""
+msgstr "Não foi possível ler o arquivo \"%s\""
 
 #: src/Services/Document.vala:712
 msgid "It may be corrupt or you don't have permission to read it."
@@ -407,7 +406,7 @@ msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Você não pode salvar as alterações no arquivo \"% s\". Você deseja salvar as "
+"Você não pode salvar as alterações no arquivo \"%s\". Você deseja salvar as "
 "alterações em outro lugar?"
 
 #: src/Services/Document.vala:754
@@ -532,7 +531,7 @@ msgstr "Alfabetizar"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr "Gerenciar pastas do projeto…"
+msgstr "Gerenciar pastas do projeto"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
