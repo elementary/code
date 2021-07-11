@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2020-12-09 04:16+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"PO-Revision-Date: 2021-07-11 21:50+0000\n"
+"Last-Translator: Michael Toniolo <mz3ro@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -133,11 +133,8 @@ msgid "Remember whether the sidebar is open"
 msgstr "Lembre-se se a barra lateral está aberta"
 
 #: data/io.elementary.code.appdata.xml.in:60
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr ""
-"Adicionat atalhos de teclado para os documentos anteriores e seguintes."
+msgstr "Adicionar atalhos de teclado para os documentos anteriores e seguintes"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Show full document path in tab tooltip"
