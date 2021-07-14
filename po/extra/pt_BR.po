@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
-"PO-Revision-Date: 2020-12-09 04:16+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"PO-Revision-Date: 2021-07-11 21:53+0000\n"
+"Last-Translator: Krammer <vitorcsilva180396@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -70,7 +70,7 @@ msgid ""
 "languages."
 msgstr ""
 "Funciona com a sua linguagem. Se você está criando códigos em Vala, criando "
-"scripts em PHP,  ou fazendo marcações em HTML, Code lhe ajuda. Experimente o "
+"scripts em PHP, ou fazendo marcações em HTML, Code lhe ajuda. Experimente o "
 "reconhecimento completo de sintaxe com quase todas as linguagens de "
 "programação, script e marcação."
 
@@ -113,11 +113,11 @@ msgstr "Novas funcionalidades:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr ""
+msgstr "Novo plugin Markdown para edição no estilo WYSIWYG."
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "Pesquisa de texto completa na pasta do projeto."
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
@@ -133,15 +133,12 @@ msgid "Remember whether the sidebar is open"
 msgstr "Lembre-se se a barra lateral está aberta"
 
 #: data/io.elementary.code.appdata.xml.in:60
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr ""
-"Adicionat atalhos de teclado para os documentos anteriores e seguintes."
+msgstr "Adicionar atalhos de teclado para os documentos anteriores e seguintes"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Show full document path in tab tooltip"
-msgstr ""
+msgstr "Mostrar o caminho completo do documento na dica de ferramenta da guia"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Fixes:"
@@ -348,10 +345,8 @@ msgid "Minor bug fixes"
 msgstr "Pequenas correções de bugs"
 
 #: data/io.elementary.code.appdata.xml.in:213
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -379,11 +374,11 @@ msgstr "Nova Janela"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Executar Code como Administrador"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "A autenticação é necessária para executar o Code como Administrador"
 
 #~ msgid "New Document"
 #~ msgstr "Novo Documento"

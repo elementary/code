@@ -154,7 +154,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 break;
             case Gdk.Key.End:
             case Gdk.Key.dollar:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 break;
             case Gdk.Key.u:
                 view.undo ();
@@ -202,7 +202,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 }
 
                 mode = Mode.INSERT;
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 debug ("Vim Emulation: INSERT Mode!");
                 break;
             case Gdk.Key.o:
