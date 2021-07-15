@@ -1,3 +1,127 @@
+io.elementary.code (6.0.0) bionic; urgency=medium
+
+  * Release 6.0.0 (#1078)
+  * Change git branches cleanly (#1026)
+  * Rename tabs with the same title (#1050)
+  * Vim emulation: move by paragraph instead of display line (#784)
+  * Change Moldovan locale code for Moldovan 'ro_MD'  (#1073)
+  * Emit placeholder_request signal in Idle loop when inside a signal
+    handler. (#1071)
+  * Use full path as FileItem and FolderItem tooltip (#1067)
+  * Update translation files
+  * Update translation template
+  * Style color buttons from theme data (#1069)
+  * Fix spelling in some warnings (patch from fmneto) (#1064)
+  * Show Git diff in sourceview gutter (#914)
+  * DocumentView: simplify empty check (#1060)
+  * Avoid size allocation warnings when restoring first docs (#1059)
+  * ChooseProjectButton: ellipsize long radio items (#1043)
+  * Add Choose project popover (#1030)
+  * Do not cripple non-git folder search (#1047)
+  * CI: Fix YAML Syntax (#1032)
+  * Update Flatpak CI (#1031)
+  * NewBranchDialog: Capitalize Git, secondary text grammar
+  * Handling detached HEAD when displaying git info (#815)
+  * DocumentView: fix tab color change (#1028)
+  * DocumentView: Remove inline-toolbar (#1027)
+  * NewBranchDialog: Improve new branch name validation (#1012)
+  * Fix empty and cancelled global search (#1011)
+  * Update GitManager.vala (#1014)
+  * Fix global search when using menuitem and no open files (#1010)
+  * ProjectFolderItem: Show accel for new branch (#1003)
+  * FolderManager: Add accel label to find in project and rename find in
+    folder (#1006)
+  * NewBranchDialog: update primary text (#1002)
+  * Update POTFILES
+  * Add option to create new git branch (#997)
+  * Update POTFILES (#998)
+  * Project search (#971)
+  * Remove Zeitgeist (#994)
+  * Document: changed message () to debug () (#993)
+  * Save and restore cursor position of opened docs; (#966)
+  * Fix regression due to c35a306f03e3ddef5c2d3c8dff4e69caaa78c667
+    (#992)
+  * Git manager (#915)
+  * Remember sidebar visibility with Outline plug; remove Outline plug
+    cleanly (#984)
+  * List Edit Mode for Markdown (#894)
+  * Clear line action (#963)
+  * FileView: implement `expand_to_path ()` and use for restored focused
+    doc (#964)
+  * Better duplication of multiple lines (#985)
+  * Flatpak: Use elementary runtime and Sdk (#988)
+  * Update io.elementary.code.appdata.xml.in (#978)
+  * Vim emulation: add "o", "O" commands (#785)
+  * Vim emulation: fix 0 command (#783)
+  * Flatpak: Add granite master, polkit, bump Hdy (#960)
+  * Put full document path in tab tooltip (#805)
+  * Allow launching with pkexec (#951)
+  * Suppress criticals on startup (#957)
+  * Allow hidden project folders (#945)
+  * PastebinDialog: Fix dialog margins, code style (#948)
+  * Replace Gtk.Dialog with Granite.Dialog (#935)
+  * Change to command mode on intialization (#737)
+  * GSchema: Correct whitespace (#931)
+  * HeaderBar: Correctly load color button states (#930)
+  * PreferencesDialog: Adjust margins and spacing (#929)
+  * SearchBar: Refresh search on document focus change (#928)
+  * Expand folder when opening an already open project (#926)
+  * ProjectFolderItem: Organize and add separators (#927)
+  * FormatBar: fix margin in lang popover (#924)
+  * FormatBar: Remove custom styles (#923)
+  * Construct app with construct clauses (#920)
+  * SearchBar.vala: Fix long lines; fix case_sensitive_button tooltip
+    binding
+  * SourceView.vala: Fix some long lines
+  * Document.vala: Fix some long lines
+  * DocumentView.vala: fix some long lines
+  * Sidebar.vala - fix long lines
+  * MainWindow: remove unused function "has_temporary_files ()"; Fix
+    long line. (#919)
+  * Add Markdown plugin (#890)
+  * Close all related docs when closing project folder (#912)
+  * Properly count one-line paste on last line (#911)
+  * Simplify cmdline option handling (#913)
+  * Keep syntax highlighting when duplicating file. (#899)
+  * Check that characters counted as indentation are whitespace (#910)
+  * Flatpak: update runtime and dependences (#905)
+  * Fix build with Vala 0.50 (#901)
+  * Use CSS to change default font, not deprecated code. (#892)
+  * CI: Use flatpak action (#900)
+  * Attach Terminal extension to the right of the sidebar (#896)
+  * Add flatpak manifest (#877)
+  * Stop document_change signal being emitted twice after tab switch.
+    (#895)
+  * Fix plugins compile warnings (#893)
+  * MainWindow: Subclass Hdy.Window (#869)
+  * Ctrl+Tab for next document and Ctrl+Shift+Tab for previous one
+    (#888)
+  * Fix terminal warning re unsafe cast (#889)
+  * Pane → Sidebar (#883)
+  * POTFILES: Remove browser files (#885)
+  * Remove Browser Preview plugin (#868)
+  * Fix window positioning via saved state (#882)
+  * Fix unsafe casts (#876)
+  * Fix issues with the Pastebin plugin (#872)
+  * Set window title to focused document (#870)
+  * Pane: Add a label to open folder button (#865)
+  * Fix switch from sidebar and search action (#855)
+  * Remove SplitView.vala from POTFILES (#858)
+  * Remove Granite.Services.Logger (#853)
+  * Null checks for get_last_window (#854)
+  * BracketsCompletion: Fix deprecated Map.contains (#848)
+  * Disconnect selected signals on tab change (#852)
+  * Remove split view (#849)
+  * SourceView: use unsafe cast for sourcebuffer (#846)
+  * port to gtksourceview-4 (#837)
+  * Replace Application.instance with Application.get_default (#844)
+  * Application: Remove unnecessary Intl (#845)
+  * Remember whether sidebar is open (#842)
+  * Use GitHub CI (#840)
+  * Spell: Enable plugin for md files (#827)
+
+ -- Corentin Noël <corentin@elementary.io>  Thu, 15 Jul 2021 21:15:27 +0000
+
 io.elementary.code (3.4.1) bionic; urgency=medium
 
   * Release 3.4.1 (#821)
