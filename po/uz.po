@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-07-15 21:16+0000\n"
 "PO-Revision-Date: 2021-03-21 11:04+0000\n"
 "Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
@@ -50,34 +50,34 @@ msgstr "Izlash…"
 msgid "Hide search bar"
 msgstr "Izlash panelini yashirish"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr "Barcha fayllar"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr "Matnli fayllar"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "Fayllarni ochish"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr "Ochish"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Bekor qilish"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr "_Ochish"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr "_Bekor qilish"
 
@@ -279,8 +279,8 @@ msgstr "Bo'sh fayl"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
 msgstr "Yaratish"
 
@@ -306,108 +306,108 @@ msgstr "Boshqa papkalarni yopish"
 msgid "Find in Project…"
 msgstr "Loyiha papkasini ochish…"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, O'zgartirilgan"
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Brench"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
 msgstr "Brench"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s matnli fayl emas"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code bu turdagi fayllarni ocha olmaydi."
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Baribir ochish"
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" ni ochish ko'p vaqt olyapti"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Iltimos, Code faylni ochguncha biroz sabr qiling."
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "Yuklashni bekor qilish"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:392
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "\"%s\" ni yopishdan avval kiritilgan o'zgarishlarni saqlash kerakmi?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:393
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Agar o'zgarishlarni saqlamasangiz ularni keyinchalik umuman tiklab bo'lmaydi."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:399
 msgid "Close Without Saving"
 msgstr "Saqlamasdan yopish"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr "Saqlash"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr "Faylni saqlash"
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr "Yangi hujjat"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" faylini o'qib bo'lmadi"
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:713
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Ushbu fayl zararlangan yoki sizda uni o'qish uchun huquq bo'lmasligi mumkin."
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "\"%s\" ochilgan manbaani topib bo'lmadi. Boshqa joyda saqlaysizmi?"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr "Boshqa usulda saqlash…"
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" fayli o'chirib yuborilgan. Baribir saqlashni xoxlaysizmi?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:752
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -416,11 +416,11 @@ msgstr ""
 "Siz \"%s\" fayliga kiritilgan o'zgartirishlarni saqlay olmaysiz. Boshqa "
 "joyda saqlashni xoxlaysizmi?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr "Kiritilgan o'zgartirishlarni boshqa joyda saqlash"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -429,11 +429,11 @@ msgstr ""
 "\"%s\" fayli boshqa ilova tomonidan o'zgartirilgan. Uni qaytadan yuklab, "
 "tahrirlashni davom ettirmoqchimisiz?"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr "Yuklash"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr "Davom etish"
 

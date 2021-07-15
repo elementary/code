@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-07-15 21:16+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -58,34 +58,34 @@ msgstr "Pretraži…"
 msgid "Hide search bar"
 msgstr "Sakrij traku pretrage"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr "Tekstovne datoteke"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "Otvori datoteke"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -284,8 +284,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 msgid "New"
 msgstr "Nova kartica"
@@ -315,98 +315,98 @@ msgstr "Zatvori mapu"
 msgid "Find in Project…"
 msgstr "Otvori mapu"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "Promijeni Scratch postavke"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "Promijeni Scratch postavke"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Odustani"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:392
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Spremi promjene u dokument %s prije zatvaranja?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:393
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ako ne spremite, promjene nastale u zadnje 4 sekunde biti će trajno "
 "izgubljene."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:399
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Zatvori bez spremanja"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr "Spremi"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr "Spremi datoteku"
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr "Novi dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:712
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Datoteka \"%s\" se ne može stvoriti.\n"
 "%s"
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:713
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Datoteku \"%s\" je nemoguće pročitati. Možda je oštećena\n"
 "ili nemate potrebne dozvole za čitanje."
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -415,16 +415,16 @@ msgstr ""
 "Lokacija koja sadrži datoteku \"%s\" nije montirana. Želite li ju spremiti "
 "negdje drugdje?"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr "Spremi kao…"
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je obrisana. Želite li ju svejedno spremiti?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:752
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -433,11 +433,11 @@ msgstr ""
 "Ne možete spremiti promjene na datoteci \"%s\". Želite li promjene na ovoj "
 "datoteci spremiti na drugu lokaciju?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr "Spremi promjene negdje drugdje"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -446,11 +446,11 @@ msgstr ""
 "Datoteka \"%s\" je promijenjena vanjskom aplikacijom. Želite li ju ponovno "
 "učitati i nastaviti uređivanje?"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr "Učitaj"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr "Nastavi"
 
