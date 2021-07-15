@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 21:16+0000\n"
-"PO-Revision-Date: 2021-07-06 18:14+0000\n"
+"PO-Revision-Date: 2021-07-16 01:05+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,10 +117,11 @@ msgstr "Новий плагін розмітки для WYSIWYG-подібног
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Перемикання гілок Git або створення нових з контекстного меню теки проєкту"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Показ стану Git diff у проміжних поданнях джерела"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
@@ -128,21 +129,19 @@ msgstr "Повнотекстовий пошук у теці проєкту."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Збереження та відновлення позиції курсора між сеансами"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Закриття файлів з проєкту, коли цей проєкт закрито"
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
-msgstr "Показ повного шляху до документа у підказці вкладки"
+msgstr "Показ повного шляху до файлу у підказках вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Очищення рядка за допомогою Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -155,7 +154,7 @@ msgstr "Дозволити розширення перевірки правоп�
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Вдосконалено багаторядкових дублювань"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -163,7 +162,7 @@ msgstr "Пам'ятати чи відкрито бічну панель"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Установлення заголовків вікна сфокусованому файлу"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -176,51 +175,50 @@ msgstr "Показ повного шляху до документа у підк
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Оновлено плагін Pastebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Corrently indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Правильний відступ останнього рядка коли застосовується плагін прибирання "
+"пробілів"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "підсвічування синтаксису з gtksourceview-3"
+msgstr "Збереження підсвічування синтаксису коли дублюється файл"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Розгортання згорнутої теки після другої спроби відкрити її"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
+"Виправлено проблему втрати результатів пошуку після перенесення фокусу з Коду"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Запуск плагіну Vim у режимі командному режимі"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Виправлено та додано нові команди Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Показ тек проєкту з прихованою кореневою текою"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "Дозволено запуск з pkexec і заборонено запуск з sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Виправлено вилучення поточного подання"
+msgstr "Вилучено розділене подання"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Вилучено попередній перегляд браузера"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
