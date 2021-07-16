@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 21:16+0000\n"
-"PO-Revision-Date: 2021-07-16 10:01+0000\n"
+"PO-Revision-Date: 2021-07-16 14:45+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -75,9 +75,9 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ Diff,‏ "
-"Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏ Objective C,‏ "
-"Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
+"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#‎,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ "
+"Diff,‏ Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏"
+" Objective C,‏ Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid "Additional features include:"
@@ -113,6 +113,7 @@ msgstr "תוסף Markdown לעריכה חזותית."
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"ניתן לעבור בין ענפים של Git או ליצור חדשים בתפריטי ההקשר של תיקיית המיזם"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
@@ -136,7 +137,7 @@ msgstr "הצגת הנתיב המלא לקובץ בחלוניות העצה של �
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "ניתן למחוק שורות עם Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -149,7 +150,7 @@ msgstr "לאפשר את הרחבת בדיקת האיות בקובצי Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "שיפור שכפול של קבוצת שורות"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -157,7 +158,7 @@ msgstr "לזכור האם סרגל הצד פתוח"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "הגדרת כותרת החלון לקובץ שבמיקוד"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -169,7 +170,7 @@ msgstr "הצגת הנתיב המלא למסמך בחלונית העצה של ה�
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "עדכון תוסף Patebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Corrently indent last line when using the preserve whitespace plugin"
@@ -189,11 +190,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "הפעלת תוסף Vim במצב פקודות"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "תיקון והוספת פקודות Vim חדשות"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
