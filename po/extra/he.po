@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 21:16+0000\n"
-"PO-Revision-Date: 2021-04-27 21:07+0000\n"
+"PO-Revision-Date: 2021-07-16 10:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -124,17 +124,15 @@ msgstr "חיפוש טקסט מלא בתוך תיקיית המיזם."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "לשמור ולשחזר את מיקום הסמן בין הפעלות"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "לסגור קבצים של מיזם בעת סגירתו"
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
-msgstr "הצגת הנתיב המלא למסמך בחלונית העצה של הלשונית"
+msgstr "הצגת הנתיב המלא לקובץ בחלוניות העצה של הלשוניות"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
@@ -178,10 +176,8 @@ msgid "Corrently indent last line when using the preserve whitespace plugin"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "הדגשת תחביר באמצעות gtksourceview-3"
+msgstr "לשמור על הדגשת התחביר בעת שכפול קובץ"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
@@ -208,14 +204,12 @@ msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "תיקון הסרת התצוגה הנוכחית"
+msgstr "הסרת תצוגה מפוצלת"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "הסרת דפדפן תצוגה מקדימה"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
