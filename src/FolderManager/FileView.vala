@@ -154,6 +154,19 @@ namespace Scratch.FolderManager {
             return null;
         }
 
+        public ProjectFolderItem? get_project_for_file (GLib.File file) {
+            foreach (var item in root.children) {
+                if (item is ProjectFolderItem) {
+                    var folder = (ProjectFolderItem)item;
+                    if (folder.is_git_repo && folder.contains_file (file)) {
+                        return folder;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
              return find_path (root, path, true);
         }
