@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 21:16+0000\n"
-"PO-Revision-Date: 2021-07-16 14:45+0000\n"
+"PO-Revision-Date: 2021-07-17 17:02+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -174,7 +174,7 @@ msgstr "עדכון תוסף Patebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Corrently indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "הזחה נכונה של השורה האחרונה בעת שימוש בתוסף שימור הרווחים"
 
 #: data/io.elementary.code.appdata.xml.in:48
 msgid "Keep syntax highlighting when duplicating a file"
@@ -182,11 +182,11 @@ msgstr "לשמור על הדגשת התחביר בעת שכפול קובץ"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "תיקייה מצומצמת מתרחבת אם מנסים לפתוח אותה פעמיים"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "תוקנה תקלה שחיפושים אבדו בעת אובדן מיקוד על היישום"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
@@ -198,11 +198,11 @@ msgstr "תיקון והוספת פקודות Vim חדשות"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "תיקיות מיזם עם תיקיית מקור מוסתרת מוצגות"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "אפשר לטעון עם pkexec ואי אפשר לטעון עם sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Remove split view"
