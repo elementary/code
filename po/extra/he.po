@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 21:16+0000\n"
+"POT-Creation-Date: 2021-07-17 17:02+0000\n"
 "PO-Revision-Date: 2021-07-17 17:02+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
@@ -75,9 +75,9 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#‎,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ "
-"Diff,‏ Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏"
-" Objective C,‏ Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
+"שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#‎,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ Diff,‏ "
+"Fortran,‏ Gettext,‏ ini,‏ Java,‏ JavaScript‏, LaTex,‏ Lua,‏ Makefile,‏ Objective C,‏ "
+"Pascal,‏ Perl,‏ Python,‏ Ruby,‏ XML."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid "Additional features include:"
@@ -173,7 +173,9 @@ msgid "Update Pastebin plugin"
 msgstr "עדכון תוסף Patebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
-msgid "Corrently indent last line when using the preserve whitespace plugin"
+#, fuzzy
+#| msgid "Corrently indent last line when using the preserve whitespace plugin"
+msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr "הזחה נכונה של השורה האחרונה בעת שימוש בתוסף שימור הרווחים"
 
 #: data/io.elementary.code.appdata.xml.in:48
