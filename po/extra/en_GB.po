@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-04-28 14:12+0000\n"
+"PO-Revision-Date: 2021-07-18 02:28+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/extra/en_GB/>\n"
@@ -116,11 +116,11 @@ msgstr "New Markdown plugin for WYSIWYG-like editing."
 
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr ""
+msgstr "Switch Git branches or create new ones in project folder context menus"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Show Git diff status in source view gutters"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
@@ -128,21 +128,19 @@ msgstr "Full text search within project folder."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Save and restore cursor position between sessions"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Close files from a project when that project is closed"
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
-msgstr "Show full document path in tab tooltip"
+msgstr "Show full file path in tab tooltips"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Clear lines with Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -155,7 +153,7 @@ msgstr "Allow Spell Checker extension in Markdown files"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Improve multi-line duplication"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -163,7 +161,7 @@ msgstr "Remember whether the sidebar is open"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Set window title to the focused file"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -175,51 +173,47 @@ msgstr "Show full document path in tab tooltip"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Update Pastebin plugin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "Correctly indent last line when using the preserve whitespace plugin"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "syntax highlighting with gtksourceview-3"
+msgstr "Keep syntax highlighting when duplicating a file"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Expand a collapsed folder if you attempt to open it twice"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "Fix an issue where searches are lost when Code loses focus"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Start Vim plugin in command mode"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Fix and add new Vim commands"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Show project folders with a hidden root folder"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "Allow launching with pkexec and disallow launching with sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Fix Remove Current View"
+msgstr "Remove split view"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Remove browser preview"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
