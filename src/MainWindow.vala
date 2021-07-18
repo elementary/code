@@ -301,7 +301,6 @@ namespace Scratch {
 
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
-
             // Handle Drag-and-drop for files functionality on welcome screen
             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
             Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
@@ -366,9 +365,10 @@ namespace Scratch {
                 expand = true,
                 width_request = 200
             };
-            content_stack.add (welcome_view);
-            content_stack.add (view_grid);
 
+            content_stack.add (view_grid);  // Must be added first to avoid terminal warnings
+            content_stack.add (welcome_view);
+            content_stack.visible_child = view_grid; // Must be visible while restoring
 
             // Set a proper position for ThinPaned widgets
             int width, height;
@@ -413,7 +413,7 @@ namespace Scratch {
                 restore_opened_documents ();
             });
 
-            document_view.empty.connect (() => {
+            document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
                 toolbar.title = app.app_cmd_name;
                 toolbar.document_available (false);
@@ -458,7 +458,7 @@ namespace Scratch {
             }
         }
 
-        public void restore_opened_documents () {
+        private void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var doc_infos = settings.get_value ("opened-files");
                 var doc_info_iter = new VariantIter (doc_infos);
@@ -490,6 +490,11 @@ namespace Scratch {
                     }
                 }
             }
+
+            Idle.add (() => {
+                document_view.request_placeholder_if_empty ();
+                return Source.REMOVE;
+            });
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
@@ -881,19 +886,7 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            string path = "";
-            if (param != null) {
-                path = param.get_string ();
-            }
-
-            if (path == "") {
-                var current_doc = get_current_document ();
-                if (current_doc != null) {
-                    path = current_doc.file.get_path ();
-                }
-            }
-
-            folder_manager_view.search_global (path);
+            folder_manager_view.search_global (get_target_path_for_git_actions (param));
         }
 
         private void set_search_text () {
@@ -1011,42 +1004,13 @@ namespace Scratch {
         }
 
         private void action_new_branch (SimpleAction action, Variant? param) {
-            string path = "";
-            File? file = null;
-            if (param != null) {
-                path = param.get_string ();
-            }
-
-            if (path == "") {
-                var current_doc = get_current_document ();
-                if (current_doc != null) {
-                    file = current_doc.file;
-                }
-            } else {
-                file = File.new_for_path (path);
-            }
-
-            folder_manager_view.new_branch (file);
+            folder_manager_view.new_branch (get_target_path_for_git_actions (param));
         }
 
         private void action_show_diff (SimpleAction action, Variant? param) {
-            string path = "";
-            File? file = null;
-            if (param != null) {
-                path = param.get_string ();
-            }
-
-            if (path == "") {
-                var current_doc = get_current_document ();
-                if (current_doc != null) {
-                    file = current_doc.file;
-                }
-            } else {
-                file = File.new_for_path (path);
-            }
-
             try {
-                string diff_text = folder_manager_view.get_project_diff (file);
+                string diff_text = folder_manager_view.get_project_diff (get_target_path_for_git_actions (param));
+                // string diff_text = folder_manager_view.get_project_diff (file);
                 FileIOStream iostream;
                 File diff_file = File.new_tmp ("git-diff-XXXXXX.diff", out iostream);
                 warning ("tmp file name: %s\n", diff_file.get_path ());
@@ -1062,5 +1026,26 @@ namespace Scratch {
                 warning ("Unable to get project diff: %s", e.message);
             }
         }
+
+        private string? get_target_path_for_git_actions (Variant? path_variant) {
+             string? path = "";
+             if (path_variant != null) {
+                 path = path_variant.get_string ();
+             }
+
+             if (path == "") { // Happens when keyboard accelerator is used
+                 path = Services.GitManager.get_instance ().active_project_path;
+                 if (path == null) {
+                     var current_doc = get_current_document ();
+                     if (current_doc != null) {
+                         path = current_doc.file.get_path ();
+                     } else {
+                         return null; // Cannot determine target project
+                     }
+                 }
+             }
+
+             return path;
+         }
     }
 }

@@ -22,33 +22,10 @@ namespace Scratch.Services {
     public enum VCStatus {
         NONE,
         ADDED,
-        MODIFIED,
-        DELETED, // Cannot show in normal SourceView but for future use in Diff view?
+        CHANGED,
+        REMOVED, // Cannot show in normal SourceView but for future use in Diff view?
         REPLACES_DELETED, // For unmodified lines that replace deleted lines
         OTHER;
-
-        public Gdk.RGBA to_rgba () {
-            var color = Gdk.RGBA ();
-            switch (this) {
-                case ADDED:
-                    color.parse ("#68b723"); //Lime 500
-                    break;
-                case MODIFIED:
-                    color.parse ("#f37329"); //Orange 500
-                    break;
-                case DELETED:
-                    color.parse ("#c6262e"); //Strawberry 500
-                    break;
-                case REPLACES_DELETED:
-                    color.parse ("#3689e6"); //Blueberry 500
-                    break;
-                default:
-                    color.parse ("#000000"); //Transparent
-                    break;
-            }
-
-            return color;
-        }
     }
 
     public class MonitoredRepository : Object {
@@ -61,7 +38,7 @@ namespace Scratch.Services {
             set {
                 if (_branch_name != value) {
                     _branch_name = value;
-                    branch_changed (value);
+                    branch_changed ();
                 }
             }
         }
@@ -76,7 +53,7 @@ namespace Scratch.Services {
             }
         }
 
-        public signal void branch_changed (string new_branch_name);
+        public signal void branch_changed ();
         public signal void ignored_changed ();
         public signal void file_status_change ();
         public signal void file_content_changed ();
@@ -93,6 +70,12 @@ namespace Scratch.Services {
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
                 return file_status_map.entries;
+            }
+        }
+
+        public bool has_uncommitted {
+            get {
+                return file_status_map.size > 0;
             }
         }
 
@@ -118,7 +101,7 @@ namespace Scratch.Services {
                     update_status_map ();
                 });
             } catch (IOError e) {
-                warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
+                warning ("An error occurred setting up a file monitor on the git folder: %s", e.message);
             }
 
             // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
@@ -130,7 +113,7 @@ namespace Scratch.Services {
                     gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
                     gitignore_monitor.changed.connect (() => {ignored_changed ();});
                 } catch (IOError e) {
-                    warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
+                    warning ("An error occurred setting up a file monitor on the gitignore file: %s", e.message);
                 }
             }
         }
@@ -195,6 +178,13 @@ namespace Scratch.Services {
         public void change_branch (string new_branch_name) throws Error {
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
+            var options = new Ggit.CheckoutOptions () {
+                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                strategy = Ggit.CheckoutStrategy.FORCE
+            };
+
+            git_repo.checkout_head (options);
+
             branch_name = new_branch_name;
         }
 
@@ -209,14 +199,24 @@ namespace Scratch.Services {
             if (update_timer_id == 0) {
                 update_timer_id = Timeout.add (150, () => {
                     if (do_update) {
+                        var target_name = ""; //Do we need a user visible indication if no target?
                         try {
                             var head = git_repo.get_head ();
                             if (head.is_branch ()) {
-                                branch_name = ((Ggit.Branch)head).get_name ();
+                                target_name = ((Ggit.Branch)head).get_name ();
+                            } else {
+                                var target = head.get_target ();
+                                if (target != null) {
+                                    ///TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+                                    target_name = _("%.8s (detached)").printf (target.to_string ());
+                                    // Do we need to expose a warning regarding the detached-head state like Git does?
+                                }
                             }
                         } catch (Error e) {
-                            warning ("An error occured while fetching the current git branch name: %s", e.message);
+                            warning ("An error occurred while fetching the current git branch name: %s", e.message);
                         }
+
+                        branch_name = target_name;
 
                         // SourceList shows files in working dir so only want status for those for now.
                         // No callback generated for current files.
@@ -263,7 +263,6 @@ namespace Scratch.Services {
 
             // Need to have our own map since the callback closures cannot capture
             // a reference to the ref parameter. Vala bug??
-            // var status_map = new Gee.HashMap<int, VCStatus> ();
             var status_map = line_status_map;
 
             int prev_deletions = 0;
@@ -328,7 +327,6 @@ namespace Scratch.Services {
                 if (line_type == Ggit.DiffLineType.ADDITION) { //Line added
                     prev_additions++;
                     if (prev_deletions >= prev_additions) {
-                        line_status_map.set (new_line_no, VCStatus.MODIFIED);
                         prev_deletions--;
                     } else {
                         line_status_map.set (new_line_no, VCStatus.ADDED);

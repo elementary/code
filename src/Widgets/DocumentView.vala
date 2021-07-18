@@ -20,7 +20,7 @@
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document, DocumentView parent);
-    public signal void empty ();
+    public signal void request_placeholder ();
 
     public unowned MainWindow window { get; construct set; }
 
@@ -47,6 +47,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_duplication = true;
         group_name = Constants.PROJECT_NAME;
         this.window = window;
+        expand = true;
     }
 
     construct {
@@ -86,23 +87,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         style_provider = new Gtk.CssProvider ();
-        update_inline_tab_colors ();
-        settings.notify["style-scheme"].connect (update_inline_tab_colors);
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        /* SplitView shows view as required */
+        update_inline_tab_colors ();
+        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
     }
 
     private void update_inline_tab_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_context = get_style_context ();
-
-        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
+        var style_scheme = Scratch.settings.get_string ("style-scheme");
+        if (style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -113,17 +112,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             try {
                 style_provider.load_from_data (define);
-                return;
             } catch (Error e) {
                 critical ("Unable to set inline tab styling, going back to classic notebook tabs");
             }
         }
-
-        // Fallback to a non inline toolbar if something went wrong above
-        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder (string extension = "txt") {
@@ -286,12 +280,53 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public bool is_empty () {
-        return docs.length () == 0;
+    public void request_placeholder_if_empty () {
+        if (docs.length () == 0) {
+            request_placeholder ();
+        }
     }
 
     public new void focus () {
         current_document.focus ();
+    }
+
+    private bool find_unique_path (File f1, File f2, out string? path1, out string? path2) {
+        if (f1 == f2) {
+            path1 = null;
+            path2 = null;
+            return false;
+        }
+
+        var f1_parent = f1.get_parent ();
+        var f2_parent = f2.get_parent ();
+
+        while (f1_parent.get_relative_path (f1) == f2_parent.get_relative_path (f2)) {
+            f1_parent = f1_parent.get_parent ();
+            f2_parent = f2_parent.get_parent ();
+        }
+
+        path1 = f1_parent.get_relative_path (f1);
+        path2 = f2_parent.get_relative_path (f2);
+        return true;
+    }
+
+    private void rename_tabs_with_same_title (Services.Document doc) {
+        string doc_tab_name = doc.file.get_basename ();
+        foreach (var d in docs) {
+            string new_tabname_doc, new_tabname_d;
+
+            if (find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {
+                if (d.label.length < new_tabname_d.length) {
+                    d.tab_name = new_tabname_d;
+                }
+
+                if (doc_tab_name.length < new_tabname_doc.length) {
+                    doc_tab_name = new_tabname_doc;
+                }
+            }
+        }
+
+        doc.tab_name = doc_tab_name;
     }
 
     private void on_doc_added (Granite.Widgets.Tab tab) {
@@ -299,6 +334,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.actions = window.actions;
 
         docs.append (doc);
+        if (!doc.is_file_temporary) {
+            rename_tabs_with_same_title (doc);
+        }
+
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
     }
@@ -310,9 +349,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
 
-        // Check if the view is empty
-        if (is_empty ()) {
-            empty ();
+        request_placeholder_if_empty ();
+
+        if (docs.length () > 0) {
+            if (!doc.is_file_temporary) {
+                foreach (var d in docs) {
+                    rename_tabs_with_same_title (d);
+                }
+            }
         }
 
         if (!is_closing) {
