@@ -22,33 +22,10 @@ namespace Scratch.Services {
     public enum VCStatus {
         NONE,
         ADDED,
-        MODIFIED,
-        DELETED, // Cannot show in normal SourceView but for future use in Diff view?
+        CHANGED,
+        REMOVED, // Cannot show in normal SourceView but for future use in Diff view?
         REPLACES_DELETED, // For unmodified lines that replace deleted lines
         OTHER;
-
-        public Gdk.RGBA to_rgba () {
-            var color = Gdk.RGBA ();
-            switch (this) {
-                case ADDED:
-                    color.parse ("#68b723"); //Lime 500
-                    break;
-                case MODIFIED:
-                    color.parse ("#f37329"); //Orange 500
-                    break;
-                case DELETED:
-                    color.parse ("#c6262e"); //Strawberry 500
-                    break;
-                case REPLACES_DELETED:
-                    color.parse ("#3689e6"); //Blueberry 500
-                    break;
-                default:
-                    color.parse ("#00000000"); //Transparent
-                    break;
-            }
-
-            return color;
-        }
     }
 
     public class MonitoredRepository : Object {
@@ -124,7 +101,7 @@ namespace Scratch.Services {
                     update_status_map ();
                 });
             } catch (IOError e) {
-                warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
+                warning ("An error occurred setting up a file monitor on the git folder: %s", e.message);
             }
 
             // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
@@ -136,7 +113,7 @@ namespace Scratch.Services {
                     gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
                     gitignore_monitor.changed.connect (() => {ignored_changed ();});
                 } catch (IOError e) {
-                    warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
+                    warning ("An error occurred setting up a file monitor on the gitignore file: %s", e.message);
                 }
             }
         }
@@ -236,7 +213,7 @@ namespace Scratch.Services {
                                 }
                             }
                         } catch (Error e) {
-                            warning ("An error occured while fetching the current git branch name: %s", e.message);
+                            warning ("An error occurred while fetching the current git branch name: %s", e.message);
                         }
 
                         branch_name = target_name;
@@ -350,7 +327,7 @@ namespace Scratch.Services {
                 if (line_type == Ggit.DiffLineType.ADDITION) { //Line added
                     prev_additions++;
                     if (prev_deletions >= prev_additions) {
-                        line_status_map.set (new_line_no, VCStatus.MODIFIED);
+                        line_status_map.set (new_line_no, VCStatus.CHANGED);
                         prev_deletions--;
                     } else {
                         line_status_map.set (new_line_no, VCStatus.ADDED);
@@ -366,6 +343,7 @@ namespace Scratch.Services {
             var sb = new StringBuilder ("");
             var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
             repo_diff_list.print (Ggit.DiffFormatType.PATCH, (delta, hunk, line) => {
+
                 unowned var file_diff = delta.get_old_file ();
                 if (file_diff == null) {
                     return 0;

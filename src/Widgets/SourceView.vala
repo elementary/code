@@ -79,6 +79,10 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            // Make the gutter renderer and insert into the left side of the source view.
+            git_diff_gutter_renderer = new SourceGutterRenderer ();
+            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
+
             space_drawer.enable_matrix = true;
 
             expand = true;
@@ -181,10 +185,6 @@ namespace Scratch.Widgets {
                     });
                 }
             });
-
-            // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter_renderer = new SourceGutterRenderer ();
-            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
 
             notify["project"].connect (() => {
                 //Assuming project will not change again
@@ -292,7 +292,9 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+            var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+            source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 
