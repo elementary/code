@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-07-17 17:02+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -56,34 +56,34 @@ msgstr "پیدا کردن…"
 msgid "Hide search bar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr "همه  ی فایل‌ها"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr "پرونده‌های متنی"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "باز کردن چند پرونده"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr "باز کردن"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "انصراف"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr ""
 
@@ -280,8 +280,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 msgid "New"
 msgstr "تب جدید"
@@ -309,93 +309,93 @@ msgstr "باز کردن پرونده"
 msgid "Find in Project…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "انصراف"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:392
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "آیا تغییرات سند %s پیش از بسته شدن ذخیره شوند؟"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:393
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "اگر تغییرات را ذخیره نکنید، موارد مربوط به ۴ ثانیه پیش از دست خواهند رفت."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:399
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "بستن بدون ذخیره کردن"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr "ذخیره کردن"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr "ذخیره پرونده"
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr "سند جدید"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:713
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "%s قابل خواندن نیست.شاید خراب شده است."
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -403,16 +403,16 @@ msgid ""
 msgstr ""
 "مکان فایل %s از دستگاه جدا شده است.مایلید در جایی دیگر آنرا ذخیره نمایید؟"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr "ذخیره به عنوان …"
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "%s پاک شده است. مایلید جایی دیگر آنرا ذخیره کنید؟"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:752
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -421,22 +421,22 @@ msgstr ""
 "شما نمی توانید تغییرات انجام شده روی %s را ذخیره کنید.مایلید جایی دیگر آنرا "
 "ذخیره کنید؟"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr "ذخیره کردن تغییرات در جایی دیگر"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr ""
 
