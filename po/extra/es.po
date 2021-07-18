@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-07-17 15:47+0000\n"
-"Last-Translator: Heber <heberdanielorellana@gmail.com>\n"
+"PO-Revision-Date: 2021-07-18 19:09+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -117,6 +117,8 @@ msgstr "Complemento nuevo para Markdown, para una edición tipo WYSIWYG."
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Cambie las ramas de Git o cree nuevas en los menús contextuales de la "
+"carpeta del proyecto"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
@@ -128,11 +130,11 @@ msgstr "Búsqueda de texto completo dentro de la carpeta del proyecto."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Guardar y restaurar la posición del cursor entre sesiones"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Cerrar archivos de un proyecto cuando ese proyecto está cerrado"
 
 #: data/io.elementary.code.appdata.xml.in:35
 #, fuzzy
@@ -144,7 +146,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Borrar líneas con Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -158,7 +160,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Mejorar la duplicación de varias líneas"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -179,11 +181,13 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Actualizar el complemento Pastebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Corregir sangrado en la última línea cuando se utiliza el complemento de "
+"conservación de espacios en blanco"
 
 #: data/io.elementary.code.appdata.xml.in:48
 #, fuzzy
@@ -193,7 +197,7 @@ msgstr "coloración sintáctica con gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Expandir una carpeta contraída si se intenta abrir dos veces"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
@@ -201,19 +205,20 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Inicie el complemento Vim en modo comando"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Arregle y agregue nuevos comandos de Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Mostrar carpetas de proyectos con una carpeta raíz oculta"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
+"Permitir el lanzamiento con pkexec y no permitir el lanzamiento con sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
 #, fuzzy
@@ -223,7 +228,7 @@ msgstr "Corregir la eliminación de la vista actual"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Eliminar la vista previa del navegador"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
