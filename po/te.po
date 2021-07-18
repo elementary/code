@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"POT-Creation-Date: 2021-07-17 17:02+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr ""
 
@@ -49,34 +49,34 @@ msgstr ""
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr ""
 
@@ -101,35 +101,21 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
 msgstr ""
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
+#: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active Git project before creating a new branch."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:87
-msgid "Open a Git project folder in the sidebar."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:89
-msgid ""
-"Open a document in a Git project folder in the sidebar or use a project "
-"context menu."
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr ""
 
@@ -257,7 +243,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr ""
 
@@ -281,8 +267,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:173
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
 msgstr ""
 
@@ -295,138 +281,138 @@ msgstr ""
 msgid "new file"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:111
 #, fuzzy
 msgid "Close Other Folders"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:113
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 msgid "Find in Project…"
 msgstr "కొన్ని ఫైల్స్ తెరువు"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:213
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:485
+#: src/FolderManager/ProjectFolderItem.vala:506
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:498
+#: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr ""
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:392
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr ""
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:393
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:399
 msgid "Close Without Saving"
 msgstr ""
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr ""
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:713
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr ""
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:752
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr ""
 
@@ -434,7 +420,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/DocumentView.vala:126
 #, c-format
 msgid "Text file from %s:%d"
 msgstr ""
@@ -473,59 +459,47 @@ msgstr[1] ""
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:127
-msgid "High Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:135
-msgid "Solarized Light"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:143
-msgid "Solarized Dark"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr ""
 
@@ -584,11 +558,11 @@ msgstr ""
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr ""
 

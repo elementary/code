@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 17:18+0000\n"
+"POT-Creation-Date: 2021-07-17 17:02+0000\n"
 "PO-Revision-Date: 2020-09-20 20:14+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:82
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
 msgstr "Zoeken…"
 
@@ -55,34 +55,34 @@ msgstr "Zoeken…"
 msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr "Tekstbestanden"
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "Open een paar bestanden"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr "Openen"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:93 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr "_Annuleer"
 
@@ -111,42 +111,24 @@ msgstr ""
 msgid "Search"
 msgstr "Volgende zoeken"
 
-#: src/Dialogs/NewBranchDialog.vala:45
+#: src/Dialogs/NewBranchDialog.vala:43
 #, fuzzy, c-format
 #| msgid "Create a new instance"
 msgid "Create a new branch of “%s/%s”"
 msgstr "Creëer een nieuwe instantie"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:50
+#: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
 
-#: src/Dialogs/NewBranchDialog.vala:59
+#: src/Dialogs/NewBranchDialog.vala:56
 #, fuzzy
 #| msgid "Branch"
 msgid "Create Branch"
 msgstr "Branch"
 
-#: src/Dialogs/NewBranchDialog.vala:84
-msgid "You must have an active Git project before creating a new branch."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:87
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid "Open a Git project folder in the sidebar."
-msgstr "Voeg een projectmap toe  aan de zijbalk."
-
-#: src/Dialogs/NewBranchDialog.vala:89
-#, fuzzy
-#| msgid "Add a project folder to the sidebar."
-msgid ""
-"Open a document in a Git project folder in the sidebar or use a project "
-"context menu."
-msgstr "Voeg een projectmap toe  aan de zijbalk."
-
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:163
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Instellingen"
 
@@ -277,7 +259,7 @@ msgid "Rename"
 msgstr "Hernoem"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr "Naar de prullenbak verplaatsen"
 
@@ -302,8 +284,8 @@ msgstr "Leeg bestand"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:173
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
 msgstr "Nieuw"
 
@@ -315,106 +297,106 @@ msgstr "naamloze map"
 msgid "new file"
 msgstr "nieuw bestand"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr "Sluit map"
 
-#: src/FolderManager/ProjectFolderItem.vala:102
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Other Folders"
 msgstr "Sluit andere mappen"
 
-#: src/FolderManager/ProjectFolderItem.vala:113
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "Project Map toevoegen…"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, Bewerkt"
 
-#: src/FolderManager/ProjectFolderItem.vala:213
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:485
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:498
+#: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s is geen tekstbestand"
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code kan dit bestandstype niet laden."
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Toch laden"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Het laden van bestand \"%s\" duurt zeer lang"
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Even geduld alstublieft terwijl Code het bestand laadt."
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:299
 msgid "Cancel Loading"
 msgstr "Laden annuleren"
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:392
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Veranderingen in document %s opslaan alvorens het te sluiten?"
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:393
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Als je niet opslaat, zullen de wijzigingen voor altijd verloren gaan."
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:399
 msgid "Close Without Saving"
 msgstr "Sluiten zonder opslaan"
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr "Nieuw Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Bestand \"%s\" kan niet gelezen worden"
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:713
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Het bestand kan beschadigd zijn of u heeft niet de benodigde rechten om het "
 "te lezen."
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -423,16 +405,16 @@ msgstr ""
 "De locatie met het bestand \"%s\" werd ontkoppeld. Wilt u het bestand ergens "
 "anders opslaan?"
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr "Opslaan als…"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Het bestand \"%s\" is verwijderd. Wilt u het alsnog opslaan?"
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:752
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -441,11 +423,11 @@ msgstr ""
 "U kunt de wijzigingen in het bestand \"%s\" niet opslaan. Wilt u een kopie "
 "van dit bestand opslaan op een andere locatie?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr "Sla veranderingen ergens anders op"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -454,11 +436,11 @@ msgstr ""
 "Het bestand \"%s\" is aangepast in een externe applicatie. Wilt u het "
 "bestand opnieuw laden of doorgaan met bewerken?"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr "Laden"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr "Doorgaan"
 
@@ -466,7 +448,7 @@ msgstr "Doorgaan"
 msgid "Templates"
 msgstr "Sjablonen"
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/DocumentView.vala:126
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstbestand van %s:%d"
@@ -505,59 +487,47 @@ msgstr[1] "%d tabbladen"
 msgid "Go To Line:"
 msgstr "Ga naar lijn:"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
 msgstr "Bestand openen"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Project templates"
 msgstr "Project sjablonen"
 
-#: src/Widgets/HeaderBar.vala:60
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file"
 msgstr "Sla dit bestand op"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
 msgstr "Sla dit bestand op met een andere naam"
 
-#: src/Widgets/HeaderBar.vala:74
+#: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
 msgstr "Dit bestand herstellen"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:94
 msgid "Share"
 msgstr "Deel"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom Out"
 msgstr "Uitzoomen"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom 1:1"
 msgstr "Schaal 1:1"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:115
 msgid "Zoom In"
 msgstr "Inzoomen"
 
-#: src/Widgets/HeaderBar.vala:127
-msgid "High Contrast"
-msgstr "Hoog contrast"
-
-#: src/Widgets/HeaderBar.vala:135
-msgid "Solarized Light"
-msgstr "Gesolarizeerd Licht"
-
-#: src/Widgets/HeaderBar.vala:143
-msgid "Solarized Dark"
-msgstr "Gesolariseerd Donker"
-
-#: src/Widgets/HeaderBar.vala:153
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr "Zijpaneel inschakelen"
 
-#: src/Widgets/HeaderBar.vala:184
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "Menu"
 
@@ -615,11 +585,11 @@ msgstr "Vervang"
 msgid "Replace all"
 msgstr "Vervang alles"
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr "Sorteer geselecteerde lijnen"
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
@@ -756,6 +726,27 @@ msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Woorden aanvullen"
+
+#~ msgid "High Contrast"
+#~ msgstr "Hoog contrast"
+
+#~ msgid "Solarized Light"
+#~ msgstr "Gesolarizeerd Licht"
+
+#~ msgid "Solarized Dark"
+#~ msgstr "Gesolariseerd Donker"
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid "Open a Git project folder in the sidebar."
+#~ msgstr "Voeg een projectmap toe  aan de zijbalk."
+
+#, fuzzy
+#~| msgid "Add a project folder to the sidebar."
+#~ msgid ""
+#~ "Open a document in a Git project folder in the sidebar or use a project "
+#~ "context menu."
+#~ msgstr "Voeg een projectmap toe  aan de zijbalk."
 
 #, fuzzy
 #~| msgid "Search next"
