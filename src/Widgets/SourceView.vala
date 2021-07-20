@@ -27,11 +27,15 @@ namespace Scratch.Widgets {
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
+        public GLib.File location { get; set; }
+        public FolderManager.ProjectFolderItem project { get; set; default = null; }
+
         private string font;
         private uint selection_changed_timer = 0;
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
+        private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
 
@@ -75,6 +79,10 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            // Make the gutter renderer and insert into the left side of the source view.
+            git_diff_gutter_renderer = new SourceGutterRenderer ();
+            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
+
             space_drawer.enable_matrix = true;
 
             expand = true;
@@ -177,6 +185,16 @@ namespace Scratch.Widgets {
                     });
                 }
             });
+
+            notify["project"].connect (() => {
+                //Assuming project will not change again
+                if (project.is_git_repo) {
+                    schedule_refresh_diff ();
+                    project.monitored_repo.file_content_changed.connect (() => {
+                        schedule_refresh_diff ();
+                    });
+                }
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -274,7 +292,9 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+            var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+            source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 
@@ -571,6 +591,21 @@ namespace Scratch.Widgets {
 
             selection_changed_timer = 0;
             return false;
+        }
+
+        uint refresh_diff_timeout_id = 0;
+        private void schedule_refresh_diff () {
+            if (refresh_diff_timeout_id > 0) {
+                Source.remove (refresh_diff_timeout_id);
+            }
+
+            refresh_diff_timeout_id = Timeout.add (250, () => {
+                refresh_diff_timeout_id = 0;
+                git_diff_gutter_renderer.line_status_map.clear ();
+                project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
+                git_diff_gutter_renderer.queue_draw ();
+                return Source.REMOVE;
+            });
         }
     }
 }
