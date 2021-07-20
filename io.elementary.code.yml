@@ -84,6 +84,20 @@ modules:
                 path: fuse-disable-sys-mount-under-flatpak.patch
               - type: file
                 path: fusermount-wrapper.sh
+          - name: ostree
+            config-opts:
+              - '--disable-man'
+              - '--without-libsystemd'
+            cleanup:
+              - '/bin'
+              - '/etc/grub.d'
+              - '/etc/ostree'
+              - '/share/ostree'
+              - '/libexec'
+            sources:
+              - type: git
+                url: https://github.com/ostreedev/ostree.git
+                branch: v2021.1
           - name: polkit
             config-opts:
               - '--disable-polkitd'
