@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 12:27+0000\n"
-"PO-Revision-Date: 2021-05-10 21:17+0000\n"
+"PO-Revision-Date: 2021-07-21 15:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/extra/fi/>\n"
 "Language: fi\n"
@@ -142,7 +142,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Minor updates:"
-msgstr ""
+msgstr "Pienet päivitykset:"
 
 #: data/io.elementary.code.appdata.xml.in:40
 msgid "Allow Spell Checker extension in Markdown files"
@@ -428,7 +428,7 @@ msgstr "teksti;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Uusi tiedosto"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
@@ -436,11 +436,12 @@ msgstr "Uusi ikkuna"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Suorita koodimuokkain ylläpitäjän oikeuksin"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+"Koodimuokkaimen käynnistäminen ylläpitäjän oikeuksin vaatii tunnistautumisen"
 
 #~ msgid "New Document"
 #~ msgstr "Uusi asiakirja"
