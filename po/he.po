@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 12:27+0000\n"
-"PO-Revision-Date: 2021-05-19 11:45+0000\n"
+"PO-Revision-Date: 2021-07-21 14:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -425,20 +425,18 @@ msgid "Templates"
 msgstr "תבניות"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "תבניות מיזם"
+msgstr "לא נבחר מיזם"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:115
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "מיזם Git פעיל: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "סינון מיזמים"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
