@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
+"POT-Creation-Date: 2021-07-21 12:27+0000\n"
 "PO-Revision-Date: 2021-04-26 16:48+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -440,6 +440,22 @@ msgstr "استمرار"
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "القوالب"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+#, fuzzy
+#| msgid "Project templates"
+msgid "No Project Selected"
+msgstr "قوالب المشروع"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:115
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
