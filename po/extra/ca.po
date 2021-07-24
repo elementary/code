@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-07-15 15:07+0000\n"
+"POT-Creation-Date: 2021-07-21 12:27+0000\n"
+"PO-Revision-Date: 2021-07-19 20:48+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -117,10 +117,13 @@ msgstr "Connector nou de marcatge per a l'edició semblant a WYSIWYG."
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Canvieu les branques de Git o creeu-ne de noves als menús contextuals de la "
+"carpeta del projecte."
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
 msgstr ""
+"Es mostra l'estat de Git diff als espais en blanc de la vista del codi."
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
@@ -128,23 +131,21 @@ msgstr "Cerca de text complet a la carpeta del projecte."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Es desa i es restaura la posició del cursor entre sessions."
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Tanqueu fitxers d’un projecte quan es tanca el projecte."
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
 msgstr ""
-"Es mostra el camí complet del document a la descripció emergent de la "
+"Es mostra el camí complet del fitxer a les descripcions emergents de la "
 "pestanya."
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Esborreu línies amb Ctrl + K."
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -157,7 +158,7 @@ msgstr "Es permet l'extensió del corrector ortogràfic als fitxers de Markdown.
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Millora de la duplicació de línies múltiples"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -165,7 +166,7 @@ msgstr "Es recorda quan la barra lateral està oberta."
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Establiment del títol de la finestra segons el fitxer amb el focus"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -179,51 +180,52 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Actualització del connector de Pastebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Sagnat correcte de l’última línia quan s’usa el connector de conservació "
+"d’espai en blanc"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "realçament de sintaxi amb gtksourceview-3"
+msgstr "Es continua ressaltant la sintaxi en duplicar un fitxer."
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Ampliació d'una carpeta reduïda si s'intenta obrir-la dues vegades"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
+"Solució d'un problema en què es perdien les cerques quan el Codi perdia el "
+"focus"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Inicieu el connector Vim en mode de línia d'ordres."
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Correcció i addició d'ordres noves de Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Es mostren les carpetes del projecte amb una carpeta d'arrel oculta."
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
+"Es permet el llançament amb pkexec i no es permet el llançament amb sudo."
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Correcció la vista actual de la supressió"
+msgstr "Supressió de la visualització dividida"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Supressió de la previsualització del navegador"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
