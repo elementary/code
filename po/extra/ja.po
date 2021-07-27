@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 12:27+0000\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-07-27 09:00+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
-"\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,8 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"\"コード\" は便利なエディターです。ファイルを自動保存して、常に最新の状態を維持します。加えてタブを保存し次回起動時に復元するので、セッション間であっ"
-"ても編集場所を見失うことはありません。"
+"\"コード\" は便利なエディターです。ファイルを自動保存して、常に最新の状態を維"
+"持します。加えてタブを保存し次回起動時に復元するので、セッション間であっても"
+"編集場所を見失うことはありません。"
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -56,8 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"It's elementary. \"コード\" は elementary "
-"向けの完璧なエディターとして作られており、高水準のデザイン、スピード、そして一貫性を持っています。とても美しいですが、作業に集中できます。"
+"It's elementary. \"コード\" は elementary 向けの完璧なエディターとして作られ"
+"ており、高水準のデザイン、スピード、そして一貫性を持っています。とても美しい"
+"ですが、作業に集中できます。"
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -66,8 +68,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコーディングしていても、PHP でスクリプティングしていても、HTML でマークアップしていても、\"コード\" "
-"はあなたをサポートします。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で完全なシンタックスハイライトを利用可能です。"
+"お使いの言語で動作します。Vala でコーディングしていても、PHP でスクリプティン"
+"グしていても、HTML でマークアップしていても、\"コード\" はあなたをサポートし"
+"ます。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語"
+"で完全なシンタックスハイライトを利用可能です。"
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -112,7 +116,9 @@ msgstr "WYSIWYG 風に編集できる Markdown プラグインを追加しまし
 
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr "プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えたり新しいブランチを作成したりできる機能を追加"
+msgstr ""
+"プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えたり"
+"新しいブランチを作成したりできる機能を追加"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
@@ -128,7 +134,8 @@ msgstr "セッションの最後のカーソル位置を保存し復元する機
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr "プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
+msgstr ""
+"プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Show full file path in tab tooltips"
@@ -173,19 +180,26 @@ msgstr "Pastebin プラグインをアップデート"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr "“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントするように修正"
+msgstr ""
+"“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントするよ"
+"うに修正"
 
 #: data/io.elementary.code.appdata.xml.in:48
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
+msgstr ""
+"複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するように変更"
+msgstr ""
+"折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するように"
+"変更"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr "“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされてしまう不具合を修正"
+msgstr ""
+"“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされてし"
+"まう不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
@@ -197,7 +211,9 @@ msgstr "Vim コマンドを修正し、新しい コマンドを追加"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr "ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示するように修正"
+msgstr ""
+"ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示す"
+"るように修正"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
