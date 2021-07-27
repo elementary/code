@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 12:27+0000\n"
-"PO-Revision-Date: 2021-07-23 07:57+0000\n"
+"PO-Revision-Date: 2021-07-27 09:00+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -173,47 +173,43 @@ msgstr "Pastebin プラグインをアップデート"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントするように修正"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "gtksourceview-3 によるシンタックスハイライト"
+msgstr "複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するように変更"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされてしまう不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Vim プラグインをコマンドラインモードで開始するように変更"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Vim コマンドを修正し、新しい コマンドを追加"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "pkexec での起動を可能にし、sudo での起動ができないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "\"現在のビューを削除\" の機能を修正"
+msgstr "分割ビューを削除"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "ブラウザープレビューを削除"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
