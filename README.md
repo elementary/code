@@ -13,7 +13,7 @@ You'll need the following dependencies:
 * libgit2-glib-1.0-dev
 * libgtksourceview-4-dev
 * libgtkspell3-3-dev
-* libgranite-dev >= 5.2.0
+* libgranite-dev >= 6.0.0
 * libhandy-1-dev >= 0.90.0
 * libjson-glib-dev
 * libpeas-dev
