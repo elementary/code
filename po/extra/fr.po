@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-07-29 16:38+0000\n"
-"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
+"PO-Revision-Date: 2021-07-30 21:35+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -117,6 +117,8 @@ msgstr "Nouveau plugin Markdown pour une édition en mode WYSIWYG."
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Changez de branche Git ou créez en de nouvelles dans le menu contextuel du "
+"dossier du projet"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
@@ -129,10 +131,11 @@ msgstr "Recherche de texte complète à l'intérieur du dossier d'un projet."
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
 msgstr ""
+"Enregistrement et restauration de la position du curseur entre les sessions"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Fermeture des fichiers d'un projet lorsque ce projet est fermé"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Show full file path in tab tooltips"
@@ -199,7 +202,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Correction et ajout de nouvelles commandes Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
@@ -210,14 +213,12 @@ msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Correction de la suppression de la vue courante"
+msgstr "Suppression de la vue scindée"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Suppression de l'aperçu dans le navigateur"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
