@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-04-27 21:07+0000\n"
+"PO-Revision-Date: 2021-08-02 18:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -117,10 +117,12 @@ msgstr "Novo plugin Markdown para edição tipo WYSIWYG."
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Trocar de ramos Git ou criar novos ramos nos menus de contexto de pastas de "
+"projetos"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Mostra o estado do Git diff nas calhas da visualização do código-fonte"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
@@ -128,7 +130,7 @@ msgstr "Pesquisa de texto completo na pasta do projeto."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Guardar e restaurar a posição do cursor entre as sessões"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
