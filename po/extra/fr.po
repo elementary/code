@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-07-30 21:35+0000\n"
+"PO-Revision-Date: 2021-08-03 16:23+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Affichage du statut diff de Git dans les volets de la vue source"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
@@ -182,6 +182,8 @@ msgstr "Mise à jour du module Pastebin"
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Indentation correcte de la dernière ligne lors de l'utilisation de "
+"l'extension de conservation des espaces blancs"
 
 #: data/io.elementary.code.appdata.xml.in:48
 msgid "Keep syntax highlighting when duplicating a file"
@@ -190,15 +192,17 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Développement d'un dossier réduit si vous tentez de l'ouvrir deux fois"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
+"Correction d'un problème où les recherches sont perdues lorsque Code n'était "
+"plus au premier plan"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Lancez le plugin Vim en mode commande"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
@@ -206,11 +210,13 @@ msgstr "Correction et ajout de nouvelles commandes Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Affichage des dossiers de projets dont le dossier racine est caché"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
+"Autorisation de l'exécution avec pkexec et interdiction de l'exécution avec "
+"sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Remove split view"
