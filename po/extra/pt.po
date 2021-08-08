@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-08-08 14:29+0000\n"
-"Last-Translator: André Martins <martins2759@protonmail.com>\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
 "Language: pt\n"
@@ -181,14 +181,12 @@ msgstr "Atualizar extensão Pastebin"
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
-"Indentar última linha correctamente quando a extensão de preservar espaço em "
-"branco estiver em uso"
+"Indentar a última linha corretamente quando a extensão de preservar espaço "
+"em branco estiver em uso"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "realce de sintaxe feito com gtksouceview-3"
+msgstr "Manter o realce da sintaxe ao duplicar um ficheiro"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
