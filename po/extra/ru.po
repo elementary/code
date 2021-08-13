@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-08-13 17:02+0000\n"
-"Last-Translator: asdffdsdaf <useruseruser1233211@gmail.com>\n"
+"Last-Translator: DartDeaDia <DartDeaDia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -367,11 +367,11 @@ msgstr "Включены не текстовые файлы на боковую 
 
 #: data/io.elementary.code.appdata.xml.in:137
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Исправлено удаление текущего представления"
 
 #: data/io.elementary.code.appdata.xml.in:144
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Исправлено поведение действия «Новое окно» на рабочем столе"
 
 #: data/io.elementary.code.appdata.xml.in:145
 msgid ""
@@ -382,7 +382,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Исправлена зависимость editorconfig для сборки системы"
 
 #: data/io.elementary.code.appdata.xml.in:147
 msgid "Add Change Branch context menu item"
@@ -390,7 +390,7 @@ msgstr "Добавлен элемент контекстного меню «См
 
 #: data/io.elementary.code.appdata.xml.in:148
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr "Избегать возможного сбоя при запуске, связанного с загрузкой плагинов"
+msgstr "Избегание возможного сбоя при запуске, связанного с загрузкой плагинов"
 
 #: data/io.elementary.code.appdata.xml.in:156
 msgid "Smarter file saving behavior"
@@ -402,23 +402,23 @@ msgstr "Исправления сохранения файлов"
 
 #: data/io.elementary.code.appdata.xml.in:158
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Временные файлы больше не добавляются для восстановления вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:166
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Удалённые файлы не воссоздаются при восстановлении сессии"
 
 #: data/io.elementary.code.appdata.xml.in:167
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Восстановлена настройка «перенос строки»"
 
 #: data/io.elementary.code.appdata.xml.in:168
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Добавлены подсказки Accel"
 
 #: data/io.elementary.code.appdata.xml.in:169
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Исправления незначительных ошибок"
 
 #: data/io.elementary.code.appdata.xml.in:209
 msgid "elementary, Inc."
@@ -450,11 +450,11 @@ msgstr "Новое окно"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Запуск Кода от имени администратора"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "Для запуска Кода от имени администратора требуется аутентификация"
 
 #~ msgid "New Document"
 #~ msgstr "Новый документ"
