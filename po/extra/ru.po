@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-07-27 11:47+0000\n"
+"PO-Revision-Date: 2021-08-12 17:50+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
@@ -116,28 +116,27 @@ msgstr "Новый плагин разметки для WYSIWYG-подобног
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Переключение веток Git или создание новых в контекстном меню папки проекта"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Показывать статус Git diff в желобах представления источника"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "Полнотекстовый поиск в папке проекта."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Сохранение и восстановление положения курсора между сеансами"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Закрытие файлов проекта при завершении работы с проектом"
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
-msgstr "Отображение полного пути к документу в подсказке вкладки"
+msgstr "Отображение полного пути к файлу в подсказке вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
@@ -154,7 +153,7 @@ msgstr "Разрешить расширение проверки орфогра�
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Улучшение многострочного дублирования"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -162,7 +161,7 @@ msgstr "Запоминать, открыта ли боковая панель"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Установка заголовков окна на сфокусированном файле"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -181,10 +180,8 @@ msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "подсветка синтаксиса с gtksourceview-3"
+msgstr "Сохранение подсветки синтаксиса при дублировании файла"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
@@ -200,7 +197,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Исправлены и добавлены новые команды Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
@@ -216,7 +213,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Убран предварительный просмотр браузера"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
