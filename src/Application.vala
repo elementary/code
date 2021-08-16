@@ -67,6 +67,11 @@ namespace Scratch {
             settings = new GLib.Settings (Constants.PROJECT_NAME + ".settings");
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
+
+            GLib.Intl.setlocale (LocaleCategory.ALL, "");
+            GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
+            GLib.Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
+            GLib.Intl.textdomain (Constants.GETTEXT_PACKAGE);
         }
 
         public override int handle_local_options (VariantDict options) {
