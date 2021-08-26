@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-08-14 18:59+0000\n"
-"Last-Translator: asdffdsdaf <useruseruser1233211@gmail.com>\n"
+"PO-Revision-Date: 2021-08-26 13:23+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -334,7 +334,7 @@ msgstr "Открыть всё равно"
 #: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Открытие файла \"%s\" занимает долгое время"
+msgstr "Загрузка файла «%s» продолжается слишком долго"
 
 #: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
@@ -347,7 +347,7 @@ msgstr "Отменить загрузку"
 #: src/Services/Document.vala:392
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Сохранить изменения в %s перед закрытием?"
+msgstr "Сохранить изменения в «%s» перед закрытием?"
 
 #: src/Services/Document.vala:393
 msgid "If you don't save, changes will be permanently lost."
