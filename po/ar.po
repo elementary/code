@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-04-26 16:48+0000\n"
-"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"PO-Revision-Date: 2021-08-28 17:43+0000\n"
+"Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -97,10 +97,8 @@ msgid "The search term must be at least 3 characters long."
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "غير حساسة لحالة الأحرف (غير مهم الأحرف كبيرة أو صغيرة)"
+msgstr "حساسية حالة الأحرف:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
@@ -113,31 +111,28 @@ msgid "Search"
 msgstr "البحث عن التالي"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "انشاء نموذج جديد"
+msgstr "إنشاء فرع جديد من ”%s/%s“"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "اسم الفرع يجب أن يكون مميز وأن يتبع قواعد التسمية في Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "تفرع"
+msgstr "إنشاء فرع"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
-msgstr "اﻹعدادات"
+msgstr "التفضيلات"
 
 #: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
-msgstr "القص أو النسخ بدون تحديد شيء سينسخ أو يقص كامل السطر الحالي"
+msgstr "القص أو النسخ بدون تحديد شيء معين سينسخ أو يقص كامل السطر الحالي"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
