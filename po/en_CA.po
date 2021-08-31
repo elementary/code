@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -57,34 +57,34 @@ msgstr "Find…"
 msgid "Hide search bar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:735 src/Services/Document.vala:499
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:739
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:742
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
+#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:768
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:769
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -282,8 +282,8 @@ msgstr "Empty File"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
 msgstr "New"
 
@@ -311,94 +311,94 @@ msgstr "Close Folder"
 msgid "Find in Project…"
 msgstr "Open a folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "Change Scratch settings"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "Change Scratch settings"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:272
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Is Not a Text File"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
 msgstr "Code will not load this type of file."
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:275
 msgid "Load Anyway"
 msgstr "Load Anyway"
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Loading File \"%s\" Is Taking a Long Time"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
 msgstr "Please wait while Code is loading the file."
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:299
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Cancel Load"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:392
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Save changes to document %s before closing?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:393
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:399
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Close without saving"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:403 src/Services/Document.vala:506
+#: src/Services/Document.vala:738
 msgid "Save"
 msgstr "Save"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:503
 msgid "Save File"
 msgstr "Save File"
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:580 src/Services/Document.vala:589
 msgid "New Document"
 msgstr "New Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "File \"%s\" Cannot Be Read"
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:713
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:726
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -407,16 +407,16 @@ msgstr ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:729
 msgid "Save As…"
 msgstr "Save As…"
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:752
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -425,11 +425,11 @@ msgstr ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
 msgstr "Save changes elsewhere"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:789
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -438,17 +438,33 @@ msgstr ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:792
 msgid "Load"
 msgstr "Load"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:795
 msgid "Continue"
 msgstr "Continue"
 
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Templates"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+#, fuzzy
+#| msgid "Project templates"
+msgid "No Project Selected"
+msgstr "Project templates"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:115
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
