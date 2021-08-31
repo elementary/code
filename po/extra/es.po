@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 12:27+0000\n"
-"PO-Revision-Date: 2021-07-18 19:09+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"PO-Revision-Date: 2021-08-27 10:19+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -177,7 +177,8 @@ msgstr "Añadir atajos de teclado para los documentos anteriores y siguientes"
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "Show full document path in tab tooltip"
 msgstr ""
-"Mostrar ruta completa del documento en globo de información de la pestaña"
+"Se muestra la ruta completa del documento en la descripción emergente de la "
+"pestaña"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
@@ -190,14 +191,12 @@ msgstr ""
 "conservación de espacios en blanco"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "coloración sintáctica con gtksourceview-3"
+msgstr "Se mantiene la coloración sintáctica al duplicar un archivo"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "Expandir una carpeta contraída si se intenta abrir dos veces"
+msgstr "Se expande una carpeta contraída si se intenta abrir dos veces"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
@@ -205,11 +204,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr "Inicie el complemento Vim en modo comando"
+msgstr "Se inicia el complemento Vim en modo de órdenes"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr "Arregle y agregue nuevos comandos de Vim"
+msgstr "Se arreglan y añaden nuevas órdenes de Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
@@ -221,14 +220,12 @@ msgstr ""
 "Permitir el lanzamiento con pkexec y no permitir el lanzamiento con sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Corregir la eliminación de la vista actual"
+msgstr "Se elimina la vista dividida"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr "Eliminar la vista previa del navegador"
+msgstr "Desaparece la previsualización en el navegador"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
