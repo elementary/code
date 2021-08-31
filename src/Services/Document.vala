@@ -34,15 +34,7 @@ namespace Scratch.Services {
         public signal void doc_closed ();
 
         // The parent window's actions
-        private weak SimpleActionGroup _actions;
-        public SimpleActionGroup actions {
-            get {
-                return _actions;
-            }
-            set {
-                _actions = value;
-            }
-        }
+        public unowned SimpleActionGroup actions { get; set construct; }
 
         public bool is_file_temporary {
             get {
@@ -118,9 +110,8 @@ namespace Scratch.Services {
         private static Pango.FontMap? builder_font_map = null;
 
         public Document (SimpleActionGroup actions, File? file = null) {
-            Object (actions: actions);
-
             this.file = file;
+            this.actions = _actions;
             page = main_stack;
         }
 
