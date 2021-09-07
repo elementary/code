@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2020-11-28 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -438,6 +438,22 @@ msgstr "सुरु ठेवा"
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "नमूने"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+#, fuzzy
+#| msgid "Project templates"
+msgid "No Project Selected"
+msgstr "प्रोजेक्ट टेम्प्लेट"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:115
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
