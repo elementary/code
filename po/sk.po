@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 12:35+0000\n"
-"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -314,9 +314,8 @@ msgid "New Branch…"
 msgstr "Nová vetva…"
 
 #: src/FolderManager/ProjectFolderItem.vala:519
-#, fuzzy
 msgid "Branch"
-msgstr "Zmeniť vetvu"
+msgstr "Vetva"
 
 #: src/Services/Document.vala:272
 #, c-format
@@ -325,7 +324,7 @@ msgstr "%s nie je textový súbor"
 
 #: src/Services/Document.vala:273
 msgid "Code will not load this type of file."
-msgstr "Aplikácia Code nenačíta tento typ súboru."
+msgstr "Aplikácia Kód nenačíta tento typ súboru."
 
 #: src/Services/Document.vala:275
 msgid "Load Anyway"
@@ -334,11 +333,11 @@ msgstr "Napriek tomu načítať"
 #: src/Services/Document.vala:296
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Načítanie súboru \"%s\" trvá veľmi dlho"
+msgstr "Načítanie súboru „%s“ trvá veľmi dlho"
 
 #: src/Services/Document.vala:297
 msgid "Please wait while Code is loading the file."
-msgstr "Prosím počkajte, kým aplikácia Code načíta súbor."
+msgstr "Prosím čakajte, kým aplikácia Kód načíta súbor."
 
 #: src/Services/Document.vala:299
 msgid "Cancel Loading"
