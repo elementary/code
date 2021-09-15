@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 14:35+0000\n"
-"Last-Translator: citro <citro33@centrum.sk>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -117,31 +117,33 @@ msgstr "Nový zásuvný modul Markdown pre úpravy podobné WYSIWYG."
 
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr "Zmeň Git vetvy, alebo vytvor nové v kontextových menu zložky projektu"
+msgstr ""
+"Prepínajte Git vetvy alebo vytvárajte nové v kontextových menu priečinkov "
+"projektu"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Zobrazujte Git diff status v okrajoch zdrojového zobrazenia"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "Úplné textové vyhľadávanie v priečinku projektu"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Uložte a obnovte polohu kurzora medzi rôznymi reláciami"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Zatvárajte súbory z projektu pri zatvorení daného projektu"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Show full file path in tab tooltips"
-msgstr ""
+msgstr "Zobrazte úplnú cestu súboru v popisoch kariet"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Vymazávajte riadky pomocou Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -154,7 +156,7 @@ msgstr "Povoliť rozšírenie Kontrola pravopisu v súboroch Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Vylepšená duplikácia viacerých riadkov naraz"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -162,7 +164,7 @@ msgstr "Pamätať si, či je bočný panel otvorený"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Nastavovať názov okna ako práve vybraný súbor"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
