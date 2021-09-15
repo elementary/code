@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 12:27+0000\n"
-"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -131,8 +131,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Vystrihnutím alebo kopírovaním bez aktívneho výberu vystrihnete alebo "
-"skopírujete celý aktuálny riadok"
+"Vystrihnutie alebo kopírovanie bez aktívneho výberu vystrihne alebo "
+"skopíruje celý aktuálny riadok"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -140,7 +140,7 @@ msgstr "Všeobecné"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
-msgstr "Uložiť súbory pri ich zmene:"
+msgstr "Ukladať súbory po upravení:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
@@ -152,11 +152,11 @@ msgstr "Karty"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
-msgstr "Automatické vytvorenie odstavca:"
+msgstr "Automatické odsadzovanie:"
 
 #: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
-msgstr "Vložiť medzery namiesto tabulátorov:"
+msgstr "Vkladať medzery namiesto tabulátorov:"
 
 #: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -173,7 +173,7 @@ msgstr "Rozhranie"
 #: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
-msgstr "Zavrieť"
+msgstr "Zatvoriť"
 
 #: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
@@ -185,15 +185,15 @@ msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
-msgstr "Zvýrazniť zhodujúce sa zátvorky:"
+msgstr "Zvýrazňovať zodpovedajúce zátvorky:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
-msgstr "Zalomenie riadkov:"
+msgstr "Zalamovať riadky:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
-msgstr "Zobraziť mezery:"
+msgstr "Zobrazovať medzery:"
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
@@ -205,11 +205,11 @@ msgstr "Vždy"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
-msgstr "Zobraziť mini-mapu:"
+msgstr "Zobraziť minimapu:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr "Šírka vodiacej čiary:"
+msgstr "Vodidlo dĺžky riadku:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
