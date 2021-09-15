@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 21:35+0000\n"
-"Last-Translator: citro <citro33@centrum.sk>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +168,7 @@ msgstr "Nastavovať názov okna ako práve vybraný súbor"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "Pridať klávesové skratky pre nasledujúce a predchádzajúce dokumenty"
+msgstr "Pridané klávesové skratky pre nasledujúce a predchádzajúce dokumenty"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "Show full document path in tab tooltip"
@@ -176,49 +176,49 @@ msgstr "Zobraziť úplnú cestu k dokumentu v popise karty"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Aktualizovaný doplnok Pastebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "Správne odsadzovať posledný riadok pri použití doplnku Zachovať mezdery"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "zvýrazňovanie textu s použitím gtksourceview-3"
+msgstr "Zachovať zvýrazňovanie syntaxe pri duplikovaní súboru"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Rozbaliť zatvorený priečinok, ak sa ho pokúsite otvoriť dvakrát"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
+"Opravený problém straty vyhľadávaných výrazov pri prepnutí z okna Kód na iné "
+"okno"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Spúšťať doplnok Vim v príkazovom režime"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Opravené a pridané nové Vim príkazy"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Zobrazovať projektové súbory so skrytým priečinkom root"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "Povolené spúšťanie s pkexec a zakázané spúšťanie so sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Remove split view"
-msgstr ""
+msgstr "Odstránené rozdelené zobrazenie"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Odstránená ukážka v prehliadači"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
