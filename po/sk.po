@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 21:35+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -653,13 +653,11 @@ msgstr "Ponechať toto vloženie súkromné"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "Dostupné formáty"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Vybrať písmo:"
+msgstr "Vybrať formát"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -724,11 +722,8 @@ msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
 #: plugins/spell/spell.vala:74
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Neboli nájdené vhodné slovníky.\n"
-"Nainštalujte prosím aspoň jeden [aspell] slovník"
+msgstr "Nainštalujte prosím aspoň jeden [aspell] slovník."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
