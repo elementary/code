@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 12:47+0000\n"
-"Last-Translator: Igor Stefanko <istefanko@outlook.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -433,7 +433,7 @@ msgstr "Šablóny"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
-msgstr "Nebol zvolený žiaden projekt"
+msgstr "Žiadny zvolený projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:115
@@ -478,13 +478,13 @@ msgstr[2] "%d medzier"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d karta"
-msgstr[1] "%d karty"
-msgstr[2] "%d kariet"
+msgstr[0] "%d tabulátor"
+msgstr[1] "%d tabulátory"
+msgstr[2] "%d tabulátorov"
 
 #: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
-msgstr "Ísť na riadok:"
+msgstr "Prejsť na riadok:"
 
 #: src/Widgets/HeaderBar.vala:54
 msgid "Open a file"
@@ -500,7 +500,7 @@ msgstr "Uložiť tento súbor"
 
 #: src/Widgets/HeaderBar.vala:72
 msgid "Save this file with a different name"
-msgstr "Uložiť tento súbor s iným menom"
+msgstr "Uložiť súbor pod iným názvom"
 
 #: src/Widgets/HeaderBar.vala:79
 msgid "Restore this file"
@@ -524,7 +524,7 @@ msgstr "Priblížiť"
 
 #: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
-msgstr "Bočný panel"
+msgstr "Zobraziť/Skryť bočný panel"
 
 #: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
