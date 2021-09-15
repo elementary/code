@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 21:35+0000\n"
-"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
+"Last-Translator: Igor Stefanko <istefanko@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -536,15 +536,15 @@ msgstr "Otvoriť priečinok projektu…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr ""
+msgstr "Zbaliť všetko"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Zoradiť abecedne"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr ""
+msgstr "Spravovať priečinky projektu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -566,11 +566,11 @@ msgstr "Opakované hľadanie"
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Rozlišovať malé a veľké písmená"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Nerozlišovať malé a veľké písmená"
 
 #: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
@@ -639,13 +639,11 @@ msgstr "Formát:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "Vybrať iný formát"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "Čas vypršania platnosti:"
+msgstr "Expirácia:"
 
 #: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
@@ -689,10 +687,8 @@ msgid "Symbols"
 msgstr "Symboly"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symboly"
+msgstr "Neboli nájdené žiadne symboly"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
@@ -719,7 +715,7 @@ msgstr "Vložiť"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Neboli nájdené žiadne vhodné slovníky"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
