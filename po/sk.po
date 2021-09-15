@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 12:41+0000\n"
-"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -354,7 +354,7 @@ msgstr "Ak ich neuložíte, zmeny budú navždy stratené."
 
 #: src/Services/Document.vala:399
 msgid "Close Without Saving"
-msgstr "Zavrieť bez uloženia"
+msgstr "Zatvoriť bez uloženia"
 
 #: src/Services/Document.vala:403 src/Services/Document.vala:506
 #: src/Services/Document.vala:738
@@ -373,7 +373,7 @@ msgstr "Nový dokument"
 #: src/Services/Document.vala:712
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "Súbor \"%s\" sa nedá prečítať"
+msgstr "Súbor „%s“ sa nedá prečítať"
 
 #: src/Services/Document.vala:713
 msgid "It may be corrupt or you don't have permission to read it."
@@ -385,8 +385,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Umiestnenie obsahujúce súbor \"%s\" nie je pripojené. Chcete uložiť na iné "
-"miesto?"
+"Umiestnenie obsahujúce súbor „%s“ bolo odpojené. Chceli by ste ho uložiť na "
+"iné miesto?"
 
 #: src/Services/Document.vala:729
 msgid "Save As…"
@@ -395,7 +395,7 @@ msgstr "Uložiť ako…"
 #: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Súbor \"%s\" bol odstránený. Chcete ho aj napriek tomu uložiť?"
+msgstr "Súbor „%s“ bol odstránený. Chceli by ste ho aj napriek tomu uložiť?"
 
 #: src/Services/Document.vala:752
 #, c-format
@@ -403,8 +403,8 @@ msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Nie je možné uložiť zmeny v súbore \"%s\". Chcete uložiť zmeny v súbore na "
-"iné miesto?"
+"Nie je možné uložiť zmeny do súboru „%s“. Chceli by ste uložiť tieto zmeny "
+"na iné miesto?"
 
 #: src/Services/Document.vala:755
 msgid "Save changes elsewhere"
@@ -416,8 +416,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Súbor \"%s\" bol zmenený inou aplikáciou. Chcete ho opätovne načítať, alebo "
-"pokračovať v úpravách?"
+"Súbor „%s“ bol upravený inou aplikáciou. Chceli by ste ho opätovne načítať "
+"alebo chcete pokračovať v úpravách?"
 
 #: src/Services/Document.vala:792
 msgid "Load"
