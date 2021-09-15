@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-15 12:29+0000\n"
-"Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
+"Last-Translator: Igor Stefanko <istefanko@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -229,12 +229,11 @@ msgstr "Obnovením súboru vrátite späť všetky zmeny vykonané od jeho otvor
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Neobnovovať"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Napriek tomu načítať"
+msgstr "Napriek tomu obnoviť"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
