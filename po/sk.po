@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-09-15 12:35+0000\n"
+"PO-Revision-Date: 2021-09-15 12:41+0000\n"
 "Last-Translator: martink0lenak <martin.kolenak65@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
@@ -432,10 +432,8 @@ msgid "Templates"
 msgstr "Šablóny"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "Šablóny projektu"
+msgstr "Nebol zvolený žiaden projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:115
