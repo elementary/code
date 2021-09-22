@@ -1,0 +1,11 @@
+{
+    "Markdown": [
+        
+    ],
+
+    "HTML": [
+        {"name": "html", "tag": "html", "body": "<html>\n$0\n</html>"},
+        {"name": "div", "tag": "div", "body": "<div id=\"$1\">\n$0\n</div>"},
+        {"name": "ul+li3", "tag": "ul+li", "body": "<ul>\n<li>$1</li>\n<li>$2</li>\n<li>$3</li>\n</ul>"}
+    ]
+}
