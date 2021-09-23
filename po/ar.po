@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-08-28 17:43+0000\n"
+"PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
 "Language: ar\n"
@@ -42,11 +42,11 @@ msgstr "اضافة"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[ملف...]"
 
 #: src/MainWindow.vala:140
 msgid "Code"
-msgstr "شيفرة برمجية"
+msgstr "كود"
 
 #: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
 msgid "Find…"
@@ -54,7 +54,7 @@ msgstr "إبحث…"
 
 #: src/MainWindow.vala:207
 msgid "Hide search bar"
-msgstr "اخفاء شريط البحث"
+msgstr "إخفاء شريط البحث"
 
 #: src/MainWindow.vala:731 src/Services/Document.vala:495
 msgid "All files"
@@ -90,11 +90,11 @@ msgstr "_الغاء"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "بحث عن نص في ”%s“"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "كلمة البحث يجب أن تحتوي على ٣ أحرف على الأقل."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -102,13 +102,11 @@ msgstr "حساسية حالة الأحرف:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "استخدام التعابير النمطية:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "البحث عن التالي"
+msgstr "بحث"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format

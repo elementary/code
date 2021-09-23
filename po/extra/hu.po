@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-08-26 13:23+0000\n"
+"PO-Revision-Date: 2021-09-02 23:22+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/extra/hu/>"
 "\n"
@@ -180,10 +180,8 @@ msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "gtksourceview-3 szintaxiskiemelés"
+msgstr "Szintaxiskiemelés megőrzése fájl megkettőzésekor"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
@@ -408,10 +406,8 @@ msgid "Minor bug fixes"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:209
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -426,9 +422,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "text;IDE;scratch;"
-msgstr "IDE;scratch;"
+msgstr "szöveg;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
