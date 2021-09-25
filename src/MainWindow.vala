@@ -557,6 +557,11 @@ namespace Scratch {
         public void open_folder (File folder) {
             var foldermanager_file = new FolderManager.File (folder.get_path ());
             folder_manager_view.open_folder (foldermanager_file);
+            var readme_file = folder.get_child ("README.md");
+            if (readme_file.query_exists ()) {
+                var doc = new Scratch.Services.Document (actions, readme_file);
+                open_document (doc);
+            }
         }
 
         public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
@@ -774,8 +779,7 @@ namespace Scratch {
 
             if (chooser.run () == Gtk.ResponseType.ACCEPT) {
                 chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
+                    open_folder (glib_file);
                 });
             }
 
