@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-06-20 06:39+0000\n"
-"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"PO-Revision-Date: 2021-09-07 10:01+0000\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -422,6 +422,20 @@ msgstr "继续"
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "模板"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr "无选中项目"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:115
+#, c-format
+msgid "Active Git project: %s"
+msgstr "活跃的 Git 项目：%s"
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr "筛选项目"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format

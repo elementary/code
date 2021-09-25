@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-05-13 08:25+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"PO-Revision-Date: 2021-08-28 19:52+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -23,11 +23,11 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr "Code"
+msgstr "Код"
 
 #: data/io.elementary.code.appdata.xml.in:9
 msgid "The editor that works"
-msgstr "Текстовый редактор, который работает"
+msgstr "Редактор, который работает"
 
 #: data/io.elementary.code.appdata.xml.in:11
 msgid ""
@@ -35,7 +35,7 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Code — это текстовый редактор, который работает на вас. Он автоматически "
+"Код — это текстовый редактор, который работает на вас. Он автоматически "
 "сохраняет ваши файлы, а также запоминает открытые вкладки. Вы никогда не "
 "потеряете место, на котором остановились, даже в перерывах между сессиями."
 
@@ -46,8 +46,8 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Сделайте его своим. Code написан с нуля, чтобы быть расширяемым. Оставьте "
-"его легковесным и простым или установите расширения, чтобы превратить Code в "
+"Сделайте его своим. Код написан с нуля, чтобы быть расширяемым. Оставьте его "
+"легковесным и простым или установите расширения, чтобы превратить Код в "
 "полномасштабный IDE, выбор за вами. А с горсткой полезных настроек вы "
 "сможете изменить поведение и интерфейс по своему вкусу."
 
@@ -57,9 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Это elementary. Code сделан, чтобы быть идеальным текстовым редактором для "
+"Это элементарно. Код сделан, чтобы быть идеальным текстовым редактором для "
 "elementary, что означает следование высоким стандартам дизайна, скорость и "
-"последовательность. Это привлекательно, но не отвлекающе."
+"последовательность. Он привлекательный, но не отвлекающий."
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -107,7 +107,7 @@ msgstr "и многое другое"
 #: data/io.elementary.code.appdata.xml.in:92
 #: data/io.elementary.code.appdata.xml.in:108
 msgid "New features:"
-msgstr "Новые функции:"
+msgstr "Новые возможности:"
 
 #: data/io.elementary.code.appdata.xml.in:29
 msgid "New Markdown plugin for WYSIWYG-like editing."
@@ -116,32 +116,31 @@ msgstr "Новый плагин разметки для WYSIWYG-подобног
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+"Переключение веток Git или создание новых в контекстном меню папки проекта"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Показывать статус Git diff в желобах представления источника"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "Полнотекстовый поиск в папке проекта."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Сохранение и восстановление положения курсора между сеансами"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Закрытие файлов проекта при завершении работы с проектом"
 
 #: data/io.elementary.code.appdata.xml.in:35
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
-msgstr "Отображение полного пути к документу в подсказке вкладки"
+msgstr "Отображение полного пути к файлу в подсказке вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Очистка линий с помощью Ctrl + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -154,7 +153,7 @@ msgstr "Разрешить расширение проверки орфогра�
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Улучшение многострочного дублирования"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
@@ -162,11 +161,11 @@ msgstr "Запоминать, открыта ли боковая панель"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Установка заголовков окна на сфокусированном файле"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "Добавлены горячие клавиши для следующих и предыдущих документов"
+msgstr "Добавлены сочетания клавиш для следующих и предыдущих документов"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "Show full document path in tab tooltip"
@@ -174,49 +173,49 @@ msgstr "Отображение полного пути к документу в 
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Обновлен плагин Pastebin"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Правильный отступ последней строки при использовании плагина убирания "
+"пробелов"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "подсветка синтаксиса с gtksourceview-3"
+msgstr "Сохранение подсветки синтаксиса при дублировании файла"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "Развертание свернутой папки, если вы пытаетесь открыть её дважды"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "Исправлена проблема, при которой исчезал поиск, когда Код терял фокус"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Запуск плагина Vim в командном режиме"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Исправлены и добавлены новые команды Vim"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Отображение папок проекта со скрытой корневой папкой"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "Разрешен запуск с помощью pkexec и запрещен запуск с помощью sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Remove split view"
-msgstr ""
+msgstr "Удален раздельный вид"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Убран предварительный просмотр браузера"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
@@ -241,7 +240,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Теперь можно листать дальше конца файла"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "More efficiently save and restore window position"
@@ -262,11 +261,10 @@ msgid "Other updates:"
 msgstr "Остальные обновления:"
 
 #: data/io.elementary.code.appdata.xml.in:84
-#, fuzzy
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
-"Правильное отображение меню «Закомментировать/Раскомментировать», если не "
-"выбран текст"
+"Правильное отображение меню «Закомментировать/Раскомментировать», если текст "
+"не выделен"
 
 #: data/io.elementary.code.appdata.xml.in:85
 msgid "Fixed font switch alignment"
@@ -284,7 +282,7 @@ msgstr "Сохранение и восстановление параметро�
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Add keyboard shortcuts to menu items"
-msgstr "Добавлены горячие клавиши к пунктам меню"
+msgstr "Добавлены сочетания клавиш к пунктам меню"
 
 #: data/io.elementary.code.appdata.xml.in:100
 msgid "Make sidebar folder items not selectable"
@@ -309,8 +307,7 @@ msgstr "Добавлено диалоговое окно для подтверж
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
-"В менеджере папок добавлено меню \"Открыть в\" для папки верхнего уровня"
+msgstr "Добавлено меню «Открыть в» для папки верхнего уровня в менеджере папок"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Don't show temporary files in the folder manager"
@@ -327,22 +324,25 @@ msgstr "Плагин масштабирования терминала с пом
 #: data/io.elementary.code.appdata.xml.in:117
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"Соблюдение глобальных настроек конфиденциальности при сохранении и "
+"восстановлении"
 
 #: data/io.elementary.code.appdata.xml.in:121
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Упрощена настройка «Рисовать пробелы»"
 
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "Исправлено сочетание клавиш для перехода назад в результатах поиска"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Зафиксировать открытие файлов из относящихся путей в Терминале"
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"Исправлено неработающее диалоговое окно файла при открытии нового окна в доке"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Add \"=\" as a zoom key"
@@ -350,15 +350,15 @@ msgstr "Добавлен «=» в качестве клавиши масштаб
 
 #: data/io.elementary.code.appdata.xml.in:126
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "Изменен значок поля поиска, когда результаты не найдены"
 
 #: data/io.elementary.code.appdata.xml.in:127
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Введение имени нового файла перед тем, как создавать его"
 
 #: data/io.elementary.code.appdata.xml.in:135
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Повсеместное использование Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:136
 msgid "Include non-text files in sidebar"
@@ -366,28 +366,30 @@ msgstr "Включены не текстовые файлы на боковую 
 
 #: data/io.elementary.code.appdata.xml.in:137
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Исправлено удаление текущего представления"
 
 #: data/io.elementary.code.appdata.xml.in:144
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Исправлено поведение действия «Новое окно» на рабочем столе"
 
 #: data/io.elementary.code.appdata.xml.in:145
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Правильная синхронизация нажатия сочетания клавиш Ctrl+N с количеством "
+"созданных новых документов"
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Исправлена зависимость editorconfig для сборки системы"
 
 #: data/io.elementary.code.appdata.xml.in:147
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Добавлен элемент контекстного меню «Сменить ветку»"
 
 #: data/io.elementary.code.appdata.xml.in:148
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "Избегание возможного сбоя при запуске, связанного с загрузкой плагинов"
 
 #: data/io.elementary.code.appdata.xml.in:156
 msgid "Smarter file saving behavior"
@@ -399,23 +401,23 @@ msgstr "Исправления сохранения файлов"
 
 #: data/io.elementary.code.appdata.xml.in:158
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Временные файлы больше не добавляются для восстановления вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:166
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Удалённые файлы не воссоздаются при восстановлении сессии"
 
 #: data/io.elementary.code.appdata.xml.in:167
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Восстановлена настройка «перенос строки»"
 
 #: data/io.elementary.code.appdata.xml.in:168
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Добавлены подсказки Accel"
 
 #: data/io.elementary.code.appdata.xml.in:169
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Исправления незначительных ошибок"
 
 #: data/io.elementary.code.appdata.xml.in:209
 msgid "elementary, Inc."
@@ -447,11 +449,11 @@ msgstr "Новое окно"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Запуск Кода от имени администратора"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "Для запуска Кода от имени администратора требуется аутентификация"
 
 #~ msgid "New Document"
 #~ msgstr "Новый документ"

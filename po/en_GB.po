@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2021-07-05 09:53+0000\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"PO-Revision-Date: 2021-07-29 07:58+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -430,6 +430,20 @@ msgstr "Continue"
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Templates"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr "No Project Selected"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:115
+#, c-format
+msgid "Active Git project: %s"
+msgstr "Active Git project: %s"
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr "Filter projects"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format

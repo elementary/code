@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2020-07-10 00:06+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"PO-Revision-Date: 2021-08-23 08:22+0000\n"
+"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/extra/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -34,11 +34,11 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Code ist der Editor, der für Dich arbeitet. Er speichert deine Dateien ganz "
+"Code ist der Editor, der für Sie arbeitet. Er speichert Ihre Dateien ganz "
 "automatisch, so dass diese immer auf dem aktuellen Stand sind. Außerdem "
-"merkt sich Code, welche Tabs Du geöffnet hattest, sodass Du in der "
-"nachfolgenden Sitzung gleich dort weiterarbeiten kannst, wo Du in der "
-"letzten aufgehört hast."
+"merkt sich Code, welche Tabs Sie geöffnet hatten, sodass Sie in der "
+"nachfolgenden Sitzung gleich dort weiterarbeiten können, wo Sie in der "
+"letzten aufgehört haben."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -47,12 +47,12 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Mach ihn zu Deinem persönlichen Editor. Code wurde von Grund auf so "
-"entwickelt, dass er sich einfach erweitern lässt. Belasse alles schlank und "
-"übersichtlich, oder installiere Dir Erweiterungen, um Code zu einer "
-"vollwertigen Entwicklungsumgebung auszubauen. Du hast die Wahl! \n"
-"Mit jeder Menge nützlicher Einstellungen kannst Du das Verhalten und "
-"Aussehen von Code ganz nach Deinen Vorstellungen anpassen."
+"Machen Sie ihn zu Ihrem persönlichen Editor. Code wurde von Grund auf so "
+"entwickelt, dass er sich einfach erweitern lässt. Belassen Sie alles schlank "
+"und übersichtlich, oder installieren Sie sich Erweiterungen, um Code zu "
+"einer vollwertigen Entwicklungsumgebung auszubauen. Sie haben die Wahl! Mit "
+"jeder Menge nützlicher Einstellungen können Sie das Verhalten und Aussehen "
+"von Code ganz nach Ihren Vorstellungen anpassen."
 
 #: data/io.elementary.code.appdata.xml.in:13
 msgid ""
@@ -72,9 +72,9 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Unabhängig von der eingesetzten Sprache – Code funktioniert einfach. Ob Du "
-"in Vala programmierst, PHP-Code schreibst oder Text in HTML verfasst – Code "
-"deckt all Deine Anforderungen ab. Erlebe, wie Code in fast allen "
+"Unabhängig von der eingesetzten Sprache – Code funktioniert einfach. Ob Sie "
+"in Vala programmieren, PHP-Code schreiben oder Text in HTML verfassen – Code "
+"deckt all Ihre Anforderungen ab. Erleben Sie, wie Code in fast allen "
 "Programmier-, Skript- und Markup-Sprachen die perfekte Syntax-Hervorhebung "
 "beherrscht."
 
@@ -117,35 +117,35 @@ msgstr "Neue Funktionen:"
 
 #: data/io.elementary.code.appdata.xml.in:29
 msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr ""
+msgstr "Neues Markdown-Plugin für WYSIWYG-ähnliche Textbearbeitung."
 
 #: data/io.elementary.code.appdata.xml.in:30
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr ""
+msgstr "Git Zweige direkt im Projektordner-Kontextmenü wechseln oder erstellen"
 
 #: data/io.elementary.code.appdata.xml.in:31
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "Zeige Git diff status in der Quellcodeansicht-Seitenleiste"
 
 #: data/io.elementary.code.appdata.xml.in:32
 msgid "Full text search within project folder."
-msgstr ""
+msgstr "Volltextsuche im Projektordner."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "Sichern und Wiederherstellen der Cursorposition zwischen Sessions"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "Projektdaten schliessen wenn das Projekt geschlossen wird"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Show full file path in tab tooltips"
-msgstr ""
+msgstr "Zeige vollständigen Dateipfad in den Tab Tooltips"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "Zeilen löschen mit Strg + K"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:67
@@ -158,73 +158,73 @@ msgstr "Erweiterung der Rechtschreibprüfung in Markdown-Dateien erlauben"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "Duplizieren von mehreren Zeilen verbessert"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Remember whether the sidebar is open"
-msgstr ""
+msgstr "Merken, ob die Seitenleiste geöffnet ist"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "Namen der aktiven Datei als Fenstertitel setzen"
 
 #: data/io.elementary.code.appdata.xml.in:44
-#, fuzzy
-#| msgid "Add keyboard shortcuts to menu items"
 msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "Hinzufügen von Tastaturkürzeln zu Menüelementen"
+msgstr ""
+"Hinzufügen von Tastaturkürzeln für nächste und vorhergegangene Dokumente"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "Show full document path in tab tooltip"
-msgstr ""
+msgstr "Vollen Dokumentenpfad im Tab Tooltip anzeigen"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "Aktualisieren des Pastebin-Plugins"
 
 #: data/io.elementary.code.appdata.xml.in:47
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
+"Letzte Zeile korrekt Einrücken, wenn das preserve whitespace-Plugin benutzt "
+"wird"
 
 #: data/io.elementary.code.appdata.xml.in:48
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "Syntax-Hervorhebung mit gtksourceview-3"
+msgstr "Syntax-Hervorhebung beibehalten wenn eine Datei dupliziert wird"
 
 #: data/io.elementary.code.appdata.xml.in:49
 msgid "Expand a collapsed folder if you attempt to open it twice"
 msgstr ""
+"Zugeklappten Ordner aufklappen wenn zweimal versucht wird ihn zu öffnen"
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
+"Behebt einen Fehler, bei dem Suchvorgänge verloren gehen wenn Code nicht "
+"mehr das aktive Fenster ist"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "Starte Vim plugin im Command-Mode"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "Neue Vim Kommandos hinzugefügt und Fehler behoben"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "Zeige Projektordner bei verstecktem Root-Ordner"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "Gestatte den Start mit pkexec und verbiete den Start mit sudo"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "Fix \"Aktuelle Ansicht entfernen\""
+msgstr "Split View entfernt"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Remove browser preview"
-msgstr ""
+msgstr "Browservorschau entfernt"
 
 #: data/io.elementary.code.appdata.xml.in:57
 #: data/io.elementary.code.appdata.xml.in:71
@@ -440,10 +440,8 @@ msgid "Minor bug fixes"
 msgstr "Kleinere Fehlerbehebungen"
 
 #: data/io.elementary.code.appdata.xml.in:209
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -471,11 +469,12 @@ msgstr "Neues Fenster"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Code als Administrator ausführen"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+"Um Code als Administrator auszuführen ist eine Authentifizierung erforderlich"
 
 #~ msgid "New Document"
 #~ msgstr "Neues Dokument"
