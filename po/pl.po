@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-27 09:40+0000\n"
-"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
+"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -116,13 +116,11 @@ msgstr "Utwórz nowy branch “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr "Nazwa gałęzi musi być unikatowa i stosować się do zasad nazywania Git."
+msgstr "Nazwa brancha musi być unikatowa i stosować się do zasad nazywania Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Gałąź"
+msgstr "Utwórz branch"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
@@ -133,6 +131,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Wycinanie lub kopiowanie bez aktywnego zaznaczenia spowoduje wycięcie lub "
+"skopiowanie całej linii"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -295,10 +295,8 @@ msgid "Close Folder"
 msgstr "Zamknij folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Zamknij folder"
+msgstr "Zamknij inne foldery"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
 msgid "Find in Project…"
