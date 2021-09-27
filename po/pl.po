@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2021-09-27 09:40+0000\n"
+"PO-Revision-Date: 2021-09-27 22:37+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -309,13 +309,11 @@ msgstr "Zmodyfikowano"
 #: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr "Błąd podczas tworzenia nowej gałęzi: “%s”"
+msgstr "Błąd podczas tworzenia nowego brancha: “%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:506
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Gałąź"
+msgstr "Nowy branch…"
 
 #: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
@@ -451,7 +449,7 @@ msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "Filtruj projekty"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
@@ -539,18 +537,16 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:42
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open Project Folder…"
-msgstr "Otwórz folder"
+msgstr "Otwórz folder projektu…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr ""
+msgstr "Zwiń wszystkie"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Ułóż alfabetycznie"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
@@ -652,8 +648,6 @@ msgid "Choose different format"
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:290
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Czas wygaśnięcia:"
 
@@ -666,10 +660,8 @@ msgid "Available Formats"
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Czcionka:"
+msgstr "Wybierz format"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -701,10 +693,8 @@ msgid "Symbols"
 msgstr "Symbole"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symbole"
+msgstr "Nie znaleziono symboli"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
