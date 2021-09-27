@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-27 09:38+0000\n"
-"Last-Translator: Maciej Błędkowski <mble@tuta.io>\n"
+"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -94,15 +94,15 @@ msgstr "Znajdź tekst w „%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr "Wyszukiwane hasło musi mieć co najmniej 3 znaki."
+msgstr "Wyszukiwane wyrażenie musi mieć co najmniej 3 znaki."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "Wielkość liter ma znaczenie:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Użyj wyrażeń regularnych:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
