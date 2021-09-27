@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
 "PO-Revision-Date: 2021-09-27 22:37+0000\n"
-"Last-Translator: Bartek <blogowanie.xyz@gmail.com>\n"
+"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -445,7 +445,7 @@ msgstr "Szablony projektów"
 #: src/Widgets/ChooseProjectButton.vala:115
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "Aktywny projekt Git: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
@@ -550,7 +550,7 @@ msgstr "Ułóż alfabetycznie"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr ""
+msgstr "Zarządzaj folderami projektu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -572,11 +572,11 @@ msgstr "Cykliczne wyszukiwanie"
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Wielkość liter ma znaczenie"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Wielkość liter nie ma znaczenia"
 
 #: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
