@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-09-28 17:44+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr ""
 
@@ -55,34 +55,34 @@ msgstr ""
 msgid "Hide search bar"
 msgstr "Спрятати панель гледаня"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "Вшиткі файли"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "Текстовий файл"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Отворити"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Поміняти настройки Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "Опції"
 
@@ -279,8 +279,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
 msgstr ""
 
@@ -307,134 +307,149 @@ msgstr "Отворити файл"
 msgid "Find in Project…"
 msgstr "Отворити файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "Поміняти настройки Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "Поміняти настройки Scratch"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:290
 msgid "Cancel Loading"
 msgstr ""
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:383
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Уложити зміни в документі %s перед затвореням?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:384
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Кіть неуложите файл, то зміни за послінні 4 секунди будуть вернуті."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:390
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Затворити без уложиня"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "Уложити"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "Новий документ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr ""
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:743
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Уложити зміни диь инде"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr ""
 
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Шаблони"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
@@ -476,48 +491,48 @@ msgstr[1] ""
 msgid "Go To Line:"
 msgstr "Перейти на рядок:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "Отворити файл"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "Обновити сиь файл"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "Поділитися"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Бокова панель"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr ""
 

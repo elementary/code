@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2020-12-09 04:16+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"POT-Creation-Date: 2021-09-28 17:44+0000\n"
+"PO-Revision-Date: 2021-07-11 21:53+0000\n"
+"Last-Translator: Krammer <vitorcsilva180396@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -40,7 +40,7 @@ msgstr ""
 "suas abas para que você nunca as perca de vista, até mesmo entre diferentes "
 "sessões."
 
-#: data/io.elementary.code.appdata.xml.in:16
+#: data/io.elementary.code.appdata.xml.in:12
 msgid ""
 "Make it yours. Code is written from the ground up to be extensible. Keep "
 "things super lightweight and simple, or install extensions to turn Code into "
@@ -52,7 +52,7 @@ msgstr ""
 "IDE completa; a escolha é sua. E com um conjunto de preferências úteis, você "
 "pode personalizar o comportamento da interface de acordo com seu gosto."
 
-#: data/io.elementary.code.appdata.xml.in:22
+#: data/io.elementary.code.appdata.xml.in:13
 msgid ""
 "It's elementary. Code is made to be the perfect editor for elementary, "
 "meaning it closely follows the high standards of design, speed, and "
@@ -62,7 +62,7 @@ msgstr ""
 "elementary, significando que ele segue fielmente os altos padrões de design, "
 "velocidade e consistência. É bonito, mas não lhe distrai."
 
-#: data/io.elementary.code.appdata.xml.in:27
+#: data/io.elementary.code.appdata.xml.in:14
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
@@ -70,11 +70,11 @@ msgid ""
 "languages."
 msgstr ""
 "Funciona com a sua linguagem. Se você está criando códigos em Vala, criando "
-"scripts em PHP,  ou fazendo marcações em HTML, Code lhe ajuda. Experimente o "
+"scripts em PHP, ou fazendo marcações em HTML, Code lhe ajuda. Experimente o "
 "reconhecimento completo de sintaxe com quase todas as linguagens de "
 "programação, script e marcação."
 
-#: data/io.elementary.code.appdata.xml.in:33
+#: data/io.elementary.code.appdata.xml.in:15
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -84,274 +84,375 @@ msgstr ""
 "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
-#: data/io.elementary.code.appdata.xml.in:38
+#: data/io.elementary.code.appdata.xml.in:16
 msgid "Additional features include:"
 msgstr "Funcionalidades adicionais incluem:"
 
-#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:18
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "destaque de sintaxe com gtksourceview-3"
 
-#: data/io.elementary.code.appdata.xml.in:43
+#: data/io.elementary.code.appdata.xml.in:19
 msgid "a find bar to search the words in the files"
 msgstr "uma barra de pesquisa para procurar palavras nos arquivos"
 
-#: data/io.elementary.code.appdata.xml.in:44
+#: data/io.elementary.code.appdata.xml.in:20
 msgid "tab and split documents system"
 msgstr "sistema de abas e separadores de documentos"
 
-#: data/io.elementary.code.appdata.xml.in:45
+#: data/io.elementary.code.appdata.xml.in:21
 msgid "lots of others"
 msgstr "muito mais"
 
-#: data/io.elementary.code.appdata.xml.in:51
+#: data/io.elementary.code.appdata.xml.in:27
 #: data/io.elementary.code.appdata.xml.in:81
-#: data/io.elementary.code.appdata.xml.in:96
-#: data/io.elementary.code.appdata.xml.in:112
+msgid "Fixes:"
+msgstr "Correções:"
+
+#: data/io.elementary.code.appdata.xml.in:29
+msgid "Fix crash when creating new window from tab drop"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:30
+msgid "Ensure files created from the sidebar are automatically opened"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:32
+msgid "Improvements:"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:34
+msgid "Hide project chooser button when hiding sidebar"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:36
+#: data/io.elementary.code.appdata.xml.in:56
+#: data/io.elementary.code.appdata.xml.in:85
+msgid "Minor updates:"
+msgstr "Pequenas atualizações:"
+
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Ensure all copy is translatable"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:39
+#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:89
+#: data/io.elementary.code.appdata.xml.in:104
+#: data/io.elementary.code.appdata.xml.in:120
+#: data/io.elementary.code.appdata.xml.in:146
+#: data/io.elementary.code.appdata.xml.in:167
+#: data/io.elementary.code.appdata.xml.in:177
+#: data/io.elementary.code.appdata.xml.in:188
+msgid "Updated translations"
+msgstr "Traduções atualizadas"
+
+#: data/io.elementary.code.appdata.xml.in:45
+#: data/io.elementary.code.appdata.xml.in:95
+#: data/io.elementary.code.appdata.xml.in:110
+#: data/io.elementary.code.appdata.xml.in:126
 msgid "New features:"
 msgstr "Novas funcionalidades:"
 
-#: data/io.elementary.code.appdata.xml.in:53
+#: data/io.elementary.code.appdata.xml.in:47
 msgid "New Markdown plugin for WYSIWYG-like editing."
+msgstr "Novo plugin Markdown para edição no estilo WYSIWYG."
+
+#: data/io.elementary.code.appdata.xml.in:48
+msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:49
+msgid "Show Git diff status in source view gutters"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:50
+msgid "Full text search within project folder."
+msgstr "Pesquisa de texto completa na pasta do projeto."
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "Save and restore cursor position between sessions"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid "Close files from a project when that project is closed"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:53
+#, fuzzy
+#| msgid "Show full document path in tab tooltip"
+msgid "Show full file path in tab tooltips"
+msgstr "Mostrar o caminho completo do documento na dica de ferramenta da guia"
 
 #: data/io.elementary.code.appdata.xml.in:54
-msgid "Full text search within project folder."
+msgid "Clear lines with Ctrl + K"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:56
-#: data/io.elementary.code.appdata.xml.in:71
-msgid "Minor updates:"
-msgstr "Pequenas atualizações:"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Allow Spell Checker extension in Markdown files"
 msgstr "Permitir extensão do corretor ortográfico nos arquivos Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:59
+msgid "Improve multi-line duplication"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:60
 msgid "Remember whether the sidebar is open"
 msgstr "Lembre-se se a barra lateral está aberta"
 
-#: data/io.elementary.code.appdata.xml.in:60
-#, fuzzy
-#| msgid "Add keyboard shortcuts for next and previous documents."
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr ""
-"Adicionat atalhos de teclado para os documentos anteriores e seguintes."
-
 #: data/io.elementary.code.appdata.xml.in:61
-msgid "Show full document path in tab tooltip"
+msgid "Set window title to the focused file"
 msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:62
+msgid "Add keyboard shortcuts for next and previous documents"
+msgstr "Adicionar atalhos de teclado para os documentos anteriores e seguintes"
+
+#: data/io.elementary.code.appdata.xml.in:63
+msgid "Show full document path in tab tooltip"
+msgstr "Mostrar o caminho completo do documento na dica de ferramenta da guia"
+
+#: data/io.elementary.code.appdata.xml.in:64
+msgid "Update Pastebin plugin"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:65
+msgid "Correctly indent last line when using the preserve whitespace plugin"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:66
+#, fuzzy
+#| msgid "syntax highlighting with gtksourceview-3"
+msgid "Keep syntax highlighting when duplicating a file"
+msgstr "destaque de sintaxe com gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:67
-msgid "Fixes:"
-msgstr "Correções:"
+msgid "Expand a collapsed folder if you attempt to open it twice"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:68
+msgid "Fix an issue where searches are lost when Code loses focus"
+msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:69
+msgid "Start Vim plugin in command mode"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:70
+msgid "Fix and add new Vim commands"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:71
+msgid "Show project folders with a hidden root folder"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:72
+msgid "Allow launching with pkexec and disallow launching with sudo"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:73
+#, fuzzy
+#| msgid "Fix Remove Current View"
+msgid "Remove split view"
+msgstr "Corrigir Remoção de Visualização Atual"
+
+#: data/io.elementary.code.appdata.xml.in:74
+msgid "Remove browser preview"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:83
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
 "Corrija o layout da barra lateral vazia, garantindo que as pastas sempre "
 "possam ser adicionadas"
 
-#: data/io.elementary.code.appdata.xml.in:73
+#: data/io.elementary.code.appdata.xml.in:87
 msgid "Scroll past the end of a file"
 msgstr "Rolar até o final de um arquivo"
 
-#: data/io.elementary.code.appdata.xml.in:74
+#: data/io.elementary.code.appdata.xml.in:88
 msgid "More efficiently save and restore window position"
 msgstr "Salve e restaure com mais eficiência a posição da janela"
 
-#: data/io.elementary.code.appdata.xml.in:75
-#: data/io.elementary.code.appdata.xml.in:90
-#: data/io.elementary.code.appdata.xml.in:106
-#: data/io.elementary.code.appdata.xml.in:132
-#: data/io.elementary.code.appdata.xml.in:153
-#: data/io.elementary.code.appdata.xml.in:163
-#: data/io.elementary.code.appdata.xml.in:174
-msgid "Updated translations"
-msgstr "Traduções atualizadas"
-
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:97
 msgid "Include Git status in file tooltips"
 msgstr "Incluir status Git nas dicas de ferramentas de arquivo"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:98
 msgid "Option for explicit case-sensitive Find"
 msgstr ""
 "Opção para localização explícita que diferencia maiúsculas de minúsculas"
 
-#: data/io.elementary.code.appdata.xml.in:86
-#: data/io.elementary.code.appdata.xml.in:101
-#: data/io.elementary.code.appdata.xml.in:123
+#: data/io.elementary.code.appdata.xml.in:100
+#: data/io.elementary.code.appdata.xml.in:115
+#: data/io.elementary.code.appdata.xml.in:137
 msgid "Other updates:"
 msgstr "Outras atualizações:"
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:102
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
 "Exibir corretamente o item de menu Alternar comentário quando nenhum texto "
 "for selecionado"
 
-#: data/io.elementary.code.appdata.xml.in:89
+#: data/io.elementary.code.appdata.xml.in:103
 msgid "Fixed font switch alignment"
 msgstr "Corrigido o alinhamento de fonte"
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:112
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
 "Novo item de menu \"Fechar outras pastas\" para ajudar a limpar sua barra "
 "lateral"
 
-#: data/io.elementary.code.appdata.xml.in:99
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "Save and restore cyclic search setting"
 msgstr "Salvar e restaurar a configuração de pesquisa cíclica"
 
-#: data/io.elementary.code.appdata.xml.in:103
+#: data/io.elementary.code.appdata.xml.in:117
 msgid "Add keyboard shortcuts to menu items"
 msgstr "Adicionar atalhos de teclado aos itens de menu"
 
-#: data/io.elementary.code.appdata.xml.in:104
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "Make sidebar folder items not selectable"
 msgstr "Tornar itens da pasta da barra lateral não selecionáveis"
 
-#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:119
 msgid "Center new windows"
 msgstr "Centralizar novas janelas"
 
-#: data/io.elementary.code.appdata.xml.in:114
+#: data/io.elementary.code.appdata.xml.in:128
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
 "Despriorizar visualmente os arquivos .gitignored na barra lateral do projeto"
 
-#: data/io.elementary.code.appdata.xml.in:115
+#: data/io.elementary.code.appdata.xml.in:129
 msgid "Smart cut/copy lines with no active selection"
 msgstr "Linhas inteligentes de corte/cópia sem seleção ativa"
 
-#: data/io.elementary.code.appdata.xml.in:116
+#: data/io.elementary.code.appdata.xml.in:130
 msgid "Add a confirmation dialog to the \"Restore\" action"
 msgstr "Adicione um diálogo de confirmação à ação \"Restaurar\""
 
-#: data/io.elementary.code.appdata.xml.in:117
+#: data/io.elementary.code.appdata.xml.in:131
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr "Adicionado menu \"Abrir em\" na pasta raiz no gerenciador de pastas"
 
-#: data/io.elementary.code.appdata.xml.in:118
+#: data/io.elementary.code.appdata.xml.in:132
 msgid "Don't show temporary files in the folder manager"
 msgstr "Não mostrar arquivos temporários no gerenciador de pastas"
 
-#: data/io.elementary.code.appdata.xml.in:119
+#: data/io.elementary.code.appdata.xml.in:133
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
 "Adicionado indentação e completação de parênteses automáticos por padrão"
 
-#: data/io.elementary.code.appdata.xml.in:120
+#: data/io.elementary.code.appdata.xml.in:134
 msgid "Zoom terminal plugin with keyboard"
 msgstr "Zoom plugin de terminal com teclado"
 
-#: data/io.elementary.code.appdata.xml.in:121
+#: data/io.elementary.code.appdata.xml.in:135
 msgid "Honor global privacy setting when saving and restoring"
 msgstr "Respeita a configuração de privacidade global ao salvar e restaurar"
 
-#: data/io.elementary.code.appdata.xml.in:125
+#: data/io.elementary.code.appdata.xml.in:139
 msgid "Simplify \"Draw spaces\" preference"
 msgstr "Simplificar a configuração de \"Desenhar espaços\""
 
-#: data/io.elementary.code.appdata.xml.in:126
+#: data/io.elementary.code.appdata.xml.in:140
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr "Corrigido o atalho de teclado para voltar nos resultados de busca"
 
-#: data/io.elementary.code.appdata.xml.in:127
+#: data/io.elementary.code.appdata.xml.in:141
 msgid "Fix opening files from relative paths in Terminal"
 msgstr "Corrigido o abrimento de arquivos de caminhos relativos no Terminal"
 
-#: data/io.elementary.code.appdata.xml.in:128
+#: data/io.elementary.code.appdata.xml.in:142
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 "Corrigido dialogo de arquivo nulo quando abrindo uma nova janela pela doca"
 
-#: data/io.elementary.code.appdata.xml.in:129
+#: data/io.elementary.code.appdata.xml.in:143
 msgid "Add \"=\" as a zoom key"
 msgstr "Adicionado \"=\" como uma tecla de ampliação"
 
-#: data/io.elementary.code.appdata.xml.in:130
+#: data/io.elementary.code.appdata.xml.in:144
 msgid "Change search entry icon when results aren't found"
 msgstr ""
 "Altera o ícone da barra de pesquisa quando nenhum resultado for encontrado"
 
-#: data/io.elementary.code.appdata.xml.in:131
+#: data/io.elementary.code.appdata.xml.in:145
 msgid "Enter name of new file before creating it"
 msgstr "Digite o nome do novo arquivo antes de criá-lo"
 
-#: data/io.elementary.code.appdata.xml.in:139
+#: data/io.elementary.code.appdata.xml.in:153
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Utilizar Granite.MessageDialog inteiramente"
 
-#: data/io.elementary.code.appdata.xml.in:140
+#: data/io.elementary.code.appdata.xml.in:154
 msgid "Include non-text files in sidebar"
 msgstr "Incluir arquivos que não são de texto na barra lateral"
 
-#: data/io.elementary.code.appdata.xml.in:141
+#: data/io.elementary.code.appdata.xml.in:155
 msgid "Fix Remove Current View"
 msgstr "Corrigir Remoção de Visualização Atual"
 
-#: data/io.elementary.code.appdata.xml.in:148
+#: data/io.elementary.code.appdata.xml.in:162
 msgid "Fix New Window desktop action behavior"
 msgstr "Corrigir comportamento de ação de área de trabalho da Nova Janela"
 
-#: data/io.elementary.code.appdata.xml.in:149
+#: data/io.elementary.code.appdata.xml.in:163
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "Sincronizar corretamente as teclas Ctrl+N com o número de novos documentos "
 "gerados"
 
-#: data/io.elementary.code.appdata.xml.in:150
+#: data/io.elementary.code.appdata.xml.in:164
 msgid "Build system fix for editorconfig dependency"
 msgstr "Correção do sistema de compilação para dependência do editorconfig"
 
-#: data/io.elementary.code.appdata.xml.in:151
+#: data/io.elementary.code.appdata.xml.in:165
 msgid "Add Change Branch context menu item"
 msgstr "Adicionar item de menu de contexto Alterar Ramo"
 
-#: data/io.elementary.code.appdata.xml.in:152
+#: data/io.elementary.code.appdata.xml.in:166
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
 "Evite possíveis falhas de inicialização relacionadas a como os plugins são "
 "carregados"
 
-#: data/io.elementary.code.appdata.xml.in:160
+#: data/io.elementary.code.appdata.xml.in:174
 msgid "Smarter file saving behavior"
 msgstr "Comportamento de salvamento de arquivos mais inteligente"
 
-#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:175
 msgid "File saving fixes"
 msgstr "Correções de salvamento de arquivo"
 
-#: data/io.elementary.code.appdata.xml.in:162
+#: data/io.elementary.code.appdata.xml.in:176
 msgid "Don't add temporary files to tab restore"
 msgstr "Não adicione arquivos temporários a guia restauração"
 
-#: data/io.elementary.code.appdata.xml.in:170
+#: data/io.elementary.code.appdata.xml.in:184
 msgid "Don't recreate deleted files when restoring session"
 msgstr "Não recriar arquivos apagados ao restaurar a sessão"
 
-#: data/io.elementary.code.appdata.xml.in:171
+#: data/io.elementary.code.appdata.xml.in:185
 msgid "Restore line wrap preference"
 msgstr "Restaurar preferência de quebra de linha"
 
-#: data/io.elementary.code.appdata.xml.in:172
+#: data/io.elementary.code.appdata.xml.in:186
 msgid "Add accel tooltips"
 msgstr "Adicionar dicas de ferramentas de aceleração"
 
-#: data/io.elementary.code.appdata.xml.in:173
+#: data/io.elementary.code.appdata.xml.in:187
 msgid "Minor bug fixes"
 msgstr "Pequenas correções de bugs"
 
-#: data/io.elementary.code.appdata.xml.in:213
-#, fuzzy
-#| msgid "elementary LLC."
+#: data/io.elementary.code.appdata.xml.in:227
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -379,11 +480,11 @@ msgstr "Nova Janela"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Executar Code como Administrador"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "A autenticação é necessária para executar o Code como Administrador"
 
 #~ msgid "New Document"
 #~ msgstr "Novo Documento"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
+"POT-Creation-Date: 2021-09-28 17:44+0000\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "ئىزدەش......"
 
@@ -50,34 +50,34 @@ msgstr "ئىزدەش......"
 msgid "Hide search bar"
 msgstr "ئىزدەش سىتونىنى يوشۇرۇش"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:494
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "بارلىق ھۆججەتلەر"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:498
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "تېكىست ھۆججەتلىرى"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "بەزى ھۆججەتلەرنى ئىچىش"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "ئىچىش"
 
-#: src/MainWindow.vala:740 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:401
-#: src/Services/Document.vala:506 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "ئىچىش(_O)"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش(_C)"
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "ياقتۇرغان تۈرلەر"
 
@@ -275,8 +275,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:182
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 msgid "New"
 msgstr "يىڭى خەتكۈچ"
@@ -306,96 +306,96 @@ msgstr "مۇندەرىجىنى تاقاش"
 msgid "Find in Project…"
 msgstr "مۇندەرىجە ئىچىش"
 
-#: src/FolderManager/ProjectFolderItem.vala:188
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:226
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:503
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:274
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:298
+#: src/Services/Document.vala:290
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:383
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "تاقاشتىن بۇرۇن ئۆزگەرتىلگەن مەزمۇننى %s ھۆججىتىگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:384
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ئەگەر ساقلىمىسىڭىز 4 سىكۈنىت ئىچىدە ئۆزگەرتىلگەن مەزمۇن يوقاپ كىتىدۇ."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:390
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "ساقلىمايلا تاقاش"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:505
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "ساقلاش"
 
-#: src/Services/Document.vala:502
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr "ھۆججەتنى ساقلاش"
 
-#: src/Services/Document.vala:579 src/Services/Document.vala:588
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:711
+#: src/Services/Document.vala:703
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:704
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "ھۆججەت  \"%s\" نى ئوقۇغىلى بولمىدى. ھۆججەت بۇزغۇنچىلىققا ئۇچرىغان بولىشى "
 "ياكى سىزنىڭ ئوقۇش ھوقۇقىڭىز يوق بولىشى مۇمكىن."
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -404,16 +404,16 @@ msgstr ""
 "ھۆججەت \"%s\" ساقلانغان ئورۇنغا يىڭى مەزمۇن يازغىلى بولمايدۇ.باشقا يەرگە "
 "ساقلامسىز؟"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr "باشقا يەرگە ساقلاش"
 
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "ھۆججەت \"%s\" ئۆچۈرۈلگەن. يىڭى نۇسخىسىنى ساقلامسىز؟"
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:743
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -421,11 +421,11 @@ msgid ""
 msgstr ""
 "ھۆججەت  \"%s\" تىكى ئۆزگەرتىشلەرنى ساقلىغىلى بولمىدى. باشقا يەرگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "ئۆزگەرتىشلەرنى باشقا يەرگە ساقلاش"
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -434,17 +434,34 @@ msgstr ""
 "ھۆججەت  \"%s\"نىڭ مەزمۇنى باشقا پروگرامما تەرىپىدىن ئۆزگەرتىلگەن. قايتىدىن "
 "يۈكلەمسىز ياكى داۋاملىق تەھرىرلەمسىز؟"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr "يۈكلەش"
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr "داۋاملاشتۇرۇش"
 
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "قېلىپ"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+#, fuzzy
+#| msgid "Project templates"
+msgid "No Project Selected"
+msgstr "تۈر قېلىپى"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
@@ -486,49 +503,49 @@ msgstr[1] "يىڭى خەتكۈچ"
 msgid "Go To Line:"
 msgstr "ئاتلايدىغان قۇر:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "ھۆججەت ئىچىش"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "تۈر قېلىپى"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "بۇ ھۆججەتنى ساقلاش"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "باشقا ئىسىم بىلەن بۆلەك يەرگە ساقلاش"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "بۇ ھۆججەتنى ئەسلىگە كەلتۈرۈش"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "ھەمبەھىرلەش"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 #, fuzzy
 msgid "Zoom Out"
 msgstr "كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "1:1 بويىچە كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 #, fuzzy
 msgid "Zoom In"
 msgstr "كىچىكلىتىش"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr ""
 
