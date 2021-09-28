@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2019-11-15 19:42+0000\n"
-"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
+"PO-Revision-Date: 2021-09-27 22:37+0000\n"
+"Last-Translator: Maciej Błędkowski <mble@tuta.io>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -42,7 +42,7 @@ msgstr "wtyczka"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[PLIK...]"
 
 #: src/MainWindow.vala:140
 msgid "Code"
@@ -90,42 +90,37 @@ msgstr "_Anuluj"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Znajdź tekst w „%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "Wyszukiwane wyrażenie musi mieć co najmniej 3 znaki."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "Wielkość liter ma znaczenie:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Użyj wyrażeń regularnych:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Wyszukaj następne"
+msgstr "Szukaj"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Utwórz nowe wystąpienie"
+msgstr "Utwórz nowy branch “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "Nazwa brancha musi być unikatowa i stosować się do zasad nazywania Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Gałąź"
+msgstr "Utwórz branch"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
@@ -136,6 +131,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Wycinanie lub kopiowanie bez aktywnego zaznaczenia spowoduje wycięcie lub "
+"skopiowanie całej linii"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -147,7 +144,7 @@ msgstr "Zapisywanie plików po ich zmianie:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Inteligentne wycinanie/kopiowanie linijek:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
@@ -266,10 +263,8 @@ msgid "Folders"
 msgstr "Foldery"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "Otwórz folder"
+msgstr "Znajdź w folderze…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -300,31 +295,25 @@ msgid "Close Folder"
 msgstr "Zamknij folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Zamknij folder"
+msgstr "Zamknij inne foldery"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Project…"
-msgstr "Otwórz folder"
+msgstr "Znajdź w projekcie…"
 
 #: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
-msgstr ""
+msgstr "Zmodyfikowano"
 
 #: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Błąd podczas tworzenia nowego brancha: “%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:506
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Gałąź"
+msgstr "Nowy branch…"
 
 #: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
@@ -447,20 +436,18 @@ msgid "Templates"
 msgstr "Szablony"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "Szablony projektów"
+msgstr "Nie wybrano projektu"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:115
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "Aktywny projekt Git: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "Filtruj projekty"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
@@ -548,22 +535,20 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:42
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open Project Folder…"
-msgstr "Otwórz folder"
+msgstr "Otwórz folder projektu…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr ""
+msgstr "Zwiń wszystkie"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Ułóż alfabetycznie"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr ""
+msgstr "Zarządzaj folderami projektu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -585,11 +570,11 @@ msgstr "Cykliczne wyszukiwanie"
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Wielkość liter ma znaczenie"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Wielkość liter nie ma znaczenia"
 
 #: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
@@ -658,11 +643,9 @@ msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "Wybierz inny format"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Czas wygaśnięcia:"
 
@@ -672,13 +655,11 @@ msgstr "Prywatna wklejka"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "Dostępne formaty"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Czcionka:"
+msgstr "Wybierz format"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -710,10 +691,8 @@ msgid "Symbols"
 msgstr "Symbole"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symbole"
+msgstr "Nie znaleziono symboli"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
