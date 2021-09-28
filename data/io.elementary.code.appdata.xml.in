@@ -22,6 +22,24 @@
     </ul>
   </description>
   <releases>
+    <release version="6.0.1" date="2021-08-27" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix crash when creating new window from tab drop</li>
+          <li>Ensure files created from the sidebar are automatically opened</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Hide project chooser button when hiding sidebar</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Ensure all copy is translatable</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.0.0" date="2021-07-15" urgency="medium">
       <description>
         <p>New features:</p>
