@@ -92,6 +92,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             create_project_row
         );
 
+        project_listbox.remove.connect ((row) => {
+            var project_row = row as ProjectRow;
+            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
+            if (project_row.project_path == current_project) {
+                label_widget.label = _(NO_PROJECT_SELECTED);
+                label_widget.tooltip_text = _("Active Git project: %s").printf (_(NO_PROJECT_SELECTED));
+                Scratch.Services.GitManager.get_instance ().active_project_path = "";
+            }
+        });
+
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
