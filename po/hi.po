@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"POT-Creation-Date: 2021-09-28 17:44+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "ढूंढें…"
 
@@ -56,34 +56,34 @@ msgstr "ढूंढें…"
 msgid "Hide search bar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "सभी फाइलें"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "टेक्स्ट फाइलें"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "खोलें"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "खोलें (_O)"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "शाखा बदलें"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "वरीयताएँ"
 
@@ -327,85 +327,85 @@ msgstr "शाखा बदलें"
 msgid "Branch"
 msgstr "शाखा बदलें"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s एक टेक्स्ट फ़ाइल नहीं है"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
 msgstr "कोड इस प्रकार के फ़ाइल को लोड नहीं कर सकता।"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr "वैसे भी लोड करें"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" फ़ाइल लोड होने में ज्यादा समय ले रहा है"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
 msgstr "कृपया प्रतीक्षा करें जब तक कि कोड फ़ाइल लोड नहीं करता।"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:290
 msgid "Cancel Loading"
 msgstr "लोड रद्द करें"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:383
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "डाँकयुमेन्ट बंद करनेसे पहले \"%s\" के बदलाव सेव करे?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:384
 msgid "If you don't save, changes will be permanently lost."
 msgstr "अगर आप फाइल को नहीं सहेजेंगे, तो बदलाव हमेशा के लिए खो जाएँगे |"
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:390
 msgid "Close Without Saving"
 msgstr "बिना सहेजे बंद करें"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "सहेजें"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr "फ़ाइल सहेजें"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "नया दस्तावेज़"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" फ़ाइल पढ़ा नहीं जा सकता"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "शायद यह ख़राब है अथवाआपके पास इसे पढ़ने के लिए आवश्यक अनुमति नहीं है।"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "फ़ाइल \"%s\" उक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr "इस रूप में सहेजें…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर भी सहेजना चाहते हैं?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:743
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -414,11 +414,11 @@ msgstr ""
 "आप फाइल \"%s \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए गए बदलाव "
 "को अन्य स्थान पर सुरक्षित करना चाहते है ?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "बदलाव कहीं और सुरक्षित करें"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -427,11 +427,11 @@ msgstr ""
 "फ़ाइल \"%s\" किसी बाह्य एप्लीकेशन द्वारा बदला गया है. क्या आप इसे पुनः लोड करना चाहते "
 "हैं या संपादन जारी रखना चाहते हैं?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr "लोड करें"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr "जारी रखें"
 
@@ -446,7 +446,8 @@ msgid "No Project Selected"
 msgstr "प्रोजेक्ट टेम्प्लेट"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -494,47 +495,47 @@ msgstr[1] "%d  टैब"
 msgid "Go To Line:"
 msgstr "पंक्ति पर जायें:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "फाइल खोलें"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "प्रोजेक्ट टेम्प्लेट"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "इस फाइल को सुरक्षित करें"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "इस फाइल को किसी अन्य नाम से सुरक्षित करें"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "इस फाइल को वापस लौटाएँ"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "साझा करें"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "ज़ूम आउट"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "ज़ूम 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "ज़ूम इन"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr "बाजू की पट्टी टॉगल करें"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "मेन्यू"
 
