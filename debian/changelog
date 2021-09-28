@@ -1,3 +1,23 @@
+io.elementary.code (6.0.1) bionic; urgency=medium
+
+  * Release 6.0.1 (#1105)
+  * Update translation files
+  * Update translation template
+  * AppData: Modernize (#1104)
+  * AppData: List recent updates
+  * Update ChooseProjectButton when a project is closed. (#1101)
+  * Glib.File equality need .equal to work.. (#1100)
+  * Opens newly created file. (#1097)
+  * Bind visibility of sidebar and choose_project_button (#1093)
+  * Assign actions to Document after construction. (#1094)
+  * l10n: Correctly setup the locales (#1090)
+  * README: bump granite dep (#1088)
+  * POTFILES: Add Markdown plugin (#1086)
+  * POTFILES: Add ChooseProjectButton.vala (#1083)
+  * Fix typo in appdata (#1079)
+
+ -- Corentin Noël <corentin@elementary.io>  Tue, 28 Sep 2021 22:07:38 +0000
+
 io.elementary.code (6.0.0) bionic; urgency=medium
 
   * Release 6.0.0 (#1078)
