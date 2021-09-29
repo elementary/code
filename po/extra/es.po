@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-09-29 20:17+0000\n"
+"PO-Revision-Date: 2021-09-29 20:39+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -69,6 +69,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Encuentra cualquier cosa en tu archivo actual, carpetas específicas o todo "
+"tu proyecto con opciones para la distinción entre mayúsculas y minúsculas y "
+"expresiones regulares."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -77,6 +80,11 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Funciones inteligentes en todas partes: sangría automática, comportamiento "
+"inteligente de cortar/copiar, espacios en blanco visibles para el texto "
+"seleccionado y al final de las líneas de forma predeterminada, y extensiones "
+"opcionales para acciones de Markdown, revisión ortográfica, recorte de "
+"espacios en blanco, finalización de palabras y más."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -84,44 +92,54 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Adapte Code a su flujo de trabajo: puede modificar el comportamiento y la "
+"interfaz según sea necesario con un puñado de extensiones y preferencias "
+"útiles y bien consideradas."
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Hay mucho más:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Esquemas de color Solarized Light, Solarized Dark y Alto Contraste que "
+"afectan a toda la interfaz de usuario"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Barra lateral conmutable para adaptarse a tu flujo de trabajo"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Compatibilidad con sangría inteligente y .editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Pestañas tipo navegador con función de arrastrar y soltar, duplicar, "
+"deshacer cierre e historial de pestañas"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
 msgstr ""
+"Muestra la línea y el carácter actuales y salta rápidamente a una nueva línea"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Desplácese más allá del final del archivo para que pueda mantener la línea "
+"actual donde le resulte más cómodo"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Minimapa opcional para facilitar la navegación en archivos grandes"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:85
@@ -131,18 +149,21 @@ msgstr "Correcciones:"
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
+"Se corrigió el error al crear una nueva ventana desde la pestaña desplegable"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
+"Asegúrese de que los archivos creados desde la barra lateral se abran "
+"automáticamente"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "Mejoras:"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Ocultar el botón del selector de proyectos al ocultar la barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -152,7 +173,7 @@ msgstr "Actualizaciones menores:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "Asegúrese de que toda la copia sea traducible"
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
@@ -200,11 +221,9 @@ msgid "Close files from a project when that project is closed"
 msgstr "Cerrar archivos de un proyecto cuando ese proyecto está cerrado"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
 msgstr ""
-"Se muestra la ruta completa del documento en la descripción emergente de la "
+"Mostrar la ruta completa del archivo en la información de herramientas de la "
 "pestaña"
 
 #: data/io.elementary.code.appdata.xml.in:58
@@ -227,6 +246,8 @@ msgstr "Se recuerda si la barra lateral estaba abierta"
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Set window title to the focused file"
 msgstr ""
+"Establecer el título de la ventana basándose en el archivo que se encuentra "
+"abierto"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add keyboard shortcuts for next and previous documents"
