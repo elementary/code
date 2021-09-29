@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-07-27 15:57+0000\n"
+"PO-Revision-Date: 2021-09-29 10:22+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -25,26 +25,21 @@ msgid "Code"
 msgstr "Codi"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
-#| msgid "The editor that works"
 msgid "The editor that works for you"
-msgstr "L'editor que funciona"
+msgstr "L'editor que us funciona"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"El Codi és l'editor de text que us funciona. Desa automàticament els vostres "
-"fitxers, fet que significa que estan sempre actualitzats. A més, recorda les "
-"pestanyes, de manera que mai perdreu el punt, fins i tot entre sessions."
+"Tant si escriviu a Markdown com si gestioneu una base de codis d’aplicacions "
+"complexa, el Code és l’editor lleuger però amb totes les funcions. Desa "
+"automàticament els fitxers per assegurar-se que estiguin sempre actualitzats "
+"i recorda les pestanyes perquè mai no perdeu el punt, fins i tot entre "
+"sessions."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -52,14 +47,12 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Dissenyat al voltant d’un flux de treball basat en projectes, el Code coneix "
+"les vostres bases de codis separades. Inclou una integració útil amb Git per "
+"crear i canviar entre branques i mostrar fitxers i línies canviats als "
+"projectes."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
@@ -76,6 +69,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Cerqueu qualsevol cosa al fitxer actual, a carpetes específiques o a tot el "
+"projecte amb les opcions per distingir entre majúscules i minúscules i "
+"expressions regulars."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -84,6 +80,11 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Funcions intel·ligents: sagnat automàtic, comportament de retall / còpia "
+"intel·ligent, espai en blanc visible per al text seleccionat i al final de "
+"les línies de manera predeterminada, i extensions opcionals per a accions "
+"del Markdown, correcció ortogràfica, retall d’espais en blanc, acabament de "
+"paraules i molt més."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -91,44 +92,55 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Adapteu el Codi al vostre flux de treball: podeu modificar-ne el "
+"comportament i la interfície segons sigui necessari amb un grapat d’"
+"extensions i preferències útils i ben considerades."
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Hi ha moltes més coses:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Esquemes de colors Solarized Light, Solarized Dark i High Contrast que "
+"afecten tota la interfície d’usuari"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Barra lateral commutable per adaptar-se al flux de treball"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Sagnat intel·ligent i suport per a .editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Pestanyes de la classe del navegador amb arrossegar i deixar anar, "
+"duplicació, desfer el tancament i historial de pestanyes"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
 msgstr ""
+"Es mostra la línia i el caràcter actuals i se salta ràpidament a una línia "
+"nova."
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Desplaceu-vos fins al final del fitxer per mantenir la línia actual on sigui "
+"còmode."
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Minimapa opcional per facilitar la navegació per fitxers grans"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:85
@@ -137,19 +149,21 @@ msgstr "Correccions:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "Correcció del bloqueig en crear una finestra nova des de la pestanya"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
+"S'assegura que els fitxers creats des de la barra lateral s’obrin "
+"automàticament."
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "Millores:"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Amaga el botó de selecció de projectes quan s'amaga la barra lateral."
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -159,7 +173,7 @@ msgstr "Actualitzacions menors:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "S'assegura que tota la còpia sigui traduïble."
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
