@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 17:12+0000\n"
-"PO-Revision-Date: 2019-12-27 06:24+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"POT-Creation-Date: 2021-09-28 19:22+0000\n"
+"PO-Revision-Date: 2021-07-27 21:21+0000\n"
+"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/plugins/de/"
 ">\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -49,7 +49,16 @@ msgstr "Wortauswahl hervorheben"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Kennzeichnet alle Vorkommen der markierten Wörter"
+msgstr "Alle Vorkommen der markierten Wörter hervorheben"
+
+#: plugins/markdown-actions/markdown-actions.plugin:6
+msgid "Markdown Actions"
+msgstr "Markdown Actions"
+
+#: plugins/markdown-actions/markdown-actions.plugin:7
+msgid "Adds keyboard shortcuts for quick editing Markdown files"
+msgstr ""
+"Fügt Tastenkombinationen zum schnellen Bearbeiten von Markdown Dateien hinzu"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -81,7 +90,7 @@ msgstr "Rechtschreibprüfung"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr "Überprüft die Rechtschreibung deiner Dokumente"
+msgstr "Rechtschreibung in Dokumenten prüfen"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
@@ -114,8 +123,7 @@ msgstr "Wortvervollständigung"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Zeigt einen Dialog mit den am häufigsten verwendeten Wörtern aus Ihren "
-"Dateien"
+"Dialog mit den in Ihren Dateien am häufigsten verwendeten Wörtern anzeigen"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Vorschau im Webbrowser"

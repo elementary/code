@@ -74,6 +74,11 @@ namespace Scratch {
             if (in_sandbox) {
                 portal = new Xdp.Portal ();
             }
+
+            GLib.Intl.setlocale (LocaleCategory.ALL, "");
+            GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
+            GLib.Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
+            GLib.Intl.textdomain (Constants.GETTEXT_PACKAGE);
         }
 
         public override int handle_local_options (VariantDict options) {
