@@ -42,6 +42,10 @@ desktop_file = i18n.merge_file(
 )
 
 # Create a .desktop for Files' "Open in..." context menu
+# This separate, hidden shortcut handles inode/directory, 
+# which allows Code to continue opening folders without 
+# interfering with File's association when no overrides
+# have been set, such as in a DE other than Pantheon. 
 openhere_desktop_in_file = configure_file(
     input: 'open-pantheon-code-here.desktop.in.in',
     output: '@BASENAME@',
