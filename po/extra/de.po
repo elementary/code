@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-10-01 08:47+0000\n"
+"PO-Revision-Date: 2021-10-01 12:03+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/extra/de/>\n"
 "Language: de\n"
@@ -135,6 +135,8 @@ msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Über das Ende der Datei hinaus scrollen, um die aktuelle Zeile dort zu "
+"sehen, wo es bequem ist"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
@@ -148,6 +150,7 @@ msgstr "Korrekturen:"
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
+"Behebt einen Fehler beim Öffnen neuer Fenster durch das Ablegen eines Tabs"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
