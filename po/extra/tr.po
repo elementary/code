@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-10-01 12:03+0000\n"
+"PO-Revision-Date: 2021-10-01 16:25+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
 "Language: tr\n"
@@ -104,34 +104,40 @@ msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Tüm kullanıcı arayüzünü etkileyen Açık Renk Tema, Koyu Renk Tema ve Yüksek "
+"karşıtlık renk şemaları"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "İş akışınıza uyacak şekilde değiştirilebilir kenar çubuğu"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Akıllı girintili yazma ve .editorconfig desteği"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Sürükle ve bırak, çoğaltma, kapatmayı geri alma ve sekme geçmişine sahip "
+"tarayıcı sınıfı sekmeler"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Geçerli satırı ve karakteri görüntüleyin ve hızla yeni bir satıra geçin"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Dosyanın son satırını istediğiniz yere kaydırın, böylece geçerli satırı "
+"rahat olduğu yerde tutabilirsiniz"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Büyük dosyalarda gezinmeyi kolaylaştırmak için isteğe bağlı mini harita"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:85
@@ -140,19 +146,21 @@ msgstr "Düzeltmeler:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "Sekme düşüşünden yeni pencere oluştururken kilitlenme düzeltildi"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
+"Kenar çubuğundan oluşturulan dosyaların otomatik olarak açıldığından emin "
+"olundu"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "İyileştirmeler:"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Kenar çubuğunu gizlerken proje seçici düğmesini gizle"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -162,7 +170,7 @@ msgstr "Küçük güncellemeler:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr " "
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
