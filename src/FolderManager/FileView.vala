@@ -196,6 +196,27 @@ namespace Scratch.FolderManager {
             }
         }
 
+
+    private void rename_items_with_same_name (Item it) {
+        string it_name = it.file.name;
+        foreach (var chi in this.root.children) {
+            string new_other_item_name, new_it_name;
+            var other_item = chi as ProjectFolderItem;
+
+            if (Utils.find_unique_path (it.file.file, other_item.file.file, out new_it_name, out new_other_item_name)) {
+                if (it_name.length < new_it_name.length) {
+                    it_name = new_it_name;
+                }
+
+                if (other_item.name.length < new_other_item_name.length) {
+                    other_item.name = new_other_item_name;
+                }
+            }
+
+        }
+        it.name = it_name;
+    }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
@@ -207,11 +228,18 @@ namespace Scratch.FolderManager {
 
             var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
             this.root.add (folder_root);
+            rename_items_with_same_name (folder_root);
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
                 close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
+                foreach (var _folder in root.children) {
+                    var children_folder = _folder as ProjectFolderItem;
+                    if (children_folder.name != children_folder.file.name) {
+                        rename_items_with_same_name (children_folder);
+                    }
+                }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
                 write_settings ();
             });
