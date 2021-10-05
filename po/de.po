@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
-"PO-Revision-Date: 2021-07-21 14:16+0000\n"
-"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
+"POT-Creation-Date: 2021-09-28 19:22+0000\n"
+"PO-Revision-Date: 2021-10-02 02:18+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -193,7 +193,7 @@ msgstr "Zeilenumbruch:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
-msgstr "Leerstellen erzeugen:"
+msgstr "Leerzeichen erzeugen:"
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
@@ -231,7 +231,7 @@ msgstr ""
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr "Nicht Wiederherstellen"
+msgstr "Nicht wiederherstellen"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
@@ -330,12 +330,12 @@ msgstr "Code wird diesen Dateityp nicht laden."
 
 #: src/Services/Document.vala:266
 msgid "Load Anyway"
-msgstr "Trotzdem Laden"
+msgstr "Trotzdem laden"
 
 #: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Das Laden von \"%s\" dauert sehr lange"
+msgstr "Das Laden von »%s« dauert sehr lange"
 
 #: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
@@ -348,7 +348,7 @@ msgstr "Laden abbrechen"
 #: src/Services/Document.vala:383
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Änderungen am Dokument \"%s\" vor dem Schließen speichern?"
+msgstr "Änderungen am Dokument »%s« vor dem Schließen speichern?"
 
 #: src/Services/Document.vala:384
 msgid "If you don't save, changes will be permanently lost."
@@ -376,7 +376,7 @@ msgstr "Neues Dokument"
 #: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "Datei \"%s\" kann nicht gelesen werden"
+msgstr "Datei »%s« kann nicht gelesen werden"
 
 #: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
@@ -390,8 +390,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Der Ort, an dem sich die Datei \"%s\" befindet, wurde ausgehängt. Möchten "
-"Sie an einem anderen Ort speichern?"
+"Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt. Möchten Sie "
+"an einem anderen Ort speichern?"
 
 #: src/Services/Document.vala:720
 msgid "Save As…"
@@ -400,7 +400,7 @@ msgstr "Speichern unter …"
 #: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Die Datei \"%s\" wurde gelöscht. Möchten Sie sie trotzdem speichern?"
+msgstr "Die Datei »%s« wurde gelöscht. Möchten Sie sie trotzdem speichern?"
 
 #: src/Services/Document.vala:743
 #, c-format
@@ -413,7 +413,7 @@ msgstr ""
 
 #: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
-msgstr "Änderungen woanders speichern"
+msgstr "Änderungen an anderem Ort speichern"
 
 #: src/Services/Document.vala:780
 #, c-format
@@ -421,7 +421,7 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Die Datei \"%s\" wurde von einer externen Anwendung bearbeitet. Möchten Sie "
+"Die Datei »%s« wurde von einer externen Anwendung bearbeitet. Möchten Sie "
 "sie noch einmal laden oder mit Ihrer Bearbeitung fortfahren?"
 
 #: src/Services/Document.vala:783
@@ -540,7 +540,7 @@ msgstr "Projektordner öffnen …"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr "Alle zusammenklappen"
+msgstr "Alle einklappen"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
