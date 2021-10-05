@@ -56,7 +56,7 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
+            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect (() => {
                     //As SourceList items are not widgets we have to use markup to change appearance of text.

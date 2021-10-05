@@ -240,7 +240,7 @@ namespace Scratch.FolderManager {
                         rename_items_with_same_name (children_folder);
                     }
                 }
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
                 write_settings ();
             });
 
@@ -249,7 +249,7 @@ namespace Scratch.FolderManager {
                     var project_folder_item = (ProjectFolderItem)child;
                     if (project_folder_item != folder_root) {
                         root.remove (project_folder_item);
-                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item.file.file);
+                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
                     }
                 }
 
