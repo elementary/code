@@ -116,11 +116,11 @@ namespace Scratch.Dialogs {
             var line_wrap_label = new SettingsLabel (_("Line wrap:"));
             var line_wrap = new SettingsSwitch ("line-wrap");
 
-            var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
-            var draw_spaces_combo = new Gtk.ComboBoxText ();
-            draw_spaces_combo.append ("For Selection", _("For selected text"));
-            draw_spaces_combo.append ("Always", _("Always"));
-            Scratch.settings.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
+            var draw_spaces_label = new SettingsLabel (_("Visible whitespace:"));
+            var draw_spaces_switch = new DrawSpacesSwitch () {
+                halign = Gtk.Align.START,
+                valign = Gtk.Align.CENTER
+            };
 
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
@@ -152,7 +152,7 @@ namespace Scratch.Dialogs {
             content.attach (line_wrap_label, 0, 3, 1, 1);
             content.attach (line_wrap, 1, 3, 1, 1);
             content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_combo, 1, 4, 2, 1);
+            content.attach (draw_spaces_switch, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
@@ -179,6 +179,26 @@ namespace Scratch.Dialogs {
                 halign = Gtk.Align.START;
                 valign = Gtk.Align.CENTER;
                 Scratch.settings.bind (setting, this, "active", SettingsBindFlags.DEFAULT);
+            }
+        }
+
+        private class DrawSpacesSwitch : Gtk.Switch {
+            public string string_value {
+                get {
+                    return active?"Always":"For Selection";
+                }
+                set {
+                    active = (value == "Always");
+                }
+            }
+
+            public DrawSpacesSwitch () {
+                halign = Gtk.Align.START;
+                valign = Gtk.Align.CENTER;
+                notify["active"].connect (() => {
+                    string_value = active?"Always":"For Selection";
+                });
+                Scratch.settings.bind ("draw-spaces", this, "string_value", SettingsBindFlags.DEFAULT);
             }
         }
     }
