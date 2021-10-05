@@ -55,21 +55,26 @@ namespace Scratch.FolderManager {
             modified_icon = new ThemedIcon ("user-away");
         }
 
+        private void branch_or_name_changed () {
+            if (monitored_repo != null) {
+                //As SourceList items are not widgets we have to use markup to change appearance of text.
+                if (monitored_repo.head_is_branch) {
+                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                } else { //Distinguish detached heads visually
+                    markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                }
+            }
+        }
+
         construct {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
+            notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
-                monitored_repo.branch_changed.connect (() => {
-                    //As SourceList items are not widgets we have to use markup to change appearance of text.
-                    if (monitored_repo.head_is_branch) {
-                        markup = "%s <span size='small' weight='normal'>%s</span>".printf (
-                            name, monitored_repo.branch_name
-                        );
-                    } else { //Distinguish detached heads visually
-                        markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
-                            name, monitored_repo.branch_name
-                        );
-                    }
-                });
+                monitored_repo.branch_changed.connect (branch_or_name_changed);
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update_status_map ();
