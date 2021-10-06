@@ -275,9 +275,14 @@ namespace Scratch.FolderManager {
             bool case_sensitive = false;
             Regex? pattern = null;
 
+            var folder_name = start_folder.get_basename ();
+            if (this.file.file.equal (start_folder)) {
+                folder_name = name;
+            }
+
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
                 null,
-                start_folder.get_basename (),
+                folder_name,
                 monitored_repo != null && monitored_repo.git_repo != null
             ) {
                 case_sensitive = case_sensitive,
