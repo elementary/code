@@ -111,8 +111,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Widget create_project_row (GLib.Object object) {
         unowned var project_folder = (Scratch.FolderManager.ProjectFolderItem) object;
 
-        var project_row = new ProjectRow (project_folder.name);
-        project_folder.bind_property("name", project_row, "display-name", BindingFlags.DEFAULT);
+        var project_row = new ProjectRow (project_folder.file.file.get_path ());
+        project_folder.bind_property("name", project_row, "project-name", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
         if (last_entry != null) {
             project_row.project_radio.join_group (last_entry.project_radio);
@@ -146,13 +146,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     public class ProjectRow : Gtk.ListBoxRow {
         public bool active { get; set; }
         public string project_path { get; construct; }
-        public string project_name {
-            owned get {
-                return Path.get_basename (project_path);
-            }
-        }
-
-        public string display_name {get;set;}
+        public string project_name { get; set; }
 
         public Gtk.RadioButton project_radio { get; construct; }
 
@@ -160,6 +154,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             Object (
                 project_path: project_path
             );
+            project_name = Path.get_basename (project_path);
         }
 
         class construct {
@@ -168,8 +163,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         construct {
             project_radio = new Gtk.RadioButton.with_label (null, project_name);
-            notify["display-name"].connect (() => {
-                project_radio.label = display_name;
+            notify["project-name"].connect (() => {
+                project_radio.label = project_name;
             });
             add (project_radio);
             show_all ();
