@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Lucas Baudin <xapantu@gmail.com>
+ * Copyright (c) 2021 Igor Montagner <igordsm@gmail.com>
  *
  * This is a free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -84,6 +84,8 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
 
     private int current_tabstop = 0;
     private Snippet current_editing_snippet;
+    private uint placeholder_edit_timeout = -1;
+    private bool still_editing_placeholder = false;
 
     public Provider () {
         snippet_map = new Gee.HashMultiMap<string, Snippet> ();
@@ -182,12 +184,23 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
         if (current_editing_snippet.n_tabstops > 1) {
             current_view.completion.block_interactive ();  
             current_view.key_press_event.connect (next_placeholder);
+            
+            still_editing_placeholder = true;
+            placeholder_edit_timeout = Timeout.add (500, () => {
+                if (!still_editing_placeholder) {
+                    end_editing_placeholders ();
+                    return false;
+                }
+                still_editing_placeholder = false;
+                return true;
+            });
         } else {
             end_editing_placeholders ();
         }
     }
 
     public bool next_placeholder (Gdk.EventKey evt) {
+        still_editing_placeholder = true;
         if (evt.keyval == Gdk.Key.Tab) {
             var current_view = snippets.current_view;
             var buffer = current_view.buffer;
@@ -210,6 +223,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     }
 
     public void end_editing_placeholders () {
+        still_editing_placeholder = false;
         if (current_editing_snippet.n_tabstops > 0) {
             snippets.current_view.completion.unblock_interactive ();
             snippets.current_view.key_press_event.disconnect (next_placeholder);
@@ -218,6 +232,8 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_TAB_%d".printf(i));
         }
         snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_START");
+        Source.remove (placeholder_edit_timeout);
+        placeholder_edit_timeout = -1;
     }
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
