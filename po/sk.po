@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
-"PO-Revision-Date: 2019-02-13 00:07+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
-"Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
-">\n"
+"POT-Creation-Date: 2021-09-28 19:22+0000\n"
+"PO-Revision-Date: 2021-09-17 18:07+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -30,112 +29,110 @@ msgstr "Nové okno"
 
 #: src/Application.vala:41
 msgid "Print version info and exit"
-msgstr "Vytlačiť informácie o verzii a ukončiť"
+msgstr "Zobraziť informácie o verzii a ukončiť"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Sada zásuvných modulov"
 
 #: src/Application.vala:42
-#, fuzzy
 msgid "plugin"
-msgstr "Sada zásuvných modulov"
+msgstr "zásuvný modul"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[SÚBOR…]"
 
 #: src/MainWindow.vala:140
 msgid "Code"
-msgstr "Code"
+msgstr "Kód"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "Nájsť…"
 
 #: src/MainWindow.vala:207
 msgid "Hide search bar"
-msgstr "Skryť vyhľadávací panel"
+msgstr "Skryť panel vyhľadávania"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
-msgstr "Otvoriť niektoré súbory"
+msgstr "Otvorte nejaké súbory"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Otvoriť"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Vyhľadať text v „%s“"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "Vyhľadávaný pojem musí byť dlhý aspoň 3 znaky."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "Rozlišovať malé a veľké písmená:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Používať bežné výrazy:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Hľadať ďalší"
+msgstr "Hľadať"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Vytvoriť novú inštanciu"
+msgstr "Vytvoriť novú vetvu „%s/%s“"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"Názov vetvy musí byť jedinečný a musí byť v súlade s pravidlami názvov Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "Zmeniť vetvu"
+msgstr "Vytvoriť vetvu"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
-msgstr "Nastavenia"
+msgstr "Predvoľby"
 
 #: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Vystrihnutie alebo kopírovanie bez aktívneho výberu vystrihne alebo "
+"skopíruje celý aktuálny riadok"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -143,11 +140,11 @@ msgstr "Všeobecné"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
-msgstr "Uložiť súbory pri ich zmene:"
+msgstr "Ukladať súbory po upravení:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Inteligentné vystrihnutie/kopírovanie riadkov:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
@@ -155,11 +152,11 @@ msgstr "Karty"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
-msgstr "Automatické vytvorenie odstavca:"
+msgstr "Automatické odsadzovanie:"
 
 #: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
-msgstr "Vložiť medzery namiesto tabulátorov:"
+msgstr "Vkladať medzery namiesto tabulátorov:"
 
 #: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -176,7 +173,7 @@ msgstr "Rozhranie"
 #: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
-msgstr "Zavrieť"
+msgstr "Zatvoriť"
 
 #: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
@@ -188,15 +185,15 @@ msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
-msgstr "Zvýrazniť zhodujúce sa zátvorky:"
+msgstr "Zvýrazňovať zodpovedajúce zátvorky:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
-msgstr "Zalomenie riadkov:"
+msgstr "Zalamovať riadky:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
 msgid "Draw Spaces:"
-msgstr "Zobraziť mezery:"
+msgstr "Zobrazovať medzery:"
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
@@ -208,11 +205,11 @@ msgstr "Vždy"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
-msgstr "Zobraziť mini-mapu:"
+msgstr "Zobraziť minimapu:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr "Šírka vodiacej čiary:"
+msgstr "Vodidlo dĺžky riadku:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
@@ -224,20 +221,19 @@ msgstr "Vlastné písmo:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Ste si istý, že chcete obnoviť tento súbor?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "Obnovenie súboru zmaže všetky vykonané zmeny od jeho otvorenia"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Neobnovovať"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Napriek tomu načítať"
+msgstr "Napriek tomu obnoviť"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
@@ -249,7 +245,7 @@ msgstr "Otvoriť v"
 
 #: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
-msgstr "Iné akcie"
+msgstr "Ostatné akcie"
 
 #: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
@@ -265,10 +261,8 @@ msgid "Folders"
 msgstr "Priečinky"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "Otvoriť priečinok"
+msgstr "Nájsť v priečinku…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -284,11 +278,11 @@ msgstr "Prázdny súbor"
 #: src/FolderManager/ProjectFolderItem.vala:185
 #: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
-msgstr "Nová karta"
+msgstr "Nový"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
-msgstr "Priečinok bez názvu"
+msgstr "priečinok bez názvu"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "new file"
@@ -299,145 +293,137 @@ msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Zatvoriť priečinok"
+msgstr "Zatvoriť ostatné priečinky"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Project…"
-msgstr "Otvoriť priečinok"
+msgstr "Nájsť v projekte…"
 
 #: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
-msgstr ""
+msgstr "Upravený"
 
 #: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Chyba pri vytváraní novej vetvy: „%s“"
 
 #: src/FolderManager/ProjectFolderItem.vala:506
-#, fuzzy
 msgid "New Branch…"
-msgstr "Zmeniť vetvu"
+msgstr "Nová vetva…"
 
 #: src/FolderManager/ProjectFolderItem.vala:519
-#, fuzzy
 msgid "Branch"
-msgstr "Zmeniť vetvu"
+msgstr "Vetva"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nie je textový súbor"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
-msgstr "Aplikácia Code nenačíta tento typ súboru."
+msgstr "Aplikácia Kód nenačíta tento typ súboru."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr "Napriek tomu načítať"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Načítanie súboru \"%s\" trvá veľmi dlho"
+msgstr "Načítanie súboru „%s“ trvá veľmi dlho"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
-msgstr "Prosím počkajte, kým aplikácia Code načíta súbor."
+msgstr "Prosím čakajte, kým aplikácia Kód načíta súbor."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:290
 msgid "Cancel Loading"
 msgstr "Zrušiť načítanie"
 
-#: src/Services/Document.vala:392
-#, fuzzy, c-format
+#: src/Services/Document.vala:383
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Uložiť zmeny do dokumentu %s pred ukončením?"
+msgstr "Uložiť zmeny do „%s“ pred ukončením?"
 
-#: src/Services/Document.vala:393
-#, fuzzy
+#: src/Services/Document.vala:384
 msgid "If you don't save, changes will be permanently lost."
-msgstr "Ak ich neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
+msgstr "Ak ich neuložíte, zmeny budú navždy stratené."
 
-#: src/Services/Document.vala:399
-#, fuzzy
+#: src/Services/Document.vala:390
 msgid "Close Without Saving"
-msgstr "Zavrieť bez uloženia"
+msgstr "Zatvoriť bez uloženia"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr "Uložiť súbor"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "Súbor \"%s\" sa nedá prečítať"
+msgstr "Súbor „%s“ sa nedá prečítať"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Môže byť poškodený, alebo nemáte potrebné oprávnenie na jeho čítanie."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Umiestnenie obsahujúce súbor \"%s\" nie je pripojené. Chcete uložiť na iné "
-"miesto?"
+"Umiestnenie obsahujúce súbor „%s“ bolo odpojené. Chceli by ste ho uložiť na "
+"iné miesto?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr "Uložiť ako…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Súbor \"%s\" bol odstránený. Chcete ho aj napriek tomu uložiť?"
+msgstr "Súbor „%s“ bol odstránený. Chceli by ste ho aj napriek tomu uložiť?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:743
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Nie je možné uložiť zmeny v súbore \"%s\". Chcete uložiť zmeny v súbore na "
-"iné miesto?"
+"Nie je možné uložiť zmeny do súboru „%s“. Chceli by ste uložiť tieto zmeny "
+"na iné miesto?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Uložiť zmeny inam"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Súbor \"%s\" bol zmenený inou aplikáciou. Chcete ho opätovne načítať, alebo "
-"pokračovať v úpravách?"
+"Súbor „%s“ bol upravený inou aplikáciou. Chceli by ste ho opätovne načítať "
+"alebo chcete pokračovať v úpravách?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr "Načítať"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr "Pokračovať"
 
@@ -446,20 +432,19 @@ msgid "Templates"
 msgstr "Šablóny"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "Šablóny projektu"
+msgstr "Žiadny zvolený projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "Aktívny Git projekt: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "Filtrovať projekty"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
@@ -494,105 +479,103 @@ msgstr[2] "%d medzier"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d karta"
-msgstr[1] "%d karty"
-msgstr[2] "%d kariet"
+msgstr[0] "%d tabulátor"
+msgstr[1] "%d tabulátory"
+msgstr[2] "%d tabulátorov"
 
 #: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
-msgstr "Ísť na riadok:"
+msgstr "Prejsť na riadok:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "Otvoriť súbor"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "Šablóny projektu"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "Uložiť tento súbor"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
-msgstr "Uložiť tento súbor s iným menom"
+msgstr "Uložiť súbor pod iným názvom"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "Obnoviť tento súbor"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "Zdieľať"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "Oddialiť"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "Mierka 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "Priblížiť"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
-msgstr "Bočný panel"
+msgstr "Zobraziť/Skryť bočný panel"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:42
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open Project Folder…"
-msgstr "Otvoriť priečinok"
+msgstr "Otvoriť priečinok projektu…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr ""
+msgstr "Zbaliť všetko"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Zoradiť abecedne"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr ""
+msgstr "Spravovať priečinky projektu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
-msgstr "Hľadať"
+msgstr "Nájsť"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "Search next"
-msgstr "Hľadať ďalší"
+msgstr "Hľadať ďalšie"
 
 #: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
-msgstr "Hľadať predošlý"
+msgstr "Hľadať predchádzajúce"
 
 #: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
-msgstr "Cyklické hľadanie"
+msgstr "Opakované hľadanie"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Rozlišovať malé a veľké písmená"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Nerozlišovať malé a veľké písmená"
 
 #: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
-msgstr "Nahradiť za"
+msgstr "Nahradiť s"
 
 #: src/Widgets/SearchBar.vala:125
 msgid "Replace"
@@ -608,7 +591,7 @@ msgstr "Zoradiť vybrané riadky"
 
 #: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
-msgstr "Skryť/Zobraziť komentár"
+msgstr "Zobraziť/Skryť komentár"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -645,11 +628,11 @@ msgstr "Pridať priečinok projektu do bočného panela."
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
-msgstr "Odoslať do Pastebin"
+msgstr "Nahrať na Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
-msgstr "Meno:"
+msgstr "Názov:"
 
 #: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
@@ -657,13 +640,11 @@ msgstr "Formát:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "Vybrať iný formát"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "Čas vypršania platnosti:"
+msgstr "Expirácia:"
 
 #: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
@@ -671,13 +652,11 @@ msgstr "Ponechať toto vloženie súkromné"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "Dostupné formáty"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Vybrať písmo:"
+msgstr "Vybrať formát"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -709,10 +688,8 @@ msgid "Symbols"
 msgstr "Symboly"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symboly"
+msgstr "Neboli nájdené žiadne symboly"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
@@ -739,19 +716,16 @@ msgstr "Vložiť"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Neboli nájdené žiadne vhodné slovníky"
 
 #: plugins/spell/spell.vala:74
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Neboli nájdené vhodné slovníky.\n"
-"Nainštalujte prosím aspoň jeden [aspell] slovník"
+msgstr "Nainštalujte prosím aspoň jeden [aspell] slovník."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr "Dokončovanie slova: %s"
+msgstr "Dokončovanie slov: %s"
 
 #~ msgid "High Contrast"
 #~ msgstr "Vysoký kontrast"
