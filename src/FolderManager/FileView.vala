@@ -197,15 +197,15 @@ namespace Scratch.FolderManager {
         }
 
 
-    private void rename_items_with_same_name (Item it) {
-        string it_name = it.file.name;
-        foreach (var chi in this.root.children) {
-            string new_other_item_name, new_it_name;
-            var other_item = chi as ProjectFolderItem;
+    private void rename_items_with_same_name (Item item) {
+        string item_name = item.file.name;
+        foreach (var child in this.root.children) {
+            string new_other_item_name, new_item_name;
+            var other_item = child as ProjectFolderItem;
 
-            if (Utils.find_unique_path (it.file.file, other_item.file.file, out new_it_name, out new_other_item_name)) {
-                if (it_name.length < new_it_name.length) {
-                    it_name = new_it_name;
+            if (Utils.find_unique_path (item.file.file, other_item.file.file, out new_item_name, out new_other_item_name)) {
+                if (item_name.length < new_item_name.length) {
+                    item_name = new_item_name;
                 }
 
                 if (other_item.name.length < new_other_item_name.length) {
@@ -214,7 +214,7 @@ namespace Scratch.FolderManager {
             }
 
         }
-        it.name = it_name;
+        item.name = item_name;
     }
 
         private void add_folder (File folder, bool expand) {
@@ -234,10 +234,10 @@ namespace Scratch.FolderManager {
             folder_root.closed.connect (() => {
                 close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
-                foreach (var _folder in root.children) {
-                    var children_folder = _folder as ProjectFolderItem;
-                    if (children_folder.name != children_folder.file.name) {
-                        rename_items_with_same_name (children_folder);
+                foreach (var child in root.children) {
+                    var child_folder = child as ProjectFolderItem;
+                    if (child_folder.name != child_folder.file.name) {
+                        rename_items_with_same_name (child_folder);
                     }
                 }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
