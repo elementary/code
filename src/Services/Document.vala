@@ -109,8 +109,9 @@ namespace Scratch.Services {
         private static Pango.FontMap? builder_font_map = null;
 
         public Document (SimpleActionGroup actions, File? file = null) {
+            Object (actions: actions);
+
             this.file = file;
-            this.actions = _actions;
             page = main_stack;
         }
 
