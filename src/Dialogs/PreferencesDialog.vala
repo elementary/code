@@ -185,7 +185,7 @@ namespace Scratch.Dialogs {
         private class DrawSpacesSwitch : Gtk.Switch {
             public string string_value {
                 get {
-                    return active?"Always":"For Selection";
+                    return active ? "Always" : "For Selection";
                 }
                 set {
                     active = (value == "Always");
@@ -196,7 +196,7 @@ namespace Scratch.Dialogs {
                 halign = Gtk.Align.START;
                 valign = Gtk.Align.CENTER;
                 notify["active"].connect (() => {
-                    string_value = active?"Always":"For Selection";
+                    string_value = active ? "Always" : "For Selection";
                 });
                 Scratch.settings.bind ("draw-spaces", this, "string_value", SettingsBindFlags.DEFAULT);
             }
