@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-07-21 14:16+0000\n"
+"PO-Revision-Date: 2021-10-08 15:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +95,7 @@ msgstr "Пошук тексту в «%s»"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr "Термін пошуку повинен містити щонайменше 3 символи."
+msgstr "Пошукова фраза повинна містити щонайменше 3 символи."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -118,7 +118,7 @@ msgstr "Створення нової гілки з «%s/%s»"
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
-"Назва гілки повинна бути унікальною та дотримуватися правил іменування GIT."
+"Назва гілки повинна бути унікальною та відповідати правилам іменування GIT."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
@@ -722,7 +722,7 @@ msgstr "Відповідних словників не знайдено"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr "Встановіть щонайменше один [aspell] словник."
+msgstr "Установіть принаймні один словник [aspell]."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
