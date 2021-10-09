@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-07-22 19:31+0000\n"
+"PO-Revision-Date: 2021-10-09 08:52+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -193,10 +193,8 @@ msgid "Line wrap:"
 msgstr "Linjebryting:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "Fjern påflølgende skjult tabulering før linjeskift"
+msgstr "Synlige blanktegn:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -294,8 +292,6 @@ msgid "Close Other Folders"
 msgstr "Lukk andre mapper"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
-#, fuzzy
-#| msgid "Open Project Folder…"
 msgid "Find in Project…"
 msgstr "Finn i prosjekt …"
 
@@ -431,8 +427,6 @@ msgid "Templates"
 msgstr "Skisser"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
 msgstr "Prosjekt ikke valgt"
 
