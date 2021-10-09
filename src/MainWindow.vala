@@ -279,6 +279,10 @@ namespace Scratch {
             toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
 
+            toolbar.choose_project_button.project_chosen.connect (() => {
+                folder_manager_view.collapse_other_projects ();
+            });
+
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
             search_revealer = new Gtk.Revealer ();
@@ -335,13 +339,21 @@ namespace Scratch {
                 }
             });
 
-            folder_manager_view.close_all_docs_from_path.connect ((a) => {
+            folder_manager_view.close_all_docs_from_folder.connect ((folder_item, callback) => {
                 var docs = document_view.docs.copy ();
+                var folder_path = folder_item.file.path;
                 docs.foreach ((doc) => {
-                    if (doc.file.get_path ().has_prefix (a)) {
+                    if (doc.file.get_path ().has_prefix (folder_path)) {
                         document_view.close_document (doc);
+                        if (callback != null) {
+                            callback (folder_item, doc);
+                        }
                     }
                 });
+            });
+
+            folder_manager_view.restore_document.connect ((doc) => {
+                document_view.open_document (doc, true, -1);
             });
 
             folder_manager_view.restore_saved_state ();
@@ -559,7 +571,10 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
+        public void open_document (Scratch.Services.Document doc,
+                                   bool focus = true,
+                                   int cursor_position = 0) {
+
             FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             doc.source_view.project = project;
             document_view.open_document (doc, focus, cursor_position);
@@ -635,6 +650,7 @@ namespace Scratch {
 
         // For exit cleanup
         private void handle_quit () {
+            folder_manager_view.restore_all_docs ();
             document_view.save_opened_files ();
             update_saved_state ();
         }

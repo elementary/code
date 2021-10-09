@@ -19,14 +19,18 @@
  */
 
 namespace Scratch.FolderManager {
+    public delegate void DocumentCallback (ProjectFolderItem folder, Scratch.Services.Document doc);
     /**
      * SourceList that displays folders and their contents.
      */
     public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+
         private GLib.Settings settings;
+        private Scratch.Services.GitManager git_manager;
 
         public signal void select (string file);
-        public signal void close_all_docs_from_path (string path);
+        public signal void close_all_docs_from_folder (ProjectFolderItem folder, DocumentCallback? callback = null);
+        public signal void restore_document (Scratch.Services.Document doc);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -42,6 +46,8 @@ namespace Scratch.FolderManager {
             item_selected.connect (on_item_selected);
 
             settings = new GLib.Settings ("io.elementary.code.folder-manager");
+
+            git_manager = Scratch.Services.GitManager.get_instance ();
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
@@ -79,6 +85,44 @@ namespace Scratch.FolderManager {
         public void collapse_all () {
             foreach (var child in root.children) {
                 ((ProjectFolderItem) child).collapse_all ();
+            }
+        }
+
+        public void collapse_other_projects (string? keep_open_path = null) {
+            unowned string path;
+            if (keep_open_path == null) {
+                path = git_manager.active_project_path;
+            } else {
+                path = keep_open_path;
+                git_manager.active_project_path = path;
+            }
+
+            foreach (var child in root.children) {
+                var project_folder = ((ProjectFolderItem) child);
+                if (project_folder.expanded && project_folder.file.path != path) {
+                    project_folder.expanded = false;
+                    project_folder.restorable_doc_list = null;
+                    close_all_docs_from_folder (project_folder, make_restorable);
+                } else {
+                    project_folder.expanded = true;
+                    restore_project_docs (project_folder);
+                }
+            }
+        }
+
+        private void make_restorable (ProjectFolderItem folder, Scratch.Services.Document doc) {
+            folder.restorable_doc_list.prepend (doc);
+        }
+
+        private void restore_project_docs (ProjectFolderItem folder) {
+            folder.restorable_doc_list.@foreach ((doc) => {
+                restore_document (doc);
+            });
+        }
+
+        public void restore_all_docs () {
+            foreach (var child in root.children) {
+                restore_project_docs (((ProjectFolderItem) child));
             }
         }
 
@@ -210,9 +254,9 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
-                close_all_docs_from_path (folder_root.file.path);
+                close_all_docs_from_folder (folder_root);
                 root.remove (folder_root);
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
+                git_manager.remove_project (folder_root.file.file);
                 write_settings ();
             });
 
@@ -221,7 +265,7 @@ namespace Scratch.FolderManager {
                     var project_folder_item = (ProjectFolderItem)child;
                     if (project_folder_item != folder_root) {
                         root.remove (project_folder_item);
-                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item.file.file);
+                        git_manager.remove_project (project_folder_item.file.file);
                     }
                 }
 
