@@ -17,9 +17,9 @@
  *
  * Authored by: Jeremy Wootten <jeremy@elementaryos.org>
  */
- 
+
  public class Scratch.Services.DocumentManager : Object {
-    static Gee.HashMultiMap <string, string> project_docs_map;
+    static Gee.HashMultiMap <string, string> project_restorable_docs_map;
     static DocumentManager? instance;
     public static DocumentManager get_instance () {
          if (instance == null) {
@@ -30,16 +30,20 @@
      }
 
     static construct {
-        project_docs_map = new Gee.HashMultiMap<string, string> ();
+        project_restorable_docs_map = new Gee.HashMultiMap<string, string> ();
     }
-    
+
     public void make_restorable (Document doc) {
-        project_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+        project_restorable_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
     }
-    
+
     public Gee.Collection<string> take_restorable_paths (string project_path) {
-        var docs = project_docs_map.@get (project_path);
-        project_docs_map.remove_all (project_path);
+        var docs = project_restorable_docs_map.@get (project_path);
+        project_restorable_docs_map.remove_all (project_path);
         return docs;
+    }
+
+    public uint restorable_for_project (string project_path) {
+        return project_restorable_docs_map.@get (project_path).size;
     }
  }

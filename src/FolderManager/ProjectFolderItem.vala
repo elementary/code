@@ -132,8 +132,12 @@ namespace Scratch.FolderManager {
             };
             hide_item.add (hide_accellabel);
 
+            var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
+            var restore_text = ngettext (_("Restore %u Hidden Document"),
+                                         _("Restore %u Hidden Documents"),
+                                         n_restorable).printf (n_restorable);
             var restore_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Restore Hidden Documents"),
+                restore_text,
                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS + "::"
             );
             var restore_item = new Gtk.MenuItem () {
@@ -186,7 +190,10 @@ namespace Scratch.FolderManager {
             menu.append (close_all_except_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (hide_item);
-            menu.append (restore_item);
+            if (n_restorable > 0) {
+                menu.append (restore_item);
+            }
+
             menu.append (close_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (delete_item);
