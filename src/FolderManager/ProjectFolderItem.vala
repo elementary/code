@@ -103,14 +103,24 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => {
+            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
+            close_folder_item.activate.connect (() => {
                 closed ();
             });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
             close_all_except_item.sensitive = view.root.children.size > 1;
+
+            var close_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Close Open Documents"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS + "::"
+            );
+            var close_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            close_item.add (close_accellabel);
 
             var hide_accellabel = new Granite.AccelLabel.from_action_name (
                 _("Hide Open Documents"),
@@ -172,10 +182,12 @@ namespace Scratch.FolderManager {
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (close_item);
+            menu.append (close_folder_item);
             menu.append (close_all_except_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (hide_item);
             menu.append (restore_item);
+            menu.append (close_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (delete_item);
             menu.append (new Gtk.SeparatorMenuItem ());

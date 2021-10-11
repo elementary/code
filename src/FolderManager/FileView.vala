@@ -28,6 +28,7 @@ namespace Scratch.FolderManager {
         private Scratch.Services.GitManager git_manager;
 
         public signal void select (string file);
+        public signal void hide_project_docs (string project_path);
         public signal void close_project_docs (string project_path);
         public signal void restore_project_docs (string project_path);
 
@@ -107,7 +108,7 @@ namespace Scratch.FolderManager {
                     project_folder.file.path != path) {
 
                     project_folder.expanded = false;
-                    close_project_docs (project_folder.file.path);
+                    hide_project_docs (project_folder.file.path);
                 } else if (project_folder.file.path == path) {
                     project_folder.expanded = true;
                     restore_project_docs (project_folder.file.path);
