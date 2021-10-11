@@ -251,6 +251,7 @@ namespace Scratch.FolderManager {
                 foreach (var child in root.children) {
                     var project_folder_item = (ProjectFolderItem)child;
                     if (project_folder_item != folder_root) {
+                        close_project_docs (project_folder_item.path);
                         root.remove (project_folder_item);
                         git_manager.remove_project (project_folder_item.file.file);
                     }

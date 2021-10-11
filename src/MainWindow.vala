@@ -901,6 +901,10 @@ namespace Scratch {
                     }
                 }
             });
+
+            if (!make_restorable) {
+                document_manager.remove_project (project_path);
+            }
         }
 
         private void restore_project_docs (string project_path) {
