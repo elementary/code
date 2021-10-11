@@ -906,7 +906,7 @@ namespace Scratch {
         private void restore_project_docs (string project_path) {
             document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
                 var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
-                document_view.open_document (doc);
+                open_document (doc); // Use this to reassociate project and document.
                 return true;
             });
         }

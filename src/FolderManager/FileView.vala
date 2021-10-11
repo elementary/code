@@ -19,7 +19,6 @@
  */
 
 namespace Scratch.FolderManager {
-    public delegate void DocumentCallback (ProjectFolderItem folder, Scratch.Services.Document doc);
     /**
      * SourceList that displays folders and their contents.
      */
@@ -104,14 +103,12 @@ namespace Scratch.FolderManager {
 
             foreach (var child in root.children) {
                 var project_folder = ((ProjectFolderItem) child);
-                if (project_folder.expanded &&
-                    project_folder.file.path != path) {
-
+                if (project_folder.path != path) {
                     project_folder.expanded = false;
-                    hide_project_docs (project_folder.file.path);
-                } else if (project_folder.file.path == path) {
+                    hide_project_docs (project_folder.path);
+                } else if (project_folder.path == path) {
                     project_folder.expanded = true;
-                    restore_project_docs (project_folder.file.path);
+                    restore_project_docs (project_folder.path);
                 }
             }
         }

@@ -20,6 +20,8 @@
 
  public class Scratch.Services.DocumentManager : Object {
     static Gee.HashMultiMap <string, string> project_restorable_docs_map;
+    static Gee.HashMultiMap <string, string> project_open_docs_map;
+
     static DocumentManager? instance;
     public static DocumentManager get_instance () {
          if (instance == null) {
@@ -31,10 +33,27 @@
 
     static construct {
         project_restorable_docs_map = new Gee.HashMultiMap<string, string> ();
+        project_open_docs_map = new Gee.HashMultiMap<string, string> ();
     }
 
     public void make_restorable (Document doc) {
         project_restorable_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+    }
+
+    public void add_open_document (Document doc) {
+        if (doc.source_view.project == null) {
+            return;
+        }
+
+        project_open_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+    }
+
+    public void remove_open_document (Document doc) {
+        if (doc.source_view.project == null) {
+            return;
+        }
+
+        project_open_docs_map.remove (doc.source_view.project.path, doc.file.get_path ());
     }
 
     public Gee.Collection<string> take_restorable_paths (string project_path) {
@@ -45,5 +64,9 @@
 
     public uint restorable_for_project (string project_path) {
         return project_restorable_docs_map.@get (project_path).size;
+    }
+
+    public uint open_for_project (string project_path) {
+        return project_open_docs_map.@get (project_path).size;
     }
  }

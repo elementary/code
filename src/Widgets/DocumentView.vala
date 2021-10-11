@@ -195,6 +195,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         insert_tab (doc, -1);
+
         if (focus) {
             current_document = doc;
         }
@@ -331,6 +332,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.actions = window.actions;
 
         docs.append (doc);
+        Scratch.Services.DocumentManager.get_instance ().add_open_document (doc);
+
         if (!doc.is_file_temporary) {
             rename_tabs_with_same_title (doc);
         }
@@ -343,6 +346,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var doc = tab as Services.Document;
 
         docs.remove (doc);
+        Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
+
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
 
