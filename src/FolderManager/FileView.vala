@@ -24,19 +24,23 @@ namespace Scratch.FolderManager {
      * SourceList that displays folders and their contents.
      */
     public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
-
         private GLib.Settings settings;
         private Scratch.Services.GitManager git_manager;
 
         public signal void select (string file);
-        public signal void close_all_docs_from_folder (ProjectFolderItem folder, DocumentCallback? callback = null);
-        public signal void restore_document (Scratch.Services.Document doc);
+        public signal void close_project_docs (string project_path);
+        public signal void restore_project_docs (string project_path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         public bool ignore_next_select { get; set; default = false; }
         public string icon_name { get; set; }
         public string title { get; set; }
+        public string active_project_path {
+            get {
+                return git_manager.active_project_path;
+            }
+        }
 
         construct {
             width_request = 180;
@@ -99,30 +103,15 @@ namespace Scratch.FolderManager {
 
             foreach (var child in root.children) {
                 var project_folder = ((ProjectFolderItem) child);
-                if (project_folder.expanded && project_folder.file.path != path) {
+                if (project_folder.expanded &&
+                    project_folder.file.path != path) {
+
                     project_folder.expanded = false;
-                    project_folder.restorable_doc_list = null;
-                    close_all_docs_from_folder (project_folder, make_restorable);
-                } else {
+                    close_project_docs (project_folder.file.path);
+                } else if (project_folder.file.path == path) {
                     project_folder.expanded = true;
-                    restore_project_docs (project_folder);
+                    restore_project_docs (project_folder.file.path);
                 }
-            }
-        }
-
-        private void make_restorable (ProjectFolderItem folder, Scratch.Services.Document doc) {
-            folder.restorable_doc_list.prepend (doc);
-        }
-
-        private void restore_project_docs (ProjectFolderItem folder) {
-            folder.restorable_doc_list.@foreach ((doc) => {
-                restore_document (doc);
-            });
-        }
-
-        public void restore_all_docs () {
-            foreach (var child in root.children) {
-                restore_project_docs (((ProjectFolderItem) child));
             }
         }
 
@@ -254,7 +243,7 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
-                close_all_docs_from_folder (folder_root);
+                close_project_docs (folder_root.file.path);
                 root.remove (folder_root);
                 git_manager.remove_project (folder_root.file.file);
                 write_settings ();

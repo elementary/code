@@ -33,7 +33,6 @@ namespace Scratch.FolderManager {
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
-        public List<Scratch.Services.Document?> restorable_doc_list = null;
         public string top_level_path { get; construct; }
         public bool is_git_repo {
             get {
@@ -113,6 +112,26 @@ namespace Scratch.FolderManager {
             close_all_except_item.activate.connect (() => { close_all_except (); });
             close_all_except_item.sensitive = view.root.children.size > 1;
 
+            var hide_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Hide Open Documents"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS + "::"
+            );
+            var hide_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            hide_item.add (hide_accellabel);
+
+            var restore_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Restore Hidden Documents"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS + "::"
+            );
+            var restore_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            restore_item.add (restore_accellabel);
+
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
                 closed ();
@@ -125,7 +144,7 @@ namespace Scratch.FolderManager {
             );
 
             var search_item = new Gtk.MenuItem () {
-                action_name = "win.action_find_global",
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
                 action_target = new Variant.string (file.file.get_path ())
             };
             search_item.add (search_accellabel);
@@ -155,6 +174,9 @@ namespace Scratch.FolderManager {
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (close_item);
             menu.append (close_all_except_item);
+            menu.append (hide_item);
+            menu.append (restore_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (delete_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
