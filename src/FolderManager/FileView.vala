@@ -25,11 +25,9 @@ namespace Scratch.FolderManager {
     public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private GLib.Settings settings;
         private Scratch.Services.GitManager git_manager;
+        private ActionGroup? toplevel_action_group = null;
 
         public signal void select (string file);
-        public signal void hide_project_docs (string project_path);
-        public signal void close_project_docs (string project_path);
-        public signal void restore_project_docs (string project_path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -52,6 +50,12 @@ namespace Scratch.FolderManager {
             settings = new GLib.Settings ("io.elementary.code.folder-manager");
 
             git_manager = Scratch.Services.GitManager.get_instance ();
+
+            realize.connect (() => {
+                toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
+                assert_nonnull (toplevel_action_group);
+            });
+
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
@@ -105,10 +109,10 @@ namespace Scratch.FolderManager {
                 var project_folder = ((ProjectFolderItem) child);
                 if (project_folder.path != path) {
                     project_folder.expanded = false;
-                    hide_project_docs (project_folder.path);
+                    toplevel_action_group.activate_action (MainWindow.ACTION_HIDE_PROJECT_DOCS, new Variant.string (project_folder.path));
                 } else if (project_folder.path == path) {
                     project_folder.expanded = true;
-                    restore_project_docs (project_folder.path);
+                    toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
                 }
             }
         }
@@ -241,7 +245,7 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
-                close_project_docs (folder_root.file.path);
+                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
                 root.remove (folder_root);
                 git_manager.remove_project (folder_root.file.file);
                 write_settings ();
@@ -251,7 +255,7 @@ namespace Scratch.FolderManager {
                 foreach (var child in root.children) {
                     var project_folder_item = (ProjectFolderItem)child;
                     if (project_folder_item != folder_root) {
-                        close_project_docs (project_folder_item.path);
+                        toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
                         root.remove (project_folder_item);
                         git_manager.remove_project (project_folder_item.file.file);
                     }

@@ -55,7 +55,8 @@ namespace Scratch {
 
         public SimpleActionGroup actions { get; construct; }
 
-        public const string ACTION_PREFIX = "win.";
+        public const string ACTION_GROUP = "win";
+        public const string ACTION_PREFIX = ACTION_GROUP + ".";
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
@@ -203,7 +204,7 @@ namespace Scratch {
 
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
-            insert_action_group ("win", actions);
+            insert_action_group (ACTION_GROUP, actions);
 
             actions.action_state_changed.connect ((name, new_state) => {
                 if (name == ACTION_SHOW_FIND) {
@@ -350,17 +351,6 @@ namespace Scratch {
                 }
             });
 
-            folder_manager_view.close_project_docs.connect ((project_path) => {
-                close_project_docs (project_path, false);
-            });
-
-            folder_manager_view.hide_project_docs.connect ((project_path) => {
-                close_project_docs (project_path, true);
-            });
-
-            folder_manager_view.restore_project_docs.connect ((project_path) => {
-                restore_project_docs (project_path);
-            });
 
             folder_manager_view.restore_saved_state ();
 
@@ -887,7 +877,6 @@ namespace Scratch {
         }
 
         private void action_restore_project_docs (SimpleAction action, Variant? param) {
-        warning ("action restore");
             restore_project_docs (get_target_path_for_actions (param));
         }
 
