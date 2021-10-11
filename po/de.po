@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-10-02 02:18+0000\n"
+"PO-Revision-Date: 2021-10-10 17:52+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -192,10 +192,8 @@ msgid "Line wrap:"
 msgstr "Zeilenumbruch:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "Leerzeichen am Zeilenende entfernen"
+msgstr "Sichtbarer Weißraum:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
