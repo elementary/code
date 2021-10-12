@@ -291,7 +291,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private bool find_unique_path (File f1, File f2, out string? path1, out string? path2) {
-        if (f1 == f2) {
+        if (f1.equal (f2)) {
             path1 = null;
             path2 = null;
             return false;

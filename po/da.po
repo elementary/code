@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "Find…"
 
@@ -55,34 +55,34 @@ msgstr "Find…"
 msgid "Hide search bar"
 msgstr "Skjul søgelinjen"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuller"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Åbn"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Annuller"
 
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "Præferencer"
 
@@ -198,16 +198,10 @@ msgid "Line wrap:"
 msgstr "Linjeombrydning:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Tegn mellemrum:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "For valgte tekst"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Altid"
+#, fuzzy
+#| msgid "Strip trailing whitespace"
+msgid "Visible whitespace:"
+msgstr "Fjern overskydende mellemrum"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -332,70 +326,70 @@ msgstr "Branch"
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Er Ikke En Tekstfil"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Code kan ikke indlæse denne type fil."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Indlæsning af Filen \"%s\" Tager Lang Tid"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Vent venligst, mens Code indlæser filen."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "Annuller Indlæsning"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Gem ændringer til dokumentet \"%s\", inden lukning?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Hvis ikke du gemmer, vil ændringer gå tabt permanent."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "Luk uden at gemme"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Gem"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Gem fil"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Nyt Dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Den kan være beskadiget, eller du kan mangle tilladelse til at læse den."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -404,16 +398,16 @@ msgstr ""
 "Placeringen som indeholder filen \"%s\" blev afmonteret. Vil du gemme et "
 "andet sted?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Gem som…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Filen \"%s\" blev slettet. Vil du gemme den alligevel?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -422,11 +416,11 @@ msgstr ""
 "Du kan ikke gemme dine ændringer i filen \"%s\". Vil du gemme ændringerne et "
 "andet sted?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "Gem ændringer et andet sted"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -435,11 +429,11 @@ msgstr ""
 "Filen \"%s\" var ændret af en anden applikation. Vil du indlæse den igen "
 "eller fortsætte med dine ændringer?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Indlæs"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Fortsæt"
 
@@ -454,7 +448,8 @@ msgid "No Project Selected"
 msgstr "Projekt skabeloner"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -502,47 +497,47 @@ msgstr[1] "%d Faneblade"
 msgid "Go To Line:"
 msgstr "Gå til linje:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "Åbn en fil"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "Projekt skabeloner"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "Gem denne fil"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "Gem denne fil med et andet navn"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "Genskab denne fil"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "Del"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "Zoom Ud"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "Zoom Ind"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr "Vis/Skjul Sidepanel"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "Menu"
 
@@ -747,6 +742,15 @@ msgstr "Installer venligst mindst en [aspell] ordbog."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Fuldførsel af ord"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Tegn mellemrum:"
+
+#~ msgid "For selected text"
+#~ msgstr "For valgte tekst"
+
+#~ msgid "Always"
+#~ msgstr "Altid"
 
 #~ msgid "High Contrast"
 #~ msgstr "Høj Kontrast"
@@ -1002,9 +1006,6 @@ msgstr "%s - Fuldførsel af ord"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "En terminal i din tekst editor"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "Fjern overskydende mellemrum"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "Fjern efterstillede mellemrum når der gemmes"
