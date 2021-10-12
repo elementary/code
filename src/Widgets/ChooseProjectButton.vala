@@ -112,7 +112,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         unowned var project_folder = (Scratch.FolderManager.ProjectFolderItem) object;
 
         var project_row = new ProjectRow (project_folder.file.file.get_path ());
-        project_folder.bind_property("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
+        project_folder.bind_property ("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 var label = srcval.get_string ();
                 targetval.set_string (label);
@@ -155,7 +155,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     public class ProjectRow : Gtk.ListBoxRow {
         public bool active { get; set; }
         public string project_path { get; construct; }
-        public string project_name { 
+        public string project_name {
             get {
                 return project_radio.label;
             }
