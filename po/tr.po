@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2021-07-21 23:48+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -47,7 +47,7 @@ msgstr "[DOSYA…]"
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "Bul…"
 
@@ -55,34 +55,34 @@ msgstr "Bul…"
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -121,7 +121,7 @@ msgstr "Dal adı benzersiz olmalı ve Git adlandırma kurallarına uymalıdır."
 msgid "Create Branch"
 msgstr "Dal Oluştur"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -191,16 +191,10 @@ msgid "Line wrap:"
 msgstr "Satır kaydırma:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Boşlukları Göster:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "Seçili metin için"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Her zaman"
+#, fuzzy
+#| msgid "Strip trailing whitespace"
+msgid "Visible whitespace:"
+msgstr "Satır sonundaki boşlukları sil"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -318,69 +312,69 @@ msgstr "Yeni Dal…"
 msgid "Branch"
 msgstr "Dal"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Bir Metin Dosyası Değil"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Kod bu tip bir dosyayı yüklemeyecek."
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "Yine de Yükle"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" Dosyasının Yüklenmesi Uzun Sürüyor"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "Yüklemeyi İptal Et"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Kapatmadan önce \"%s\" üzerinde yapılan değişiklikler kaydedilsin mi?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Kaydetmezseniz, değişiklikler kalıcı olarak kaybedilir."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "Kaydetmeden Kapat"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Dosyayı Kaydet"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Yeni Belge"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" Dosyası Okunamıyor"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Dosya bozuk veya okumak için izniniz yok."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -389,16 +383,16 @@ msgstr ""
 "\"%s\" dosyasının konumu bağlanmamış durumda. Dosyayı başka bir konuma "
 "kaydetmek ister misiniz?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Farklı Kaydet…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" dosyası silindi. Yine de kaydetmek istiyor musunuz?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -407,11 +401,11 @@ msgstr ""
 "Değişiklikleri \"%s\" dosyasına kaydedemezsiniz. Değişiklikleri başka bir "
 "yere kaydetmek ister misiniz?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "Değişiklikleri başka yere kaydet"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -420,11 +414,11 @@ msgstr ""
 "\"%s\" dosyası başka bir uygulama tarafından değiştirilmiş. Dosyayı tekrar "
 "yükleyip düzenlemeye devam etmek istiyor musunuz?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Yükle"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Devam Et"
 
@@ -437,7 +431,8 @@ msgid "No Project Selected"
 msgstr "Proje Seçilmedi"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Etkin Git projesi: %s"
@@ -485,47 +480,47 @@ msgstr[1] "%d Sekme"
 msgid "Go To Line:"
 msgstr "Satıra Git:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "Bir dosya aç"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "Proje şablonları"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "Bu dosyayı kaydet"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "Bu dosyayı farklı bir adla kaydet"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "Bu dosyayı geri yükle"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "Paylaş"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "Uzaklaştır"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "1:1 Yakınlaştır"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "Yakınlaştır"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr "Kenar Çubuğunu Aç/Kapat"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "Menü"
 
@@ -724,6 +719,15 @@ msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Boşlukları Göster:"
+
+#~ msgid "For selected text"
+#~ msgstr "Seçili metin için"
+
+#~ msgid "Always"
+#~ msgstr "Her zaman"
 
 #~ msgid "High Contrast"
 #~ msgstr "Yüksek Karşıtlık"
@@ -1006,9 +1010,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Metin düzenleyiciniz için bir uçbirim"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "Satır sonundaki boşlukları sil"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "Kayıtta satır sonundaki boşlukları siler"
