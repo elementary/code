@@ -235,7 +235,7 @@ namespace Scratch.FolderManager {
                 close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
                 foreach (var child in root.children) {
-                    var child_folder = child as ProjectFolderItem;
+                    var child_folder = (ProjectFolderItem) child;
                     if (child_folder.name != child_folder.file.name) {
                         rename_items_with_same_name (child_folder);
                     }
