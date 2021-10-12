@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-08-09 11:02+0000\n"
+"PO-Revision-Date: 2021-10-09 06:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -189,10 +189,8 @@ msgid "Line wrap:"
 msgstr "行の折り返し:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "行末の余分な空白を削除"
+msgstr "空白を表示:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
