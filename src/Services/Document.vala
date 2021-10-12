@@ -34,15 +34,7 @@ namespace Scratch.Services {
         public signal void doc_closed ();
 
         // The parent window's actions
-        private weak SimpleActionGroup _actions;
-        public SimpleActionGroup actions {
-            get {
-                return _actions;
-            }
-            set {
-                _actions = value;
-            }
-        }
+        public unowned SimpleActionGroup actions { get; set construct; }
 
         public bool is_file_temporary {
             get {
