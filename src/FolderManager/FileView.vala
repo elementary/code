@@ -24,15 +24,21 @@ namespace Scratch.FolderManager {
      */
     public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private GLib.Settings settings;
+        private Scratch.Services.GitManager git_manager;
+        private ActionGroup? toplevel_action_group = null;
 
         public signal void select (string file);
-        public signal void close_all_docs_from_path (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         public bool ignore_next_select { get; set; default = false; }
         public string icon_name { get; set; }
         public string title { get; set; }
+        public string active_project_path {
+            get {
+                return git_manager.active_project_path;
+            }
+        }
 
         construct {
             width_request = 180;
@@ -42,6 +48,14 @@ namespace Scratch.FolderManager {
             item_selected.connect (on_item_selected);
 
             settings = new GLib.Settings ("io.elementary.code.folder-manager");
+
+            git_manager = Scratch.Services.GitManager.get_instance ();
+
+            realize.connect (() => {
+                toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
+                assert_nonnull (toplevel_action_group);
+            });
+
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
@@ -79,6 +93,27 @@ namespace Scratch.FolderManager {
         public void collapse_all () {
             foreach (var child in root.children) {
                 ((ProjectFolderItem) child).collapse_all ();
+            }
+        }
+
+        public void collapse_other_projects (string? keep_open_path = null) {
+            unowned string path;
+            if (keep_open_path == null) {
+                path = git_manager.active_project_path;
+            } else {
+                path = keep_open_path;
+                git_manager.active_project_path = path;
+            }
+
+            foreach (var child in root.children) {
+                var project_folder = ((ProjectFolderItem) child);
+                if (project_folder.path != path) {
+                    project_folder.expanded = false;
+                    toplevel_action_group.activate_action (MainWindow.ACTION_HIDE_PROJECT_DOCS, new Variant.string (project_folder.path));
+                } else if (project_folder.path == path) {
+                    project_folder.expanded = true;
+                    toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
+                }
             }
         }
 
@@ -220,9 +255,9 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
-                close_all_docs_from_path (folder_root.file.path);
+                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
                 root.remove (folder_root);
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
+                git_manager.remove_project (folder_root.file.file);
                 write_settings ();
             });
 
@@ -230,8 +265,9 @@ namespace Scratch.FolderManager {
                 foreach (var child in root.children) {
                     var project_folder_item = (ProjectFolderItem)child;
                     if (project_folder_item != folder_root) {
+                        toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
                         root.remove (project_folder_item);
-                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item.file.file);
+                        git_manager.remove_project (project_folder_item.file.file);
                     }
                 }
 
