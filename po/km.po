@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Khmer <km@li.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr ""
 
@@ -55,34 +55,34 @@ msgstr ""
 msgid "Hide search bar"
 msgstr "លាក់​របារ​ស្វែង​រក"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:491
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "ឯកសារ​​ទាំង​អស់"
 
-#: src/MainWindow.vala:728 src/Services/Document.vala:495
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "ឯកសារ​​អត្ថបទ"
 
-#: src/MainWindow.vala:732
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "បើក"
 
-#: src/MainWindow.vala:736 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:398
-#: src/Services/Document.vala:503 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "បោះបង់"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "ប្ដូរ​ការ​កំណត់​របស់ Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "ចំណង់​ចំណូល​ចិត្ត"
 
@@ -193,15 +193,7 @@ msgid "Line wrap:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
+msgid "Visible whitespace:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
@@ -255,7 +247,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:108
+#: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
 msgstr ""
 
@@ -279,8 +271,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:175
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:185
+#: src/FolderManager/ProjectFolderItem.vala:191
 #, fuzzy
 msgid "New"
 msgstr "បង្កើតផ្ទាំងថ្មី"
@@ -294,143 +286,143 @@ msgstr ""
 msgid "new file"
 msgstr "ឯកសារ​ថ្មី"
 
-#: src/FolderManager/ProjectFolderItem.vala:99
+#: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:104
+#: src/FolderManager/ProjectFolderItem.vala:111
 #, fuzzy
 msgid "Close Other Folders"
 msgstr "បើក​​ឯកសារ"
 
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:122
 #, fuzzy
 msgid "Find in Project…"
 msgstr "បើក​​ឯកសារ"
 
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:215
+#: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:488
+#: src/FolderManager/ProjectFolderItem.vala:506
 #, fuzzy
 msgid "New Branch…"
 msgstr "ប្ដូរ​ការ​កំណត់​របស់ Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:501
+#: src/FolderManager/ProjectFolderItem.vala:519
 #, fuzzy
 msgid "Branch"
 msgstr "ប្ដូរ​ការ​កំណត់​របស់ Scratch"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:271
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:295
+#: src/Services/Document.vala:291
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "បោះបង់"
 
-#: src/Services/Document.vala:388
+#: src/Services/Document.vala:384
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "តើ​រក្សា​ទុក​ការ​ប្រែ​ប្រួល​ក្នុង​ឯកសារ %s មុន​បិទ​ឬ​ទេ ?"
 
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:385
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "បើ​អ្នក​មិន​រក្សា​ទុក​ទេ នោះ​ការ​ប្រែ​ប្រួល​ពី​ ៤ វិនាទីចុង​ក្រោយ​នេះ នឹង​ត្រូវ​បាត់​បង់​ជា​អចិន្រ្តៃយ​ហើយ ។"
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "បិទ​ដោយ​មិន​រក្សា​ទុក"
 
-#: src/Services/Document.vala:399 src/Services/Document.vala:502
-#: src/Services/Document.vala:734
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "រក្សា​ទុក"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "រក្សាទុកឯកសារ"
 
-#: src/Services/Document.vala:576 src/Services/Document.vala:585
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "ឯកសារ​ថ្មី"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:709
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:725
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "រក្សាទុកជា..."
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "បានលុបឯកសារ \"%s\" ហើយ ។ តើអ្នកចង់រក្សាទុកវាឬទេ?"
 
-#: src/Services/Document.vala:748
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "រក្សា​ទុក​ការ​ប្រែ​ប្រួល​នៅ​ទី​តាំង​ផ្សេង​ទៀត"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "ផ្ទុក"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "បន្ត"
 
@@ -438,7 +430,22 @@ msgstr "បន្ត"
 msgid "Templates"
 msgstr "ពុម្ព"
 
-#: src/Widgets/DocumentView.vala:125
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
+#, c-format
+msgid "Active Git project: %s"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:126
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "ឯកសារ​​អត្ថបទ"
@@ -478,60 +485,48 @@ msgstr[1] "បង្កើតផ្ទាំងថ្មី"
 msgid "Go To Line:"
 msgstr "ទៅ​ដល់​បន្ទាប់ ៖"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "បើក​​ឯកសារ"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "ស្ដារ​ឯកសារ​នេះ"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "ចែក​រំលែក"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:132
-msgid "High Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:140
-msgid "Solarized Light"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:148
-msgid "Solarized Dark"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:158
+#: src/Widgets/HeaderBar.vala:151
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "របារ​ចំហៀង"
 
-#: src/Widgets/HeaderBar.vala:189
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr ""
 
@@ -590,11 +585,11 @@ msgstr "ជំនួស"
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:492
+#: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:505
+#: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
 msgstr ""
 

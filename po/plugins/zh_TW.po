@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2020-06-30 21:12+0000\n"
 "Last-Translator: Nan-Hung Hsieh <nhsieh@cvm.tamu.edu>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -50,6 +50,14 @@ msgstr "標明單字選取"
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
 msgstr "標明選取單字的全部出現處"
+
+#: plugins/markdown-actions/markdown-actions.plugin:6
+msgid "Markdown Actions"
+msgstr ""
+
+#: plugins/markdown-actions/markdown-actions.plugin:7
+msgid "Adds keyboard shortcuts for quick editing Markdown files"
+msgstr ""
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"

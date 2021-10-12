@@ -368,6 +368,7 @@ namespace Scratch.FolderManager {
                         return Source.CONTINUE;
                     } else {
                         var new_name = rename_item.name;
+                        view.ignore_next_select = true;
                         remove (rename_item);
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
@@ -375,6 +376,7 @@ namespace Scratch.FolderManager {
                                 gfile.make_directory ();
                             } else {
                                 gfile.create (FileCreateFlags.NONE);
+                                view.select (gfile.get_path ());
                             }
                         } catch (Error e) {
                             warning (e.message);

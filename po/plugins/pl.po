@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 18:04+0000\n"
-"PO-Revision-Date: 2019-11-15 21:24+0000\n"
-"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"PO-Revision-Date: 2021-09-27 22:37+0000\n"
+"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/plugins/pl/"
 ">\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -51,6 +51,14 @@ msgstr "Zakreślające zaznaczanie słów"
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Zakreśla wszystkie wystąpienia wyznaczonych słów"
+
+#: plugins/markdown-actions/markdown-actions.plugin:6
+msgid "Markdown Actions"
+msgstr "Czynności Markdown"
+
+#: plugins/markdown-actions/markdown-actions.plugin:7
+msgid "Adds keyboard shortcuts for quick editing Markdown files"
+msgstr "Dodaje skróty klawiszowe do szybkiego edytowania plików Markdown"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"

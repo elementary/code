@@ -6,59 +6,77 @@
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
   <name>Code</name>
-  <summary>The editor that works</summary>
+  <summary>The editor that works for you</summary>
   <description>
-    <p>
-      Code is the editor that works for you. It auto-saves your files,
-      meaning they're always up-to-date. Plus it remembers your tabs so you never
-      lose your spot, even in between sessions.
-    </p>
-    <p>
-      Make it yours. Code is written from the ground up to be extensible. Keep
-      things super lightweight and simple, or install extensions to turn Code
-      into a full-blown IDE; it's your choice. And with a handful of useful preferences,
-      you can tweak the behavior and interface to your liking.
-    </p>
-    <p>
-      It's elementary. Code is made to be the perfect editor for elementary,
-      meaning it closely follows the high standards of design, speed, and consistency.
-      It's sexy, but not distracting.
-    </p>
-    <p>
-      Works with your language. Whether you're crafting code in Vala, scripting
-      with PHP, or marking things up in HTML, Code has you covered. Experience
-      full syntax highlighting with nearly all programming, scripting, and markup
-      languages.
-    </p>
-    <p>
-      Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
-      Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective
-      C, Pascal, Perl, Python, Ruby, XML.
-    </p>
-    <p>
-      Additional features include:
-    </p>
+    <p>Whether you're writing in Markdown or managing a complex app codebase, Code is the lightweight but full-featured editor for you. It auto-saves your files to ensure they're always up-to-date, and it remembers your tabs so you never lose your spot—even between sessions.</p>
+    <p>Designed around a project-based workflow, Code knows about your separate codebases. It comes with helpful Git integration to create and switch between branches and show changed files and lines within your projects.</p>
+    <p>Work with your language: whether you're crafting code in Vala, scripting with PHP, or marking things up in HTML, Code has you covered. Experience full syntax highlighting with nearly all programming, scripting, and markup languages.</p>
+    <p>Find anything in your current file, specific folders, or your whole project with options for case-sensitivity and regular expressions.</p>
+    <p>Smart features throughout: automatic indentation, smart cut/copy behavior, visible whitespace for selected text and at the end of lines by default, and optional extensions for Markdown actions, spell checking, whitespace trimming, word completion, and more.</p>
+    <p>Adapt Code to your workflow: you can tweak the behavior and interface as needed with a handful of useful and well-considered extensions and preferences.</p>
+    <p>There's a ton more:</p>
     <ul>
-      <li>syntax highlighting with gtksourceview-3</li>
-      <li>a find bar to search the words in the files</li>
-      <li>tab and split documents system</li>
-      <li>lots of others</li>
+      <li>Solarized Light, Solarized Dark, and High Contrast color schemes that affect the whole UI</li>
+      <li>Togglable sidebar to fit your workflow</li>
+      <li>Smart indentation and .editorconfig support</li>
+      <li>Browser-class tabs with drag-and-drop, duplication, undo closing, and tab history</li>
+      <li>Display the current line and character—and quickly jump to a new line</li>
+      <li>Scroll past the end of the file so you can keep the current line where it's comfortable</li>
+      <li>Optional mini-map to make navigating large files easier</li>
     </ul>
   </description>
   <releases>
-    <release version="3.4.2" date="2020-06-09">
+    <release version="6.0.1" date="2021-08-28" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix crash when creating new window from tab drop</li>
+          <li>Ensure files created from the sidebar are automatically opened</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Hide project chooser button when hiding sidebar</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Ensure all copy is translatable</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.0.0" date="2021-07-15" urgency="medium">
       <description>
         <p>New features:</p>
         <ul>
           <li>New Markdown plugin for WYSIWYG-like editing.</li>
+          <li>Switch Git branches or create new ones in project folder context menus</li>
+          <li>Show Git diff status in source view gutters</li>
           <li>Full text search within project folder.</li>
+          <li>Save and restore cursor position between sessions</li>
+          <li>Close files from a project when that project is closed</li>
+          <li>Show full file path in tab tooltips</li>
+          <li>Clear lines with Ctrl + K</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
           <li>Allow Spell Checker extension in Markdown files</li>
+          <li>Improve multi-line duplication</li>
           <li>Remember whether the sidebar is open</li>
+          <li>Set window title to the focused file</li>
           <li>Add keyboard shortcuts for next and previous documents</li>
           <li>Show full document path in tab tooltip</li>
+          <li>Update Pastebin plugin</li>
+          <li>Correctly indent last line when using the preserve whitespace plugin</li>
+          <li>Keep syntax highlighting when duplicating a file</li>
+          <li>Expand a collapsed folder if you attempt to open it twice</li>
+          <li>Fix an issue where searches are lost when Code loses focus</li>
+          <li>Start Vim plugin in command mode</li>
+          <li>Fix and add new Vim commands</li>
+          <li>Show project folders with a hidden root folder</li>
+          <li>Allow launching with pkexec and disallow launching with sudo</li>
+          <li>Remove split view</li>
+          <li>Remove browser preview</li>
+          <li>Updated translations</li>
         </ul>
       </description>
     </release>

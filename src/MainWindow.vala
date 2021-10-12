@@ -256,6 +256,7 @@ namespace Scratch {
                     break;
             }
 
+            sidebar.bind_property ("visible", toolbar.choose_project_revealer, "reveal-child");
             // Show/Hide widgets
             show_all ();
 
@@ -488,7 +489,10 @@ namespace Scratch {
                 }
             }
 
-            document_view.request_placeholder_if_empty ();
+            Idle.add (() => {
+                document_view.request_placeholder_if_empty ();
+                return Source.REMOVE;
+            });
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
