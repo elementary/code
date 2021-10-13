@@ -8,7 +8,7 @@ finish-args:
   - '--socket=fallback-x11'
   - '--socket=wayland'
 
-  # needed for perfers-color-scheme
+  # needed for prefers-color-scheme
   - '--system-talk-name=org.freedesktop.Accounts'
 modules:
   - name: {{ github_repository }}
