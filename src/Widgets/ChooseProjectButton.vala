@@ -92,6 +92,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             create_project_row
         );
 
+        project_listbox.remove.connect ((row) => {
+            var project_row = row as ProjectRow;
+            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
+            if (project_row.project_path == current_project) {
+                label_widget.label = _(NO_PROJECT_SELECTED);
+                label_widget.tooltip_text = _("Active Git project: %s").printf (_(NO_PROJECT_SELECTED));
+                Scratch.Services.GitManager.get_instance ().active_project_path = "";
+            }
+        });
+
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
@@ -99,8 +109,20 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     private Gtk.Widget create_project_row (GLib.Object object) {
-        unowned var project_folder = (File) object;
-        var project_row = new ProjectRow (project_folder.get_path ());
+        unowned var project_folder = (Scratch.FolderManager.ProjectFolderItem) object;
+
+        var project_row = new ProjectRow (project_folder.file.file.get_path ());
+        project_folder.bind_property ("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                var label = srcval.get_string ();
+                targetval.set_string (label);
+                if (project_row.active) {
+                    label_widget.label = label;
+                }
+                return true;
+            }
+        );
+
         if (last_entry != null) {
             project_row.project_radio.join_group (last_entry.project_radio);
         }
@@ -134,8 +156,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         public bool active { get; set; }
         public string project_path { get; construct; }
         public string project_name {
-            owned get {
-                return Path.get_basename (project_path);
+            get {
+                return project_radio.label;
             }
         }
 
@@ -152,7 +174,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
-            project_radio = new Gtk.RadioButton.with_label (null, project_name);
+            project_radio = new Gtk.RadioButton.with_label (null, Path.get_basename (project_path));
             add (project_radio);
             show_all ();
 

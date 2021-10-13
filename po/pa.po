@@ -2,266 +2,259 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 17:02+0000\n"
-"PO-Revision-Date: 2015-12-18 20:01+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"PO-Revision-Date: 2021-08-16 03:26+0000\n"
+"Last-Translator: elSolus <tumbleweed@tuta.io>\n"
+"Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:39
 msgid "New Tab"
-msgstr ""
+msgstr "ਨਵੀਂ ਟੈਬ"
 
 #: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr ""
+msgstr "ਨਵੀਂ ਵਿੰਡੋ"
 
 #: src/Application.vala:41
 msgid "Print version info and exit"
-msgstr ""
+msgstr "ਵਰਜਨ ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਿੰਟ ਕਰੋ ਅਤੇ ਪ੍ਰੋਗਰਾਮ ਬੰਦ ਕਰੋ"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
-msgstr ""
+msgstr "ਪਲੱਗਇਨ ਦਾ ਸੈੱਟ"
 
 #: src/Application.vala:42
 msgid "plugin"
-msgstr ""
+msgstr "ਪਲੱਗਇਨ"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[ਫ਼ਾਇਲ…]"
 
 #: src/MainWindow.vala:140
 msgid "Code"
-msgstr ""
+msgstr "ਕੋਡ"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
-msgstr ""
+msgstr "ਲੱਭੋ…"
 
 #: src/MainWindow.vala:207
 msgid "Hide search bar"
-msgstr ""
+msgstr "ਖੋਜ-ਪੱਟੀ ਲੁਕਾਓ"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
-msgstr ""
+msgstr "ਟੈਕਸਟ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
-msgstr ""
+msgstr "ਕੁਝ ਫ਼ਾਇਲਾਂ ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
-msgstr ""
+msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
-msgstr ""
-
-#: src/MainWindow.vala:768
-msgid "_Open"
-msgstr ""
+msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/MainWindow.vala:769
+msgid "_Open"
+msgstr "_ਖੋਲ੍ਹੋ"
+
+#: src/MainWindow.vala:770
 msgid "_Cancel"
-msgstr ""
+msgstr "_ਰੱਦ ਕਰੋ"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "“%s” ਵਿੱਚ ਟੈਕਸਟ (ਲਿਖਤ) ਦੀ ਖੋਜ ਕਰੋ"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "ਖੋਜਿਆ ਜਾਣ ਵਾਲ਼ਾ ਲਫ਼ਜ਼ ਘੱਟੋ-ਘੱਟ 3 ਅੱਖਰਾਂ ਦਾ ਹੋਣਾ ਚਾਹੀਦੈ।"
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "ਵੱਡੇ ਅਤੇ ਛੋਟੇ ਅੱਖਰਾਂ ਨੂੰ ਵੱਖ ਸਮਝੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ):"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "ਆਮ ਸਮੀਕਰਨਾਂ ਵਰਤੋ:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
-msgstr ""
+msgstr "ਖੋਜੋ"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr ""
+msgstr "“%s/%s” ਦੀ ਨਵੀਂ ਸ਼ਾਖ਼ ਬਣਾਓ"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "ਸ਼ਾਖ਼ ਦਾ ਨਾਂ ਅਨੋਖਾ ਅਤੇ Git ਦੇ ਨਾਂ ਨੇਮਾ ਦੇ ਮੁਤਾਬਕ ਹੋਣਾ ਚਾਹੀਦੈ।"
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
-msgstr ""
+msgstr "ਸ਼ਾਖ਼ ਬਣਾਓ"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
-msgstr ""
+msgstr "ਤਰਜੀਹਾਂ"
 
 #: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
-msgstr ""
+msgstr "ਬਿਨਾਂ ਕਿਸੇ ਸਰਗਰਮ ਚੋਣ ਤੋਂ ਕੀਤੀ ਗਈ ਨਕਲ ਜਾਂ ਕਟਿੰਗ ਸਾਰੀ ਲਾਈਨ ਨੂੰ ਨਕਲ ਜਾਂ ਕੱਟ ਕਰੇਗੀ"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
-msgstr ""
+msgstr "ਆਮ"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "Save files when changed:"
-msgstr ""
+msgstr "ਤਬਦੀਲੀ ਹੋਵੇ ਤਾਂ ਫ਼ਾਇਲਾਂ ਸੇਵ ਕਰੋ:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "ਲਾਈਨਾਂ ਨੂੰ ਚੁਸਤੀ ਨਾਲ਼ ਨਕਲ/ਕੱਟ ਕਰਨਾ:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
-msgstr ""
+msgstr "ਟੈਬਾਂ"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
 
 #: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
 
 #: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
-msgstr ""
+msgstr "ਟੈਬ ਦੀ ਚੌੜਾਈ:"
 
 #: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
-msgstr ""
+msgstr "ਰਵੱਈਆ"
 
 #: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr ""
+msgstr "ਇੰਟਰਫ਼ੇਸ"
 
 #: src/Dialogs/PreferencesDialog.vala:88
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
-msgstr ""
+msgstr "ਬੰਦ ਕਰੋ"
 
 #: src/Dialogs/PreferencesDialog.vala:102
 msgid "Extensions"
-msgstr ""
+msgstr "ਵਾਧਾ ਕਰਨ ਵਾਲ਼ੇ"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
-msgstr ""
+msgstr "ਐਡੀਟਰ"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "ਮੇਲ ਖਾਂਦੀਆਂ ਬਰੈਕਟਾਂ ਨੂੰ ਉਜਾਗਰ ਕਰੋ:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
-msgstr ""
+msgstr "ਲਾਈਨਾਂ ਲਪੇਟੋ:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
+msgid "Visible whitespace:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "ਮਿਨੀ ਨਕਸ਼ਾ ਵਿਖਾਓ:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr ""
+msgstr "ਲਾਈਨ ਦੀ ਚੌੜਾਈ ਦਾ ਰਹਿਬਰ:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
-msgstr ""
+msgstr "ਫੌਂਟ"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
-msgstr ""
+msgstr "ਤਬਦੀਲੀ ਕੀਤੇ ਫੌਂਟ:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਵਾਕਿਆ ਹੀ ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰਨ ਨਾਲ਼ ਇਹਦੇ ਖੋਲ੍ਹਣ ਤੋਂ ਲੈ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "ਰੀਸਟੋਰ ਨਾ ਕਰੋ"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr ""
+msgstr "ਕੋਈ ਗੱਲ ਨਹੀਂ ਰੀਸਟੋਰ ਕਰ ਦਿਓ"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
-msgstr ""
+msgstr "ਹੋਰ ਐਪ…"
 
 #: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
 msgid "Open In"
-msgstr ""
+msgstr "ਇਸ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
 #: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
 msgid "Other Actions"
-msgstr ""
+msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
 
 #: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
 msgid "Rename"
-msgstr ""
+msgstr "ਨਾਂ ਬਦਲੋ"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
 #: src/FolderManager/ProjectFolderItem.vala:115
 msgid "Move to Trash"
-msgstr ""
+msgstr "ਕੂੜੇਦਾਨ ਵਿੱਚ (ਭੇਜੋ) ਸਥਾਨਅੰਤਰਨ ਕਰੋ"
 
 #: src/FolderManager/FileView.vala:40
 msgid "Folders"
-msgstr ""
+msgstr "ਫ਼ੋਲਡਰ"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find in Folder…"
-msgstr ""
+msgstr "ਫ਼ੋਲਡਰ ਵਿੱਚ ਲੱਭੋ…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
-msgstr ""
+msgstr "ਫ਼ੋਲਡਰ"
 
 #: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
-msgstr ""
+msgstr "ਖ਼ਾਲੀ ਫ਼ਾਇਲ"
 
 #. scan all children
 #. No need to show status when children shown
@@ -269,382 +262,401 @@ msgstr ""
 #: src/FolderManager/ProjectFolderItem.vala:185
 #: src/FolderManager/ProjectFolderItem.vala:191
 msgid "New"
-msgstr ""
+msgstr "ਨਵੀਂ"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
-msgstr ""
+msgstr "ਬੇਨਾਮ ਫ਼ੋਲਡਰ"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "new file"
-msgstr ""
+msgstr "ਨਵੀਂ ਫ਼ਾਇਲ"
 
 #: src/FolderManager/ProjectFolderItem.vala:106
 msgid "Close Folder"
-msgstr ""
+msgstr "ਫ਼ੋਲਡਰ ਬੰਦ ਕਰੋ"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Other Folders"
-msgstr ""
+msgstr "ਬਾਕੀ ਫ਼ੋਲਡਰ ਬੰਦ ਕਰੋ"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
 msgid "Find in Project…"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
 #: src/FolderManager/ProjectFolderItem.vala:191
 msgid "Modified"
-msgstr ""
+msgstr "ਤਬਦੀਲ"
 
 #: src/FolderManager/ProjectFolderItem.vala:229
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "ਨਵੀਂ ਸ਼ਾਖ਼ “%s” ਬਣਾਉਂਦੇ ਵਕ਼ਤ ਖ਼ਰਾਬੀ ਰਹੀ"
 
 #: src/FolderManager/ProjectFolderItem.vala:506
 msgid "New Branch…"
-msgstr ""
+msgstr "ਨਵੀਂ ਸ਼ਾਖ਼…"
 
 #: src/FolderManager/ProjectFolderItem.vala:519
 msgid "Branch"
-msgstr ""
+msgstr "ਸ਼ਾਖ਼"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s ਕੋਈ ਟੈਕਸਟ (ਲਿਖਤ) ਫ਼ਾਇਲ ਨਹੀਂ ਹੈ"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "ਕੋਡ ਇਸ ਕਿਸਮ ਦੀ ਫ਼ਾਇਲ ਨੂੰ ਲੋਡ ਨਹੀਂ ਕਰੇਗਾ।"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
-msgstr ""
+msgstr "ਕੋਈ ਗੱਲ ਨਹੀਂ ਲੋਡ ਕਰੋ"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ \"%s\" ਲੋਡ ਹੋਣ 'ਚ ਜ਼ਿਆਦਾ ਸਮਾਂ ਲੈ ਰਹੀ ਹੈ"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "ਕੋਡ ਦੇ ਫ਼ਾਇਲ ਨੂੰ ਲੋਡ ਕਰਨ ਤੱਕ ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
-msgstr ""
+msgstr "ਲੋਡਿੰਗ ਰੱਦ ਕਰੋ"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr ""
+msgstr "ਬੰਦ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ \"%s\" ਵਿੱਚ ਹੋਈਆਂ ਤਬਦੀਲੀਆਂ ਸਾਂਭਣੀਆਂ ਹਨ?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਨਾ ਸਾਂਭੀਆਂ ਤਾਂ ਤਬਦੀਲੀਆਂ ਪੱਕੇ ਤੌਰ 'ਤੇ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ।"
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
-msgstr ""
+msgstr "ਬਿਨਾਂ ਸਾਂਭੇ ਬੰਦ ਕਰੋ"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
-msgstr ""
+msgstr "ਸਾਂਭੋ"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:495
 msgid "Save File"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ ਸਾਂਭੋ (ਸੇਵ ਕਰੋ)"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
-msgstr ""
+msgstr "ਨਵਾਂ ਦਸਤਾਵੇਜ਼"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ \"%s\" ਨੂੰ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
+msgstr "ਹੋ ਸਕਦਾ ਹੈ ਫ਼ਾਇਲ ਖ਼ਰਾਬ ਹੋਵੇ ਜਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸਨੂੰ ਪੜ੍ਹਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈਂ।"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ \"%s\" ਦਾ ਟਿਕਾਣਾ ਅਨਮਾਊਂਟ ਹੋ ਚੁੱਕਿਆ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:721
 msgid "Save As…"
-msgstr ""
+msgstr "ਸਾਂਭੋ ਬਤੌਰ…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ \"%s\" ਮਿਟਾਈ ਜਾ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਫਿਰ ਵੀ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
+"ਤਬਦੀਲੀਆਂ ਨੂੰ ਫ਼ਾਇਲ \"%s\" ਵਿੱਚ ਨਹੀਂ ਸਾਂਭਿਆ ਜਾ ਸਕਦਾ। ਕੀ ਤੁਸੀਂ ਤਬਦੀਲੀਆਂ ਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ "
+"ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭੋ"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"ਫ਼ਾਇਲ \"%s\" ਕਿਸੇ ਹੋਰ ਐਪ ਦੁਆਰਾ ਤਬਦੀਲ ਹੋ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਹਨੂੰ ਦੁਬਾਰਾ ਲੋਡ ਕਰਨਾ ਚਾਹੋਗੇ ਜਾਂ "
+"ਆਪਣੀ ਐਡਿਟਿੰਗ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:784
 msgid "Load"
-msgstr ""
+msgstr "ਲੋਡ ਕਰੋ"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:787
 msgid "Continue"
-msgstr ""
+msgstr "ਜਾਰੀ ਰੱਖੋ"
 
 #: src/Services/TemplateManager.vala:192
 msgid "Templates"
-msgstr ""
+msgstr "ਫਰਮੇ"
+
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr "ਕੋਈ ਵੀ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਚੁਣਿਆ ਹੋਇਆ"
+
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
+#, c-format
+msgid "Active Git project: %s"
+msgstr "ਸਰਗਰਮ Git ਪ੍ਰੋਜੈਕਟ: %s"
+
+#: src/Widgets/ChooseProjectButton.vala:53
+msgid "Filter projects"
+msgstr "ਪ੍ਰੋਜੈਕਟ ਛਾਣਨੀ"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
 msgid "Text file from %s:%d"
-msgstr ""
+msgstr "ਟੈਕਸਟ (ਲਿਖਤ) ਫ਼ਾਇਲ %s:%d ਤੋਂ"
 
 #: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "ਢਾਂਚਾ ਉਜਾਗਰ ਕਰਨਾ"
 
 #: src/Widgets/FormatBar.vala:56
 msgid "Line number"
-msgstr ""
+msgstr "ਲਾਈਨ ਨੰਬਰ"
 
 #: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
-msgstr ""
+msgstr "ਬੋਲੀਆਂ ਛਾਣੋ"
 
 #: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
-msgstr ""
+msgstr "ਸਾਦੀ ਲਿਖਤ"
 
 #: src/Widgets/FormatBar.vala:189
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ਸਪੇਸ"
+msgstr[1] "%d ਸਪੇਸਾਂ"
 
 #: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ਟੈਬ"
+msgstr[1] "%d ਟੈਬਾਂ"
 
 #: src/Widgets/FormatBar.vala:207
 msgid "Go To Line:"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:54
-msgid "Open a file"
-msgstr ""
+msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
 
 #: src/Widgets/HeaderBar.vala:59
+msgid "Open a file"
+msgstr "ਕੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
+
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਫਰਮੇ"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
-msgstr ""
+msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਕਿਸੇ ਵੱਖਰੇ ਨਾਂ ਨਾਲ਼ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
-msgstr ""
+msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
-msgstr ""
+msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
-msgstr ""
+msgstr "ਜ਼ੂਮ ਘਟਾਓ"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "ਜ਼ੂਮ 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
-msgstr ""
+msgstr "ਜ਼ੂਮ ਵਧਾਓ"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
-msgstr ""
+msgstr "ਸਾਈਡਬਾਰ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
-msgstr ""
+msgstr "ਮੈਨਿਊ"
 
 #: src/Widgets/Sidebar.vala:42
 msgid "Open Project Folder…"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr ""
+msgstr "ਸਾਰਿਆਂ ਦੀ ਤਹਿ ਬੰਦ ਕਰੋ"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "ਅੱਖਰ-ਤਰਤੀਬ ਮੁਤਾਬਕ"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰਾਂ ਦਾ ਰੱਖ-ਰਖਾਓ"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
-msgstr ""
+msgstr "ਲੱਭੋ"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "Search next"
-msgstr ""
+msgstr "ਅਗਲਾ ਖੋਜੋ"
 
 #: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
-msgstr ""
+msgstr "ਪਿਛਲਾ ਖੋਜੋ"
 
 #: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
-msgstr ""
+msgstr "ਚੱਕਰੀ ਖੋਜ"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Sensitive"
-msgstr ""
+msgstr "ਵੱਡੇ, ਛੋਟੇ ਅੱਖਰਾਂ ਵਿੱਚ ਫ਼ਰਕ ਕਰੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ)"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Case Insensitive"
-msgstr ""
+msgstr "ਵੱਡੇ, ਛੋਟੇ ਅੱਖਰਾਂ ਵਿੱਚ ਫ਼ਰਕ ਨਾ ਕਰੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ)"
 
 #: src/Widgets/SearchBar.vala:122
 msgid "Replace With"
-msgstr ""
+msgstr "ਇਸ ਨਾਲ਼ ਵਟਾਓ"
 
 #: src/Widgets/SearchBar.vala:125
 msgid "Replace"
-msgstr ""
+msgstr "ਵਟਾਓ"
 
 #: src/Widgets/SearchBar.vala:128
 msgid "Replace all"
-msgstr ""
+msgstr "ਸਾਰੇ/ਸਾਰੀਆਂ ਵਟਾਓ"
 
 #: src/Widgets/SourceView.vala:512
 msgid "Sort Selected Lines"
-msgstr ""
+msgstr "ਚੁਣੀਆਂ ਲਾਈਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦਿਓ"
 
 #: src/Widgets/SourceView.vala:525
 msgid "Toggle Comment"
-msgstr ""
+msgstr "ਟਿੱਪਣੀ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr ""
+msgstr "ਕੋਈ ਵੀ ਫ਼ਾਇਲ ਖੁੱਲ੍ਹੀ ਨਹੀਂ ਹੋਈ"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "ਸੰਪਾਦਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ।"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr ""
+msgstr "ਨਵੀਂ ਫ਼ਾਇਲ"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr ""
+msgstr "ਇੱਕ ਨਵੀਂ ਖ਼ਾਲੀ ਫ਼ਾਇਲ ਬਣਾਓ।"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr ""
+msgstr "ਕੋਈ ਸਾਂਭੀ ਹੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ।"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr ""
+msgstr "ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "ਕਿਸੇ ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਨੂੰ ਸਾਈਡਬਾਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।"
 
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "ਪੇਸਟ-ਟਰੋਕੀ ਵਿੱਚ ਅਪਲੋਡ ਕਰੋ"
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
-msgstr ""
+msgstr "ਨਾਂ:"
 
 #: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
-msgstr ""
+msgstr "ਫ਼ਾਰਮੈਟ:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "ਕੋਈ ਹੋਰ ਫ਼ਾਰਮੈਟ ਚੁਣੋ"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
-msgstr ""
+msgstr "ਮਿਆਦ ਪੁੱਗਣੀ:"
 
 #: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
-msgstr ""
+msgstr "ਇਸ ਪੇਸਟ ਨੂੰ ਨਿੱਜੀ ਬਣਾਏ ਰੱਖੋ"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "ਉਪਲਬਧ ਫ਼ਾਰਮੈਟ"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
 msgid "Select Format"
-msgstr ""
+msgstr "ਫ਼ਾਰਮੈਟ ਚੁਣੋ"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
-msgstr ""
+msgstr "ਕਦੇ ਵੀ ਨਹੀਂ"
 
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
-msgstr ""
+msgstr "ਦਸ ਮਿੰਟ"
 
 #: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
-msgstr ""
+msgstr "ਇੱਕ ਘੰਟਾ"
 
 #: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
-msgstr ""
+msgstr "ਇੱਕ ਦਿਨ"
 
 #: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr ""
+msgstr "ਇੱਕ ਮਹੀਨਾ"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -653,44 +665,53 @@ msgstr ""
 #: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
-msgstr ""
+msgstr "ਨਿਸ਼ਾਨ/ਚਿੰਨ੍ਹ"
 
 #: plugins/outline/OutlinePlugin.vala:34
 msgid "No Symbols Found"
-msgstr ""
+msgstr "ਕੋਈ ਚਿੰਨ੍ਹ ਨਹੀਂ ਲੱਭਿਆ"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
-msgstr ""
+msgstr "ਟਰਮੀਨਲ ਵਿਖਾਓ"
 
 #: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
-msgstr ""
+msgstr "ਟਰਮੀਨਲ ਲੁਕਾਓ"
 
 #: plugins/terminal/terminal.vala:168
 msgid "Terminal"
-msgstr ""
+msgstr "ਟਰਮੀਨਲ"
 
 #. Popup menu
 #. COPY
 #: plugins/terminal/terminal.vala:225
 msgid "Copy"
-msgstr ""
+msgstr "ਨਕਲ ਕਰੋ"
 
 #. PASTE
 #: plugins/terminal/terminal.vala:232
 msgid "Paste"
-msgstr ""
+msgstr "ਪੇਸਟ ਕਰੋ"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "ਕੋਈ ਮੁਨਾਸਬ ਸ਼ਬਦਕੋਸ਼ ਨਹੀਂ ਲੱਭੇ"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
+msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [ਹਿੱਜੇ] ਸ਼ਬਦਕੋਸ਼ ਸਥਾਪਤ ਕਰੋ।"
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "ਸਪੇਸਾਂ ਬਣਾਓ:"
+
+#~ msgid "For selected text"
+#~ msgstr "ਚੁਣੀ ਹੋਈ ਲਿਖਤ ਲਈ"
+
+#~ msgid "Always"
+#~ msgstr "ਹਮੇਸ਼ਾ"
