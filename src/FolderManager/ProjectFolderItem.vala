@@ -55,21 +55,26 @@ namespace Scratch.FolderManager {
             modified_icon = new ThemedIcon ("user-away");
         }
 
-        construct {
-            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (file.file);
+        private void branch_or_name_changed () {
             if (monitored_repo != null) {
-                monitored_repo.branch_changed.connect (() => {
-                    //As SourceList items are not widgets we have to use markup to change appearance of text.
-                    if (monitored_repo.head_is_branch) {
-                        markup = "%s <span size='small' weight='normal'>%s</span>".printf (
-                            file.name, monitored_repo.branch_name
-                        );
-                    } else { //Distinguish detached heads visually
-                        markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
-                            file.name, monitored_repo.branch_name
-                        );
-                    }
-                });
+                //As SourceList items are not widgets we have to use markup to change appearance of text.
+                if (monitored_repo.head_is_branch) {
+                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                } else { //Distinguish detached heads visually
+                    markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                }
+            }
+        }
+
+        construct {
+            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
+            notify["name"].connect (branch_or_name_changed);
+            if (monitored_repo != null) {
+                monitored_repo.branch_changed.connect (branch_or_name_changed);
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update_status_map ();
@@ -338,9 +343,14 @@ namespace Scratch.FolderManager {
             bool case_sensitive = false;
             Regex? pattern = null;
 
+            var folder_name = start_folder.get_basename ();
+            if (this.file.file.equal (start_folder)) {
+                folder_name = name;
+            }
+
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
                 null,
-                start_folder.get_basename (),
+                folder_name,
                 monitored_repo != null && monitored_repo.git_repo != null
             ) {
                 case_sensitive = case_sensitive,
