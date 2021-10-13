@@ -31,6 +31,7 @@ namespace Scratch.Widgets {
         public Gtk.Button build_button;
         public Gtk.Button run_button;
         public Gtk.Button stop_button;
+        public Gtk.Revealer choose_project_revealer;
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "solarized-light";
@@ -46,9 +47,13 @@ namespace Scratch.Widgets {
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
+            choose_project_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+            };
             choose_project_button = new Code.ChooseProjectButton () {
                 valign = Gtk.Align.CENTER
             };
+            choose_project_revealer.add (choose_project_button);
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
@@ -207,7 +212,7 @@ namespace Scratch.Widgets {
             };
             set_custom_title (format_bar);
 
-            pack_start (choose_project_button);
+            pack_start (choose_project_revealer);
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);

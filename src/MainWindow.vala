@@ -268,6 +268,7 @@ namespace Scratch {
                     break;
             }
 
+            sidebar.bind_property ("visible", toolbar.choose_project_revealer, "reveal-child");
             // Show/Hide widgets
             show_all ();
 
