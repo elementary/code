@@ -29,6 +29,30 @@ public class Scratch.Services.ProjectManager : Object {
     public bool is_running { get; set; }
     public bool was_stopped { get; set; }
 
+    public bool is_running_flatpaked {
+        private get {
+            return FileUtils.test ("/.flatpak-info", FileTest.IS_REGULAR);
+        }
+    }
+
+    public bool has_dependencies_installed {
+        get {
+            if (is_running_flatpaked) {
+                return run_command_sync ({
+                    "flatpak-spawn",
+                    "--host",
+                    "flatpak-builder",
+                    "--version"
+                });
+            } else {
+                return run_command_sync ({
+                    "flatpak-builder",
+                    "--version"
+                });
+            }
+        }
+    }
+
     public signal void on_standard_output (string line);
     public signal void on_standard_error (string line);
     public signal void on_clear ();
@@ -139,7 +163,7 @@ public class Scratch.Services.ProjectManager : Object {
         return true;
     }
 
-    private async bool run_command (string[] cmd) {
+    private async bool run_command_async (string[] cmd) {
         MainLoop loop = new MainLoop ();
         bool exit_status = false;
 
@@ -192,15 +216,50 @@ public class Scratch.Services.ProjectManager : Object {
         }
     }
 
+    private bool run_command_sync (string[] cmd) {
+        try {
+            string[] spawn_args = cmd;
+            string[] spawn_env = Environ.get ();
+
+            int status;
+    
+            Process.spawn_sync (project_path,
+                                spawn_args,
+                                spawn_env,
+                                SpawnFlags.SEARCH_PATH,
+                                null,
+                                null,
+                                null,
+                                out status);
+    
+            return status == 0;
+        } catch (SpawnError e) {
+            print ("Error: %s\n", e.message);
+        }
+
+        return false;
+    }
+
     private async bool build_project () {
         var flatpak_manifest = get_flatpak_manifest ();
         if (flatpak_manifest != null) {
-            return yield run_command ({
-                "flatpak-builder",
-                "--force-clean",
-                flatpak_manifest.build_dir,
-                flatpak_manifest.manifest
-            });
+            if (is_running_flatpaked) {
+                return yield run_command_async ({
+                    "flatpak-spawn",
+                    "--host",
+                    "flatpak-builder",
+                    "--force-clean",
+                    flatpak_manifest.build_dir,
+                    flatpak_manifest.manifest
+                });
+            } else {
+                return yield run_command_async ({
+                    "flatpak-builder",
+                    "--force-clean",
+                    flatpak_manifest.build_dir,
+                    flatpak_manifest.manifest
+                });
+            }
         }
 
         return false;
@@ -209,13 +268,25 @@ public class Scratch.Services.ProjectManager : Object {
     private async bool run_project () {
         var flatpak_manifest = get_flatpak_manifest ();
         if (flatpak_manifest != null) {
-            return yield run_command ({
-                "flatpak-builder",
-                "--run",
-                flatpak_manifest.build_dir,
-                flatpak_manifest.manifest,
-                flatpak_manifest.command
-            });
+            if (is_running_flatpaked) {
+                return yield run_command_async ({
+                    "flatpak-spawn",
+                    "--host",
+                    "flatpak-builder",
+                    "--run",
+                    flatpak_manifest.build_dir,
+                    flatpak_manifest.manifest,
+                    flatpak_manifest.command
+                });
+            } else {
+                return yield run_command_async ({
+                    "flatpak-builder",
+                    "--run",
+                    flatpak_manifest.build_dir,
+                    flatpak_manifest.manifest,
+                    flatpak_manifest.command
+                });
+            }
         }
 
         return false;

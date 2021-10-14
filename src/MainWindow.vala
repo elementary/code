@@ -582,12 +582,13 @@ namespace Scratch {
         }
 
         private void set_build_run_widgets_sensitive () {
+            bool has_dependencies_installed = project_manager.has_dependencies_installed;
             bool is_project_selected = (project_manager.project_path != null) && (project_manager.get_flatpak_manifest () != null);
             bool is_running = project_manager.is_running;
 
-            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (is_project_selected && !is_running);
-            Utils.action_from_group (ACTION_RUN, actions).set_enabled (is_project_selected && !is_running);
-            Utils.action_from_group (ACTION_STOP, actions).set_enabled (is_project_selected && is_running);
+            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (has_dependencies_installed && is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_RUN, actions).set_enabled (has_dependencies_installed && is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_STOP, actions).set_enabled (has_dependencies_installed && is_project_selected && is_running);
 
             if (is_project_selected) {
                 var project_name = Path.get_basename (project_manager.project_path);
