@@ -57,7 +57,17 @@ public class Scratch.Services.ProjectManager : Object {
     public signal void on_standard_error (string line);
     public signal void on_clear ();
 
+    static ProjectManager? instance;
+
     private Pid command_pid;
+
+    public static ProjectManager get_instance () {
+        if (instance == null) {
+            instance = new ProjectManager ();
+        }
+
+        return instance;
+    }
 
     public FlatpakManifest? get_flatpak_manifest () {
         Dir dir;

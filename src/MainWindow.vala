@@ -272,7 +272,7 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            project_manager = new Services.ProjectManager ();
+            project_manager = Services.ProjectManager.get_instance ();
             project_output = new Gee.ArrayList<string> ();
 
             project_manager.on_standard_output.connect ((line) => {
