@@ -222,7 +222,7 @@ public class Scratch.Services.ProjectManager : Object {
             string[] spawn_env = Environ.get ();
 
             int status;
-    
+
             Process.spawn_sync (project_path,
                                 spawn_args,
                                 spawn_env,
@@ -231,7 +231,7 @@ public class Scratch.Services.ProjectManager : Object {
                                 null,
                                 null,
                                 out status);
-    
+
             return status == 0;
         } catch (SpawnError e) {
             print ("Error: %s\n", e.message);
