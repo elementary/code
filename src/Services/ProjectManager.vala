@@ -30,7 +30,7 @@ public class Scratch.Services.ProjectManager : Object {
     public bool was_stopped { get; set; }
 
     public bool is_running_flatpaked {
-        private get {
+        get {
             return FileUtils.test ("/.flatpak-info", FileTest.IS_REGULAR);
         }
     }
