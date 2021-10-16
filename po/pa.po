@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"POT-Creation-Date: 2021-09-28 19:22+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -42,7 +42,7 @@ msgstr "[ਫ਼ਾਇਲ…]"
 msgid "Code"
 msgstr "ਕੋਡ"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "ਲੱਭੋ…"
 
@@ -50,34 +50,34 @@ msgstr "ਲੱਭੋ…"
 msgid "Hide search bar"
 msgstr "ਖੋਜ-ਪੱਟੀ ਲੁਕਾਓ"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "ਸਾਰੀਆਂ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "ਟੈਕਸਟ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "ਕੁਝ ਫ਼ਾਇਲਾਂ ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_ਰੱਦ ਕਰੋ"
 
@@ -116,7 +116,7 @@ msgstr "ਸ਼ਾਖ਼ ਦਾ ਨਾਂ ਅਨੋਖਾ ਅਤੇ Git ਦੇ �
 msgid "Create Branch"
 msgstr "ਸ਼ਾਖ਼ ਬਣਾਓ"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "ਤਰਜੀਹਾਂ"
 
@@ -124,9 +124,7 @@ msgstr "ਤਰਜੀਹਾਂ"
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
-msgstr ""
-"ਬਿਨਾਂ ਕਿਸੇ ਸਰਗਰਮ ਚੋਣ ਤੋਂ ਕੀਤੀ ਗਈ ਨਕਲ ਜਾਂ ਕਟਿੰਗ ਸਾਰੀ ਲਾਈਨ ਨੂੰ ਨਕਲ ਜਾਂ ਕੱਟ "
-"ਕਰੇਗੀ"
+msgstr "ਬਿਨਾਂ ਕਿਸੇ ਸਰਗਰਮ ਚੋਣ ਤੋਂ ਕੀਤੀ ਗਈ ਨਕਲ ਜਾਂ ਕਟਿੰਗ ਸਾਰੀ ਲਾਈਨ ਨੂੰ ਨਕਲ ਜਾਂ ਕੱਟ ਕਰੇਗੀ"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -219,8 +217,7 @@ msgstr "ਕੀ ਤੁਸੀਂ ਵਾਕਿਆ ਹੀ ਇਸ ਫ਼ਾਇਲ ਨ
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
-"ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰਨ ਨਾਲ਼ ਇਹਦੇ ਖੋਲ੍ਹਣ ਤੋਂ ਲੈ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ"
+msgstr "ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰਨ ਨਾਲ਼ ਇਹਦੇ ਖੋਲ੍ਹਣ ਤੋਂ ਲੈ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
@@ -312,115 +309,111 @@ msgstr "ਨਵੀਂ ਸ਼ਾਖ਼…"
 msgid "Branch"
 msgstr "ਸ਼ਾਖ਼"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ਕੋਈ ਟੈਕਸਟ (ਲਿਖਤ) ਫ਼ਾਇਲ ਨਹੀਂ ਹੈ"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
 msgstr "ਕੋਡ ਇਸ ਕਿਸਮ ਦੀ ਫ਼ਾਇਲ ਨੂੰ ਲੋਡ ਨਹੀਂ ਕਰੇਗਾ।"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr "ਕੋਈ ਗੱਲ ਨਹੀਂ ਲੋਡ ਕਰੋ"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "ਫ਼ਾਇਲ \"%s\" ਲੋਡ ਹੋਣ 'ਚ ਜ਼ਿਆਦਾ ਸਮਾਂ ਲੈ ਰਹੀ ਹੈ"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
 msgstr "ਕੋਡ ਦੇ ਫ਼ਾਇਲ ਨੂੰ ਲੋਡ ਕਰਨ ਤੱਕ ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:290
 msgid "Cancel Loading"
 msgstr "ਲੋਡਿੰਗ ਰੱਦ ਕਰੋ"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:383
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "ਬੰਦ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ \"%s\" ਵਿੱਚ ਹੋਈਆਂ ਤਬਦੀਲੀਆਂ ਸਾਂਭਣੀਆਂ ਹਨ?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:384
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ਜੇ ਤੁਸੀਂ ਨਾ ਸਾਂਭੀਆਂ ਤਾਂ ਤਬਦੀਲੀਆਂ ਪੱਕੇ ਤੌਰ 'ਤੇ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ।"
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:390
 msgid "Close Without Saving"
 msgstr "ਬਿਨਾਂ ਸਾਂਭੇ ਬੰਦ ਕਰੋ"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "ਸਾਂਭੋ"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr "ਫ਼ਾਇਲ ਸਾਂਭੋ (ਸੇਵ ਕਰੋ)"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "ਨਵਾਂ ਦਸਤਾਵੇਜ਼"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ਫ਼ਾਇਲ \"%s\" ਨੂੰ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"ਹੋ ਸਕਦਾ ਹੈ ਫ਼ਾਇਲ ਖ਼ਰਾਬ ਹੋਵੇ ਜਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸਨੂੰ ਪੜ੍ਹਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈਂ।"
+msgstr "ਹੋ ਸਕਦਾ ਹੈ ਫ਼ਾਇਲ ਖ਼ਰਾਬ ਹੋਵੇ ਜਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸਨੂੰ ਪੜ੍ਹਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈਂ।"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr ""
-"ਫ਼ਾਇਲ \"%s\" ਦਾ ਟਿਕਾਣਾ ਅਨਮਾਊਂਟ ਹੋ ਚੁੱਕਿਆ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ "
-"ਚਾਹੋਗੇ?"
+msgstr "ਫ਼ਾਇਲ \"%s\" ਦਾ ਟਿਕਾਣਾ ਅਨਮਾਊਂਟ ਹੋ ਚੁੱਕਿਆ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr "ਸਾਂਭੋ ਬਤੌਰ…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
-"ਫ਼ਾਇਲ \"%s\" ਮਿਟਾਈ ਜਾ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਫਿਰ ਵੀ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਫ਼ਾਇਲ \"%s\" ਮਿਟਾਈ ਜਾ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਫਿਰ ਵੀ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:743
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"ਤਬਦੀਲੀਆਂ ਨੂੰ ਫ਼ਾਇਲ \"%s\" ਵਿੱਚ ਨਹੀਂ ਸਾਂਭਿਆ ਜਾ ਸਕਦਾ। ਕੀ ਤੁਸੀਂ ਤਬਦੀਲੀਆਂ ਨੂੰ "
-"ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ ਚਾਹੋਗੇ?"
+"ਤਬਦੀਲੀਆਂ ਨੂੰ ਫ਼ਾਇਲ \"%s\" ਵਿੱਚ ਨਹੀਂ ਸਾਂਭਿਆ ਜਾ ਸਕਦਾ। ਕੀ ਤੁਸੀਂ ਤਬਦੀਲੀਆਂ ਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭਣਾ "
+"ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਕਿਤੇ ਹੋਰ ਸਾਂਭੋ"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"ਫ਼ਾਇਲ \"%s\" ਕਿਸੇ ਹੋਰ ਐਪ ਦੁਆਰਾ ਤਬਦੀਲ ਹੋ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਹਨੂੰ ਦੁਬਾਰਾ ਲੋਡ "
-"ਕਰਨਾ ਚਾਹੋਗੇ ਜਾਂ ਆਪਣੀ ਐਡਿਟਿੰਗ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੋਗੇ?"
+"ਫ਼ਾਇਲ \"%s\" ਕਿਸੇ ਹੋਰ ਐਪ ਦੁਆਰਾ ਤਬਦੀਲ ਹੋ ਚੁੱਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਹਨੂੰ ਦੁਬਾਰਾ ਲੋਡ ਕਰਨਾ ਚਾਹੋਗੇ ਜਾਂ "
+"ਆਪਣੀ ਐਡਿਟਿੰਗ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੋਗੇ?"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr "ਲੋਡ ਕਰੋ"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
@@ -433,7 +426,8 @@ msgid "No Project Selected"
 msgstr "ਕੋਈ ਵੀ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਚੁਣਿਆ ਹੋਇਆ"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
 msgstr "ਸਰਗਰਮ Git ਪ੍ਰੋਜੈਕਟ: %s"
@@ -481,47 +475,47 @@ msgstr[1] "%d ਟੈਬਾਂ"
 msgid "Go To Line:"
 msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "ਕੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫਰਮੇ"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਕਿਸੇ ਵੱਖਰੇ ਨਾਂ ਨਾਲ਼ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "ਜ਼ੂਮ ਘਟਾਓ"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "ਜ਼ੂਮ 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "ਜ਼ੂਮ ਵਧਾਓ"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr "ਸਾਈਡਬਾਰ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "ਮੈਨਿਊ"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-27 10:22+0000\n"
+"POT-Creation-Date: 2021-09-28 19:22+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -47,7 +47,7 @@ msgstr "[檔案…]"
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:87
+#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
 msgstr "尋找…"
 
@@ -55,34 +55,34 @@ msgstr "尋找…"
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:731 src/Services/Document.vala:495
+#: src/MainWindow.vala:732 src/Services/Document.vala:486
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:735 src/Services/Document.vala:499
+#: src/MainWindow.vala:736 src/Services/Document.vala:490
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:739
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:742
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:743 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:402
-#: src/Services/Document.vala:507 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
+#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "分支"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
 msgstr "偏好設定"
 
@@ -325,107 +325,107 @@ msgstr "分支"
 msgid "Branch"
 msgstr "分支"
 
-#: src/Services/Document.vala:272
+#: src/Services/Document.vala:263
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文字檔"
 
-#: src/Services/Document.vala:273
+#: src/Services/Document.vala:264
 msgid "Code will not load this type of file."
 msgstr "Code 無法載入這類檔案。"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:266
 msgid "Load Anyway"
 msgstr "無論如何都要載入"
 
-#: src/Services/Document.vala:296
+#: src/Services/Document.vala:287
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "載入「%s」檔案會花上很長一段時間"
 
-#: src/Services/Document.vala:297
+#: src/Services/Document.vala:288
 msgid "Please wait while Code is loading the file."
 msgstr "當 Code 忙著載入檔案時總是等候它。"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:290
 msgid "Cancel Loading"
 msgstr "取消載入"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:383
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "是否在關閉之前將更動儲存至 %s？"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:384
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若您不儲存，更動皆會永遠消失。"
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:390
 msgid "Close Without Saving"
 msgstr "關閉且不儲存"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:506
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:394 src/Services/Document.vala:497
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "儲存"
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:494
 msgid "Save File"
 msgstr "儲存檔案"
 
-#: src/Services/Document.vala:580 src/Services/Document.vala:589
+#: src/Services/Document.vala:571 src/Services/Document.vala:580
 msgid "New Document"
 msgstr "新增文件"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:703
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "無法讀取「%s」檔案"
 
-#: src/Services/Document.vala:713
+#: src/Services/Document.vala:704
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "可能檔案已損毀或您沒有讀取它的權限。"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:717
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "包含「%s」檔案的位置已經卸載。您是否想將它儲存到其他地方？"
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:720
 msgid "Save As…"
 msgstr "另存為…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:726
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "「%s」檔案已經刪除。您是否無論如何都想要儲存它？"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:743
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "您無法將變更儲存至「%s」檔案。您是否想要將此檔案儲存到其他位置？"
 
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "將更動儲存於別處"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:780
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr "「%s」檔案已被外部程式修改過。您是否要重新載入，或者繼續編輯？"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:783
 msgid "Load"
 msgstr "載入"
 
-#: src/Services/Document.vala:795
+#: src/Services/Document.vala:786
 msgid "Continue"
 msgstr "繼續"
 
@@ -440,7 +440,8 @@ msgid "No Project Selected"
 msgstr "專案模板"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:115
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:125
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -486,47 +487,47 @@ msgstr[0] "%d Tab"
 msgid "Go To Line:"
 msgstr "前往列號："
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:59
 msgid "Open a file"
 msgstr "開啟檔案"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:64
 msgid "Project templates"
 msgstr "專案模板"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file"
 msgstr "儲存此檔案"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:77
 msgid "Save this file with a different name"
 msgstr "以不同名稱儲存這份檔案"
 
-#: src/Widgets/HeaderBar.vala:79
+#: src/Widgets/HeaderBar.vala:84
 msgid "Restore this file"
 msgstr "還原此檔案"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:99
 msgid "Share"
 msgstr "分享"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom Out"
 msgstr "拉遠"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:113
 msgid "Zoom 1:1"
 msgstr "遠近 1:1"
 
-#: src/Widgets/HeaderBar.vala:115
+#: src/Widgets/HeaderBar.vala:120
 msgid "Zoom In"
 msgstr "拉近"
 
-#: src/Widgets/HeaderBar.vala:146
+#: src/Widgets/HeaderBar.vala:151
 msgid "Toggle Sidebar"
 msgstr "縮放側邊欄"
 
-#: src/Widgets/HeaderBar.vala:177
+#: src/Widgets/HeaderBar.vala:182
 msgid "Menu"
 msgstr "選單"
 
