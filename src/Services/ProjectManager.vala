@@ -236,7 +236,7 @@ public class Scratch.Services.ProjectManager : Object {
             Process.spawn_sync (project_path,
                                 spawn_args,
                                 spawn_env,
-                                SpawnFlags.SEARCH_PATH,
+                                SpawnFlags.SEARCH_PATH | SpawnFlags.STDERR_TO_DEV_NULL | SpawnFlags.STDOUT_TO_DEV_NULL ,
                                 null,
                                 null,
                                 null,
