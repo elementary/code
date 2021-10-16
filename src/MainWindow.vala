@@ -695,6 +695,7 @@ namespace Scratch {
         private void handle_quit () {
             document_view.save_opened_files ();
             update_saved_state ();
+            action_stop ();
         }
 
         public void set_default_zoom () {
