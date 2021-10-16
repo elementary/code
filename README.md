@@ -18,7 +18,7 @@ You'll need the following dependencies:
 * libjson-glib-dev
 * libpeas-dev
 * libsoup2.4-dev
-* libvala-0.34-dev (or higher)
+* libvala-0.48-dev (or higher)
 * libvte-2.91-dev
 * valac
 
