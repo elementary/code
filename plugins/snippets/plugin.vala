@@ -20,9 +20,9 @@
 
 
  private class Code.Plugins.Snippets.Snippet : Object {
-    public string name;
-    public string tag;
-    public string language;
+    public string name {get; construct; }
+    public string tag {get; construct; }
+    public string language {get; construct; }
 
     public Gee.ArrayList<int> tabstops;
     public uint n_tabstops {
@@ -40,7 +40,7 @@
             // PARSE $1 - $n
             int next_tabstop = 1;
             int next_tabstop_idx = 1;
-            while ((next_tabstop_idx = _body.index_of ("$%d".printf(next_tabstop), 0)) >= 0) {
+            while ((next_tabstop_idx = _body.index_of ("$%d".printf (next_tabstop), 0)) >= 0) {
                 for (int i = 0; i < next_tabstop - 1; i++) {
                     if (tabstops[i] > next_tabstop_idx) {
                         tabstops[i] -= 2;
@@ -69,16 +69,21 @@
     }
 
     public Snippet (string name, string tag, string body, string language) {
+        Object (
+            name: name,
+            tag: tag,
+            body: body,
+            language: language
+        );
+    }
+
+    construct {
         tabstops = new Gee.ArrayList<int> ();
-        this.name = name;
-        this.tag = tag;
-        this.body = body;
-        this.language = language;        
     }
 }
 
 private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Object {
-    public string name;
+    public string name {get; set; }
     public Code.Plugins.Snippets.Plugin snippets;
     public Gee.HashMultiMap<string, Snippet> snippet_map;
 
@@ -87,17 +92,17 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     private uint placeholder_edit_timeout = -1;
     private bool still_editing_placeholder = false;
 
-    public Provider () {
+    construct {
         snippet_map = new Gee.HashMultiMap<string, Snippet> ();
 
         var par = new Json.Parser ();
         string user_snippets_filename = Environment.get_user_data_dir () + "/code/snippets/snippets.json";
         par.load_from_file (user_snippets_filename);
         var reader = new Json.Reader (par.get_root ());
-        
+
         foreach (string language in reader.list_members ()) {
             reader.read_member (language);
-            
+
             var n_snippets = reader.count_elements ();
             for (int i = 0; i < n_snippets; i++) {
                 reader.read_element (i);
@@ -121,11 +126,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             }
             reader.end_member ();
         }
-        
-    }
 
-    public string get_name () {
-        return this.name;
     }
 
     private string word_prefix (Gtk.SourceCompletionContext context) {
@@ -139,7 +140,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
 
     public bool match (Gtk.SourceCompletionContext context) {
         var word = word_prefix (context);
-        var snips = snippet_map.@get(snippets.current_document.get_language_name ());        
+        var snips = snippet_map.@get (snippets.current_document.get_language_name ());
         var found = false;
         snips.foreach ((sni) => {
             if (sni.tag.has_prefix (word)) found = true;
@@ -149,8 +150,8 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     }
 
     public void populate (Gtk.SourceCompletionContext context) {
-        var word = word_prefix (context);   
-        var snips = snippet_map.@get(snippets.current_document.get_language_name ());        
+        var word = word_prefix (context);
+        var snips = snippet_map.@get (snippets.current_document.get_language_name ());
         var props = new List<Gtk.SourceCompletionProposal> ();
 
         snips.foreach ((sni) => {
@@ -175,16 +176,16 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
 
         for (int i = 0; i < current_editing_snippet.n_tabstops; i++) {
             Gtk.TextIter tab_i = snippet_start.copy ();
-            tab_i.forward_chars (current_editing_snippet.tabstops[i]);    
-            current_view.buffer.create_mark ("SNIPPET_TAB_%d".printf(i), tab_i, true);
+            tab_i.forward_chars (current_editing_snippet.tabstops[i]);
+            current_view.buffer.create_mark ("SNIPPET_TAB_%d".printf (i), tab_i, true);
         }
 
         current_tabstop = 0;
         place_cursor_at_tabstop (buffer, current_tabstop);
         if (current_editing_snippet.n_tabstops > 1) {
-            current_view.completion.block_interactive ();  
+            current_view.completion.block_interactive ();
             current_view.key_press_event.connect (next_placeholder);
-            
+
             still_editing_placeholder = true;
             placeholder_edit_timeout = Timeout.add (500, () => {
                 if (!still_editing_placeholder) {
@@ -209,15 +210,17 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             place_cursor_at_tabstop (buffer, current_tabstop);
             if (current_tabstop == current_editing_snippet.n_tabstops - 1) {
                 end_editing_placeholders ();
-            }            
+            }
+
             return true;
         }
+
         return false;
     }
 
     public void place_cursor_at_tabstop (Gtk.TextBuffer buffer, int tabstop) {
         Gtk.TextIter iter_start;
-        var mark = buffer.get_mark ("SNIPPET_TAB_%d".printf(tabstop));
+        var mark = buffer.get_mark ("SNIPPET_TAB_%d".printf (tabstop));
         buffer.get_iter_at_mark (out iter_start, mark);
         buffer.place_cursor (iter_start);
     }
@@ -228,9 +231,11 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             snippets.current_view.completion.unblock_interactive ();
             snippets.current_view.key_press_event.disconnect (next_placeholder);
         }
+
         for (int i = 0; i < current_editing_snippet.n_tabstops; i++) {
-            snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_TAB_%d".printf(i));
+            snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_TAB_%d".printf (i));
         }
+
         snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_START");
         Source.remove (placeholder_edit_timeout);
         placeholder_edit_timeout = -1;
@@ -238,7 +243,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         current_editing_snippet = proposal.get_data<Snippet> ("snippet");
-        var iter_start = iter.copy();
+        var iter_start = iter.copy ();
         iter_start.backward_word_start ();
 
         var current_buffer = iter.get_buffer ();
