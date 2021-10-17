@@ -445,6 +445,7 @@ namespace Scratch {
 
             search_revealer.set_reveal_child (false);
             terminal_revealer.set_reveal_child (false);
+            terminal_revealer.visible = false;
 
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
@@ -621,6 +622,7 @@ namespace Scratch {
             }
 
             terminal_revealer.set_reveal_child (is_running);
+            terminal_revealer.visible = is_running;
         }
 
         // Get current document
