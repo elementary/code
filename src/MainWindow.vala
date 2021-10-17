@@ -37,6 +37,8 @@ namespace Scratch {
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
         private FolderManager.FileView folder_manager_view;
+        private Gtk.Revealer terminal_revealer;
+        private Scratch.Widgets.Terminal terminal;
 
         // Plugins
         private Scratch.Services.PluginsManager plugins;
@@ -277,14 +279,20 @@ namespace Scratch {
 
             project_manager.on_standard_output.connect ((line) => {
                 project_output.add (line);
+                terminal.buffer.text += line;
+                terminal.attempt_scroll ();
             });
 
             project_manager.on_standard_error.connect ((line) => {
                 project_output.add (line);
+                terminal.buffer.text += line;
+                terminal.attempt_scroll ();
             });
 
             project_manager.on_clear.connect ((line) => {
                 project_output.clear ();
+                terminal.buffer.text = "";
+                terminal.attempt_scroll ();
             });
 
             set_build_run_widgets_sensitive ();
@@ -390,6 +398,11 @@ namespace Scratch {
                 on_plugin_toggled (bottombar);
             });
 
+            // Terminal
+            terminal = new Scratch.Widgets.Terminal (new Gtk.TextBuffer (null));
+            terminal_revealer = new Gtk.Revealer ();
+            terminal_revealer.add (terminal);
+
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
             };
@@ -397,13 +410,18 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
-                width_request = 200
+                expand = true
             };
 
             content_stack.add (view_grid);  // Must be added first to avoid terminal warnings
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
+
+            var content_grid = new Gtk.Grid () {
+                orientation = Gtk.Orientation.VERTICAL
+            };
+            content_grid.add (content_stack);
+            content_grid.add (terminal_revealer);
 
             // Set a proper position for ThinPaned widgets
             int width, height;
@@ -411,7 +429,7 @@ namespace Scratch {
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (content_stack, true, false);
+            vp.pack1 (content_grid, true, false);
             vp.pack2 (bottombar, false, false);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -426,6 +444,7 @@ namespace Scratch {
             add (grid);
 
             search_revealer.set_reveal_child (false);
+            terminal_revealer.set_reveal_child (false);
 
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
@@ -600,6 +619,8 @@ namespace Scratch {
                 toolbar.run_button.tooltip_markup = _("Run");
                 toolbar.stop_button.tooltip_markup = _("Stop");
             }
+
+            terminal_revealer.set_reveal_child (is_running);
         }
 
         // Get current document
