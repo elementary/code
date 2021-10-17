@@ -417,11 +417,9 @@ namespace Scratch {
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
-            var content_grid = new Gtk.Grid () {
-                orientation = Gtk.Orientation.VERTICAL
-            };
-            content_grid.add (content_stack);
-            content_grid.add (terminal_revealer);
+            var content_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+            content_paned.add (content_stack);
+            content_paned.add (terminal_revealer);
 
             // Set a proper position for ThinPaned widgets
             int width, height;
@@ -429,7 +427,7 @@ namespace Scratch {
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (content_grid, true, false);
+            vp.pack1 (content_paned, true, false);
             vp.pack2 (bottombar, false, false);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
