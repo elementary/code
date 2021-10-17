@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-10-11 04:54+0000\n"
-"Last-Translator: asdffdsdaf <asdffdsdaf@gmail.com>\n"
+"PO-Revision-Date: 2021-10-15 15:52+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -47,23 +47,22 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Разработан для работы с различными проектами, Код знает о ваших отдельных "
+"кодовых базах. Он поставляется с интеграцией Git для создания и переключения "
+"между ветками, а также для отображения измененных файлов и строк в ваших "
+"проектах."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Работайте со своим языком. Строите ли вы код на Vala, пишите скрипты на PHP "
-"или делаете вещи на HTML, Scratch прикроет вас. Полная подсветка синтаксиса "
-"почти всех языков программирования, скриптинга и разметки."
+"Работайте со своим языком: создаете ли вы код на Vala, пишите скрипты на PHP "
+"или делаете разметку на HTML, Код поможет вам. Вы можете воспользоваться "
+"полной подсветкой синтаксиса почти во всех языках программирования, скриптов "
+"и разметки."
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -90,7 +89,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "И еще много чего:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
@@ -133,7 +132,7 @@ msgstr "Исправления:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "Исправлен сбой при создании нового окна из выпадающего меню вкладкок"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
@@ -141,11 +140,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "Улучшения:"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Меню выбора проектов скрывается вместе с боковой панелью"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -155,7 +154,7 @@ msgstr "Незначительные обновления:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "Все копии пригодны для преобразования"
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
