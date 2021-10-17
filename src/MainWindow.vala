@@ -410,7 +410,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true
+                expand = true,
+                width_request = 200
             };
 
             content_stack.add (view_grid);  // Must be added first to avoid terminal warnings

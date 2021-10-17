@@ -209,7 +209,6 @@ public class Scratch.Services.ProjectManager : Object {
                 return process_line (channel, condition, "stderr");
             });
 
-
             ChildWatch.add (command_pid, (pid, status) => {
                 // Triggered when the child indicated by command_pid exits
                 Process.close_pid (pid);
