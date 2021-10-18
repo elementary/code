@@ -6,10 +6,10 @@
         
         {"name": "While", "tag": "while", "body": "while ($1) {\n    $0\n}"},
         {"name": "ForEach", "tag": "foreach", "body": "foreach ($1 in $2) {\n    $0\n}"},
-        {"name": "For", "tag": "for", "body": "for ($1; $2; $3) {     $0\n}"},
+        {"name": "For", "tag": "for", "body": "for ($1; $2; $3) {\n     $0\n}"},
 
         {"name": "If", "tag": "if", "body": "if ($1) {\n    $0\n}"},
-        {"name": "If", "tag": "ifelse", "body": "if ($1) {\n    $0\n} else {\n    \n}"},
+        {"name": "IfElse", "tag": "ifelse", "body": "if ($1) {\n    $0\n} else {\n    \n}"},
 
         {"name": "Public Method", "tag": "pubfunc", "body": "public $1 $2 ($3) {\n    $0\n}"},
         {"name": "Private Method", "tag": "privfunc", "body": "public $1 $2 ($3) {\n    $0\n}"}
