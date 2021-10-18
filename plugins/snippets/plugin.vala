@@ -91,6 +91,8 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     private uint placeholder_edit_timeout = -1;
     private bool still_editing_placeholder = false;
 
+    private const int FINISH_EDITING_TIMEOUT = 1000;
+
     construct {
         snippet_map = new Gee.HashMultiMap<string, Snippet> ();
 
@@ -174,14 +176,20 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     public void start_editing_placeholders () {
         var current_view = snippets.current_view;
         var buffer = current_view.buffer;
-        Gtk.TextIter snippet_start;
+        Gtk.TextIter snippet_start, snippet_end;
         buffer.get_iter_at_mark (out snippet_start, buffer.get_mark ("SNIPPET_START"));
+        buffer.get_iter_at_mark (out snippet_end, buffer.get_mark ("SNIPPET_END"));
 
         for (int i = 0; i < current_editing_snippet.n_tabstops; i++) {
             Gtk.TextIter tab_i = snippet_start.copy ();
             tab_i.forward_chars (current_editing_snippet.tabstops[i]);
             current_view.buffer.create_mark ("SNIPPET_TAB_%d".printf (i), tab_i, true);
         }
+
+        var indent_start = Scratch.Utils.measure_indent_at_iter (current_view, snippet_start);
+        var snippet_line2 = snippet_start.copy ();
+        snippet_line2.forward_line ();
+        Scratch.Utils.increase_indent_in_region (current_view, snippet_line2, snippet_end, indent_start);
 
         current_tabstop = 0;
         place_cursor_at_tabstop (buffer, current_tabstop);
@@ -190,7 +198,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             current_view.key_press_event.connect (next_placeholder);
 
             still_editing_placeholder = true;
-            placeholder_edit_timeout = Timeout.add (500, () => {
+            placeholder_edit_timeout = Timeout.add (FINISH_EDITING_TIMEOUT, () => {
                 if (!still_editing_placeholder) {
                     end_editing_placeholders ();
                     return false;
@@ -240,6 +248,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
         }
 
         snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_START");
+        snippets.current_view.buffer.delete_mark_by_name ("SNIPPET_END");
         Source.remove (placeholder_edit_timeout);
         placeholder_edit_timeout = -1;
     }
@@ -252,6 +261,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
         var current_buffer = iter.get_buffer ();
         current_buffer.delete (ref iter_start, ref iter);
         current_buffer.create_mark ("SNIPPET_START", iter_start, true);
+        current_buffer.create_mark ("SNIPPET_END", iter_start, false);
         iter.get_buffer ().insert (ref iter, current_editing_snippet.body, current_editing_snippet.body.length);
         start_editing_placeholders ();
         return true;
@@ -263,7 +273,7 @@ public class Code.Plugins.Snippets.Plugin : Peas.ExtensionBase, Peas.Activatable
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Gtk.SourceView? current_view {get; private set;}
+    public Scratch.Widgets.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
     private Scratch.MainWindow main_window;
