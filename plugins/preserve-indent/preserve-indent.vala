@@ -55,8 +55,6 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
     public void update_state () {
     }
 
-    
-
     private void on_cut_or_copy_clipboard () {
         Widgets.SourceView view = this.active_document.source_view;
         if (!view.auto_indent) {
