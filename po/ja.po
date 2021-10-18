@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 19:22+0000\n"
-"PO-Revision-Date: 2021-08-09 11:02+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"PO-Revision-Date: 2021-10-09 06:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -55,11 +55,11 @@ msgstr "検索…"
 msgid "Hide search bar"
 msgstr "検索バーを表示しない"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "テキストファイル"
 
@@ -72,8 +72,8 @@ msgid "Open"
 msgstr "開く"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "キャンセル"
@@ -189,16 +189,8 @@ msgid "Line wrap:"
 msgstr "行の折り返し:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
+msgid "Visible whitespace:"
 msgstr "空白を表示:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "選択されたテキストに対して表示"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "常に表示"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -316,69 +308,69 @@ msgstr "新しいブランチ…"
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "“コード”はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "“コード”がファイルを読み込む間、お待ちください。"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "閉じる前に \"%s\" への変更を保存しますか？"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ファイル \"%s\" を読み込めません"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "ファイルが破損しているか、読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -387,16 +379,16 @@ msgstr ""
 "ファイル \"%s\" を含む場所はアンマウントされています。別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "名前を付けて保存…"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" は削除されています。それでも保存しますか？"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -405,11 +397,11 @@ msgstr ""
 "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "別の場所に変更内容を保存"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -418,11 +410,11 @@ msgstr ""
 "ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込み"
 "ますか？　または編集を続行しますか？"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "変更を読み込む"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "編集を続行"
 
@@ -722,6 +714,15 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
 
+#~ msgid "Draw Spaces:"
+#~ msgstr "空白を表示:"
+
+#~ msgid "For selected text"
+#~ msgstr "選択されたテキストに対して表示"
+
+#~ msgid "Always"
+#~ msgstr "常に表示"
+
 #~ msgid "High Contrast"
 #~ msgstr "ハイコントラスト"
 
@@ -989,9 +990,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "テキストエディタのターミナル"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "行末の余分な空白を削除"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "保存時に行末の余分な空白を削除"

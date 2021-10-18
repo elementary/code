@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 19:22+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -50,11 +50,11 @@ msgstr "Znojdź…"
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
@@ -67,8 +67,8 @@ msgid "Open"
 msgstr "Ôtwōrz"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Pociep"
@@ -192,16 +192,8 @@ msgid "Line wrap:"
 msgstr "Swijanie wierszōw:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Rysowanie ôdstympōw:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "Dlo zaznaczōnego tekstu"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Dycki"
+msgid "Visible whitespace:"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -326,69 +318,69 @@ msgstr "Gałōńź"
 msgid "Branch"
 msgstr "Gałōńź"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s to niy zbiōr tekstowy"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Kod niy zaladuje tyj zorty zbioru."
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "Zaladuj i tak"
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Ladowanie zbioru „%s” biere moc czasu"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Czekej, aż Kod zaladuje zbiōr."
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "Pociep ladowanie"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Spamiyntać zmiany we „%s” przed zawarciym?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Zmiany bydōm doimyntnie stracōne, jak niy bydōm spamiyntane."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "Zawrzij bez spamiyntowanio"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Spamiyntej"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Spamiyntej zbiōr"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Nowy dokumynt"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Niy idzie czytać zbioru „%s”"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Może być poprzniōny abo możesz niy mieć przizwolynio na jego edycyjo."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -396,16 +388,16 @@ msgid ""
 msgstr ""
 "Plac, kaj je zbiōr „%s”, bōł ôdmōntowany. Chcesz go spamiyntać kajś ińdzij?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Spamiyntej za…"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Zbiōr „%s” bōł skasowany. Chcesz go i tak spamiyntać?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -414,11 +406,11 @@ msgstr ""
 "Niy idzie spamiyntować zmian we zbiorze „%s”. Chcesz je spamiyntać kajś "
 "ińdzij?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "Spamiyntej zmiany kaj ińdzij"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -427,11 +419,11 @@ msgstr ""
 "Zbiōr „%s” bōł zmodyfikowany ôd inkszego programu. Chcesz go zaladować na "
 "nowo abo chcesz kōntynuować edytowanie?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Laduj"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Dalij"
 
@@ -742,6 +734,15 @@ msgstr "Zainstaluj aby jedyn słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Rysowanie ôdstympōw:"
+
+#~ msgid "For selected text"
+#~ msgstr "Dlo zaznaczōnego tekstu"
+
+#~ msgid "Always"
+#~ msgstr "Dycki"
 
 #~ msgid "High Contrast"
 #~ msgstr "Wysoki kōntrast"
