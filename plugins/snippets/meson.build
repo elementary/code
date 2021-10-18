@@ -19,6 +19,11 @@ shared_module(
     install_dir: join_paths(pluginsdir, module_name),
 )
 
+install_data(
+    'snippets.json', 
+    install_dir:  join_paths(pluginsdir, module_name),
+)
+
 custom_target(module_name + '.plugin_merge',
     input: module_name + '.plugin',
     output: module_name + '.plugin',

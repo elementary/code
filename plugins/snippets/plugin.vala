@@ -83,7 +83,6 @@
 }
 
 private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Object {
-    public string name {get; set; }
     public Code.Plugins.Snippets.Plugin snippets;
     public Gee.HashMultiMap<string, Snippet> snippet_map;
 
@@ -96,7 +95,7 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
         snippet_map = new Gee.HashMultiMap<string, Snippet> ();
 
         var par = new Json.Parser ();
-        string user_snippets_filename = Environment.get_user_data_dir () + "/code/snippets/snippets.json";
+        string user_snippets_filename = GLib.Path.build_filename (Constants.PLUGINDIR, "snippets", "snippets.json");
         par.load_from_file (user_snippets_filename);
         var reader = new Json.Reader (par.get_root ());
 
@@ -127,6 +126,10 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             reader.end_member ();
         }
 
+    }
+
+    public string get_name () {
+        return "Snippets";
     }
 
     private string word_prefix (Gtk.SourceCompletionContext context) {
@@ -260,13 +263,11 @@ public class Code.Plugins.Snippets.Plugin : Peas.ExtensionBase, Peas.Activatable
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    //  public Euclide.Completion.Parser parser {get; private set;}
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
     private Scratch.MainWindow main_window;
     private Scratch.Services.Interface plugins;
-
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
@@ -300,8 +301,7 @@ public class Code.Plugins.Snippets.Plugin : Peas.ExtensionBase, Peas.Activatable
             text_view_list.append (current_view);
 
         var comp_provider = new Code.Plugins.Snippets.Provider () {
-            snippets = this,
-            name = "Snippets"
+            snippets = this
         };
 
         try {
