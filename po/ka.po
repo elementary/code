@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 19:22+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,11 +50,11 @@ msgstr "პოვნა..."
 msgid "Hide search bar"
 msgstr "პოვნის ზოლის დამლავა"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "ტექსტ ფაილები"
 
@@ -67,8 +67,8 @@ msgid "Open"
 msgstr "გახსნა"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -187,16 +187,10 @@ msgid "Line wrap:"
 msgstr "ხაზის გახვევა:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr ""
+#, fuzzy
+#| msgid "Strip trailing whitespace"
+msgid "Visible whitespace:"
+msgstr "მცოცავი თეთრი სივრცის შემოცლა"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -325,93 +319,93 @@ msgstr "Scratch-ის პარამეტრების შეცვლა"
 msgid "Branch"
 msgstr "Scratch-ის პარამეტრების შეცვლა"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "გაუქმება"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "შეინახოს დოკუმენტ %s-ის ცვლილებები დახურვამდე?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "თუ არ დიამახსოვრებთ, ბოლო 4 წამის განმავლობაში განცხორცილებული ცვლილებები "
 "სამუდამო დაიკარგება."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "დახურვა შენახვის გარეშე"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "ფაილის შენახვა"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "ახალი დოკუმენტი"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "ფაილ \"%s\"-ის წაკითხვა ვერ მოხერხდა. შესაძლოა ის დაზიანებულია\n"
 "ან თქვენ არ გაქვთ მისი ნახვისთვის საჭირო უფლებები."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "ფაილ \"%s\"-ის შემცველი მდებარეობა მოიხსნა. გსურთ სხვაგან შენახვა?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "შენახვა როგორც ..."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "ფაილი \"%s\" წაიშალა. მაინც გსურთ შენახვა?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -420,11 +414,11 @@ msgstr ""
 "თქვენ არ შეგიძლიათ ფაილ \"%s\"-ზე ცვლილებების შენახვა. გსურთ განხორციელებული "
 "ცვლილებების სხვა მდებარეობაში შენახვა?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "ცვლილებების სხვაგან შენახვა"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -433,11 +427,11 @@ msgstr ""
 "ფაილი \"%s\" შეიცვალა გარე პროგრამის მიერ. მისი ხელახლა ჩატვირთვა გსურთ თუ "
 "რედაქტირების გაგრძელება?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "ჩატვირთვა"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "გაგრძელება"
 
@@ -920,9 +914,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "ტერმინალი თქვენს ტექსტის რედაქტორში"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "მცოცავი თეთრი სივრცის შემოცლა"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "დამახსოვრებისას მცოცავი თეთრი სივრცის შემოცლა"
