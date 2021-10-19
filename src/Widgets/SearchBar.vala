@@ -65,8 +65,7 @@ namespace Scratch.Widgets {
             search_entry.placeholder_text = _("Find");
 
             search_occurence_count_label = new Gtk.Label.with_mnemonic ("no results");
-            search_occurence_count_label.set_margin_left(4);
-            search_occurence_count_label.set_margin_right(4);
+            search_occurence_count_label.set_margin_start (4);
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
@@ -79,6 +78,7 @@ namespace Scratch.Widgets {
                 ),
                 _("Search next")
             );
+            tool_arrow_down.set_margin_start (4);
 
             tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_up.clicked.connect (search_previous);
@@ -415,7 +415,7 @@ namespace Scratch.Widgets {
                     text_buffer.get_selection_bounds (out start_iter, out end_iter);
 
                     is_in_start = start_iter.compare (tmp_start_iter) == 0;
-                    is_in_end = end_iter.compare (tmp_end_iter) == 0; 
+                    is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
                         tool_arrow_down.sensitive = search_context.forward (
@@ -501,7 +501,7 @@ namespace Scratch.Widgets {
             return case_sensitive_button.active ||
                    !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
-        
+
         private void update_search_occurence_label () {
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
@@ -514,7 +514,7 @@ namespace Scratch.Widgets {
 
             int count_of_search = search_context.get_occurrences_count ();
             int location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
-            
+
             if (count_of_search > -1 && location_of_search > 0) {
                 search_occurence_count_label.label = @"$location_of_search of $count_of_search";
             } else if (count_of_search == -1) {
