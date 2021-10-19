@@ -64,8 +64,9 @@ namespace Scratch.Widgets {
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
 
-            search_occurence_count_label = new Gtk.Label.with_mnemonic ("no results");
-            search_occurence_count_label.set_margin_start (4);
+            search_occurence_count_label = new Gtk.Label (_("no results")) {
+                margin_start = 4
+            };
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
@@ -513,12 +514,15 @@ namespace Scratch.Widgets {
                                             out start_iter, out end_iter, null);
 
             int count_of_search = search_context.get_occurrences_count ();
-            int location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
+            int location_of_search = -1;
+            if (count_of_search > 0) {
+                location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
+            }
 
-            if (count_of_search > -1 && location_of_search > 0) {
-                search_occurence_count_label.label = @"$location_of_search of $count_of_search";
-            } else if (count_of_search == -1) {
-                search_occurence_count_label.label = "no results";
+            if (count_of_search > 0 && location_of_search > 0) {
+                search_occurence_count_label.label = _(@"$location_of_search of $count_of_search");
+            } else {
+                search_occurence_count_label.label = _("no results");
             }
         }
     }
