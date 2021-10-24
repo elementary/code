@@ -37,7 +37,7 @@ namespace Scratch.Widgets {
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
 
-        public Gtk.Label search_occurence_count_label;
+        private Gtk.Label search_occurence_count_label;
 
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
@@ -151,6 +151,7 @@ namespace Scratch.Widgets {
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.search_changed.connect (update_search_occurence_label);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
