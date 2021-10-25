@@ -264,7 +264,6 @@ namespace Scratch.Widgets {
             bool matches = search ();
             update_replace_tool_sensitivities (search_entry.text, matches);
             update_tool_arrows (search_entry.text);
-            update_search_occurence_label ();
 
             if (search_entry.text == "") {
                 search_empty ();
