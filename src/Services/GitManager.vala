@@ -41,21 +41,20 @@ namespace Scratch.Services {
         }
 
         private GitManager () {
-            project_liststore = new ListStore (typeof (File));
+            project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
         }
 
-        public MonitoredRepository? add_project (GLib.File root_folder) {
+        public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
             project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
 
-            var root_path = root_folder.get_path ();
+            var root_path = root_folder.file.file.get_path ();
             try {
-                var git_repo = Ggit.Repository.open (root_folder);
+                var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (project_gitrepo_map.has_key (root_path)) {
                     return project_gitrepo_map.@get (root_path);
                 }
 
                 var monitored_repo = new MonitoredRepository (git_repo);
-
                 project_gitrepo_map.@set (root_path, monitored_repo);
                 return project_gitrepo_map.@get (root_path);
             } catch (Error e) {
@@ -65,12 +64,14 @@ namespace Scratch.Services {
         }
 
         [CCode (instance_pos = -1)]
-        private int project_sort_func (File a, File b) {
-            return Path.get_basename (a.get_path ()).collate (Path.get_basename (b.get_path ()));
+        private int project_sort_func (FolderManager.ProjectFolderItem a, FolderManager.ProjectFolderItem b) {
+            GLib.File file_a = a.file.file;
+            GLib.File file_b = b.file.file;
+            return Path.get_basename (file_a.get_path ()).collate (Path.get_basename (file_b.get_path ()));
         }
 
-        public void remove_project (GLib.File root_folder) {
-            var root_path = root_folder.get_path ();
+        public void remove_project (FolderManager.ProjectFolderItem root_folder) {
+            var root_path = root_folder.file.file.get_path ();
 
             uint position;
             if (project_liststore.find (root_folder, out position)) {
