@@ -197,25 +197,25 @@ namespace Scratch.FolderManager {
         }
 
 
-    private void rename_items_with_same_name (Item item) {
-        string item_name = item.file.name;
-        foreach (var child in this.root.children) {
-            string new_other_item_name, new_item_name;
-            var other_item = child as ProjectFolderItem;
+        private void rename_items_with_same_name (Item item) {
+            string item_name = item.file.name;
+            foreach (var child in this.root.children) {
+                string new_other_item_name, new_item_name;
+                var other_item = child as ProjectFolderItem;
 
-            if (Utils.find_unique_path (item.file.file, other_item.file.file, out new_item_name, out new_other_item_name)) {
-                if (item_name.length < new_item_name.length) {
-                    item_name = new_item_name;
+                if (Utils.find_unique_path (item.file.file, other_item.file.file, out new_item_name, out new_other_item_name)) {
+                    if (item_name.length < new_item_name.length) {
+                        item_name = new_item_name;
+                    }
+
+                    if (other_item.name.length < new_other_item_name.length) {
+                        other_item.name = new_other_item_name;
+                    }
                 }
 
-                if (other_item.name.length < new_other_item_name.length) {
-                    other_item.name = new_other_item_name;
-                }
             }
-
+            item.name = item_name;
         }
-        item.name = item_name;
-    }
 
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
