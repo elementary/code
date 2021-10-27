@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2017-08-09 15:06+0000\n"
 "Last-Translator: Yvo Marques <macghivo@gmail.com>\n"
 "Language-Team: Luxembourgish <https://weblate.elementary.io/projects/scratch/"
@@ -52,11 +52,11 @@ msgstr "Fannen…"
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr ""
 
@@ -69,8 +69,8 @@ msgid "Open"
 msgstr ""
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ofbriechen"
@@ -186,15 +186,7 @@ msgid "Line wrap:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
+msgid "Visible whitespace:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
@@ -317,70 +309,70 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ofbriechen"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ännerungen virum zoumaachen späicheren?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Wann Dier nët späichert, ginn äer Ännerungen vun den läschten 4 Sekonnen "
 "verworf."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Ouni ze späicheren zoumaachen"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Späicheren"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Fichier späicheren"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Neit Dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
@@ -388,7 +380,7 @@ msgstr ""
 "sinn\n"
 "oder Dier hudd nët d'Erlaabnis fir deen Fichier liesen ze kënnen."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -397,16 +389,16 @@ msgstr ""
 "Déi Plaatz, wou den Fichier \"%s\" ofgespäicher war, war nët agehaangen. "
 "Wëllt Dier den Fichier iergendswou aaneschters ofspäicheren?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Ofspäicheren als..."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Den Fichier \"%s gouf geläscht. Wëllt Dier en trotzdem späicheren?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -415,11 +407,11 @@ msgstr ""
 "Du kanns keng Ännerungen op Datei \"%s\" speichern. Wëllt dir d 'Ännerungen "
 "zu dës Datei op enger anerer Plaatz sécheren?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -428,11 +420,11 @@ msgstr ""
 "Fichier \"%s\" gouf vun engem externe Programm veränneren. Wëllt Dir et erëm "
 "lueden oder weider redigéieren?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Lueden"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Weidermaachen"
 

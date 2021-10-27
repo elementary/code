@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -58,11 +58,11 @@ msgstr "Nađi…"
 msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Tekstualne datoteke"
 
@@ -75,8 +75,8 @@ msgid "Open"
 msgstr "Otvori"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Otkaži"
@@ -196,16 +196,8 @@ msgid "Line wrap:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Prikaži prazna polja:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "Za odabrani tekst"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Uvijek"
+msgid "Visible whitespace:"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -330,73 +322,73 @@ msgstr "Promijeni Scratch podešavanja"
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nije tekstualna datoteka"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Kod nije mogao učitati ovaj tip datoteke."
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "Svejedno učitaj"
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Učitavanje datoteke \"%s\" traje dugo"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Molimo, sačekajte dok Kod učitava datoteku."
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "_Otkaži učitavanje"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Sačuvati promjene dokumentu %s pre zatvaranja?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ako ne sačuvate, promjene poslednje 4 sekunde će biti izgubljene."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Zatvori bez čuvanja"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Sačuvaj"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Sačuvaj datoteku"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Novi dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Datoteka \"%s\" ne može biti očitana"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Možda je oštećena ili nemate potrebne dozvole za njeno čitanje."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -405,16 +397,16 @@ msgstr ""
 "Lokacija koja sadrži datoteku \"%s\" je demontirana. Želite li sačuvati "
 "negdje drugo?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Sačuvaj kao…"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je izbrisana. Želite li svejedno sačuvati?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -423,11 +415,11 @@ msgstr ""
 "Ne možete sačuvati izmjene u datoteku \"%s\". Želite li sačuvati izmjene za "
 "ovu datoteku na drugoj lokaciji?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "Sačuvati promjene negde drugde"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -436,11 +428,11 @@ msgstr ""
 "Datoteka \"%s\" je izmijenjena pomoću vanjske aplikacije. Želite li je opet "
 "učitati i nastaviti uređivanje?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Učitaj"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Nastavi"
 
@@ -756,6 +748,15 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Automatski završetak riječi"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Prikaži prazna polja:"
+
+#~ msgid "For selected text"
+#~ msgstr "Za odabrani tekst"
+
+#~ msgid "Always"
+#~ msgstr "Uvijek"
 
 #~ msgid "High Contrast"
 #~ msgstr "Visoki kontrast"

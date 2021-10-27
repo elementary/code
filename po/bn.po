@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,11 +50,11 @@ msgstr "খুঁজুন..."
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
@@ -67,8 +67,8 @@ msgid "Open"
 msgstr "খুলুন"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -187,16 +187,10 @@ msgid "Line wrap:"
 msgstr "লাইন মোড়ানোঃ"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "ফাঁকা স্থান বসানঃ"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr ""
+#, fuzzy
+#| msgid "Strip trailing whitespace"
+msgid "Visible whitespace:"
+msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -325,79 +319,79 @@ msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন 
 msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "নতুন ডকুমেন্ট"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "\"%s\" ফাইলটি নির্ণয় করে যাচ্ছেনা।  হয়ত এটি নষ্ট\n"
 "অথবা আপনার প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -406,16 +400,16 @@ msgstr ""
 "\"%s\" ফাইলটি যে অবস্থা এ ছিল সে লোকেশানটি সরিয়ে নেয়া হয়েছে। আপনি কী অন্য "
 "কোথায় সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "নতুনভাবে সংরক্ষণ করুন..."
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -424,11 +418,11 @@ msgstr ""
 "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
 "লোকেশনে সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -437,11 +431,11 @@ msgstr ""
 "\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
 "পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "লোড"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "পরবর্তী"
 
@@ -762,6 +756,9 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - শব্দ পরিপূরণ"
 
+#~ msgid "Draw Spaces:"
+#~ msgstr "ফাঁকা স্থান বসানঃ"
+
 #, fuzzy
 #~| msgid "Search next"
 #~ msgid "Search for:"
@@ -988,9 +985,6 @@ msgstr "%s - শব্দ পরিপূরণ"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "আপনার টেক্সট ইডিটর এ একটি টার্মিনাল"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস অন সেভ"

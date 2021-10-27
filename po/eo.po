@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2020-03-14 21:09+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -56,11 +56,11 @@ msgstr "Trovi…"
 msgid "Hide search bar"
 msgstr "Kaŝi serĉbreton"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Tekstaj dosieroj"
 
@@ -73,8 +73,8 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Rezigni"
@@ -195,16 +195,8 @@ msgid "Line wrap:"
 msgstr "Linifaldo:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Afiŝi spacojn:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "Por la elektita teksto"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Ĉiam"
+msgid "Visible whitespace:"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -328,69 +320,69 @@ msgstr "Branĉo"
 msgid "Branch"
 msgstr "Branĉo"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s estas dosiero ne teksta"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Kodo ne ŝargos tian dosiertipon."
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
 msgstr "Ŝargi Ĉiukaze"
 
-#: src/Services/Document.vala:287
+#: src/Services/Document.vala:288
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Ŝargo de la dosiero „%s“ longe daŭras"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Bonvolu atendi dum Kodo ŝargas la dosieron."
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "Rezigni Ŝargon"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ĉu estu konservata al „%s“ antaŭ fermo?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Sen konservo, ŝanĝoj definitive perdiĝos."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "Fermi sen konservo"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Konservi"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Konservi dosieron"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Nova dokumento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Dosiero „%s“ ne legeblas"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Eble ĝi estas koruptita, aŭ mankas al vi leg-permeso."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -399,16 +391,16 @@ msgstr ""
 "La dosierujo en kiu estis la dosiero „%s“ estis malmuntita. Ĉu vi deziras "
 "konservi aliloke?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Konservi kiel…"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "La dosiero „%s“ estis forigita. Ĉu vi deziras tamen konservi ĝin?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -416,11 +408,11 @@ msgid ""
 msgstr ""
 "Ne eblas konservi ŝanĝojn en la dosiero „%s“. Ĉu vi deziras konservi aliloke?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
 msgstr "Konservi aliloke"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -429,11 +421,11 @@ msgstr ""
 "La dosiero „%s“ estis modifita de ekstera aplikaĵo. Ĉu vi deziras reŝargi "
 "ĝin aŭ daŭrigi ĝian redaktadon?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Ŝargi"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Daŭrigi"
 
@@ -744,6 +736,15 @@ msgstr "Bonvolu instali almenaŭ unu [aspell]-vortaron."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - vortkompletigo"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Afiŝi spacojn:"
+
+#~ msgid "For selected text"
+#~ msgstr "Por la elektita teksto"
+
+#~ msgid "Always"
+#~ msgstr "Ĉiam"
 
 #~ msgid "High Contrast"
 #~ msgstr "Alta kontrasto"

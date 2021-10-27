@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 17:44+0000\n"
-"PO-Revision-Date: 2021-07-21 14:16+0000\n"
-"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"PO-Revision-Date: 2021-10-10 17:52+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -55,11 +55,11 @@ msgstr "Suchen …"
 msgid "Hide search bar"
 msgstr "Suchleiste ausblenden"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:486
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:490
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Textdateien"
 
@@ -72,8 +72,8 @@ msgid "Open"
 msgstr "Öffnen"
 
 #: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:393
-#: src/Services/Document.vala:498 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
+#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -192,16 +192,8 @@ msgid "Line wrap:"
 msgstr "Zeilenumbruch:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-msgid "Draw Spaces:"
-msgstr "Leerstellen erzeugen:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "For selected text"
-msgstr "Für markierten Text"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Always"
-msgstr "Immer"
+msgid "Visible whitespace:"
+msgstr "Sichtbarer Weißraum:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -231,7 +223,7 @@ msgstr ""
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr "Nicht Wiederherstellen"
+msgstr "Nicht wiederherstellen"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
@@ -319,90 +311,90 @@ msgstr "Neuer Zweig …"
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:263
+#: src/Services/Document.vala:264
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ist keine Textdatei"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:265
 msgid "Code will not load this type of file."
 msgstr "Code wird diesen Dateityp nicht laden."
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:267
 msgid "Load Anyway"
-msgstr "Trotzdem Laden"
-
-#: src/Services/Document.vala:287
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Das Laden von \"%s\" dauert sehr lange"
+msgstr "Trotzdem laden"
 
 #: src/Services/Document.vala:288
+#, c-format
+msgid "Loading File \"%s\" Is Taking a Long Time"
+msgstr "Das Laden von »%s« dauert sehr lange"
+
+#: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
 msgstr "Bitte warten Sie, während Code die Datei lädt."
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:291
 msgid "Cancel Loading"
 msgstr "Laden abbrechen"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:384
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Änderungen am Dokument \"%s\" vor dem Schließen speichern?"
+msgstr "Änderungen am Dokument »%s« vor dem Schließen speichern?"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:385
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Wenn Sie nicht speichern, gehen Ihre Änderungen unwiderruflich verloren."
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:391
 msgid "Close Without Saving"
 msgstr "Schließen ohne zu speichern"
 
-#: src/Services/Document.vala:394 src/Services/Document.vala:497
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:395 src/Services/Document.vala:498
+#: src/Services/Document.vala:730
 msgid "Save"
 msgstr "Speichern"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:495
 msgid "Save File"
 msgstr "Datei speichern"
 
-#: src/Services/Document.vala:571 src/Services/Document.vala:580
+#: src/Services/Document.vala:572 src/Services/Document.vala:581
 msgid "New Document"
 msgstr "Neues Dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:703
+#: src/Services/Document.vala:704
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "Datei \"%s\" kann nicht gelesen werden"
+msgstr "Datei »%s« kann nicht gelesen werden"
 
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:705
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Möglicherweise ist sie beschädigt oder Sie verfügen nicht über die "
 "benötigten Rechte zum Lesen."
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:718
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Der Ort, an dem sich die Datei \"%s\" befindet, wurde ausgehängt. Möchten "
-"Sie an einem anderen Ort speichern?"
+"Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt. Möchten Sie "
+"an einem anderen Ort speichern?"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:721
 msgid "Save As…"
 msgstr "Speichern unter …"
 
-#: src/Services/Document.vala:726
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Die Datei \"%s\" wurde gelöscht. Möchten Sie sie trotzdem speichern?"
+msgstr "Die Datei »%s« wurde gelöscht. Möchten Sie sie trotzdem speichern?"
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -411,24 +403,24 @@ msgstr ""
 "Sie können die Änderungen an der Datei »%s« nicht speichern. Möchten Sie die "
 "Änderungen an einem anderen Ort speichern?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:747
 msgid "Save changes elsewhere"
-msgstr "Änderungen woanders speichern"
+msgstr "Änderungen an anderem Ort speichern"
 
-#: src/Services/Document.vala:780
+#: src/Services/Document.vala:781
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Die Datei \"%s\" wurde von einer externen Anwendung bearbeitet. Möchten Sie "
+"Die Datei »%s« wurde von einer externen Anwendung bearbeitet. Möchten Sie "
 "sie noch einmal laden oder mit Ihrer Bearbeitung fortfahren?"
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:784
 msgid "Load"
 msgstr "Laden"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:787
 msgid "Continue"
 msgstr "Fortfahren"
 
@@ -540,7 +532,7 @@ msgstr "Projektordner öffnen …"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
-msgstr "Alle zusammenklappen"
+msgstr "Alle einklappen"
 
 #: src/Widgets/Sidebar.vala:49
 msgid "Alphabetize"
@@ -729,6 +721,15 @@ msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Wortvervollständigung"
+
+#~ msgid "Draw Spaces:"
+#~ msgstr "Leerzeichen erzeugen:"
+
+#~ msgid "For selected text"
+#~ msgstr "Für markierten Text"
+
+#~ msgid "Always"
+#~ msgstr "Immer"
 
 #~ msgid "High Contrast"
 #~ msgstr "Hoher Kontrast"
@@ -1020,9 +1021,6 @@ msgstr "%s – Wortvervollständigung"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Ein Terminal in Ihrer Textbearbeitung"
-
-#~ msgid "Strip trailing whitespace"
-#~ msgstr "Leerzeichen am Zeilenende entfernen"
 
 #~ msgid "Strip trailing whitespace on save"
 #~ msgstr "Leerzeichen am Zeilenende beim Speichern entfernen"
