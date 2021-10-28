@@ -48,6 +48,8 @@ namespace Scratch.Widgets {
 
         public signal void search_empty ();
 
+        private uint update_search_label_timeout_id = 0;
+
         /**
          * Create a new SearchBar widget.
          *
@@ -504,26 +506,37 @@ namespace Scratch.Widgets {
         }
 
         private void update_search_occurence_label () {
-            Gtk.TextIter? start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
-            end_iter = start_iter;
-            bool case_sensitive = is_case_sensitive (search_entry.text);
-            start_iter.forward_search (search_entry.text,
+            if (update_search_label_timeout_id > 0) {
+                Source.remove (update_search_label_timeout_id);
+                update_search_label_timeout_id = 0;
+            }
+
+            update_search_label_timeout_id = Timeout.add (100, () => {
+                update_search_label_timeout_id = 0;
+                Gtk.TextIter? start_iter, end_iter;
+                text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
+
+                end_iter = start_iter;
+                bool case_sensitive = is_case_sensitive (search_entry.text);
+                start_iter.forward_search (search_entry.text,
                                             case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                             out start_iter, out end_iter, null);
 
-            int count_of_search = search_context.get_occurrences_count ();
-            int location_of_search = -1;
-            if (count_of_search > 0) {
-                location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
-            }
+                int count_of_search = search_context.get_occurrences_count ();
+                int location_of_search = -1;
+                if (count_of_search > 0) {
+                    location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
+                }
 
-            if (count_of_search > 0 && location_of_search > 0) {
-                search_occurence_count_label.label = _(@"$location_of_search of $count_of_search");
-            } else {
-                search_occurence_count_label.label = _("no results");
-            }
+                if (count_of_search > 0 && location_of_search > 0) {
+                    search_occurence_count_label.label = _(@"$location_of_search of $count_of_search");
+                } else {
+                    search_occurence_count_label.label = _("no results");
+                }
+                return Source.REMOVE;
+            });
+
         }
     }
 }
