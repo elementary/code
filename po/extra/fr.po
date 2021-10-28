@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-08-03 16:23+0000\n"
+"PO-Revision-Date: 2021-10-21 16:49+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -25,27 +25,21 @@ msgid "Code"
 msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
-#| msgid "The editor that works"
 msgid "The editor that works for you"
-msgstr "L'éditeur qui fait son travail"
+msgstr "L'éditeur qui travaille pour vous"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Code est l’éditeur qui fait son travail. Il sauvegarde automatiquement vos "
-"fichiers, les conservant toujours à jour. En plus il se souvient de vos "
-"onglets ouverts pour que vous ne soyez jamais perdu, même entre deux "
-"sessions."
+"Que vous écriviez en Markdown ou que vous gériez le code d'une application "
+"complexe, Code est l'éditeur léger mais complet qu'il vous faut. Il "
+"enregistre automatiquement vos fichiers pour qu'ils soient toujours à jour "
+"et mémorise vos onglets pour que vous ne vous perdiez jamais, même entre "
+"deux sessions."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -53,14 +47,12 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Conçu pour fonctionner par projet, Code reconnaît vos bases de code "
+"distinctes. Il est livré avec une intégration Git utile pour créer et passer "
+"d'une branche à l'autre et afficher les fichiers et lignes modifiés dans vos "
+"projets."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
@@ -77,6 +69,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Trouvez n'importe quoi dans votre fichier actuel, dans des dossiers "
+"spécifiques ou dans l'ensemble de votre projet grâce aux options de "
+"sensibilité à la casse et aux expressions régulières."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -85,6 +80,12 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"De nombreuses fonctionnalités intelligentes : indentation automatique, "
+"comportement intelligent en matière de couper/copier, espaces blancs "
+"visibles pour le texte sélectionné et à la fin des lignes par défaut, et "
+"extensions disponibles en option pour les actions Markdown, la vérification "
+"orthographique, le découpage des espaces blancs, l'auto-complétion, et plus "
+"encore."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -92,44 +93,56 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Adaptez Code à votre flux de travail : vous pouvez modifier le comportement "
+"et l'interface selon vos besoins grâce à une poignée d'extensions et de "
+"préférences utiles et bien pensées."
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Et bien plus encore :"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Thèmes de couleurs Solarized Light, Solarized Dark et Contraste élevé qui "
+"affectent l'ensemble de l'interface utilisateur"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Barre latérale amovible pour s'adapter à votre flux de travail"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Indentation intelligente et prise en charge des fichiers .editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Onglets comme dans un navigateur, avec glisser-déposer, duplication, "
+"annulation de la fermeture et historique des onglets"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
 msgstr ""
+"Affichage de la ligne et du caractère courants, et saut rapide à une "
+"nouvelle ligne"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Faites défiler le fichier jusqu'à la fin pour garder la ligne en cours là où "
+"c'est confortable"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
+"Mini-carte en option pour faciliter la navigation dans les gros fichiers"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:85
@@ -139,18 +152,24 @@ msgstr "Corrections :"
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
+"Correction d'un plantage lors de la création d'une nouvelle fenêtre au "
+"moment de la suppression d'un onglet"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
+"Nous nous sommes assurés que les fichiers créés depuis la barre latérale "
+"soient automatiquement ouverts"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "Améliorations :"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
 msgstr ""
+"Le bouton de sélection de projet est désormais masqué lorsque la barre "
+"latérale est masquée"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -160,7 +179,7 @@ msgstr "Mises à jour mineures :"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "Nous nous sommes assurés que tout soit traduisible"
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
