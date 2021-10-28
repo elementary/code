@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2019-09-11 16:24+0000\n"
-"Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
+"PO-Revision-Date: 2021-10-27 15:35+0000\n"
+"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: src/Application.vala:39
 msgid "New Tab"
@@ -35,7 +35,7 @@ msgstr "插件集"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "文件"
 
 #: src/MainWindow.vala:140
 msgid "Code"
@@ -83,15 +83,15 @@ msgstr "_取消"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "在“%s”中查找文本"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "搜索字段最低长度为3个字符。"
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "区分大小写："
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
