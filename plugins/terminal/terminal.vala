@@ -118,7 +118,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
         if (terminal.has_focus) {
             /* Action any terminal hotkeys */
-            return on_terminal_key_press_event (event);
+            return terminal.key_press_event (event);
         }
 
         return false;
