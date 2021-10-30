@@ -124,6 +124,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         return false;
     }
 
+    void on_terminal_child_exited () {
+        if (get_shell_location () == "") {
+            // Terminal has no shell - close
+            tool_button.active = false;
+        }
+    }
+
     bool on_terminal_key_press_event (Gdk.EventKey event) {
         var mods = (event.state & Gtk.accelerator_get_default_mod_mask ());
         bool control_pressed = ((mods & Gdk.ModifierType.CONTROL_MASK) != 0);
@@ -165,6 +172,15 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         tool_button.toggled.connect (() => {
             if (this.tool_button.active) {
                 tool_button.tooltip_text = _("Hide Terminal");
+                if (get_shell_location () == "") {
+                    // Terminal has no shell or was destroyed - recreate
+                    if (grid != null) {
+                        grid.destroy ();
+                    }
+
+                    on_hook_notebook ();
+                }
+
                 bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 terminal.grab_focus ();
             } else {
@@ -208,6 +224,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         terminal.key_press_event.connect (on_terminal_key_press_event);
+        terminal.child_exited.connect (on_terminal_child_exited);
 
         // Set terminal font
         if (font_name == "") {
