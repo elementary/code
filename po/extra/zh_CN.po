@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-11-01 07:38+0000\n"
+"PO-Revision-Date: 2021-11-01 14:01+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -233,41 +233,39 @@ msgstr "使用保留空格插件时正确缩进最后一行"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "语法高亮"
+msgstr "复制文件时保持语法高亮"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "双击打开展开折叠的文件夹"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "修复代码失去焦点时搜索丢失的问题"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "在命令模式下启动 Vim 插件"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "修复并添加新的 Vim 命令"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "显示带有隐藏根文件夹的项目文件夹"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "允许使用 pkexec 启动并禁止使用 sudo 启动"
 
 #: data/io.elementary.code.appdata.xml.in:77
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "修复移除当前视图的问题"
+msgstr "删除拆分视图"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Remove browser preview"
-msgstr ""
+msgstr "移除浏览器预览"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
