@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-05-05 10:47+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"PO-Revision-Date: 2021-11-01 07:38+0000\n"
+"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -184,11 +184,11 @@ msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件。"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr ""
+msgstr "切换Git分支或在项目文件夹上下文菜单中创建新的分支"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "在源视图中显示Git diff状态"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Full text search within project folder."
@@ -196,15 +196,13 @@ msgstr "在项目文件夹中进行全文搜索。"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "在会话之间保存和恢复光标位置"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "关闭项目时关闭项目中的文件"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
 msgstr "在选项卡工具提示中显示完整的文档路径"
 
@@ -226,7 +224,7 @@ msgstr "记忆侧边栏开关状态"
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "设置窗口标题为聚焦文件"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -238,15 +236,13 @@ msgstr "在选项卡工具提示中显示完整的文档路径"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "更新Pastebin插件"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "使用保留空格插件时正确缩进最后一行"
 
 #: data/io.elementary.code.appdata.xml.in:70
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
 msgstr "语法高亮"
 
