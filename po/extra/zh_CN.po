@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-05-05 10:47+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"PO-Revision-Date: 2021-11-01 14:01+0000\n"
+"Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -26,25 +26,18 @@ msgid "Code"
 msgstr "代码"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
-#| msgid "The editor that works"
 msgid "The editor that works for you"
-msgstr "高效的编辑器"
+msgstr "适合您的编辑器"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Code 是一款高效的文本编辑器。实时保存功能使您无需手动保存便能对文本内容进行实"
-"时更改。标签记忆功能让您在切换用户或重启设备后仍能继续未完成的工作。"
+"无论您是使用 Markdown 编写还是管理复杂的应用程序代码库，Code 都是适合您的轻量级但功能齐全的编辑器。 "
+"它会自动保存您的文件以确保它们始终是最新的，并且它会记住您的选项卡，因此您永远不会丢失您的位置 - 即使在会话之间也是如此。"
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -52,28 +45,22 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"围绕基于项目的工作流程设计，Code 了解您单独的代码库。 它带有有用的 Git 集成，可以在分支之间创建和切换，并在项目中显示更改的文件和行。"
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"海纳百川！无论您是 Vala 老手、PHP 专家还是 HTML 大师，Code 都能满足您的需求。"
-"语法高亮功能支持几乎所有编程语言、脚本语言和标记语言。"
+"海纳百川！无论您是 Vala 老手、PHP 专家还是 HTML 大师，Code 都能满足您的需求。语法高亮功能支持几乎所有编程语言、脚本语言和标记语言。"
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
-msgstr ""
+msgstr "使用区分大小写和正则表达式的选项，在当前文件、特定文件夹或整个项目中查找任何内容。"
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -82,13 +69,15 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"智能功能贯穿始终：自动缩进、智能剪切/复制行为、默认情况下所选文本和行尾的可见空白，以及 Markdown "
+"操作的可选扩展、拼写检查、空白修剪、单词完成等。"
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
 "Adapt Code to your workflow: you can tweak the behavior and interface as "
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
-msgstr ""
+msgstr "使 Code 适应您的工作流程：您可以根据需要使用一些有用且经过深思熟虑的扩展和首选项来调整行为和界面。"
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
@@ -184,11 +173,11 @@ msgstr "为 WYSIWYG-like 编辑提供新 Markdown 插件。"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr ""
+msgstr "切换Git分支或在项目文件夹上下文菜单中创建新的分支"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Show Git diff status in source view gutters"
-msgstr ""
+msgstr "在源视图中显示Git diff状态"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Full text search within project folder."
@@ -196,21 +185,19 @@ msgstr "在项目文件夹中进行全文搜索。"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Save and restore cursor position between sessions"
-msgstr ""
+msgstr "在会话之间保存和恢复光标位置"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Close files from a project when that project is closed"
-msgstr ""
+msgstr "关闭项目时关闭项目中的文件"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
-#| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
 msgstr "在选项卡工具提示中显示完整的文档路径"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Clear lines with Ctrl + K"
-msgstr ""
+msgstr "用Ctrl + K清除行"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Allow Spell Checker extension in Markdown files"
@@ -218,7 +205,7 @@ msgstr "在 Markdown 文件里可以使用拼写检查插件"
 
 #: data/io.elementary.code.appdata.xml.in:63
 msgid "Improve multi-line duplication"
-msgstr ""
+msgstr "改善多行复制"
 
 #: data/io.elementary.code.appdata.xml.in:64
 msgid "Remember whether the sidebar is open"
@@ -226,7 +213,7 @@ msgstr "记忆侧边栏开关状态"
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Set window title to the focused file"
-msgstr ""
+msgstr "设置窗口标题为聚焦文件"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add keyboard shortcuts for next and previous documents"
@@ -238,51 +225,47 @@ msgstr "在选项卡工具提示中显示完整的文档路径"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Update Pastebin plugin"
-msgstr ""
+msgstr "更新Pastebin插件"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
+msgstr "使用保留空格插件时正确缩进最后一行"
 
 #: data/io.elementary.code.appdata.xml.in:70
-#, fuzzy
-#| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
-msgstr "语法高亮"
+msgstr "复制文件时保持语法高亮"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
+msgstr "双击打开展开折叠的文件夹"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
+msgstr "修复代码失去焦点时搜索丢失的问题"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Start Vim plugin in command mode"
-msgstr ""
+msgstr "在命令模式下启动 Vim 插件"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid "Fix and add new Vim commands"
-msgstr ""
+msgstr "修复并添加新的 Vim 命令"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Show project folders with a hidden root folder"
-msgstr ""
+msgstr "显示带有隐藏根文件夹的项目文件夹"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "允许使用 pkexec 启动并禁止使用 sudo 启动"
 
 #: data/io.elementary.code.appdata.xml.in:77
-#, fuzzy
-#| msgid "Fix Remove Current View"
 msgid "Remove split view"
-msgstr "修复移除当前视图的问题"
+msgstr "删除拆分视图"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Remove browser preview"
-msgstr ""
+msgstr "移除浏览器预览"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
