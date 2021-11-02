@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-11-01 14:01+0000\n"
+"PO-Revision-Date: 2021-11-02 03:08+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
@@ -81,41 +81,41 @@ msgstr "使 Code 适应您的工作流程：您可以根据需要使用一些有
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "更多:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
-msgstr ""
+msgstr "影响整个 UI 的 Solarized Light、Solarized Dark 和 High Contrast 配色方案"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "可切换的侧边栏以适合您的工作流程"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "智能缩进和 .editorconfig 支持"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
-msgstr ""
+msgstr "具有拖放、复制、撤消关闭和选项卡历史记录的浏览器类选项卡"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "显示当前行和字符——并快速跳转到新行"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
-msgstr ""
+msgstr "滚动到文件的末尾，以便您可以将当前行保持在舒适的位置"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "可选的缩略图，使浏览大文件更容易"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:85
@@ -124,19 +124,19 @@ msgstr "修复："
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "修复从选项卡下拉创建新窗口时崩溃"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Ensure files created from the sidebar are automatically opened"
-msgstr ""
+msgstr "确保从侧边栏创建的文件自动打开"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Improvements:"
-msgstr ""
+msgstr "改进："
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "隐藏侧边栏时不显示项目选择器按钮"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:60
@@ -146,7 +146,7 @@ msgstr "小幅更新："
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "确保所有副本都是可翻译的"
 
 #: data/io.elementary.code.appdata.xml.in:43
 #: data/io.elementary.code.appdata.xml.in:79
@@ -237,7 +237,7 @@ msgstr "复制文件时保持语法高亮"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "双击打开展开折叠的文件夹"
+msgstr "双击展开折叠文件夹"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Fix an issue where searches are lost when Code loses focus"
