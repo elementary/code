@@ -22,10 +22,11 @@ namespace Scratch.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
-    internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+    public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private GLib.Settings settings;
 
         public signal void select (string file);
+        public signal void close_all_docs_from_path (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -52,7 +53,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                select ((item as FileItem).file.path);
+                select (((FileItem) item).file.path);
             }
         }
 
@@ -64,20 +65,20 @@ namespace Scratch.FolderManager {
 
         public void open_folder (File folder) {
             if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
-                return;
-            } else if (!folder.is_valid_directory) {
-                warning ("Cannot open invalid directory.");
+                var existing = find_path (root, folder.path);
+                if (existing is Granite.Widgets.SourceList.ExpandableItem) {
+                    ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+                }
+
                 return;
             }
 
             add_folder (folder, true);
-            write_settings ();
         }
 
         public void collapse_all () {
             foreach (var child in root.children) {
-                (child as ProjectFolderItem).collapse_all ();
+                ((ProjectFolderItem) child).collapse_all ();
             }
         }
 
@@ -99,24 +100,36 @@ namespace Scratch.FolderManager {
         }
 
         public void select_path (string path) {
+            item_selected.disconnect (on_item_selected);
             selected = find_path (root, path);
+            item_selected.connect (on_item_selected);
         }
 
-        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
+        private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+                                                                    string path,
+                                                                    bool expand = false) {
             foreach (var item in list.children) {
                 if (item is Item) {
-                    var code_item = item as Item;
+                    var code_item = (Item)item;
                     if (code_item.path == path) {
-                        return item;
+                        return (!)item;
                     }
 
                     if (item is Granite.Widgets.SourceList.ExpandableItem) {
                         var expander = item as Granite.Widgets.SourceList.ExpandableItem;
-                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                        if (!path.has_prefix (code_item.path)) {
                             continue;
                         }
 
-                        var recurse_item = find_path (expander, path);
+                        if (!expander.expanded) {
+                             if (expand) {
+                                 expander.expanded = true;
+                             } else {
+                                 continue;
+                             }
+                         }
+
+                        unowned var recurse_item = find_path (expander, path, expand);
                         if (recurse_item != null) {
                             return recurse_item;
                         }
@@ -127,38 +140,128 @@ namespace Scratch.FolderManager {
             return null;
         }
 
+        public ProjectFolderItem? get_project_for_file (GLib.File file) {
+            foreach (var item in root.children) {
+                if (item is ProjectFolderItem) {
+                    var folder = (ProjectFolderItem)item;
+                    if (folder.is_git_repo && folder.contains_file (file)) {
+                        return folder;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+             return find_path (root, path, true);
+        }
+
+        /* Do global search on project containing the file path supplied in parameter */
+        public void search_global (string path) {
+            var item_for_path = (Item?)(expand_to_path (path));
+            if (item_for_path != null) {
+                var search_root = item_for_path.get_root_folder ();
+                if (search_root is ProjectFolderItem) {
+                    search_root.global_search (search_root.file.file);
+                }
+            }
+        }
+
+        public void clear_badges () {
+            foreach (var child in root.children) {
+                if (child is ProjectFolderItem) {
+                    ((FolderItem)child).remove_all_badges ();
+                }
+            }
+        }
+
+        public void new_branch (string active_project_path) {
+            unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
+            if (active_project == null || !active_project.is_git_repo) {
+                Gdk.beep ();
+                return;
+            }
+
+            string? branch_name = null;
+            var dialog = new Dialogs.NewBranchDialog (active_project);
+            dialog.show_all ();
+            if (dialog.run () == Gtk.ResponseType.APPLY) {
+                branch_name = dialog.new_branch_name;
+            }
+
+            dialog.destroy ();
+            if (branch_name != null) {
+                active_project.new_branch (branch_name);
+            }
+        }
+
+
+    private void rename_items_with_same_name (Item item) {
+        string item_name = item.file.name;
+        foreach (var child in this.root.children) {
+            string new_other_item_name, new_item_name;
+            var other_item = child as ProjectFolderItem;
+
+            if (Utils.find_unique_path (item.file.file, other_item.file.file, out new_item_name, out new_other_item_name)) {
+                if (item_name.length < new_item_name.length) {
+                    item_name = new_item_name;
+                }
+
+                if (other_item.name.length < new_other_item_name.length) {
+                    other_item.name = new_other_item_name;
+                }
+            }
+
+        }
+        item.name = item_name;
+    }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
                 return;
-            } else if (!folder.is_valid_directory) {
+            } else if (!folder.is_valid_directory (true)) { // Allow hidden top-level folders
                 warning ("Cannot open invalid directory.");
                 return;
             }
 
-            var folder_root = new ProjectFolderItem (folder, this);
+            var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
             this.root.add (folder_root);
+            rename_items_with_same_name (folder_root);
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
+                foreach (var child in root.children) {
+                    var child_folder = (ProjectFolderItem) child;
+                    if (child_folder.name != child_folder.file.name) {
+                        rename_items_with_same_name (child_folder);
+                    }
+                }
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
                 write_settings ();
             });
 
             folder_root.close_all_except.connect (() => {
                 foreach (var child in root.children) {
-                    if (child != folder_root) {
-                        root.remove (child);
+                    var project_folder_item = (ProjectFolderItem)child;
+                    if (project_folder_item != folder_root) {
+                        root.remove (project_folder_item);
+                        Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
                     }
                 }
 
                 write_settings ();
             });
+
+            write_settings ();
         }
 
         private bool is_open (File folder) {
             foreach (var child in root.children)
-                if (folder.path == (child as Item).path)
+                if (folder.path == ((Item) child).path)
                     return true;
             return false;
         }
@@ -168,16 +271,17 @@ namespace Scratch.FolderManager {
 
             foreach (var main_folder in root.children) {
                 var saved = false;
+                var folder_path = ((Item) main_folder).path;
 
                 foreach (var saved_folder in to_save) {
-                    if ((main_folder as Item).path == saved_folder) {
+                    if (folder_path == saved_folder) {
                         saved = true;
                         break;
                     }
                 }
 
                 if (!saved) {
-                    to_save += (main_folder as Item).path;
+                    to_save += folder_path;
                 }
             }
 

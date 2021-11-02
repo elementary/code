@@ -77,8 +77,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect (on_hook_split_view);
-
         on_hook_notebook ();
     }
 
@@ -158,10 +156,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         return false;
     }
 
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = true;
-    }
-
     void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
         tool_button = new Gtk.ToggleToolButton ();
@@ -194,7 +188,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         try {
             return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
         } catch (GLib.FileError error) {
-            warning ("An error occured while fetching the current dir of shell");
+            warning ("An error occurred while fetching the current dir of shell");
             return "";
         }
     }
@@ -249,7 +243,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 menu.select_first (false);
-                menu.popup (null, null, null, event.button, event.time);
+                menu.popup_at_pointer (event);
             }
             return false;
         });
@@ -277,9 +271,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         var pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
         font_name = pantheon_terminal_settings.get_string ("font");
-
-        bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
-        this.terminal.set_allow_bold (allow_bold_setting);
 
         bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
         this.terminal.set_audible_bell (audible_bell_setting);

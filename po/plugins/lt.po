@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
 "PO-Revision-Date: 2019-01-07 11:54+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/"
@@ -27,14 +27,6 @@ msgstr "Skliaustų užvėrimas"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Rašant, užverti skliaustus"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Peržiūra naršyklėje"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Rodyti jūsų darbo peržiūrą saityno puslapyje"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -59,6 +51,14 @@ msgstr "Paryškinti pažymėtus žodžius"
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Paryškinti visus pažymėtų žodžių atitikmenis"
+
+#: plugins/markdown-actions/markdown-actions.plugin:6
+msgid "Markdown Actions"
+msgstr ""
+
+#: plugins/markdown-actions/markdown-actions.plugin:7
+msgid "Adds keyboard shortcuts for quick editing Markdown files"
+msgstr ""
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -125,6 +125,12 @@ msgstr "Žodžių užbaigimas"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Rodyti užbaigimo dialogą su daugiausiai naudojamais žodžiais iš jūsų failo"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Peržiūra naršyklėje"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Rodyti jūsų darbo peržiūrą saityno puslapyje"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"

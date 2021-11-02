@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
      */
-    internal class FolderItem : Item {
+    public class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
@@ -43,15 +43,17 @@ namespace Scratch.FolderManager {
             add (dummy);
 
             toggled.connect (() => {
+                var root = get_root_folder ();
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
-                    var root = get_root_folder ();
                     if (root != null) {
-                        root.update_git_status ();
+                        root.child_folder_loaded (this);
                     }
 
                     children_loaded = true;
+                } else if (!expanded && root != null) {
+                    root.update_item_status (this); //When toggled closed, update status to reflect hidden contents
                 }
             });
 
@@ -101,6 +103,11 @@ namespace Scratch.FolderManager {
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
+            var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
+                action_name = "win.action_find_global",
+                action_target = new Variant.string (file.file.get_path ())
+            };
+
             var menu = new Gtk.Menu ();
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (contractor_item);
@@ -108,6 +115,8 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
             menu.append (rename_menu_item);
             menu.append (delete_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (search_item);
             menu.show_all ();
 
             return menu;
@@ -180,7 +189,7 @@ namespace Scratch.FolderManager {
         private void add_children () {
             foreach (var child in file.children) {
                 Granite.Widgets.SourceList.Item item = null;
-                if (child.is_valid_directory) {
+                if (child.is_valid_directory ()) {
                     item = new FolderItem (child, view);
                 } else if (child.is_valid_textfile) {
                     item = new FileItem (child, view);
@@ -200,10 +209,24 @@ namespace Scratch.FolderManager {
 
         private new void remove (Granite.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
-                (item as FolderItem).remove_all_children ();
+                ((FolderItem) item).remove_all_children ();
             }
 
             base.remove (item);
+        }
+
+        public void remove_all_badges () {
+            foreach (var child in children) {
+                remove_badge (child);
+            }
+        }
+
+        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                ((FolderItem) item).remove_all_badges ();
+            }
+
+            item.badge = "";
         }
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
@@ -245,7 +268,7 @@ namespace Scratch.FolderManager {
                         var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
                         children_tmp.add_all (children);
                         foreach (var item in children_tmp) {
-                            if ((item as Item).path == source.get_path ()) {
+                            if (((Item) item).path == source.get_path ()) {
                                 // This is a workaround for SourceList silliness: you cannot remove an item
                                 // without it automatically selecting another one.
 
@@ -276,7 +299,7 @@ namespace Scratch.FolderManager {
                         var file = new File (source.get_path ());
                         var exists = false;
                         foreach (var item in children) {
-                            if ((item as Item).path == file.path) {
+                            if (((Item) item).path == file.path) {
                                 exists = true;
                                 break;
                             }
@@ -285,7 +308,7 @@ namespace Scratch.FolderManager {
                         Item? item = null;
 
                         if (!exists) {
-                            if (file.is_valid_directory) {
+                            if (file.is_valid_directory ()) {
                                 item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
                                 item = new FileItem (file, view);
@@ -300,25 +323,14 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            var root = get_root_folder ();
-            if (root != null) {
-                root.update_git_status ();
-            }
-        }
-
-        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
-            if (start == null) {
-                start = this;
-            }
-
-            if (start is ProjectFolderItem) {
-                return start as ProjectFolderItem;
-            } else if (start.parent is ProjectFolderItem) {
-                return start.parent as ProjectFolderItem;
-            } else if (start.parent != null) {
-                return get_root_folder (start.parent);
-            } else {
-                return null;
+            // Reduce spamming of root (still results in multiple signals per change in file being edited
+            //TODO Throttle this signal?
+            if (event == FileMonitorEvent.CHANGES_DONE_HINT) {
+                //TODO Get root folder once as it will not change for the life of this folder
+                var root = get_root_folder (this);
+                if (root != null) {
+                    root.child_folder_changed (this);
+                }
             }
         }
 
@@ -356,13 +368,15 @@ namespace Scratch.FolderManager {
                         return Source.CONTINUE;
                     } else {
                         var new_name = rename_item.name;
+                        view.ignore_next_select = true;
                         remove (rename_item);
-                        var gfile = file.file.get_child_for_display_name (new_name);
                         try {
+                            var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
                                 gfile.make_directory ();
                             } else {
                                 gfile.create (FileCreateFlags.NONE);
+                                view.select (gfile.get_path ());
                             }
                         } catch (Error e) {
                             warning (e.message);

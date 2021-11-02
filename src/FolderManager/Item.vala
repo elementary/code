@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
      */
-    internal abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+    public abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
         public File file { get; construct; }
 
         public FileView view { get; construct; }
@@ -36,8 +36,15 @@ namespace Scratch.FolderManager {
             editable = true;
             name = file.name;
             icon = file.icon;
-
             edited.connect (rename);
+            tooltip = Scratch.Utils.replace_home_with_tilde (file.path);
+
+            notify["activatable-tooltip"].connect (() => {
+                tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
+                    Scratch.Utils.replace_home_with_tilde (file.path),
+                    activatable_tooltip
+                );
+            });
         }
 
         protected void rename (string new_name) {
@@ -61,7 +68,7 @@ namespace Scratch.FolderManager {
                 return 1;
             }
 
-            return File.compare ((a as Item).file, (b as Item).file);
+            return File.compare (((Item)a).file, ((Item)b).file);
         }
 
         public bool allow_dnd_sorting () {
@@ -90,6 +97,22 @@ namespace Scratch.FolderManager {
                 app_info.launch (file_list, null);
             } catch (Error e) {
                 warning (e.message);
+            }
+        }
+
+        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
+            } else if (start.parent != null) {
+                return get_root_folder (start.parent);
+            } else {
+                return null;
             }
         }
     }

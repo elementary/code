@@ -34,31 +34,34 @@ namespace Scratch.Services {
         public signal void doc_closed ();
 
         // The parent window's actions
-        private weak SimpleActionGroup _actions;
-        public SimpleActionGroup actions {
-            get {
-                return _actions;
-            }
-            set {
-                _actions = value;
-            }
-        }
+        public unowned SimpleActionGroup actions { get; set construct; }
 
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (Application.instance.data_home_folder_unsaved);
+                return file.get_path ().has_prefix (
+                    ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
+                );
             }
         }
 
         private Gtk.SourceFile source_file;
-        public File file {
+        public GLib.File file {
             get {
                 return source_file.location;
             }
-            set {
+
+            private set {
                 source_file.set_location (value);
+                source_view.location = value;
                 file_changed ();
-                label = get_basename ();
+                tab_name = get_basename ();
+            }
+        }
+
+        public string tab_name {
+            set {
+                label = value;
+                tooltip = get_tab_tooltip ();
             }
         }
 
@@ -86,7 +89,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-        public Code.Pane pane;
+
         public string original_content;
         private string last_save_content;
         public bool saved = true;
@@ -105,18 +108,18 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-#if HAVE_ZEITGEIST
-        // Zeitgeist integration
-        private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
-#endif
         public Document (SimpleActionGroup actions, File? file = null) {
-            this.actions = actions;
+            Object (actions: actions);
+
             this.file = file;
             page = main_stack;
         }
 
         static construct {
-            var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
+            var fontpath = Path.build_filename (
+                Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf"
+            );
+
             unowned Fc.Config config = Fc.init ();
             if (!config.add_app_font (fontpath)) {
                 warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
@@ -143,8 +146,6 @@ namespace Scratch.Services {
 
             source_map.set_view (source_view);
 
-            pane = new Code.Pane ();
-
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
             Gtk.TargetEntry text = {"text/plain", 0, 0};
@@ -165,14 +166,10 @@ namespace Scratch.Services {
             source_grid.add (scroll);
             source_grid.add (source_map);
 
-            var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            paned.pack1 (source_grid, true, false);
-            paned.pack2 (pane, false, false);
-
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
             doc_grid.add (info_bar);
-            doc_grid.add (paned);
+            doc_grid.add (source_grid);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
@@ -203,6 +200,7 @@ namespace Scratch.Services {
 
             /* Create as loaded - could be new document */
             loaded = true;
+            ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -344,11 +342,6 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.open_insert (file.get_uri (), mime_type);
-#endif
-
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
@@ -369,7 +362,7 @@ namespace Scratch.Services {
         }
 
         public bool do_close (bool app_closing = false) {
-            message ("Closing \"%s\"", get_basename ());
+            debug ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
                 load_cancellable.cancel ();
@@ -425,10 +418,6 @@ namespace Scratch.Services {
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
-#if HAVE_ZEITGEIST
-                // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), mime_type);
-#endif
                 doc_closed ();
             }
 
@@ -478,16 +467,12 @@ namespace Scratch.Services {
             }
 
             source_view.buffer.set_modified (false);
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), mime_type);
-#endif
 
             doc_saved ();
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
-            message ("File \"%s\" saved succesfully", get_basename ());
+            debug ("File \"%s\" saved successfully", get_basename ());
 
             return true;
         }
@@ -538,7 +523,7 @@ namespace Scratch.Services {
                         // Delete temporary file
                         File.new_for_path (current_file).delete ();
                     } catch (Error err) {
-                        message ("Temporary file cannot be deleted: %s", current_file);
+                        warning ("Temporary file cannot be deleted: %s", current_file);
                     }
                 }
 
@@ -557,11 +542,6 @@ namespace Scratch.Services {
             this.file = new_dest;
             this.save.begin ();
 
-#if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), mime_type);
-#endif
-
             return true;
         }
 
@@ -578,7 +558,7 @@ namespace Scratch.Services {
 
         // Focus the SourceView
         public new void focus () {
-            this.source_view.grab_focus ();
+            source_view.grab_focus ();
         }
 
         // Get file uri
@@ -592,6 +572,15 @@ namespace Scratch.Services {
                 return _("New Document");
             } else {
                 return file.get_basename ();
+            }
+        }
+
+        // Get full file path
+        public string get_tab_tooltip () {
+            if (is_file_temporary) {
+                return _("New Document"); //No path for a new document
+            } else {
+                return file.get_path ();
             }
         }
 
@@ -725,14 +714,18 @@ namespace Scratch.Services {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
-                    string message = _("The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                         this.save_as.begin ();
                         hide_info_bar ();
                     });
                 } else {
-                    string message = _("File \"%s\" was deleted. Do you want to save it anyway?").printf ("<b>%s</b>".printf (get_basename ()));
+                    string message = _(
+                        "File \"%s\" was deleted. Do you want to save it anyway?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save.begin ();
@@ -747,7 +740,9 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _(
+                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+                ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();
@@ -782,7 +777,10 @@ namespace Scratch.Services {
                         if (Scratch.settings.get_boolean ("autosave")) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
-                            string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                            string message = _(
+        "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
+                            ).printf ("<b>%s</b>".printf (get_basename ()));
+
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                                 this.source_view.set_text (new_buffer.text, false);
                                 hide_info_bar ();
@@ -800,7 +798,9 @@ namespace Scratch.Services {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
-            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_buffer.text);
+            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
+                original_content != source_buffer.text
+            );
         }
 
         // Set saved status
@@ -811,10 +811,10 @@ namespace Scratch.Services {
 
             if (!val) {
                 if (!(unsaved_identifier in this.label)) {
-                    this.label = unsaved_identifier + this.label;
+                    tab_name = unsaved_identifier + this.label;
                 }
             } else {
-                this.label = this.label.replace (unsaved_identifier, "");
+                tab_name = this.label.replace (unsaved_identifier, "");
             }
         }
 

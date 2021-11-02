@@ -5,6 +5,7 @@ conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
 conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
+conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
 config_header = configure_file(
     input : 'config.vala.in',
     output : 'config.vala',
@@ -17,6 +18,8 @@ code_files = files(
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
     'Dialogs/RestoreConfirmationDialog.vala',
+    'Dialogs/GlobalSearchDialog.vala',
+    'Dialogs/NewBranchDialog.vala',
     'FolderManager/ContractMenuItem.vala',
     'FolderManager/File.vala',
     'FolderManager/FileItem.vala',
@@ -27,18 +30,20 @@ code_files = files(
     'Services/CommentToggler.vala',
     'Services/Document.vala',
     'Services/FileHandler.vala',
+    'Services/GitManager.vala',
+    'Services/MonitoredRepository.vala',
     'Services/PluginManager.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
-    'Services/ZeitgeistLogger.vala',
+    'Widgets/ChooseProjectButton.vala',
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
+    'Widgets/SourceGutterRenderer.vala',
     'Widgets/HeaderBar.vala',
-    'Widgets/Pane.vala',
+    'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
-    'Widgets/SplitView.vala',
     'Widgets/WelcomeView.vala',
 )
 

@@ -33,8 +33,11 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         store = new Granite.Widgets.SourceList ();
         store.root.add (root);
         store.item_selected.connect ((selected) => {
-            if (selected == null) return;
-            goto (doc, (selected as CtagsSymbol).line);
+            if (selected == null) {
+                return;
+            }
+
+            goto (doc, ((CtagsSymbol)selected).line);
             store.selected = null;
         });
     }

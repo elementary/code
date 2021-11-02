@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-11-09 11:24+0000\n"
+"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"PO-Revision-Date: 2021-08-09 11:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/plugins/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -26,14 +26,6 @@ msgstr "ブラケット補完"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "文字入力中にブラケットを補完します"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "ブラウザープレビュー"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "作業中のファイルを Web ページでプレビューします"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -58,6 +50,15 @@ msgstr "選択された単語をハイライト"
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
 msgstr "選択された単語の出現をハイライトします"
+
+#: plugins/markdown-actions/markdown-actions.plugin:6
+msgid "Markdown Actions"
+msgstr "Markdown アクション"
+
+#: plugins/markdown-actions/markdown-actions.plugin:7
+msgid "Adds keyboard shortcuts for quick editing Markdown files"
+msgstr ""
+"Markdown ファイルをすばやく編集できるキーボードショートカットを追加します"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -113,7 +114,7 @@ msgstr "Vim エミュレーション"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
-msgstr "\"コード\" で Vim コマンドを使用します"
+msgstr "“コード”で Vim コマンドを使用します"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
@@ -122,6 +123,12 @@ msgstr "単語補完"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "ファイル内で最も使用された単語を補完するダイアログを表示します"
+
+#~ msgid "Browser Preview"
+#~ msgstr "ブラウザープレビュー"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "作業中のファイルを Web ページでプレビューします"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"
