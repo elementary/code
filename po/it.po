@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"POT-Creation-Date: 2021-11-02 22:04+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -55,34 +55,34 @@ msgstr "Trova…"
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -253,7 +253,7 @@ msgid "Rename"
 msgstr "Rinomina"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr "Sposta nel cestino"
 
@@ -278,8 +278,8 @@ msgstr "File vuoto"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "New"
 msgstr "Nuovo"
 
@@ -291,38 +291,38 @@ msgstr "cartella senza titolo"
 msgid "new file"
 msgstr "nuovo file"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "Chiudi cartella"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
 msgstr "Chiudi le altre cartelle"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 #, fuzzy
 #| msgid "Open Project Folder…"
 msgid "Find in Project…"
 msgstr "Apri cartella progetto…"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, modificato"
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:516
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Ramo di sviluppo"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:529
 msgid "Branch"
 msgstr "Ramo di sviluppo"
 
@@ -451,7 +451,7 @@ msgstr "Modelli di progetto"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -717,12 +717,12 @@ msgstr "Terminale"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:228
 msgid "Copy"
 msgstr "Copia"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:235
 msgid "Paste"
 msgstr "Incolla"
 
