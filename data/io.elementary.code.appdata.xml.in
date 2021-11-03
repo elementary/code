@@ -26,12 +26,16 @@
     </ul>
   </description>
   <releases>
-    <release version="6.0.2" date="2021-08-28" urgency="medium">
+    <release version="6.0.2" date="2021-11-02" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
           <li>Add global search button to search bar</li>
           <li>Use selected text as default search term for global search action</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix visibility of Terminal button on Welcome page</li>
         </ul>
         <p>Minor updates:</p>
         <ul>

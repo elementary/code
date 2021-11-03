@@ -539,8 +539,6 @@ namespace Scratch {
             // PlugIns
             if (val) {
                 on_plugin_toggled (bottombar);
-            } else {
-                bottombar.visible = val;
             }
         }
 
