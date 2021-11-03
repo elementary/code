@@ -348,9 +348,15 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter, null);
+            bool has_wrapped_around;
+            bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.backward_lines (3);
+                } else {
+                    start_iter.forward_lines (3);
+                }
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
 
@@ -359,9 +365,15 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter, null);
+            bool has_wrapped_around;
+            bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.forward_lines (3);
+                } else {
+                    start_iter.backward_lines (3);
+                }
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
             return found;
