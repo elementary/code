@@ -186,7 +186,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             } else {
                 tool_button.tooltip_text = _("Show Terminal");
                 bottombar.remove_page (bottombar.page_num (grid));
-                window.get_current_document ().focus ();
+                var document = window.get_current_document ();
+                if (document != null) {
+                    document.focus ();
+                }
             }
         });
 
