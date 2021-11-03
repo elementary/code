@@ -518,7 +518,6 @@ namespace Scratch.Widgets {
         }
 
         private void update_search_occurence_label () {
-
             if (update_search_label_timeout_id > 0) {
                 Source.remove (update_search_label_timeout_id);
                 update_search_label_timeout_id = 0;
@@ -548,6 +547,7 @@ namespace Scratch.Widgets {
                 } else {
                     search_occurence_count_label.label = _("no results");
                 }
+
                 return Source.REMOVE;
             });
 
