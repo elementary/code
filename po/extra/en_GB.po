@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2021-11-03 08:41+0000\n"
+"PO-Revision-Date: 2021-11-06 00:44+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/extra/en_GB/>\n"
@@ -152,12 +152,16 @@ msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
+"Fix some keyboard shortcuts affecting unfocused Document instead of focused "
+"Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"Close Terminal if shell exited and create new Terminal if re-opened with no "
+"shell"
 
 #: data/io.elementary.code.appdata.xml.in:37
 #: data/io.elementary.code.appdata.xml.in:54
