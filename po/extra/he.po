@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2021-11-03 09:47+0000\n"
+"PO-Revision-Date: 2021-11-05 11:59+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -145,12 +145,13 @@ msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
+"תוקנו קיצורי מקלדת שמשפיעים על מסמך שאינו במיקוד במקום מסוף שעליו המיקוד"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
-msgstr ""
+msgstr "לסגור את המסוף אם המעטפת נסגרת וליצור מסוף חדש אם נפתח מחדש ללא מעטפת"
 
 #: data/io.elementary.code.appdata.xml.in:37
 #: data/io.elementary.code.appdata.xml.in:54
