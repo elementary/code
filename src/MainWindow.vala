@@ -24,6 +24,9 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
+        private Services.ProjectManager project_manager;
+        private Gee.ArrayList<string> project_output;
+
         public weak Scratch.Application app { get; construct; }
 
         public Scratch.Widgets.DocumentView document_view;
@@ -34,6 +37,8 @@ namespace Scratch {
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
         private FolderManager.FileView folder_manager_view;
+        private Gtk.Revealer terminal_revealer;
+        private Scratch.Widgets.Terminal terminal;
 
         // Plugins
         private Scratch.Services.PluginsManager plugins;
@@ -55,6 +60,7 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_BUILD = "action_build";
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
@@ -70,10 +76,12 @@ namespace Scratch {
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
+        public const string ACTION_RUN = "action_run";
         public const string ACTION_REVERT = "action_revert";
         public const string ACTION_SAVE = "action_save";
         public const string ACTION_SAVE_AS = "action_save_as";
         public const string ACTION_SHOW_FIND = "action_show_find";
+        public const string ACTION_STOP = "action_stop";
         public const string ACTION_TEMPLATES = "action_templates";
         public const string ACTION_SHOW_REPLACE = "action_show_replace";
         public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
@@ -94,6 +102,7 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] ACTION_ENTRIES = {
+            { ACTION_BUILD, action_build },
             { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
@@ -103,10 +112,12 @@ namespace Scratch {
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
+            { ACTION_RUN, action_run },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
+            { ACTION_STOP, action_stop },
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
@@ -142,11 +153,13 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_BUILD, "F4");
             action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
+            action_accelerators.set (ACTION_RUN, "F5");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
@@ -156,6 +169,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
+            action_accelerators.set (ACTION_STOP, "F6");
             action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
@@ -260,6 +274,32 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
+            project_manager = Services.ProjectManager.get_instance ();
+            project_output = new Gee.ArrayList<string> ();
+
+            project_manager.on_standard_output.connect ((line) => {
+                project_output.add (line);
+                terminal.buffer.text += line;
+                terminal.attempt_scroll ();
+            });
+
+            project_manager.on_standard_error.connect ((line) => {
+                project_output.add (line);
+                terminal.buffer.text += line;
+                terminal.attempt_scroll ();
+            });
+
+            project_manager.on_clear.connect ((line) => {
+                project_output.clear ();
+                terminal.buffer.text = "";
+                terminal.attempt_scroll ();
+            });
+
+            set_build_run_widgets_sensitive ();
+            project_manager.notify.connect ((s, p) => {
+                set_build_run_widgets_sensitive ();
+            });
+
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
                 toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
@@ -335,6 +375,11 @@ namespace Scratch {
                 }
             });
 
+
+            folder_manager_view.select_project.connect ((path) => {
+                project_manager.project_path = path;
+            });
+
             folder_manager_view.close_all_docs_from_path.connect ((a) => {
                 var docs = document_view.docs.copy ();
                 docs.foreach ((doc) => {
@@ -353,6 +398,11 @@ namespace Scratch {
                 on_plugin_toggled (bottombar);
             });
 
+            // Terminal
+            terminal = new Scratch.Widgets.Terminal (new Gtk.TextBuffer (null));
+            terminal_revealer = new Gtk.Revealer ();
+            terminal_revealer.add (terminal);
+
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
             };
@@ -368,13 +418,17 @@ namespace Scratch {
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
+            var content_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+            content_paned.add (content_stack);
+            content_paned.add (terminal_revealer);
+
             // Set a proper position for ThinPaned widgets
             int width, height;
             get_size (out width, out height);
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (content_stack, true, false);
+            vp.pack1 (content_paned, true, false);
             vp.pack2 (bottombar, false, false);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -389,6 +443,8 @@ namespace Scratch {
             add (grid);
 
             search_revealer.set_reveal_child (false);
+            terminal_revealer.set_reveal_child (false);
+            terminal_revealer.visible = false;
 
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
@@ -542,6 +598,30 @@ namespace Scratch {
             }
         }
 
+        private void set_build_run_widgets_sensitive () {
+            bool has_dependencies_installed = project_manager.has_dependencies_installed;
+            bool is_project_selected = (project_manager.project_path != null) && (project_manager.get_flatpak_manifest () != null);
+            bool is_running = project_manager.is_running;
+
+            Utils.action_from_group (ACTION_BUILD, actions).set_enabled (has_dependencies_installed && is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_RUN, actions).set_enabled (has_dependencies_installed && is_project_selected && !is_running);
+            Utils.action_from_group (ACTION_STOP, actions).set_enabled (has_dependencies_installed && is_project_selected && is_running);
+
+            if (is_project_selected) {
+                var project_name = Path.get_basename (project_manager.project_path);
+                toolbar.build_button.tooltip_markup = _("Build ”%s”".printf (project_name));
+                toolbar.run_button.tooltip_markup = _("Run ”%s”".printf (project_name));
+                toolbar.stop_button.tooltip_markup = _("Stop ”%s”".printf (project_name));
+            } else {
+                toolbar.build_button.tooltip_markup = _("Build");
+                toolbar.run_button.tooltip_markup = _("Run");
+                toolbar.stop_button.tooltip_markup = _("Stop");
+            }
+
+            terminal_revealer.set_reveal_child (is_running);
+            terminal_revealer.visible = is_running;
+        }
+
         // Get current document
         public Scratch.Services.Document? get_current_document () {
             return document_view.current_document;
@@ -635,6 +715,7 @@ namespace Scratch {
         private void handle_quit () {
             document_view.save_opened_files ();
             update_saved_state ();
+            action_stop ();
         }
 
         public void set_default_zoom () {
@@ -818,6 +899,28 @@ namespace Scratch {
             if (doc != null) {
                 doc.redo ();
             }
+        }
+
+        private void action_build () {
+            project_manager.build.begin ((obj, res) => {
+                var success = project_manager.build.end (res);
+                if (!success && !project_manager.was_stopped) {
+                    show_error_dialog ();
+                }
+            });
+        }
+
+        private void action_run () {
+            project_manager.build_install_run.begin ((obj, res) => {
+                var success = project_manager.build_install_run.end (res);
+                if (!success && !project_manager.was_stopped) {
+                    show_error_dialog ();
+                }
+            });
+        }
+
+        private void action_stop () {
+            project_manager.stop ();
         }
 
         private void action_revert () {
@@ -1022,6 +1125,27 @@ namespace Scratch {
              }
 
              return path;
-         }
+        }
+
+        private void show_error_dialog () {
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Project “%s“ could not be built").printf (project_manager.project_name),
+                "",
+                "media-playback-start"
+            );
+            message_dialog.badge_icon = new ThemedIcon ("dialog-error");
+            message_dialog.transient_for = this;
+
+            if (project_output.size > 0) {
+                message_dialog.secondary_text = project_output.get (project_output.size - 1);
+            }
+
+            message_dialog.show_error_details (string.joinv ("\n", project_output.to_array ()));
+
+            message_dialog.show_all ();
+            message_dialog.response.connect ((response_id) => {
+                message_dialog.destroy ();
+            });
+        }
     }
 }

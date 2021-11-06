@@ -15,6 +15,7 @@ You'll need the following dependencies:
 * libgtkspell3-3-dev
 * libgranite-dev >= 6.0.0
 * libhandy-1-dev >= 0.90.0
+* libjson-glib-dev
 * libpeas-dev
 * libsoup2.4-dev
 * libvala-0.48-dev (or higher)
