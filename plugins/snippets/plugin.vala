@@ -23,7 +23,7 @@
     public string name {get; construct; }
     public string tag {get; construct; }
     public string language {get; construct; }
-
+    
     public Gee.ArrayList<int> tabstops;
     public uint n_tabstops {
         get {
@@ -135,8 +135,9 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     }
 
     private string word_prefix (Gtk.SourceCompletionContext context) {
-        Gtk.TextIter word;
-        context.get_iter (out word);
+        var ins_mark = snippets.current_view.buffer.get_insert ();
+        Gtk.TextIter? word;
+        snippets.current_view.buffer.get_iter_at_mark (out word, ins_mark);
         var word_start = word.copy ();
         word_start.backward_word_start ();
 
@@ -163,7 +164,8 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
             if (sni.tag.has_prefix (word)) {
                 var item = new Gtk.SourceCompletionItem () {
                     label = sni.name,
-                    text = sni.body
+                    text = sni.body,
+                    info = sni.body
                 };
                 item.set_data<Snippet> ("snippet", sni);
                 props.append (item);
