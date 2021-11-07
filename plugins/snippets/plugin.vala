@@ -23,7 +23,7 @@
     public string name {get; construct; }
     public string tag {get; construct; }
     public string language {get; construct; }
-    
+
     public Gee.ArrayList<int> tabstops;
     public uint n_tabstops {
         get {
