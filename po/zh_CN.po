@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
+"POT-Creation-Date: 2021-11-04 21:43+0000\n"
 "PO-Revision-Date: 2021-11-01 14:01+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -671,26 +671,26 @@ msgstr "符号"
 msgid "No Symbols Found"
 msgstr "未找到符号"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "显示终端"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "隐藏终端"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "终端"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "复制"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "粘贴"
 
