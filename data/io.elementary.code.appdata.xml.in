@@ -31,6 +31,8 @@
         <p>Fixes:</p>
         <ul>
           <li>Fix visibility of Terminal button on Welcome page</li>
+          <li>Fix some keyboard shortcuts affecting unfocused Document instead of focused Terminal</li>
+          <li>Close Terminal if shell exited and create new Terminal if re-opened with no shell</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
