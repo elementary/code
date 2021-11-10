@@ -15,7 +15,7 @@
   <color name="fg-1"   value="#7e8087"/> <!-- SILVER700 -->
   <color name="fg-2"   value="#abacae"/> <!-- SILVER300 -->
 
-  <color name="yellow"  value="#ad5f00"/> <!-- BANANA900 -->
+  <color name="yellow"  value="#d48e15"/> <!-- BANANA700 -->
   <color name="orange"  value="#cc3b02"/> <!-- ORANGE700 -->
   <color name="red"     value="#c6262e"/> <!-- STRAWBERRY500 -->
   <color name="pink"    value="#bc245d"/> <!-- BUBBLEGUM700 -->
@@ -33,7 +33,7 @@
   <style name="line-numbers"                foreground="fg-1" background="bg-2"/>
   <style name="background-pattern"          background="bg-4"/>
   <style name="draw-spaces"                 foreground="fg-1"/>
-  
+
   <!-- Bracket Matching -->
   <style name="bracket-match"               foreground="bg-4" background="fg-2"/>
   <style name="bracket-mismatch"            foreground="red" background="fg-2"/>
@@ -84,5 +84,30 @@
   <style name="def:error"                   foreground="red" bold="true"/>
   <style name="def:note"                    foreground="pink" bold="true"/>
   <style name="def:net-address"             italic="true" underline="single"/>
+
+  <!-- Language specific styles -->
+  <style name="diff:added-line"             foreground="green"/>
+  <style name="diff:removed-line"           foreground="red"/>
+  <style name="diff:changed-line"           foreground="yellow"/>
+  <style name="diff:special-case"           use-style="def:constant"/>
+  <style name="diff:location"               use-style="def:statement"/>
+  <style name="diff:diff-file"              use-style="def:type"/>
+
+  <style name="xml:tags"                    foreground="cyan"/>
+  <style name="xml:attribute-name"          foreground="purple"/>
+  <style name="xml:namespace"               foreground="green" bold="true"/>
+
+  <style name="js:built-in-constructor"     use-style="def:identifier"/>
+
+  <style name="latex:display-math"          foreground="purple"/>
+  <style name="latex:command"               foreground="green" bold="true"/>
+  <style name="latex:include"               use-style="def:preprocessor"/>
+
+  <style name="sh:variable"                 foreground="purple"/>
+
+  <!-- legacy styles for old lang files -->
+  <style name="Others"                      foreground="green" bold="true"/>
+  <style name="Others 2"                    foreground="cyan"/>
+  <style name="Others 3"                    foreground="purple"/>
 
 </style-scheme>
