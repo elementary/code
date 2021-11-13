@@ -145,6 +145,10 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     }
 
     public bool match (Gtk.SourceCompletionContext context) {
+        if (still_editing_placeholder) {
+            return false;
+        }
+
         var word = word_prefix (context);
         var snips = snippet_map.@get (snippets.current_document.get_language_name ());
         var found = false;
@@ -196,7 +200,6 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
         current_tabstop = 0;
         place_cursor_at_tabstop (buffer, current_tabstop);
         if (current_editing_snippet.n_tabstops > 1) {
-            current_view.completion.block_interactive ();
             current_view.key_press_event.connect (next_placeholder);
 
             still_editing_placeholder = true;
@@ -241,7 +244,6 @@ private class Code.Plugins.Snippets.Provider : Gtk.SourceCompletionProvider, Obj
     public void end_editing_placeholders () {
         still_editing_placeholder = false;
         if (current_editing_snippet.n_tabstops > 0) {
-            snippets.current_view.completion.unblock_interactive ();
             snippets.current_view.key_press_event.disconnect (next_placeholder);
         }
 
