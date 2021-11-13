@@ -115,32 +115,25 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
         uint kv = event.keyval;
         unichar uc = (unichar)(Gdk.keyval_to_unicode (kv));
-        print ("key key %s\n", uc.to_string ());
-
-        print ("is print %s is delimiter %s\n",
-                uc.isprint ()?"Y":"N",
-                parser.is_delimiter (uc)?"Y":"N");
 
         /* Pass through any modified keypress except Shift or Capslock */
         Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
                                             & ~Gdk.ModifierType.LOCK_MASK;
         if (mods > 0 ) {
-            print ("enter mod\n");
             /* Default key for USER_REQUESTED completion is ControlSpace
              * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
              * alternative and also purges spelling mistakes and unused words from the list.
              * If used when a word or part of a word is selected, the selection will be
              * used as the word to find. */
             if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
-                print ("REBUILD\n");    
                 parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
                 return true;
             }
         }
 
-        if (kv in ACTIVATE_KEYS || 
+        if (kv in ACTIVATE_KEYS ||
             (parser.is_delimiter (uc) && uc.isprint ()) ) {
             var buffer = current_view.buffer;
             var mark = buffer.get_insert ();

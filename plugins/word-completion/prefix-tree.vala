@@ -3,7 +3,7 @@ namespace Scratch.Plugins {
     private class PrefixNode : Object {
         public GLib.List<PrefixNode> children;
         public unichar value { get; set; }
-    
+
         construct {
             children = new List<PrefixNode> ();
         }
@@ -26,15 +26,15 @@ namespace Scratch.Plugins {
             if (word.length == 0) {
                 return;
             }
-            
-            this.insert_at (word, this.root);   
+
+            this.insert_at (word, this.root);
         }
 
         private void insert_at (string word, PrefixNode node, int i = 0) {
             unichar curr;
 
             word.get_next_char (ref i, out curr);
-            
+
             foreach (var child in node.children) {
                 if (child.value == curr) {
                     if (curr != '\0') {
@@ -92,15 +92,15 @@ namespace Scratch.Plugins {
                 var sb = new StringBuilder (prefix);
                 get_all_matches_rec (node, ref sb, ref list);
             }
-            
+
             return list;
         }
 
-        private void get_all_matches_rec ( 
-                    PrefixNode node, 
+        private void get_all_matches_rec (
+                    PrefixNode node,
                     ref StringBuilder sbuilder,
                     ref List<string> matches) {
-            
+
             foreach (var child in node.children) {
                 if (child.value == '\0') {
                     matches.append (sbuilder.str);
