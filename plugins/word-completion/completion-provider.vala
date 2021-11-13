@@ -54,7 +54,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public bool match (Gtk.SourceCompletionContext context) {
         Gtk.TextIter start, end;
         buffer.get_iter_at_offset (out end, buffer.cursor_position);
-        start = end.copy();
+        start = end.copy ();
         start.backward_word_start ();
         string text = buffer.get_text (start, end, true);
 
