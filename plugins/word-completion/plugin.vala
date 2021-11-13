@@ -41,7 +41,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private const uint USER_REQUESTED_KEY = Gdk.Key.backslash;
 
     private uint timeout_id = 0;
-    private bool completion_visible = false;
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
@@ -77,8 +76,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_document = doc;
         current_view = doc.source_view;
         current_view.key_press_event.connect (on_key_press);
-        current_view.completion.show.connect (on_completion_shown);
-        current_view.completion.hide.connect (on_completion_hidden);
 
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
@@ -86,11 +83,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var comp_provider = new Scratch.Plugins.CompletionProvider (this);
         comp_provider.priority = 1;
         comp_provider.name = provider_name_from_document (doc);
-        comp_provider.can_propose.connect (on_propose);
 
         try {
             current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = false;
+            current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
             /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
@@ -119,54 +115,46 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
         uint kv = event.keyval;
         unichar uc = (unichar)(Gdk.keyval_to_unicode (kv));
+        print ("key key %s\n", uc.to_string ());
+
+        print ("is print %s is delimiter %s\n",
+                uc.isprint ()?"Y":"N",
+                parser.is_delimiter (uc)?"Y":"N");
 
         /* Pass through any modified keypress except Shift or Capslock */
         Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
                                             & ~Gdk.ModifierType.LOCK_MASK;
         if (mods > 0 ) {
+            print ("enter mod\n");
             /* Default key for USER_REQUESTED completion is ControlSpace
              * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
              * alternative and also purges spelling mistakes and unused words from the list.
              * If used when a word or part of a word is selected, the selection will be
              * used as the word to find. */
             if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
+                print ("REBUILD\n");    
                 parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
                 return true;
-            } else
-                return false;
+            }
         }
 
-        bool activating = kv in ACTIVATE_KEYS;
+        if (kv in ACTIVATE_KEYS || 
+            (parser.is_delimiter (uc) && uc.isprint ()) ) {
+            var buffer = current_view.buffer;
+            var mark = buffer.get_insert ();
+            Gtk.TextIter cursor_iter;
+            buffer.get_iter_at_mark (out cursor_iter, mark);
 
-        if (completion_visible && activating) {
-            current_view.completion.activate_proposal ();
-            parser.add_last_word ();
-            return true;
-        }
+            var word_start = cursor_iter;
+            word_start.backward_word_start ();
 
-        if (activating || (uc.isprint () && parser.is_delimiter (uc) )) {
-            parser.add_last_word ();
-            current_view.completion.hide ();
+            string word = buffer.get_text (word_start, cursor_iter, false);
+            parser.add_word (word);
         }
 
         return false;
-    }
-
-    private void on_completion_shown () {
-        completion_visible = true;
-    }
-
-    private void on_completion_hidden () {
-        completion_visible = false;
-    }
-
-    private void on_propose (bool can_propose) {
-        if (!can_propose)
-            current_view.completion.hide ();
-
-        completion_visible = can_propose;
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
@@ -175,8 +163,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     private void cleanup (Gtk.SourceView view) {
         current_view.key_press_event.disconnect (on_key_press);
-        current_view.completion.show.disconnect (on_completion_shown);
-        current_view.completion.hide.disconnect (on_completion_hidden);
 
         current_view.completion.get_providers ().foreach ((p) => {
             try {
@@ -189,8 +175,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 warning (e.message);
             }
         });
-
-        completion_visible = false;
     }
 }
 

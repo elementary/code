@@ -22,74 +22,58 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const int MINIMUM_WORD_LENGTH = 1;
     public const int MAX_TOKENS = 1000000;
 
+    private Scratch.Plugins.PrefixTree prefix_tree;
+
     public const string DELIMITERS = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";
     public bool is_delimiter (unichar c) {
         return DELIMITERS.index_of_char (c) >= 0;
     }
 
-    public Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> text_view_words;
+    public Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 
-    private Gee.ArrayList<string> words;
-    private string last_word = "";
-
     public Parser () {
-         text_view_words = new Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> ();
+         text_view_words = new Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> ();
+         prefix_tree = new Scratch.Plugins.PrefixTree ();
     }
 
-    public void add_last_word () {
-        add_word (last_word);
+    public bool match (string to_find) {
+        return prefix_tree.find_prefix (to_find);
     }
 
-    public bool get_for_word (string to_find, out Gee.TreeSet<string> list) {
-        uint length = to_find.length;
-        list = new Gee.TreeSet<string> ();
-        last_word = to_find;
-        if (words != null) {
-            lock (words) {
-                foreach (var word in words) {
-                    if (word.length > length && word.slice (0, length) == to_find) {
-                        list.add (word);
-                    }
-                }
-            }
-        }
-
-        return !list.is_empty;
+    public bool get_for_word (string to_find, out List<string> list) {
+        list = prefix_tree.get_all_matches (to_find);
+        return list.length () > 0;
     }
 
     public void rebuild_word_list (Gtk.TextView view) {
-        lock (words) {
-            words.clear ();
-        }
+        prefix_tree.clear ();
         parse_text_view (view);
     }
 
     public void parse_text_view (Gtk.TextView view) {
         /* If this view has already been parsed, restore the word list */
-        lock (words) {
+        lock (prefix_tree) {
             if (text_view_words.has_key (view)) {
-                words = text_view_words.@get (view);
+                prefix_tree = text_view_words.@get (view);
             } else {
-            /* Else create a new word list and parse the buffer text */
-                words = new Gee.ArrayList<string> ();
+                /* Else create a new word list and parse the buffer text */
+                prefix_tree = new Scratch.Plugins.PrefixTree ();
             }
         }
 
         if (view.buffer.text.length > 0) {
             parse_string (view.buffer.text);
-            text_view_words.@set (view, words);
+            text_view_words.@set (view, prefix_tree);
         }
     }
 
-    private void add_word (string word) {
+    public void add_word (string word) {
         if (word.length < MINIMUM_WORD_LENGTH)
             return;
 
-        if (!(word in words)) {
-            lock (words) {
-                words.add (word);
-            }
+        lock (prefix_tree) {
+            prefix_tree.insert (word);
         }
     }
 
