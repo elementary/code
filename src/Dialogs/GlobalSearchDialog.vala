@@ -49,6 +49,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
 
     public GlobalSearchDialog (string folder_name, bool is_repo) {
         Object (
+            transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
             folder_name: folder_name,
             is_repo: is_repo,
             image_icon: new ThemedIcon ("edit-find")
@@ -102,8 +103,6 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         search_button.can_default = true;
         search_button.has_default = true;
         search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        transient_for = ((Gtk.Application) GLib.Application.get_default ()).active_window;
 
         search_term_entry.bind_property (
             "is-valid", search_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
