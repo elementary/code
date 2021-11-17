@@ -47,9 +47,9 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         }
     }
 
-    public GlobalSearchDialog (Gtk.Window? parent, string folder_name, bool is_repo) {
+    public GlobalSearchDialog (string folder_name, bool is_repo) {
         Object (
-            transient_for: parent,
+            transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
             folder_name: folder_name,
             is_repo: is_repo,
             image_icon: new ThemedIcon ("edit-find")
