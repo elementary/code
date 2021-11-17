@@ -1,14 +1,14 @@
-module_name = 'word-completion'
+module_name = 'snippets'
 
 module_files = [
-    'prefix-tree.vala',
-    'completion-provider.vala',
-    'engine.vala',
     'plugin.vala'
 ]
 
+json_dep = dependency('json-glib-1.0')
+
 module_deps = [
-    codecore_dep
+    codecore_dep,
+    json_dep
 ]
 
 shared_module(
@@ -17,6 +17,11 @@ shared_module(
     dependencies: module_deps,
     install: true,
     install_dir: join_paths(pluginsdir, module_name),
+)
+
+install_data(
+    'snippets.json', 
+    install_dir:  join_paths(pluginsdir, module_name),
 )
 
 custom_target(module_name + '.plugin_merge',
