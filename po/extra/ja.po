@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2021-09-29 02:05+0000\n"
+"PO-Revision-Date: 2021-11-15 23:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
-msgstr ""
+msgstr "表示中のファイルや特定のフォルダー、プロジェクト全体を対象に自由自在に検索できます。大文字・小文字の区別や正規表現を使った検索も可能です。"
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -73,41 +73,43 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"便利な機能がこんなにも。自動インデント、“便利な行の切り取り／コピー”機能、デフォルトで選択中のテキストと行末の空白を表示する機能、オプションで "
+"Markdown アクション・スペルチェック・余分な空白の削除・単語補完などの機能も。"
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
 "Adapt Code to your workflow: you can tweak the behavior and interface as "
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
-msgstr ""
+msgstr "“コード”を自身のワークフローに導入しましょう。厳選された便利な拡張機能と設定を使って、挙動とインターフェースを必要に応じて調整できます。"
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "そのほかの機能:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
-msgstr ""
+msgstr "UI 全体に反映される、Solarized Light、Solarized Dark、ハイコントラストカラースキーム"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "ワークフローに応じて表示・非表示が可能なサイドバー"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "便利なインデント機能と .editorconfig への対応"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
-msgstr ""
+msgstr "ドラッグアンドドロップ、タブの複製、閉じたタブの復元、タブ履歴など、ブラウザー並みの機能を持つタブ"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "現在カーソルのある行と列を表示します。そして、別の行にすばやく移動できます"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
@@ -117,7 +119,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "行数の多いファイルでも移動が簡単になるミニマップ機能もオプションで用意"
 
 #: data/io.elementary.code.appdata.xml.in:31
 #: data/io.elementary.code.appdata.xml.in:45
@@ -171,15 +173,15 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:50
 msgid "Improvements:"
-msgstr ""
+msgstr "改善点:"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "サイドバーを表示していない場合はプロジェクト選択ボタンも表示しないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "すべてのテキストが翻訳できるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:63
 #: data/io.elementary.code.appdata.xml.in:113
@@ -440,7 +442,7 @@ msgstr "\"現在のビューを削除\"の機能を修正"
 
 #: data/io.elementary.code.appdata.xml.in:180
 msgid "Fix New Window desktop action behavior"
-msgstr "デスクトップアクションの“新しいウィンドウ”の動作を修正"
+msgstr "デスクトップアクションの“新しいウィンドウ”の挙動を修正"
 
 #: data/io.elementary.code.appdata.xml.in:181
 msgid ""
@@ -462,7 +464,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:192
 msgid "Smarter file saving behavior"
-msgstr "ファイル保存の動作を改善"
+msgstr "ファイル保存の挙動を改善"
 
 #: data/io.elementary.code.appdata.xml.in:193
 msgid "File saving fixes"

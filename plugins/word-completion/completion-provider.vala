@@ -28,7 +28,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     private Gtk.TextView? view;
     private Gtk.TextBuffer? buffer;
     private Euclide.Completion.Parser parser;
-    private bool proposals_found = false;
     private Gtk.TextMark completion_end_mark;
     private Gtk.TextMark completion_start_mark;
 
@@ -53,51 +52,42 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public bool match (Gtk.SourceCompletionContext context) {
-        return true;
+        Gtk.TextIter start, end;
+        buffer.get_iter_at_offset (out end, buffer.cursor_position);
+        start = end.copy ();
+        start.backward_word_start ();
+        string text = buffer.get_text (start, end, true);
+
+        return parser.match (text);
     }
 
     public void populate (Gtk.SourceCompletionContext context) {
         /*Store current insertion point for use in activate_proposal */
         GLib.List<Gtk.SourceCompletionItem>? file_props;
         bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
-        proposals_found = get_proposals (out file_props, no_minimum);
-
-        if (proposals_found)
-            context.add_proposals (this, file_props, true);
-
-        /* Signal to plugin whether proposals are available
-         * If none, the completion will be active but not visible */
-        can_propose (proposals_found);
+        get_proposals (out file_props, no_minimum);
+        context.add_proposals (this, file_props, true);
     }
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
-        if (proposals_found) {
-            /* Count backward from completion_mark instead of iter
-             * (avoids wrong insertion if the user is typing fast) */
-            Gtk.TextIter start;
-            Gtk.TextIter end;
-            Gtk.TextMark mark;
+        Gtk.TextIter start;
+        Gtk.TextIter end;
+        Gtk.TextMark mark;
 
-            mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
-            buffer.get_iter_at_mark (out end, mark);
+        mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
+        buffer.get_iter_at_mark (out end, mark);
 
-            mark = buffer.get_mark (COMPLETION_START_MARK_NAME);
-            buffer.get_iter_at_mark (out start, mark);
+        mark = buffer.get_mark (COMPLETION_START_MARK_NAME);
+        buffer.get_iter_at_mark (out start, mark);
 
-            buffer.@delete (ref start, ref end);
-            buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
-        }
+        buffer.@delete (ref start, ref end);
+        buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         return true;
     }
 
     public Gtk.SourceCompletionActivation get_activation () {
         return Gtk.SourceCompletionActivation.INTERACTIVE |
                Gtk.SourceCompletionActivation.USER_REQUESTED;
-    }
-
-    public unowned Gtk.Widget? get_info_widget (Gtk.SourceCompletionProposal proposal) {
-        /* As no additional info is provided no widget is needed */
-        return null;
     }
 
     public int get_interactive_delay () {
@@ -114,11 +104,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         iter = cursor_iter;
         iter.backward_word_start ();
         return true;
-    }
-
-    public void update_info (Gtk.SourceCompletionProposal proposal, Gtk.SourceCompletionInfo info) {
-        /* No additional info provided on proposals */
-        return;
     }
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
@@ -158,13 +143,13 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
             /* Get proposals, if any */
-            Gee.TreeSet<string> prop_word_list;
+            List<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
                     var item = new Gtk.SourceCompletionItem ();
                     item.label = word;
                     item.text = word;
-                    props.prepend (item);
+                    props.append (item);
                 }
 
                 return true;

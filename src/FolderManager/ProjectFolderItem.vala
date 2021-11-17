@@ -349,7 +349,6 @@ namespace Scratch.FolderManager {
             }
 
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
-                null,
                 folder_name,
                 monitored_repo != null && monitored_repo.git_repo != null
             ) {
