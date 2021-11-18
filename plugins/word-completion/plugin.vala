@@ -141,9 +141,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             }
         }
 
-        print ("DELIM %s PRINT %s\n",
-            parser.is_delimiter (uc)?"Y":"N",
-            uc.isprint ()?"Y":"N");
         if (!completion_in_progress && parser.is_delimiter (uc) &&
             (uc.isprint () || uc.isspace ())) {
 
