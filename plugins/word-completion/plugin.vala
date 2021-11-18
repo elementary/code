@@ -28,6 +28,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -76,6 +77,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_document = doc;
         current_view = doc.source_view;
         current_view.key_press_event.connect (on_key_press);
+        current_view.completion.show.connect (() => {
+            completion_in_progress = true;
+        });
+        current_view.completion.hide.connect (() => {
+            completion_in_progress = false;
+        });
+
 
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
@@ -133,8 +141,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             }
         }
 
-        if (kv in ACTIVATE_KEYS ||
-            (parser.is_delimiter (uc) && uc.isprint ()) ) {
+        if (!completion_in_progress && parser.is_delimiter (uc) &&
+            (uc.isprint () || uc.isspace ())) {
+
             var buffer = current_view.buffer;
             var mark = buffer.get_insert ();
             Gtk.TextIter cursor_iter;

@@ -44,7 +44,7 @@ namespace Scratch.Plugins {
                 }
             }
 
-            if (!curr.isprint () && curr != '\0') {
+            if (!curr.isgraph () && curr != '\0') {
                 return;
             }
 

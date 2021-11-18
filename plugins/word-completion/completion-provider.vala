@@ -108,7 +108,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
-        Gtk.TextIter iter;
         Gtk.TextBuffer temp_buffer = buffer;
         props = null;
 
@@ -118,27 +117,17 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         to_find = temp_buffer.get_text (start, end, true);
 
         if (to_find.length == 0) {
-            /* Find start of current word */
-            temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
-            /* Mark current insertion point as end point for use in activate proposal */
-            buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, iter);
-            /* TODO - Use iter.backward_word_start? */
-            iter.backward_find_char ((c) => {
-                bool valid = parser.is_delimiter (c);
-                if (!valid)
-                    to_find += c.to_string ();
+            temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
 
-                return valid;
-            }, null);
-            iter.forward_cursor_position ();
-            /* Mark start of delimited text as start point for use in activate proposal */
-            buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, iter);
-            to_find = to_find.reverse ();
-        } else {
-            /* mark start and end of the selection */
-            buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
-            buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
+            start = end;
+            start.backward_word_start ();
+
+            to_find = buffer.get_text (start, end, false);
         }
+
+        buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
+        buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
+
 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
