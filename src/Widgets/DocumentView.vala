@@ -349,7 +349,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         other_window.move (x, y);
 
         // We need to make sure switch back to the main thread
-        // when we are modifiying Gtk widgets shared by two threads.
+        // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
             other_window.document_view.insert_tab (doc, -1);
