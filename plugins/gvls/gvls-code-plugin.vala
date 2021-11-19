@@ -15,7 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Author: Daniel Espinosa <esodan@gmail.com>, Jeremy Wootten <jeremywootten@gmail.com>
+ * Authors: Daniel Espinosa <esodan@gmail.com>, 
+            Jeremy Wootten <jeremywootten@gmail.com>
  */
 
 public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatable {
@@ -25,67 +26,47 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     Scratch.Services.Interface plugins;
 
     public void activate () {
+    warning ("GVLS activate");
         plugins = (Scratch.Services.Interface) object;
         this.main_window = plugins.manager.window;
 
-        main_window.folder_opened.connect ((project)=>{
-            var gvls_manager = project.get_data<GVlsui.ProjectManager> ("gvls-manager");
-            if (gvls_manager == null) {
-                GLib.File f = project.file.file;
-                gvls_manager = new GVlsui.ProjectManager.for_meson (f);
-                project.set_data<GVlsui.ProjectManager> ("gvls-manager", gvls_manager);
-                gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
-                    try {
-                        gvls_manager.manager.initialize_stdio.end (res);
-                        debug ("gvls-plugin: Started GVls server");
-
-                        main_window.destroy.connect (()=>{
-                            gvls_manager.manager.client.server_exit.begin ();
-                        });
-                    } catch (GLib.Error e) {
-                        warning ("Error Opening File: %s", e.message);
-                    }
-                });
-            }
-        });
-
-        main_window.document_opened.connect ((doc)=>{
-            if (doc.source_view.project == null) {
-                return;
-            }
-
-            var gvls_manager = doc.source_view.project.get_data<GVlsui.ProjectManager> ("gvls-manager");
-            if (gvls_manager == null) {
-                GLib.File f = doc.source_view.project.file.file;
-                gvls_manager = new GVlsui.ProjectManager.for_meson (f);
-                doc.source_view.project.set_data<GVlsui.ProjectManager> ("gvls-manager", gvls_manager);
-                gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
-                    try {
-                        gvls_manager.manager.initialize_stdio.end (res);
-                        debug ("gvls-plugin: Started GVls server");
-                        gvls_manager.set_completion_provider (doc.source_view, doc.file);
-                        gvls_manager.open_document (doc.source_view);
-
-                        main_window.destroy.connect (()=>{
-                            gvls_manager.manager.client.server_exit.begin ();
-                        });
-                    } catch (GLib.Error e) {
-                        warning ("Error Opening File: %s", e.message);
-                    }
-                });
-            } else {
-                gvls_manager.set_completion_provider (doc.source_view, doc.file);
-                gvls_manager.open_document (doc.source_view);
-
-                main_window.destroy.connect (()=>{
-                    gvls_manager.manager.client.server_exit.begin ();
-                });
-            }
-        });
+        plugins.hook_document.connect (on_hook_document);
     }
 
+    private void on_hook_document (Scratch.Services.Document doc) {
+warning ("on hook document");
+        if (doc.source_view.project == null) {
+warning ("no project");
+            return;
+        }
+
+        var gvls_manager = doc.source_view.project.get_data<GVlsui.ProjectManager> ("gvls-manager");
+        if (gvls_manager == null) {
+        warning ("get gvls manager");
+            GLib.File f = doc.source_view.project.file.file;
+            gvls_manager = new GVlsui.ProjectManager.for_meson (f);
+            doc.source_view.project.set_data<GVlsui.ProjectManager> ("gvls-manager", gvls_manager);
+            gvls_manager.manager.initialize_stdio.begin ((obj, res)=>{
+                try {
+                    gvls_manager.manager.initialize_stdio.end (res);
+                    warning ("gvls-plugin: Started GVls server");
+
+                    main_window.destroy.connect (()=>{
+                        gvls_manager.manager.client.server_exit.begin ();
+                    });
+
+            warning ("connecting completion provider ");
+                    gvls_manager.set_completion_provider (doc.source_view, doc.file);
+                    gvls_manager.open_document (doc.source_view);
+                } catch (GLib.Error e) {
+                    warning ("Error Opening File: %s", e.message);
+                }
+            });
+        }
+    }
 
     public void deactivate () {
+    warning ("GVLS deactivate");
         if (main_window == null) {
             message ("No MainWindow was set");
             return;
@@ -94,6 +75,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         foreach (Services.Document doc in main_window.document_view.docs) {
             var p = doc.source_view.project;
             var gvls_manager = p.get_data<GVlsui.ProjectManager> ("gvls-manager");
+
             if (gvls_manager == null) {
                 continue;
             }
@@ -101,9 +83,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             gvls_manager.manager.client.server_exit.begin (()=>{
                 p.set_data<GVlsui.ProjectManager?> ("gvls-manager", null);
             });
-
         }
-
     }
 
     public void update_state () {}
