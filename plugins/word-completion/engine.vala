@@ -24,8 +24,8 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     private Scratch.Plugins.PrefixTree prefix_tree;
 
-    public const string DELIMITERS = " .,;:?{}[]()0123456789+-=&|-<>*\\/\r\n\t\'\"";
-    public bool is_delimiter (unichar c) {
+    public const string DELIMITERS = " .,;:?{}[]()0123456789+-=&|-<>*\\/\r\n\t\'\"`";
+    public static bool is_delimiter (unichar c) {
         return DELIMITERS.index_of_char (c) >= 0;
     }
 
