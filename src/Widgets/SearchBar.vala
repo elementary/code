@@ -298,7 +298,7 @@ namespace Scratch.Widgets {
             search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-                debug ("Can't search anything in an inexistent buffer and/or without anything to search.");
+                debug ("Can't search anything in an non-existent buffer and/or without anything to search.");
                 search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
