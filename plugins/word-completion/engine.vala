@@ -43,7 +43,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public bool get_for_word (string to_find, out List<string> list) {
         list = prefix_tree.get_all_matches (to_find);
-        return list.is_empty ();
+        return list.first () != null;
     }
 
     public void rebuild_word_list (Gtk.TextView view) {
