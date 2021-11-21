@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2021-11-02 03:08+0000\n"
-"Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
+"PO-Revision-Date: 2021-11-21 03:17+0000\n"
+"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -232,7 +232,7 @@ msgstr "在 Markdown 文件里可以使用拼写检查插件"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Improve multi-line duplication"
-msgstr "改善多行复制"
+msgstr "改善多行重复"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Remember whether the sidebar is open"
@@ -264,7 +264,7 @@ msgstr "复制文件时保持语法高亮"
 
 #: data/io.elementary.code.appdata.xml.in:85
 msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "双击展开折叠文件夹"
+msgstr "如果试图打开折叠的文件夹两次，则展开它"
 
 #: data/io.elementary.code.appdata.xml.in:86
 msgid "Fix an issue where searches are lost when Code loses focus"
@@ -272,11 +272,11 @@ msgstr "修复代码失去焦点时搜索丢失的问题"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Start Vim plugin in command mode"
-msgstr "在命令模式下启动 Vim 插件"
+msgstr "在命令模式下启动Vim插件"
 
 #: data/io.elementary.code.appdata.xml.in:88
 msgid "Fix and add new Vim commands"
-msgstr "修复并添加新的 Vim 命令"
+msgstr "修复并添加新的Vim命令"
 
 #: data/io.elementary.code.appdata.xml.in:89
 msgid "Show project folders with a hidden root folder"
