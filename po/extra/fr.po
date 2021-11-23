@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-05 11:59+0000\n"
+"PO-Revision-Date: 2021-11-23 20:57+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -153,19 +153,26 @@ msgstr "Améliorations :"
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
+"Les projets de même nom incluent désormais également le nom du dossier parent"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
+"Lors du défilement des résultats de recherche, ajout d'un léger débordement "
+"pour une meilleure visibilité"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr ""
+"Utilisation du portail pour le sélecteur de fichiers à la place de celui "
+"fourni par GTK"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
 msgstr ""
+"La boîte de dialogue de recherche gobale est désormais centrée par dessus la "
+"fenêtre de Code"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:53
@@ -203,6 +210,8 @@ msgstr "Mises à jour mineures :"
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr ""
+"« Espaces blancs visibles » est désormais un bouton d'activation/"
+"désactivation"
 
 #: data/io.elementary.code.appdata.xml.in:47
 #: data/io.elementary.code.appdata.xml.in:65
