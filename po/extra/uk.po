@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-05 04:26+0000\n"
+"PO-Revision-Date: 2021-11-23 20:57+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,20 +144,23 @@ msgstr "Удосконалення:"
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Projects with the same name now include their parent folder name as well"
-msgstr ""
+msgstr "Проєкти з однаковою назвою тепер містять і назву батьківської теки"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
+"Під час прокрутки результатів пошуку, вони трохи перевищують зону видимості "
+"для кращого перегляду"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "Використовується портал FileChooser, а не з GTK"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
 msgstr ""
+"Центрування діалогового вікна глобального пошуку над основним вікном Коду"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:53
@@ -194,7 +197,7 @@ msgstr "Незначні оновлення:"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "Поле «Видимі пробіли» стало перемикачем"
 
 #: data/io.elementary.code.appdata.xml.in:47
 #: data/io.elementary.code.appdata.xml.in:65
