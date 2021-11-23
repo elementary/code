@@ -493,7 +493,7 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                null,
+                (Gtk.Window) this.get_toplevel (),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")
