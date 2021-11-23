@@ -1,3 +1,27 @@
+io.elementary.code (6.1.0) bionic; urgency=medium
+
+  * Release 6.1.0 (#1131)
+  * Document: set filechooser dialog as transient for main window
+    (#1135)
+  * Update translation files
+  * Update translation template
+  * Fix various typos (#1133)
+  * GlobalSearchDialog: set active_window as transient parent (#1128)
+  * Application: force use portals (#1119)
+  * FileView.vala: Fix indentation and namespace (#1120)
+  * Fix terminal hotkeys not captured and affect the document (#1122)
+  * Make search results easier to see by scrolling a little bit more
+    (#1121)
+  * Removing toggling of terminal button visibility (#806)
+  * Updated the libvala dependency version in Readme (#1115)
+  * Distinguish projects with same folder name (#1112)
+  * Change setting to Visible whitespace. (#1109)
+  * Document: fix non-construct file set
+  * Document: Object style, fix parameter typo (#1110)
+  * Add aarch64 architecture support to flatpak builds (#1106)
+
+ -- Corentin Noël <corentin@elementary.io>  Tue, 23 Nov 2021 21:07:27 +0000
+
 io.elementary.code (6.0.1) bionic; urgency=medium
 
   * Release 6.0.1 (#1105)
