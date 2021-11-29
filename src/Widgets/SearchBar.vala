@@ -298,7 +298,7 @@ namespace Scratch.Widgets {
             search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-                debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
+                debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
                 search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
@@ -335,9 +335,15 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter, null);
+            bool has_wrapped_around;
+            bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.backward_lines (3);
+                } else {
+                    start_iter.forward_lines (3);
+                }
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
 
@@ -346,9 +352,15 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter, null);
+            bool has_wrapped_around;
+            bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.forward_lines (3);
+                } else {
+                    start_iter.backward_lines (3);
+                }
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
 
