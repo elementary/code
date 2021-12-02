@@ -283,7 +283,7 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
-            // Crate folder for unsaved documents
+            // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
@@ -595,7 +595,7 @@ namespace Scratch {
             return true;
         }
 
-        // Save session informations different from window state
+        // Save session information different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
             hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));

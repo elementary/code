@@ -215,7 +215,7 @@ public class Scratch.TemplateManager : GLib.Object {
      * It will be used to launch an icon via Gtk.IconTheme.load_icon, so, any icon is
      * fine.
      * @param label The name of your template.
-     * @param template_type The object type which must be instanciated when we click on
+     * @param template_type The object type which must be instantiated when we click on
      * the icon on the IconView. It will be used to get the creation box and therefore must
      * inherit from #Scratch.Template.
      **/

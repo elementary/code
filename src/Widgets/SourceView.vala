@@ -570,7 +570,7 @@ namespace Scratch.Widgets {
                 selection_changed_timer = 0;
             }
 
-            // Fire deselected immediatly
+            // Fire deselected immediately
             if (start.equal (end)) {
                 deselected ();
             // Don't fire signal till we think select movement is done
