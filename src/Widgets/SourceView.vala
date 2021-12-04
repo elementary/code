@@ -575,6 +575,28 @@ namespace Scratch.Widgets {
 
             menu.add (sort_item);
 
+            var previous_edit_item = new Gtk.MenuItem () {
+                sensitive = previous_marks.length > 0,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
+            };
+            previous_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Previous Edit"),
+                previous_edit_item.action_name
+
+            ));
+            menu.add (previous_edit_item);
+
+            var next_edit_item = new Gtk.MenuItem () {
+                sensitive = next_marks.length > 0,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
+            };
+            next_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Next Edit"),
+                next_edit_item.action_name
+
+            ));
+            menu.add (next_edit_item);
+
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
 
