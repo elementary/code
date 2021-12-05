@@ -96,6 +96,8 @@ namespace Scratch {
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
+        public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
+        public const string ACTION_NEXT_MARK = "action_next_mark";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -139,7 +141,9 @@ namespace Scratch {
             { ACTION_SHOW_DIFF, action_show_diff, "s" },
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
-            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
+            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
+            { ACTION_PREVIOUS_MARK, action_previous_mark},
+            { ACTION_NEXT_MARK, action_next_mark}
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -189,6 +193,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_SHOW_DIFF + "::", "<Control><Shift>D");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
+            action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
+            action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -870,15 +876,15 @@ namespace Scratch {
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {
-            close_project_docs (get_target_path_for_actions (param), true);
+            close_project_docs (get_target_path_for_git_actions (param), true);
         }
 
         private void action_close_project_docs (SimpleAction action, Variant? param) {
-            close_project_docs (get_target_path_for_actions (param), false);
+            close_project_docs (get_target_path_for_git_actions (param), false);
         }
 
         private void action_restore_project_docs (SimpleAction action, Variant? param) {
-            restore_project_docs (get_target_path_for_actions (param));
+            restore_project_docs (get_target_path_for_git_actions (param));
         }
 
         private void close_project_docs (string project_path, bool make_restorable) {
@@ -947,7 +953,7 @@ namespace Scratch {
                 term = search_bar.search_entry.text;
             }
 
-            folder_manager_view.search_global (get_target_path_for_actions (param), term);
+            folder_manager_view.search_global (get_target_path_for_git_actions (param), term);
         }
 
         private void set_search_text () {
@@ -1065,70 +1071,65 @@ namespace Scratch {
         }
 
         private void action_new_branch (SimpleAction action, Variant? param) {
-            folder_manager_view.new_branch (get_target_path_for_actions (param));
+            folder_manager_view.new_branch (get_target_path_for_git_actions (param));
         }
 
-// <<<<<<< HEAD
-//         private string? get_target_path_for_actions (Variant? path_variant) {
-//             string? path = "";
-//             if (path_variant != null) {
-//                 path = path_variant.get_string ();
-//             }
+        private void action_show_diff (SimpleAction action, Variant? param) {
+            try {
+                string diff_text = folder_manager_view.get_project_diff (get_target_path_for_git_actions (param));
+                FileIOStream iostream;
+                File diff_file = File.new_tmp ("git-diff-XXXXXX.diff", out iostream);
+                warning ("tmp file name: %s\n", diff_file.get_path ());
 
-//             if (path == "") { // Happens when keyboard accelerator is used
-//                 path = Services.GitManager.get_instance ().active_project_path;
-//                 if (path == null) {
-//                     var current_doc = get_current_document ();
-//                     if (current_doc != null) {
-//                         path = current_doc.file.get_path ();
-//                     } else {
-//                         return null; // Cannot determine target project
-//                     }
-//                 }
-//             }
+                var ostream = iostream.output_stream;
+                var dostream = new DataOutputStream (ostream);
+                dostream.put_string (diff_text);
+                iostream.close ();
 
-//             return path;
-//         }
-
-         private void action_show_diff (SimpleAction action, Variant? param) {
-             try {
-                 string diff_text = folder_manager_view.get_project_diff (get_target_path_for_actions (param));
-                 FileIOStream iostream;
-                 File diff_file = File.new_tmp ("git-diff-XXXXXX.diff", out iostream);
-                 warning ("tmp file name: %s\n", diff_file.get_path ());
-
-                 var ostream = iostream.output_stream;
-                 var dostream = new DataOutputStream (ostream);
-                 dostream.put_string (diff_text);
-                 iostream.close ();
-
-                 var doc = new Services.Document (actions, diff_file);
-                 document_view.open_document (doc);
-             } catch (Error e) {
-                 warning ("Unable to get project diff: %s", e.message);
+                var doc = new Services.Document (actions, diff_file);
+                document_view.open_document (doc);
+            } catch (Error e) {
+                warning ("Unable to get project diff: %s", e.message);
             }
         }
-// =======
-        private string? get_target_path_for_actions (Variant? path_variant) {
-             string? path = "";
-             if (path_variant != null) {
-                 path = path_variant.get_string ();
-             }
 
-             if (path == "") { // Happens when keyboard accelerator is used
-                 path = Services.GitManager.get_instance ().active_project_path;
-                 if (path == null) {
-                     var current_doc = get_current_document ();
-                     if (current_doc != null) {
-                         path = current_doc.file.get_path ();
-                     } else {
-                         return null; // Cannot determine target project
-                     }
-                 }
-             }
+        private void action_previous_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
 
-             return path;
-         }
-// >>>>>>> hide-docs-when-not-active
+            doc.source_view.goto_previous_mark ();
+        }
+
+        private void action_next_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.goto_next_mark ();
+        }
+
+        private string? get_target_path_for_git_actions (Variant? path_variant) {
+            string? path = "";
+            if (path_variant != null) {
+                path = path_variant.get_string ();
+            }
+
+            if (path == "") { // Happens when keyboard accelerator is used
+                path = Services.GitManager.get_instance ().active_project_path;
+                if (path == null) {
+                    var current_doc = get_current_document ();
+                    if (current_doc != null) {
+                        path = current_doc.file.get_path ();
+                    } else {
+                        return null; // Cannot determine target project
+                    }
+                }
+            }
+
+            return path;
+        }
     }
 }

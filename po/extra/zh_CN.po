@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-21 03:17+0000\n"
-"Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
+"PO-Revision-Date: 2021-12-04 08:23+0000\n"
+"Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -133,20 +133,20 @@ msgstr "改进："
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Projects with the same name now include their parent folder name as well"
-msgstr ""
+msgstr "具有相同名称的项目现在也包括其父文件夹名称"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
-msgstr ""
+msgstr "滚动到搜索结果时，稍微过冲以获得更好的可见性"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "使用 FileChooser 门户而不是来自 GTK"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
-msgstr ""
+msgstr "将全局搜索对话框在主代码窗口居中显示"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:53
@@ -156,19 +156,19 @@ msgstr "修复："
 
 #: data/io.elementary.code.appdata.xml.in:40
 msgid "Fix visibility of Terminal button on Welcome page"
-msgstr ""
+msgstr "修复欢迎页面上终端按钮的可见性"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
-msgstr ""
+msgstr "修复一些键盘快捷键影响未聚焦的文档而不是聚焦的终端"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
-msgstr ""
+msgstr "如果 shell 退出，请关闭终端，如果在没有 shell 的情况下重新打开，则创建新终端"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:62
@@ -179,7 +179,7 @@ msgstr "小幅更新："
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "“可见空白”组合框现在是一个开关"
 
 #: data/io.elementary.code.appdata.xml.in:47
 #: data/io.elementary.code.appdata.xml.in:65

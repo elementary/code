@@ -36,7 +36,10 @@ namespace Scratch.Widgets {
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
         private SourceGutterRenderer git_diff_gutter_renderer;
-
+        private Queue<Gtk.TextMark> previous_marks;
+        private Queue<Gtk.TextMark> next_marks;
+        private Gtk.TextMark? current_edit_point = null;
+        private int last_edit_point_line = 0;
         private const uint THROTTLE_MS = 400;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
@@ -79,6 +82,8 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            previous_marks = new Queue<Gtk.TextMark> ();
+            next_marks = new Queue<Gtk.TextMark> ();
             // Make the gutter renderer and insert into the left side of the source view.
             git_diff_gutter_renderer = new SourceGutterRenderer ();
             get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
@@ -193,6 +198,26 @@ namespace Scratch.Widgets {
                     project.monitored_repo.file_content_changed.connect (() => {
                         schedule_refresh_diff ();
                     });
+                }
+            });
+
+            button_release_event.connect (() => {
+                Gtk.TextIter? iter = null;
+                buffer.get_iter_at_offset (out iter, buffer.cursor_position);
+                var line = iter.get_line ();
+                if ((line - last_edit_point_line).abs () > 10) {
+                    last_edit_point_line = line;
+                    if (current_edit_point != null) {
+                        previous_marks.push_head (current_edit_point);
+                    }
+
+                    current_edit_point = new Gtk.TextMark (null);
+                    buffer.add_mark (current_edit_point, iter);
+                    var mark = next_marks.pop_head ();
+                    while (mark != null) {
+                        buffer.delete_mark (mark);
+                        mark = next_marks.pop_head ();
+                    }
                 }
             });
         }
@@ -487,6 +512,40 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        public void goto_previous_mark () {
+            var mark = previous_marks.pop_head ();
+            if (mark != null) {
+                if (current_edit_point != null) {
+                    next_marks.push_head (current_edit_point);
+                }
+
+                current_edit_point = mark;
+                Gtk.TextIter? iter = null;
+                buffer.get_iter_at_mark (out iter, current_edit_point);
+                if (iter != null) {
+                    // buffer.delete_mark (mark);
+                    cursor_position = iter.get_offset ();
+                }
+            }
+        }
+
+        public void goto_next_mark () {
+            var mark = next_marks.pop_head ();
+            if (mark != null) {
+                if (current_edit_point != null) {
+                    previous_marks.push_head (current_edit_point);
+                }
+
+                current_edit_point = mark;
+                Gtk.TextIter? iter = null;
+                buffer.get_iter_at_mark (out iter, current_edit_point);
+                if (iter != null) {
+                    cursor_position = iter.get_offset ();
+                    // buffer.add_mark (mark, iter);
+                }
+            }
+        }
+
         private void update_draw_spaces () {
             Gtk.TextIter doc_start, doc_end;
             buffer.get_start_iter (out doc_start);
@@ -515,6 +574,28 @@ namespace Scratch.Widgets {
             sort_item.activate.connect (sort_selected_lines);
 
             menu.add (sort_item);
+
+            var previous_edit_item = new Gtk.MenuItem () {
+                sensitive = previous_marks.length > 0,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
+            };
+            previous_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Previous Edit"),
+                previous_edit_item.action_name
+
+            ));
+            menu.add (previous_edit_item);
+
+            var next_edit_item = new Gtk.MenuItem () {
+                sensitive = next_marks.length > 0,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
+            };
+            next_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Next Edit"),
+                next_edit_item.action_name
+
+            ));
+            menu.add (next_edit_item);
 
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
