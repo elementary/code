@@ -413,7 +413,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                toolbar.title = app.app_cmd_name;
+                title = _("Code");
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
