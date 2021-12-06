@@ -146,13 +146,26 @@ namespace Scratch {
             { ACTION_NEXT_MARK, action_next_mark}
         };
 
-        public MainWindow (Scratch.Application scratch_app) {
+        public MainWindow (Scratch.Application scratch_app, bool restore_docs) {
             Object (
                 application: scratch_app,
                 app: scratch_app,
                 icon_name: Constants.PROJECT_NAME,
                 title: _("Code")
             );
+
+            document_view.realize.connect (() => {
+                if (restore_docs) {
+                    restore_opened_documents ();
+                }
+
+                Idle.add (() => {
+                    document_view.request_placeholder_if_empty ();
+                    return Source.REMOVE;
+                });
+            });
+
+            show_all (); // Do not show document view until realize signal connected
         }
 
         static construct {
@@ -278,8 +291,6 @@ namespace Scratch {
             }
 
             sidebar.bind_property ("visible", toolbar.choose_project_revealer, "reveal-child");
-            // Show/Hide widgets
-            show_all ();
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -347,7 +358,6 @@ namespace Scratch {
             folder_manager_view = new FolderManager.FileView ();
 
             sidebar.add_tab (folder_manager_view);
-            folder_manager_view.show_all ();
 
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
@@ -422,10 +432,6 @@ namespace Scratch {
                 });
 
                 hook_func ();
-            });
-
-            document_view.realize.connect (() => {
-                restore_opened_documents ();
             });
 
             document_view.request_placeholder.connect (() => {
@@ -505,11 +511,6 @@ namespace Scratch {
                     }
                 }
             }
-
-            Idle.add (() => {
-                document_view.request_placeholder_if_empty ();
-                return Source.REMOVE;
-            });
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
