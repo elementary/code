@@ -129,10 +129,10 @@ namespace Scratch {
         protected override void activate () {
             var window = get_last_window ();
             if (window != null && create_new_window) {
+                window = new_window (); // Will *not* restore documents
                 create_new_window = false;
-                this.new_window ();
             } else if (window == null) {
-                window = this.new_window (); // Will restore documents if required
+                window = new MainWindow (this, true); // Will restore documents if required
                 window.show ();
             } else {
                 window.present ();
@@ -164,8 +164,8 @@ namespace Scratch {
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
-        public MainWindow new_window () {
-            return new MainWindow (this);
+        public MainWindow new_window () { // Only use for additional windows
+            return new MainWindow (this, false);
         }
 
         public static int main (string[] args) {
