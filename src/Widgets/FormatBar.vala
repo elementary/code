@@ -173,11 +173,8 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.changed["indent-width"].connect (() => {
-        warning ("Setting changed indent width %i", Scratch.settings.get_int ("indent-width"));
-         format_tab_header ();
-         });
-        Scratch.settings.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
+        Scratch.settings.changed["indent-width"].connect (format_tab_header);
+        Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header);
     }
 
     private void format_tab_header () {
