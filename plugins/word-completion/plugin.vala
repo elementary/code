@@ -38,7 +38,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         Gdk.Key.ISO_Left_Tab,
     };
 
-    private const uint USER_REQUESTED_KEY = Gdk.Key.backslash;
+    private const string REFRESH_SHORTCUT = "|"; //In combination with <Ctrl> will cause refresh
 
     private uint timeout_id = 0;
     private bool completion_visible = false;
@@ -130,7 +130,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
              * alternative and also purges spelling mistakes and unused words from the list.
              * If used when a word or part of a word is selected, the selection will be
              * used as the word to find. */
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
+                (uc.to_string () == REFRESH_SHORTCUT)) {
+
                 parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
                 return true;
