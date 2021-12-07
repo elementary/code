@@ -425,20 +425,22 @@ namespace Scratch {
             });
 
             document_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
-
-                search_bar.set_text_view (doc.source_view);
-                // Update MainWindow title
-                title = doc.get_basename ();
-
                 if (doc != null) {
+                    plugins.hook_document (doc);
+                    search_bar.set_text_view (doc.source_view);
+                    // Update MainWindow title
+                    title = doc.get_basename ();
+
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
-                }
 
-                // Set actions sensitive property
-                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                doc.check_undoable_actions ();
+                    // Set actions sensitive property
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
+                    doc.check_undoable_actions ();
+                } else {
+                    title = _("Code");
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
+                }
             });
 
             set_widgets_sensitive (false);
