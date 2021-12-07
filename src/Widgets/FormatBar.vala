@@ -173,22 +173,26 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.changed["indent-width"].connect (() => format_tab_header ());
+        Scratch.settings.changed["indent-width"].connect (() => {
+        warning ("Setting changed indent width %i", Scratch.settings.get_int ("indent-width"));
+         format_tab_header ();
+         });
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
     }
 
     private void format_tab_header () {
         var indent_width = Scratch.settings.get_int ("indent-width");
         var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-        if (doc != null) {
-            indent_width = (int)doc.source_view.tab_width;
-            spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
-        }
 
         if (spaces_instead_of_tabs) {
             tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
             tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
+        }
+
+        if (doc != null) {
+            doc.source_view.tab_width = (uint)indent_width;
+            doc.source_view.insert_spaces_instead_of_tabs = spaces_instead_of_tabs;
         }
     }
 
