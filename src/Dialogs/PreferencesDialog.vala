@@ -50,9 +50,6 @@ namespace Scratch.Dialogs {
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
-            // var strip_trailing_spaces_label = new SettingsLabel (_("Strip trailing whitespace:"));
-            // strip_trailing_spaces = new SettingsSwitch ("strip-trailing-on-save");
-
             var general_grid = new Gtk.Grid ();
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
