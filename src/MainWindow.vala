@@ -345,8 +345,12 @@ namespace Scratch {
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
                         var file = File.new_for_uri (filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                        document_view.open_document (doc);
+                        bool is_folder;
+                        //TODO Handle folders dropped here
+                        if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
+                            Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+                            document_view.open_document (doc);
+                        }
                     }
 
                     Gtk.drag_finish (ctx, true, false, time);
@@ -498,6 +502,7 @@ namespace Scratch {
                            But for files that do not exist we need to make sure that doc won't create a new file
                         */
                         if (file.query_exists ()) {
+                            //TODO Check files valid (settings could have been manually altered)
                             var doc = new Scratch.Services.Document (actions, file);
                             bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
