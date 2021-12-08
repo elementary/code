@@ -815,7 +815,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin ();
+                    doc.save.begin (true);
                 }
             }
         }
