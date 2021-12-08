@@ -369,7 +369,7 @@ namespace Scratch.Widgets {
 
         // If selected text does not exists duplicate current line.
         // If selected text is only in one line duplicate in place.
-        // If seected text covers more than one line, duplicate all lines complete.
+        // If selected text covers more than one line, duplicate all lines complete.
         public void duplicate_selection () {
             Gtk.TextIter? start = null;
             Gtk.TextIter? end = null;
@@ -382,7 +382,6 @@ namespace Scratch.Widgets {
                 buffer.get_selection_bounds (out start, out end);
                 start_line = start.get_line ();
                 end_line = end.get_line ();
-
                 if (start_line != end_line) {
                     buffer.get_iter_at_line (out start, start_line);
                     buffer.get_iter_at_line (out end, end_line);
@@ -395,10 +394,13 @@ namespace Scratch.Widgets {
                 selection_end_offset = end.get_offset ();
             } else {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
-                start.backward_line (); //To start of previous line
-                start.forward_line (); //To start of original line
+                start.backward_chars (start.get_line_offset ());
                 end = start.copy ();
-                end.forward_to_line_end ();
+                end.forward_chars (end.get_chars_in_line ());
+                if (end.get_line () != start.get_line ()) { // Line lacked final return character
+                    end.backward_char ();
+                }
+
                 selection = "\n" + buffer.get_text (start, end, true);
             }
 
