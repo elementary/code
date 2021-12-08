@@ -269,7 +269,9 @@ namespace Scratch.Services {
             int prev_additions = 0;
             try {
                 var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
-                repo_diff_list.foreach (null, null, null,
+                // To avoid error under Flatpak, need to provide all the callbacks even though nulls are accepted
+                // when running natively.
+                repo_diff_list.foreach (() => {return 0;}, () => {return 0;}, () => {return 0;},
                     (delta, hunk, line) => {
                         unowned var file_diff = delta.get_old_file ();
                         if (file_diff == null) {
