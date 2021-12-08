@@ -179,6 +179,7 @@ namespace Scratch.Services {
             toggle_changed_handlers (true);
 
             // Focus out event for SourceView
+
             this.source_view.focus_out_event.connect (() => {
                 if (Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
@@ -453,6 +454,10 @@ namespace Scratch.Services {
 
             this.create_backup ();
 
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                strip_trailing_spaces (force);
+            }
+
             // Replace old content with the new one
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
@@ -516,7 +521,7 @@ namespace Scratch.Services {
 
             if (success) {
                 source_view.buffer.set_modified (true);
-                var is_saved = yield save ();
+                var is_saved = yield save (true);
 
                 if (is_saved && is_current_file_temporary) {
                     try {
@@ -915,6 +920,55 @@ namespace Scratch.Services {
         private void unmounted_cb () {
             warning ("Folder containing the file was unmounted");
             mounted = false;
+        }
+
+        /* Pull the buffer into an array and then work out which parts are to be deleted.
+         * Do not strip line currently being edited  unless forced */
+        private void strip_trailing_spaces (bool force = false) {
+            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            Gtk.TextIter iter;
+
+            var cursor_pos = source_buffer.cursor_position;
+            source_buffer.get_iter_at_offset (out iter, cursor_pos);
+            var orig_line = iter.get_line ();
+            var orig_offset = iter.get_line_offset ();
+
+            var text = source_buffer.text;
+
+            string[] lines = Regex.split_simple ("""[\r\n]""", text);
+            if (lines.length != source_buffer.get_line_count ()) {
+                critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
+                return;
+            }
+
+            MatchInfo info;
+            Gtk.TextIter start_delete, end_delete;
+            Regex whitespace;
+
+            try {
+                whitespace = new Regex ("[ \t]+$", 0);
+            } catch (RegexError e) {
+                critical ("Error while building regex to replace trailing whitespace: %s", e.message);
+                return;
+            }
+
+            source_buffer.begin_not_undoable_action ();
+            for (int line_no = 0; line_no < lines.length; line_no++) {
+                if (whitespace.match (lines[line_no], 0, out info) &&
+                    (line_no != orig_line || force)) {
+
+                    source_buffer.get_iter_at_line (out start_delete, line_no);
+                    start_delete.forward_to_line_end ();
+                    end_delete = start_delete;
+                    end_delete.backward_chars (info.fetch (0).length);
+
+                    source_buffer.@delete (ref start_delete, ref end_delete);
+                }
+            }
+
+            source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
+            source_buffer.place_cursor (iter);
+            source_buffer.end_not_undoable_action ();
         }
     }
 }

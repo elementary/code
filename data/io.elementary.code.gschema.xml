@@ -140,6 +140,11 @@
       <summary>Whether search is cyclic</summary>
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
     </key>
+    <key name="strip-trailing-on-save" type="b">
+      <default>false</default>
+      <summary>Whether to automatically remove trailing whitespace on saving</summary>
+      <description>Whether trailing whitespace should be removed from a document whenever it is saved, including on autosave.</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
