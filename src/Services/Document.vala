@@ -567,6 +567,10 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
+
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                strip_trailing_spaces (true);
+            }
         }
 
         // Focus the SourceView
