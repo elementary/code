@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-  
+
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
@@ -51,8 +51,8 @@ namespace Scratch.Services {
         }
     }
 
-
     public class PluginsManager : GLib.Object {
+        private const string[] BLACKLISTED = {"strip-trailing-save"};
         Peas.Engine engine;
         Peas.ExtensionSet exts;
         Peas.Engine engine_core;
@@ -86,6 +86,26 @@ namespace Scratch.Services {
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
+
+            var core_list = engine.get_plugin_list ().copy ();
+            string[] core_plugins = new string[core_list.length ()];
+            for (int i = 0; i < core_list.length (); i++) {
+                unowned var mod_name = core_list.nth_data (i).get_module_name ();
+                bool load = true;
+                foreach (string black_listed in BLACKLISTED) {
+                    if (mod_name.has_prefix (black_listed)) {
+                        warning ("Ignoring blacklisted %s", mod_name);
+                        load = false;
+                    }
+                }
+
+                if (load) {
+                    core_plugins[i] = mod_name;
+                }
+
+            }
+
+            engine.loaded_plugins = core_plugins;
             Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
@@ -95,31 +115,13 @@ namespace Scratch.Services {
                 ((Peas.Activatable)ext).activate ();
                 extension_added (info);
             });
+
             exts.extension_removed.connect ((info, ext) => {
                 ((Peas.Activatable)ext).deactivate ();
                 extension_removed (info);
             });
+
             exts.foreach (on_extension_foreach);
-
-            if (set_name != null) {
-                /* The core now */
-                engine_core = new Peas.Engine ();
-                engine_core.enable_loader ("python");
-                engine_core.add_search_path (Constants.PLUGINDIR + "/" + set_name + "/", null);
-
-                var core_list = engine_core.get_plugin_list ().copy ();
-                string[] core_plugins = new string[core_list.length ()];
-                for (int i = 0; i < core_list.length (); i++) {
-                    core_plugins[i] = core_list.nth_data (i).get_module_name ();
-
-                }
-                engine_core.loaded_plugins = core_plugins;
-
-                /* Our extension set */
-                exts_core = new Peas.ExtensionSet (engine_core, typeof (Peas.Activatable), "object", plugin_iface, null);
-
-                exts_core.foreach (on_extension_foreach);
-            }
 
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
