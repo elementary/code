@@ -26,6 +26,7 @@ namespace Scratch.Dialogs {
     public class Preferences : Granite.Dialog {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_matching_brackets;
+        private Gtk.Switch strip_trailing_spaces;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
         private Gtk.Switch show_mini_map;
@@ -49,6 +50,9 @@ namespace Scratch.Dialogs {
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
+            // var strip_trailing_spaces_label = new SettingsLabel (_("Strip trailing whitespace:"));
+            // strip_trailing_spaces = new SettingsSwitch ("strip-trailing-on-save");
+
             var general_grid = new Gtk.Grid ();
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
@@ -63,8 +67,10 @@ namespace Scratch.Dialogs {
             general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 4, 2);
             general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 5);
             general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 5, 2);
-            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 6);
-            general_grid.attach (indent_width, 1, 6, 2);
+            general_grid.attach (new SettingsLabel (_("Strip trailing whitespace:")), 0, 6);
+            general_grid.attach (new SettingsSwitch ("strip-trailing-on-save"), 1, 6, 2);
+            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 7);
+            general_grid.attach (indent_width, 1, 7, 2);
 
             main_stack = new Gtk.Stack () {
                 margin = 12
@@ -81,6 +87,7 @@ namespace Scratch.Dialogs {
             };
             main_grid.attach (main_stackswitcher, 0, 0);
             main_grid.attach (main_stack, 0, 1);
+
 
             border_width = 0;
             get_content_area ().add (main_grid);
@@ -157,7 +164,7 @@ namespace Scratch.Dialogs {
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
-            content.attach (right_margin_position, 2, 6, 1, 1);
+            content.attach (right_margin_position, 2, 7, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
