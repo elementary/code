@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-29 13:42+0000\n"
+"PO-Revision-Date: 2021-12-10 03:53+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -47,6 +47,8 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"“コード”はプロジェクト単位のワークフロー向けにデザインされているので、コードベースごとに認識されるようになっています。便利な Git "
+"との統合機能が搭載されており、ブランチを作成したり変更したり、プロジェクト内のファイルや行の差分を表示したりできます。"
 
 #: data/io.elementary.code.appdata.xml.in:13
 msgid ""
@@ -55,10 +57,8 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコーディングしていても、PHP でスクリプティン"
-"グしていても、HTML でマークアップしていても、“コード”はあなたをサポートしま"
-"す。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で"
-"完全なシンタックスハイライトを利用可能です。"
+"あの言語にも、この言語にも、対応。Vala でコーディングしていても、PHP でスクリプティングしていても、HTML でマークアップしていても、“コード”"
+"はあなたをサポートします。完璧なシンタックスハイライトが、ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で利用可能です。"
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -125,7 +125,7 @@ msgstr ""
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
-msgstr ""
+msgstr "ファイルの最終行より先にもスクロールできるので、編集中の行をお好きな位置に表示できます"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
@@ -148,7 +148,7 @@ msgstr "検索結果にスクロールする際に、見やすくなるように
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr "GTK の FileChooser ではなく、FileChooser ポータルを使用するように修正"
+msgstr "GTK が提供するファイル選択ダイアログではなく、ファイル選択ポータルを使用するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
@@ -174,7 +174,7 @@ msgstr "キーボードショートカットがフォーカス状態のターミ
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
-msgstr ""
+msgstr "シェルが終了した場合はターミナルを閉じ、シェルなしでターミナルが開かれた場合は新しいターミナルを作成するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:62
