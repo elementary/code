@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-12-10 11:56+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"PO-Revision-Date: 2021-12-10 11:57+0000\n"
+"Last-Translator: Daniil <solodyankin.d@outlook.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -187,6 +187,8 @@ msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"Терминал закрывается, если выполнен выход из оболочки, и создаётся новый "
+"терминал, если было повторное открытие без оболочки"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:62
@@ -197,7 +199,7 @@ msgstr "Незначительные обновления:"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "Выпадающий список \"Видимые пробелы\" стал переключателем"
 
 #: data/io.elementary.code.appdata.xml.in:47
 #: data/io.elementary.code.appdata.xml.in:65
