@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
-"PO-Revision-Date: 2021-10-09 06:44+0000\n"
+"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"PO-Revision-Date: 2021-11-15 23:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -161,7 +161,7 @@ msgstr "タブ幅:"
 
 #: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
-msgstr "動作"
+msgstr "挙動"
 
 #: src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
@@ -247,7 +247,7 @@ msgstr "名前を変更"
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "フォルダー"
 
@@ -300,11 +300,11 @@ msgstr "変更済み"
 msgid "Error while creating new branch: “%s”"
 msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:515
 msgid "New Branch…"
 msgstr "新しいブランチ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "ブランチ"
 
@@ -678,26 +678,26 @@ msgstr "シンボル"
 msgid "No Symbols Found"
 msgstr "シンボルが見つかりません"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "ターミナルを表示しない"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "ターミナル"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "コピー"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "貼り付け"
 

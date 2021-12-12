@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
+"POT-Creation-Date: 2021-11-23 18:22+0000\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mga Polder"
 
@@ -311,12 +311,12 @@ msgstr ""
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 msgid "New Branch…"
 msgstr "Ibahin ang mga setting ng Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 #, fuzzy
 msgid "Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
@@ -718,26 +718,26 @@ msgstr "Mga Simbolo"
 msgid "No Symbols Found"
 msgstr "Mga Simbolo"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Ipakita ang Terminal"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Itago ang Terminal"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Kopyahin"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Idikit"
 

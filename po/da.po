@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
+"POT-Creation-Date: 2021-11-23 18:22+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -257,7 +257,7 @@ msgstr "Omdøb"
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mapper"
 
@@ -316,13 +316,13 @@ msgstr "%s, Modificeret"
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "Branch"
 
@@ -707,26 +707,26 @@ msgstr "Symboler"
 msgid "No Symbols Found"
 msgstr "Ingen Symboler Fundet"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Vis terminal"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Kopiér"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Indsæt"
 

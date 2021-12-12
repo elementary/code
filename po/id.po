@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
+"POT-Creation-Date: 2021-11-23 18:22+0000\n"
 "PO-Revision-Date: 2018-10-24 13:33+0000\n"
 "Last-Translator: Angga Rifandi <empty.email.boxs@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/code/code/"
@@ -253,7 +253,7 @@ msgstr "Ubah Nama"
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tempat Sampah"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Folder"
 
@@ -312,12 +312,12 @@ msgstr ""
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 msgid "New Branch…"
 msgstr "Ubah pengaturan Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 #, fuzzy
 msgid "Branch"
 msgstr "Ubah pengaturan Scratch"
@@ -709,26 +709,26 @@ msgstr "Simbol"
 msgid "No Symbols Found"
 msgstr "Simbol"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Tampilkan Terminal"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Sembunyikan Terminal"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Aplikasi Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Salin"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Tempel"
 
