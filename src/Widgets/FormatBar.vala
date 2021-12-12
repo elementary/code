@@ -24,11 +24,6 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.SearchEntry lang_selection_filter;
     private LangEntry normal_entry;
 
-    private FormatButton tab_toggle;
-    private Gtk.SpinButton tab_width;
-    private Gtk.Switch space_tab_switch;
-    private Gtk.Switch autoindent_switch;
-
     public FormatButton line_toggle;
     private Gtk.Entry goto_entry;
 
@@ -38,10 +33,6 @@ public class Code.FormatBar : Gtk.Grid {
         get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         manager = Gtk.SourceLanguageManager.get_default ();
-
-        tab_toggle = new FormatButton ();
-        tab_toggle.icon = new ThemedIcon ("format-indent-more-symbolic");
-        tab_toggle.tooltip_text = _("Tabs");
 
         lang_toggle = new FormatButton ();
         lang_toggle.icon = new ThemedIcon ("application-x-class-file-symbolic");
@@ -57,11 +48,9 @@ public class Code.FormatBar : Gtk.Grid {
         );
 
         column_homogeneous = true;
-        add (tab_toggle);
         add (lang_toggle);
         add (line_toggle);
 
-        create_tabulation_popover ();
         create_language_popover ();
         create_line_popover ();
     }
@@ -135,63 +124,6 @@ public class Code.FormatBar : Gtk.Grid {
         }
     }
 
-    private void create_tabulation_popover () {
-        var space_tab_label = new Gtk.Label (_("Insert spaces instead of tabs:"));
-        space_tab_label.xalign = 1;
-
-        var width_label = new Gtk.Label (_("Tab width:"));
-        width_label.xalign = 1;
-
-        var autoindent_label = new Gtk.Label (_("Automatic indentation:"));
-        autoindent_label.xalign = 1;
-
-        autoindent_switch = new Gtk.Switch ();
-        autoindent_switch.halign = Gtk.Align.START;
-        Scratch.settings.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
-
-        tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
-
-        space_tab_switch = new Gtk.Switch ();
-        space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
-
-        var tab_grid = new Gtk.Grid ();
-        tab_grid.margin = 12;
-        tab_grid.column_spacing = 12;
-        tab_grid.row_spacing = 12;
-        tab_grid.attach (autoindent_label, 0, 0, 1, 1);
-        tab_grid.attach (autoindent_switch, 1, 0, 1, 1);
-        tab_grid.attach (space_tab_label, 0, 1, 1, 1);
-        tab_grid.attach (space_tab_switch, 1, 1, 1, 1);
-        tab_grid.attach (width_label, 0, 2, 1, 1);
-        tab_grid.attach (tab_width, 1, 2, 1, 1);
-        tab_grid.show_all ();
-
-        var tab_popover = new Gtk.Popover (tab_toggle);
-        tab_popover.position = Gtk.PositionType.BOTTOM;
-        tab_popover.add (tab_grid);
-
-        tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.changed["indent-width"].connect (() => format_tab_header ());
-        Scratch.settings.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
-    }
-
-    private void format_tab_header () {
-        var indent_width = Scratch.settings.get_int ("indent-width");
-        var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-        if (doc != null) {
-            indent_width = (int)doc.source_view.tab_width;
-            spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
-        }
-
-        if (spaces_instead_of_tabs) {
-            tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
-        } else {
-            tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
-        }
-    }
-
     private void format_line_header () {
         var buffer = doc.source_view.buffer;
         var position = buffer.cursor_position;
@@ -240,7 +172,6 @@ public class Code.FormatBar : Gtk.Grid {
         }
         this.doc = doc;
         update_current_lang ();
-        format_tab_header ();
         format_line_header ();
         this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
     }
