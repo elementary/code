@@ -32,6 +32,7 @@ namespace Scratch.Services {
         public signal void doc_opened ();
         public signal void doc_saved ();
         public signal void doc_closed ();
+        public signal void doc_changed ();
 
         // The parent window's actions
         public unowned SimpleActionGroup actions { get; set construct; }
@@ -188,8 +189,10 @@ namespace Scratch.Services {
             });
 
             source_view.buffer.changed.connect (() => {
+                doc_changed ();
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
+
                     if (!Scratch.settings.get_boolean ("autosave")) {
                         set_saved_status (false);
                     }
