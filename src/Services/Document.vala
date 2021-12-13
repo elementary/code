@@ -93,6 +93,7 @@ namespace Scratch.Services {
         public string original_content;
         private string last_save_content;
         public bool saved = true;
+        private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -197,6 +198,14 @@ namespace Scratch.Services {
                 } else {
                     set_saved_status (true);
                 }
+            });
+
+            source_view.completion.show.connect (() => {
+                completion_shown = true;
+            });
+
+            source_view.completion.hide.connect (() => {
+                completion_shown = false;
             });
 
             // /* Create as loaded - could be new document */
@@ -448,7 +457,10 @@ namespace Scratch.Services {
         }
 
         public async bool save (bool force = false) {
-            if (!force && (source_view.buffer.get_modified () == false || !loaded)) {
+            if (completion_shown ||
+                !force && (source_view.buffer.get_modified () == false ||
+                !loaded)) {
+
                 return false;
             }
 
