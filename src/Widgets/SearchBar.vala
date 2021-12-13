@@ -37,6 +37,8 @@ namespace Scratch.Widgets {
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
 
+        private Gtk.Label search_occurence_count_label;
+
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
 
@@ -45,6 +47,8 @@ namespace Scratch.Widgets {
         private Gtk.SourceSearchContext search_context = null;
 
         public signal void search_empty ();
+
+        private uint update_search_label_timeout_id = 0;
 
         /**
          * Create a new SearchBar widget.
@@ -62,6 +66,10 @@ namespace Scratch.Widgets {
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
 
+            search_occurence_count_label = new Gtk.Label (_("no results")) {
+                margin_start = 4
+            };
+
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
             tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -73,6 +81,7 @@ namespace Scratch.Widgets {
                 ),
                 _("Search next")
             );
+            tool_arrow_down.set_margin_start (4);
 
             tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_up.clicked.connect (search_previous);
@@ -108,6 +117,7 @@ namespace Scratch.Widgets {
             search_grid.margin = 3;
             search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             search_grid.add (search_entry);
+            search_grid.add (search_occurence_count_label);
             search_grid.add (tool_arrow_down);
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
@@ -143,6 +153,7 @@ namespace Scratch.Widgets {
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.search_changed.connect (update_search_occurence_label);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
@@ -214,6 +225,7 @@ namespace Scratch.Widgets {
                     bool matches = search ();
                     update_replace_tool_sensitivities (search_entry.text, matches);
                     update_tool_arrows (search_entry.text);
+                    update_search_occurence_label ();
                     debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
                 } catch (Error e) {
                     critical (e.message);
@@ -232,6 +244,7 @@ namespace Scratch.Widgets {
             try {
                 search_context.replace_all (replace_string, replace_string.length);
                 update_tool_arrows (search_entry.text);
+                update_search_occurence_label ();
                 update_replace_tool_sensitivities (search_entry.text, false);
             } catch (Error e) {
                 critical (e.message);
@@ -298,7 +311,7 @@ namespace Scratch.Widgets {
             search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-                debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
+                debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
                 search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
@@ -363,7 +376,6 @@ namespace Scratch.Widgets {
                 }
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
-
             return found;
         }
 
@@ -379,6 +391,7 @@ namespace Scratch.Widgets {
                 }
 
                 update_tool_arrows (search_string);
+                update_search_occurence_label ();
             }
         }
 
@@ -394,6 +407,7 @@ namespace Scratch.Widgets {
                 }
 
                 update_tool_arrows (search_string);
+                update_search_occurence_label ();
             }
         }
 
@@ -501,6 +515,42 @@ namespace Scratch.Widgets {
         private bool is_case_sensitive (string search_string) {
             return case_sensitive_button.active ||
                    !((search_string.up () == search_string) || (search_string.down () == search_string));
+        }
+
+        private void update_search_occurence_label () {
+            if (update_search_label_timeout_id > 0) {
+                Source.remove (update_search_label_timeout_id);
+                update_search_label_timeout_id = 0;
+            }
+
+            update_search_label_timeout_id = Timeout.add (100, () => {
+                update_search_label_timeout_id = 0;
+                Gtk.TextIter? start_iter, end_iter;
+                text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
+
+                end_iter = start_iter;
+                bool case_sensitive = is_case_sensitive (search_entry.text);
+                start_iter.forward_search (search_entry.text,
+                                            case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                            out start_iter, out end_iter, null);
+
+                int count_of_search = search_context.get_occurrences_count ();
+                int location_of_search = -1;
+                if (count_of_search > 0) {
+                    location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
+                }
+
+                if (count_of_search > 0 && location_of_search > 0) {
+                    search_occurence_count_label.label = _(@"$location_of_search of $count_of_search");
+                } else if (count_of_search == -1 && search_occurence_count_label.label != _("no results")) {
+                    //We don't want to flicker back to no results while we're still searching but we have previous results
+                } else {
+                    search_occurence_count_label.label = _("no results");
+                }
+
+                return Source.REMOVE;
+            });
+
         }
     }
 }
