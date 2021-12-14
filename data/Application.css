@@ -20,3 +20,18 @@ textview.scrubber {
     border: 0;
 }
 
+.fuzzy-item {
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fuzzy-item .fuzzy-file-icon {
+    margin-right: 5px;
+}
+
+.fuzzy-item.preselect-fuzzy {
+    background-color: #64baff;
+    border-radius: 5px;
+    color: #fafafa;
+}
