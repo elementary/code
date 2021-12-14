@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-10-10 17:52+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"PO-Revision-Date: 2021-12-13 23:23+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -43,7 +43,7 @@ msgstr "Plugin"
 msgid "[FILE…]"
 msgstr "[DATEI…]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr "Code"
 
@@ -55,34 +55,34 @@ msgstr "Suchen …"
 msgid "Hide search bar"
 msgstr "Suchleiste ausblenden"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Textdateien"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Datei öffnen"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
@@ -246,11 +246,11 @@ msgid "Rename"
 msgstr "Umbenennen"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Ordner"
 
@@ -269,8 +269,8 @@ msgstr "Leere Datei"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "New"
 msgstr "Neu"
 
@@ -282,32 +282,32 @@ msgstr "unbenannter Ordner"
 msgid "new file"
 msgstr "neue Datei"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
 msgstr "Andere Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 msgid "Find in Project…"
 msgstr "Im Projekt suchen …"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "Modified"
 msgstr "Geändert"
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fehler beim Erstellen eines neuen Zweigs: »%s«"
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:515
 msgid "New Branch…"
 msgstr "Neuer Zweig …"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "Branch"
 
@@ -434,7 +434,7 @@ msgstr "Kein Projekt ausgewählt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Aktives Git-Projekt: %s"
@@ -542,41 +542,47 @@ msgstr "Alphabetisieren"
 msgid "Manage project folders"
 msgstr "Projektordner verwalten"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "Suchen"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr "keine Ergebnisse"
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "Nächstes Suchergebnis"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "Vorheriges Suchergebnis"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "Suche immer am Textanfang fortsetzen"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr "Groß- und Kleinschreibung beachten"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr "Groß- und Kleinschreibung beachten"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "Ersetzen durch"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "Ersetzen"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "Alle ersetzen"
 
@@ -686,26 +692,26 @@ msgstr "Symbole"
 msgid "No Symbols Found"
 msgstr "Keine Symbole gefunden"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Terminal anzeigen"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Terminal ausblenden"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Kopieren"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Einfügen"
 

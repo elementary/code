@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
 "PO-Revision-Date: 2020-11-28 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -38,7 +38,7 @@ msgstr "प्लगइन"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr "कोड"
 
@@ -50,34 +50,34 @@ msgstr "शोधा…"
 msgid "Hide search bar"
 msgstr "सर्च बार लपवा"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "सर्व फाईल्स"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "टेक्स्ट फाईल्स"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "काही फाईल्स उघडा"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "रद्द करा"
 
@@ -244,11 +244,11 @@ msgid "Rename"
 msgstr "नाव बदला"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr "कचऱ्या मध्ये टाका"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "फोल्डर"
 
@@ -269,8 +269,8 @@ msgstr "रिकामी फाईल"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "New"
 msgstr "नवीन"
 
@@ -282,38 +282,38 @@ msgstr "निनावी फोल्डर"
 msgid "new file"
 msgstr "नवीन फाईल"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
 msgstr "इतर फोल्डर्स बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, सुधारले"
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "ब्रँच"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "ब्रँच"
 
@@ -439,7 +439,7 @@ msgstr "प्रोजेक्ट टेम्प्लेट"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -547,41 +547,47 @@ msgstr "अल्फाबेटाईझ"
 msgid "Manage project folders"
 msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "शोधा"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "पुढे शोधा"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "चक्री शोध"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr "केस संवेदनशील"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr "केस असंवेदनशील"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "च्या सोबत बदला"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "बदला"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
@@ -691,26 +697,26 @@ msgstr "सिम्बॉल्स"
 msgid "No Symbols Found"
 msgstr "कोणतेही सिम्बॉल्स सापडले नाही"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "टर्मिनल दाखवा"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "टर्मिनल लपवा"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "टर्मिनल"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "कॉपी करा"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "चिकटवा"
 

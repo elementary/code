@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr "প্লাগিন এর সেট"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr ""
 
@@ -50,34 +50,34 @@ msgstr "খুঁজুন..."
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_খুলুন"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_বাতিল"
 
@@ -243,11 +243,11 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "ফোল্ডারসমূহ"
 
@@ -269,8 +269,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 #, fuzzy
 msgid "New"
 msgstr "নতুন ট্যাব"
@@ -284,37 +284,37 @@ msgstr ""
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "একটি ফোল্ডার খুলুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 msgid "New Branch…"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:528
 #, fuzzy
 msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
@@ -451,7 +451,7 @@ msgstr "প্রজেক্ট টেম্পলেটসমূহ"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -564,41 +564,47 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "পরবর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "পূর্ববর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "সাইক্লিক অনুসন্ধান"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "প্রতিস্থাপক শব্দ/শব্দগুচ্ছ"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "প্রতিস্থাপন"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
 
@@ -717,26 +723,26 @@ msgstr "চিহ্নসমূহ"
 msgid "No Symbols Found"
 msgstr "চিহ্নসমূহ"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "টার্মিনাল দেখান"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "টার্মিনাল লুকিয়ে রাখুন"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "টার্মিনাল"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "অনুলিপি"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "প্রতিলেপন"
 

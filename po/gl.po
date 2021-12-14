@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
 "PO-Revision-Date: 2020-02-25 20:09+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/code/code/gl/>\n"
@@ -43,7 +43,7 @@ msgstr "complemento"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr "Code"
 
@@ -55,34 +55,34 @@ msgstr "Buscar…"
 msgid "Hide search bar"
 msgstr "Agochar a barra de buscas"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Ficheiros de texto"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Abrir algúns ficheiros"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -248,11 +248,11 @@ msgid "Rename"
 msgstr "Renomear"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr "Mover ao Lixo"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Cartafoles"
 
@@ -273,8 +273,8 @@ msgstr "Arquivo baleiro"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "New"
 msgstr "Novo"
 
@@ -287,37 +287,37 @@ msgstr "cartafol sen título"
 msgid "new file"
 msgstr "Novo ficheiro"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "Pechar o cartafol"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Pechar o cartafol"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Abrir un cartafol"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 msgid "New Branch…"
 msgstr "Rama"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:528
 #, fuzzy
 msgid "Branch"
 msgstr "Rama"
@@ -444,7 +444,7 @@ msgstr "Modelos de proxecto"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -554,41 +554,47 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "Buscar"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "Buscar seguinte"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "Buscar anterior"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "Búsqueda cíclica"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "Substituír por"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "Substituír"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "Substituír todo"
 
@@ -704,26 +710,26 @@ msgstr "Simbolos"
 msgid "No Symbols Found"
 msgstr "Simbolos"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Mostrar Terminal"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Ocultar Terminal"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Copiar"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Pegar"
 

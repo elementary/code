@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 06:14+0000\n"
-"PO-Revision-Date: 2021-09-17 18:07+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"PO-Revision-Date: 2021-12-01 02:06+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
 "Language: sk\n"
@@ -33,7 +33,7 @@ msgstr "Zobraziť informácie o verzii a ukončiť"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
-msgstr "Sada zásuvných modulov"
+msgstr "Sada doplnkov"
 
 #: src/Application.vala:42
 msgid "plugin"
@@ -43,7 +43,7 @@ msgstr "zásuvný modul"
 msgid "[FILE…]"
 msgstr "[SÚBOR…]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr "Kód"
 
@@ -55,34 +55,34 @@ msgstr "Nájsť…"
 msgid "Hide search bar"
 msgstr "Skryť panel vyhľadávania"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:730 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:734 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Otvorte nejaké súbory"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Otvoriť"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -192,10 +192,8 @@ msgid "Line wrap:"
 msgstr "Zalamovať riadky:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "Odstrániť koncové medzery"
+msgstr "Viditeľné medzery:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -246,11 +244,11 @@ msgid "Rename"
 msgstr "Premenovať"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:115
+#: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Move to Trash"
 msgstr "Presunúť do koša"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Priečinky"
 
@@ -269,8 +267,8 @@ msgstr "Prázdny súbor"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:185
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:190
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "New"
 msgstr "Nový"
 
@@ -282,32 +280,32 @@ msgstr "priečinok bez názvu"
 msgid "new file"
 msgstr "nový súbor"
 
-#: src/FolderManager/ProjectFolderItem.vala:106
+#: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
 msgstr "Zatvoriť ostatné priečinky"
 
-#: src/FolderManager/ProjectFolderItem.vala:122
+#: src/FolderManager/ProjectFolderItem.vala:127
 msgid "Find in Project…"
 msgstr "Nájsť v projekte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:191
+#: src/FolderManager/ProjectFolderItem.vala:196
 msgid "Modified"
 msgstr "Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:229
+#: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Chyba pri vytváraní novej vetvy: „%s“"
 
-#: src/FolderManager/ProjectFolderItem.vala:506
+#: src/FolderManager/ProjectFolderItem.vala:515
 msgid "New Branch…"
 msgstr "Nová vetva…"
 
-#: src/FolderManager/ProjectFolderItem.vala:519
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "Vetva"
 
@@ -431,7 +429,7 @@ msgstr "Žiadny zvolený projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:125
+#: src/Widgets/ChooseProjectButton.vala:137
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Aktívny Git projekt: %s"
@@ -541,41 +539,47 @@ msgstr "Zoradiť abecedne"
 msgid "Manage project folders"
 msgstr "Spravovať priečinky projektu"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "Nájsť"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "Hľadať ďalšie"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "Hľadať predchádzajúce"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "Opakované hľadanie"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr "Rozlišovať malé a veľké písmená"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr "Nerozlišovať malé a veľké písmená"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "Nahradiť s"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "Nahradiť"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "Nahradiť všetko"
 
@@ -685,26 +689,26 @@ msgstr "Symboly"
 msgid "No Symbols Found"
 msgstr "Neboli nájdené žiadne symboly"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Zobraziť terminál"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Skryť terminál"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminál"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:225
+#: plugins/terminal/terminal.vala:245
 msgid "Copy"
 msgstr "Kopírovať"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:232
+#: plugins/terminal/terminal.vala:252
 msgid "Paste"
 msgstr "Vložiť"
 
