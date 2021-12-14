@@ -419,7 +419,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                toolbar.title = app.app_cmd_name;
+                title = _("Code");
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -435,7 +435,7 @@ namespace Scratch {
 
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
-                toolbar.title = doc.get_basename ();
+                title = doc.get_basename ();
 
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
