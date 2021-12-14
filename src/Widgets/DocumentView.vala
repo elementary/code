@@ -345,7 +345,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
         var doc = tab as Services.Document;
 
-        var other_window = window.app.new_window ();
+        var other_window = window.app.new_additional_window ();
         other_window.move (x, y);
 
         // We need to make sure switch back to the main thread
