@@ -31,9 +31,12 @@ namespace Scratch.Plugins {
         }
 
         private void insert_at (string word, PrefixNode node, int i = 0) {
-            unichar curr;
+            unichar curr = '\0';
 
-            word.get_next_char (ref i, out curr);
+            bool has_next_character = false;
+            do {
+                has_next_character = word.get_next_char (ref i, out curr);
+            } while (has_next_character && Euclide.Completion.Parser.is_delimiter (curr));
 
             foreach (var child in node.children) {
                 if (child.value == curr) {
@@ -42,10 +45,6 @@ namespace Scratch.Plugins {
                     }
                     return;
                 }
-            }
-
-            if (!curr.isgraph () && curr != '\0') {
-                return;
             }
 
             var new_child = new PrefixNode () {

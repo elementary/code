@@ -24,8 +24,8 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     private Scratch.Plugins.PrefixTree prefix_tree;
 
-    public const string DELIMITERS = " .,;:?{}[]()0123456789+-=&|-<>*\\/\r\n\t\'\"";
-    public bool is_delimiter (unichar c) {
+    public const string DELIMITERS = " .,;:?{}[]()0123456789+=&|<>*\\/\r\n\t\'\"`";
+    public static bool is_delimiter (unichar c) {
         return DELIMITERS.index_of_char (c) >= 0;
     }
 
@@ -43,7 +43,8 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public bool get_for_word (string to_find, out List<string> list) {
         list = prefix_tree.get_all_matches (to_find);
-        return list.length () > 0;
+
+        return list.first () != null;
     }
 
     public void rebuild_word_list (Gtk.TextView view) {
