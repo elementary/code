@@ -345,7 +345,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
         doc.doc_changed.connect_after (() => {
-            current_doc_edited = true;
+            if (!doc.working && doc.loaded) { // Ignore changes generated during loading/restoring file
+                current_doc_edited = true;
+            }
         });
     }
 
