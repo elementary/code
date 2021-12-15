@@ -98,6 +98,8 @@ namespace Scratch {
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
         public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
         public const string ACTION_NEXT_MARK = "action_next_mark";
+        public const string ACTION_PREVIOUS_DOC = "action_previous_doc";
+        public const string ACTION_NEXT_DOC = "action_next_doc";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -143,7 +145,9 @@ namespace Scratch {
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
-            { ACTION_NEXT_MARK, action_next_mark}
+            { ACTION_NEXT_MARK, action_next_mark},
+            { ACTION_PREVIOUS_DOC, action_previous_doc},
+            { ACTION_NEXT_DOC, action_next_doc}
         };
 
         public MainWindow (Scratch.Application scratch_app, bool restore_docs) {
@@ -208,6 +212,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
             action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
             action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
+            action_accelerators.set (ACTION_PREVIOUS_DOC, "<Control><Alt>Left");
+            action_accelerators.set (ACTION_NEXT_DOC, "<Control><Alt>Right");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -1115,6 +1121,14 @@ namespace Scratch {
             }
 
             doc.source_view.goto_next_mark ();
+        }
+
+        private void action_previous_doc () {
+            document_view.goto_previous_doc ();
+        }
+
+        private void action_next_doc () {
+            document_view.goto_next_doc ();
         }
 
         private string? get_target_path_for_git_actions (Variant? path_variant) {

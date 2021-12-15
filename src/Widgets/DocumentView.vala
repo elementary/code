@@ -38,6 +38,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public bool is_closing = false;
 
     private Gtk.CssProvider style_provider;
+    private Queue<Services.Document> previous_docs;
+    private Queue<Services.Document> next_docs;
+    private bool current_doc_edited = false;
 
     public DocumentView (MainWindow window) {
         base ();
@@ -52,7 +55,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     construct {
         docs = new GLib.List<Services.Document> ();
-
+        previous_docs = new Queue<Services.Document> ();
+        next_docs = new Queue<Services.Document> ();
         // Layout
         tab_added.connect (on_doc_added);
         tab_removed.connect (on_doc_removed);
@@ -73,6 +77,28 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
+            if (new_tab == previous_docs.peek_head ()) { // Only track history of edited docs
+                if (old_tab != null && current_doc_edited) {
+                    next_docs.push_head ((Services.Document)old_tab);
+                }
+
+                previous_docs.pop_head ();
+                current_doc_edited = true;
+            } else if (new_tab == next_docs.peek_head ()) {
+                if (old_tab != null && current_doc_edited) {
+                    previous_docs.push_head ((Services.Document)old_tab);
+                }
+
+                next_docs.pop_head ();
+                current_doc_edited = true;
+            } else {
+                if (old_tab != null && current_doc_edited) {
+                    previous_docs.push_head ((Services.Document)old_tab);
+                }
+                next_docs.clear ();
+                current_doc_edited = false;
+            }
+
             /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
             save_focused_document_uri (new_tab as Services.Document);
         });
@@ -324,11 +350,35 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
+        doc.doc_changed.connect_after (() => {
+            if (!doc.working && doc.loaded) { // Ignore changes generated during loading/restoring file
+                current_doc_edited = true;
+            }
+        });
+    }
+
+    private void remove_from_history (Services.Document doc) {
+        previous_docs.remove_all (doc);
+        next_docs.remove_all (doc);
+    }
+
+    public void goto_previous_doc () {
+        if (!previous_docs.is_empty ()) {
+            current_document = previous_docs.peek_head ();
+            current_document.focus ();
+        }
+    }
+
+    public void goto_next_doc () {
+        if (!next_docs.is_empty ()) {
+            current_document = next_docs.peek_head ();
+            current_document.focus ();
+        }
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
-
+        remove_from_history (doc);
         docs.remove (doc);
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
 
