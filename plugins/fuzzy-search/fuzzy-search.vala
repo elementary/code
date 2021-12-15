@@ -12,7 +12,8 @@ public class Scratch.Services.SearchProject {
 
     private void parse (string path) {
         try {
-            if (path.contains ("node_modules")) {
+            // TODO: Replace with ignore of .gitignore
+            if (path.contains ("node_modules") || path.contains ("dist") || path.contains ("build") || path.contains (".git")) {
                 return;
             }
             var dir = Dir.open (path);
@@ -64,6 +65,16 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
             window = w;
             window.key_press_event.connect (on_window_key_press_event);
+            var git_manager = Services.GitManager.get_instance ();
+            git_manager.opened_project.connect ((root_path) => {
+                var project = new Services.SearchProject(root_path);
+                project_paths[root_path] = project;
+            });
+
+            git_manager.removed_project.connect ((root_path) => {
+                var project = project_paths[root_path];
+                project_paths.unset  (root_path, out project);
+            });
         });
     }
 
