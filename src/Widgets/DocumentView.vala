@@ -352,7 +352,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private void remove_from_history (Services.Document doc) {
-    warning ("remove from history");
         previous_docs.remove_all (doc);
         next_docs.remove_all (doc);
     }
