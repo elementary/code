@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-20 09:14+0000\n"
-"Last-Translator: asdffdsdaf <asdffdsdaf@gmail.com>\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"PO-Revision-Date: 2021-12-10 17:02+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -124,13 +124,14 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Отображает текущую строку и символ — и быстро переходит к новой строке"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Прокрутите файл до конца, чтобы сохранить текущую строку там, где это удобно"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
@@ -145,19 +146,23 @@ msgstr "Улучшения:"
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
+"Проекты с одинаковыми именами теперь включают названия своих родительских "
+"папок"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
+"При прокрутке результатов поиска, они немного превышают зону видимости для "
+"лучшего просмотра"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "Используется портал FileChooser, а не GTK"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
-msgstr ""
+msgstr "Центр диалогового окна глобального поиска над основным окном Кода"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:53
@@ -182,6 +187,8 @@ msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"Терминал закрывается, если выполнен выход из оболочки, и создаётся новый "
+"терминал, если было повторное открытие без оболочки"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:62
@@ -192,7 +199,7 @@ msgstr "Незначительные обновления:"
 
 #: data/io.elementary.code.appdata.xml.in:46
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "Выпадающий список «Видимые пробелы» стал переключателем"
 
 #: data/io.elementary.code.appdata.xml.in:47
 #: data/io.elementary.code.appdata.xml.in:65
