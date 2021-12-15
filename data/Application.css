@@ -31,7 +31,7 @@ textview.scrubber {
 }
 
 .fuzzy-item.preselect-fuzzy {
-    background-color: #64baff;
+    background-color: @selected_bg_color;
     border-radius: 5px;
-    color: #fafafa;
+    color: alpha (@text_color, 0.7);
 }
