@@ -78,21 +78,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         tab_switched.connect ((old_tab, new_tab) => {
             if (new_tab == previous_docs.peek_head ()) { // Only track history of edited docs
-                if (old_tab != null) {
+                if (old_tab != null && current_doc_edited) {
                     next_docs.push_head ((Services.Document)old_tab);
                 }
 
                 previous_docs.pop_head ();
                 current_doc_edited = true;
             } else if (new_tab == next_docs.peek_head ()) {
-                if (old_tab != null) {
+                if (old_tab != null && current_doc_edited) {
                     previous_docs.push_head ((Services.Document)old_tab);
                 }
 
                 next_docs.pop_head ();
                 current_doc_edited = true;
             } else {
-                if (old_tab != null) {
+                if (old_tab != null && current_doc_edited) {
                     previous_docs.push_head ((Services.Document)old_tab);
                 }
                 next_docs.clear ();
