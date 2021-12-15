@@ -108,6 +108,9 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_item = new Gtk.MenuItem.with_label (_("Open In…"));
+            open_in_item.activate.connect (() => show_app_chooser (file));
+
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => {
                 closed ();
@@ -145,7 +148,7 @@ namespace Scratch.FolderManager {
             }
 
             var menu = new Gtk.Menu ();
-            menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (open_in_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
 

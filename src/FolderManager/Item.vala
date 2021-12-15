@@ -76,27 +76,69 @@ namespace Scratch.FolderManager {
         }
 
         public void show_app_chooser (File file) {
-            var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
-            dialog.deletable = false;
+            var window = (MainWindow) ((Gtk.Application) GLib.Application.get_default ()).active_window;
+            try {
+                var portal = Portal.OpenURI.get ();
+                var options = new HashTable<string, Variant> (null, null);
+                options["token_handler"] = Portal.generate_token ();
+                options["writable"] = !file.is_valid_directory ();
+                options["ask"] = true;
 
-            if (dialog.run () == Gtk.ResponseType.OK) {
-                var app_info = dialog.get_app_info ();
-                if (app_info != null) {
-                    launch_app_with_file (app_info, file.file);
+                var fd = Posix.open (file.path, (file.is_valid_directory () ? Posix.O_RDONLY : Posix.O_RDWR) | Posix.O_CLOEXEC);
+                if (fd == -1) {
+                    critical ("OpenURI: cannot open file dscriptor for '%s'", file.path);
+                    return;
                 }
-            }
 
-            dialog.destroy ();
+                window.export.begin ((obj, res) => {
+                    var handle = window.export.end (res);
+                    if (portal.version > 2) {
+                        try {
+                            portal.open_file (handle, new UnixInputStream (fd, true), options);
+                        } catch (Error e) {
+                            warning ("error calling portal: %s", e.message);
+                        }
+                    } else {
+                        warning ("OpenURI: portal version is too old");
+                    }
+
+                    window.unexport ();
+                });
+            } catch (Error e) {
+                warning ("cannot connect to portal: %s", e.message);
+            }
         }
 
-        public void launch_app_with_file (AppInfo app_info, GLib.File file) {
-            var file_list = new List<GLib.File> ();
-            file_list.append (file);
-
+        public void launch_in_file_manager (File file) {
+            var window = (MainWindow) ((Gtk.Application) GLib.Application.get_default ()).active_window;
             try {
-                app_info.launch (file_list, null);
+                var portal = Portal.OpenURI.get ();
+                var options = new HashTable<string, Variant> (null, null);
+                options["token_handler"] = Portal.generate_token ();
+
+                var fd = Posix.open (file.path, Posix.O_RDONLY | Posix.O_CLOEXEC);
+                if (fd == -1) {
+                    critical ("OpenURI: cannot open file dscriptor for '%s'", file.path);
+                    return;
+                }
+
+                // the OpenDirectory method was added on version 3
+                window.export.begin ((obj, res) => {
+                    try {
+                        var handle = window.export.end (res);
+                        if (portal.version > 2) {
+                            portal.open_directory (handle, new UnixInputStream (fd, true), options);
+                        } else {
+                            portal.open_file (handle, new UnixInputStream (fd, true), options);
+                        }
+                    } catch (Error e) {
+                        warning ("error calling portal: %s", e.message);
+                    }
+
+                    window.unexport ();
+                });
             } catch (Error e) {
-                warning (e.message);
+                warning ("cannot connect to portal: %s", e.message);
             }
         }
 

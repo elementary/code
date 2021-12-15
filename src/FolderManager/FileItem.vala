@@ -36,18 +36,8 @@ namespace Scratch.FolderManager {
                 new_window.open_document (doc, true);
             });
 
-            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-
-            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
-            files_item_icon.pixel_size = 16;
-
-            var files_item_grid = new Gtk.Grid ();
-            files_item_grid.add (files_item_icon);
-            files_item_grid.add (new Gtk.Label (files_appinfo.get_name ()));
-
-            var files_menuitem = new Gtk.MenuItem ();
-            files_menuitem.add (files_item_grid);
-            files_menuitem.activate.connect (() => launch_app_with_file (files_appinfo, file.file));
+            var files_menuitem = new Gtk.MenuItem.with_label (_("File Manager…"));
+            files_menuitem.activate.connect (() => launch_in_file_manager (file));
 
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
             other_menuitem.activate.connect (() => show_app_chooser (file));
@@ -71,29 +61,6 @@ namespace Scratch.FolderManager {
 
             if (info != null) {
                 var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
-
-                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
-                        continue;
-                    }
-
-                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                    menuitem_icon.pixel_size = 16;
-
-                    var menuitem_grid = new Gtk.Grid ();
-                    menuitem_grid.add (menuitem_icon);
-                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
-
-                    var item_app = new Gtk.MenuItem ();
-                    item_app.add (menuitem_grid);
-
-                    item_app.activate.connect (() => {
-                        launch_app_with_file (app_info, file.file);
-                    });
-                    open_in_menu.add (item_app);
-                }
 
                 try {
                     var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
