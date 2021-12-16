@@ -92,7 +92,16 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         /* <Control>p shows fuzzy search dialog */
         if (event.keyval == Gdk.Key.p
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
-                var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths);
+                int diag_x;
+                int diag_y;
+                int window_x;
+                int window_y;
+                int window_height;
+                int window_width;
+                window.get_position (out window_x, out window_y);
+                window.get_size (out window_width, out window_height);
+                var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
+                dialog.get_position(out diag_x, out diag_y);
 
                 dialog.open_file.connect ((filepath) => {
                     // Open the file
@@ -102,13 +111,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 });
 
                 dialog.close_search.connect (() => dialog.destroy ());
-
-                int diag_x;
-                int diag_y;
-                int window_x;
-                int window_y;
-                window.get_position (out window_x, out window_y);
-                dialog.get_position(out diag_x, out diag_y);
                 // Move the dialog a bit under the top of the application window
                 dialog.move(diag_x, window_y + 50);
 
