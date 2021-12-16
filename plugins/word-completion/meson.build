@@ -1,6 +1,7 @@
 module_name = 'word-completion'
 
 module_files = [
+    'prefix-tree.vala',
     'completion-provider.vala',
     'engine.vala',
     'plugin.vala'
