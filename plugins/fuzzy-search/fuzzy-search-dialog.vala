@@ -113,6 +113,14 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                         items.add (file_item);
                     }
 
+                    if (items.size > 5) {
+                        scrolled.height_request = 42 * 5;
+                    } else {
+                        scrolled.height_request = 42 * items.size;
+                    }
+
+
+                    scrolled.hide ();
                     scrolled.show_all ();
                 });
             } else {
@@ -120,10 +128,9 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                     search_result_container.remove (c);
                 }
                 items.clear ();
+                scrolled.hide ();
             }
         });
-
-        scrolled.height_request = 42 * 5;
 
         box.add (layout);
         box.add (scrolled);
