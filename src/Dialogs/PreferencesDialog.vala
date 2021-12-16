@@ -26,7 +26,6 @@ namespace Scratch.Dialogs {
     public class Preferences : Granite.Dialog {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_matching_brackets;
-        private Gtk.Switch strip_trailing_spaces;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
         private Gtk.Switch show_mini_map;
