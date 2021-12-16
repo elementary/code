@@ -240,7 +240,7 @@ namespace Scratch.Widgets {
                 );
                 language = manager.guess_language (file.get_path (), mime_type);
             } catch (Error e) {
-                critical (e.message);
+                critical ("SourceView: Error getting language %s",e.message);
             }
 
             // Fake file type detection
