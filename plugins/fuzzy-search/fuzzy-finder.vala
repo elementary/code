@@ -170,30 +170,56 @@ public class Scratch.Services.FuzzyFinder {
       project_paths = pps;
     }
 
+    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str) {
+        var results = new Gee.ArrayList<SearchResult> ();
+
+        SourceFunc callback = fuzzy_find_async.callback;
+        new Thread<void>("fuzzy-find", () =>  {
+            results = fuzzy_find(search_str);
+            Idle.add((owned) callback);
+        });
+
+        yield;
+        return results;
+    }
+
     public Gee.ArrayList<SearchResult> fuzzy_find (string search_str) {
-      var results = new Gee.ArrayList<SearchResult> ();
+        var results = new Gee.ArrayList<SearchResult> ();
 
-      foreach (var project in project_paths.values) {
-          foreach (var path in project.relative_file_paths) {
-            var search_result = fuzzy_match (search_str, path);
-            if (search_result.found) {
-                var root_path = project.root_path;
-                search_result.relative_path = path;
-                search_result.full_path = @"$root_path/$path";
-                results.add (search_result);
+        foreach (var project in project_paths.values) {
+            foreach (var path in project.relative_file_paths) {
+                SearchResult search_result;
+
+                // If there is more than one project prepend the project name
+                // to the front of the path
+                // This helps to search for specific files only in one project, e.g.
+                // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
+                // even if their is a "fuzzy_finder" file in another project
+                if (project_paths.size > 1) {
+                    var project_name=  Path.get_basename (project.root_path);
+                    search_result = fuzzy_match (search_str, @"$project_name/$path");
+                } else {
+                    search_result = fuzzy_match (search_str, path);
+                }
+
+                if (search_result.found) {
+                    var root_path = project.root_path;
+                    search_result.relative_path = path;
+                    search_result.full_path = @"$root_path/$path";
+                    results.add (search_result);
+                }
             }
-          }
-      }
+        }
 
-      results.sort ((a, b) => {
-        return b.score - a.score;
-      });
+        results.sort ((a, b) => {
+            return b.score - a.score;
+        });
 
-      if (results.size <= 20) {
-          return results;
-      }
+        if (results.size <= 20) {
+            return results;
+        }
 
-      return (Gee.ArrayList<SearchResult>) results.slice (0, 20);
+        return (Gee.ArrayList<SearchResult>) results.slice (0, 20);
     }
 
     private SearchResult fuzzy_match (string pattern, string str) {
