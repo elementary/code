@@ -35,6 +35,10 @@ namespace Scratch.Services {
             project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
         }
 
+        public static MonitoredRepository? get_monitored_repository (string root_path) {
+            return project_gitrepo_map[root_path];
+        }
+
         public static GitManager get_instance () {
             if (instance == null) {
                 instance = new GitManager ();
