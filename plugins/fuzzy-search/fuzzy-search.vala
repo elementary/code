@@ -47,8 +47,6 @@ public class Scratch.Services.SearchProject {
 
 public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     MainWindow window = null;
-    private Gee.ArrayList<string> paths;
-    private Gee.HashMap<string, Services.SearchProject> project_paths;
 
     Scratch.Services.Interface plugins;
     public Object object {owned get; construct;}
@@ -58,33 +56,13 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
-        paths = new Gee.ArrayList<string> ();
-        project_paths = new Gee.HashMap<string, Services.SearchProject> ();
 
         plugins.hook_window.connect ((w) => {
             if (window != null)
                 return;
 
-            var settings = new GLib.Settings ("io.elementary.code.folder-manager");
             window = w;
             window.key_press_event.connect (on_window_key_press_event);
-
-            foreach (unowned string path in settings.get_strv ("opened-folders")) {
-                project_paths[path] = new Services.SearchProject(path, Services.GitManager.get_monitored_repository (path));
-            }
-
-            var git_manager = Services.GitManager.get_instance ();
-
-            //Todo: also listen for non-git projects
-            git_manager.opened_project.connect ((root_path) => {
-                project_paths[root_path] = new Services.SearchProject(root_path, Services.GitManager.get_monitored_repository (root_path));
-            });
-
-            //Todo: also listen for non-git projects
-            git_manager.removed_project.connect ((root_path) => {
-                var project = project_paths[root_path];
-                project_paths.unset  (root_path, out project);
-            });
         });
     }
 
@@ -92,6 +70,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         /* <Control>p shows fuzzy search dialog */
         if (event.keyval == Gdk.Key.p
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
+                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
                 int diag_x;
                 int diag_y;
                 int window_x;
@@ -100,13 +79,21 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 int window_width;
                 window.get_position (out window_x, out window_y);
                 window.get_size (out window_width, out window_height);
+
+                var project_paths = new Gee.HashMap<string, Services.SearchProject> ();
+
+                foreach (unowned string path in settings.get_strv ("opened-folders")) {
+                    var monitor = Services.GitManager.get_monitored_repository (path);
+                    project_paths[path] = new Services.SearchProject(path, monitor);
+                }
                 var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
                 dialog.get_position(out diag_x, out diag_y);
 
                 dialog.open_file.connect ((filepath) => {
-                    // Open the file
-                    var file = File.new_for_uri (filepath);
-                    plugins.open_file (file);
+                    var file = new Scratch.FolderManager.File (filepath);
+                    var doc = new Scratch.Services.Document (window.actions, file.file);
+
+                    window.open_document (doc);
                     dialog.destroy ();
                 });
 
