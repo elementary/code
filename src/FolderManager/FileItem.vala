@@ -36,7 +36,7 @@ namespace Scratch.FolderManager {
                 new_window.open_document (doc, true);
             });
 
-            var files_menuitem = new Gtk.MenuItem.with_label (_("File Manager…"));
+            var files_menuitem = new Gtk.MenuItem.with_label (_("File Manager"));
             files_menuitem.activate.connect (() => launch_in_file_manager (file));
 
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
@@ -47,6 +47,7 @@ namespace Scratch.FolderManager {
                 open_in_menu.add (new_window_menuitem);
                 open_in_menu.add (new Gtk.SeparatorMenuItem ());
             }
+
             open_in_menu.add (files_menuitem);
 
             var contractor_menu = new Gtk.Menu ();

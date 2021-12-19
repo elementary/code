@@ -126,6 +126,16 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public bool is_writable {
+            get {
+                try {
+                    return get_boolean_file_attribute (GLib.FileAttribute.ACCESS_CAN_WRITE);
+                } catch (GLib.Error e) {
+                    return false;
+                }
+            }
+        }
+
         // returns a list of all children of a directory
         private bool children_valid = false;
         private Gee.ArrayList <File> _children = new Gee.ArrayList <File> ();

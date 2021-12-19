@@ -78,13 +78,15 @@ namespace Scratch.FolderManager {
         public void show_app_chooser (File file) {
             var window = (MainWindow) ((Gtk.Application) GLib.Application.get_default ()).active_window;
             try {
+                bool writable = !file.is_valid_directory () && file.is_writable;
                 var portal = Portal.OpenURI.get ();
+
                 var options = new HashTable<string, Variant> (null, null);
                 options["token_handler"] = Portal.generate_token ();
-                options["writable"] = !file.is_valid_directory ();
+                options["writable"] = writable;
                 options["ask"] = true;
 
-                var fd = Posix.open (file.path, (file.is_valid_directory () ? Posix.O_RDONLY : Posix.O_RDWR) | Posix.O_CLOEXEC);
+                var fd = Posix.open (file.path, (writable ? Posix.O_RDWR : Posix.O_RDONLY) | Posix.O_CLOEXEC);
                 if (fd == -1) {
                     critical ("OpenURI: cannot open file dscriptor for '%s'", file.path);
                     return;
@@ -122,7 +124,7 @@ namespace Scratch.FolderManager {
                     return;
                 }
 
-                // the OpenDirectory method was added on version 3
+                // the OpenDirectory method was added in version 3 of the portal
                 window.export.begin ((obj, res) => {
                     try {
                         var handle = window.export.end (res);
