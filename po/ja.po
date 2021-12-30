@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-15 23:44+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"PO-Revision-Date: 2021-12-30 16:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -43,7 +43,7 @@ msgstr "プラグイン"
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
 msgstr "コード"
 
@@ -328,7 +328,7 @@ msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
 #: src/Services/Document.vala:289
 msgid "Please wait while Code is loading the file."
-msgstr "“コード”がファイルを読み込む間、お待ちください。"
+msgstr "ファイルが読み込まれるまでお待ちください。"
 
 #: src/Services/Document.vala:291
 msgid "Cancel Loading"
@@ -406,13 +406,11 @@ msgstr "別の場所に変更内容を保存"
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr ""
-"ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込み"
-"ますか？　または編集を続行しますか？"
+msgstr "ファイル \"%s\" は外部のアプリケーションによって変更されました。ファイルを再読み込みしますか？　または編集を続行しますか？"
 
 #: src/Services/Document.vala:784
 msgid "Load"
-msgstr "変更を読み込む"
+msgstr "再読み込み"
 
 #: src/Services/Document.vala:787
 msgid "Continue"
@@ -534,41 +532,47 @@ msgstr "アルファベット順に並び替え"
 msgid "Manage project folders"
 msgstr "プロジェクトフォルダーを管理"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "検索"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
+#: src/Widgets/SearchBar.vala:548
+msgid "no results"
+msgstr "結果がありません"
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "次を検索"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "前を検索"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "循環検索"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:110
 msgid "Case Insensitive"
 msgstr "大文字と小文字を区別しない"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:132
 msgid "Replace With"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:135
 msgid "Replace"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:138
 msgid "Replace all"
 msgstr "すべて置換"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-11-29 13:42+0000\n"
+"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"PO-Revision-Date: 2021-12-19 13:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -47,6 +47,10 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"“コード”はプロジェクト単位のワークフロー向けにデザインされているので、コード"
+"ベースごとに認識されるようになっています。便利な Git との統合機能が搭載されて"
+"おり、ブランチを作成したり変更したり、プロジェクト内のファイルや行の差分を表"
+"示したりできます。"
 
 #: data/io.elementary.code.appdata.xml.in:13
 msgid ""
@@ -55,10 +59,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコーディングしていても、PHP でスクリプティン"
-"グしていても、HTML でマークアップしていても、“コード”はあなたをサポートしま"
-"す。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で"
-"完全なシンタックスハイライトを利用可能です。"
+"あの言語にも、この言語にも、対応。Vala でコーディングしていても、PHP でスクリ"
+"プティングしていても、HTML でマークアップしていても、“コード”はあなたをサポー"
+"トします。完璧なシンタックスハイライトが、ほぼすべてのプログラミング言語・ス"
+"クリプティング言語・マークアップ言語で利用可能です。"
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -126,6 +130,8 @@ msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"ファイルの最終行より先にもスクロールできるので、編集中の行をお好きな位置に表"
+"示できます"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
@@ -144,15 +150,21 @@ msgstr "プロジェクト名が同じ場合は親フォルダーの名前も表
 #: data/io.elementary.code.appdata.xml.in:34
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
-msgstr "検索結果にスクロールする際に、見やすくなるように余分にスクロールするように変更"
+msgstr ""
+"検索結果にスクロールする際に、見やすくなるように余分にスクロールするように変"
+"更"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr "GTK の FileChooser ではなく、FileChooser ポータルを使用するように修正"
+msgstr ""
+"GTK が提供するファイル選択ダイアログではなく、ファイル選択ポータルを使用する"
+"ように修正"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
-msgstr "プロジェクト全体の検索ダイアログを“コード”の主ウィンドウに対して中央に表示するように修正"
+msgstr ""
+"プロジェクト全体の検索ダイアログを“コード”の主ウィンドウに対して中央に表示す"
+"るように修正"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:53
@@ -168,13 +180,17 @@ msgstr "ようこそ画面の“ターミナル”ボタンが消える不具合
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
-msgstr "キーボードショートカットがフォーカス状態のターミナルではなく、フォーカスされていないテキストビューに適用される不具合を修正"
+msgstr ""
+"キーボードショートカットがフォーカス状態のターミナルではなく、フォーカスされ"
+"ていないテキストビューに適用される不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"シェルが終了した場合はターミナルを閉じ、シェルなしでターミナルが開かれた場合"
+"は新しいターミナルを作成するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:62
@@ -202,7 +218,8 @@ msgstr "翻訳の更新"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Fix crash when creating new window from tab drop"
-msgstr "タブをドロップして新しいウィンドウを開こうとするとクラッシュする不具合を修正"
+msgstr ""
+"タブをドロップして新しいウィンドウを開こうとするとクラッシュする不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Ensure files created from the sidebar are automatically opened"
@@ -240,7 +257,7 @@ msgstr "ソースビューの左端に Git の差分を表示する機能を追�
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Full text search within project folder."
-msgstr "プロジェクトフォルダー内でのテキスト検索に対応しました。"
+msgstr "プロジェクトフォルダー内での全文検索に対応しました。"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Save and restore cursor position between sessions"
@@ -316,7 +333,7 @@ msgstr "Vim プラグインをコマンドラインモードで開始するよ�
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "Fix and add new Vim commands"
-msgstr "Vim コマンドを修正し、新しい コマンドを追加"
+msgstr "Vim コマンドの修正と追加"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Show project folders with a hidden root folder"
