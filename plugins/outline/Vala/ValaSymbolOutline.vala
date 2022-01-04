@@ -18,32 +18,36 @@
 
 public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; protected set; }
-    public Granite.Widgets.SourceList store { get; private set; }
-    Granite.Widgets.SourceList.ExpandableItem root;
-    Code.Plugins.ValaSymbolResolver resolver;
-    Vala.Parser parser;
-    GLib.Cancellable cancellable;
+    public Scratch.Services.Document doc { get; construct; }
+    public Granite.Widgets.SourceList source_list { get; construct; }
+    private Code.Plugins.ValaSymbolResolver resolver;
+    private Vala.Parser parser;
+    private GLib.Cancellable cancellable;
 
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
-        doc = _doc;
+        Object (
+            doc: _doc
+        );
+
         doc.doc_saved.connect (() => {parse_symbols ();});
         doc.doc_closed.connect (doc_closed);
+    }
 
-        store = new Granite.Widgets.SourceList ();
-        store.item_selected.connect ((selected) => {
+    construct {
+        source_list = new Granite.Widgets.SourceList ();
+        source_list.item_selected.connect ((selected) => {
             goto (doc, ((ValaSymbolItem)selected).symbol.source_reference.begin.line);
         });
 
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-        store.root.add (root);
+        var root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        source_list.root.add (root);
 
         parser = new Vala.Parser ();
         resolver = new Code.Plugins.ValaSymbolResolver ();
     }
 
     ~ValaSymbolOutline () {
-        doc.doc_closed.disconnect (doc_closed);
+        debug ("Destroy symbol outline");
     }
 
     void doc_closed (Scratch.Services.Document doc) {
@@ -55,10 +59,6 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
         closed ();
     }
 
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
-    }
-
     public void parse_symbols () {
         var context = new Vala.CodeContext ();
 #if VALA_0_50
@@ -68,8 +68,10 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 #endif
         context.add_source_filename (doc.file.get_path ());
         context.report = new Report ();
-        if (cancellable != null)
+        if (cancellable != null && !cancellable.is_cancelled ()) {
             cancellable.cancel ();
+        }
+
         cancellable = new GLib.Cancellable ();
         new Thread<void*> ("parse-symbols", () => {
             Vala.CodeContext.push (context);
@@ -77,38 +79,42 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
             resolver.clear ();
             resolver.resolve (context);
             Vala.CodeContext.pop ();
-
             var new_root = construct_tree (cancellable);
-            if (cancellable.is_cancelled () == false) {
+            if (!cancellable.is_cancelled ()) {
                 Idle.add (() => {
-                    double adjustment_value = store.vadjustment.value;
-                    store.root.clear ();
-                    store.root.add (new_root);
-                    store.root.expand_all ();
-                    store.vadjustment.set_value (adjustment_value);
+                    double adjustment_value = source_list.vadjustment.value;
+                    var root_children = source_list.root.children; // Keep reference to children for later destruction
+                    source_list.root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
+                    foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
+                        destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)child);
+                    }
 
-                    destroy_root (root);
-                    root = new_root;
-
+                    source_list.root.add (new_root);
+                    source_list.root.expand_all ();
+                    source_list.vadjustment.set_value (adjustment_value);
+                    warning ("Idle done");
                     return false;
                 });
             } else {
-                destroy_root (new_root);
+                destroy_all_children (new_root);
             }
+
             return null;
         });
     }
 
-    private void destroy_root (Granite.Widgets.SourceList.ExpandableItem to_destroy) {
-        var children = iterate_children (to_destroy);
-        to_destroy.clear ();
-        foreach (var item in children) {
-            item.clear ();
-            var parent = item.parent;
-            if (parent != null) {
-                parent.remove (item);
-            }
+    private void destroy_all_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+        foreach (var child in parent.children) {
+            remove (child, parent);
         }
+    }
+
+    private new void remove (Granite.Widgets.SourceList.Item item, Granite.Widgets.SourceList.ExpandableItem parent) {
+        if (item is Granite.Widgets.SourceList.ExpandableItem) {
+            destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)item);
+        }
+
+        parent.remove (item);
     }
 
     private Granite.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
@@ -129,25 +135,22 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
             if (symbol.name == null)
                 continue;
 
-            construct_child (symbol, new_root, cancellable);
+            construct_child (symbol, new_root, cancellable); // Adds symbol (and parents) to root.
         }
+
         return new_root;
     }
 
-    private Gee.TreeSet<ValaSymbolItem> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
-        var result = new Gee.TreeSet<ValaSymbolItem> ();
-        foreach (var child in parent.children) {
-            result.add_all (iterate_children ((ValaSymbolItem)child));
-        }
-        return result;
-    }
+    private ValaSymbolItem construct_child (Vala.Symbol symbol,
+                                            Granite.Widgets.SourceList.ExpandableItem given_parent,
+                                            GLib.Cancellable cancellable) {
 
-    private ValaSymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
         Granite.Widgets.SourceList.ExpandableItem parent;
-        if (symbol.scope.parent_scope.owner.name == null)
+        if (symbol.scope.parent_scope.owner.name == null) {
             parent = given_parent;
-        else
+        } else {
             parent = find_existing (symbol.scope.parent_scope.owner, given_parent, cancellable);
+        }
 
         if (parent == null) {
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);

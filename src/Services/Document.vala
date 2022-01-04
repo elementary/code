@@ -181,12 +181,14 @@ namespace Scratch.Services {
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
                 if (Scratch.settings.get_boolean ("autosave")) {
-                    save.begin ();
+                    save.begin (); // Only saves if changed
                 }
 
                 return false;
             });
 
+            // This handler only sets the saved status and tab label (if required)
+            // A separate togglable handler deals with autosaving and undoable actions
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
@@ -203,10 +205,15 @@ namespace Scratch.Services {
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
+        ~Document () {
+            critical ("Destruct Document");
+        }
+
         public void toggle_changed_handlers (bool enabled) {
             if (enabled) {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
                     if (onchange_handler_id != 0) {
+                    // Ensure this handler only triggered once each time it is set, connecting a different handler
                         this.source_view.buffer.disconnect (onchange_handler_id);
                     }
 
@@ -452,7 +459,6 @@ namespace Scratch.Services {
             }
 
             this.create_backup ();
-
             // Replace old content with the new one
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
@@ -461,6 +467,7 @@ namespace Scratch.Services {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
+                warning ("Save failed %s - %s", get_basename (), e.message );
                 if (e.code != 19)
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
                 return false;
@@ -570,9 +577,11 @@ namespace Scratch.Services {
         public string get_basename () {
             if (is_file_temporary) {
                 return _("New Document");
-            } else {
+            } else if (file != null) {
                 return file.get_basename ();
             }
+
+            return _("No file loaded");
         }
 
         // Get full file path
@@ -803,10 +812,9 @@ namespace Scratch.Services {
             );
         }
 
-        // Set saved status
+        // Set saved status - mark document label as unsaved - not called if autosave on
         public void set_saved_status (bool val) {
             this.saved = val;
-
             string unsaved_identifier = "* ";
 
             if (!val) {
@@ -824,8 +832,8 @@ namespace Scratch.Services {
                 return;
             }
 
-            var backup = File.new_for_path (this.file.get_path () + "~");
 
+            var backup = File.new_for_path (this.file.get_path () + "~");
             if (!backup.query_exists ()) {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);

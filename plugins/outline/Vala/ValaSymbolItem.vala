@@ -17,10 +17,13 @@
  */
 
 public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
-    public Vala.Symbol symbol { get; set; }
+    public Vala.Symbol symbol { get; construct; }
 
     public ValaSymbolItem (Vala.Symbol symbol) {
-        this.symbol = symbol;
+        Object (
+            symbol: symbol
+        );
+
         this.name = symbol.name;
         if (symbol is Vala.CreationMethod) {
             if (symbol.name == ".new")
@@ -28,6 +31,10 @@ public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.Expandable
             else
                 this.name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
         }
+    }
+
+    ~ValaSymbolItem () {
+        debug ("Destruct symbol item %s", symbol.name);
     }
 
     public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {

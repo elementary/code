@@ -18,27 +18,32 @@
 
 public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; protected set; }
-    Granite.Widgets.SourceList store;
-    Granite.Widgets.SourceList.ExpandableItem root;
-    GLib.Subprocess current_subprocess;
+    public Scratch.Services.Document doc { get; construct; }
+    public Granite.Widgets.SourceList source_list { get; construct; }
+    private Granite.Widgets.SourceList.ExpandableItem root;
+    private GLib.Subprocess current_subprocess;
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {
-        doc = _doc;
+        Object (
+            doc: _doc
+        );
+
         doc.doc_saved.connect (() => {parse_symbols ();});
         doc.doc_closed.connect (doc_closed);
+    }
 
+    construct {
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
 
-        store = new Granite.Widgets.SourceList ();
-        store.root.add (root);
-        store.item_selected.connect ((selected) => {
+        source_list = new Granite.Widgets.SourceList ();
+        source_list.root.add (root);
+        source_list.item_selected.connect ((selected) => {
             if (selected == null) {
                 return;
             }
 
             goto (doc, ((CtagsSymbol)selected).line);
-            store.selected = null;
+            source_list.selected = null;
         });
     }
 
@@ -208,11 +213,11 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         Idle.add (() => {
-            double adjustment_value = store.vadjustment.value;
-            store.root.clear ();
-            store.root.add (new_root);
-            store.root.expand_all ();
-            store.vadjustment.set_value (adjustment_value);
+            double adjustment_value = source_list.vadjustment.value;
+            source_list.root.clear ();
+            source_list.root.add (new_root);
+            source_list.root.expand_all ();
+            source_list.vadjustment.set_value (adjustment_value);
 
             destroy_root (root);
             root = new_root;
@@ -256,9 +261,5 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         return match;
-    }
-
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
     }
 }

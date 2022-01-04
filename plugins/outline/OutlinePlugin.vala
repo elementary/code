@@ -20,13 +20,13 @@ namespace Code.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
-        Scratch.Services.Interface scratch_interface;
-        SymbolOutline? current_view = null;
-        unowned Scratch.MainWindow window;
+        private Scratch.Services.Interface scratch_interface;
+        private SymbolOutline? current_view = null;
+        private unowned Scratch.MainWindow window;
 
-        OutlinePane? container = null;
+        private OutlinePane? container = null;
 
-        Gee.LinkedList<SymbolOutline> views;
+        private Gee.LinkedList<SymbolOutline> views;
 
         private Gtk.Grid placeholder;
 
@@ -76,15 +76,14 @@ namespace Code.Plugins {
         void on_hook_document (Scratch.Services.Document doc) {
             if (current_view != null &&
                 current_view.doc == doc &&
-                current_view.get_source_list ().get_parent () != null) {
+                current_view.source_list.get_parent () != null) {
 
                 /* Ensure correct source list shown */
-                container.set_visible_child (current_view.get_source_list ());
-
+                container.set_visible_child (current_view.source_list);
                 return;
             }
 
-            SymbolOutline view = null;
+            SymbolOutline? view = null;
             foreach (var v in views) {
                 if (v.doc == doc) {
                     view = v;
@@ -107,7 +106,7 @@ namespace Code.Plugins {
                 }
 
                 if (view != null) {
-                    view.closed.connect (() => {remove_view (view);});
+                    view.closed.connect (remove_view);
                     view.goto.connect (goto);
                     views.add (view);
                     view.parse_symbols ();
@@ -115,7 +114,7 @@ namespace Code.Plugins {
             }
 
             if (view != null) {
-                var source_list = view.get_source_list ();
+                unowned var source_list = view.source_list;
                 if (source_list.parent == null) {
                     container.add (source_list);
                 }
@@ -146,8 +145,11 @@ namespace Code.Plugins {
         }
 
         void remove_view (SymbolOutline view) {
+            view.goto.disconnect (goto);
+            view.closed.disconnect (remove_view);
+
             views.remove (view);
-            var source_list = view.get_source_list ();
+            unowned var source_list = view.source_list;
             if (source_list.parent == container) {
                 container.remove (source_list);
             }
@@ -156,7 +158,7 @@ namespace Code.Plugins {
                 remove_container ();
             }
 
-            view.goto.disconnect (goto);
+            current_view = null;
         }
 
         void goto (Scratch.Services.Document doc, int line) {

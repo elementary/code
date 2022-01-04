@@ -17,9 +17,12 @@
  */
 
 public interface Code.Plugins.SymbolOutline : Object {
-    public abstract Scratch.Services.Document doc { get; protected set; }
-    public abstract void parse_symbols ();
-    public abstract Granite.Widgets.SourceList get_source_list ();
+    public abstract Scratch.Services.Document doc { get; construct; }
+    public abstract Granite.Widgets.SourceList source_list { get; construct; }
+
     public signal void closed ();
     public signal void goto (Scratch.Services.Document doc, int line);
+    public signal void dummy ();
+
+    public abstract void parse_symbols ();
 }

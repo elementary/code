@@ -21,20 +21,20 @@ public class Code.Plugins.ValaSymbolResolver : Vala.SymbolResolver {
     private Gee.TreeSet<Vala.Symbol> symbols = new Gee.TreeSet<Vala.Symbol> ();
 
     public Gee.TreeSet<Vala.Field> get_properties_fields () {
-        var return_fields = new Gee.TreeSet<Vala.Field> ();
-        foreach (var prop in properties) {
-            if (prop.field != null) {
-                return_fields.add (prop.field);
-            }
+         var return_fields = new Gee.TreeSet<Vala.Field> ();
+         foreach (var prop in properties) {
+             if (prop.field != null) {
+                 return_fields.add (prop.field);
+             }
         }
 
         return return_fields;
     }
 
     public Gee.TreeSet<Vala.Symbol> get_symbols () {
-        var return_symbols = new Gee.TreeSet<Vala.Symbol> ();
-        return_symbols.add_all (symbols);
-        return return_symbols;
+         var return_symbols = new Gee.TreeSet<Vala.Symbol> ();
+         return_symbols.add_all (symbols);
+         return return_symbols;
     }
 
     public void clear () {
