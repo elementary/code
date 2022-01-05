@@ -18,16 +18,21 @@
 
 public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; protected set; }
-    public Granite.Widgets.SourceList store { get; private set; }
-    Granite.Widgets.SourceList.ExpandableItem root;
-    Code.Plugins.ValaSymbolResolver resolver;
-    Vala.Parser parser;
-    GLib.Cancellable cancellable;
+    public Scratch.Services.Document doc { get; construct; }
+    private Granite.Widgets.SourceList store;
+    private Granite.Widgets.SourceList.ExpandableItem root;
+    private Code.Plugins.ValaSymbolResolver resolver;
+    private Vala.Parser parser;
+    private GLib.Cancellable cancellable;
 
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
-        doc = _doc;
-        doc.doc_saved.connect (() => {parse_symbols ();});
+        Object (
+            doc: _doc
+        );
+    }
+
+    construct {
+        doc.doc_saved.connect (parse_symbols);
         doc.doc_closed.connect (doc_closed);
 
         store = new Granite.Widgets.SourceList ();
@@ -43,10 +48,16 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
     }
 
     ~ValaSymbolOutline () {
-        doc.doc_closed.disconnect (doc_closed);
+        debug ("Destroy symbol out line");
     }
 
     void doc_closed (Scratch.Services.Document doc) {
+        doc.doc_closed.disconnect (doc_closed);
+        doc.doc_saved.disconnect (parse_symbols);
+
+        doc.remove_outline_widget ();
+        doc.steal_data<SymbolOutline> ("SymbolOutline");
+
         if (cancellable != null) {
             cancellable.cancel ();
             cancellable = null;
@@ -66,8 +77,10 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 #endif
         context.add_source_filename (doc.file.get_path ());
         context.report = new Report ();
-        if (cancellable != null)
+        if (cancellable != null && !cancellable.is_cancelled ()) {
             cancellable.cancel ();
+        }
+
         cancellable = new GLib.Cancellable ();
         new Thread<void*> ("parse-symbols", () => {
             Vala.CodeContext.push (context);
@@ -77,36 +90,40 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
             Vala.CodeContext.pop ();
 
             var new_root = construct_tree (cancellable);
-            if (cancellable.is_cancelled () == false) {
+            if (!cancellable.is_cancelled ()) {
                 Idle.add (() => {
                     double adjustment_value = store.vadjustment.value;
-                    store.root.clear ();
+                    var root_children = store.root.children; // Keep reference to children for later destruction
+                    store.root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
+                    foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
+                        destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)child);
+                    }
+
                     store.root.add (new_root);
                     store.root.expand_all ();
                     store.vadjustment.set_value (adjustment_value);
 
-                    destroy_root (root);
-                    root = new_root;
-
                     return false;
                 });
             } else {
-                destroy_root (new_root);
+                destroy_all_children (new_root);
             }
             return null;
         });
     }
 
-    private void destroy_root (Granite.Widgets.SourceList.ExpandableItem to_destroy) {
-        var children = iterate_children (to_destroy);
-        to_destroy.clear ();
-        foreach (var item in children) {
-            item.clear ();
-            var parent = item.parent;
-            if (parent != null) {
-                parent.remove (item);
-            }
+    private void destroy_all_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+        foreach (var child in parent.children) {
+            remove (child, parent);
         }
+    }
+
+    private new void remove (Granite.Widgets.SourceList.Item item, Granite.Widgets.SourceList.ExpandableItem parent) {
+        if (item is Granite.Widgets.SourceList.ExpandableItem) {
+            destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)item);
+        }
+
+        parent.remove (item);
     }
 
     private Granite.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
@@ -130,14 +147,6 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
             construct_child (symbol, new_root, cancellable);
         }
         return new_root;
-    }
-
-    private Gee.TreeSet<ValaSymbolItem> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
-        var result = new Gee.TreeSet<ValaSymbolItem> ();
-        foreach (var child in parent.children) {
-            result.add_all (iterate_children ((ValaSymbolItem)child));
-        }
-        return result;
     }
 
     private ValaSymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {

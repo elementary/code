@@ -30,6 +30,10 @@ public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.Expandable
         }
     }
 
+    ~ValaSymbolItem () {
+        debug ("Destroy Vala symbol");
+    }
+
     public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
         return ValaComparison.sort_function (a, b);
     }
