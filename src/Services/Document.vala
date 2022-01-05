@@ -87,12 +87,12 @@ namespace Scratch.Services {
             }
         }
 
-        public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+        private Gtk.Stack main_stack;
+        public Scratch.Widgets.SourceView source_view { get; private set; }
 
-        public string original_content;
+        private string original_content;
         private string last_save_content;
-        public bool saved = true;
+        private bool saved = true;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -100,6 +100,7 @@ namespace Scratch.Services {
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
+        private uint timeout_saving = 0;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
@@ -156,10 +157,6 @@ namespace Scratch.Services {
             restore_settings ();
 
             settings.changed.connect (restore_settings);
-            /* Block user editing while working */
-            source_view.key_press_event.connect (() => {
-                return working;
-            });
 
             var source_grid = new Gtk.Grid ();
             source_grid.orientation = Gtk.Orientation.HORIZONTAL;
@@ -176,37 +173,60 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            toggle_changed_handlers (true);
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("autosave")) {
-                    save.begin (); // Only saves if changed
-                }
-
-                return false;
-            });
-
-            // This handler only sets the saved status and tab label (if required)
-            // A separate togglable handler deals with autosaving and undoable actions
-            source_view.buffer.changed.connect (() => {
-                if (source_view.buffer.text != last_save_content) {
-                    saved = false;
-                    if (!Scratch.settings.get_boolean ("autosave")) {
-                        set_saved_status (false);
-                    }
-                } else {
-                    set_saved_status (true);
-                }
-            });
-
             /* Create as loaded - could be new document */
             loaded = true;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
+
+            connect_source_view ();
         }
 
         ~Document () {
-            critical ("Destruct Document");
+            debug ("Destroying Document");
+        }
+
+        private void connect_source_view () {
+            /* Block user editing while working */
+            source_view.key_press_event.connect (on_key_press_event);
+            source_view.focus_out_event.connect (on_focus_out);
+            source_view.buffer.changed.connect (on_buffer_changed); // For saved status
+            toggle_changed_handlers (true); // For autosave
+        }
+
+        private void disconnect_source_view () {
+            /* Block user editing while working */
+            source_view.key_press_event.disconnect (on_key_press_event);
+            source_view.focus_out_event.disconnect (on_focus_out);
+            source_view.buffer.changed.disconnect (on_buffer_changed); // For saved status
+            toggle_changed_handlers (false); // For autosave
+        }
+
+        private bool on_key_press_event () {
+            return working;
+        }
+
+        private bool on_focus_out () {
+            if (Scratch.settings.get_boolean ("autosave")) {
+                save.begin (); // Only saves if changed
+            }
+
+            return false;
+        }
+
+        private bool on_focus_in () {
+            check_file_status ();
+            check_undoable_actions ();
+            return false;
+        }
+
+        private void on_buffer_changed () {
+            if (source_view.buffer.text != last_save_content) {
+                saved = false;
+                if (!Scratch.settings.get_boolean ("autosave")) {
+                    set_saved_status (false);
+                }
+            } else {
+                set_saved_status (true);
+            }
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -215,12 +235,12 @@ namespace Scratch.Services {
                     if (onchange_handler_id != 0) {
                     // Ensure this handler only triggered once each time it is set, connecting a different handler
                         this.source_view.buffer.disconnect (onchange_handler_id);
+                        onchange_handler_id = 0;
                     }
 
                     // Signals for SourceView
-                    uint timeout_saving = 0;
                     check_undoable_actions ();
-                    this.source_view.buffer.changed.connect (() => {
+                    onchange_handler_id = this.source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
                         if (Scratch.settings.get_boolean ("autosave")) {
@@ -228,6 +248,7 @@ namespace Scratch.Services {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
                             }
+
                             timeout_saving = Timeout.add (1000, () => {
                                 save.begin ();
                                 timeout_saving = 0;
@@ -236,8 +257,16 @@ namespace Scratch.Services {
                         }
                      });
                 });
-            } else if (onchange_handler_id != 0) {
-                this.source_view.buffer.disconnect (onchange_handler_id);
+            } else {
+                if (onchange_handler_id != 0) {
+                    this.source_view.buffer.disconnect (onchange_handler_id);
+                    onchange_handler_id = 0;
+                }
+
+                if (timeout_saving > 0) {
+                    Source.remove (timeout_saving);
+                    timeout_saving = 0;
+                }
             }
         }
 
@@ -303,6 +332,7 @@ namespace Scratch.Services {
                         load_cancellable.cancel ();
                         doc_closed ();
                     });
+
                     load_timout_id = 0;
 
                     return GLib.Source.REMOVE;
@@ -339,12 +369,7 @@ namespace Scratch.Services {
             }
 
             // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                check_file_status ();
-                check_undoable_actions ();
-
-                return false;
-            });
+            this.source_view.focus_in_event.connect (on_focus_in);
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
@@ -368,9 +393,14 @@ namespace Scratch.Services {
             return;
         }
 
-        public bool do_close (bool app_closing = false) {
-            debug ("Closing \"%s\"", get_basename ());
+        // Ensures SourceView and Document get destroyed when tab closed
+        public void remove_content () {
+            disconnect_source_view ();
+            source_view.close ();
+            source_view.destroy ();
+        }
 
+        public async bool do_close (bool app_closing = false) {
             if (!loaded) {
                 load_cancellable.cancel ();
                 return true;
@@ -378,13 +408,12 @@ namespace Scratch.Services {
 
             bool ret_value = true;
             if (Scratch.settings.get_boolean ("autosave") && !saved) {
-                save_with_hold ();
+                ret_value = yield save_with_hold (app_closing);
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                save_with_hold ();
-            }
+                ret_value = yield save_with_hold (app_closing);
             // Check for unsaved changes
-            else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
+            } else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
 
                 var dialog = new Granite.MessageDialog (
@@ -403,6 +432,7 @@ namespace Scratch.Services {
                 dialog.set_default_response (Gtk.ResponseType.YES);
 
                 int response = dialog.run ();
+                dialog.destroy ();
                 switch (response) {
                     case Gtk.ResponseType.CANCEL:
                     case Gtk.ResponseType.DELETE_EVENT:
@@ -410,45 +440,39 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            save_as_with_hold ();
+                            ret_value = yield save_as_with_hold ();
                         else
-                            save_with_hold ();
+                            ret_value = yield save_with_hold (app_closing);
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
                             delete_temporary_file (true);
                         break;
                 }
-                dialog.destroy ();
             }
 
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
-                doc_closed ();
+                doc_closed (); // Signal plugins
             }
 
             return ret_value;
         }
 
-        public bool save_with_hold (bool force = false) {
+        public async bool save_with_hold (bool force = false) {
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            save.begin (force, (obj, res) => {
-                result = save.end (res);
-                GLib.Application.get_default ().release ();
-            });
+            bool result = yield save (force);
+
+            GLib.Application.get_default ().release ();
 
             return result;
         }
 
-        public bool save_as_with_hold () {
+        public async bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            save_as.begin ((obj, res) => {
-                result = save_as.end (res);
-                GLib.Application.get_default ().release ();
-            });
+            bool result = yield save_as ();
+            GLib.Application.get_default ().release ();
 
             return result;
         }

@@ -517,8 +517,8 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit ();
-            return !check_unsaved_changes ();
+            action_quit ();
+            return false; // Leave to the quit action to destroy the Window
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -568,11 +568,11 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
+        // Returns true if there are no unsaved changes
+        private async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
+                if (!yield doc.do_close ()) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -720,9 +720,11 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            check_unsaved_changes.begin ((obj, res) => {
+                if (check_unsaved_changes.end (res)) {
+                    destroy ();
+                }
+            });
         }
 
         private void action_open () {

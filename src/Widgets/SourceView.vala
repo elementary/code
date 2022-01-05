@@ -21,11 +21,11 @@
 
 namespace Scratch.Widgets {
     public class SourceView : Gtk.SourceView {
-        public Gtk.SourceLanguageManager manager;
-        public Gtk.SourceStyleSchemeManager style_scheme_manager;
-        public Gtk.CssProvider font_css_provider;
-        public Gtk.TextTag warning_tag;
-        public Gtk.TextTag error_tag;
+        private unowned Gtk.SourceLanguageManager manager;
+        private Gtk.SourceStyleSchemeManager style_scheme_manager;
+        private Gtk.CssProvider font_css_provider;
+        private Gtk.TextTag warning_tag;
+        private Gtk.TextTag error_tag;
 
         public GLib.File location { get; set; }
         public FolderManager.ProjectFolderItem project { get; set; default = null; }
@@ -122,79 +122,107 @@ namespace Scratch.Widgets {
             restore_settings ();
             settings.changed.connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
-                    return true;
-                } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
-                    return true;
-                }
+            connect_events ();
+        }
 
-                return false;
-            });
+        ~SourceView () {
+            debug ("Destroying Sourceview");
+        }
 
-            cut_clipboard.connect (() => {
-                if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
-                    return;
-                }
-
-                /* If no text is selected, cut the current line */
-                if (!buffer.has_selection) {
-                    Gtk.TextIter iter_start, iter_end;
-
-                    if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-                        string cut_text = iter_start.get_slice (iter_end);
-
-                        buffer.begin_user_action ();
-                        clipboard.set_text (cut_text, -1);
-                        buffer.delete_range (iter_start, iter_end);
-                        buffer.end_user_action ();
-                    }
-                }
-            });
-
-            copy_clipboard.connect (() => {
-                if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
-                    return;
-                }
-
-                /* If no text is selected, copy the current line */
-                if (!buffer.has_selection) {
-                    Gtk.TextIter iter_start, iter_end;
-
-                    if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-                        string copy_text = iter_start.get_slice (iter_end);
-
-                        clipboard.set_text (copy_text, -1);
-                    }
-                }
-            });
-
+        private void connect_events () {
+            scroll_event.connect (on_scroll_event);
+            cut_clipboard.connect (on_cut_clipboard);
+            copy_clipboard.connect (on_copy_clipboard);
             populate_popup.connect_after (on_context_menu);
+            size_allocate.connect (on_size_allocate);
+            notify["project"].connect (on_notify_project);
+        }
 
-            size_allocate.connect ((allocation) => {
-                // Throttle for performance
-                if (size_allocate_timer == 0) {
-                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
-                        size_allocate_timer = 0;
-                        bottom_margin = calculate_bottom_margin (allocation.height);
-                        return GLib.Source.REMOVE;
-                    });
-                }
-            });
+        private void disconnect_events () {
+            scroll_event.disconnect (on_scroll_event);
+            cut_clipboard.disconnect (on_cut_clipboard);
+            copy_clipboard.disconnect (on_copy_clipboard);
+            populate_popup.disconnect (on_context_menu);
+            size_allocate.connect (on_size_allocate);
+            if (project != null && project.is_git_repo) {
+                project.monitored_repo.file_content_changed.disconnect (schedule_refresh_diff);
+                project = null;
+            }
+        }
 
-            notify["project"].connect (() => {
-                //Assuming project will not change again
-                if (project.is_git_repo) {
-                    schedule_refresh_diff ();
-                    project.monitored_repo.file_content_changed.connect (() => {
-                        schedule_refresh_diff ();
-                    });
+        private bool on_scroll_event (Gdk.EventScroll key_event) {
+            if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
+                ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
+                return true;
+            } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
+                ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
+                return true;
+            }
+
+            return false;
+        }
+
+        private void on_cut_clipboard () {
+            if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
+                return;
+            }
+
+            /* If no text is selected, cut the current line */
+            if (!buffer.has_selection) {
+                Gtk.TextIter iter_start, iter_end;
+
+                if (get_current_line (out iter_start, out iter_end)) {
+                    var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                    string cut_text = iter_start.get_slice (iter_end);
+
+                    buffer.begin_user_action ();
+                    clipboard.set_text (cut_text, -1);
+                    buffer.delete_range (iter_start, iter_end);
+                    buffer.end_user_action ();
                 }
-            });
+            }
+        }
+
+        private void on_copy_clipboard () {
+            if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
+                return;
+            }
+
+            /* If no text is selected, copy the current line */
+            if (!buffer.has_selection) {
+                Gtk.TextIter iter_start, iter_end;
+
+                if (get_current_line (out iter_start, out iter_end)) {
+                    var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                    string copy_text = iter_start.get_slice (iter_end);
+
+                    clipboard.set_text (copy_text, -1);
+                }
+            }
+        }
+
+        private void on_size_allocate (Gtk.Allocation allocation) {
+            // Throttle for performance
+            if (size_allocate_timer == 0) {
+                size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                    size_allocate_timer = 0;
+                    bottom_margin = calculate_bottom_margin (allocation.height);
+                    return GLib.Source.REMOVE;
+                });
+            }
+        }
+
+        private void on_notify_project () {
+            //Assuming project will not change again
+            if (project != null && project.is_git_repo) {
+                schedule_refresh_diff ();
+                project.monitored_repo.file_content_changed.connect (schedule_refresh_diff);
+            }
+        }
+
+        public void close () {
+            update_settings ();
+            disconnect_events ();
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -205,11 +233,6 @@ namespace Scratch.Widgets {
 
             // Have we returned valid iters?
             return !start.equal (end);
-        }
-
-        ~SourceView () {
-            // Update settings when an instance is deleted
-            update_settings ();
         }
 
         public void change_syntax_highlight_from_file (File file) {

@@ -92,7 +92,6 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
                     source_list.root.add (new_root);
                     source_list.root.expand_all ();
                     source_list.vadjustment.set_value (adjustment_value);
-                    warning ("Idle done");
                     return false;
                 });
             } else {

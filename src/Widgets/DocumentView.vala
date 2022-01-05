@@ -24,7 +24,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public unowned MainWindow window { get; construct set; }
 
-    public Services.Document current_document {
+    public Services.Document? current_document {
         get {
             return (Services.Document) current;
         }
@@ -33,7 +33,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public GLib.List<Services.Document> docs;
+    public GLib.List<unowned Services.Document> docs;
 
     public bool is_closing = false;
 
@@ -51,7 +51,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     construct {
-        docs = new GLib.List<Services.Document> ();
+        docs = new GLib.List<unowned Services.Document> ();
 
         // Layout
         tab_added.connect (on_doc_added);
@@ -69,7 +69,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 tab.restore_data = document.get_uri ();
             }
 
-            return document.do_close ();
+            document.do_close.begin (false, (obj, res) => {
+                if (document.do_close.end (res)) {
+                    remove_tab (document);
+                }
+            });
+
+            return false;
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
@@ -144,7 +150,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var file = File.new_for_path (unsaved_file_path_builder ());
         try {
             file.create (FileCreateFlags.PRIVATE);
-
             var doc = new Services.Document (window.actions, file);
 
             insert_tab (doc, -1);
@@ -164,7 +169,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         try {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
-
             var doc = new Services.Document (window.actions, file);
 
             insert_tab (doc, -1);
@@ -195,10 +199,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         insert_tab (doc, -1);
+
         if (focus) {
             current_document = doc;
         }
-
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
@@ -209,6 +213,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 if (cursor_position > 0) {
                     doc.source_view.cursor_position = cursor_position;
                 }
+
                 save_opened_files ();
             });
 
@@ -221,7 +226,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         try {
             var file = File.new_for_path (unsaved_duplicated_file_path_builder (original.file.get_basename ()));
             file.create (FileCreateFlags.PRIVATE);
-
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
             doc.source_view.language = original.source_view.language;
@@ -264,8 +268,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     public void close_document (Services.Document doc) {
-        remove_tab (doc);
-        doc.do_close ();
+        doc.do_close.begin (false, (obj, res) => {
+            if (doc.do_close.end (res)) {
+                remove_tab (doc);
+            }
+        });
     }
 
     public void close_current_document () {
@@ -322,10 +329,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
-
+        doc.remove_content ();
         docs.remove (doc);
-        doc.source_view.focus_in_event.disconnect (on_focus_in_event);
-        doc.source_view.drag_data_received.disconnect (drag_received);
+        doc.destroy ();
 
         request_placeholder_if_empty ();
 
@@ -401,7 +407,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public void save_opened_files () {
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var vb = new VariantBuilder (new VariantType ("a(si)"));
-            tabs.foreach ((tab) => {
+            docs.foreach ((tab) => {
                 var doc = (Scratch.Services.Document)tab;
                 if (doc.file != null && doc.exists ()) {
                     vb.add ("(si)", doc.file.get_uri (), doc.source_view.cursor_position);

@@ -234,15 +234,16 @@ public class Code.FormatBar : Gtk.Grid {
         });
     }
 
-    public void set_document (Scratch.Services.Document doc) {
-        if (this.doc != null) {
-            this.doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
+    public void set_document (Scratch.Services.Document new_doc) {
+        if (doc != null) {
+            doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
         }
-        this.doc = doc;
+
+        doc = new_doc;
         update_current_lang ();
         format_tab_header ();
         format_line_header ();
-        this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+        doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
     }
 
     private void update_current_lang () {
