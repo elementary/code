@@ -26,18 +26,32 @@
     </ul>
   </description>
   <releases>
-    <release version="6.0.2" date="2021-11-02" urgency="medium">
+    <release version="6.1.1" date="2021-11-23" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
           <li>Show symbol list on the right of the document instead of as a tab in the sidebar</li>
         </ul>
+      </description>
+    </release>
+    <release version="6.1.0" date="2021-11-23" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Projects with the same name now include their parent folder name as well</li>
+          <li>When scrolling to search results, overshoot slightly for better visibility</li>
+          <li>Use the FileChooser portal instead of the one from GTK</li>
+          <li>Center the global search dialog over the main Code window</li>
+        </ul>
         <p>Fixes:</p>
         <ul>
           <li>Fix visibility of Terminal button on Welcome page</li>
+          <li>Fix some keyboard shortcuts affecting unfocused Document instead of focused Terminal</li>
+          <li>Close Terminal if shell exited and create new Terminal if re-opened with no shell</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
+          <li>"Visible whitespace" combobox is now a switch</li>
           <li>Updated translations</li>
         </ul>
       </description>

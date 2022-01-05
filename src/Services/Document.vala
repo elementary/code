@@ -501,7 +501,7 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                null,
+                (Gtk.Window) this.get_toplevel (),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")
@@ -588,7 +588,7 @@ namespace Scratch.Services {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
             } else {
-                return file.get_path ();
+                return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
         }
 
@@ -651,7 +651,7 @@ namespace Scratch.Services {
             info_bar.visible = false;
         }
 
-        // SourceView releated functions
+        // SourceView related functions
         // Undo
         public void undo () {
             this.source_view.undo ();
@@ -675,7 +675,7 @@ namespace Scratch.Services {
             return this.source_view.buffer.text;
         }
 
-        // Get selcted text
+        // Get selected text
         public string get_selected_text () {
             return this.source_view.get_selected_text ();
         }
