@@ -612,7 +612,7 @@ namespace Scratch.Services {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
             } else {
-                return file.get_path ();
+                return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
         }
 
