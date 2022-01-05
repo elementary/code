@@ -43,6 +43,7 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
     }
 
     ~ValaSymbolOutline () {
+        debug ("Destroy symbol out line");
         doc.doc_closed.disconnect (doc_closed);
     }
 

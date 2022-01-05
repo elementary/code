@@ -476,7 +476,7 @@ namespace Scratch.Services {
 
             source_view.buffer.set_modified (false);
 
-            doc_saved ();
+            doc_saved (); // Signal outline plugin
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 

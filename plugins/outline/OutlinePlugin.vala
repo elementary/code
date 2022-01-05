@@ -82,23 +82,26 @@ namespace Code.Plugins {
         }
 
         private void add_outline_to_doc (Scratch.Services.Document doc, SymbolOutline outline) {
-            outline.goto.connect ((doc, line) => {
-                scratch_interface.open_file (doc.file);
-
-                var text = doc.source_view;
-                Gtk.TextIter iter;
-                text.buffer.get_iter_at_line (out iter, line - 1);
-                text.buffer.place_cursor (iter);
-                text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
-            });
+            outline.goto.connect (on_goto);
             outline.parse_symbols ();
             doc.add_outline_widget (outline.get_source_list ());
             doc.set_data<SymbolOutline> ("SymbolOutline", outline);
         }
 
+        private void on_goto (Scratch.Services.Document doc, int line) {
+            // scratch_interface.open_file (doc.file);
+            // Document must already be open for this signal to be triggered
+            var text = doc.source_view;
+            Gtk.TextIter iter;
+            text.buffer.get_iter_at_line (out iter, line - 1);
+            text.buffer.place_cursor (iter);
+            text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+        }
+
         private void remove_outline_from_doc (Scratch.Services.Document doc) {
             doc.remove_outline_widget ();
-            doc.steal_data<SymbolOutline> ("SymbolOutline");
+            var outline = doc.steal_data<SymbolOutline> ("SymbolOutline");
+            outline.goto.disconnect (on_goto);
         }
     }
 }
