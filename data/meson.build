@@ -64,7 +64,6 @@ if get_option ('have_pkexec')
     )
 
     i18n.merge_file(
-        'policy',
         input: policy_in,
         output: meson.project_name() + '.policy',
         po_dir: join_paths(meson.source_root (), 'po', 'extra'),
