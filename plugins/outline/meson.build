@@ -4,7 +4,6 @@ module_files = [
     'C/CtagsSymbol.vala',
     'C/CtagsSymbolIter.vala',
     'C/CtagsSymbolOutline.vala',
-    'OutlinePane.vala',
     'OutlinePlugin.vala',
     'SymbolOutline.vala',
     'Vala/ValaComparisonHelper.vala',

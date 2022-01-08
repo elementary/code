@@ -89,7 +89,6 @@ namespace Code.Plugins {
         }
 
         private void on_goto (Scratch.Services.Document doc, int line) {
-            // scratch_interface.open_file (doc.file);
             // Document must already be open for this signal to be triggered
             var text = doc.source_view;
             Gtk.TextIter iter;
