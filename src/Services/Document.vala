@@ -929,7 +929,6 @@ namespace Scratch.Services {
             if (has_outline_widget ()) {
                 return false;
             } else {
-                //TODO Style the extra widget to match the document.
                 outline_widget_pane.pack2 (extra, false, false);
                 var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
                 outline_widget_pane.set_position (position);
