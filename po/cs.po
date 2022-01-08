@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2022-01-08 19:46+0000\n"
-"Last-Translator: VojtechTM <vojtechvengrin@email.cz>\n"
+"PO-Revision-Date: 2022-01-08 23:29+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -651,7 +651,7 @@ msgstr "Dostupné formáty"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
 msgid "Select Format"
-msgstr "Vybrat formát:"
+msgstr "Vybrat formát"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -680,7 +680,7 @@ msgstr "Jeden měsíc"
 #: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
-msgstr "Znaky"
+msgstr "Symboly"
 
 #: plugins/outline/OutlinePlugin.vala:34
 msgid "No Symbols Found"
@@ -692,7 +692,7 @@ msgstr "Zobrazit terminál"
 
 #: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
-msgstr "Schovat terminál"
+msgstr "Skrýt terminál"
 
 #: plugins/terminal/terminal.vala:184
 msgid "Terminal"
@@ -702,7 +702,7 @@ msgstr "Terminál"
 #. COPY
 #: plugins/terminal/terminal.vala:245
 msgid "Copy"
-msgstr "Kopírovat"
+msgstr "Zkopírovat"
 
 #. PASTE
 #: plugins/terminal/terminal.vala:252
@@ -711,7 +711,7 @@ msgstr "Vložit"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr "Nebyla nalezena žádná vhodná slovíčka"
+msgstr "Nebyly nalezeny žádné vhodné slovníky"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
@@ -720,7 +720,7 @@ msgstr "Nainstalujte prosím alespoň jeden [aspell] slovník."
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - dokončených slov"
+msgstr "%s – dokončování slov"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Vykreslit mezery:"
