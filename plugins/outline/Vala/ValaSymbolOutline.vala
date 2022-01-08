@@ -19,12 +19,12 @@
 public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     public Scratch.Services.Document doc { get; construct; }
+    public Gtk.CssProvider source_list_style_provider { get; set construct; }
     private Granite.Widgets.SourceList store;
     private Granite.Widgets.SourceList.ExpandableItem root;
     private Code.Plugins.ValaSymbolResolver resolver;
     private Vala.Parser parser;
     private GLib.Cancellable cancellable;
-
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
         Object (
             doc: _doc
@@ -45,6 +45,8 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 
         parser = new Vala.Parser ();
         resolver = new Code.Plugins.ValaSymbolResolver ();
+
+        set_up_css ();
     }
 
     ~ValaSymbolOutline () {

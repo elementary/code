@@ -19,6 +19,7 @@
 public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     public Scratch.Services.Document doc { get; construct; }
+    public Gtk.CssProvider source_list_style_provider { get; set construct; }
     private Granite.Widgets.SourceList store;
     private Granite.Widgets.SourceList.ExpandableItem root;
     private GLib.Subprocess current_subprocess;
@@ -45,6 +46,8 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
             goto (doc, ((CtagsSymbol)selected).line);
             store.selected = null;
         });
+
+        set_up_css ();
     }
 
     ~CtagsSymbolOutline () {
