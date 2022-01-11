@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2022-01-10 14:56+0000\n"
+"PO-Revision-Date: 2022-01-11 13:10+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/extra/cs/>\n"
 "Language: cs\n"
@@ -29,20 +29,17 @@ msgid "The editor that works for you"
 msgstr "Editor, který pracuje pro vás"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Code je textový editor, který pracuje za vás. Automaticky ukládá soubory, "
-"aby byli vždy aktuální. Pamatuji si také otevřené panely, abyste se už nikdy "
-"neztratili, ani při přepínání několika sezení."
+"Automaticky ukládá soubory, aby byli vždy aktuální. Pamatuji si také "
+"otevřené panely, abyste se už nikdy neztratili, ani při přepínání několika "
+"sezení. Automaticky ukládá soubory, aby bylo zajištěno, že jsou aktuální a "
+"pamatuje si otevřené panely, takže nikdy neztratíte své soustředění – ani "
+"mezi relacemi."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -50,21 +47,18 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Navrženo kolem projektového způsobu práce, Code ví o oddělených zdrojových "
+"kódech. Přichází s nápomocným napojením na Git pro vytváření a přepínání "
+"mezi větvemi a zobrazuje změněné soubory a řádky v rámci projektů."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Umí pracovat s vaším jazykem. Ať už vytváříte kód ve Vale, skriptujete v "
+"Umí pracovat s vaším jazykem: ať už vytváříte kód ve Vale, skriptujete v "
 "PHP, nebo značkujete pomocí HTML, Code je tu pro vás. Jistě oceníte plné "
 "zvýrazňování syntaxe s téměř všemi programovacími, skriptovacími a "
 "značkovacími jazyky."
@@ -74,6 +68,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Najděte cokoli v právě otevřeném souboru, konkrétních složkách nebo v celém "
+"projektu pomocí voleb pro (ne)rozlišování mezi malými/VELKÝMI písmeny a "
+"regulárních výrazů."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -82,6 +79,11 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Přehlídka chytrých funkcí: automatické odsazování, inteligentní chování "
+"vyjmutí/zkopírování, ve výchozím stavu viditelné prázdné znaky (whitespace) "
+"pro označený text a na konci řádku a volitelná rozšíření pro akce ohledně "
+"Markdown, kontrola překlepů, ořezávání prázdných znaků, dokončování slov a "
+"další."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -89,6 +91,8 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Upravte si Code podle stylu své práce: je možné vyladit chování rozhraní dle "
+"potřeby pomocí mnoha užitečných a promyšlených rozšíření a předvoleb."
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
@@ -99,6 +103,8 @@ msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Schémata barev Solarized Light, Solarized Dark, a Vysoký kontrast, která se "
+"týkají celého uživatelského rozhraní"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
@@ -118,13 +124,15 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Zobrazit stávající řádek jako znak – a rychle skočit na nový řádek"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Posunování za konec souboru, takže je možné ponechat stávající řádek tam, "
+"kde je to pohodlné"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
@@ -149,7 +157,7 @@ msgstr "Při posouvání k výsledkům hledání, je zlepšena jejich viditelnos
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "Použit portál FileChooser namísto toho z GTK"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "Center the global search dialog over the main Code window"
