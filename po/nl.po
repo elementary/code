@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-12 14:01+0000\n"
 "PO-Revision-Date: 2022-01-12 07:17+0000\n"
-"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Plugin"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[BESTAND…]"
 
 #: src/MainWindow.vala:140 src/MainWindow.vala:416
 msgid "Code"
@@ -93,7 +93,7 @@ msgstr "Zoeken naar tekst in “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "De zoekterm moet tenminste 3 karakters lang zijn."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
@@ -101,7 +101,7 @@ msgstr "Hoofdletter gevoelig:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Gebruik reguliere uitdrukkingen:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
 msgid "Search"
@@ -115,13 +115,11 @@ msgstr "Maak een nieuwe tak van “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "De taknaam moet uniek zijn en de Git naamregels volgen."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Branch"
+msgstr "Tak Aanmaken"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
@@ -193,10 +191,8 @@ msgid "Line wrap:"
 msgstr "Lijnafbreking:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "Onnodige witruimte weghalen"
+msgstr "Zichtbare witruimte:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -297,10 +293,8 @@ msgid "Find in Project…"
 msgstr "Vind in project…"
 
 #: src/FolderManager/ProjectFolderItem.vala:196
-#, fuzzy
-#| msgid "%s, Modified"
 msgid "Modified"
-msgstr "%s, Bewerkt"
+msgstr "Aangepast"
 
 #: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
