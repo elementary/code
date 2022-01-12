@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2020-09-20 20:14+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"PO-Revision-Date: 2022-01-12 07:17+0000\n"
+"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -89,33 +89,28 @@ msgstr "_Annuleer"
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Zoeken naar tekst in “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Niet hoofdletter gevoelig"
+msgstr "Hoofdletter gevoelig:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Volgende zoeken"
+msgstr "Zoeken"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Creëer een nieuwe instantie"
+msgstr "Maak een nieuwe tak van “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
@@ -262,10 +257,8 @@ msgid "Folders"
 msgstr "Mappen"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Folder…"
-msgstr "Project Map toevoegen…"
+msgstr "Vind in map…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -300,10 +293,8 @@ msgid "Close Other Folders"
 msgstr "Sluit andere mappen"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Project…"
-msgstr "Project Map toevoegen…"
+msgstr "Vind in project…"
 
 #: src/FolderManager/ProjectFolderItem.vala:196
 #, fuzzy
@@ -314,13 +305,11 @@ msgstr "%s, Bewerkt"
 #: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Fout bij het aanmaken van een nieuwe tak: “%s”"
 
 #: src/FolderManager/ProjectFolderItem.vala:515
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "Branch"
+msgstr "Nieuwe tak…"
 
 #: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
