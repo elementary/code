@@ -16,12 +16,8 @@
  *
  */
 
-public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; construct; }
-    public Gtk.CssProvider source_list_style_provider { get; set construct; }
-    private Granite.Widgets.SourceList store;
-    private Granite.Widgets.SourceList.ExpandableItem root;
+public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutline {
+    // public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     private GLib.Subprocess current_subprocess;
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {
@@ -31,37 +27,16 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
     }
 
     construct {
-        doc.doc_saved.connect (parse_symbols);
-        doc.doc_closed.connect (doc_closed);
-
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-
-        store = new Granite.Widgets.SourceList ();
-        store.root.add (root);
         store.item_selected.connect ((selected) => {
-            if (selected == null) {
-                return;
-            }
-
             goto (doc, ((CtagsSymbol)selected).line);
-            store.selected = null;
         });
-
-        set_up_css ();
     }
 
     ~CtagsSymbolOutline () {
         debug ("Destroy Ctags outline");
     }
 
-    void doc_closed (Scratch.Services.Document doc) {
-        doc.doc_closed.disconnect (doc_closed);
-        doc.doc_saved.disconnect (parse_symbols);
-
-        doc.remove_outline_widget ();
-        doc.steal_data<SymbolOutline> ("SymbolOutline");
-    }
-    public void parse_symbols () {
+    public override void parse_symbols () {
         if (current_subprocess != null)
             current_subprocess.force_exit ();
 
@@ -267,9 +242,5 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         return match;
-    }
-
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
     }
 }

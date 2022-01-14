@@ -30,7 +30,6 @@ namespace Scratch.Services {
 
         public delegate void VoidFunc ();
         public signal void doc_opened ();
-        public signal void doc_saved ();
         public signal void doc_closed ();
 
         // The parent window's actions
@@ -89,7 +88,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-
+        private Scratch.Services.SymbolOutline? outline = null;
         public string original_content;
         private string last_save_content;
         public bool saved = true;
@@ -476,7 +475,10 @@ namespace Scratch.Services {
 
             source_view.buffer.set_modified (false);
 
-            doc_saved (); // Signal outline plugin
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
+
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
@@ -920,33 +922,36 @@ namespace Scratch.Services {
             mounted = true;
         }
 
+        public void show_outline (bool show) {
+            if (show && outline == null) {
+                // var mime_type = mime_type;
+                switch (mime_type) {
+                    case "text/x-vala":
+                        outline = new ValaSymbolOutline (this);
+                        break;
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
+                        outline = new CtagsSymbolOutline (this);
+                        break;
+                }
+
+                if (outline != null) {
+                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
+                    outline_widget_pane.set_position (position);
+                    outline.parse_symbols ();
+                }
+            } else if (outline != null) {
+                outline_widget_pane.get_child2 ().destroy ();
+                outline = null;
+            }
+        }
+
         private void unmounted_cb () {
             warning ("Folder containing the file was unmounted");
             mounted = false;
-        }
-
-        public bool add_outline_widget (Gtk.Widget extra) {
-            if (has_outline_widget ()) {
-                return false;
-            } else {
-                outline_widget_pane.pack2 (extra, false, false);
-                var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
-                outline_widget_pane.set_position (position);
-                return true;
-            }
-        }
-
-        public bool remove_outline_widget () {
-            if (!has_outline_widget ()) {
-                return false;
-            } else {
-                outline_widget_pane.get_child2 ().destroy ();
-                return true;
-            }
-        }
-
-        public bool has_outline_widget () {
-            return outline_widget_pane.get_child2 () != null;
         }
     }
 }

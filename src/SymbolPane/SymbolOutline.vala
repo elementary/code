@@ -16,12 +16,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public interface Code.Plugins.SymbolOutline : Object {
-    public abstract Scratch.Services.Document doc { get; construct; }
+public abstract class Scratch.Services.SymbolOutline : Object {
+    public Scratch.Services.Document doc { get; construct; }
+
+    protected Granite.Widgets.SourceList store;
+    protected Granite.Widgets.SourceList.ExpandableItem root;
+    protected Gtk.CssProvider source_list_style_provider;
+    public Gtk.Widget get_widget () { return store; }
     public abstract void parse_symbols ();
-    public abstract Gtk.CssProvider source_list_style_provider { get; set construct; }
-    public abstract Granite.Widgets.SourceList get_source_list ();
+    // public abstract void doc_closed ();
     public signal void goto (Scratch.Services.Document doc, int line);
+
+    // protected SymbolOutline (Scratch.Services.Document _doc) {
+    //     Object (
+    //         doc: _doc
+    //     );
+    // }
+
+    construct {
+        store = new Granite.Widgets.SourceList ();
+        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        store.root.add (root);
+
+        set_up_css ();
+    }
 
     protected void set_up_css () {
         source_list_style_provider = new Gtk.CssProvider ();
@@ -31,7 +49,7 @@ public interface Code.Plugins.SymbolOutline : Object {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
         // Add a class to distinguish from foldermanager sourcelist
-        get_source_list ().get_style_context ().add_class ("symbol-outline");
+        store.get_style_context ().add_class ("symbol-outline");
 
         update_source_list_colors ();
         Scratch.settings.changed["style-scheme"].connect (update_source_list_colors);

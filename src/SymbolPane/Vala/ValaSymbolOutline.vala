@@ -16,12 +16,8 @@
  *
  */
 
-public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; construct; }
-    public Gtk.CssProvider source_list_style_provider { get; set construct; }
-    private Granite.Widgets.SourceList store;
-    private Granite.Widgets.SourceList.ExpandableItem root;
+public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline {
+    // public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     private Code.Plugins.ValaSymbolResolver resolver;
     private Vala.Parser parser;
     private GLib.Cancellable cancellable;
@@ -32,21 +28,14 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
     }
 
     construct {
-        doc.doc_saved.connect (parse_symbols);
-        doc.doc_closed.connect (doc_closed);
+        parser = new Vala.Parser ();
+        resolver = new Code.Plugins.ValaSymbolResolver ();
 
-        store = new Granite.Widgets.SourceList ();
         store.item_selected.connect ((selected) => {
             goto (doc, ((ValaSymbolItem)selected).symbol.source_reference.begin.line);
         });
 
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-        store.root.add (root);
-
-        parser = new Vala.Parser ();
-        resolver = new Code.Plugins.ValaSymbolResolver ();
-
-        set_up_css ();
+        doc.doc_closed.connect (doc_closed);
     }
 
     ~ValaSymbolOutline () {
@@ -55,22 +44,13 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 
     void doc_closed (Scratch.Services.Document doc) {
         doc.doc_closed.disconnect (doc_closed);
-        doc.doc_saved.disconnect (parse_symbols);
-
-        doc.remove_outline_widget ();
-        doc.steal_data<SymbolOutline> ("SymbolOutline");
-
         if (cancellable != null) {
             cancellable.cancel ();
             cancellable = null;
         }
     }
 
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
-    }
-
-    public void parse_symbols () {
+    public override void parse_symbols () {
         var context = new Vala.CodeContext ();
 #if VALA_0_50
         context.set_target_profile (Vala.Profile.GOBJECT, false);

@@ -16,7 +16,7 @@
  *
  */
 
-public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+public class Scratch.Services.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
     public Vala.Symbol symbol { get; set; }
 
     public ValaSymbolItem (Vala.Symbol symbol) {

@@ -36,6 +36,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public GLib.List<Services.Document> docs;
 
     public bool is_closing = false;
+    public bool outline_visible { get; set; default = false; }
 
     private Gtk.CssProvider style_provider;
 
@@ -95,6 +96,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         update_inline_tab_colors ();
         Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
+        notify["outline-visible"].connect (update_outline_visible);
+    }
+
+    public void update_outline_visible () {
+        docs.@foreach ((doc) => {
+            doc.show_outline (outline_visible);
+        });
     }
 
     private void update_inline_tab_colors () {

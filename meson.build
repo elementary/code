@@ -44,6 +44,10 @@ code_resources = gnome.compile_resources(
     source_dir: 'data'
 )
 
+# We need libvala-X.XX library, but it changes depending on the version that is installed
+vala_version = run_command (meson.get_compiler('vala'), '--api-version').stdout().strip()
+vala_dep = dependency('libvala-@0@'.format(vala_version))
+
 dependencies = [
     glib_dep,
     gio_unix_dep,
@@ -58,6 +62,7 @@ dependencies = [
     fontconfig_dep,
     pangofc_dep,
     posix_dep,
+    vala_dep
 ]
 
 subdir('data')

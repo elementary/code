@@ -16,13 +16,12 @@
  *
  */
 
-public class Code.Plugins.CtagsSymbolIter : Object {
-    public string name { get; construct set; }
-    public string parent { get; construct set; }
+public class Scratch.Services.CtagsSymbol : Granite.Widgets.SourceList.ExpandableItem {
+    public Scratch.Services.Document doc { get; construct set; }
     public int line { get; construct set; }
-    public Icon? icon { get; construct set; }
 
-    public CtagsSymbolIter (string name, string parent, int line, Icon? icon) {
-        Object (name: name, parent: parent, line: line, icon: icon);
+    public CtagsSymbol (Scratch.Services.Document doc, string name, int line, Icon? _icon) {
+        Object (doc: doc, name: name, line: line);
+        icon = _icon;
     }
 }

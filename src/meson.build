@@ -45,6 +45,15 @@ code_files = files(
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
     'Widgets/WelcomeView.vala',
+    'SymbolPane/SymbolOutline.vala',
+    'SymbolPane/Vala/ValaComparisonHelper.vala',
+    'SymbolPane/Vala/ValaSymbolItem.vala',
+    'SymbolPane/Vala/ValaSymbolOutline.vala',
+    'SymbolPane/Vala/ValaSymbolResolver.vala',
+    'SymbolPane/C/CtagsSymbol.vala',
+    'SymbolPane/C/CtagsSymbolIter.vala',
+    'SymbolPane/C/CtagsSymbolOutline.vala',
+
 )
 
 executable(
