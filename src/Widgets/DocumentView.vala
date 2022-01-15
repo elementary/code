@@ -148,6 +148,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return unsaved_file_path_builder (extension);
     }
 
+    private void insert_document (Scratch.Services.Document doc, int pos) {
+        insert_tab (doc, pos);
+        if (Scratch.saved_state.get_boolean ("outline-visible")) {
+            warning ("setting outline visible");
+            doc.show_outline (true);
+        }
+    }
+
     public void new_document () {
         var file = File.new_for_path (unsaved_file_path_builder ());
         try {
@@ -155,7 +163,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var doc = new Services.Document (window.actions, file);
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -175,7 +183,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var doc = new Services.Document (window.actions, file);
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -202,7 +210,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
         }
 
-        insert_tab (doc, -1);
+        insert_document (doc, -1);
         if (focus) {
             current_document = doc;
         }
@@ -237,7 +245,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 doc.save.begin (true);
             }
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
             doc.focus ();
         } catch (Error e) {
@@ -360,7 +368,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
-            other_window.document_view.insert_tab (doc, -1);
+            other_window.document_view.insert_document (doc, -1);
 
             return false;
         });

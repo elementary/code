@@ -943,7 +943,7 @@ namespace Scratch.Services {
                     outline_widget_pane.set_position (position);
                     outline.parse_symbols ();
                 }
-            } else if (outline != null) {
+            } else if (!show && outline != null) {
                 outline_widget_pane.get_child2 ().destroy ();
                 outline = null;
             }
