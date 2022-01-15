@@ -32,7 +32,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         resolver = new Code.Plugins.ValaSymbolResolver ();
 
         store.item_selected.connect ((selected) => {
-            goto (doc, ((ValaSymbolItem)selected).symbol.source_reference.begin.line);
+            doc.goto (((ValaSymbolItem)selected).symbol.source_reference.begin.line);
         });
 
         doc.doc_closed.connect (doc_closed);

@@ -953,5 +953,13 @@ namespace Scratch.Services {
             warning ("Folder containing the file was unmounted");
             mounted = false;
         }
+
+        public void goto (int line) {
+            var text = source_view;
+            Gtk.TextIter iter;
+            text.buffer.get_iter_at_line (out iter, line - 1);
+            text.buffer.place_cursor (iter);
+            text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+        }
     }
 }

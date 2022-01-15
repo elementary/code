@@ -24,14 +24,6 @@ public abstract class Scratch.Services.SymbolOutline : Object {
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return store; }
     public abstract void parse_symbols ();
-    // public abstract void doc_closed ();
-    public signal void goto (Scratch.Services.Document doc, int line);
-
-    // protected SymbolOutline (Scratch.Services.Document _doc) {
-    //     Object (
-    //         doc: _doc
-    //     );
-    // }
 
     construct {
         store = new Granite.Widgets.SourceList ();

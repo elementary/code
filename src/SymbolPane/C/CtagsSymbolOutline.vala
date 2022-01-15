@@ -28,7 +28,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
 
     construct {
         store.item_selected.connect ((selected) => {
-            goto (doc, ((CtagsSymbol)selected).line);
+            doc.goto (((CtagsSymbol)selected).line);
         });
     }
 
