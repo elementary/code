@@ -157,6 +157,16 @@ namespace Scratch.Widgets {
             toggle_sidebar_menuitem.get_child ().destroy ();
             toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
 
+            var toggle_outline_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Toggle Symbol Outline"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE
+            );
+
+            var toggle_outline_menuitem = new Gtk.ModelButton ();
+            toggle_outline_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE;
+            toggle_outline_menuitem.get_child ().destroy ();
+            toggle_outline_menuitem.add (toggle_outline_accellabel);
+
             var preferences_menuitem = new Gtk.ModelButton ();
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
@@ -171,6 +181,7 @@ namespace Scratch.Widgets {
             menu_grid.attach (color_button_dark, 2, 1, 1, 1);
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
             menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
+            menu_grid.attach (toggle_outline_menuitem, 0, 4, 3, 1);
             menu_grid.attach (preferences_menuitem, 0, 6, 3);
             menu_grid.show_all ();
 
