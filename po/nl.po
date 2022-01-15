@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2022-01-12 18:06+0000\n"
+"PO-Revision-Date: 2022-01-16 02:49+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -65,7 +65,7 @@ msgstr "Tekstbestanden"
 
 #: src/MainWindow.vala:738
 msgid "Open some files"
-msgstr "Open een paar bestanden"
+msgstr "Open meerdere bestanden"
 
 #: src/MainWindow.vala:741
 msgid "Open"
@@ -217,7 +217,8 @@ msgstr "Weet u zeker dat u dit bestand wilt herstellen?"
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
-"Het herstellen van een bestand maakt alle wijzigingen na het openen ongedaan"
+"Het herstellen van een bestand zal alle verandering die zijn aangebracht "
+"sinds het is geopend ongedaan maken"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
@@ -250,15 +251,15 @@ msgstr "Naar de prullenbak verplaatsen"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
-msgstr "Mappen"
+msgstr "Folders"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find in Folder…"
-msgstr "Vind in map…"
+msgstr "Vind in folder…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
-msgstr "Map"
+msgstr "Folder"
 
 #: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
@@ -274,7 +275,7 @@ msgstr "Nieuw"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
-msgstr "naamloze map"
+msgstr "naamloze folder"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "new file"
@@ -282,11 +283,11 @@ msgstr "nieuw bestand"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
-msgstr "Sluit map"
+msgstr "Sluit folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
-msgstr "Sluit andere mappen"
+msgstr "Sluit andere folders"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
 msgid "Find in Project…"
@@ -525,7 +526,7 @@ msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:42
 msgid "Open Project Folder…"
-msgstr "Open Project Map…"
+msgstr "Open project folder…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
@@ -537,7 +538,7 @@ msgstr "Alfabetiseer"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr "Beheer projectmappen"
+msgstr "Beheer projectfolders"
 
 #: src/Widgets/SearchBar.vala:67
 msgid "Find"
@@ -617,11 +618,11 @@ msgstr "Een opgeslagen bestand openen."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Map openen"
+msgstr "Folder openen"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr "Voeg een projectmap toe aan de zijbalk."
+msgstr "Voeg een projectfolder toe aan de zijbalk."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
