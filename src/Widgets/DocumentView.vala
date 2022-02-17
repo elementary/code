@@ -287,32 +287,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         current_document.focus ();
     }
 
-    private bool find_unique_path (File f1, File f2, out string? path1, out string? path2) {
-        if (f1.equal (f2)) {
-            path1 = null;
-            path2 = null;
-            return false;
-        }
-
-        var f1_parent = f1.get_parent ();
-        var f2_parent = f2.get_parent ();
-
-        while (f1_parent.get_relative_path (f1) == f2_parent.get_relative_path (f2)) {
-            f1_parent = f1_parent.get_parent ();
-            f2_parent = f2_parent.get_parent ();
-        }
-
-        path1 = f1_parent.get_relative_path (f1);
-        path2 = f2_parent.get_relative_path (f2);
-        return true;
-    }
 
     private void rename_tabs_with_same_title (Services.Document doc) {
         string doc_tab_name = doc.file.get_basename ();
         foreach (var d in docs) {
             string new_tabname_doc, new_tabname_d;
 
-            if (find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {
+            if (Utils.find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {
                 if (d.label.length < new_tabname_d.length) {
                     d.tab_name = new_tabname_d;
                 }
@@ -368,7 +349,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         other_window.move (x, y);
 
         // We need to make sure switch back to the main thread
-        // when we are modifiying Gtk widgets shared by two threads.
+        // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
             other_window.document_view.insert_tab (doc, -1);

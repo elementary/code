@@ -268,7 +268,7 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
-            // Crate folder for unsaved documents
+            // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
@@ -413,7 +413,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                toolbar.title = app.app_cmd_name;
+                title = _("Code");
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -429,7 +429,7 @@ namespace Scratch {
 
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
-                toolbar.title = doc.get_basename ();
+                title = doc.get_basename ();
 
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
@@ -539,8 +539,6 @@ namespace Scratch {
             // PlugIns
             if (val) {
                 on_plugin_toggled (bottombar);
-            } else {
-                bottombar.visible = val;
             }
         }
 
@@ -583,7 +581,7 @@ namespace Scratch {
             return true;
         }
 
-        // Save session informations different from window state
+        // Save session information different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
             hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
