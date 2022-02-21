@@ -177,7 +177,7 @@ namespace Scratch.Widgets {
             add (search_flow_box_child);
             add (replace_flow_box_child);
 
-            update_replace_tool_sensitivities (search_entry.text, false);
+            update_replace_tool_sensitivities (false);
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -198,8 +198,8 @@ namespace Scratch.Widgets {
         private void on_text_buffer_changed () {
             update_search_occurence_label ();
             update_tool_arrows ();
-            bool matches = search ();
-            update_replace_tool_sensitivities (search_entry.text, matches);
+            bool matches = has_matches ();
+            update_replace_tool_sensitivities (matches);
         }
 
         private void on_replace_entry_activate () {
@@ -216,10 +216,10 @@ namespace Scratch.Widgets {
                 try {
                     search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
                     bool matches = search ();
-                    update_replace_tool_sensitivities (search_entry.text, matches);
+                    update_replace_tool_sensitivities (matches);
                     update_tool_arrows ();
                     update_search_occurence_label ();
-                    debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
                 } catch (Error e) {
                     critical (e.message);
                 }
@@ -238,7 +238,7 @@ namespace Scratch.Widgets {
                 search_context.replace_all (replace_string, replace_string.length);
                 update_tool_arrows ();
                 update_search_occurence_label ();
-                update_replace_tool_sensitivities (search_entry.text, false);
+                update_replace_tool_sensitivities (false);
             } catch (Error e) {
                 critical (e.message);
             }
@@ -258,7 +258,7 @@ namespace Scratch.Widgets {
             search_context.settings.regex_enabled = tool_regex_button.active;
 
             bool matches = search ();
-            update_replace_tool_sensitivities (search_entry.text, matches);
+            update_replace_tool_sensitivities (matches);
             update_search_occurence_label ();
             update_tool_arrows ();
 
@@ -267,9 +267,9 @@ namespace Scratch.Widgets {
             }
         }
 
-        private void update_replace_tool_sensitivities (string search_text, bool matches) {
-            replace_tool_button.sensitive = matches && search_text != "";
-            replace_all_tool_button.sensitive = matches && search_text != "";
+        private void update_replace_tool_sensitivities (bool matches) {
+            replace_tool_button.sensitive = matches && search_entry.text != "";
+            replace_all_tool_button.sensitive = matches && search_entry.text != "";
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -297,11 +297,9 @@ namespace Scratch.Widgets {
         }
 
         public bool search () {
-            /* So, first, let's check we can really search something. */
-            string search_string = search_entry.text;
             search_context.highlight = false;
 
-            if (text_buffer == null || text_buffer.text == "" || search_string == "") {
+            if (!has_matches ()) {
                 debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
                 search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
@@ -321,7 +319,7 @@ namespace Scratch.Widgets {
                     search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
-                    debug ("Not found: \"%s\"", search_string);
+                    debug ("Not found: \"%s\"", search_entry.text);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
@@ -335,6 +333,16 @@ namespace Scratch.Widgets {
 
         public void highlight_none () {
             search_context.highlight = false;
+        }
+
+        private bool has_matches () {
+            if (text_buffer == null || search_entry.text == "") {
+                return false;
+            }
+            bool has_wrapped_around;
+            Gtk.TextIter? start_iter, end_iter;
+            text_buffer.get_start_iter (out start_iter);
+            return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
         }
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
