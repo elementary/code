@@ -47,20 +47,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
-        var project_filter = new Gtk.SearchEntry () {
-            margin = 12,
-            margin_bottom = 6,
-            placeholder_text = _("Filter projects")
-        };
-
-        project_listbox.set_filter_func ((row) => {
-            //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
-        });
-
-        project_filter.changed.connect (() => {
-            project_listbox.invalidate_filter ();
-        });
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
@@ -74,7 +60,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_scrolled.add (project_listbox);
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (project_filter);
         popover_content.add (project_scrolled);
 
         popover_content.show_all ();
