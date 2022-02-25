@@ -24,6 +24,12 @@ namespace Scratch.Widgets {
 
         private Gtk.Button tool_arrow_up;
         private Gtk.Button tool_arrow_down;
+
+        /**
+         * Is the search cyclic? e.g., when you are at the bottom, if you press
+         * "Down", it will go at the start of the file to search for the content
+         * of the search entry.
+         **/
         public Gtk.ToggleButton tool_cycle_search { get; construct; }
         private Gtk.ToggleButton case_sensitive_button;
         private Gtk.ToggleButton tool_regex_button;
