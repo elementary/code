@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 11:04+0000\n"
-"PO-Revision-Date: 2021-10-09 08:52+0000\n"
+"PO-Revision-Date: 2022-03-01 23:12+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -548,7 +548,7 @@ msgstr "Søk"
 #: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
 #: src/Widgets/SearchBar.vala:553
 msgid "no results"
-msgstr ""
+msgstr "resultatløst"
 
 #: src/Widgets/SearchBar.vala:82
 msgid "Search next"
@@ -573,10 +573,8 @@ msgid "Case Insensitive"
 msgstr "Ingen forskjell på store og små bokstaver"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Bruk regulære uttrykk:"
+msgstr "Bruk regulære uttrykk"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
@@ -661,7 +659,7 @@ msgstr "Tilgjengelige formater"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
 msgid "Select Format"
-msgstr "Velg format:"
+msgstr "Velg format"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
