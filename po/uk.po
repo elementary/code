@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 11:04+0000\n"
-"PO-Revision-Date: 2021-12-12 15:56+0000\n"
+"PO-Revision-Date: 2022-03-01 18:31+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -574,10 +574,8 @@ msgid "Case Insensitive"
 msgstr "Без врахування регістру"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Застосувати регулярний вираз:"
+msgstr "Застосувати регулярний вираз"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
