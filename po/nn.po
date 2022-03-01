@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2020-07-17 12:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/code/"
@@ -444,7 +444,7 @@ msgstr "Prosjektmalar"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -559,8 +559,8 @@ msgid "Find"
 msgstr "Søk"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr ""
 
@@ -578,23 +578,27 @@ msgstr "Syklisk søk"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+msgid "Use regular expressions"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "Erstatt med"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "Byt ut"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "Erstatt alle"
 
@@ -744,7 +748,7 @@ msgstr ""
 "Fann ingen passande ordbøker.\n"
 "Installer minst éi [aspell]-ordbok"
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Ordfullføring"

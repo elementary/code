@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -435,7 +435,7 @@ msgstr "專案模板"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -548,8 +548,8 @@ msgid "Find"
 msgstr "尋找"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr ""
 
@@ -567,23 +567,27 @@ msgstr "前後循環搜尋"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "區分大小寫"
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "不區分大小寫"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+msgid "Use regular expressions"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "替換為"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "取代"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "全部取代"
 
@@ -728,7 +732,7 @@ msgstr "找不到合適的字典"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "請安裝至少一本 [aspell] 字典。"
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"

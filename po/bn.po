@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -451,7 +451,7 @@ msgstr "প্রজেক্ট টেম্পলেটসমূহ"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -569,8 +569,8 @@ msgid "Find"
 msgstr "খুঁজুন"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr ""
 
@@ -588,23 +588,27 @@ msgstr "সাইক্লিক অনুসন্ধান"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+msgid "Use regular expressions"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "প্রতিস্থাপক শব্দ/শব্দগুচ্ছ"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "প্রতিস্থাপন"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
 
@@ -757,7 +761,7 @@ msgstr ""
 "কোন উপযুক্ত অভিধান পাওয়া যায়নি।\n"
 "অনুগ্রহপূর্বক অন্ততঃ একটি [aspell] অভিধান ইন্সটল করুন"
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - শব্দ পরিপূরণ"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2021-12-12 15:56+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
-"\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
+">\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -431,7 +431,7 @@ msgstr "Проєкт не вибрано"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Активний Git-проєкт: %s"
@@ -546,8 +546,8 @@ msgid "Find"
 msgstr "Знайти"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr "нічого не знайдено"
 
@@ -565,23 +565,29 @@ msgstr "Циклічний пошук"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "З урахуванням регістру"
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "Без врахування регістру"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+#, fuzzy
+#| msgid "Use regular expressions:"
+msgid "Use regular expressions"
+msgstr "Застосувати регулярний вираз:"
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "Замінити на"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "Замінити"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "Замінити все"
 
@@ -722,7 +728,7 @@ msgstr "Відповідних словників не знайдено"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Установіть принаймні один словник [aspell]."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"

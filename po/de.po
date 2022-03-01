@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2021-12-13 23:23+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -434,7 +434,7 @@ msgstr "Kein Projekt ausgewählt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Aktives Git-Projekt: %s"
@@ -547,8 +547,8 @@ msgid "Find"
 msgstr "Suchen"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr "keine Ergebnisse"
 
@@ -566,23 +566,29 @@ msgstr "Suche immer am Textanfang fortsetzen"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "Groß- und Kleinschreibung beachten"
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "Groß- und Kleinschreibung beachten"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+#, fuzzy
+#| msgid "Use regular expressions:"
+msgid "Use regular expressions"
+msgstr "Reguläre Ausdrücke verwenden:"
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "Ersetzen durch"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "Ersetzen"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "Alle ersetzen"
 
@@ -723,7 +729,7 @@ msgstr "Keine geeigneten Wörterbücher gefunden"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Wortvervollständigung"

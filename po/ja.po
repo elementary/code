@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2022-03-01 11:04+0000\n"
 "PO-Revision-Date: 2021-12-30 16:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -406,7 +406,9 @@ msgstr "別の場所に変更内容を保存"
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr "ファイル \"%s\" は外部のアプリケーションによって変更されました。ファイルを再読み込みしますか？　または編集を続行しますか？"
+msgstr ""
+"ファイル \"%s\" は外部のアプリケーションによって変更されました。ファイルを再"
+"読み込みしますか？　または編集を続行しますか？"
 
 #: src/Services/Document.vala:784
 msgid "Load"
@@ -426,7 +428,7 @@ msgstr "プロジェクトが選択されていません"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr "アクティブな Git プロジェクト: %s"
@@ -537,8 +539,8 @@ msgid "Find"
 msgstr "検索"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:550
+#: src/Widgets/SearchBar.vala:553
 msgid "no results"
 msgstr "結果がありません"
 
@@ -556,23 +558,29 @@ msgstr "循環検索"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "大文字と小文字を区別しない"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:119
+#, fuzzy
+#| msgid "Use regular expressions:"
+msgid "Use regular expressions"
+msgstr "正規表現を使う:"
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "すべて置換"
 
@@ -713,7 +721,7 @@ msgstr "適切な辞書が見つかりませんでした"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールしてください。"
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
