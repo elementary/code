@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 11:04+0000\n"
-"PO-Revision-Date: 2022-01-10 14:56+0000\n"
-"Last-Translator: hnklp <hynek.puta@seznam.cz>\n"
+"PO-Revision-Date: 2022-03-02 13:56+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -570,10 +570,8 @@ msgid "Case Insensitive"
 msgstr "Nerozlišovat malá/VELKÁ písmena"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Použít regulární výrazy:"
+msgstr "Použít regulární výrazy"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
