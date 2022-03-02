@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 11:04+0000\n"
-"PO-Revision-Date: 2021-12-13 23:23+0000\n"
+"PO-Revision-Date: 2022-03-02 02:41+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -575,10 +575,8 @@ msgid "Case Insensitive"
 msgstr "Groß- und Kleinschreibung beachten"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Reguläre Ausdrücke verwenden:"
+msgstr "Reguläre Ausdrücke verwenden"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
