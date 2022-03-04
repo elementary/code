@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 11:04+0000\n"
-"PO-Revision-Date: 2021-12-12 20:46+0000\n"
+"PO-Revision-Date: 2022-03-04 20:30+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -571,10 +571,8 @@ msgid "Case Insensitive"
 msgstr "Büyük/Küçük Harfe Duyarsız"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Normal ifadeler kullan:"
+msgstr "Normal ifadeler kullan"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
