@@ -187,12 +187,17 @@ namespace Scratch.Widgets {
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
+            cancel_update_search_occurence_label ();
+            this.text_view = text_view;
+
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
+                search_context = null;
                 return;
+            } else if (this.text_buffer != null) {
+                this.text_buffer.changed.disconnect (on_text_buffer_changed);
             }
 
-            this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
