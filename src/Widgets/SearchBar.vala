@@ -220,6 +220,7 @@ namespace Scratch.Widgets {
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
                 try {
+                    cancel_update_search_occurence_label ();
                     search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
                     bool matches = search ();
                     update_replace_tool_sensitivities (matches);
@@ -241,6 +242,7 @@ namespace Scratch.Widgets {
             string replace_string = replace_entry.text;
             this.window.get_current_document ().toggle_changed_handlers (false);
             try {
+                cancel_update_search_occurence_label ();
                 search_context.replace_all (replace_string, replace_string.length);
                 update_tool_arrows ();
                 update_search_occurence_label ();
@@ -257,6 +259,11 @@ namespace Scratch.Widgets {
         }
 
         private void on_search_entry_text_changed () {
+            if (search_context == null) {
+                critical ("search entry changed with null context");
+                return;
+            }
+
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
             bool case_sensitive = is_case_sensitive (search_string);
@@ -303,6 +310,10 @@ namespace Scratch.Widgets {
         }
 
         public bool search () {
+            if (search_context == null) {
+                return false;
+            }
+
             search_context.highlight = false;
 
             if (!has_matches ()) {
@@ -338,13 +349,16 @@ namespace Scratch.Widgets {
         }
 
         public void highlight_none () {
-            search_context.highlight = false;
+            if (search_context == null) {
+                search_context.highlight = false;
+            }
         }
 
         private bool has_matches () {
             if (text_buffer == null || search_entry.text == "") {
                 return false;
             }
+
             bool has_wrapped_around;
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_start_iter (out start_iter);
@@ -352,6 +366,10 @@ namespace Scratch.Widgets {
         }
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            if (search_context == null) {
+                critical ("Trying to search forwards with no search context");
+            }
+
             end_iter = start_iter;
             bool has_wrapped_around;
             bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
@@ -369,6 +387,10 @@ namespace Scratch.Widgets {
         }
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            if (search_context == null) {
+                critical ("Trying to search backwards with no search context");
+            }
+
             end_iter = start_iter;
             bool has_wrapped_around;
             bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
@@ -526,14 +548,22 @@ namespace Scratch.Widgets {
                    !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
 
-        private void update_search_occurence_label () {
+        private void cancel_update_search_occurence_label () {
             if (update_search_label_timeout_id > 0) {
                 Source.remove (update_search_label_timeout_id);
                 update_search_label_timeout_id = 0;
             }
+        }
 
+        private void update_search_occurence_label () {
+            cancel_update_search_occurence_label ();
             update_search_label_timeout_id = Timeout.add (100, () => {
                 update_search_label_timeout_id = 0;
+                if (search_context == null) {
+                    warning ("update occurrence with null context");
+                    return Source.REMOVE;
+                }
+
                 Gtk.TextIter? iter, start_iter, end_iter;
                 text_buffer.get_iter_at_offset (out iter, text_buffer.cursor_position);
 
