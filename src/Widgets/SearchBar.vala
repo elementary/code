@@ -264,8 +264,8 @@ namespace Scratch.Widgets {
         }
 
         private void on_search_entry_text_changed () {
-            if (search_context == null) {
-                critical ("search entry changed with null context");
+            if (search_context == null) { // This can happen during start up
+                debug ("search entry changed with null context");
                 return;
             }
 
