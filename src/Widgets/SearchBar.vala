@@ -354,7 +354,7 @@ namespace Scratch.Widgets {
         }
 
         public void highlight_none () {
-            if (search_context == null) {
+            if (search_context != null) {
                 search_context.highlight = false;
             }
         }
