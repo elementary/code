@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-25 12:18+0000\n"
-"PO-Revision-Date: 2021-11-24 10:30+0000\n"
+"PO-Revision-Date: 2022-03-25 14:50+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -153,20 +153,24 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"El nom del fitxer del document actual es mostra ara com a títol de la "
+"finestra a la vista de multitasca."
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Les carpetes ocultes ara es mostren a la barra lateral del projecte."
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"Durant la cerca es mostren el resultat seleccionat actualment i el nombre de "
+"resultats."
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "La barra de cerca ara té un mode d'expressió regular."
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:59
@@ -180,16 +184,20 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"Ara és possible canviar la branca de Git amb fitxers sense seguiment "
+"presents en un projecte."
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Les fallades s'eviten durant la cerca en projectes grossos."
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Ara es focalitza el document correcte després d'obrir el Codi des d'un "
+"programa extern."
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:65
