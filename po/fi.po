@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-25 12:18+0000\n"
-"PO-Revision-Date: 2021-12-13 09:39+0000\n"
+"PO-Revision-Date: 2022-03-27 03:32+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -574,10 +574,8 @@ msgid "Case Insensitive"
 msgstr "Älä huomioi kirjainkokoa"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Käytä säännöllisiä lausekkeita:"
+msgstr "Käytä säännöllisiä lausekkeita"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
