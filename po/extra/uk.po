@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-25 12:18+0000\n"
-"PO-Revision-Date: 2021-11-23 20:57+0000\n"
+"PO-Revision-Date: 2022-03-26 16:33+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -147,20 +147,24 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"Назва поточного файлу документів тепер показуватиметься назвою вікна у "
+"багатозадачному огляді"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Сховані теки відтепер показуються на бічній панелі проєкту"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"Під час пошуку показується поточний вибраний результат і кількість "
+"результатів"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "Панель пошуку тепер має режим регулярних виразів"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:59
@@ -174,16 +178,20 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"Тепер можна змінити гілку Git з не відстежуваними файлами, присутніми в "
+"проєкті"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Усунуто збої під час пошуку у великих проєктах"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Тепер фокусування відбувається на правильному документі після відкриття коду "
+"із зовнішнього застосунку"
 
 #: data/io.elementary.code.appdata.xml.in:44
 #: data/io.elementary.code.appdata.xml.in:65
