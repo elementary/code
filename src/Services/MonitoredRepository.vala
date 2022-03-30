@@ -75,7 +75,18 @@ namespace Scratch.Services {
 
         public bool has_uncommitted {
             get {
-                return file_status_map.size > 0;
+                return file_status_map.values.any_match ((status) => {
+                    switch (status) {
+                        case Ggit.StatusFlags.INDEX_NEW:
+                        case Ggit.StatusFlags.INDEX_MODIFIED:
+                        case Ggit.StatusFlags.INDEX_RENAMED:
+                        case Ggit.StatusFlags.WORKING_TREE_MODIFIED:
+                            return true;
+
+                        default:
+                            return false;
+                    }
+                });
             }
         }
 
