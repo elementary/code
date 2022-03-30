@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 12:18+0000\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -38,7 +38,7 @@ msgstr "Set de pluginuri"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr "Cod"
 
@@ -50,34 +50,34 @@ msgstr "Găsi…"
 msgid "Hide search bar"
 msgstr "Ascundeți bara de căutare"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Toate filele"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Deschideți fișiere"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Deschis"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Anulare"
 
@@ -597,12 +597,12 @@ msgstr "Înlocuește"
 msgid "Replace all"
 msgstr "Înlocuiește-le pe toate"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Pentru textul selectat"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr ""
 

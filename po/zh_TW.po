@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 12:18+0000\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -43,7 +43,7 @@ msgstr "插件"
 msgid "[FILE…]"
 msgstr "[檔案…]"
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr "Code"
 
@@ -55,34 +55,34 @@ msgstr "尋找…"
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -591,11 +591,11 @@ msgstr "取代"
 msgid "Replace all"
 msgstr "全部取代"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
 msgstr "排序所選取的行"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "切換註釋"
 

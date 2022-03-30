@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 12:18+0000\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
 "PO-Revision-Date: 2022-03-01 18:31+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
@@ -45,7 +45,7 @@ msgstr "плагін"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr "Код"
 
@@ -57,34 +57,34 @@ msgstr "Знайти…"
 msgid "Hide search bar"
 msgstr "Приховати панель пошуку"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Текстові файли"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Відкрити файли"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -589,11 +589,11 @@ msgstr "Замінити"
 msgid "Replace all"
 msgstr "Замінити все"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
 msgstr "Впорядкувати вибрані рядки"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 

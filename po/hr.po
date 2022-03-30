@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 12:18+0000\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -46,7 +46,7 @@ msgstr "Skup priključaka"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr ""
 
@@ -58,34 +58,34 @@ msgstr "Pretraži…"
 msgid "Hide search bar"
 msgstr "Sakrij traku pretrage"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Tekstovne datoteke"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Otvori datoteke"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -624,12 +624,12 @@ msgstr "Zamijeni"
 msgid "Replace all"
 msgstr "Zamijeni sve"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Za odabrani tekst"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr ""
 

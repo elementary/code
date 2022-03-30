@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 12:18+0000\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -43,7 +43,7 @@ msgstr "Componenti aggiuntivi"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr "Codice"
 
@@ -55,34 +55,34 @@ msgstr "Trova…"
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -607,11 +607,11 @@ msgstr "Sostituisci"
 msgid "Replace all"
 msgstr "Sostituisci tutto"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
 msgstr "Ordina le linee selezionate"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Attiva o disattiva il commento"
 
