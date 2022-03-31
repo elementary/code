@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-30 13:21+0000\n"
-"PO-Revision-Date: 2021-11-23 20:57+0000\n"
+"PO-Revision-Date: 2022-03-31 06:48+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -141,20 +141,21 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"שם הקובץ של המסמך הנוכחי לא מופיע כיוון שכותרת החלון היא בתצוגת ריבוי משימות"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "תיקיות מוסתרות מופיעות בסרגל הצד של המיזם"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
-msgstr ""
+msgstr "התוצאה הנבחרת ומספר התוצאות מופיעים בזמן החיפוש"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "לסרגל החיפוש יש מעכשיו מצב ביטויים רגולריים"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:60
@@ -167,22 +168,22 @@ msgstr "תיקונים:"
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
-msgstr ""
+msgstr "מעתה ניתן לשנות את ענף ה־Git כשיש קבצים שאינם במעקב במיזם"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "נמנעה קריסה כשמחפשים במיזמים גדולים"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
-msgstr ""
+msgstr "המסמך הנכון ממוקד מעתה לאחר פתיחת קוד מתוכנית חיצונית"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "שכפול שורות מטופל כראוי אם אין בחירה"
 
 #: data/io.elementary.code.appdata.xml.in:45
 #: data/io.elementary.code.appdata.xml.in:66
