@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-30 13:21+0000\n"
+"POT-Creation-Date: 2022-04-01 13:33+0000\n"
 "PO-Revision-Date: 2016-01-22 12:51+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "प्लग्ईनका दल"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
+#: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
 msgstr ""
 
@@ -55,34 +55,34 @@ msgstr ""
 msgid "Hide search bar"
 msgstr "खोज पट्टी लुकाउनुहोस"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:487
 msgid "All files"
 msgstr "सबै फाईलरहरु"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "पाठ फाइलहरू"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:748
 msgid "Open"
 msgstr "खोल्नुहोस्"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द गर्नुहोस्"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:774
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:775
 msgid "_Cancel"
 msgstr ""
 
@@ -740,7 +740,7 @@ msgstr ""
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
-#: plugins/word-completion/plugin.vala:163
+#: plugins/word-completion/plugin.vala:162
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""

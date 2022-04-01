@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-30 13:21+0000\n"
+"POT-Creation-Date: 2022-04-01 13:33+0000\n"
 "PO-Revision-Date: 2018-06-01 00:06+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/code/code/ku/"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
+#: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
 msgstr ""
 
@@ -51,34 +51,34 @@ msgstr "Lê gerrîn …"
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Hemû pelan"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Dosiyên nivîsê"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:748
 msgid "Open"
 msgstr "Veke"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Betal bike"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:774
 msgid "_Open"
 msgstr "_Veke"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:775
 msgid "_Cancel"
 msgstr "_Betalbike"
 
@@ -721,7 +721,7 @@ msgstr ""
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
-#: plugins/word-completion/plugin.vala:163
+#: plugins/word-completion/plugin.vala:162
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""

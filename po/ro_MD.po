@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-30 13:21+0000\n"
+"POT-Creation-Date: 2022-04-01 13:33+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -38,7 +38,7 @@ msgstr "Set de pluginuri"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
+#: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
 msgstr "Cod"
 
@@ -50,34 +50,34 @@ msgstr "Găsi…"
 msgid "Hide search bar"
 msgstr "Ascundeți bara de căutare"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Toate filele"
 
-#: src/MainWindow.vala:736 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/MainWindow.vala:740
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr "Deschideți fișiere"
 
-#: src/MainWindow.vala:743
+#: src/MainWindow.vala:748
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:769
+#: src/MainWindow.vala:774
 msgid "_Open"
 msgstr "_Deschis"
 
-#: src/MainWindow.vala:770
+#: src/MainWindow.vala:775
 msgid "_Cancel"
 msgstr "_Anulare"
 
@@ -744,7 +744,7 @@ msgstr ""
 "Nu au fost găsite dicționare adecvate.↵\n"
 "Instalați cel puțin un dicționar [aspell]"
 
-#: plugins/word-completion/plugin.vala:163
+#: plugins/word-completion/plugin.vala:162
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Finalizarea cuvintelor"
