@@ -583,7 +583,7 @@ namespace Scratch.Widgets {
                 }
 
                 if (count_of_search > 0 && location_of_search > 0) {
-                    search_occurence_count_label.label = _(@"$location_of_search of $count_of_search");
+                    search_occurence_count_label.label = _("%d of %d").printf (location_of_search, count_of_search);
                 } else if (count_of_search == -1 && search_occurence_count_label.label != _("no results")) {
                     //We don't want to flicker back to no results while we're still searching but we have previous results
                 } else {
