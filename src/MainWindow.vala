@@ -268,7 +268,7 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
-            // Crate folder for unsaved documents
+            // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
@@ -417,7 +417,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                toolbar.title = app.app_cmd_name;
+                title = _("Code");
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -429,20 +429,22 @@ namespace Scratch {
             });
 
             document_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
-
-                search_bar.set_text_view (doc.source_view);
-                // Update MainWindow title
-                toolbar.title = doc.get_basename ();
-
                 if (doc != null) {
+                    plugins.hook_document (doc);
+                    search_bar.set_text_view (doc.source_view);
+                    // Update MainWindow title
+                    title = doc.get_basename ();
+
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
-                }
 
-                // Set actions sensitive property
-                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                doc.check_undoable_actions ();
+                    // Set actions sensitive property
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
+                    doc.check_undoable_actions ();
+                } else {
+                    title = _("Code");
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
+                }
             });
 
             set_widgets_sensitive (false);
@@ -586,7 +588,7 @@ namespace Scratch {
             return true;
         }
 
-        // Save session informations different from window state
+        // Save session information different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
             hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));

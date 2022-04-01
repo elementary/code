@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2020-09-20 20:14+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"POT-Creation-Date: 2022-03-30 13:21+0000\n"
+"PO-Revision-Date: 2022-01-16 02:49+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -41,9 +41,9 @@ msgstr "Plugin"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[BESTAND…]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:416 src/MainWindow.vala:441
 msgid "Code"
 msgstr "Code"
 
@@ -55,78 +55,71 @@ msgstr "Zoeken…"
 msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:732 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:736 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Tekstbestanden"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:740
 msgid "Open some files"
-msgstr "Open een paar bestanden"
+msgstr "Open meerdere bestanden"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:743
 msgid "Open"
 msgstr "Openen"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:744 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:769
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:770
 msgid "_Cancel"
 msgstr "_Annuleer"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Zoeken naar tekst in “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "De zoekterm moet tenminste 3 karakters lang zijn."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
-#, fuzzy
-#| msgid "Case Insensitive"
 msgid "Case sensitive:"
-msgstr "Niet hoofdletter gevoelig"
+msgstr "Hoofdletter gevoelig:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Gebruik reguliere uitdrukkingen:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Volgende zoeken"
+msgstr "Zoeken"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Creëer een nieuwe instantie"
+msgstr "Maak een nieuwe tak van “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "De taknaam moet uniek zijn en de Git naamregels volgen."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
 msgid "Create Branch"
-msgstr "Branch"
+msgstr "Tak Aanmaken"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
@@ -198,10 +191,8 @@ msgid "Line wrap:"
 msgstr "Lijnafbreking:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "Onnodige witruimte weghalen"
+msgstr "Zichtbare witruimte:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -226,7 +217,8 @@ msgstr "Weet u zeker dat u dit bestand wilt herstellen?"
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
-"Het herstellen van een bestand maakt alle wijzigingen na het openen ongedaan"
+"Het herstellen van een bestand zal alle verandering die zijn aangebracht "
+"sinds het is geopend ongedaan maken"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
@@ -257,19 +249,17 @@ msgstr "Hernoem"
 msgid "Move to Trash"
 msgstr "Naar de prullenbak verplaatsen"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
-msgstr "Mappen"
+msgstr "Folders"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Folder…"
-msgstr "Project Map toevoegen…"
+msgstr "Vind in folder…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
-msgstr "Map"
+msgstr "Folder"
 
 #: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
@@ -285,7 +275,7 @@ msgstr "Nieuw"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "untitled folder"
-msgstr "naamloze map"
+msgstr "naamloze folder"
 
 #: src/FolderManager/FolderItem.vala:344
 msgid "new file"
@@ -293,36 +283,30 @@ msgstr "nieuw bestand"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
-msgstr "Sluit map"
+msgstr "Sluit folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
-msgstr "Sluit andere mappen"
+msgstr "Sluit andere folders"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-#| msgid "Add Project Folder…"
 msgid "Find in Project…"
-msgstr "Project Map toevoegen…"
+msgstr "Vind in project…"
 
 #: src/FolderManager/ProjectFolderItem.vala:196
-#, fuzzy
-#| msgid "%s, Modified"
 msgid "Modified"
-msgstr "%s, Bewerkt"
+msgstr "Aangepast"
 
 #: src/FolderManager/ProjectFolderItem.vala:234
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "Fout bij het aanmaken van een nieuwe tak: “%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:516
-#, fuzzy
-#| msgid "Branch"
+#: src/FolderManager/ProjectFolderItem.vala:515
 msgid "New Branch…"
-msgstr "Branch"
+msgstr "Nieuwe Tak…"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "Branch"
 
@@ -443,21 +427,19 @@ msgid "Templates"
 msgstr "Sjablonen"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "Project sjablonen"
+msgstr "Geen Project Geselecteerd"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "Actief Git project: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "Projecten filteren"
 
 #: src/Widgets/DocumentView.vala:126
 #, c-format
@@ -544,7 +526,7 @@ msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:42
 msgid "Open Project Folder…"
-msgstr "Open Project Map…"
+msgstr "Open project folder…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
@@ -556,51 +538,63 @@ msgstr "Alfabetiseer"
 
 #: src/Widgets/Sidebar.vala:61
 msgid "Manage project folders"
-msgstr "Beheer projectmappen"
+msgstr "Beheer projectfolders"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "Zoek"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
+#: src/Widgets/SearchBar.vala:590
+msgid "no results"
+msgstr "geen resultaten"
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "Volgende zoeken"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "Vorige zoeken"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "Cyclisch zoeken"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "Hoofdletter gevoelig"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "Niet hoofdletter gevoelig"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:119
+#, fuzzy
+#| msgid "Use regular expressions:"
+msgid "Use regular expressions"
+msgstr "Gebruik reguliere uitdrukkingen:"
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "Vervangen met"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "Vervang"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "Vervang alles"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
 msgstr "Sorteer geselecteerde lijnen"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
@@ -630,11 +624,11 @@ msgstr "Een opgeslagen bestand openen."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Map openen"
+msgstr "Folder openen"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr "Voeg een projectmap toe  aan de zijbalk."
+msgstr "Voeg een projectfolder toe aan de zijbalk."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
@@ -733,7 +727,7 @@ msgstr "Er zijn geen geschikte woordenboeken gevonden"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:163
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Woorden aanvullen"

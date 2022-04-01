@@ -202,7 +202,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                if (focus) {
+                if (focus && doc == current_document) {
                     doc.focus ();
                 }
 
@@ -349,7 +349,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         other_window.move (x, y);
 
         // We need to make sure switch back to the main thread
-        // when we are modifiying Gtk widgets shared by two threads.
+        // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
             other_window.document_view.insert_tab (doc, -1);
