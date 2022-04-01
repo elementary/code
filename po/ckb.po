@@ -2,48 +2,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 13:33+0000\n"
-"PO-Revision-Date: 2016-09-11 11:53+0000\n"
-"Last-Translator: Hiwa <hiwa24@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"PO-Revision-Date: 2022-04-01 17:45+0000\n"
+"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
+"code/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:39
 msgid "New Tab"
-msgstr ""
+msgstr "تابی نوێ"
 
 #: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr "پەنجەرەیەکی نوێ"
+msgstr "پەنجەرەی نوێ"
 
 #: src/Application.vala:41
 msgid "Print version info and exit"
-msgstr ""
+msgstr "پرێنت کردنی زانیاری وەشان و داخستن"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
-msgstr ""
+msgstr "دەستەی پێوەکراوەکان"
 
 #: src/Application.vala:42
 msgid "plugin"
-msgstr ""
+msgstr "پێوەکراو"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[پەڕگە...]"
 
 #: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
-msgstr ""
+msgstr "كۆد"
 
 #: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
 msgid "Find…"
-msgstr "گەڕان..."
+msgstr "دۆزینەوە…"
 
 #: src/MainWindow.vala:207
 msgid "Hide search bar"
@@ -51,11 +53,11 @@ msgstr "شاردنەوەی شریتی گەڕان"
 
 #: src/MainWindow.vala:737 src/Services/Document.vala:487
 msgid "All files"
-msgstr ""
+msgstr "هەموو پەڕگەکان"
 
 #: src/MainWindow.vala:741 src/Services/Document.vala:491
 msgid "Text files"
-msgstr ""
+msgstr "پەڕگە دەقییەکان"
 
 #: src/MainWindow.vala:745
 msgid "Open some files"
@@ -70,53 +72,50 @@ msgstr "كردنەوە"
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
-msgstr "داخستن"
+msgstr "هەڵوەشاندنەوە"
 
 #: src/MainWindow.vala:774
 msgid "_Open"
-msgstr ""
+msgstr "_کردنەوە"
 
 #: src/MainWindow.vala:775
 msgid "_Cancel"
-msgstr ""
+msgstr "_هەڵوەشاندنەوە"
 
 #: src/Dialogs/GlobalSearchDialog.vala:60
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "گەڕان بۆ دەق لە \"%s\""
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "وشەی گەڕان دەبێت لانیەک ٣ پیت ببێت."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr ""
+msgstr "هەستیاری کەیس:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "دەستەواژە ئاساییەکان بەکاربهێنە:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "گەڕان بۆ دواتر"
+msgstr "گەڕان"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr ""
+msgstr "دروستکردنی لقێکی نوێی “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "ناوی لق دەبێت بێ هاوتا بێت و شوێن یاساکانی ناونای گیت بکەوێت."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "گۆڕینی ڕێکخستنەکانی (بنەڕەت)"
+msgstr "دروستکردنی لق"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
 msgid "Preferences"
@@ -127,6 +126,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"بڕین یان لەبەرگرتنەوە بەبێ دیاریکردنێکی چالاک، بۆ تەواوی هێڵەکە ئەنجام دەدرێت"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -138,23 +138,23 @@ msgstr "پەڕگەکان پاشەکەوت بکە کاتێک کە گۆڕدران:
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "بڕین/لەبەرگرتنەوەی زیرەکی هێڵەکان:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
 msgid "Tabs"
-msgstr "پەنجەرەکان"
+msgstr "تابەکان"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
 msgid "Automatic indentation:"
-msgstr "خۆکارانە  شوێن واڵا بکە له دەستپێکی دێرێ نوێدا:"
+msgstr "دانانی خۆکارانەی بۆشایی سەرەتای دێڕ:"
 
 #: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
 msgid "Insert spaces instead of tabs:"
-msgstr "لەجیاتی پەنجەرەکان بۆشاییەکان دابنێ:"
+msgstr "لەجیاتی تابەکان بۆشاییەکان دابنێ:"
 
 #: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
-msgstr "پانایی پەنجەرەکان"
+msgstr "پانایی تابەکان:"
 
 #: src/Dialogs/PreferencesDialog.vala:72
 msgid "Behavior"
@@ -179,31 +179,31 @@ msgstr "دەستکاریکەر"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Highlight matching brackets:"
-msgstr "بەرچاوکردنی کەوانە لەیەکچووەکان"
+msgstr "بەرچاوکردنی کەوانە لەیەکچووەکان:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line wrap:"
-msgstr "پێچانەوەی دێڕ"
+msgstr "پێچانەوەی دێڕ:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
 msgid "Visible whitespace:"
-msgstr ""
+msgstr "بۆشایی سپی بەرچاو:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
-msgstr "پیشاندانی نەخشۆکە"
+msgstr "پیشاندانی نەخشۆکە:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr "ڕابەری پانایی دێڕەکان"
+msgstr "ڕێبەری پانایی دێڕەکان:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
-msgstr ""
+msgstr "فۆنت"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Custom font:"
-msgstr "فۆنتی راسپێردراو"
+msgstr "فۆنتی تایبەت:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -248,9 +248,8 @@ msgid "Folders"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
 msgid "Find in Folder…"
-msgstr "کردنەوەی فایل"
+msgstr "دۆزینەوە لە بوخچەدا…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -597,6 +596,11 @@ msgstr "جێ گۆڕینەوە"
 #: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "جێ گۆڕینەوەی هەموویان"
+
+#: src/Widgets/SearchBar.vala:586
+#, c-format
+msgid "%d of %d"
+msgstr ""
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"

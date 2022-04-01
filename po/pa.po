@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 13:33+0000\n"
+"POT-Creation-Date: 2022-04-01 17:45+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -576,6 +576,11 @@ msgstr "ਵਟਾਓ"
 #: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "ਸਾਰੇ/ਸਾਰੀਆਂ ਵਟਾਓ"
+
+#: src/Widgets/SearchBar.vala:586
+#, c-format
+msgid "%d of %d"
+msgstr ""
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
