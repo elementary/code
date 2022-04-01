@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 13:33+0000\n"
+"POT-Creation-Date: 2022-04-01 17:45+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -607,6 +607,11 @@ msgstr "ჩანაცვლება"
 #: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "ყველას ჩანაცვლება"
+
+#: src/Widgets/SearchBar.vala:586
+#, c-format
+msgid "%d of %d"
+msgstr ""
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
