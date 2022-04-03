@@ -202,7 +202,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                if (focus) {
+                if (focus && doc == current_document) {
                     doc.focus ();
                 }
 
