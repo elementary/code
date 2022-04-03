@@ -264,9 +264,21 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             return false;
         });
 
-        string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
-        terminal.spawn_async (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH,
-            null, null, -1, null, spawn_async_cb);
+        try {
+            var last_path_setting = settings.get_string ("last-opened-path");
+            //FIXME Replace with the async method once the .vapi is fixed upstream.
+            terminal.spawn_sync (
+                Vte.PtyFlags.DEFAULT,
+                last_path_setting == "" ? "~/" : last_path_setting,
+                { Vte.get_user_shell () },
+                null,
+                GLib.SpawnFlags.SEARCH_PATH,
+                null,
+                out child_pid
+            );
+        } catch (GLib.Error e) {
+            warning (e.message);
+        }
 
         grid = new Gtk.Grid ();
         var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
