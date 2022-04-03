@@ -292,15 +292,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         grid.show_all ();
     }
 
-    public void spawn_async_cb (Vte.Terminal terminal, GLib.Pid pid, Error? e) {
-        if (e != null) {
-            critical ("Error spawning process: %s", e.message);
-            child_pid = -1;
-        } else {
-            child_pid = pid;
-        }
-    }
-
     private void update_terminal_settings (string settings_schema) {
         var pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
