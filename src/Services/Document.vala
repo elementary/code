@@ -100,6 +100,7 @@ namespace Scratch.Services {
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
+        private uint timeout_saving = 0;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
@@ -179,14 +180,19 @@ namespace Scratch.Services {
             toggle_changed_handlers (true);
 
             // Focus out event for SourceView
+/*
             this.source_view.focus_out_event.connect (() => {
                 if (Scratch.settings.get_boolean ("autosave")) {
+                    if (timeout_saving > 0) {
+                        Source.remove (timeout_saving);
+                        timeout_saving = 0;
+                    }
                     save.begin ();
                 }
 
                 return false;
             });
-
+*/
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
@@ -211,7 +217,6 @@ namespace Scratch.Services {
                     }
 
                     // Signals for SourceView
-                    uint timeout_saving = 0;
                     check_undoable_actions ();
                     this.source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
@@ -369,9 +374,14 @@ namespace Scratch.Services {
                 return true;
             }
 
+            if (timeout_saving > 0) {
+                Source.remove (timeout_saving);
+                timeout_saving = 0;
+            }
+
             bool ret_value = true;
-            if (Scratch.settings.get_boolean ("autosave") && !saved) {
-                save_with_hold ();
+            if (Scratch.settings.get_boolean ("autosave") && (!saved /*|| source_view.buffer.get_modified ()*/)) {
+                save_with_hold (app_closing);
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
                 save_with_hold ();
@@ -454,15 +464,27 @@ namespace Scratch.Services {
             this.create_backup ();
 
             // Replace old content with the new one
-            save_cancellable.cancel ();
+            if (save_cancellable != null) {
+                save_cancellable.cancel ();
+            }
             save_cancellable = new GLib.Cancellable ();
             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
-            try {
-                yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
-            } catch (Error e) {
-                // We don't need to send an error message at cancellation (corresponding to error code 19)
-                if (e.code != 19)
-                    warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+            bool save_failed = false;
+            source_file_saver.save_async.begin (GLib.Priority.DEFAULT, save_cancellable, null, (obj, res) => {
+                try {
+                    source_file_saver.save_async.end (res);
+                } catch (Error e) {
+                    // We don't need to send an error message at cancellation (corresponding to error code 19)
+                    if (e.code != 19) {
+                        warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                    } else {
+                        warning ("Cancel save \"%s\": %s", get_basename (), e.message);
+                    }
+                    save_failed = true;
+                }
+            });
+
+            if (save_failed) {
                 return false;
             }
 
