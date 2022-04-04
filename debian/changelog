@@ -1,3 +1,33 @@
+io.elementary.code (6.2.0) bionic; urgency=medium
+
+  * Release 6.2.0 (#1181)
+  * Update translation files
+  * Update translation template
+  * SearchBar: Make the search count translatable (#1182)
+  * Check commandline files, do not allow docs with null file (#1129)
+  * Include hyphen and underscore in word to match (#1160)
+  * replace_home_with_tilde: use `substring()` to remove home directory
+    (#1180)
+  * Fix logic for duplicating unselected line. (#1137)
+  * Check fully for null doc in document change handler (#1146)
+  * Update appdata with recent changes (#1178)
+  * Only focus the current document on open (#1177)
+  * Fix occasional crash in SearchBar (#1174)
+  * Search-bar enhancements (Regex Support) (#1170)
+  * Meson: remove positional arguments from i18n.merge_file (#1165)
+  * Use tilde (#1153)
+  * MonitoredRepository: allow changing branch with untracked files
+    (#1161)
+  * Rewrite word completion to play nice with other completion
+    providers. (#1125)
+  * 1092 - Add location and count functionality  to Search and Replace
+    (#1118)
+  * Show hidden folders by default (#1154)
+  * 863: Set window title to title of currently focused document.
+    (#1139)
+
+ -- Corentin Noël <corentin@elementary.io>  Mon, 04 Apr 2022 16:22:03 +0000
+
 io.elementary.code (6.1.0) bionic; urgency=medium
 
   * Release 6.1.0 (#1131)
