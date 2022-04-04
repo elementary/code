@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-03-02 13:56+0000\n"
+"PO-Revision-Date: 2022-04-02 08:31+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -42,7 +42,7 @@ msgstr "wtyczka"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
-msgstr "[PLIK...]"
+msgstr "[PLIK…]"
 
 #: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
@@ -595,7 +595,7 @@ msgstr "Zastąp wszystko"
 #: src/Widgets/SearchBar.vala:586
 #, c-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d z %d"
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
