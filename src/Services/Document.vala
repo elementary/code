@@ -92,7 +92,7 @@ namespace Scratch.Services {
 
         public string original_content;
         private string last_save_content;
-        public bool saved = true;
+        public bool saved = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -226,7 +226,7 @@ namespace Scratch.Services {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
                             }
-                            timeout_saving = Timeout.add (1000, () => {
+                            timeout_saving = Timeout.add (5000, () => {
                                 save.begin ();
                                 timeout_saving = 0;
                                 return false;
@@ -350,7 +350,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
-            set_saved_status (true);
+            //set_saved_status (true);
 
             doc_opened ();
             source_view.sensitive = true;
@@ -374,17 +374,12 @@ namespace Scratch.Services {
                 return true;
             }
 
-            if (timeout_saving > 0) {
-                Source.remove (timeout_saving);
-                timeout_saving = 0;
-            }
-
             bool ret_value = true;
-            if (Scratch.settings.get_boolean ("autosave") && (!saved /*|| source_view.buffer.get_modified ()*/)) {
+            if (Scratch.settings.get_boolean ("autosave") && (!saved || source_view.buffer.get_modified ())) {
                 save_with_hold (app_closing);
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                save_with_hold ();
+                save_with_hold (app_closing);
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
@@ -415,7 +410,7 @@ namespace Scratch.Services {
                         if (this.is_file_temporary)
                             save_as_with_hold ();
                         else
-                            save_with_hold ();
+                            save_with_hold (app_closing);
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -457,8 +452,14 @@ namespace Scratch.Services {
         }
 
         public async bool save (bool force = false) {
+            message ("VJR: save ()");
             if (!force && (source_view.buffer.get_modified () == false || this.loaded == false)) {
                 return false;
+            }
+
+            if (timeout_saving > 0) {
+                Source.remove (timeout_saving);
+                timeout_saving = 0;
             }
 
             this.create_backup ();
@@ -476,11 +477,13 @@ namespace Scratch.Services {
                 } catch (Error e) {
                     // We don't need to send an error message at cancellation (corresponding to error code 19)
                     if (e.code != 19) {
-                        warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                        warning ("VJR: Cannot save \"%s\": %s", get_basename (), e.message);
                     } else {
-                        warning ("Cancel save \"%s\": %s", get_basename (), e.message);
+                        warning ("VJR: Cancel save \"%s\": %s", get_basename (), e.message);
                     }
                     save_failed = true;
+                } finally {
+                    Posix.sync ();
                 }
             });
 
