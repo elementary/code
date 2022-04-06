@@ -47,7 +47,7 @@ namespace Scratch.Services {
         }
 
         public void close_document (Document doc) {
-            manager.window.close_document (doc);
+            manager.window.close_document.begin (doc);
         }
     }
 

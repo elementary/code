@@ -35,8 +35,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public GLib.List<Services.Document> docs;
 
-    public bool is_closing = false;
-
     private Gtk.CssProvider style_provider;
 
     public DocumentView (MainWindow window) {
@@ -64,12 +62,15 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         close_tab_requested.connect ((tab) => {
-            var document = tab as Services.Document;
-            if (!document.is_file_temporary && document.file != null) {
-                tab.restore_data = document.get_uri ();
+            var doc = tab as Services.Document;
+
+            // Saving restore_data in close_document callback does not work
+            if (!doc.is_file_temporary && doc.file != null) {
+                tab.restore_data = doc.get_uri ();
             }
 
-            return document.do_close ();
+            close_document.begin (doc);
+            return true; // tab will be removed if/when doc properly closed
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
@@ -151,7 +152,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
-            save_opened_files ();
+            remember_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -171,7 +172,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
-            save_opened_files ();
+            remember_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -209,7 +210,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 if (cursor_position > 0) {
                     doc.source_view.cursor_position = cursor_position;
                 }
-                save_opened_files ();
+
+                remember_opened_files ();
             });
 
             return false;
@@ -223,11 +225,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-            doc.source_view.set_text (original.get_text ());
+            doc.source_view.set_text (original.get_text ()); // Does not generate changed signal
+            doc.source_view.buffer.changed ();  // Trigger autosave or update tab label
             doc.source_view.language = original.source_view.language;
-            if (Scratch.settings.get_boolean ("autosave")) {
-                doc.save.begin (true);
-            }
 
             insert_tab (doc, -1);
             current_document = doc;
@@ -263,18 +263,38 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void close_document (Services.Document doc) {
-        remove_tab (doc);
-        doc.do_close ();
+    // Only use for single documents when app remains open
+    public async bool close_document (Services.Document doc) {
+        if (yield doc.ensure_saved ()) {
+            doc.do_close ();
+            remove_tab (doc);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void close_current_document () {
-        var doc = current_document;
-        if (doc != null) {
-            if (close_tab_requested (doc)) {
-                remove_tab (doc);
-            }
+    // Must call before the app is closed
+    public async bool prepare_to_close () {
+        tab_removed.disconnect (on_doc_removed);
+
+        var docs = docs.copy ();
+        bool success = true;
+        foreach (var doc in docs) {
+            success = success && yield doc.ensure_saved (); // This may rename the document
+        };
+
+        if (!success) {
+            return false; // Either a document could not be saved or the operation was cancelled
         }
+
+        remember_opened_files ();
+        foreach (var doc in docs) {
+            doc.do_close ();
+            remove_tab (doc);
+        };
+
+        return true;
     }
 
     public void request_placeholder_if_empty () {
@@ -320,6 +340,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.source_view.drag_data_received.connect (drag_received);
     }
 
+    // Must disconnect this handler before closing the app else open docs not remembered properly
     private void on_doc_removed (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
 
@@ -337,9 +358,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
         }
 
-        if (!is_closing) {
-            save_opened_files ();
-        }
+        remember_opened_files ();
     }
 
     private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
@@ -366,7 +385,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         doc.focus ();
 
-        save_opened_files ();
+        remember_opened_files ();
     }
 
     private bool on_focus_in_event () {
@@ -398,7 +417,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
        Gtk.drag_finish (ctx, true, false, time);
     }
 
-    public void save_opened_files () {
+    public void remember_opened_files () {
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var vb = new VariantBuilder (new VariantType ("a(si)"));
             tabs.foreach ((tab) => {

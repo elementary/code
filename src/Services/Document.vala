@@ -92,7 +92,7 @@ namespace Scratch.Services {
 
         public string original_content;
         private string last_save_content;
-        public bool saved = true;
+
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -103,6 +103,7 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
+        private bool saved = true;
         private Mount mount;
 
         private static Pango.FontDescription? builder_blocks_font = null;
@@ -180,11 +181,11 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("autosave")) {
+                if (!saved && Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
                 }
 
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             });
 
             source_view.buffer.changed.connect (() => {
@@ -361,93 +362,100 @@ namespace Scratch.Services {
             return;
         }
 
-        public bool do_close (bool app_closing = false) {
-            debug ("Closing \"%s\"", get_basename ());
-
+        // Call before destroying the document
+        public async bool ensure_saved () {
             if (!loaded) {
                 load_cancellable.cancel ();
                 return true;
             }
 
-            bool ret_value = true;
-            if (Scratch.settings.get_boolean ("autosave") && !saved) {
-                save_with_hold ();
-            } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
-                debug ("Save temporary file!");
-                save_with_hold ();
-            }
-            // Check for unsaved changes
-            else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-                var parent_window = source_view.get_toplevel () as Gtk.Window;
-
-                var dialog = new Granite.MessageDialog (
-                    _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
-                    _("If you don't save, changes will be permanently lost."),
-                    new ThemedIcon ("dialog-warning"),
-                    Gtk.ButtonsType.NONE
-                );
-                dialog.transient_for = parent_window;
-
-                var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
-                no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-                dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-                dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-                dialog.set_default_response (Gtk.ResponseType.YES);
-
-                int response = dialog.run ();
-                switch (response) {
-                    case Gtk.ResponseType.CANCEL:
-                    case Gtk.ResponseType.DELETE_EVENT:
-                        ret_value = false;
-                        break;
-                    case Gtk.ResponseType.YES:
-                        if (this.is_file_temporary)
-                            save_as_with_hold ();
-                        else
-                            save_with_hold ();
-                        break;
-                    case Gtk.ResponseType.NO:
-                        if (this.is_file_temporary)
-                            delete_temporary_file (true);
-                        break;
+            bool success = true; // True if saved or does not need saving
+            bool autosave = Scratch.settings.get_boolean ("autosave");
+            if (is_file_temporary) {
+                if (get_text ().length > 0) {
+                    success = yield confirm_save ();
+                } else {
+                    delete_temporary_file ();
                 }
-                dialog.destroy ();
+            } else if (autosave) {
+                success = yield save_with_hold ();
+            } else if (!saved) {
+                success = yield confirm_save ();
             }
 
-            if (ret_value) {
-                // Delete backup copy file
-                delete_backup ();
-                doc_closed ();
-            }
-
-            return ret_value;
+            return success;
         }
 
-        public bool save_with_hold (bool force = false) {
+        private async bool confirm_save () {
+            var dialog = new Granite.MessageDialog (
+                _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+                _("If you don't save, changes will be permanently lost."),
+                new ThemedIcon ("dialog-warning"),
+                Gtk.ButtonsType.NONE
+            ) {
+                transient_for = (Gtk.Window)source_view.get_toplevel ()
+            };
+
+            var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+            no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+            dialog.add_button (_("Save"), Gtk.ResponseType.YES);
+            dialog.set_default_response (Gtk.ResponseType.YES);
+
+            int response = dialog.run ();
+            dialog.destroy ();
+
+            switch (response) {
+                case Gtk.ResponseType.YES:
+                    bool success;
+                    if (is_file_temporary) {
+                        success = yield save_as_with_hold ();
+                    } else {
+                        success = yield save_with_hold ();
+                    }
+
+                    return success;
+                case Gtk.ResponseType.NO:
+                    if (is_file_temporary) {
+                        delete_temporary_file ();
+                    }
+
+                    return true;
+                default: // Cancelled
+                    return false;
+            }
+
+        }
+
+        // Should only be called after doc has been prepared for closing.
+        public void do_close () {
+            debug ("Closing \"%s\"", get_basename ());
+            delete_backup ();
+            doc_closed ();
+        }
+
+        private async bool save_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
-            save.begin (force, (obj, res) => {
-                result = save.end (res);
-                GLib.Application.get_default ().release ();
-            });
+            result = yield save ();
+            GLib.Application.get_default ().release ();
 
             return result;
         }
 
-        public bool save_as_with_hold () {
+        private async bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
-            save_as.begin ((obj, res) => {
-                result = save_as.end (res);
-                GLib.Application.get_default ().release ();
-            });
+            result = yield save_as ();
+            GLib.Application.get_default ().release ();
 
             return result;
         }
 
-        public async bool save (bool force = false) {
-            if (!force && (source_view.buffer.get_modified () == false || this.loaded == false)) {
+        // It is callers responsibility to ensure document should be saved
+        public async bool save () {
+            if (!loaded) {
                 return false;
             }
 
@@ -467,13 +475,12 @@ namespace Scratch.Services {
             }
 
             source_view.buffer.set_modified (false);
-
-            doc_saved ();
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
             debug ("File \"%s\" saved successfully", get_basename ());
 
+            doc_saved ();
             return true;
         }
 
@@ -804,7 +811,7 @@ namespace Scratch.Services {
         }
 
         // Set saved status
-        public void set_saved_status (bool val) {
+        private void set_saved_status (bool val) {
             this.saved = val;
 
             string unsaved_identifier = "* ";
@@ -859,11 +866,7 @@ namespace Scratch.Services {
             }
         }
 
-        private bool delete_temporary_file (bool force = false) {
-            if (!is_file_temporary || (get_text ().length > 0 && !force)) {
-                return false;
-            }
-
+        private bool delete_temporary_file () requires (is_file_temporary) {
             try {
                 file.delete ();
                 return true;

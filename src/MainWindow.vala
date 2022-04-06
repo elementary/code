@@ -343,7 +343,7 @@ namespace Scratch {
                 var docs = document_view.docs.copy ();
                 docs.foreach ((doc) => {
                     if (doc.file.get_path ().has_prefix (a)) {
-                        document_view.close_document (doc);
+                        document_view.close_document.begin (doc);
                     }
                 });
             });
@@ -524,8 +524,9 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit ();
-            return !check_unsaved_changes ();
+            handle_quit.begin ();
+            // Do not want the signal to be propagated, handle_quit will destroy the app if possible.
+            return Gdk.EVENT_STOP;
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -571,21 +572,8 @@ namespace Scratch {
         }
 
         // Close a document
-        public void close_document (Scratch.Services.Document doc) {
-            document_view.close_document (doc);
-        }
-
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
-            document_view.is_closing = true;
-            foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
-                    document_view.current_document = doc;
-                    return false;
-                }
-            }
-
-            return true;
+        public async void close_document (Scratch.Services.Document doc) {
+            yield document_view.close_document (doc);
         }
 
         // Save session information different from window state
@@ -635,13 +623,21 @@ namespace Scratch {
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
             action_quit ();
-            return false;
+            return Source.REMOVE;
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        private async void handle_quit () {
+            if (yield document_view.prepare_to_close ()) {
+                do_quit ();
+            } else {
+                //TODO Give user option to force close
+            }
+        }
+
+        private void do_quit () {
+            update_saved_state (); // Remember window state
+            destroy (); // For now, destroy under all circumstances
         }
 
         public void set_default_zoom () {
@@ -726,10 +722,7 @@ namespace Scratch {
         }
 
         private void action_quit () {
-            handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            handle_quit.begin ();
         }
 
         private void action_open () {
