@@ -794,7 +794,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin ();
+                    doc.save_with_hold.begin ();
                 }
             }
         }
@@ -802,7 +802,7 @@ namespace Scratch {
         private void action_save_as () {
             var doc = get_current_document ();
             if (doc != null) {
-                doc.save_as.begin ();
+                doc.save_as_with_hold.begin ();
             }
         }
 

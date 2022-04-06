@@ -435,7 +435,8 @@ namespace Scratch.Services {
             doc_closed ();
         }
 
-        private async bool save_with_hold () {
+        // Call directly to force saving
+        public async bool save_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
             result = yield save ();
@@ -444,7 +445,7 @@ namespace Scratch.Services {
             return result;
         }
 
-        private async bool save_as_with_hold () {
+        public async bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
             result = yield save_as ();
@@ -454,7 +455,7 @@ namespace Scratch.Services {
         }
 
         // It is callers responsibility to ensure document should be saved
-        public async bool save () {
+        private async bool save () {
             if (!loaded) {
                 return false;
             }
@@ -484,7 +485,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        public async bool save_as () {
+        private async bool save_as () {
             // New file
             if (!loaded) {
                 return false;
