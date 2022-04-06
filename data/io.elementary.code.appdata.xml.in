@@ -26,11 +26,34 @@
     </ul>
   </description>
   <releases>
-    <release version="6.1.1" date="2021-11-23" urgency="medium">
+    <release version="6.2.1" date="2022-04-01" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
           <li>Show symbol list on the right of the document instead of as a tab in the sidebar</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.2.0" date="2022-04-01" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The current document filename is now shown as the window title in multitasking view</li>
+          <li>Hidden folders are now shown in the project sidebar</li>
+          <li>The currently selected result and the number of results is displayed while searching</li>
+          <li>The search bar now has a regular expression mode</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>It is now possible to change Git branch with untracked files present in a project</li>
+          <li>Crashes are prevented while searching in large projects</li>
+          <li>The correct document is now focused after opening Code from an external program</li>
+          <li>Line duplication is now actioned correctly if there is no selection present</li>
+          <li>Code no longer crashes when asked to open an unknown URI format</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
         </ul>
       </description>
     </release>
