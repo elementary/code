@@ -71,7 +71,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             close_document.begin (doc);
-            return true; // tab will be removed if/when doc properly closed
+            return false; // tab will be removed if/when doc properly closed
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
