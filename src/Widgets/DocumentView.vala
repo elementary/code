@@ -56,6 +56,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         tab_removed.connect (on_doc_removed);
         tab_reordered.connect (on_doc_reordered);
         tab_moved.connect (on_doc_moved);
+        tab_switched.connect (on_tab_switched);
 
         new_tab_requested.connect (() => {
             new_document ();
@@ -71,11 +72,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             close_document.begin (doc);
             return true; // tab will be removed if/when doc properly closed
-        });
-
-        tab_switched.connect ((old_tab, new_tab) => {
-            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
-            save_focused_document_uri (new_tab as Services.Document);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -277,6 +273,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     // Must call before the app is closed
     public async bool prepare_to_close () {
         tab_removed.disconnect (on_doc_removed);
+        tab_switched.disconnect (on_tab_switched);
 
         var docs = docs.copy ();
         bool success = true;
@@ -431,7 +428,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    private void save_focused_document_uri (Services.Document? current_document) {
+    private void on_tab_switched (Granite.Widgets.Tab? old_tab, Granite.Widgets.Tab? new_tab) {
+        var current_document = (Services.Document?)new_tab;
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var file_uri = "";
 
