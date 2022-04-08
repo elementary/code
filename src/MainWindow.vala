@@ -631,13 +631,29 @@ namespace Scratch {
             if (yield document_view.prepare_to_close ()) {
                 do_quit ();
             } else {
-                //TODO Give user option to force close
+                //Should not reach here as any problems should be dealt with earlier but provided as a
+                //fallback to ensure application can be closed.
+                var primary = _("Cannot close all the documents");
+                var secondary = _("There was a problem saving changes in one or more open documents");
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    primary, secondary, "dialog-warning", Gtk.ButtonsType.CANCEL) {
+                    transient_for = this
+                };
+
+                var force_close_button = (Gtk.Button) dialog.add_button (_("Close Anyway"), Gtk.ResponseType.YES);
+                force_close_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+                var response = dialog.run ();
+                dialog.destroy ();
+                if (response == Gtk.ResponseType.YES) {
+                    do_quit ();
+                }
             }
         }
 
         private void do_quit () {
             update_saved_state (); // Remember window state
-            destroy (); // For now, destroy under all circumstances
+            destroy ();
         }
 
         public void set_default_zoom () {
