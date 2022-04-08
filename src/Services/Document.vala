@@ -454,15 +454,15 @@ namespace Scratch.Services {
             return result;
         }
 
-        // It is callers responsibility to ensure document should be saved
+
         private async bool save () {
             if (!loaded) {
                 return false;
             }
 
+            // No check is made whether the file can be saved, we just deal with any error arising by giving
+            // chance to save with different name, cancel or ignore the error (e.g. so that app or tab can close)
             this.create_backup ();
-
-            // Replace old content with the new one
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
@@ -491,7 +491,7 @@ namespace Scratch.Services {
                         case Gtk.ResponseType.YES:
                             return yield save_as ();
                         case Gtk.ResponseType.NO:
-                            return true;
+                            break;
                         default:
                             return false;
                     }
@@ -508,6 +508,7 @@ namespace Scratch.Services {
             return true;
         }
 
+        //This function is re-entrant.
         private async bool save_as () {
             // New file
             if (!loaded) {
@@ -537,21 +538,16 @@ namespace Scratch.Services {
 
             var success = false;
             var current_file_uri = file.get_uri ();
-            var is_current_file_temporary = this.is_file_temporary;
-
+            var is_current_file_temporary = is_file_temporary;
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
                 source_view.buffer.set_modified (true);
                 file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
                 Utils.last_path = Path.get_dirname (file_chooser.get_uri ());
-                if (yield save ()) {
+                if (yield save ()) { // This can cause "save_as ()" to be called again
+                    success = true;
                     if (is_current_file_temporary) {
-                        try {
-                            // Delete temporary file
-                            File.new_for_path (current_file_uri).delete ();
-                        } catch (Error err) {
-                            warning ("Temporary file cannot be deleted: %s", current_file_uri);
-                        }
+                        delete_temporary_file (current_file_uri);
                     }
 
                     delete_backup (current_file_uri + "~");
@@ -560,9 +556,11 @@ namespace Scratch.Services {
                     // Revert to original file is cannot save to new file.
                     file = File.new_for_uri (current_file_uri);
                 }
+            } else {
+                warning ("Save failed");
             }
 
-            /* We delay destruction of file chooser dialog til to avoid the document focussing in,
+            /* We delay destruction of file chooser dialog til now to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
             file_chooser.destroy ();
@@ -890,12 +888,20 @@ namespace Scratch.Services {
             }
         }
 
-        private bool delete_temporary_file () requires (is_file_temporary) {
+        private bool delete_temporary_file (string? temporary_uri = null) {
+            File temp_file;
+            if (temporary_uri != null) {
+                temp_file = File.new_for_uri (temporary_uri);
+            } else {
+                temp_file = file;
+            }
             try {
-                file.delete ();
+                temp_file.delete ();
                 return true;
             } catch (Error e) {
-                warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
+                if (e.code != IOError.NOT_FOUND) {
+                    warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
+                }
             }
 
             return false;
