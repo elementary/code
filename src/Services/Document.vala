@@ -469,10 +469,33 @@ namespace Scratch.Services {
             try {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
             } catch (Error e) {
-                // We don't need to send an error message at cancellation (corresponding to error code 19)
-                if (e.code != 19)
-                    warning ("Cannot save \"%s\": %s", get_basename (), e.message);
-                return false;
+                // We don't need to send an error message at cancellation
+                if (e.code != IOError.CANCELLED) {
+                    var primary = _("Cannot save \"%s\"").printf (get_basename ());
+                    var secondary = _("%s").printf (e.message);
+                    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                        primary, secondary, "dialog-warning", Gtk.ButtonsType.CANCEL) {
+                        transient_for = (Gtk.Window)source_view.get_toplevel ()
+                    };
+
+                    var no_save_button = (Gtk.Button) dialog.add_button (_("Ignore"), Gtk.ResponseType.NO);
+                    no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+                    var save_as_button = dialog.add_button ("Save As", Gtk.ResponseType.YES);
+                    save_as_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+
+                    var response = dialog.run ();
+                    dialog.destroy ();
+                    switch (response) {
+                        case Gtk.ResponseType.YES:
+                            return yield save_as ();
+                        case Gtk.ResponseType.NO:
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
             }
 
             source_view.buffer.set_modified (false);
@@ -508,35 +531,35 @@ namespace Scratch.Services {
             );
             file_chooser.add_filter (all_files_filter);
             file_chooser.add_filter (text_files_filter);
+            //NOTE: Filechooser portal will always check overwrite (but not permissions) in future
             file_chooser.do_overwrite_confirmation = true;
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
-            var current_file = file.get_path ();
+            var current_file_uri = file.get_uri ();
             var is_current_file_temporary = this.is_file_temporary;
 
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
+                source_view.buffer.set_modified (true);
                 file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
-                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
-                success = true;
-            }
-
-            if (success) {
-                source_view.buffer.set_modified (true);
-                var is_saved = yield save ();
-
-                if (is_saved && is_current_file_temporary) {
-                    try {
-                        // Delete temporary file
-                        File.new_for_path (current_file).delete ();
-                    } catch (Error err) {
-                        warning ("Temporary file cannot be deleted: %s", current_file);
+                Utils.last_path = Path.get_dirname (file_chooser.get_uri ());
+                if (yield save ()) {
+                    if (is_current_file_temporary) {
+                        try {
+                            // Delete temporary file
+                            File.new_for_path (current_file_uri).delete ();
+                        } catch (Error err) {
+                            warning ("Temporary file cannot be deleted: %s", current_file_uri);
+                        }
                     }
-                }
 
-                delete_backup (current_file + "~");
-                this.source_view.change_syntax_highlight_from_file (this.file);
+                    delete_backup (current_file_uri + "~");
+                    this.source_view.change_syntax_highlight_from_file (this.file);
+                } else {
+                    // Revert to original file is cannot save to new file.
+                    file = File.new_for_uri (current_file_uri);
+                }
             }
 
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
