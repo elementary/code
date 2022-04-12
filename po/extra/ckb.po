@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-04-02 23:23+0000\n"
+"PO-Revision-Date: 2022-04-03 16:07+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
 "extra/ckb/>\n"
@@ -391,202 +391,214 @@ msgstr "پشاندانی بوخچەکانی پڕۆژە لە بوخچەی ڕوت�
 
 #: data/io.elementary.code.appdata.xml.in:121
 msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr ""
+msgstr "ڕێگەدان بە کردنەوە لەگەڵ pkexec و ڕێگە نەدان بە کردنەوە لەگەڵ sudo"
 
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Remove split view"
-msgstr ""
+msgstr "رەشکردنی دیمەنی جیاکردنەوە"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Remove browser preview"
-msgstr ""
+msgstr "رەشکردنەوەی پێشبینینی وێبگەڕ"
 
 #: data/io.elementary.code.appdata.xml.in:132
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"چاککردنی لەیئاوتی سایدباڕی بەتاڵ، دڵنیابوونەوە لەوەی کە هەمیشە بوخچەکان زیاد "
+"دەبن"
 
 #: data/io.elementary.code.appdata.xml.in:136
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "سکڕۆڵ کردن بۆ کۆتایی پەڕگەیەک"
 
 #: data/io.elementary.code.appdata.xml.in:137
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "پاشەکەوتکردن و گەڕاندنەوەی شوێنی پەنجەرەیەک بە شێوەیەکی باشتر"
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "تێخزاندنی دۆخی گیت لە توڵتیپسی پەڕگە"
 
 #: data/io.elementary.code.appdata.xml.in:147
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "بژاردە بۆ دۆزینەوەی هەستیاری کەیسی ڕوون"
 
 #: data/io.elementary.code.appdata.xml.in:149
 #: data/io.elementary.code.appdata.xml.in:164
 #: data/io.elementary.code.appdata.xml.in:186
 msgid "Other updates:"
-msgstr ""
+msgstr "نوێکردنەوەکانی تر:"
 
 #: data/io.elementary.code.appdata.xml.in:151
 msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
+msgstr "بە دروستی پیشاندانی لیستی تۆگڵ کۆمێنت کاتێک هیچ دەقێک دیاری نەکراوە"
 
 #: data/io.elementary.code.appdata.xml.in:152
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "چاککردنی لاگرتنی گۆڕینی فۆنت"
 
 #: data/io.elementary.code.appdata.xml.in:161
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"دانەیەکی تر بۆ لیستەکە زیادکراوە بە ناوی \"داخستنی بوخچەکانی تر\" بۆ "
+"ئاسانکاری لە پاککردنەوەی سایدباڕەکەتدا"
 
 #: data/io.elementary.code.appdata.xml.in:162
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "پاشەکەوتکردن و گەڕاندنەوەی ڕێکخستنی گەڕانی بازنەیی"
 
 #: data/io.elementary.code.appdata.xml.in:166
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "زیادکردنی کورتەڕێ بۆ دانەکانی لیست"
 
 #: data/io.elementary.code.appdata.xml.in:167
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "وا لێکردنی دانەکانی بوخچەی سایدباڕ دیاری نەکرێن"
 
 #: data/io.elementary.code.appdata.xml.in:168
 msgid "Center new windows"
-msgstr ""
+msgstr "سەنتەرکردنی پەنجەرە تازەکان"
 
 #: data/io.elementary.code.appdata.xml.in:177
 msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgstr "بە شێوەیەکی بینراو پەڕگە .gitignoredەکان پاشبخە لە سایدباڕی پرۆژە"
 
 #: data/io.elementary.code.appdata.xml.in:178
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "کۆپی/کەتی زیرەک بەبێ دیارکردنی چالاک"
 
 #: data/io.elementary.code.appdata.xml.in:179
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "زیادکردنی دایەلۆگی دڵنیابوونەوە بۆ کرداری \"گەڕاندنەوە\""
 
 #: data/io.elementary.code.appdata.xml.in:180
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"زیادکردنی لیستی \"کردنەوە لە\" بۆ ئاستی بەرزی بوخچە لە بەڕێوەبەری بوخچەدا"
 
 #: data/io.elementary.code.appdata.xml.in:181
 msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgstr "پەڕگە کاتییەکان پشان مەدە لە بەڕێوەبەری بوخچەدا"
 
 #: data/io.elementary.code.appdata.xml.in:182
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
+"کاراکردنی تەواوکردنی کەوانە و زیادکردنی بۆشایی سەرەتای دێر بە شێوەیەکی "
+"خۆکارانە بە شێوەیەکی سەرەکی"
 
 #: data/io.elementary.code.appdata.xml.in:183
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "زومکردنی پێوەکراوی تێرمیناڵ بە تەختەکلیل"
 
 #: data/io.elementary.code.appdata.xml.in:184
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"ڕێزگرتن لە ڕێکخستنەکانی تایبەتمەندی جیهانی لەکاتی پاشەکەوتکردن و گەڕاندنەوە"
 
 #: data/io.elementary.code.appdata.xml.in:188
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "سادەکردنی ڕێکخستنی \"Draw spaces\""
 
 #: data/io.elementary.code.appdata.xml.in:189
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
+"چارەسەکردنی کورتەڕێی تەختەکلیل بۆ گەڕانەوە بۆ دواوە لە ئەنجامەکانی گەڕاندا"
 
 #: data/io.elementary.code.appdata.xml.in:190
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "چاککردنی کردنەوەی پەڕگەکان لە شوێنەکانیانەوە لە تێرمیناڵەوە"
 
 #: data/io.elementary.code.appdata.xml.in:191
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"چاککردنی دایەلۆگی پەڕگەی نەڵ لە کاتی کردنەوەی پەنجەرەیەکی تازە لە دۆکەوە"
 
 #: data/io.elementary.code.appdata.xml.in:192
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "زیادکردنی \"=\" وەکو کلیلی زووم کردن"
 
 #: data/io.elementary.code.appdata.xml.in:193
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "گۆڕینی ئایکۆنی سێرچ کاتێک ئەنجامەکان نەدۆزرانەوە"
 
 #: data/io.elementary.code.appdata.xml.in:194
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "نووسینی ناوی پەڕگە پێش دروستکردنی"
 
 #: data/io.elementary.code.appdata.xml.in:202
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "بەکارهێنانی Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:203
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "تێخزاندنی پەڕگە نادەقییەکان لە سایدباڕدا"
 
 #: data/io.elementary.code.appdata.xml.in:204
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "چارەکردنی ڕەشکردنەوەی دیمەنی ئێسا"
 
 #: data/io.elementary.code.appdata.xml.in:211
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "چاککردنی ڕەفتاری کرداری ڕوومێزی پەنجەرەی تازە"
 
 #: data/io.elementary.code.appdata.xml.in:212
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
-msgstr ""
+msgstr "هاوکاتکردنی داگرتنی‏ کلیلی Ctrl+N لەگەڵ ژمارە دۆکیومێنتە تازەکان"
 
 #: data/io.elementary.code.appdata.xml.in:213
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "دروستکردنی چارەکردنی سیستەم بۆ پێبەندی editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:214
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "زیادکردنی دانەی گۆڕینی بڕانچ بۆ لیست"
 
 #: data/io.elementary.code.appdata.xml.in:215
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
+"خۆپارێزی لە تێکچوونەکانی دەستپێک کە پەیوەندی بە چۆنیەتی لۆد کردنی "
+"پێوەکراوەکانەوە هەبوو"
 
 #: data/io.elementary.code.appdata.xml.in:223
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "پاشەکەوتکردنی پەڕگە بە شێوەیەکی زیرەکانەتر"
 
 #: data/io.elementary.code.appdata.xml.in:224
 msgid "File saving fixes"
-msgstr ""
+msgstr "چارەسەرکردنی پاشەکەوتکردنی پەڕگە"
 
 #: data/io.elementary.code.appdata.xml.in:225
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "پەڕگە کاتییەکان بۆ گەڕاندنەوەی تاب زیاد مەکە"
 
 #: data/io.elementary.code.appdata.xml.in:233
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "پەڕگە ڕەشکراوەکان دروست مەکەوە کاتێک سێشن دەگەڕێنییەوە"
 
 #: data/io.elementary.code.appdata.xml.in:234
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "گەڕاندنەوەی ڕێکخستنی کۆکردنەوەی دێڕ"
 
 #: data/io.elementary.code.appdata.xml.in:235
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "زیادکردنی توڵتیپسی ئەکسێل"
 
 #: data/io.elementary.code.appdata.xml.in:236
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "چارەسەرکردنی چەند کێشەیەکی چکۆڵە"
 
 #: data/io.elementary.code.appdata.xml.in:276
 msgid "elementary, Inc."
-msgstr ""
+msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr ""
+msgstr "دەستکاریکردنی پەڕگەکانی کۆد"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "دەستکاریکەری کۆد"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
@@ -594,7 +606,7 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;"
-msgstr ""
+msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
@@ -606,8 +618,8 @@ msgstr "پەنجەرەی نوێ"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "کارپێکردنی کۆد وەکو ئەدمین"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "سەلماندنی ڕەسەنێتی پێویستە بۆ کارپێکردنی کۆد وەکو ئەدمین"
