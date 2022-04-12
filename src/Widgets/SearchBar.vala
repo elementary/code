@@ -371,12 +371,13 @@ namespace Scratch.Widgets {
         }
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            end_iter = start_iter;
+
             if (search_context == null) {
                 critical ("Trying to search forwards with no search context");
                 return false;
             }
 
-            end_iter = start_iter;
             bool has_wrapped_around;
             bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
@@ -393,12 +394,13 @@ namespace Scratch.Widgets {
         }
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            end_iter = start_iter;
+
             if (search_context == null) {
                 critical ("Trying to search backwards with no search context");
                 return false;
             }
 
-            end_iter = start_iter;
             bool has_wrapped_around;
             bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
             if (found) {
