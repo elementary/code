@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-04-09 02:25+0000\n"
+"PO-Revision-Date: 2022-04-29 04:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -147,21 +147,21 @@ msgstr "改善点:"
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
-msgstr ""
+msgstr "マルチタスク画面でのウィンドウタイトルとして、現在編集中のファイル名を使用するように変更"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "隠しフォルダーもプロジェクトサイドバーで表示されるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
-msgstr ""
+msgstr "現在選択している検索結果と検索数を、文字検索中も表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "検索バーに正規表現モードを搭載"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:61
@@ -174,26 +174,26 @@ msgstr "修正点:"
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
-msgstr ""
+msgstr "プロジェクトに追跡されていないファイルがある場合でも、ブランチを切り替えできるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "大規模なプロジェクト内で検索するとクラッシュする不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
-msgstr ""
+msgstr "外部プログラムから“コード”を開いた際に、開いたドキュメントがフォーカスされるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "選択中の行がなくても、行の複製が正しく実行されるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "不明な URI 形式を開くように指示されてもクラッシュしないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:46
 #: data/io.elementary.code.appdata.xml.in:67
