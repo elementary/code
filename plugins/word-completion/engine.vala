@@ -29,6 +29,11 @@ public class Euclide.Completion.Parser : GLib.Object {
         return DELIMITERS.index_of_char (c) >= 0;
     }
 
+    public static void back_to_word_start (ref Gtk.TextIter iter) {
+        iter.backward_find_char (is_delimiter, null);
+        iter.forward_char ();
+    }
+
     public Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 

@@ -108,7 +108,7 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-        public Document (SimpleActionGroup actions, File? file = null) {
+        public Document (SimpleActionGroup actions, File file) {
             Object (actions: actions);
 
             this.file = file;
@@ -580,7 +580,7 @@ namespace Scratch.Services {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
             } else {
-                return file.get_path ();
+                return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
         }
 

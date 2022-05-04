@@ -141,16 +141,15 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             }
         }
 
-        if (!completion_in_progress && parser.is_delimiter (uc) &&
+        if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
             (uc.isprint () || uc.isspace ())) {
-
             var buffer = current_view.buffer;
             var mark = buffer.get_insert ();
             Gtk.TextIter cursor_iter;
             buffer.get_iter_at_mark (out cursor_iter, mark);
 
             var word_start = cursor_iter;
-            word_start.backward_word_start ();
+            Euclide.Completion.Parser.back_to_word_start (ref word_start);
 
             string word = buffer.get_text (word_start, cursor_iter, false);
             parser.add_word (word);
