@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2020-05-11 15:10+0000\n"
+"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"PO-Revision-Date: 2022-01-08 23:29+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/plugins/cs/>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -28,11 +28,11 @@ msgstr "Doplňuje závorky v průběhu psaní"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr "Detekce odsazení"
+msgstr "Zjišťování odsazení"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr "Heuristicky detekuje nastavení tabulátorů nebo mezer"
+msgstr "Heuristicky zjišťuje nastavení tabulátorů nebo mezer"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
@@ -52,11 +52,11 @@ msgstr "Zvýraznňuje všechny výskyty slov, která jsou vybrána"
 
 #: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Markdown Actions"
-msgstr ""
+msgstr "Akce pro Markdown"
 
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
-msgstr ""
+msgstr "Přidá klávesové zkratky pro rychlé upravování Markdown souborů"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -108,7 +108,7 @@ msgstr "Terminál ve vašem editoru zdrojových kódů"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr "Emulace Vim"
+msgstr "Emulace editoru Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
