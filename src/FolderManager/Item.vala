@@ -88,7 +88,7 @@ namespace Scratch.FolderManager {
 
                 var fd = Posix.open (file.path, (writable ? Posix.O_RDWR : Posix.O_RDONLY) | Posix.O_CLOEXEC);
                 if (fd == -1) {
-                    critical ("OpenURI: cannot open file dscriptor for '%s'", file.path);
+                    critical ("OpenURI: cannot open file descriptor for '%s'", file.path);
                     return;
                 }
 
@@ -120,7 +120,7 @@ namespace Scratch.FolderManager {
 
                 var fd = Posix.open (file.path, Posix.O_RDONLY | Posix.O_CLOEXEC);
                 if (fd == -1) {
-                    critical ("OpenURI: cannot open file dscriptor for '%s'", file.path);
+                    critical ("OpenURI: cannot open file descriptor for '%s'", file.path);
                     return;
                 }
 
