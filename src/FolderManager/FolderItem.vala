@@ -66,7 +66,7 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_in_item = new Gtk.MenuItem.with_label (_("Open In…"));
+            var open_in_item = new Gtk.MenuItem.with_label (_("Open In Another Application…"));
             open_in_item.activate.connect (() => show_app_chooser (file));
 
             var contractor_menu = new Gtk.Menu ();
