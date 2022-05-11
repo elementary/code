@@ -228,8 +228,9 @@ namespace Scratch {
             default_width = rect.width;
             default_height = rect.height;
 
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            set_color_scheme ();
+            Granite.Settings.get_default ().notify["prefers-color-scheme"].connect (set_color_scheme);
+            Scratch.settings.changed["follow-system-style"].connect (set_color_scheme);
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
@@ -448,6 +449,27 @@ namespace Scratch {
             });
 
             set_widgets_sensitive (false);
+        }
+
+        private void set_color_scheme () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            var granite_settings = Granite.Settings.get_default ();
+
+            if (Scratch.settings.get_boolean ("follow-system-style")) {
+                switch (granite_settings.prefers_color_scheme) {
+                    case Granite.Settings.ColorScheme.DARK:
+                        Scratch.settings.set_boolean ("prefer-dark-style", true);
+                        Scratch.settings.set_string ("style-scheme", "solarized-dark");
+                        break;
+                    default:
+                        Scratch.settings.set_boolean ("prefer-dark-style", false);
+                        Scratch.settings.set_string ("style-scheme", "solarized-light");
+                        break;
+                }
+            }
+
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            toolbar.activate_color_button ();
         }
 
         private void open_binary (File file) {

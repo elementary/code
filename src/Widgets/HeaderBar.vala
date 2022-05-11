@@ -30,6 +30,10 @@ namespace Scratch.Widgets {
         public Code.ChooseProjectButton choose_project_button;
         public Gtk.Revealer choose_project_revealer;
 
+        private Gtk.RadioButton color_button_none;
+        private Gtk.RadioButton color_button_white;
+        private Gtk.RadioButton color_button_light;
+        private Gtk.RadioButton color_button_dark;
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "solarized-light";
         private const string STYLE_SCHEME_DARK = "solarized-dark";
@@ -148,17 +152,17 @@ namespace Scratch.Widgets {
             follow_system_button.add (follow_system_grid);
 
             // Intentionally never attached so we can have a non-selected state
-            var color_button_none = new Gtk.RadioButton (null);
+            color_button_none = new Gtk.RadioButton (null);
 
-            var color_button_white = new Gtk.RadioButton.from_widget (color_button_none);
+            color_button_white = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_white.halign = Gtk.Align.CENTER;
             style_color_button (color_button_white, STYLE_SCHEME_HIGH_CONTRAST);
 
-            var color_button_light = new Gtk.RadioButton.from_widget (color_button_none);
+            color_button_light = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_light.halign = Gtk.Align.CENTER;
             style_color_button (color_button_light, STYLE_SCHEME_LIGHT);
 
-            var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none);
+            color_button_dark = new Gtk.RadioButton.from_widget (color_button_none);
             color_button_dark.halign = Gtk.Align.CENTER;
             style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
@@ -249,6 +253,13 @@ namespace Scratch.Widgets {
                 }
             });
 
+            Scratch.settings.bind (
+                "follow-system-style",
+                follow_system_switch,
+                "active",
+                SettingsBindFlags.DEFAULT
+            );
+
             follow_system_button.button_release_event.connect (() => {
                 follow_system_switch.activate ();
                 return Gdk.EVENT_STOP;
@@ -262,20 +273,6 @@ namespace Scratch.Widgets {
             );
 
             var gtk_settings = Gtk.Settings.get_default ();
-
-            switch (Scratch.settings.get_string ("style-scheme")) {
-                case STYLE_SCHEME_HIGH_CONTRAST:
-                    color_button_white.active = true;
-                    break;
-                case STYLE_SCHEME_LIGHT:
-                    color_button_light.active = true;
-                    break;
-                case STYLE_SCHEME_DARK:
-                    color_button_dark.active = true;
-                    break;
-                default:
-                    color_button_none.active = true;
-            }
 
             color_button_dark.clicked.connect (() => {
                 Scratch.settings.set_boolean ("prefer-dark-style", true);
@@ -294,6 +291,23 @@ namespace Scratch.Widgets {
                 Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
+        }
+
+        public void activate_color_button () {
+            switch (Scratch.settings.get_string ("style-scheme")) {
+                case STYLE_SCHEME_HIGH_CONTRAST:
+                    color_button_white.active = true;
+                    break;
+                case STYLE_SCHEME_LIGHT:
+                    color_button_light.active = true;
+                    break;
+                case STYLE_SCHEME_DARK:
+                    color_button_dark.active = true;
+                    break;
+                default:
+                    color_button_none.active = true;
+                    break;
+            }
         }
 
         private void style_color_button (Gtk.Widget color_button, string style_id) {
