@@ -228,10 +228,6 @@ namespace Scratch {
             default_width = rect.width;
             default_height = rect.height;
 
-            set_color_scheme ();
-            Granite.Settings.get_default ().notify["prefers-color-scheme"].connect (set_color_scheme);
-            Scratch.settings.changed["follow-system-style"].connect (set_color_scheme);
-
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
             plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
@@ -240,6 +236,10 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
+
+            set_color_scheme ();
+            Granite.Settings.get_default ().notify["prefers-color-scheme"].connect (set_color_scheme);
+            Scratch.settings.changed["follow-system-style"].connect (set_color_scheme);
 
             var window_state = Scratch.saved_state.get_enum ("window-state");
             switch (window_state) {
