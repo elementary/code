@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
 "PO-Revision-Date: 2022-03-25 14:01+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
@@ -636,7 +636,9 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "texto;IDE;EID;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
