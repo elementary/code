@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-02 10:58+0000\n"
-"PO-Revision-Date: 2022-03-27 03:32+0000\n"
+"PO-Revision-Date: 2022-06-02 21:22+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -592,7 +592,7 @@ msgstr "Korvaa kaikki"
 #: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d/%d"
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
