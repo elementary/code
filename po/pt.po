@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-02 10:58+0000\n"
-"PO-Revision-Date: 2021-12-22 17:25+0000\n"
+"PO-Revision-Date: 2022-06-04 06:55+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -576,10 +576,8 @@ msgid "Case Insensitive"
 msgstr "Insensível a maiúsculas e minúsculas"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Usar expressões regulares:"
+msgstr "Usar expressões regulares"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
@@ -596,7 +594,7 @@ msgstr "Substituir tudo"
 #: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d de %d"
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
