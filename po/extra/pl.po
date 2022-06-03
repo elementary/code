@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-02 10:58+0000\n"
-"PO-Revision-Date: 2022-04-02 08:31+0000\n"
+"PO-Revision-Date: 2022-06-03 08:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
 "Language: pl\n"
@@ -614,10 +614,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "tekst;IDE;kod;scratch;"
+msgstr "tekst;IDE;scratch;kod;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
