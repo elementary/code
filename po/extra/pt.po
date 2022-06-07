@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2021-12-22 17:25+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
+"PO-Revision-Date: 2022-06-06 02:14+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -30,20 +30,17 @@ msgid "The editor that works for you"
 msgstr "O editor que funciona para si"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"O Code é o editor que faz o trabalho por si. Guarda automaticamente os seus "
-"ficheiros, de modo a que fiquem sempre atualizados. E ainda memoriza os seus "
-"separadores para que nunca os perca de vista, mesmo entre sessões."
+"Quer esteja a escrever em Markdown ou a gerir uma base de códigos de "
+"aplicação complexa, o Code é o editor leve mas completo para si. Grava "
+"automaticamente os seus ficheiros para garantir que estão sempre "
+"atualizados, e lembra-se dos seus separadores para que nunca perca o seu "
+"lugar - mesmo entre sessões."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -51,30 +48,30 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Concebido em torno de um fluxo de trabalho baseado em projectos, o Code "
+"conhece as suas bases de código separadas. Vem com a integração útil do Git "
+"para criar e alternar entre ramos e mostrar ficheiros e linhas alteradas "
+"dentro dos seus projectos."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Funciona com a linguagem de programação que escolhe. Quer esteja a "
-"desenvolver código em Vala, PHP ou HTML, o Code não o deixa ficar mal. "
-"Experiencia o realce completo da sintaxe em praticamente todas as linguagens "
-"de programação, scripting e marcação."
+"Funciona com a sua linguagem de programação: quer esteja a desenvolver "
+"código em Vala, PHP ou HTML, o Code não o deixa ficar mal. Experiencia o "
+"realce completo da sintaxe em praticamente todas as linguagens de "
+"programação, scripting e markup."
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Encontre qualquer coisa no seu ficheiro atual, pastas específicas, ou todo o "
+"seu projecto com opções de maisúsculas/minúsculas e expressões regulares."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -93,7 +90,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Há muito mais:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
@@ -582,7 +579,9 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "texto;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
