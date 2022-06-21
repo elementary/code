@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-01-04 09:44+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
+"PO-Revision-Date: 2022-06-04 23:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -148,20 +148,22 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"マルチタスク画面でのウィンドウタイトルとして、現在編集中のファイル名を使用す"
+"るように変更"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "隠しフォルダーもプロジェクトサイドバーで表示されるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
-msgstr ""
+msgstr "現在選択している検索結果と検索数を、文字検索中も表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "検索バーに正規表現モードを搭載"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:61
@@ -175,25 +177,29 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"プロジェクトに追跡されていないファイルがある場合でも、ブランチを切り替えでき"
+"るように修正"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "大規模なプロジェクト内で検索するとクラッシュする不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"外部プログラムから“コード”を開いた際に、開いたドキュメントがフォーカスされる"
+"ように修正"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "選択中の行がなくても、行の複製が正しく実行されるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "不明な URI 形式を開くように指示されてもクラッシュしないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:46
 #: data/io.elementary.code.appdata.xml.in:67
@@ -201,7 +207,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:105
 #: data/io.elementary.code.appdata.xml.in:134
 msgid "Minor updates:"
-msgstr "軽微なアップデート:"
+msgstr "そのほかのアップデート:"
 
 #: data/io.elementary.code.appdata.xml.in:48
 #: data/io.elementary.code.appdata.xml.in:70
@@ -607,8 +613,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
-msgstr "text;IDE;scratch;テキスト;統合開発環境;"
+msgid "text;IDE;scratch;code;"
+msgstr "text;IDE;scratch;code;テキスト;統合開発環境;コード;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"

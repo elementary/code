@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
 "PO-Revision-Date: 2022-04-03 16:07+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -60,8 +60,8 @@ msgid ""
 msgstr ""
 "بەو زمانە بنووسە کە خۆت دەتەوێت: گرنگ نییە کە تۆ کار بە ڤالا بکەیت، یان "
 "خەریکی نووسینی سکریپت بیت بە PHP یان پێشەوەی وێبێک دابڕێژیت بە HTML، کۆد "
-"خەمی لێت خواردووە، بەنزیکەیی پاڵپشتی سینتاکسی تەواوی زمانەکانی بەرنامەنووسین،"
-" سکریپکردن و مارکەپ کردن دەکات و یەرمەتی هایلایتینگ دەدات."
+"خەمی لێت خواردووە، بەنزیکەیی پاڵپشتی سینتاکسی تەواوی زمانەکانی "
+"بەرنامەنووسین، سکریپکردن و مارکەپ کردن دەکات و یەرمەتی هایلایتینگ دەدات."
 
 #: data/io.elementary.code.appdata.xml.in:14
 msgid ""
@@ -79,9 +79,9 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
-"تایبەتمەندیە زیرەکەکان: بۆشایی خۆکاری سەرەتای دێڕ، ڕەفتاری زیرەکی "
-"بڕین/لەبەرگرتنەوە، بۆشایی سپی بینراو بۆ دەقی هەڵبژێردراو و لە کۆتایی هێڵەکان "
-"بە شێوەی سەرەکی، و پێوەکراوی ئارەزوومەندانە بۆ کردارەکانی مارکداون، هەڵەچنی، "
+"تایبەتمەندیە زیرەکەکان: بۆشایی خۆکاری سەرەتای دێڕ، ڕەفتاری زیرەکی بڕین/"
+"لەبەرگرتنەوە، بۆشایی سپی بینراو بۆ دەقی هەڵبژێردراو و لە کۆتایی هێڵەکان بە "
+"شێوەی سەرەکی، و پێوەکراوی ئارەزوومەندانە بۆ کردارەکانی مارکداون، هەڵەچنی، "
 "کورتکردنەوەی بۆشایی سپی، تەواوکردنی ووشەکان، و زیاتر."
 
 #: data/io.elementary.code.appdata.xml.in:16
@@ -605,7 +605,9 @@ msgid "io.elementary.code"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
