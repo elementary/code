@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -564,8 +564,8 @@ msgid "Find"
 msgstr "Rasti"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr ""
 
@@ -607,7 +607,7 @@ msgstr "Pakeisti"
 msgid "Replace all"
 msgstr "Pakeisti visus"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
 msgstr ""
@@ -738,12 +738,12 @@ msgstr "Terminalas"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Kopijuoti"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Įdėti"
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-03-02 13:56+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
+"PO-Revision-Date: 2022-04-20 08:53+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
 "Language: sk\n"
@@ -151,20 +151,22 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"Názov aktuálneho dokumentu sa teraz zobrazí ako názov okna v zobrazení úloh"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Skryté priečinky sa teraz zobrazujú v bočnom paneli projektu"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"Práve zvolený výsledok a počet výsledkov sa zobrazia počas vyhľadávania"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "Panel vyhľadávania teraz podporuje režim regulárneho výrazu"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:61
@@ -178,25 +180,28 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"Teraz je možné zmeniť vetvu Git s nesledovanými súbormi, ktoré sa nachádzajú "
+"v projekte"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Zabránenie pádov pri vyhľadávaní vo veľkých projektoch"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Po otvorení aplikácie Kód z externého programu bude zameraný správny dokument"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "Duplikácia riadkov je vykonávaná správne, ak nie je nič vybrané"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Kód už nepadá, keď je požiadaný o otvorenie neznámeho URI formátu"
 
 #: data/io.elementary.code.appdata.xml.in:46
 #: data/io.elementary.code.appdata.xml.in:67
@@ -602,7 +607,9 @@ msgid "io.elementary.code"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17

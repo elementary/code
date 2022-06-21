@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -548,8 +548,8 @@ msgid "Find"
 msgstr "尋找"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr ""
 
@@ -591,7 +591,7 @@ msgstr "取代"
 msgid "Replace all"
 msgstr "全部取代"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
 msgstr ""
@@ -720,12 +720,12 @@ msgstr "終端機"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "複製"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "貼上"
 

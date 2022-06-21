@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-01-12 18:06+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
+"PO-Revision-Date: 2022-05-22 06:22+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/extra/nl/>\n"
 "Language: nl\n"
@@ -36,9 +36,9 @@ msgid ""
 "never lose your spot—even between sessions."
 msgstr ""
 "Of je nou in Markdown schrijft of een complexe codebase beheert, Code is een "
-"lichtgewicht maar volwaardige editor. Het slaat automatische je bestanden op "
-"zodat je altijd up-to-date bent, en het herinnert je tabbladen zodat je "
-"nooit je plaats verliest—zelfs tussen sessies in."
+"lichtgewicht maar volwaardige teksteditor. Het slaat automatisch je "
+"bestanden op zodat je altijd up-to-date bent, en het herinnert je tabbladen "
+"zodat je nooit je plaats verliest—zelfs tussen sessies in."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -592,7 +592,9 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "tekst;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
