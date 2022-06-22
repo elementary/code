@@ -372,12 +372,13 @@ namespace Scratch.Services {
                 } else {
                     delete_temporary_file ();
                 }
-            } else if (autosave) {
-                success = yield save_with_hold ();
             } else if (!saved) {
-                success = yield confirm_save ();
+                if (autosave) {
+                    success = yield save_with_hold ();
+                } else {
+                    success = yield confirm_save ();
+                }
             }
-
             return success;
         }
 

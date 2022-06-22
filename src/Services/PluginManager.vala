@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-  
+
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
@@ -153,5 +153,15 @@ namespace Scratch.Services {
             bottom_box.no_show_all = true;
             return view;
         }
+
+        public void deactivate_plugins () {
+            exts.foreach (extension_deactivate);
+            exts_core.foreach (extension_deactivate);
+        }
+
+        private void extension_deactivate (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+            ((Peas.Activatable)extension).deactivate ();
+        }
+
     }
 }

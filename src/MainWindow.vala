@@ -18,6 +18,7 @@
 * Boston, MA 02110-1301 USA
 */
 
+
 namespace Scratch {
     public class MainWindow : Hdy.Window {
         public const int FONT_SIZE_MAX = 72;
@@ -628,6 +629,9 @@ namespace Scratch {
 
         // For exit cleanup
         private async void handle_quit () {
+            // Prevent plugins possibly leaving output streams on disk.
+            plugins.deactivate_plugins ();
+
             if (yield document_view.prepare_to_close ()) {
                 do_quit ();
             } else {
