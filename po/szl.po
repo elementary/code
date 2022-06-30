@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 22:04+0000\n"
+"POT-Creation-Date: 2022-06-02 10:58+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -38,7 +38,7 @@ msgstr "rozszyrzynie"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:140 src/MainWindow.vala:420 src/MainWindow.vala:445
 msgid "Code"
 msgstr "Kod"
 
@@ -50,34 +50,34 @@ msgstr "Znojdź…"
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:487
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:491
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:748
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
+#: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
 #: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:774
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:775
 msgid "_Cancel"
 msgstr "_Pociep"
 
@@ -249,7 +249,7 @@ msgstr "Przemianuj"
 msgid "Move to Trash"
 msgstr "Przeniyś do hasioka"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Katalogi"
 
@@ -308,13 +308,13 @@ msgstr "%s, Zmodyfikowany"
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:515
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Gałōńź"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
 msgstr "Gałōńź"
 
@@ -439,7 +439,7 @@ msgstr "Szymle projektu"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:138
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -551,49 +551,64 @@ msgstr "Alfabetyzuj"
 msgid "Manage project folders"
 msgstr "Zarzōndzej katalogami projektōw"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:67
 msgid "Find"
 msgstr "Znojdź"
 
-#: src/Widgets/SearchBar.vala:74
+#. We don't want to flicker back to no results while we're still searching but we have previous results
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:82
 msgid "Search next"
 msgstr "Szukej do przodku"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:93
 msgid "Search previous"
 msgstr "Szukej do zadku"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
 msgstr "Wyszukowanie cykliczne"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
 msgstr "Dej pozōr na srogość liter"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
 msgstr "Niy dowej pozōr na srogość liter"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:119
+msgid "Use regular expressions"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
 msgstr "Zastōmp"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:143
 msgid "Replace"
 msgstr "Zastōmp"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:146
 msgid "Replace all"
 msgstr "Zastōmp wszyjske"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SearchBar.vala:588
+#, c-format
+msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
 msgstr "Zortuj zaznaczōne wiersze"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
 
@@ -699,26 +714,26 @@ msgstr "Symbole"
 msgid "No Symbols Found"
 msgstr "Niy szło znojś żodnych symboli"
 
-#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
+#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
 msgid "Show Terminal"
 msgstr "Pokoż terminal"
 
-#: plugins/terminal/terminal.vala:167
+#: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
 msgstr "Skryj terminal"
 
-#: plugins/terminal/terminal.vala:168
+#: plugins/terminal/terminal.vala:184
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:228
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Skopiuj"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:235
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Wraź"
 
@@ -730,7 +745,7 @@ msgstr "Niy szło znojś ôdpednich słownikōw"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Zainstaluj aby jedyn słownik [aspell]."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:162
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"

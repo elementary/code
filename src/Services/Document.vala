@@ -108,7 +108,7 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-        public Document (SimpleActionGroup actions, File? file = null) {
+        public Document (SimpleActionGroup actions, File file) {
             Object (actions: actions);
 
             this.file = file;
@@ -145,11 +145,6 @@ namespace Scratch.Services {
             }
 
             source_map.set_view (source_view);
-
-            // Handle Drag-and-drop functionality on source-view
-            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
-            Gtk.TargetEntry text = {"text/plain", 0, 0};
-            Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
 
@@ -493,7 +488,7 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                null,
+                (Gtk.Window) this.get_toplevel (),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")
@@ -580,7 +575,7 @@ namespace Scratch.Services {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
             } else {
-                return file.get_path ();
+                return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
         }
 
@@ -643,7 +638,7 @@ namespace Scratch.Services {
             info_bar.visible = false;
         }
 
-        // SourceView releated functions
+        // SourceView related functions
         // Undo
         public void undo () {
             this.source_view.undo ();
@@ -667,7 +662,7 @@ namespace Scratch.Services {
             return this.source_view.buffer.text;
         }
 
-        // Get selcted text
+        // Get selected text
         public string get_selected_text () {
             return this.source_view.get_selected_text ();
         }

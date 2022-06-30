@@ -118,10 +118,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
         if (terminal.has_focus) {
             /* Action any terminal hotkeys */
-            return on_terminal_key_press_event (event);
+            return terminal.key_press_event (event);
         }
 
         return false;
+    }
+
+    void on_terminal_child_exited () {
+        if (get_shell_location () == "") {
+            // Terminal has no shell - close
+            tool_button.active = false;
+        }
     }
 
     bool on_terminal_key_press_event (Gdk.EventKey event) {
@@ -165,6 +172,15 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         tool_button.toggled.connect (() => {
             if (this.tool_button.active) {
                 tool_button.tooltip_text = _("Hide Terminal");
+                if (get_shell_location () == "") {
+                    // Terminal has no shell or was destroyed - recreate
+                    if (grid != null) {
+                        grid.destroy ();
+                    }
+
+                    on_hook_notebook ();
+                }
+
                 bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 terminal.grab_focus ();
             } else {
@@ -184,11 +200,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     public string get_shell_location () {
         int pid = (!) (this.child_pid);
-
         try {
             return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
         } catch (GLib.FileError error) {
-            warning ("An error occurred while fetching the current dir of shell");
+            warning ("An error occurred while fetching the current dir of shell: %s", error.message);
             return "";
         }
     }
@@ -211,6 +226,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         terminal.key_press_event.connect (on_terminal_key_press_event);
+        terminal.child_exited.connect (on_terminal_child_exited);
 
         // Set terminal font
         if (font_name == "") {
@@ -249,8 +265,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         });
 
         try {
-            string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
-            terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
+            var last_path_setting = settings.get_string ("last-opened-path");
+            //FIXME Replace with the async method once the .vapi is fixed upstream.
+            terminal.spawn_sync (
+                Vte.PtyFlags.DEFAULT,
+                last_path_setting == "" ? "~/" : last_path_setting,
+                { Vte.get_user_shell () },
+                null,
+                GLib.SpawnFlags.SEARCH_PATH,
+                null,
+                out child_pid
+            );
         } catch (GLib.Error e) {
             warning (e.message);
         }

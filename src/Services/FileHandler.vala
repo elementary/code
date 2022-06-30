@@ -27,6 +27,31 @@ namespace Scratch.Services {
     }
 
     public class FileHandler : GLib.Object {
+        public static bool can_open_file (File file, out bool is_folder) {
+            is_folder = false;
+            if (file == null || file.get_path () == null) {
+                warning ("Ignoring  file %s. Cannot determine path",
+                    file != null ? file.get_uri () ?? "null" : "null"
+                );
+
+                return false;
+            }
+
+            // For now only allow diretories and regular files to be opened from commandline
+            // TODO Consider need for handling other types
+            var type = file.query_file_type (FileQueryInfoFlags.NONE);
+            switch (type) {
+                case FileType.DIRECTORY:
+                     is_folder = true;
+                     return true;
+                case FileType.REGULAR:
+                case FileType.UNKNOWN: // Cannot be sure it is not a text file so try
+                    return true;
+                default:
+                    warning ("Cannot open %s. Cannot handle file type %s", file.get_path (), type.to_string ());
+                    return false;
+            }
+        }
 
         public static async string? load_content_from_file (File file) {
             var text = new StringBuilder ();
