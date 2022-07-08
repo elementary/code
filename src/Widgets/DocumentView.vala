@@ -98,7 +98,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         );
 
         update_inline_tab_colors ();
-        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
+        Scratch.settings.changed.connect ((key) => {
+            if (key == "style-scheme" || key == "follow-system-style") {
+                update_inline_tab_colors ();
+            }
+        });
 
         // Handle Drag-and-drop of files onto add-tab button to create document
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
@@ -107,25 +111,23 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private void update_inline_tab_colors () {
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_scheme = Scratch.settings.get_string ("style-scheme");
-        if (style_scheme in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (style_scheme);
-            var text_color_data = theme.get_style ("text");
+        var theme = SourceView.get_style_scheme_from_settings ();
+        var text_color_data = theme.get_style ("text");
 
-            // Default gtksourceview background color is white
-            var color = "#FFFFFF";
-            if (text_color_data != null) {
-                // If the current style has a background color, use that
-                color = text_color_data.background;
-            }
+        // Default gtksourceview background color is white
+        var color = "#FFFFFF";
+        if (text_color_data != null) {
+            // If the current style has a background color, use that
+            color = text_color_data.background;
+        } else {
+            warning ("No text color in scheme");
+        }
 
-            var define = "@define-color tab_base_color %s;".printf (color);
-            try {
-                style_provider.load_from_data (define);
-            } catch (Error e) {
-                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
-            }
+        var define = "@define-color tab_base_color %s;".printf (color);
+        try {
+            style_provider.load_from_data (define);
+        } catch (Error e) {
+            critical ("Unable to set inline tab styling, going back to classic notebook tabs");
         }
     }
 

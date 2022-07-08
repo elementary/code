@@ -22,7 +22,6 @@
 namespace Scratch.Widgets {
     public class SourceView : Gtk.SourceView {
         public Gtk.SourceLanguageManager manager;
-        public Gtk.SourceStyleSchemeManager style_scheme_manager;
         public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
@@ -87,7 +86,6 @@ namespace Scratch.Widgets {
 
             expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
-            style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
             font_css_provider = new Gtk.CssProvider ();
             get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -114,8 +112,6 @@ namespace Scratch.Widgets {
 
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
-
-            restore_settings ();
 
             Gtk.drag_dest_add_uri_targets (this);
 
@@ -292,10 +288,23 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-            source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            source_buffer.style_scheme = SourceView.get_style_scheme_from_settings ();
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
+        }
+
+        public static Gtk.SourceStyleScheme get_style_scheme_from_settings () {
+            var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+            string style_scheme = STYLE_SCHEME_LIGHT;
+            if (Scratch.settings.get_boolean ("follow-system-style")) {
+                if (Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK) {
+                    style_scheme = STYLE_SCHEME_DARK;
+                }
+            } else {
+                style_scheme = Scratch.settings.get_string ("style-scheme");
+            }
+
+            return sssm.get_scheme (style_scheme) ?? sssm.get_scheme ("classic");
         }
 
         private void update_settings () {

@@ -20,6 +20,9 @@
 */
 
 namespace Scratch.Widgets {
+    public const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
+    public const string STYLE_SCHEME_LIGHT = "solarized-light";
+    public const string STYLE_SCHEME_DARK = "solarized-dark";
     public class HeaderBar : Hdy.HeaderBar {
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
@@ -34,9 +37,7 @@ namespace Scratch.Widgets {
         private Gtk.RadioButton color_button_white;
         private Gtk.RadioButton color_button_light;
         private Gtk.RadioButton color_button_dark;
-        private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
-        private const string STYLE_SCHEME_LIGHT = "solarized-light";
-        private const string STYLE_SCHEME_DARK = "solarized-dark";
+
 
         public HeaderBar () {
             Object (

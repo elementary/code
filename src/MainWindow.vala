@@ -456,20 +456,14 @@ namespace Scratch {
             var granite_settings = Granite.Settings.get_default ();
 
             if (Scratch.settings.get_boolean ("follow-system-style")) {
-                switch (granite_settings.prefers_color_scheme) {
-                    case Granite.Settings.ColorScheme.DARK:
-                        Scratch.settings.set_boolean ("prefer-dark-style", true);
-                        Scratch.settings.set_string ("style-scheme", "solarized-dark");
-                        break;
-                    default:
-                        Scratch.settings.set_boolean ("prefer-dark-style", false);
-                        Scratch.settings.set_string ("style-scheme", "solarized-light");
-                        break;
-                }
-            }
+                gtk_settings.gtk_application_prefer_dark_theme =
+                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                    Scratch.settings.changed ("style-scheme");
+            } else {
 
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
-            toolbar.activate_color_button ();
+                gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+                toolbar.activate_color_button ();
+            }
         }
 
         private void open_binary (File file) {
