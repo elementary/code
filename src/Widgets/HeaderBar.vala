@@ -143,7 +143,9 @@ namespace Scratch.Widgets {
                 valign = Gtk.Align.START
             };
 
-            var follow_system_grid = new Gtk.Grid ();
+            var follow_system_grid = new Gtk.Grid () {
+                column_spacing = 12
+            };
             follow_system_grid.add (follow_system_label);
             follow_system_grid.add (follow_system_switch);
 
