@@ -207,11 +207,6 @@ namespace Scratch.Widgets {
             return !start.equal (end);
         }
 
-        ~SourceView () {
-            // Update settings when an instance is deleted
-            update_settings ();
-        }
-
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -295,18 +290,6 @@ namespace Scratch.Widgets {
             var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
             source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
-        }
-
-        private void update_settings () {
-            var source_buffer = (Gtk.SourceBuffer) buffer;
-            Scratch.settings.set_boolean ("show-right-margin", show_right_margin);
-            Scratch.settings.set_int ("right-margin-position", (int) right_margin_position);
-            Scratch.settings.set_boolean ("highlight-matching-brackets", source_buffer.highlight_matching_brackets);
-            Scratch.settings.set_boolean ("spaces-instead-of-tabs", insert_spaces_instead_of_tabs);
-            Scratch.settings.set_int ("indent-width", (int) tab_width);
-            Scratch.settings.set_string ("font", font);
-            Scratch.settings.set_string ("style-scheme", source_buffer.style_scheme.id);
             style_changed (source_buffer.style_scheme);
         }
 
