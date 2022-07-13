@@ -99,6 +99,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         update_inline_tab_colors ();
         Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
+        Scratch.settings.changed["follow-system-style"].connect (update_inline_tab_colors);
+        var granite_settings = Granite.Settings.get_default ();
+        granite_settings.notify["prefers-color-scheme"].connect (update_inline_tab_colors);
 
         // Handle Drag-and-drop of files onto add-tab button to create document
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
@@ -107,8 +110,19 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private void update_inline_tab_colors () {
+        var style_scheme = "";
+        if (settings.get_boolean ("follow-system-style")) {
+            var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            if (system_prefers_dark) {
+                style_scheme = "solarized-dark";
+            } else {
+                style_scheme = "solarized-light";
+            }
+        } else {
+            style_scheme = Scratch.settings.get_string ("style-scheme");
+        }
+
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_scheme = Scratch.settings.get_string ("style-scheme");
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");

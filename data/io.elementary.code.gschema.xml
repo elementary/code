@@ -135,6 +135,11 @@
       <summary>Request dark Gtk stylesheet variant</summary>
       <description>Switches between dark and light style</description>
     </key>
+    <key name="follow-system-style" type="b">
+      <default>false</default>
+      <summary>Follow the FreeDesktop.org dark style preference</summary>
+      <description>Use the Dark style if the system prefers a dark style, or Solarized Light otherwise. Overrides control of prefer-dark-style.</description>
+    </key>
     <key name="cyclic-search" type="b">
       <default>false</default>
       <summary>Whether search is cyclic</summary>
