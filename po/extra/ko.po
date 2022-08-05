@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-14 08:49+0000\n"
-"PO-Revision-Date: 2019-07-13 18:30+0000\n"
+"PO-Revision-Date: 2022-08-05 16:44+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/extra/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -192,10 +192,8 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:85
 #: data/io.elementary.code.appdata.xml.in:105
 #: data/io.elementary.code.appdata.xml.in:134
-#, fuzzy
-#| msgid "Minor bug fixes"
 msgid "Minor updates:"
-msgstr "자잘한 버그 수정"
+msgstr "소소한 업데이트:"
 
 #: data/io.elementary.code.appdata.xml.in:48
 #: data/io.elementary.code.appdata.xml.in:70
@@ -578,7 +576,7 @@ msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "새 파일"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
