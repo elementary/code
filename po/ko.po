@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-14 08:49+0000\n"
-"PO-Revision-Date: 2019-07-12 12:46+0000\n"
+"PO-Revision-Date: 2022-08-05 16:44+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:39
@@ -110,10 +110,9 @@ msgid "Search"
 msgstr "다음 내용 검색"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "새로운 조건을 설정하기"
+msgstr "“%s/%s”의 새 브랜치 만들기"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
@@ -194,10 +193,8 @@ msgid "Line wrap:"
 msgstr "줄 덮기:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
-msgstr "따라오는 공백 제거"
+msgstr "여백 표시:"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Show Mini Map:"
@@ -257,10 +254,8 @@ msgid "Folders"
 msgstr "폴더"
 
 #: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "폴더 열기"
+msgstr "폴더에서 찾기…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
@@ -297,10 +292,8 @@ msgid "Close Other Folders"
 msgstr "폴더 닫기"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Project…"
-msgstr "폴더 열기"
+msgstr "프로젝트에서 찾기…"
 
 #: src/FolderManager/ProjectFolderItem.vala:196
 msgid "Modified"
@@ -312,10 +305,8 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:515
-#, fuzzy
-#| msgid "Branch"
 msgid "New Branch…"
-msgstr "브랜치"
+msgstr "새 브랜치…"
 
 #: src/FolderManager/ProjectFolderItem.vala:528
 msgid "Branch"
@@ -537,10 +528,8 @@ msgid "Menu"
 msgstr "메뉴"
 
 #: src/Widgets/Sidebar.vala:42
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open Project Folder…"
-msgstr "폴더 열기"
+msgstr "프로젝트 폴더 열기…"
 
 #: src/Widgets/Sidebar.vala:45
 msgid "Collapse All"
@@ -679,10 +668,8 @@ msgid "Available Formats"
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "글꼴 선택:"
+msgstr "포맷 선택"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
