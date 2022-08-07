@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-02 10:58+0000\n"
-"PO-Revision-Date: 2022-06-04 23:04+0000\n"
+"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"PO-Revision-Date: 2022-07-17 00:54+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -438,9 +438,7 @@ msgstr "そのほかのアップデート:"
 
 #: data/io.elementary.code.appdata.xml.in:151
 msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
-"テキストが選択されていない場合にも、メニュー項目\"コメントを切り替え\"を適切"
-"に表示するように修正"
+msgstr "テキストが選択されていない場合にも、メニュー項目\"コメントアウト／コメントイン\"を適切に表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:152
 msgid "Fixed font switch alignment"

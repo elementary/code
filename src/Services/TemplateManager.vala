@@ -102,6 +102,12 @@ public abstract class Scratch.Template : Object {
                     case FileType.REGULAR:
                         files.add (file_info);
                         continue;
+                    case FileType.SHORTCUT:
+                    case FileType.SYMBOLIC_LINK:
+                    case FileType.MOUNTABLE:
+                    case FileType.SPECIAL:
+                    case FileType.UNKNOWN:
+                        continue;
                 }
             }
         } catch (Error e) {

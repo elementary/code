@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-02 10:58+0000\n"
-"PO-Revision-Date: 2021-12-10 17:02+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"PO-Revision-Date: 2022-07-24 14:49+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -148,20 +148,24 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"Название открытого документа теперь отображается как заголовок окна в режиме "
+"многозадачности"
 
 #: data/io.elementary.code.appdata.xml.in:34
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Скрытые папки теперь показываются в боковой панели проекта"
 
 #: data/io.elementary.code.appdata.xml.in:35
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"Выбранный результат и общее количество результатов отображаются во время "
+"поиска"
 
 #: data/io.elementary.code.appdata.xml.in:36
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "Панель поиска теперь имеет режим регулярных выражений"
 
 #: data/io.elementary.code.appdata.xml.in:38
 #: data/io.elementary.code.appdata.xml.in:61
@@ -174,26 +178,28 @@ msgstr "Исправления:"
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
-msgstr ""
+msgstr "Стало возможным менять ветку Git c неотслеживаемыми файлами в проекте"
 
 #: data/io.elementary.code.appdata.xml.in:41
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Исправлены вылеты при поиске в больших проектах"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Теперь правильный документ находится в фокусе после открытия Кода из внешней "
+"программы"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "Дублирование строки без выделения теперь выполняется правильно"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Код больше не вылетает при открытии неизвестного URI формата"
 
 #: data/io.elementary.code.appdata.xml.in:46
 #: data/io.elementary.code.appdata.xml.in:67
@@ -593,10 +599,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "текст;редактор;код;IDE;"
+msgstr "text;IDE;scratch;code;текст;редактор;код;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
