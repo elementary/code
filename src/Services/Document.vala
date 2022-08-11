@@ -461,8 +461,8 @@ namespace Scratch.Services {
 
             this.create_backup ();
 
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-                strip_trailing_spaces (force);
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
+                strip_trailing_spaces ();
             }
 
             // Replace old content with the new one
@@ -568,7 +568,7 @@ namespace Scratch.Services {
             }
 
             if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-                strip_trailing_spaces (true);
+                strip_trailing_spaces ();
             }
         }
 
@@ -934,8 +934,8 @@ namespace Scratch.Services {
         }
 
         /* Pull the buffer into an array and then work out which parts are to be deleted.
-         * Do not strip line currently being edited  unless forced */
-        private void strip_trailing_spaces (bool force = false) {
+         * Do not strip line currently being edited unless forced */
+        private void strip_trailing_spaces () {
             if (!loaded || source_view.language == null || source_view.language.id != "vala") {
                 return;
             }
@@ -973,8 +973,7 @@ namespace Scratch.Services {
             }
 
             for (int line_no = 0; line_no < lines.length; line_no++) {
-                if (whitespace.match (lines[line_no], 0, out info) &&
-                    (line_no != orig_line || force)) {
+                if (whitespace.match (lines[line_no], 0, out info)) {
 
                     source_buffer.get_iter_at_line (out start_delete, line_no);
                     start_delete.forward_to_line_end ();
