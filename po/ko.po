@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -129,7 +129,8 @@ msgstr "환경설정"
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
-msgstr "활성화 선택 없이 잘라내거나 복사하면 현재 줄 전체가 잘라지거나 복사됩니다"
+msgstr ""
+"활성화 선택 없이 잘라내거나 복사하면 현재 줄 전체가 잘라지거나 복사됩니다"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -269,11 +270,11 @@ msgstr "빈 파일"
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "이름 없는 폴더"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "새 파일"
 
@@ -415,7 +416,7 @@ msgstr "불러오기"
 msgid "Continue"
 msgstr "계속"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "서식"
 
