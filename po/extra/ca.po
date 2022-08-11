@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2022-06-02 17:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
@@ -143,12 +143,57 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr "Minimapa opcional per facilitar la navegació per fitxers grans"
 
 #: data/io.elementary.code.appdata.xml.in:31
-#: data/io.elementary.code.appdata.xml.in:54
-#: data/io.elementary.code.appdata.xml.in:81
+#: data/io.elementary.code.appdata.xml.in:48
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:98
 msgid "Improvements:"
 msgstr "Millores:"
 
 #: data/io.elementary.code.appdata.xml.in:33
+msgid "Option to follow the system dark style preference"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:35
+#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:93
+#: data/io.elementary.code.appdata.xml.in:147
+msgid "Fixes:"
+msgstr "Correccions:"
+
+#: data/io.elementary.code.appdata.xml.in:37
+msgid "Drag and drop with text containing accented characters"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Text duplication issues when dragging text between multiple windows"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:40
+#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:122
+#: data/io.elementary.code.appdata.xml.in:151
+msgid "Minor updates:"
+msgstr "Actualitzacions menors:"
+
+#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:141
+#: data/io.elementary.code.appdata.xml.in:155
+#: data/io.elementary.code.appdata.xml.in:170
+#: data/io.elementary.code.appdata.xml.in:186
+#: data/io.elementary.code.appdata.xml.in:212
+#: data/io.elementary.code.appdata.xml.in:233
+#: data/io.elementary.code.appdata.xml.in:243
+#: data/io.elementary.code.appdata.xml.in:254
+msgid "Updated translations"
+msgstr "Traduccions actualitzades"
+
+#: data/io.elementary.code.appdata.xml.in:50
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -156,11 +201,11 @@ msgstr ""
 "El nom del fitxer del document actual es mostra ara com a títol de la "
 "finestra a la vista de multitasca."
 
-#: data/io.elementary.code.appdata.xml.in:34
+#: data/io.elementary.code.appdata.xml.in:51
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "Les carpetes ocultes ara es mostren a la barra lateral del projecte."
 
-#: data/io.elementary.code.appdata.xml.in:35
+#: data/io.elementary.code.appdata.xml.in:52
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
@@ -168,18 +213,11 @@ msgstr ""
 "Durant la cerca es mostren el resultat seleccionat actualment i el nombre de "
 "resultats."
 
-#: data/io.elementary.code.appdata.xml.in:36
+#: data/io.elementary.code.appdata.xml.in:53
 msgid "The search bar now has a regular expression mode"
 msgstr "La barra de cerca ara té un mode d'expressió regular."
 
-#: data/io.elementary.code.appdata.xml.in:38
-#: data/io.elementary.code.appdata.xml.in:61
-#: data/io.elementary.code.appdata.xml.in:76
-#: data/io.elementary.code.appdata.xml.in:130
-msgid "Fixes:"
-msgstr "Correccions:"
-
-#: data/io.elementary.code.appdata.xml.in:40
+#: data/io.elementary.code.appdata.xml.in:57
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -187,11 +225,11 @@ msgstr ""
 "Ara és possible canviar la branca de Git amb fitxers sense seguiment "
 "presents en un projecte."
 
-#: data/io.elementary.code.appdata.xml.in:41
+#: data/io.elementary.code.appdata.xml.in:58
 msgid "Crashes are prevented while searching in large projects"
 msgstr "Les fallades s'eviten durant la cerca en projectes grossos."
 
-#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
@@ -199,68 +237,46 @@ msgstr ""
 "Ara es focalitza el document correcte després d'obrir el Codi des d'un "
 "programa extern."
 
-#: data/io.elementary.code.appdata.xml.in:43
+#: data/io.elementary.code.appdata.xml.in:60
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 "La duplicació de línies ara actua correctament si no hi ha cap selecció."
 
-#: data/io.elementary.code.appdata.xml.in:44
+#: data/io.elementary.code.appdata.xml.in:61
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 "El Codi ja no es bloqueja quan se li demana que obri un format d'URI "
 "desconegut."
 
-#: data/io.elementary.code.appdata.xml.in:46
-#: data/io.elementary.code.appdata.xml.in:67
-#: data/io.elementary.code.appdata.xml.in:85
-#: data/io.elementary.code.appdata.xml.in:105
-#: data/io.elementary.code.appdata.xml.in:134
-msgid "Minor updates:"
-msgstr "Actualitzacions menors:"
-
-#: data/io.elementary.code.appdata.xml.in:48
-#: data/io.elementary.code.appdata.xml.in:70
-#: data/io.elementary.code.appdata.xml.in:88
-#: data/io.elementary.code.appdata.xml.in:124
-#: data/io.elementary.code.appdata.xml.in:138
-#: data/io.elementary.code.appdata.xml.in:153
-#: data/io.elementary.code.appdata.xml.in:169
-#: data/io.elementary.code.appdata.xml.in:195
-#: data/io.elementary.code.appdata.xml.in:216
-#: data/io.elementary.code.appdata.xml.in:226
-#: data/io.elementary.code.appdata.xml.in:237
-msgid "Updated translations"
-msgstr "Traduccions actualitzades"
-
-#: data/io.elementary.code.appdata.xml.in:56
+#: data/io.elementary.code.appdata.xml.in:73
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
 "Els projectes amb el mateix nom ara també inclouen el nom de la carpeta "
 "principal."
 
-#: data/io.elementary.code.appdata.xml.in:57
+#: data/io.elementary.code.appdata.xml.in:74
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 "Quan us desplaceu als resultats de la cerca, aneu una mica més enllà per "
 "obtenir una millor visibilitat."
 
-#: data/io.elementary.code.appdata.xml.in:58
+#: data/io.elementary.code.appdata.xml.in:75
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr "Ús del portal FileChooser en comptes del de GTK"
 
-#: data/io.elementary.code.appdata.xml.in:59
+#: data/io.elementary.code.appdata.xml.in:76
 msgid "Center the global search dialog over the main Code window"
 msgstr "Centrat el diàleg de cerca global a la finestra principal del Codi"
 
-#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr ""
 "Correcció de la visibilitat del botó del terminal a la pàgina de benvinguda"
 
-#: data/io.elementary.code.appdata.xml.in:64
+#: data/io.elementary.code.appdata.xml.in:81
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -268,7 +284,7 @@ msgstr ""
 "Correcció d'algunes dreceres de teclat que afecten el document desenfocat en "
 "lloc del terminal enfocat"
 
-#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:82
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
@@ -276,344 +292,344 @@ msgstr ""
 "Tanqueu el terminal si s'ha sortit de l'intèrpret d'ordres i creeu-ne un de "
 "nou si es torna a obrir sense."
 
-#: data/io.elementary.code.appdata.xml.in:69
+#: data/io.elementary.code.appdata.xml.in:86
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "El quadre combinat \"Espai en blanc visible\" ara és un interruptor."
 
-#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:95
 msgid "Fix crash when creating new window from tab drop"
 msgstr "Correcció del bloqueig en crear una finestra nova des de la pestanya"
 
-#: data/io.elementary.code.appdata.xml.in:79
+#: data/io.elementary.code.appdata.xml.in:96
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
 "S'assegura que els fitxers creats des de la barra lateral s’obrin "
 "automàticament."
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "Amaga el botó de selecció de projectes quan s'amaga la barra lateral."
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:104
 msgid "Ensure all copy is translatable"
 msgstr "S'assegura que tota la còpia sigui traduïble."
 
-#: data/io.elementary.code.appdata.xml.in:94
-#: data/io.elementary.code.appdata.xml.in:144
-#: data/io.elementary.code.appdata.xml.in:159
-#: data/io.elementary.code.appdata.xml.in:175
+#: data/io.elementary.code.appdata.xml.in:111
+#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:176
+#: data/io.elementary.code.appdata.xml.in:192
 msgid "New features:"
 msgstr "Funcions noves:"
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "New Markdown plugin for WYSIWYG-like editing."
 msgstr "Connector nou de Markdown per a l'edició semblant a WYSIWYG."
 
-#: data/io.elementary.code.appdata.xml.in:97
+#: data/io.elementary.code.appdata.xml.in:114
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
 "Canvieu les branques de Git o creeu-ne de noves als menús contextuals de la "
 "carpeta del projecte."
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:115
 msgid "Show Git diff status in source view gutters"
 msgstr ""
 "Es mostra l'estat de Git diff als espais en blanc de la vista del codi."
 
-#: data/io.elementary.code.appdata.xml.in:99
+#: data/io.elementary.code.appdata.xml.in:116
 msgid "Full text search within project folder."
 msgstr "Cerca de text complet a la carpeta del projecte."
 
-#: data/io.elementary.code.appdata.xml.in:100
+#: data/io.elementary.code.appdata.xml.in:117
 msgid "Save and restore cursor position between sessions"
 msgstr "Es desa i es restaura la posició del cursor entre sessions."
 
-#: data/io.elementary.code.appdata.xml.in:101
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "Close files from a project when that project is closed"
 msgstr "Tanqueu fitxers d’un projecte quan es tanca el projecte."
 
-#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:119
 msgid "Show full file path in tab tooltips"
 msgstr ""
 "Es mostra el camí complet del fitxer a les descripcions emergents de la "
 "pestanya."
 
-#: data/io.elementary.code.appdata.xml.in:103
+#: data/io.elementary.code.appdata.xml.in:120
 msgid "Clear lines with Ctrl + K"
 msgstr "Esborreu línies amb Ctrl + K."
 
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:124
 msgid "Allow Spell Checker extension in Markdown files"
 msgstr "Es permet l'extensió del corrector ortogràfic als fitxers de Markdown."
 
-#: data/io.elementary.code.appdata.xml.in:108
+#: data/io.elementary.code.appdata.xml.in:125
 msgid "Improve multi-line duplication"
 msgstr "Millora de la duplicació de línies múltiples"
 
-#: data/io.elementary.code.appdata.xml.in:109
+#: data/io.elementary.code.appdata.xml.in:126
 msgid "Remember whether the sidebar is open"
 msgstr "Es recorda quan la barra lateral està oberta."
 
-#: data/io.elementary.code.appdata.xml.in:110
+#: data/io.elementary.code.appdata.xml.in:127
 msgid "Set window title to the focused file"
 msgstr "Establiment del títol de la finestra segons el fitxer amb el focus"
 
-#: data/io.elementary.code.appdata.xml.in:111
+#: data/io.elementary.code.appdata.xml.in:128
 msgid "Add keyboard shortcuts for next and previous documents"
 msgstr "Addició de dreceres de teclat per als documents següents i anteriors"
 
-#: data/io.elementary.code.appdata.xml.in:112
+#: data/io.elementary.code.appdata.xml.in:129
 msgid "Show full document path in tab tooltip"
 msgstr ""
 "Es mostra el camí complet del document a la descripció emergent de la "
 "pestanya."
 
-#: data/io.elementary.code.appdata.xml.in:113
+#: data/io.elementary.code.appdata.xml.in:130
 msgid "Update Pastebin plugin"
 msgstr "Actualització del connector de Pastebin"
 
-#: data/io.elementary.code.appdata.xml.in:114
+#: data/io.elementary.code.appdata.xml.in:131
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
 "Sagnat correcte de l’última línia quan s’usa el connector de conservació "
 "d’espai en blanc"
 
-#: data/io.elementary.code.appdata.xml.in:115
+#: data/io.elementary.code.appdata.xml.in:132
 msgid "Keep syntax highlighting when duplicating a file"
 msgstr "Es continua ressaltant la sintaxi en duplicar un fitxer."
 
-#: data/io.elementary.code.appdata.xml.in:116
+#: data/io.elementary.code.appdata.xml.in:133
 msgid "Expand a collapsed folder if you attempt to open it twice"
 msgstr "Ampliació d'una carpeta reduïda si s'intenta obrir-la dues vegades"
 
-#: data/io.elementary.code.appdata.xml.in:117
+#: data/io.elementary.code.appdata.xml.in:134
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
 "Solució d'un problema en què es perdien les cerques quan el Codi perdia el "
 "focus"
 
-#: data/io.elementary.code.appdata.xml.in:118
+#: data/io.elementary.code.appdata.xml.in:135
 msgid "Start Vim plugin in command mode"
 msgstr "Inicieu el connector Vim en mode de línia d'ordres."
 
-#: data/io.elementary.code.appdata.xml.in:119
+#: data/io.elementary.code.appdata.xml.in:136
 msgid "Fix and add new Vim commands"
 msgstr "Correcció i addició d'ordres noves de Vim"
 
-#: data/io.elementary.code.appdata.xml.in:120
+#: data/io.elementary.code.appdata.xml.in:137
 msgid "Show project folders with a hidden root folder"
 msgstr "Es mostren les carpetes del projecte amb una carpeta d'arrel oculta."
 
-#: data/io.elementary.code.appdata.xml.in:121
+#: data/io.elementary.code.appdata.xml.in:138
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
 "Es permet el llançament amb pkexec i no es permet el llançament amb sudo."
 
-#: data/io.elementary.code.appdata.xml.in:122
+#: data/io.elementary.code.appdata.xml.in:139
 msgid "Remove split view"
 msgstr "Supressió de la visualització dividida"
 
-#: data/io.elementary.code.appdata.xml.in:123
+#: data/io.elementary.code.appdata.xml.in:140
 msgid "Remove browser preview"
 msgstr "Supressió de la previsualització del navegador"
 
-#: data/io.elementary.code.appdata.xml.in:132
+#: data/io.elementary.code.appdata.xml.in:149
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
 "El disseny buit de la barra lateral garanteix que sempre es puguin afegir "
 "carpetes."
 
-#: data/io.elementary.code.appdata.xml.in:136
+#: data/io.elementary.code.appdata.xml.in:153
 msgid "Scroll past the end of a file"
 msgstr "Desplaçament més enllà del final del fitxer"
 
-#: data/io.elementary.code.appdata.xml.in:137
+#: data/io.elementary.code.appdata.xml.in:154
 msgid "More efficiently save and restore window position"
 msgstr "Deseu i restaureu de manera més eficient la posició de la finestra."
 
-#: data/io.elementary.code.appdata.xml.in:146
+#: data/io.elementary.code.appdata.xml.in:163
 msgid "Include Git status in file tooltips"
 msgstr "Inclusió de l'estat de GIt a les descripcions emergents dels fitxers"
 
-#: data/io.elementary.code.appdata.xml.in:147
+#: data/io.elementary.code.appdata.xml.in:164
 msgid "Option for explicit case-sensitive Find"
 msgstr "Opció per a la cerca explícita amb distinció de majúscules"
 
-#: data/io.elementary.code.appdata.xml.in:149
-#: data/io.elementary.code.appdata.xml.in:164
-#: data/io.elementary.code.appdata.xml.in:186
+#: data/io.elementary.code.appdata.xml.in:166
+#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:203
 msgid "Other updates:"
 msgstr "Altres actualitzacions:"
 
-#: data/io.elementary.code.appdata.xml.in:151
+#: data/io.elementary.code.appdata.xml.in:168
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
 "Es mostra correctament al menú la commutació de comentari quan no hi ha text "
 "seleccionat."
 
-#: data/io.elementary.code.appdata.xml.in:152
+#: data/io.elementary.code.appdata.xml.in:169
 msgid "Fixed font switch alignment"
 msgstr "Correcció de l'alineament del canvi de lletra"
 
-#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:178
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
 "Nova opció \"Tanca altres finestres\" al menú per ajudar a netejar la barra "
 "lateral"
 
-#: data/io.elementary.code.appdata.xml.in:162
+#: data/io.elementary.code.appdata.xml.in:179
 msgid "Save and restore cyclic search setting"
 msgstr "Paràmetre de cerca cíclica per desar i restaurar"
 
-#: data/io.elementary.code.appdata.xml.in:166
+#: data/io.elementary.code.appdata.xml.in:183
 msgid "Add keyboard shortcuts to menu items"
 msgstr "Addició de dreceres de teclat als menús"
 
-#: data/io.elementary.code.appdata.xml.in:167
+#: data/io.elementary.code.appdata.xml.in:184
 msgid "Make sidebar folder items not selectable"
 msgstr ""
 "Fer que els elements de carpeta de la barra lateral no siguin seleccionables"
 
-#: data/io.elementary.code.appdata.xml.in:168
+#: data/io.elementary.code.appdata.xml.in:185
 msgid "Center new windows"
 msgstr "Finestres noves centrades"
 
-#: data/io.elementary.code.appdata.xml.in:177
+#: data/io.elementary.code.appdata.xml.in:194
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
 "Despriorització visual de fitxers .gitignored a la barra lateral del projecte"
 
-#: data/io.elementary.code.appdata.xml.in:178
+#: data/io.elementary.code.appdata.xml.in:195
 msgid "Smart cut/copy lines with no active selection"
 msgstr "Línies de retall / còpia intel·ligents sense selecció activa"
 
-#: data/io.elementary.code.appdata.xml.in:179
+#: data/io.elementary.code.appdata.xml.in:196
 msgid "Add a confirmation dialog to the \"Restore\" action"
 msgstr "Addició d'un diàleg de confirmació a l’acció \"Restaura\""
 
-#: data/io.elementary.code.appdata.xml.in:180
+#: data/io.elementary.code.appdata.xml.in:197
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
 "Addició del menú \"Obrir a\" a la carpeta de primer nivell del gestor de "
 "carpetes"
 
-#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:198
 msgid "Don't show temporary files in the folder manager"
 msgstr "No es mostren els fitxers temporals al gestor de carpetes"
 
-#: data/io.elementary.code.appdata.xml.in:182
+#: data/io.elementary.code.appdata.xml.in:199
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
 "Addició dels parèntesis d’acabament i sagnat automàtic de manera "
 "predeterminada"
 
-#: data/io.elementary.code.appdata.xml.in:183
+#: data/io.elementary.code.appdata.xml.in:200
 msgid "Zoom terminal plugin with keyboard"
 msgstr "Ampliació del connector del terminal amb teclat"
 
-#: data/io.elementary.code.appdata.xml.in:184
+#: data/io.elementary.code.appdata.xml.in:201
 msgid "Honor global privacy setting when saving and restoring"
 msgstr "Es satisfà la privacitat global quan es desa i es restaura."
 
-#: data/io.elementary.code.appdata.xml.in:188
+#: data/io.elementary.code.appdata.xml.in:205
 msgid "Simplify \"Draw spaces\" preference"
 msgstr "Simplificació de la preferència \"Dibuixa espais\""
 
-#: data/io.elementary.code.appdata.xml.in:189
+#: data/io.elementary.code.appdata.xml.in:206
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
 "Correcció de la drecera del teclat per tornar enrere en els resultats de la "
 "cerca"
 
-#: data/io.elementary.code.appdata.xml.in:190
+#: data/io.elementary.code.appdata.xml.in:207
 msgid "Fix opening files from relative paths in Terminal"
 msgstr "Correcció de l'obertura de fitxes des dels camins relatius al Terminal"
 
-#: data/io.elementary.code.appdata.xml.in:191
+#: data/io.elementary.code.appdata.xml.in:208
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 "Correcció del diàleg de fitxer nul quan s'obre una finestra nova a través de "
 "l'acoblador"
 
-#: data/io.elementary.code.appdata.xml.in:192
+#: data/io.elementary.code.appdata.xml.in:209
 msgid "Add \"=\" as a zoom key"
 msgstr "Addició de \"=\" com a tecla de zoom"
 
-#: data/io.elementary.code.appdata.xml.in:193
+#: data/io.elementary.code.appdata.xml.in:210
 msgid "Change search entry icon when results aren't found"
 msgstr "Canvi de la icona d’entrada de cerca quan no es troben resultats"
 
-#: data/io.elementary.code.appdata.xml.in:194
+#: data/io.elementary.code.appdata.xml.in:211
 msgid "Enter name of new file before creating it"
 msgstr "S'introdueix el nom del fitxer nou abans de crear-lo."
 
-#: data/io.elementary.code.appdata.xml.in:202
+#: data/io.elementary.code.appdata.xml.in:219
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Ús complet de Granite.MessageDialog"
 
-#: data/io.elementary.code.appdata.xml.in:203
+#: data/io.elementary.code.appdata.xml.in:220
 msgid "Include non-text files in sidebar"
 msgstr "Inclusió de fitxers que no siguin de text a la barra lateral"
 
-#: data/io.elementary.code.appdata.xml.in:204
+#: data/io.elementary.code.appdata.xml.in:221
 msgid "Fix Remove Current View"
 msgstr "Correcció la vista actual de la supressió"
 
-#: data/io.elementary.code.appdata.xml.in:211
+#: data/io.elementary.code.appdata.xml.in:228
 msgid "Fix New Window desktop action behavior"
 msgstr "Correcció del comportament d’escriptori de la finestra nova"
 
-#: data/io.elementary.code.appdata.xml.in:212
+#: data/io.elementary.code.appdata.xml.in:229
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "Sincronització correcta de les tecles Ctrl + N amb el nombre de documents "
 "nous generats"
 
-#: data/io.elementary.code.appdata.xml.in:213
+#: data/io.elementary.code.appdata.xml.in:230
 msgid "Build system fix for editorconfig dependency"
 msgstr ""
 "Construcció de la correcció de sistema per a la dependència d'editorconfig"
 
-#: data/io.elementary.code.appdata.xml.in:214
+#: data/io.elementary.code.appdata.xml.in:231
 msgid "Add Change Branch context menu item"
 msgstr "Addició de l'element del menú contextual «Canvia la branca»"
 
-#: data/io.elementary.code.appdata.xml.in:215
+#: data/io.elementary.code.appdata.xml.in:232
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
 "Evitar possibles errors d'inici relacionats amb com es carreguen dels "
 "connectors"
 
-#: data/io.elementary.code.appdata.xml.in:223
+#: data/io.elementary.code.appdata.xml.in:240
 msgid "Smarter file saving behavior"
 msgstr "Comportament més intel·ligent per desar fitxers"
 
-#: data/io.elementary.code.appdata.xml.in:224
+#: data/io.elementary.code.appdata.xml.in:241
 msgid "File saving fixes"
 msgstr "Correccions per desar fitxers"
 
-#: data/io.elementary.code.appdata.xml.in:225
+#: data/io.elementary.code.appdata.xml.in:242
 msgid "Don't add temporary files to tab restore"
 msgstr "No afegir fitxers temporals a la restauració de pestanyes"
 
-#: data/io.elementary.code.appdata.xml.in:233
+#: data/io.elementary.code.appdata.xml.in:250
 msgid "Don't recreate deleted files when restoring session"
 msgstr "No es recreen els fitxers suprimits en restaurar la sessió."
 
-#: data/io.elementary.code.appdata.xml.in:234
+#: data/io.elementary.code.appdata.xml.in:251
 msgid "Restore line wrap preference"
 msgstr "Restauració de la preferència d’ajust de línia"
 
-#: data/io.elementary.code.appdata.xml.in:235
+#: data/io.elementary.code.appdata.xml.in:252
 msgid "Add accel tooltips"
 msgstr "Addició de consells d’accel"
 
-#: data/io.elementary.code.appdata.xml.in:236
+#: data/io.elementary.code.appdata.xml.in:253
 msgid "Minor bug fixes"
 msgstr "Correccions d'errors menors"
 
-#: data/io.elementary.code.appdata.xml.in:276
+#: data/io.elementary.code.appdata.xml.in:293
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
