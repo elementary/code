@@ -109,7 +109,7 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-        public Document (SimpleActionGroup actions, File? file = null) {
+        public Document (SimpleActionGroup actions, File file) {
             Object (actions: actions);
 
             this.file = file;
@@ -146,11 +146,6 @@ namespace Scratch.Services {
             }
 
             source_map.set_view (source_view);
-
-            // Handle Drag-and-drop functionality on source-view
-            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
-            Gtk.TargetEntry text = {"text/plain", 0, 0};
-            Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
 
@@ -601,7 +596,7 @@ namespace Scratch.Services {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
             } else {
-                return file.get_path ();
+                return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
         }
 
