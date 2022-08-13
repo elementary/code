@@ -430,13 +430,15 @@ namespace Scratch {
 
             document_view.document_change.connect ((doc) => {
                 if (doc != null) {
-                    plugins.hook_document (doc);
                     search_bar.set_text_view (doc.source_view);
                     // Update MainWindow title
                     title = doc.get_basename ();
 
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
+
+                    // Must follow setting focus document for editorconfig plug
+                    plugins.hook_document (doc);
 
                     // Set actions sensitive property
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
