@@ -179,7 +179,6 @@ public class Code.FormatBar : Gtk.Grid {
     }
 
     private void format_tab_header_from_global_settings () {
-        warning ("format_tab_header_from_global_settings");
         if (tab_set_by_editor_config) {
             return;
         }
