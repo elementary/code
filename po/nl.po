@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
-"PO-Revision-Date: 2022-05-22 06:22+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"PO-Revision-Date: 2022-08-14 02:39+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -273,11 +273,11 @@ msgstr "Leeg bestand"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "naamloze folder"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "nieuw bestand"
 
@@ -422,7 +422,7 @@ msgstr "Laden"
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Sjablonen"
 
@@ -518,7 +518,7 @@ msgstr "Inzoomen"
 
 #: src/Widgets/HeaderBar.vala:132
 msgid "Follow System Style"
-msgstr ""
+msgstr "Volg systeemstijl"
 
 #: src/Widgets/HeaderBar.vala:170
 msgid "Toggle Sidebar"

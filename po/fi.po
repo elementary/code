@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
-"PO-Revision-Date: 2022-06-02 21:22+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"PO-Revision-Date: 2022-08-11 17:37+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -275,11 +275,11 @@ msgstr "Tyhjä tiedosto"
 msgid "New"
 msgstr "Uusi"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "nimetön kansio"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "uusi tiedosto"
 
@@ -423,7 +423,7 @@ msgstr "Lataa"
 msgid "Continue"
 msgstr "Jatka"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Mallit"
 
@@ -519,7 +519,7 @@ msgstr "Lähennä"
 
 #: src/Widgets/HeaderBar.vala:132
 msgid "Follow System Style"
-msgstr ""
+msgstr "Seuraa järjestelmän tyyliä"
 
 #: src/Widgets/HeaderBar.vala:170
 msgid "Toggle Sidebar"
