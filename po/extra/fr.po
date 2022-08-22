@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-08-22 08:45+0000\n"
-"Last-Translator: Xavier Naxara <xaviernaxara33@gmail.com>\n"
+"PO-Revision-Date: 2022-08-22 12:55+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -153,7 +153,7 @@ msgstr "Améliorations :"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Option to follow the system dark style preference"
-msgstr "Option pour utiliser les préférences systèmes pour le monde sombre"
+msgstr "Option pour suivre le thème du système"
 
 #: data/io.elementary.code.appdata.xml.in:35
 #: data/io.elementary.code.appdata.xml.in:55
@@ -165,11 +165,13 @@ msgstr "Corrections :"
 
 #: data/io.elementary.code.appdata.xml.in:37
 msgid "Drag and drop with text containing accented characters"
-msgstr ""
+msgstr "Glisser-déposer pour le texte comportant des caractères accentués"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Text duplication issues when dragging text between multiple windows"
 msgstr ""
+"Problèmes de duplication de texte lors du glisser-déposer entre plusieurs "
+"fenêtres"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:63
