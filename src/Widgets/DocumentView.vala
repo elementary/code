@@ -218,7 +218,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         insert_tab (doc, -1);
-
         if (focus) {
             current_document = doc;
         }
