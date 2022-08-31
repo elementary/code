@@ -137,7 +137,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private void select_project (ProjectRow project_entry) {
         project_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
-        label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
+        var tooltip_text = Scratch.Utils.replace_home_with_tilde (project_entry.project_path);
+        label_widget.tooltip_text = _("Active Git project: %s").printf (tooltip_text);
         project_entry.active = true;
         Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
     }

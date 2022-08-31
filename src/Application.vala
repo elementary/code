@@ -68,6 +68,8 @@ namespace Scratch {
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
 
+            Environment.set_variable ("GTK_USE_PORTAL", "1", true);
+
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
             GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
             GLib.Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
@@ -147,12 +149,14 @@ namespace Scratch {
             var window = get_last_window ();
 
             foreach (var file in files) {
-                var type = file.query_file_type (FileQueryInfoFlags.NONE);
-                if (type == FileType.DIRECTORY) {
-                    window.open_folder (file);
-                } else {
-                    var doc = new Scratch.Services.Document (window.actions, file);
-                    window.open_document (doc);
+                bool is_folder;
+                if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
+                    if (is_folder) {
+                        window.open_folder (file);
+                    } else {
+                        var doc = new Scratch.Services.Document (window.actions, file);
+                        window.open_document (doc);
+                    }
                 }
             }
         }

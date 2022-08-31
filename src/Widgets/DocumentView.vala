@@ -19,6 +19,10 @@
 ***/
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
+    public enum TargetType {
+        URI_LIST
+    }
+
     public signal void document_change (Services.Document? document, DocumentView parent);
     public signal void request_placeholder ();
 
@@ -95,11 +99,30 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         update_inline_tab_colors ();
         Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
+        Scratch.settings.changed["follow-system-style"].connect (update_inline_tab_colors);
+        var granite_settings = Granite.Settings.get_default ();
+        granite_settings.notify["prefers-color-scheme"].connect (update_inline_tab_colors);
+
+        // Handle Drag-and-drop of files onto add-tab button to create document
+        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        drag_data_received.connect (drag_received);
     }
 
     private void update_inline_tab_colors () {
+        var style_scheme = "";
+        if (settings.get_boolean ("follow-system-style")) {
+            var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            if (system_prefers_dark) {
+                style_scheme = "solarized-dark";
+            } else {
+                style_scheme = "solarized-light";
+            }
+        } else {
+            style_scheme = Scratch.settings.get_string ("style-scheme");
+        }
+
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_scheme = Scratch.settings.get_string ("style-scheme");
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
@@ -203,7 +226,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                if (focus) {
+                if (focus && doc == current_document) {
                     doc.focus ();
                 }
 
@@ -320,7 +343,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         doc.source_view.focus_in_event.connect_after (on_focus_in_event);
-        doc.source_view.drag_data_received.connect (drag_received);
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -330,7 +352,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
 
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
-        doc.source_view.drag_data_received.disconnect (drag_received);
 
         request_placeholder_if_empty ();
 
@@ -354,7 +375,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         other_window.move (x, y);
 
         // We need to make sure switch back to the main thread
-        // when we are modifiying Gtk widgets shared by two threads.
+        // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
             other_window.document_view.insert_tab (doc, -1);
@@ -393,14 +414,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                                 uint info,
                                 uint time) {
 
-        var uris = sel.get_uris ();
-        foreach (var filename in uris) {
-            var file = File.new_for_uri (filename);
-            var doc = new Services.Document (window.actions, file);
-            open_document (doc);
-        }
+        if (info == TargetType.URI_LIST) {
+            var uris = sel.get_uris ();
+            foreach (var filename in uris) {
+                var file = File.new_for_uri (filename);
+                var doc = new Services.Document (window.actions, file);
+                open_document (doc);
+            }
 
-       Gtk.drag_finish (ctx, true, false, time);
+            Gtk.drag_finish (ctx, true, false, time);
+        }
     }
 
     public void save_opened_files () {
