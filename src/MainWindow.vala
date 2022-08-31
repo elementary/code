@@ -320,8 +320,12 @@ namespace Scratch {
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
                         var file = File.new_for_uri (filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                        document_view.open_document (doc);
+                        bool is_folder;
+                        //TODO Handle folders dropped here
+                        if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
+                            Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+                            document_view.open_document (doc);
+                        }
                     }
 
                     Gtk.drag_finish (ctx, true, false, time);
@@ -431,20 +435,22 @@ namespace Scratch {
             });
 
             document_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
-
-                search_bar.set_text_view (doc.source_view);
-                // Update MainWindow title
-                title = doc.get_basename ();
-
                 if (doc != null) {
+                    plugins.hook_document (doc);
+                    search_bar.set_text_view (doc.source_view);
+                    // Update MainWindow title
+                    title = doc.get_basename ();
+
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
-                }
 
-                // Set actions sensitive property
-                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                doc.check_undoable_actions ();
+                    // Set actions sensitive property
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
+                    doc.check_undoable_actions ();
+                } else {
+                    title = _("Code");
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
+                }
             });
 
             set_widgets_sensitive (false);
@@ -481,6 +487,7 @@ namespace Scratch {
                            But for files that do not exist we need to make sure that doc won't create a new file
                         */
                         if (file.query_exists ()) {
+                            //TODO Check files valid (settings could have been manually altered)
                             var doc = new Scratch.Services.Document (actions, file);
                             bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {

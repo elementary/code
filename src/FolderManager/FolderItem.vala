@@ -260,6 +260,17 @@ namespace Scratch.FolderManager {
                         }
 
                         break;
+                    case FileMonitorEvent.RENAMED:
+                    case FileMonitorEvent.PRE_UNMOUNT:
+                    case FileMonitorEvent.UNMOUNTED:
+                    case FileMonitorEvent.CHANGED:
+                    case FileMonitorEvent.CHANGES_DONE_HINT:
+                    case FileMonitorEvent.MOVED:
+                    case FileMonitorEvent.MOVED_IN:
+                    case FileMonitorEvent.MOVED_OUT:
+                    case FileMonitorEvent.ATTRIBUTE_CHANGED:
+
+                        break;
                 }
             } else {
                 // No cache invalidation is needed here because the entire state is kept in the tree
@@ -318,6 +329,17 @@ namespace Scratch.FolderManager {
                         if (item != null) {
                             add (item);
                         }
+
+                        break;
+                    case FileMonitorEvent.RENAMED:
+                    case FileMonitorEvent.PRE_UNMOUNT:
+                    case FileMonitorEvent.UNMOUNTED:
+                    case FileMonitorEvent.CHANGED:
+                    case FileMonitorEvent.CHANGES_DONE_HINT:
+                    case FileMonitorEvent.MOVED:
+                    case FileMonitorEvent.MOVED_IN:
+                    case FileMonitorEvent.MOVED_OUT:
+                    case FileMonitorEvent.ATTRIBUTE_CHANGED:
 
                         break;
                 }

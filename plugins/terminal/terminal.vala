@@ -200,11 +200,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     public string get_shell_location () {
         int pid = (!) (this.child_pid);
-
         try {
             return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
         } catch (GLib.FileError error) {
-            warning ("An error occurred while fetching the current dir of shell");
+            warning ("An error occurred while fetching the current dir of shell: %s", error.message);
             return "";
         }
     }
@@ -266,8 +265,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         });
 
         try {
-            string last_opened_path = settings.get_string ("last-opened-path") == "" ? "~/" : settings.get_string ("last-opened-path");
-            terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
+            var last_path_setting = settings.get_string ("last-opened-path");
+            //FIXME Replace with the async method once the .vapi is fixed upstream.
+            terminal.spawn_sync (
+                Vte.PtyFlags.DEFAULT,
+                last_path_setting == "" ? "~/" : last_path_setting,
+                { Vte.get_user_shell () },
+                null,
+                GLib.SpawnFlags.SEARCH_PATH,
+                null,
+                out child_pid
+            );
         } catch (GLib.Error e) {
             warning (e.message);
         }
