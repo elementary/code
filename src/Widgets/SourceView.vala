@@ -122,6 +122,9 @@ namespace Scratch.Widgets {
             restore_settings ();
             settings.changed.connect (restore_settings);
 
+            var granite_settings = Granite.Settings.get_default ();
+            granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
+
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
                     ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
@@ -207,11 +210,6 @@ namespace Scratch.Widgets {
             return !start.equal (end);
         }
 
-        ~SourceView () {
-            // Update settings when an instance is deleted
-            update_settings ();
-        }
-
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -292,21 +290,23 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-            source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
-        }
+            var gtk_settings = Gtk.Settings.get_default ();
+            if (settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
 
-        private void update_settings () {
-            var source_buffer = (Gtk.SourceBuffer) buffer;
-            Scratch.settings.set_boolean ("show-right-margin", show_right_margin);
-            Scratch.settings.set_int ("right-margin-position", (int) right_margin_position);
-            Scratch.settings.set_boolean ("highlight-matching-brackets", source_buffer.highlight_matching_brackets);
-            Scratch.settings.set_boolean ("spaces-instead-of-tabs", insert_spaces_instead_of_tabs);
-            Scratch.settings.set_int ("indent-width", (int) tab_width);
-            Scratch.settings.set_string ("font", font);
-            Scratch.settings.set_string ("style-scheme", source_buffer.style_scheme.id);
+                if (system_prefers_dark) {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-dark");
+                } else {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-light");
+                }
+            } else {
+                gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("prefer-dark-style");
+                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            }
+
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 
@@ -344,7 +344,7 @@ namespace Scratch.Widgets {
 
         // If selected text does not exists duplicate current line.
         // If selected text is only in one line duplicate in place.
-        // If seected text covers more than one line, duplicate all lines complete.
+        // If selected text covers more than one line, duplicate all lines complete.
         public void duplicate_selection () {
             Gtk.TextIter? start = null;
             Gtk.TextIter? end = null;
@@ -357,7 +357,6 @@ namespace Scratch.Widgets {
                 buffer.get_selection_bounds (out start, out end);
                 start_line = start.get_line ();
                 end_line = end.get_line ();
-
                 if (start_line != end_line) {
                     buffer.get_iter_at_line (out start, start_line);
                     buffer.get_iter_at_line (out end, end_line);
@@ -370,10 +369,13 @@ namespace Scratch.Widgets {
                 selection_end_offset = end.get_offset ();
             } else {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
-                start.backward_line (); //To start of previous line
-                start.forward_line (); //To start of original line
+                start.backward_chars (start.get_line_offset ());
                 end = start.copy ();
-                end.forward_to_line_end ();
+                end.forward_chars (end.get_chars_in_line ());
+                if (end.get_line () != start.get_line ()) { // Line lacked final return character
+                    end.backward_char ();
+                }
+
                 selection = "\n" + buffer.get_text (start, end, true);
             }
 
