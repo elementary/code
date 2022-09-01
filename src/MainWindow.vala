@@ -866,7 +866,6 @@ namespace Scratch {
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
-
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -890,8 +889,10 @@ namespace Scratch {
 
         private void action_find_global (SimpleAction action, Variant? param) {
             var current_doc = get_current_document ();
-            var selected_text = current_doc.get_selected_text ();
-
+            var selected_text = current_doc.get_selected_text (false);
+            if (selected_text != "") {
+                selected_text = selected_text.split ("\n", 2)[0];
+            }
             // If search entry focused use its text for search term, else use selected text
             var term = search_bar.search_entry.has_focus ?
                             search_bar.search_entry.text : selected_text;
@@ -916,9 +917,9 @@ namespace Scratch {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.
                 if (current_doc != null) {
-                    var selected_text = current_doc.get_selected_text ();
+                    var selected_text = current_doc.get_selected_text (false);
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                        current_search_term = selected_text;
+                        current_search_term = selected_text.split ("\n", 2)[0];
                         search_bar.search_entry.text = current_search_term;
                     }
 
