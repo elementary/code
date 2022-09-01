@@ -103,7 +103,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         git_manager.project_removed.connect (remove_project_row);
         project_listbox.row_activated.connect ((row) => {
             select_project ((ProjectRow) row);
-            project_popover.popdown ();
         });
     }
 
