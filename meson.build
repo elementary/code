@@ -1,7 +1,7 @@
 project(
     'io.elementary.code',
     'vala', 'c',
-    version: '6.1.0'
+    version: '6.2.0'
 )
 
 add_project_arguments([

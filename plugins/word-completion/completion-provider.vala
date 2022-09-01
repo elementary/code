@@ -55,7 +55,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         Gtk.TextIter start, end;
         buffer.get_iter_at_offset (out end, buffer.cursor_position);
         start = end.copy ();
-        start.backward_word_start ();
+        Euclide.Completion.Parser.back_to_word_start (ref start);
         string text = buffer.get_text (start, end, true);
 
         return parser.match (text);
@@ -102,9 +102,10 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         buffer.get_iter_at_mark (out cursor_iter, mark);
 
         iter = cursor_iter;
-        iter.backward_word_start ();
+        Euclide.Completion.Parser.back_to_word_start (ref iter);
         return true;
     }
+
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
@@ -120,14 +121,13 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
 
             start = end;
-            start.backward_word_start ();
+            Euclide.Completion.Parser.back_to_word_start (ref start);
 
             to_find = buffer.get_text (start, end, false);
         }
 
         buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
         buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
-
 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {

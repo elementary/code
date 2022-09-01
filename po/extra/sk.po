@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2021-09-15 21:35+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"PO-Revision-Date: 2022-04-20 08:53+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
 "Language: sk\n"
@@ -26,26 +26,20 @@ msgid "Code"
 msgstr "Kód"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
-#| msgid "The editor that works"
 msgid "The editor that works for you"
-msgstr "Textový editor, ktorý funguje"
+msgstr "Editor, ktorý pracuje pre vás"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Kód je textový editor, ktorý pracuje za vás. Automaticky ukladá vaše súbory, "
-"aby boli vždy aktuálne. Pamätá si tiež otvorené karty, aby ste sa nikdy "
-"nestratili, dokonca ani pri prepínaní niekoľkých relácií."
+"Či už píšete v Markdown alebo spravujete komplexnú aplikačnú databázu, Kód "
+"je nenáročný, ale plne funkčný editor pre vás. Automaticky ukladá vaše "
+"súbory, aby boli vždy aktuálne. Pamätá si tiež otvorené karty, aby ste sa "
+"nikdy nestratili, dokonca ani pri prepínaní niekoľkých relácií."
 
 #: data/io.elementary.code.appdata.xml.in:12
 msgid ""
@@ -53,22 +47,20 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Navrhnutý okolo projektového spôsobu práce, Kód vie o vašich oddelených "
+"zdrojových kódoch. Prichádza s nápomocným napojením na Git pre vytváranie a "
+"prepínanie medzi vetvami a zobrazovanie zmien v súboroch a riadkoch v rámci "
+"vašich projektov."
 
 #: data/io.elementary.code.appdata.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Vie pracovať s vaším jazykom. Či už zostrojujete kód vo Vale, skriptujete s "
-"PHP alebo značkujete pomocou HTML, Kód je tu pre vás. Určite oceníte úplné "
+"Pracujte s vaším jazykom: či už zostrojujete kód vo Vale, skriptujete s PHP "
+"alebo pracujete v HTML, Kód je tu pre vás. Určite oceníte úplné "
 "zvýrazňovanie syntaxe s takmer všetkými programovacími, skriptovacími a "
 "značkovacími jazykmi."
 
@@ -77,6 +69,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Nájdite čokoľvek v práve otvorenom súbore, v konkrétnych priečinkoch alebo v "
+"celom projekte s možnosťami pre rozlišovanie medzi malými a veľkými "
+"písmenami a bežnými výrazmi."
 
 #: data/io.elementary.code.appdata.xml.in:15
 msgid ""
@@ -85,6 +80,11 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Inteligentné funkcie skrz na skrz: automatické odsadzovanie, inteligentné "
+"správanie vystrihovania/kopírovania, prepínanie viditeľnosti prázdnych "
+"znakov pre označený text a na konci riadkov a voliteľné rozšírenia pre "
+"Markdown akcie, kontrolu preklepov, orezávanie prázdnych znakov, "
+"dokončovanie slov a viac."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -92,429 +92,531 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Upravte si Kód podľa štýlu vašej práce: môžete si upraviť správanie a vzhľad "
+"rozhrania podľa potreby pomocou množstva užitočných a premyslených rozšírení "
+"a predvolieb."
 
 #: data/io.elementary.code.appdata.xml.in:17
 msgid "There's a ton more:"
-msgstr ""
+msgstr "A je toho omnoho viac:"
 
 #: data/io.elementary.code.appdata.xml.in:19
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Schémy farieb Solarizovaná svetlá, Solarizovaná tmavá a Vysoký kontrast, "
+"ktoré sa týkajú celého používateľského rozhrania"
 
 #: data/io.elementary.code.appdata.xml.in:20
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Voliteľný bočný panel, ktorý zapadá do vášho spôsobu práce"
 
 #: data/io.elementary.code.appdata.xml.in:21
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Inteligentné odsadzovanie a podpora štandardu .editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Karty ako vo webovom prehliadači, ktoré je možné presúvať, duplikovať, znova "
+"zobraziť po zatvorení a prezrieť si ich históriu"
 
 #: data/io.elementary.code.appdata.xml.in:23
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Zobrazte si aktuálny riadok a znak – a rýchlo preskočte na nový riadok"
 
 #: data/io.elementary.code.appdata.xml.in:24
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Posúvajte sa až za koniec súboru, takže môžete ponechať aktuálny riadok v "
+"takej výške, v akej je to pohodlné"
 
 #: data/io.elementary.code.appdata.xml.in:25
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Voliteľná minimapa, ktorá zjednodušuje pohyb po väčších súboroch"
 
 #: data/io.elementary.code.appdata.xml.in:31
-#: data/io.elementary.code.appdata.xml.in:58
+#: data/io.elementary.code.appdata.xml.in:48
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:98
 msgid "Improvements:"
-msgstr ""
+msgstr "Vylepšenia:"
 
 #: data/io.elementary.code.appdata.xml.in:33
-msgid ""
-"Projects with the same name now include their parent folder name as well"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:34
-msgid ""
-"When scrolling to search results, overshoot slightly for better visibility"
+msgid "Option to follow the system dark style preference"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:35
-msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:36
-msgid "Center the global search dialog over the main Code window"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:38
-#: data/io.elementary.code.appdata.xml.in:53
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:93
+#: data/io.elementary.code.appdata.xml.in:147
 msgid "Fixes:"
 msgstr "Opravy:"
 
-#: data/io.elementary.code.appdata.xml.in:40
-msgid "Fix visibility of Terminal button on Welcome page"
+#: data/io.elementary.code.appdata.xml.in:37
+msgid "Drag and drop with text containing accented characters"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:41
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Text duplication issues when dragging text between multiple windows"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:40
+#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:122
+#: data/io.elementary.code.appdata.xml.in:151
+msgid "Minor updates:"
+msgstr "Menšie aktualizácie:"
+
+#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:141
+#: data/io.elementary.code.appdata.xml.in:155
+#: data/io.elementary.code.appdata.xml.in:170
+#: data/io.elementary.code.appdata.xml.in:186
+#: data/io.elementary.code.appdata.xml.in:212
+#: data/io.elementary.code.appdata.xml.in:233
+#: data/io.elementary.code.appdata.xml.in:243
+#: data/io.elementary.code.appdata.xml.in:254
+msgid "Updated translations"
+msgstr "Aktualizované preklady"
+
+#: data/io.elementary.code.appdata.xml.in:50
+msgid ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
+msgstr ""
+"Názov aktuálneho dokumentu sa teraz zobrazí ako názov okna v zobrazení úloh"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "Hidden folders are now shown in the project sidebar"
+msgstr "Skryté priečinky sa teraz zobrazujú v bočnom paneli projektu"
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid ""
+"The currently selected result and the number of results is displayed while "
+"searching"
+msgstr ""
+"Práve zvolený výsledok a počet výsledkov sa zobrazia počas vyhľadávania"
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "The search bar now has a regular expression mode"
+msgstr "Panel vyhľadávania teraz podporuje režim regulárneho výrazu"
+
+#: data/io.elementary.code.appdata.xml.in:57
+msgid ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
+msgstr ""
+"Teraz je možné zmeniť vetvu Git s nesledovanými súbormi, ktoré sa nachádzajú "
+"v projekte"
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Crashes are prevented while searching in large projects"
+msgstr "Zabránenie pádov pri vyhľadávaní vo veľkých projektoch"
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid ""
+"The correct document is now focused after opening Code from an external "
+"program"
+msgstr ""
+"Po otvorení aplikácie Kód z externého programu bude zameraný správny dokument"
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid ""
+"Line duplication is now actioned correctly if there is no selection present"
+msgstr "Duplikácia riadkov je vykonávaná správne, ak nie je nič vybrané"
+
+#: data/io.elementary.code.appdata.xml.in:61
+msgid "Code no longer crashes when asked to open an unknown URI format"
+msgstr "Kód už nepadá, keď je požiadaný o otvorenie neznámeho URI formátu"
+
+#: data/io.elementary.code.appdata.xml.in:73
+msgid ""
+"Projects with the same name now include their parent folder name as well"
+msgstr ""
+"Projekty s rovnakým názvom odteraz zahŕňajú aj názov svojho nadradeného "
+"priečinku"
+
+#: data/io.elementary.code.appdata.xml.in:74
+msgid ""
+"When scrolling to search results, overshoot slightly for better visibility"
+msgstr "Zlepšená viditeľnosť pri posúvaní k výsledkom vyhľadávania"
+
+#: data/io.elementary.code.appdata.xml.in:75
+msgid "Use the FileChooser portal instead of the one from GTK"
+msgstr "Použiť portál FileChooser namiesto toho z GTK"
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Center the global search dialog over the main Code window"
+msgstr ""
+"Dialóg globálneho vyhľadávania je teraz zarovnaný na stred hlavného okna Kódu"
+
+#: data/io.elementary.code.appdata.xml.in:80
+msgid "Fix visibility of Terminal button on Welcome page"
+msgstr "Opravená viditeľnosť tlačidla Terminálu na uvítacej stránke"
+
+#: data/io.elementary.code.appdata.xml.in:81
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
+"Opravené niektoré klávesové skratky týkajúce sa nezameraného dokumentu "
+"namiesto zameraného Terminálu"
 
-#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:82
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"Zatvoriť Terminál po skončení aktivity shellu a otvoriť nový Terminál ak bol "
+"znovu otvorený bez shellu"
 
-#: data/io.elementary.code.appdata.xml.in:44
-#: data/io.elementary.code.appdata.xml.in:62
-#: data/io.elementary.code.appdata.xml.in:82
-#: data/io.elementary.code.appdata.xml.in:111
-msgid "Minor updates:"
-msgstr "Menšie aktualizácie:"
-
-#: data/io.elementary.code.appdata.xml.in:46
+#: data/io.elementary.code.appdata.xml.in:86
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "Kombinovaná ponuka „Viditeľné prázdne znaky“ je teraz prepínač"
 
-#: data/io.elementary.code.appdata.xml.in:47
-#: data/io.elementary.code.appdata.xml.in:65
-#: data/io.elementary.code.appdata.xml.in:101
-#: data/io.elementary.code.appdata.xml.in:115
-#: data/io.elementary.code.appdata.xml.in:130
-#: data/io.elementary.code.appdata.xml.in:146
-#: data/io.elementary.code.appdata.xml.in:172
-#: data/io.elementary.code.appdata.xml.in:193
-#: data/io.elementary.code.appdata.xml.in:203
-#: data/io.elementary.code.appdata.xml.in:214
-msgid "Updated translations"
-msgstr "Aktualizované preklady"
-
-#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:95
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "Opravený pád pri vytváraní nového okna z rozbaľovacej ponuky karty"
 
-#: data/io.elementary.code.appdata.xml.in:56
+#: data/io.elementary.code.appdata.xml.in:96
 msgid "Ensure files created from the sidebar are automatically opened"
-msgstr ""
+msgstr "Zaistené, že súbory vytvorené z bočného panelu sa automaticky otvoria"
 
-#: data/io.elementary.code.appdata.xml.in:60
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Skryť tlačidlo výberu projektu pri skrytí bočného panelu"
 
-#: data/io.elementary.code.appdata.xml.in:64
+#: data/io.elementary.code.appdata.xml.in:104
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "Zaistené, že všetky kópie sú prekladateľné"
 
-#: data/io.elementary.code.appdata.xml.in:71
-#: data/io.elementary.code.appdata.xml.in:121
-#: data/io.elementary.code.appdata.xml.in:136
-#: data/io.elementary.code.appdata.xml.in:152
+#: data/io.elementary.code.appdata.xml.in:111
+#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:176
+#: data/io.elementary.code.appdata.xml.in:192
 msgid "New features:"
 msgstr "Nové funkcie:"
 
-#: data/io.elementary.code.appdata.xml.in:73
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "New Markdown plugin for WYSIWYG-like editing."
 msgstr "Nový zásuvný modul Markdown pre úpravy podobné WYSIWYG."
 
-#: data/io.elementary.code.appdata.xml.in:74
+#: data/io.elementary.code.appdata.xml.in:114
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
 "Prepínajte Git vetvy alebo vytvárajte nové v kontextových menu priečinkov "
 "projektu"
 
-#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:115
 msgid "Show Git diff status in source view gutters"
 msgstr "Zobrazujte Git diff status v okrajoch zdrojového zobrazenia"
 
-#: data/io.elementary.code.appdata.xml.in:76
+#: data/io.elementary.code.appdata.xml.in:116
 msgid "Full text search within project folder."
 msgstr "Úplné textové vyhľadávanie v priečinku projektu"
 
-#: data/io.elementary.code.appdata.xml.in:77
+#: data/io.elementary.code.appdata.xml.in:117
 msgid "Save and restore cursor position between sessions"
 msgstr "Uložte a obnovte polohu kurzora medzi rôznymi reláciami"
 
-#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "Close files from a project when that project is closed"
 msgstr "Zatvárajte súbory z projektu pri zatvorení daného projektu"
 
-#: data/io.elementary.code.appdata.xml.in:79
+#: data/io.elementary.code.appdata.xml.in:119
 msgid "Show full file path in tab tooltips"
 msgstr "Zobrazte úplnú cestu súboru v popisoch kariet"
 
-#: data/io.elementary.code.appdata.xml.in:80
+#: data/io.elementary.code.appdata.xml.in:120
 msgid "Clear lines with Ctrl + K"
 msgstr "Vymazávajte riadky pomocou Ctrl + K"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:124
 msgid "Allow Spell Checker extension in Markdown files"
 msgstr "Povoliť rozšírenie Kontrola pravopisu v súboroch Markdown"
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:125
 msgid "Improve multi-line duplication"
 msgstr "Vylepšená duplikácia viacerých riadkov naraz"
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:126
 msgid "Remember whether the sidebar is open"
 msgstr "Pamätať si, či je bočný panel otvorený"
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:127
 msgid "Set window title to the focused file"
 msgstr "Nastavovať názov okna ako práve vybraný súbor"
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:128
 msgid "Add keyboard shortcuts for next and previous documents"
 msgstr "Pridané klávesové skratky pre nasledujúce a predchádzajúce dokumenty"
 
-#: data/io.elementary.code.appdata.xml.in:89
+#: data/io.elementary.code.appdata.xml.in:129
 msgid "Show full document path in tab tooltip"
 msgstr "Zobraziť úplnú cestu k dokumentu v popise karty"
 
-#: data/io.elementary.code.appdata.xml.in:90
+#: data/io.elementary.code.appdata.xml.in:130
 msgid "Update Pastebin plugin"
 msgstr "Aktualizovaný doplnok Pastebin"
 
-#: data/io.elementary.code.appdata.xml.in:91
+#: data/io.elementary.code.appdata.xml.in:131
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
 "Správne odsadzovať posledný riadok pri použití doplnku Zachovať mezdery"
 
-#: data/io.elementary.code.appdata.xml.in:92
+#: data/io.elementary.code.appdata.xml.in:132
 msgid "Keep syntax highlighting when duplicating a file"
 msgstr "Zachovať zvýrazňovanie syntaxe pri duplikovaní súboru"
 
-#: data/io.elementary.code.appdata.xml.in:93
+#: data/io.elementary.code.appdata.xml.in:133
 msgid "Expand a collapsed folder if you attempt to open it twice"
 msgstr "Rozbaliť zatvorený priečinok, ak sa ho pokúsite otvoriť dvakrát"
 
-#: data/io.elementary.code.appdata.xml.in:94
+#: data/io.elementary.code.appdata.xml.in:134
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
 "Opravený problém straty vyhľadávaných výrazov pri prepnutí z okna Kód na iné "
 "okno"
 
-#: data/io.elementary.code.appdata.xml.in:95
+#: data/io.elementary.code.appdata.xml.in:135
 msgid "Start Vim plugin in command mode"
 msgstr "Spúšťať doplnok Vim v príkazovom režime"
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:136
 msgid "Fix and add new Vim commands"
 msgstr "Opravené a pridané nové Vim príkazy"
 
-#: data/io.elementary.code.appdata.xml.in:97
+#: data/io.elementary.code.appdata.xml.in:137
 msgid "Show project folders with a hidden root folder"
 msgstr "Zobrazovať projektové súbory so skrytým priečinkom root"
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:138
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr "Povolené spúšťanie s pkexec a zakázané spúšťanie so sudo"
 
-#: data/io.elementary.code.appdata.xml.in:99
+#: data/io.elementary.code.appdata.xml.in:139
 msgid "Remove split view"
 msgstr "Odstránené rozdelené zobrazenie"
 
-#: data/io.elementary.code.appdata.xml.in:100
+#: data/io.elementary.code.appdata.xml.in:140
 msgid "Remove browser preview"
 msgstr "Odstránená ukážka v prehliadači"
 
-#: data/io.elementary.code.appdata.xml.in:109
+#: data/io.elementary.code.appdata.xml.in:149
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Opravené prázdne rozloženie bočného panelu, čo zaistí, že priečinky je možné "
+"vždy pridať"
 
-#: data/io.elementary.code.appdata.xml.in:113
+#: data/io.elementary.code.appdata.xml.in:153
 msgid "Scroll past the end of a file"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:114
-msgid "More efficiently save and restore window position"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:123
-msgid "Include Git status in file tooltips"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:124
-msgid "Option for explicit case-sensitive Find"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:126
-#: data/io.elementary.code.appdata.xml.in:141
-#: data/io.elementary.code.appdata.xml.in:163
-msgid "Other updates:"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:128
-msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:129
-msgid "Fixed font switch alignment"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:138
-msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:139
-msgid "Save and restore cyclic search setting"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:143
-msgid "Add keyboard shortcuts to menu items"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:144
-msgid "Make sidebar folder items not selectable"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:145
-msgid "Center new windows"
-msgstr ""
+msgstr "Umožnené posúvanie až za koniec súboru"
 
 #: data/io.elementary.code.appdata.xml.in:154
-msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgid "More efficiently save and restore window position"
+msgstr "Efektívnejšie ukladanie a obnovovanie polohy okna"
 
-#: data/io.elementary.code.appdata.xml.in:155
-msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:163
+msgid "Include Git status in file tooltips"
+msgstr "Zahrnúť stav Git do popisu súborov"
 
-#: data/io.elementary.code.appdata.xml.in:156
-msgid "Add a confirmation dialog to the \"Restore\" action"
+#: data/io.elementary.code.appdata.xml.in:164
+msgid "Option for explicit case-sensitive Find"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:157
-msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:158
-msgid "Don't show temporary files in the folder manager"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:159
-msgid "Add brackets completion and auto-indent by default"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:160
-msgid "Zoom terminal plugin with keyboard"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:161
-msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:165
-msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+"Možnosť explicitného vyhľadávania s rozlišovaním veľkých a malých písmen"
 
 #: data/io.elementary.code.appdata.xml.in:166
-msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:167
-msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:203
+msgid "Other updates:"
+msgstr "Ďalšie aktualizácie:"
 
 #: data/io.elementary.code.appdata.xml.in:168
-msgid "Fix null file dialog when opening a new window via the dock"
+msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Ak nie je vybraný žiadny text, správne zobraziť položku ponuky Prepnúť "
+"komentár"
 
 #: data/io.elementary.code.appdata.xml.in:169
-msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgid "Fixed font switch alignment"
+msgstr "Opravené zarovnanie prepínača typu písma"
 
-#: data/io.elementary.code.appdata.xml.in:170
-msgid "Change search entry icon when results aren't found"
+#: data/io.elementary.code.appdata.xml.in:178
+msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:171
-msgid "Enter name of new file before creating it"
-msgstr ""
+"Nová položka ponuky „Zatvoriť ďalšie priečinky“, ktorá vám pomôže vyčistiť "
+"bočný panel"
 
 #: data/io.elementary.code.appdata.xml.in:179
+msgid "Save and restore cyclic search setting"
+msgstr "Ukladanie a obnovovanie nastavenia cyklického vyhľadávania"
+
+#: data/io.elementary.code.appdata.xml.in:183
+msgid "Add keyboard shortcuts to menu items"
+msgstr "Pridané klávesové skratky k položkám ponuky"
+
+#: data/io.elementary.code.appdata.xml.in:184
+msgid "Make sidebar folder items not selectable"
+msgstr "Možnosť zrušiť označovanie priečinkov v bočnom paneli"
+
+#: data/io.elementary.code.appdata.xml.in:185
+msgid "Center new windows"
+msgstr "Zarovnávať nové okná na stred"
+
+#: data/io.elementary.code.appdata.xml.in:194
+msgid "Visually deprioritize .gitignored files in project sidebar"
+msgstr "Vizuálne znížená priorita súborov .gitignore v bočnom paneli projektu"
+
+#: data/io.elementary.code.appdata.xml.in:195
+msgid "Smart cut/copy lines with no active selection"
+msgstr "Inteligentné vystrihovanie/kopírovanie riadkov bez aktívneho výberu"
+
+#: data/io.elementary.code.appdata.xml.in:196
+msgid "Add a confirmation dialog to the \"Restore\" action"
+msgstr "Pridaný potvrdzovací dialóg do akcie „Obnoviť“"
+
+#: data/io.elementary.code.appdata.xml.in:197
+msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
+msgstr ""
+"Pridaná ponuka „Otvoriť v“ do priečinka najvyššej úrovne v správcovi "
+"priečinkov"
+
+#: data/io.elementary.code.appdata.xml.in:198
+msgid "Don't show temporary files in the folder manager"
+msgstr "Nezobrazovať dočasné súbory v správcovi súborov"
+
+#: data/io.elementary.code.appdata.xml.in:199
+msgid "Add brackets completion and auto-indent by default"
+msgstr ""
+"Pridaná predvolene zapnutá funkcia doplňovania zátvoriek a automatického "
+"odsadzovania"
+
+#: data/io.elementary.code.appdata.xml.in:200
+msgid "Zoom terminal plugin with keyboard"
+msgstr ""
+"Približovanie a oddiaľovanie pomocou klávesnice v zásuvnom module terminálu"
+
+#: data/io.elementary.code.appdata.xml.in:201
+msgid "Honor global privacy setting when saving and restoring"
+msgstr ""
+"Rešpektovať globálne nastavenie ochrany súkromia pri ukladaní a obnovovaní"
+
+#: data/io.elementary.code.appdata.xml.in:205
+msgid "Simplify \"Draw spaces\" preference"
+msgstr "Zjednodušenie predvoľby „Vykresľovať medzery“"
+
+#: data/io.elementary.code.appdata.xml.in:206
+msgid "Fix the keyboard shortcut for going backwards in search results"
+msgstr "Opravená klávesová skratka pre posun späť vo výsledkoch vyhľadávania"
+
+#: data/io.elementary.code.appdata.xml.in:207
+msgid "Fix opening files from relative paths in Terminal"
+msgstr ""
+"Opravené otváranie súborov z relatívnych popisov umiestnenia v Terminále"
+
+#: data/io.elementary.code.appdata.xml.in:208
+msgid "Fix null file dialog when opening a new window via the dock"
+msgstr "Opravený prázdny dialóg súboru pri otváraní nového okna z doku"
+
+#: data/io.elementary.code.appdata.xml.in:209
+msgid "Add \"=\" as a zoom key"
+msgstr "Pridané „=“ ako kláves pre priblíženie"
+
+#: data/io.elementary.code.appdata.xml.in:210
+msgid "Change search entry icon when results aren't found"
+msgstr "Zmeniť ikonu políčka vyhľadávania, keď nie sú nájdené výsledky"
+
+#: data/io.elementary.code.appdata.xml.in:211
+msgid "Enter name of new file before creating it"
+msgstr "Zadanie názvu nového súboru pred jeho vytvorením"
+
+#: data/io.elementary.code.appdata.xml.in:219
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Všade používať Granite.MessageDialog"
 
-#: data/io.elementary.code.appdata.xml.in:180
+#: data/io.elementary.code.appdata.xml.in:220
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Zahrnúť súbory s iným ako textovým obsahom v bočnom paneli"
 
-#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:221
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Opravené odstraňovanie aktuálneho zobrazenia"
 
-#: data/io.elementary.code.appdata.xml.in:188
+#: data/io.elementary.code.appdata.xml.in:228
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Opravené správanie akcie pracovnej plochy Nové okno"
 
-#: data/io.elementary.code.appdata.xml.in:189
+#: data/io.elementary.code.appdata.xml.in:229
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Správna synchronizácia stlačení Ctrl+N s počtom novo vytvorených dokumentov"
 
-#: data/io.elementary.code.appdata.xml.in:190
+#: data/io.elementary.code.appdata.xml.in:230
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Oprava systému zostavovania pre závislosť editorconfig"
 
-#: data/io.elementary.code.appdata.xml.in:191
+#: data/io.elementary.code.appdata.xml.in:231
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Pridaná položka kontextového menu Zmeniť vetvu"
 
-#: data/io.elementary.code.appdata.xml.in:192
+#: data/io.elementary.code.appdata.xml.in:232
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
+"Vyhnutie sa možnému pádu pri spustení v súvislosti s tým, ako sú načítavané "
+"zásuvné moduly"
 
-#: data/io.elementary.code.appdata.xml.in:200
+#: data/io.elementary.code.appdata.xml.in:240
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Inteligentnejšie správanie ukladania súborov"
 
-#: data/io.elementary.code.appdata.xml.in:201
+#: data/io.elementary.code.appdata.xml.in:241
 msgid "File saving fixes"
-msgstr ""
+msgstr "Opravy ukladania súborov"
 
-#: data/io.elementary.code.appdata.xml.in:202
+#: data/io.elementary.code.appdata.xml.in:242
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Nepridávať dočasné súbory do obnovenia kariet"
 
-#: data/io.elementary.code.appdata.xml.in:210
+#: data/io.elementary.code.appdata.xml.in:250
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Znovu nevytvárať odstránené súbory pri obnovovaní relácie"
 
-#: data/io.elementary.code.appdata.xml.in:211
+#: data/io.elementary.code.appdata.xml.in:251
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Obnovenie predvoľby zalamovania riadkov"
 
-#: data/io.elementary.code.appdata.xml.in:212
+#: data/io.elementary.code.appdata.xml.in:252
 msgid "Add accel tooltips"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:213
-msgid "Minor bug fixes"
-msgstr ""
+msgstr "Pridanie popisu pre accel"
 
 #: data/io.elementary.code.appdata.xml.in:253
+msgid "Minor bug fixes"
+msgstr "Opravy menších chýb"
+
+#: data/io.elementary.code.appdata.xml.in:293
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Úprava textových súborov"
+msgstr "Upravujte súbory so zdrojovými kódmi"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Editor kódu"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
@@ -522,8 +624,9 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
-msgid "text;IDE;scratch;"
-msgstr "Scratch"
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
+msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
@@ -535,11 +638,13 @@ msgstr "Nové okno"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Spustiť Kód ako správca"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+"Pre spustenie aplikácie Kód s oprávneniami administrátora je potrebné "
+"overenie"
 
 #~ msgid ""
 #~ "Make it yours. Code is written from the ground up to be extensible. Keep "

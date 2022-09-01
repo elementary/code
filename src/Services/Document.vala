@@ -108,7 +108,7 @@ namespace Scratch.Services {
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
 
-        public Document (SimpleActionGroup actions, File? file = null) {
+        public Document (SimpleActionGroup actions, File file) {
             Object (actions: actions);
 
             this.file = file;
@@ -145,11 +145,6 @@ namespace Scratch.Services {
             }
 
             source_map.set_view (source_view);
-
-            // Handle Drag-and-drop functionality on source-view
-            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
-            Gtk.TargetEntry text = {"text/plain", 0, 0};
-            Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
 
