@@ -18,6 +18,7 @@
  */
 
 namespace Scratch.FolderManager {
+    // ProjectFolderItem represents the root folder usually of a repository
     public class ProjectFolderItem : FolderItem {
         struct VisibleItem {
             public string rel_path;
@@ -26,14 +27,14 @@ namespace Scratch.FolderManager {
 
         private static Icon added_icon;
         private static Icon modified_icon;
+        // Cache the visible item in the project.
+        private List<VisibleItem?> visible_item_list = null;
 
         public signal void closed ();
         public signal void close_all_except ();
 
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
-        // Cache the visible item in the project.
-        private List<VisibleItem?> visible_item_list = null;
-        public string top_level_path { get; construct; }
+
         public bool is_git_repo {
             get {
                 return monitored_repo != null;
@@ -71,7 +72,6 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect (branch_or_name_changed);
@@ -80,6 +80,8 @@ namespace Scratch.FolderManager {
                 monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
             }
+
+            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
         }
 
         public void child_folder_changed (FolderItem folder) {

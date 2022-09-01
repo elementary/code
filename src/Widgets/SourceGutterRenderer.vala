@@ -12,8 +12,8 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
     public Gee.HashMap<Services.VCStatus, Gdk.RGBA?> status_color_map;
     public FolderManager.ProjectFolderItem? project { get; set; default = null; }
     public string workdir_path {
-        get {
-            return project != null ? project.top_level_path : "";
+        owned get {
+            return project != null ? project.path : "";
         }
     }
 
