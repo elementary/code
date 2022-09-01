@@ -175,7 +175,6 @@ namespace Scratch.Services {
             toggle_changed_handlers (true);
 
             // Focus out event for SourceView
-
             this.source_view.focus_out_event.connect (() => {
                 if (Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
