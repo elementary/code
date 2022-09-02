@@ -24,7 +24,11 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        public weak Scratch.Application app { get; construct; }
+        public Scratch.Application app {
+            get {
+                return (Scratch.Application)application;
+            }
+        }
 
         public Scratch.Widgets.DocumentView document_view;
 
@@ -132,10 +136,9 @@ namespace Scratch {
             { ACTION_NEW_BRANCH, action_new_branch, "s" }
         };
 
-        public MainWindow (Scratch.Application scratch_app, bool restore_docs) {
+        public MainWindow (bool restore_docs) {
             Object (
-                application: scratch_app,
-                app: scratch_app,
+                application: (Gtk.Application)(GLib.Application.get_default ()),
                 icon_name: Constants.PROJECT_NAME,
                 title: _("Code")
             );

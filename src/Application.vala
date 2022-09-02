@@ -129,10 +129,10 @@ namespace Scratch {
         protected override void activate () {
             var window = get_last_window ();
             if (window != null && create_new_window) {
-                window = new MainWindow (this, false); // Will *not* restore documents
+                window = new MainWindow (false); // Will *not* restore documents
                 create_new_window = false;
             } else if (window == null) {
-                window = new MainWindow (this, true); // Will restore documents if required
+                window = new MainWindow (true); // Will restore documents if required
                 window.show ();
             } else {
                 window.present ();
