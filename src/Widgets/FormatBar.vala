@@ -257,8 +257,6 @@ public class Code.FormatBar : Gtk.Grid {
             tab_toggle.text = "%d (Tab)".printf (indent_width);
         }
 
-        tab_toggle.text = "%d (%s)".printf (
-        indent_width, space_tab_switch.active ? _("Using Space") : _("Using Tab"));
         if (tab_set_by_editor_config) {
             tab_toggle.tooltip_text = _("Indent width and style fixed by editorconfig file");
         } else {
