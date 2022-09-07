@@ -33,7 +33,7 @@ namespace Scratch.FolderManager {
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
-        public string top_level_path { get; construct; }
+
         public bool is_git_repo {
             get {
                 return monitored_repo != null;
