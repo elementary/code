@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-04-03 16:07+0000\n"
+"PO-Revision-Date: 2022-09-10 09:55+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
 "extra/ckb/>\n"
@@ -150,7 +150,7 @@ msgstr "پێشکەوتنەکان:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "بژاردەیەک بۆ وەرگرتنی هەمان دۆخی سیستەم (تاریک و ڕووناک)"
 
 #: data/io.elementary.code.appdata.xml.in:35
 #: data/io.elementary.code.appdata.xml.in:55
@@ -162,11 +162,11 @@ msgstr "چاککردنەکان:"
 
 #: data/io.elementary.code.appdata.xml.in:37
 msgid "Drag and drop with text containing accented characters"
-msgstr ""
+msgstr "ڕاکێشان و بەردانەوە بە دەقێک کە پیتی ئەکسێنتدی تێدایە"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Text duplication issues when dragging text between multiple windows"
-msgstr ""
+msgstr "کێشەکانی بەدووکردنی دەق کاتێک دەقێک لە نێوان چەند پەنجەرەیەک ڕادەکێشیت"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:63
@@ -621,10 +621,8 @@ msgid "io.elementary.code"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "text;IDE;scratch;"
+msgstr "text;IDE;scratch;code;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
