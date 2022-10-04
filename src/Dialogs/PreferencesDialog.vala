@@ -63,8 +63,10 @@ namespace Scratch.Dialogs {
             general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 4, 2);
             general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 5);
             general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 5, 2);
-            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 6);
-            general_grid.attach (indent_width, 1, 6, 2);
+            general_grid.attach (new SettingsLabel (_("Strip trailing whitespace:")), 0, 6);
+            general_grid.attach (new SettingsSwitch ("strip-trailing-on-save"), 1, 6, 2);
+            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 7);
+            general_grid.attach (indent_width, 1, 7, 2);
 
             main_stack = new Gtk.Stack () {
                 margin = 12
@@ -81,6 +83,7 @@ namespace Scratch.Dialogs {
             };
             main_grid.attach (main_stackswitcher, 0, 0);
             main_grid.attach (main_stack, 0, 1);
+
 
             border_width = 0;
             get_content_area ().add (main_grid);
@@ -157,7 +160,7 @@ namespace Scratch.Dialogs {
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
-            content.attach (right_margin_position, 2, 6, 1, 1);
+            content.attach (right_margin_position, 2, 7, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
