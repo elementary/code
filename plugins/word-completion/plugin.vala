@@ -39,7 +39,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         Gdk.Key.ISO_Left_Tab,
     };
 
-    private const uint USER_REQUESTED_KEY = Gdk.Key.backslash;
+    private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
 
     private uint timeout_id = 0;
 
@@ -121,9 +121,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
-        uint kv = event.keyval;
-        unichar uc = (unichar)(Gdk.keyval_to_unicode (kv));
-
+        var kv = event.keyval;
         /* Pass through any modified keypress except Shift or Capslock */
         Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
@@ -134,15 +132,20 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
              * alternative and also purges spelling mistakes and unused words from the list.
              * If used when a word or part of a word is selected, the selection will be
              * used as the word to find. */
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
+
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
+                (kv == REFRESH_SHORTCUT)) {
+
                 parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
                 return true;
             }
         }
 
+        var uc = (unichar)(Gdk.keyval_to_unicode (kv));
         if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
             (uc.isprint () || uc.isspace ())) {
+
             var buffer = current_view.buffer;
             var mark = buffer.get_insert ();
             Gtk.TextIter cursor_iter;

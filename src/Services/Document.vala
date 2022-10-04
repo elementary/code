@@ -683,8 +683,8 @@ namespace Scratch.Services {
         }
 
         // Get selected text
-        public string get_selected_text () {
-            return this.source_view.get_selected_text ();
+        public string get_selected_text (bool replace_newline = true) {
+            return this.source_view.get_selected_text (replace_newline);
         }
 
         // Get language name
