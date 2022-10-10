@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-08-14 02:39+0000\n"
+"PO-Revision-Date: 2022-10-05 03:32+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -29,7 +29,7 @@ msgstr "Nieuw venster"
 
 #: src/Application.vala:41
 msgid "Print version info and exit"
-msgstr "Toon versie informatie en verlaat applicatie"
+msgstr "Toon versie-informatie en verlaat applicatie"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
@@ -37,7 +37,7 @@ msgstr "Pluginset"
 
 #: src/Application.vala:42
 msgid "plugin"
-msgstr "Plugin"
+msgstr "plugin"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
@@ -93,11 +93,11 @@ msgstr "Zoeken naar tekst in “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr "De zoekterm moet tenminste 3 karakters lang zijn."
+msgstr "De zoekterm moet minimaal 3 karakters zijn."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr "Hoofdletter gevoelig:"
+msgstr "Hoofdlettergevoelig:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
@@ -115,11 +115,11 @@ msgstr "Maak een nieuwe tak van “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr "De taknaam moet uniek zijn en de Git naamregels volgen."
+msgstr "De taknaam moet uniek zijn en de Git naamgevingsregels volgen."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
-msgstr "Tak Aanmaken"
+msgstr "Tak aanmaken"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:180
 msgid "Preferences"
@@ -130,7 +130,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Als er geen tekst geselecteerd is, dan wordt de huidige regel geknipt of "
+"Als er geen tekst geselecteerd is wordt de huidige regel geknipt of "
 "gekopieerd"
 
 #: src/Dialogs/PreferencesDialog.vala:55
@@ -200,7 +200,7 @@ msgstr "Toon overzicht:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr "Lijnbreedte bepaling:"
+msgstr "Rechtermarge:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
@@ -428,7 +428,7 @@ msgstr "Sjablonen"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
-msgstr "Geen Project Geselecteerd"
+msgstr "Geen project geselecteerd"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
