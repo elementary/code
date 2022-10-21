@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2021-03-21 00:15+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/extra/mr/>\n"
@@ -130,359 +130,447 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:31
-#: data/io.elementary.code.appdata.xml.in:45
-#: data/io.elementary.code.appdata.xml.in:99
+#: data/io.elementary.code.appdata.xml.in:48
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:98
+msgid "Improvements:"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:33
+msgid "Option to follow the system dark style preference"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:35
+#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:93
+#: data/io.elementary.code.appdata.xml.in:147
 msgid "Fixes:"
 msgstr "निराकारणे:"
 
-#: data/io.elementary.code.appdata.xml.in:33
+#: data/io.elementary.code.appdata.xml.in:37
+msgid "Drag and drop with text containing accented characters"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Text duplication issues when dragging text between multiple windows"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:40
+#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:122
+#: data/io.elementary.code.appdata.xml.in:151
+msgid "Minor updates:"
+msgstr "किरकोळ अद्यतने:"
+
+#: data/io.elementary.code.appdata.xml.in:42
+#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:141
+#: data/io.elementary.code.appdata.xml.in:155
+#: data/io.elementary.code.appdata.xml.in:170
+#: data/io.elementary.code.appdata.xml.in:186
+#: data/io.elementary.code.appdata.xml.in:212
+#: data/io.elementary.code.appdata.xml.in:233
+#: data/io.elementary.code.appdata.xml.in:243
+#: data/io.elementary.code.appdata.xml.in:254
+msgid "Updated translations"
+msgstr "अद्ययावत अनुवाद"
+
+#: data/io.elementary.code.appdata.xml.in:50
+msgid ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "Hidden folders are now shown in the project sidebar"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid ""
+"The currently selected result and the number of results is displayed while "
+"searching"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "The search bar now has a regular expression mode"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:57
+msgid ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Crashes are prevented while searching in large projects"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid ""
+"The correct document is now focused after opening Code from an external "
+"program"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid ""
+"Line duplication is now actioned correctly if there is no selection present"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:61
+msgid "Code no longer crashes when asked to open an unknown URI format"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:73
+msgid ""
+"Projects with the same name now include their parent folder name as well"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:74
+msgid ""
+"When scrolling to search results, overshoot slightly for better visibility"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:75
+msgid "Use the FileChooser portal instead of the one from GTK"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Center the global search dialog over the main Code window"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:34
+#: data/io.elementary.code.appdata.xml.in:81
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:35
+#: data/io.elementary.code.appdata.xml.in:82
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:37
-#: data/io.elementary.code.appdata.xml.in:54
-#: data/io.elementary.code.appdata.xml.in:74
-#: data/io.elementary.code.appdata.xml.in:103
-msgid "Minor updates:"
-msgstr "किरकोळ अद्यतने:"
+#: data/io.elementary.code.appdata.xml.in:86
+msgid "\"Visible whitespace\" combobox is now a switch"
+msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:39
-#: data/io.elementary.code.appdata.xml.in:57
-#: data/io.elementary.code.appdata.xml.in:93
-#: data/io.elementary.code.appdata.xml.in:107
-#: data/io.elementary.code.appdata.xml.in:122
-#: data/io.elementary.code.appdata.xml.in:138
-#: data/io.elementary.code.appdata.xml.in:164
-#: data/io.elementary.code.appdata.xml.in:185
-#: data/io.elementary.code.appdata.xml.in:195
-#: data/io.elementary.code.appdata.xml.in:206
-msgid "Updated translations"
-msgstr "अद्ययावत अनुवाद"
-
-#: data/io.elementary.code.appdata.xml.in:47
+#: data/io.elementary.code.appdata.xml.in:95
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:48
+#: data/io.elementary.code.appdata.xml.in:96
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:50
-msgid "Improvements:"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:52
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "Hide project chooser button when hiding sidebar"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:56
+#: data/io.elementary.code.appdata.xml.in:104
 msgid "Ensure all copy is translatable"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:63
-#: data/io.elementary.code.appdata.xml.in:113
-#: data/io.elementary.code.appdata.xml.in:128
-#: data/io.elementary.code.appdata.xml.in:144
+#: data/io.elementary.code.appdata.xml.in:111
+#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:176
+#: data/io.elementary.code.appdata.xml.in:192
 msgid "New features:"
 msgstr "नवीन वैशिष्ट्य:"
 
-#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "New Markdown plugin for WYSIWYG-like editing."
 msgstr "WYSIWYG सारख्या संपादनासाठी नवीन मार्कडाउन प्लगइन."
 
-#: data/io.elementary.code.appdata.xml.in:66
+#: data/io.elementary.code.appdata.xml.in:114
 msgid "Switch Git branches or create new ones in project folder context menus"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:67
+#: data/io.elementary.code.appdata.xml.in:115
 msgid "Show Git diff status in source view gutters"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:68
+#: data/io.elementary.code.appdata.xml.in:116
 msgid "Full text search within project folder."
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:69
+#: data/io.elementary.code.appdata.xml.in:117
 msgid "Save and restore cursor position between sessions"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:70
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "Close files from a project when that project is closed"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:119
 #, fuzzy
 #| msgid "Show full document path in tab tooltip"
 msgid "Show full file path in tab tooltips"
 msgstr "टॅब टूलटिपमध्ये दस्तऐवजाचा पूर्ण पाथ दाखवा"
 
-#: data/io.elementary.code.appdata.xml.in:72
+#: data/io.elementary.code.appdata.xml.in:120
 msgid "Clear lines with Ctrl + K"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:76
+#: data/io.elementary.code.appdata.xml.in:124
 msgid "Allow Spell Checker extension in Markdown files"
 msgstr "मार्कडाउन फायलींमध्ये शब्दलेखन तपासक विस्तारास अनुमती द्या"
 
-#: data/io.elementary.code.appdata.xml.in:77
+#: data/io.elementary.code.appdata.xml.in:125
 msgid "Improve multi-line duplication"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:126
 msgid "Remember whether the sidebar is open"
 msgstr "साइडबार खुले आहे की नाही ते लक्षात ठेवा"
 
-#: data/io.elementary.code.appdata.xml.in:79
+#: data/io.elementary.code.appdata.xml.in:127
 msgid "Set window title to the focused file"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:80
+#: data/io.elementary.code.appdata.xml.in:128
 msgid "Add keyboard shortcuts for next and previous documents"
 msgstr "पुढील आणि मागील दस्तऐवजांसाठी कीबोर्ड शॉर्टकट जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:81
+#: data/io.elementary.code.appdata.xml.in:129
 msgid "Show full document path in tab tooltip"
 msgstr "टॅब टूलटिपमध्ये दस्तऐवजाचा पूर्ण पाथ दाखवा"
 
-#: data/io.elementary.code.appdata.xml.in:82
+#: data/io.elementary.code.appdata.xml.in:130
 msgid "Update Pastebin plugin"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:131
 msgid "Correctly indent last line when using the preserve whitespace plugin"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:132
 #, fuzzy
 #| msgid "syntax highlighting with gtksourceview-3"
 msgid "Keep syntax highlighting when duplicating a file"
 msgstr "gtksourceview-3 द्वारे सिंटॅक्स हायलाइटिंग"
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:133
 msgid "Expand a collapsed folder if you attempt to open it twice"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:134
 msgid "Fix an issue where searches are lost when Code loses focus"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:135
 msgid "Start Vim plugin in command mode"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:136
 msgid "Fix and add new Vim commands"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:89
+#: data/io.elementary.code.appdata.xml.in:137
 msgid "Show project folders with a hidden root folder"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:90
+#: data/io.elementary.code.appdata.xml.in:138
 msgid "Allow launching with pkexec and disallow launching with sudo"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:91
+#: data/io.elementary.code.appdata.xml.in:139
 #, fuzzy
 #| msgid "Fix Remove Current View"
 msgid "Remove split view"
 msgstr "वर्तमान दृश्य काढा दुरुस्ती"
 
-#: data/io.elementary.code.appdata.xml.in:92
+#: data/io.elementary.code.appdata.xml.in:140
 msgid "Remove browser preview"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:101
+#: data/io.elementary.code.appdata.xml.in:149
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
 "रिक्त साइडबार लेआउट निश्चित करा, फोल्डर नेहमीच जोडले जाऊ शकतात याची खात्री करा"
 
-#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:153
 msgid "Scroll past the end of a file"
 msgstr "फाईलच्या शेवटी स्क्रोल करा"
 
-#: data/io.elementary.code.appdata.xml.in:106
+#: data/io.elementary.code.appdata.xml.in:154
 msgid "More efficiently save and restore window position"
 msgstr "अधिक कार्यक्षमतेने विंडो स्थिती जतन आणि पुनर्संचयित करा"
 
-#: data/io.elementary.code.appdata.xml.in:115
+#: data/io.elementary.code.appdata.xml.in:163
 msgid "Include Git status in file tooltips"
 msgstr "फाईल टूलटिपमध्ये गिट स्थिती समाविष्ट करा"
 
-#: data/io.elementary.code.appdata.xml.in:116
+#: data/io.elementary.code.appdata.xml.in:164
 msgid "Option for explicit case-sensitive Find"
 msgstr "सुस्पष्ट केस-सेन्सेटिव्ह शोधासाठी पर्याय"
 
-#: data/io.elementary.code.appdata.xml.in:118
-#: data/io.elementary.code.appdata.xml.in:133
-#: data/io.elementary.code.appdata.xml.in:155
+#: data/io.elementary.code.appdata.xml.in:166
+#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:203
 msgid "Other updates:"
 msgstr "इतर अद्यतने:"
 
-#: data/io.elementary.code.appdata.xml.in:120
+#: data/io.elementary.code.appdata.xml.in:168
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr "कोणताही मजकूर निवडला नसताना टॉगल टिप्पणी मेनू आयटम योग्यरित्या दर्शवा"
 
-#: data/io.elementary.code.appdata.xml.in:121
+#: data/io.elementary.code.appdata.xml.in:169
 msgid "Fixed font switch alignment"
 msgstr "फॉन्ट स्विच संरेखन निश्चित केले"
 
-#: data/io.elementary.code.appdata.xml.in:130
+#: data/io.elementary.code.appdata.xml.in:178
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
 "आपला साइडबार साफ करण्यास मदत करण्यासाठी नवीन \"इतर फोल्डर्स बंद करा\" मेनू आयटम"
 
-#: data/io.elementary.code.appdata.xml.in:131
+#: data/io.elementary.code.appdata.xml.in:179
 msgid "Save and restore cyclic search setting"
 msgstr "चक्रीय शोध सेटिंग जतन आणि पुनर्संचयित करा"
 
-#: data/io.elementary.code.appdata.xml.in:135
+#: data/io.elementary.code.appdata.xml.in:183
 msgid "Add keyboard shortcuts to menu items"
 msgstr "मेनू आयटममध्ये कीबोर्ड शॉर्टकट जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:136
+#: data/io.elementary.code.appdata.xml.in:184
 msgid "Make sidebar folder items not selectable"
 msgstr "साइडबार फोल्डर आयटम निवडण्यायोग्य नसतात"
 
-#: data/io.elementary.code.appdata.xml.in:137
+#: data/io.elementary.code.appdata.xml.in:185
 msgid "Center new windows"
 msgstr "नवीन विंडो मध्यभागी ठेवा"
 
-#: data/io.elementary.code.appdata.xml.in:146
+#: data/io.elementary.code.appdata.xml.in:194
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr "प्रोजेक्ट साइडबारमधील .gitignored फायली दृश्यमानपणे वंचित करा"
 
-#: data/io.elementary.code.appdata.xml.in:147
+#: data/io.elementary.code.appdata.xml.in:195
 msgid "Smart cut/copy lines with no active selection"
 msgstr "कोणत्याही सक्रिय निवडीशिवाय ओळी स्मार्ट कट / कॉपी करा"
 
-#: data/io.elementary.code.appdata.xml.in:148
+#: data/io.elementary.code.appdata.xml.in:196
 msgid "Add a confirmation dialog to the \"Restore\" action"
 msgstr "\"पुनर्संचयित\" क्रियेमध्ये पुष्टीकरण संवाद जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:149
+#: data/io.elementary.code.appdata.xml.in:197
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr "फोल्डर व्यवस्थापकात उच्च स्तरीय फोल्डरमध्ये \"ओपन इन\" मेनू जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:150
+#: data/io.elementary.code.appdata.xml.in:198
 msgid "Don't show temporary files in the folder manager"
 msgstr "फोल्डर व्यवस्थापकात तात्पुरत्या फाइल्स दाखवू नका"
 
-#: data/io.elementary.code.appdata.xml.in:151
+#: data/io.elementary.code.appdata.xml.in:199
 msgid "Add brackets completion and auto-indent by default"
 msgstr "डीफॉल्टनुसार कंस पूर्ण आणि ऑटो-इंडेंट जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:152
+#: data/io.elementary.code.appdata.xml.in:200
 msgid "Zoom terminal plugin with keyboard"
 msgstr "कीबोर्ड वापरून टर्मिनल प्लगइन झूम करा"
 
-#: data/io.elementary.code.appdata.xml.in:153
+#: data/io.elementary.code.appdata.xml.in:201
 msgid "Honor global privacy setting when saving and restoring"
 msgstr "जतन आणि पुनर्संचयित करताना जागतिक गोपनीयता सेटिंगचा सन्मान करा"
 
-#: data/io.elementary.code.appdata.xml.in:157
+#: data/io.elementary.code.appdata.xml.in:205
 msgid "Simplify \"Draw spaces\" preference"
 msgstr "\"स्पेस ड्रॉ करा\" प्राधान्य सुलभ करा"
 
-#: data/io.elementary.code.appdata.xml.in:158
+#: data/io.elementary.code.appdata.xml.in:206
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr "शोध परिणामांमध्ये मागे जाण्यासाठी कीबोर्ड शॉर्टकट निश्चित करा"
 
-#: data/io.elementary.code.appdata.xml.in:159
+#: data/io.elementary.code.appdata.xml.in:207
 msgid "Fix opening files from relative paths in Terminal"
 msgstr "टर्मिनलमधील सापेक्ष मार्गांमधून फायली उघडण्याशी संबंधित समस्यांचे निराकरण करा"
 
-#: data/io.elementary.code.appdata.xml.in:160
+#: data/io.elementary.code.appdata.xml.in:208
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr "डॉकद्वारे नवीन विंडो उघडताना नल फाइल संवाद निश्चित करा"
 
-#: data/io.elementary.code.appdata.xml.in:161
+#: data/io.elementary.code.appdata.xml.in:209
 msgid "Add \"=\" as a zoom key"
 msgstr "झूम की म्हणून \"=\" जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:162
+#: data/io.elementary.code.appdata.xml.in:210
 msgid "Change search entry icon when results aren't found"
 msgstr "परिणाम आढळले नाहीत तेव्हा शोध प्रविष्टी चिन्ह बदला"
 
-#: data/io.elementary.code.appdata.xml.in:163
+#: data/io.elementary.code.appdata.xml.in:211
 msgid "Enter name of new file before creating it"
 msgstr "नवीन फाईल तयार करण्यापूर्वी तिचे नाव प्रविष्ट करा"
 
-#: data/io.elementary.code.appdata.xml.in:171
+#: data/io.elementary.code.appdata.xml.in:219
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Granite.MessageDialog संपूर्ण वापरा"
 
-#: data/io.elementary.code.appdata.xml.in:172
+#: data/io.elementary.code.appdata.xml.in:220
 msgid "Include non-text files in sidebar"
 msgstr "साइडबारमध्ये नॉन-मजकूर फायली समाविष्ट करा"
 
-#: data/io.elementary.code.appdata.xml.in:173
+#: data/io.elementary.code.appdata.xml.in:221
 msgid "Fix Remove Current View"
 msgstr "वर्तमान दृश्य काढा दुरुस्ती"
 
-#: data/io.elementary.code.appdata.xml.in:180
+#: data/io.elementary.code.appdata.xml.in:228
 msgid "Fix New Window desktop action behavior"
 msgstr "नवीन विंडो डेस्कटॉप क्रिया वर्तन दुरुस्त करा"
 
-#: data/io.elementary.code.appdata.xml.in:181
+#: data/io.elementary.code.appdata.xml.in:229
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "तयार केलेल्या नवीन दस्तऐवजांची संख्या आणि Ctrl + N की दाबणे योग्यरित्या सिंक्रोनाइझ करा"
 
-#: data/io.elementary.code.appdata.xml.in:182
+#: data/io.elementary.code.appdata.xml.in:230
 msgid "Build system fix for editorconfig dependency"
 msgstr "Editorconfig अवलंबनासाठी सिस्टम फिक्स तयार करा"
 
-#: data/io.elementary.code.appdata.xml.in:183
+#: data/io.elementary.code.appdata.xml.in:231
 msgid "Add Change Branch context menu item"
 msgstr "शाखा बदल संदर्भ मेनू आयटम जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:184
+#: data/io.elementary.code.appdata.xml.in:232
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr "प्लगइन लोड करण्याशी संबंधित संभाव्य स्टार्टअप क्रॅश टाळा"
 
-#: data/io.elementary.code.appdata.xml.in:192
+#: data/io.elementary.code.appdata.xml.in:240
 msgid "Smarter file saving behavior"
 msgstr "स्मार्ट फाईल सेव्हिंग वर्तन"
 
-#: data/io.elementary.code.appdata.xml.in:193
+#: data/io.elementary.code.appdata.xml.in:241
 msgid "File saving fixes"
 msgstr "फाइल जतन फिक्स"
 
-#: data/io.elementary.code.appdata.xml.in:194
+#: data/io.elementary.code.appdata.xml.in:242
 msgid "Don't add temporary files to tab restore"
 msgstr "टॅब रिस्टोअर मध्ये तात्पुराट्या फायली जोडू नका"
 
-#: data/io.elementary.code.appdata.xml.in:202
+#: data/io.elementary.code.appdata.xml.in:250
 msgid "Don't recreate deleted files when restoring session"
 msgstr "सत्र पुनर्संचयित करताना हटविलेल्या फायली पुन्हा तयार करू नका"
 
-#: data/io.elementary.code.appdata.xml.in:203
+#: data/io.elementary.code.appdata.xml.in:251
 msgid "Restore line wrap preference"
 msgstr "लाइन ओघ प्राधान्य पुनर्संचयित करा"
 
-#: data/io.elementary.code.appdata.xml.in:204
+#: data/io.elementary.code.appdata.xml.in:252
 msgid "Add accel tooltips"
 msgstr "एक्सेल टूलटिप जोडा"
 
-#: data/io.elementary.code.appdata.xml.in:205
+#: data/io.elementary.code.appdata.xml.in:253
 msgid "Minor bug fixes"
 msgstr "किरकोळ दोष निराकरण"
 
-#: data/io.elementary.code.appdata.xml.in:245
+#: data/io.elementary.code.appdata.xml.in:293
 #, fuzzy
 #| msgid "elementary LLC."
 msgid "elementary, Inc."
@@ -501,7 +589,9 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
+#, fuzzy
+#| msgid "text;IDE;scratch;"
+msgid "text;IDE;scratch;code;"
 msgstr "टेक्स्ट;आईडीई ;स्क्रैच;"
 
 #: data/io.elementary.code.desktop.in.in:17

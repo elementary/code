@@ -26,7 +26,16 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     private Gtk.Switch case_switch;
     private Gtk.Switch regex_switch;
 
-    public string search_term { get {return search_term_entry.text;} }
+    public string search_term {
+        get {
+            return search_term_entry.text;
+        }
+
+        set {
+            search_term_entry.text = value;
+        }
+    }
+
     public bool use_regex {
         get {
             return regex_switch.active;
@@ -47,9 +56,9 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         }
     }
 
-    public GlobalSearchDialog (Gtk.Window? parent, string folder_name, bool is_repo) {
+    public GlobalSearchDialog (string folder_name, bool is_repo) {
         Object (
-            transient_for: parent,
+            transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
             folder_name: folder_name,
             is_repo: is_repo,
             image_icon: new ThemedIcon ("edit-find")

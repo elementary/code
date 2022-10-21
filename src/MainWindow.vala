@@ -268,7 +268,7 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
-            // Crate folder for unsaved documents
+            // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
@@ -288,7 +288,7 @@ namespace Scratch {
                 set_search_text ();
             });
             search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
-                search_bar.set_search_string ("");
+                search_bar.search_entry.text = "";
                 search_bar.highlight_none ();
             });
             search_bar.search_empty.connect (() => {
@@ -309,8 +309,12 @@ namespace Scratch {
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
                         var file = File.new_for_uri (filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                        document_view.open_document (doc);
+                        bool is_folder;
+                        //TODO Handle folders dropped here
+                        if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
+                            Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+                            document_view.open_document (doc);
+                        }
                     }
 
                     Gtk.drag_finish (ctx, true, false, time);
@@ -413,7 +417,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                toolbar.title = app.app_cmd_name;
+                title = _("Code");
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -425,20 +429,22 @@ namespace Scratch {
             });
 
             document_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
-
-                search_bar.set_text_view (doc.source_view);
-                // Update MainWindow title
-                toolbar.title = doc.get_basename ();
-
                 if (doc != null) {
+                    plugins.hook_document (doc);
+                    search_bar.set_text_view (doc.source_view);
+                    // Update MainWindow title
+                    title = doc.get_basename ();
+
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
-                }
 
-                // Set actions sensitive property
-                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                doc.check_undoable_actions ();
+                    // Set actions sensitive property
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
+                    doc.check_undoable_actions ();
+                } else {
+                    title = _("Code");
+                    Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
+                }
             });
 
             set_widgets_sensitive (false);
@@ -475,6 +481,7 @@ namespace Scratch {
                            But for files that do not exist we need to make sure that doc won't create a new file
                         */
                         if (file.query_exists ()) {
+                            //TODO Check files valid (settings could have been manually altered)
                             var doc = new Scratch.Services.Document (actions, file);
                             bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
@@ -581,7 +588,7 @@ namespace Scratch {
             return true;
         }
 
-        // Save session informations different from window state
+        // Save session information different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
             hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
@@ -794,7 +801,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin ();
+                    doc.save.begin (true);
                 }
             }
         }
@@ -859,7 +866,6 @@ namespace Scratch {
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
-
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -882,22 +888,39 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            folder_manager_view.search_global (get_target_path_for_git_actions (param));
+            var current_doc = get_current_document ();
+            var selected_text = current_doc.get_selected_text (false);
+            if (selected_text != "") {
+                selected_text = selected_text.split ("\n", 2)[0];
+            }
+            // If search entry focused use its text for search term, else use selected text
+            var term = search_bar.search_entry.has_focus ?
+                            search_bar.search_entry.text : selected_text;
+
+            // If no focused selected text fallback to search entry text if visible
+            if (term == "" &&
+                !search_bar.search_entry.has_focus &&
+                search_revealer.reveal_child) {
+
+                term = search_bar.search_entry.text;
+            }
+
+            folder_manager_view.search_global (get_target_path_for_git_actions (param), term);
         }
 
         private void set_search_text () {
             if (current_search_term != "") {
-                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.
                 if (current_doc != null) {
-                    var selected_text = current_doc.get_selected_text ();
+                    var selected_text = current_doc.get_selected_text (false);
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                        current_search_term = selected_text;
-                        search_bar.set_search_string (current_search_term);
+                        current_search_term = selected_text.split ("\n", 2)[0];
+                        search_bar.search_entry.text = current_search_term;
                     }
 
                     search_bar.search_entry.grab_focus (); /* causes loss of document selection */
