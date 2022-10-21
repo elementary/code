@@ -26,11 +26,20 @@
     </ul>
   </description>
   <releases>
-    <release version="6.2.1" date="2022-04-01" urgency="medium">
+    <release version="6.3.0" date="2022-08-10" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
-          <li>Show symbol list on the right of the document instead of as a tab in the sidebar</li>
+          <li>Option to follow the system dark style preference</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Drag and drop with text containing accented characters</li>
+          <li>Text duplication issues when dragging text between multiple windows</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
         </ul>
       </description>
     </release>

@@ -122,6 +122,9 @@ namespace Scratch.Widgets {
             restore_settings ();
             settings.changed.connect (restore_settings);
 
+            var granite_settings = Granite.Settings.get_default ();
+            granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
+
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
                     ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
@@ -207,11 +210,6 @@ namespace Scratch.Widgets {
             return !start.equal (end);
         }
 
-        ~SourceView () {
-            // Update settings when an instance is deleted
-            update_settings ();
-        }
-
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -292,21 +290,23 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-            source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
-        }
+            var gtk_settings = Gtk.Settings.get_default ();
+            if (settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
 
-        private void update_settings () {
-            var source_buffer = (Gtk.SourceBuffer) buffer;
-            Scratch.settings.set_boolean ("show-right-margin", show_right_margin);
-            Scratch.settings.set_int ("right-margin-position", (int) right_margin_position);
-            Scratch.settings.set_boolean ("highlight-matching-brackets", source_buffer.highlight_matching_brackets);
-            Scratch.settings.set_boolean ("spaces-instead-of-tabs", insert_spaces_instead_of_tabs);
-            Scratch.settings.set_int ("indent-width", (int) tab_width);
-            Scratch.settings.set_string ("font", font);
-            Scratch.settings.set_string ("style-scheme", source_buffer.style_scheme.id);
+                if (system_prefers_dark) {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-dark");
+                } else {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-light");
+                }
+            } else {
+                gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("prefer-dark-style");
+                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            }
+
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 

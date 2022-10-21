@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2020-03-14 21:09+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -56,11 +56,11 @@ msgstr "Trovi…"
 msgid "Hide search bar"
 msgstr "Kaŝi serĉbreton"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:482
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:486
 msgid "Text files"
 msgstr "Tekstaj dosieroj"
 
@@ -73,8 +73,8 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:389
+#: src/Services/Document.vala:494 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Rezigni"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Branĉo"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:180
 msgid "Preferences"
 msgstr "Agordoj"
 
@@ -277,11 +277,11 @@ msgstr "Malplena Dosiero"
 msgid "New"
 msgstr "Nova"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "sentitola dosierujo"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "nova dosiero"
 
@@ -320,69 +320,69 @@ msgstr "Branĉo"
 msgid "Branch"
 msgstr "Branĉo"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:259
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s estas dosiero ne teksta"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:260
 msgid "Code will not load this type of file."
 msgstr "Kodo ne ŝargos tian dosiertipon."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:262
 msgid "Load Anyway"
 msgstr "Ŝargi Ĉiukaze"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:283
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Ŝargo de la dosiero „%s“ longe daŭras"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:284
 msgid "Please wait while Code is loading the file."
 msgstr "Bonvolu atendi dum Kodo ŝargas la dosieron."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:286
 msgid "Cancel Loading"
 msgstr "Rezigni Ŝargon"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:379
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ĉu estu konservata al „%s“ antaŭ fermo?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:380
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Sen konservo, ŝanĝoj definitive perdiĝos."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:386
 msgid "Close Without Saving"
 msgstr "Fermi sen konservo"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:390 src/Services/Document.vala:493
+#: src/Services/Document.vala:725
 msgid "Save"
 msgstr "Konservi"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:490
 msgid "Save File"
 msgstr "Konservi dosieron"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:567 src/Services/Document.vala:576
 msgid "New Document"
 msgstr "Nova dokumento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Dosiero „%s“ ne legeblas"
 
-#: src/Services/Document.vala:705
+#: src/Services/Document.vala:700
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Eble ĝi estas koruptita, aŭ mankas al vi leg-permeso."
 
-#: src/Services/Document.vala:718
+#: src/Services/Document.vala:713
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -391,16 +391,16 @@ msgstr ""
 "La dosierujo en kiu estis la dosiero „%s“ estis malmuntita. Ĉu vi deziras "
 "konservi aliloke?"
 
-#: src/Services/Document.vala:721
+#: src/Services/Document.vala:716
 msgid "Save As…"
 msgstr "Konservi kiel…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:722
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "La dosiero „%s“ estis forigita. Ĉu vi deziras tamen konservi ĝin?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:739
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -408,11 +408,11 @@ msgid ""
 msgstr ""
 "Ne eblas konservi ŝanĝojn en la dosiero „%s“. Ĉu vi deziras konservi aliloke?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:742
 msgid "Save changes elsewhere"
 msgstr "Konservi aliloke"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:776
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -421,15 +421,15 @@ msgstr ""
 "La dosiero „%s“ estis modifita de ekstera aplikaĵo. Ĉu vi deziras reŝargi "
 "ĝin aŭ daŭrigi ĝian redaktadon?"
 
-#: src/Services/Document.vala:784
+#: src/Services/Document.vala:779
 msgid "Load"
 msgstr "Ŝargi"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:782
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Ŝablonoj"
 
@@ -450,7 +450,7 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:149
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstaj dosieroj el %s:%d"
@@ -471,21 +471,21 @@ msgstr "Filtri lingvojn"
 msgid "Plain Text"
 msgstr "Plata teksto"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:185
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d spaco"
 msgstr[1] "%d spacoj"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:187
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d nova tabo"
 msgstr[1] "%d novaj taboj"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Al linio:"
 
@@ -525,11 +525,15 @@ msgstr "Senzomo 1:1"
 msgid "Zoom In"
 msgstr "Zomi"
 
-#: src/Widgets/HeaderBar.vala:151
+#: src/Widgets/HeaderBar.vala:132
+msgid "Follow System Style"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:170
 msgid "Toggle Sidebar"
 msgstr "Baskuli flankbreton"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:201
 msgid "Menu"
 msgstr "Menuo"
 
@@ -556,8 +560,8 @@ msgid "Find"
 msgstr "Trovi"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr ""
 
@@ -599,7 +603,7 @@ msgstr "Anstataŭigi"
 msgid "Replace all"
 msgstr "Anstataŭigi ĉiujn"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
 msgstr ""
@@ -730,12 +734,12 @@ msgstr "Terminalo"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Kopii"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Alglui"
 

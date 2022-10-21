@@ -157,12 +157,12 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     }
 
     /* Do global search on project containing the file path supplied in parameter */
-    public void search_global (string path) {
+    public void search_global (string path, string? term = null) {
         var item_for_path = (Item?)(expand_to_path (path));
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
-                search_root.global_search (search_root.file.file);
+                search_root.global_search (search_root.file.file, term);
             }
         }
     }

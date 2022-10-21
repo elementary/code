@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -57,11 +57,11 @@ msgstr "Find…"
 msgid "Hide search bar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:482
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:486
 msgid "Text files"
 msgstr "Text files"
 
@@ -74,8 +74,8 @@ msgid "Open"
 msgstr "Open"
 
 #: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:389
+#: src/Services/Document.vala:494 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Change Scratch settings"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:180
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -281,11 +281,11 @@ msgstr "Empty File"
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "new file"
 
@@ -324,75 +324,75 @@ msgstr "Change Scratch settings"
 msgid "Branch"
 msgstr "Change Scratch settings"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:259
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Is Not a Text File"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:260
 msgid "Code will not load this type of file."
 msgstr "Code will not load this type of file."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:262
 msgid "Load Anyway"
 msgstr "Load Anyway"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:283
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Loading File \"%s\" Is Taking a Long Time"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:284
 msgid "Please wait while Code is loading the file."
 msgstr "Please wait while Code is loading the file."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:286
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Cancel Load"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:379
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Save changes to document %s before closing?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:380
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Close without saving"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:390 src/Services/Document.vala:493
+#: src/Services/Document.vala:725
 msgid "Save"
 msgstr "Save"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:490
 msgid "Save File"
 msgstr "Save File"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:567 src/Services/Document.vala:576
 msgid "New Document"
 msgstr "New Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "File \"%s\" Cannot Be Read"
 
-#: src/Services/Document.vala:705
+#: src/Services/Document.vala:700
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 
-#: src/Services/Document.vala:718
+#: src/Services/Document.vala:713
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -401,16 +401,16 @@ msgstr ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 
-#: src/Services/Document.vala:721
+#: src/Services/Document.vala:716
 msgid "Save As…"
 msgstr "Save As…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:722
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:739
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -419,11 +419,11 @@ msgstr ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:742
 msgid "Save changes elsewhere"
 msgstr "Save changes elsewhere"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:776
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -432,15 +432,15 @@ msgstr ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 
-#: src/Services/Document.vala:784
+#: src/Services/Document.vala:779
 msgid "Load"
 msgstr "Load"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:782
 msgid "Continue"
 msgstr "Continue"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Templates"
 
@@ -461,7 +461,7 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:149
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Text file from %s"
@@ -482,21 +482,21 @@ msgstr "Filter languages"
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:185
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Space"
 msgstr[1] "%d Spaces"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:187
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Tab"
 msgstr[1] "%d Tabs"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Go To Line:"
 
@@ -536,12 +536,16 @@ msgstr "Zoom 1:1"
 msgid "Zoom In"
 msgstr "Zoom In"
 
-#: src/Widgets/HeaderBar.vala:151
+#: src/Widgets/HeaderBar.vala:132
+msgid "Follow System Style"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:170
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Sidebar"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:201
 msgid "Menu"
 msgstr "Menu"
 
@@ -568,8 +572,8 @@ msgid "Find"
 msgstr "Find"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr ""
 
@@ -611,7 +615,7 @@ msgstr "Replace"
 msgid "Replace all"
 msgstr "Replace all"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
 msgstr ""
@@ -743,12 +747,12 @@ msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Copy"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Paste"
 

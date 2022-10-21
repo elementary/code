@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -58,11 +58,11 @@ msgstr "Nađi…"
 msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:482
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:486
 msgid "Text files"
 msgstr "Tekstualne datoteke"
 
@@ -75,8 +75,8 @@ msgid "Open"
 msgstr "Otvori"
 
 #: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:389
+#: src/Services/Document.vala:494 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Otkaži"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:180
 msgid "Preferences"
 msgstr "Postavke"
 
@@ -279,11 +279,11 @@ msgstr "Prazna datoteka"
 msgid "New"
 msgstr "Novo"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "neimenovana fascikla"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "nova datoteka"
 
@@ -322,73 +322,73 @@ msgstr "Promijeni Scratch podešavanja"
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:259
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nije tekstualna datoteka"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:260
 msgid "Code will not load this type of file."
 msgstr "Kod nije mogao učitati ovaj tip datoteke."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:262
 msgid "Load Anyway"
 msgstr "Svejedno učitaj"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:283
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Učitavanje datoteke \"%s\" traje dugo"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:284
 msgid "Please wait while Code is loading the file."
 msgstr "Molimo, sačekajte dok Kod učitava datoteku."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:286
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "_Otkaži učitavanje"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:379
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Sačuvati promjene dokumentu %s pre zatvaranja?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:380
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ako ne sačuvate, promjene poslednje 4 sekunde će biti izgubljene."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Zatvori bez čuvanja"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:390 src/Services/Document.vala:493
+#: src/Services/Document.vala:725
 msgid "Save"
 msgstr "Sačuvaj"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:490
 msgid "Save File"
 msgstr "Sačuvaj datoteku"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:567 src/Services/Document.vala:576
 msgid "New Document"
 msgstr "Novi dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Datoteka \"%s\" ne može biti očitana"
 
-#: src/Services/Document.vala:705
+#: src/Services/Document.vala:700
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Možda je oštećena ili nemate potrebne dozvole za njeno čitanje."
 
-#: src/Services/Document.vala:718
+#: src/Services/Document.vala:713
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -397,16 +397,16 @@ msgstr ""
 "Lokacija koja sadrži datoteku \"%s\" je demontirana. Želite li sačuvati "
 "negdje drugo?"
 
-#: src/Services/Document.vala:721
+#: src/Services/Document.vala:716
 msgid "Save As…"
 msgstr "Sačuvaj kao…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:722
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je izbrisana. Želite li svejedno sačuvati?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:739
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -415,11 +415,11 @@ msgstr ""
 "Ne možete sačuvati izmjene u datoteku \"%s\". Želite li sačuvati izmjene za "
 "ovu datoteku na drugoj lokaciji?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:742
 msgid "Save changes elsewhere"
 msgstr "Sačuvati promjene negde drugde"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:776
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -428,15 +428,15 @@ msgstr ""
 "Datoteka \"%s\" je izmijenjena pomoću vanjske aplikacije. Želite li je opet "
 "učitati i nastaviti uređivanje?"
 
-#: src/Services/Document.vala:784
+#: src/Services/Document.vala:779
 msgid "Load"
 msgstr "Učitaj"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:782
 msgid "Continue"
 msgstr "Nastavi"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Šabloni"
 
@@ -457,7 +457,7 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:149
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstualna datoteka iz %s"
@@ -478,7 +478,7 @@ msgstr "Filtriraj jezike"
 msgid "Plain Text"
 msgstr "Jednostavni tekst"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:185
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -486,7 +486,7 @@ msgstr[0] "%d razmak"
 msgstr[1] "%d razmaka"
 msgstr[2] "%d razmaka"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:187
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -494,7 +494,7 @@ msgstr[0] "%d tabulator"
 msgstr[1] "%d tabulatora"
 msgstr[2] "%d tabulatora"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Idi na liniju:"
 
@@ -534,11 +534,15 @@ msgstr "Normalna veličina prikaza (1:1)"
 msgid "Zoom In"
 msgstr "Uvećaj"
 
-#: src/Widgets/HeaderBar.vala:151
+#: src/Widgets/HeaderBar.vala:132
+msgid "Follow System Style"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:170
 msgid "Toggle Sidebar"
 msgstr "Prikaz bočne trake"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:201
 msgid "Menu"
 msgstr "Izbornik"
 
@@ -565,8 +569,8 @@ msgid "Find"
 msgstr "Nađi"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr ""
 
@@ -608,7 +612,7 @@ msgstr "Zamijeni"
 msgid "Replace all"
 msgstr "Zamijeni sve"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
 msgstr ""
@@ -739,12 +743,12 @@ msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Umnoži"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Nalijepi"
 

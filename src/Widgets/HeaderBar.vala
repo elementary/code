@@ -129,6 +129,10 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
+            var follow_system_switchmodelbutton = new Granite.SwitchModelButton (_("Follow System Style")) {
+                margin_top = 3
+            };
+
             // Intentionally never attached so we can have a non-selected state
             var color_button_none = new Gtk.RadioButton (null);
 
@@ -144,8 +148,23 @@ namespace Scratch.Widgets {
             color_button_dark.halign = Gtk.Align.CENTER;
             style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
-            var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-            menu_separator.margin_top = 12;
+            var color_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3) {
+                homogeneous = true,
+                margin_top = 6,
+                margin_bottom = 6
+            };
+
+            color_box.add (color_button_white);
+            color_box.add (color_button_light);
+            color_box.add (color_button_dark);
+
+            var color_revealer = new Gtk.Revealer ();
+            color_revealer.add (color_box);
+
+            var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                margin_bottom = 3,
+                margin_top = 3
+            };
 
             var toggle_sidebar_accellabel = new Granite.AccelLabel.from_action_name (
                 _("Toggle Sidebar"),
@@ -171,22 +190,22 @@ namespace Scratch.Widgets {
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
 
-            var menu_grid = new Gtk.Grid ();
-            menu_grid.margin_bottom = 3;
-            menu_grid.orientation = Gtk.Orientation.VERTICAL;
-            menu_grid.width_request = 200;
-            menu_grid.attach (font_size_grid, 0, 0, 3, 1);
-            menu_grid.attach (color_button_white, 0, 1, 1, 1);
-            menu_grid.attach (color_button_light, 1, 1, 1, 1);
-            menu_grid.attach (color_button_dark, 2, 1, 1, 1);
-            menu_grid.attach (menu_separator, 0, 2, 3, 1);
-            menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (toggle_outline_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 6, 3);
-            menu_grid.show_all ();
+            var menu_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+                margin_bottom = 3,
+                width_request = 200
+            };
+            menu_box.add (font_size_grid);
+            menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+            menu_box.add (follow_system_switchmodelbutton);
+            menu_box.add (color_revealer);
+            menu_box.add (menu_separator);
+            menu_box.add (toggle_sidebar_menuitem);
+            menu_box.add (toggle_outline_menuitem);
+            menu_box.add (preferences_menuitem);
+            menu_box.show_all ();
 
             var menu = new Gtk.Popover (null);
-            menu.add (menu_grid);
+            menu.add (menu_box);
 
             var app_menu = new Gtk.MenuButton ();
             app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
@@ -227,6 +246,20 @@ namespace Scratch.Widgets {
                     zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
                 }
             });
+
+            follow_system_switchmodelbutton.bind_property (
+                "active",
+                color_revealer,
+                "reveal-child",
+                GLib.BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN
+            );
+
+            Scratch.settings.bind (
+                "follow-system-style",
+                follow_system_switchmodelbutton,
+                "active",
+                SettingsBindFlags.DEFAULT
+            );
 
             var gtk_settings = Gtk.Settings.get_default ();
 

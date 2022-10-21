@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 17:45+0000\n"
-"PO-Revision-Date: 2022-01-16 02:49+0000\n"
+"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"PO-Revision-Date: 2022-10-05 03:32+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -29,7 +29,7 @@ msgstr "Nieuw venster"
 
 #: src/Application.vala:41
 msgid "Print version info and exit"
-msgstr "Toon versie informatie en verlaat applicatie"
+msgstr "Toon versie-informatie en verlaat applicatie"
 
 #: src/Application.vala:42
 msgid "Set of plugins"
@@ -37,7 +37,7 @@ msgstr "Pluginset"
 
 #: src/Application.vala:42
 msgid "plugin"
-msgstr "Plugin"
+msgstr "plugin"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
@@ -55,11 +55,11 @@ msgstr "Zoeken…"
 msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:487
+#: src/MainWindow.vala:737 src/Services/Document.vala:482
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:741 src/Services/Document.vala:491
+#: src/MainWindow.vala:741 src/Services/Document.vala:486
 msgid "Text files"
 msgstr "Tekstbestanden"
 
@@ -72,8 +72,8 @@ msgid "Open"
 msgstr "Openen"
 
 #: src/MainWindow.vala:749 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:389
+#: src/Services/Document.vala:494 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuleer"
@@ -93,11 +93,11 @@ msgstr "Zoeken naar tekst in “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:61
 msgid "The search term must be at least 3 characters long."
-msgstr "De zoekterm moet tenminste 3 karakters lang zijn."
+msgstr "De zoekterm moet minimaal 3 karakters zijn."
 
 #: src/Dialogs/GlobalSearchDialog.vala:74
 msgid "Case sensitive:"
-msgstr "Hoofdletter gevoelig:"
+msgstr "Hoofdlettergevoelig:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
@@ -115,13 +115,13 @@ msgstr "Maak een nieuwe tak van “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr "De taknaam moet uniek zijn en de Git naamregels volgen."
+msgstr "De taknaam moet uniek zijn en de Git naamgevingsregels volgen."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
-msgstr "Tak Aanmaken"
+msgstr "Tak aanmaken"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:180
 msgid "Preferences"
 msgstr "Instellingen"
 
@@ -130,7 +130,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Als er geen tekst geselecteerd is, dan wordt de huidige regel geknipt of "
+"Als er geen tekst geselecteerd is wordt de huidige regel geknipt of "
 "gekopieerd"
 
 #: src/Dialogs/PreferencesDialog.vala:55
@@ -200,7 +200,7 @@ msgstr "Toon overzicht:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Line width guide:"
-msgstr "Lijnbreedte bepaling:"
+msgstr "Rechtermarge:"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Font"
@@ -273,11 +273,11 @@ msgstr "Leeg bestand"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
 msgstr "naamloze folder"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:366
 msgid "new file"
 msgstr "nieuw bestand"
 
@@ -310,71 +310,71 @@ msgstr "Nieuwe Tak…"
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:259
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s is geen tekstbestand"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:260
 msgid "Code will not load this type of file."
 msgstr "Code kan dit bestandstype niet laden."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:262
 msgid "Load Anyway"
 msgstr "Toch laden"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:283
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Het laden van bestand \"%s\" duurt zeer lang"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:284
 msgid "Please wait while Code is loading the file."
 msgstr "Even geduld alstublieft terwijl Code het bestand laadt."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:286
 msgid "Cancel Loading"
 msgstr "Laden annuleren"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:379
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Veranderingen in document %s opslaan alvorens het te sluiten?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:380
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Als je niet opslaat, zullen de wijzigingen voor altijd verloren gaan."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:386
 msgid "Close Without Saving"
 msgstr "Sluiten zonder opslaan"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:390 src/Services/Document.vala:493
+#: src/Services/Document.vala:725
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:490
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:567 src/Services/Document.vala:576
 msgid "New Document"
 msgstr "Nieuw Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Bestand \"%s\" kan niet gelezen worden"
 
-#: src/Services/Document.vala:705
+#: src/Services/Document.vala:700
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Het bestand kan beschadigd zijn of u heeft niet de benodigde rechten om het "
 "te lezen."
 
-#: src/Services/Document.vala:718
+#: src/Services/Document.vala:713
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -383,16 +383,16 @@ msgstr ""
 "De locatie met het bestand \"%s\" werd ontkoppeld. Wilt u het bestand ergens "
 "anders opslaan?"
 
-#: src/Services/Document.vala:721
+#: src/Services/Document.vala:716
 msgid "Save As…"
 msgstr "Opslaan als…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:722
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Het bestand \"%s\" is verwijderd. Wilt u het alsnog opslaan?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:739
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -401,11 +401,11 @@ msgstr ""
 "U kunt de wijzigingen in het bestand \"%s\" niet opslaan. Wilt u een kopie "
 "van dit bestand opslaan op een andere locatie?"
 
-#: src/Services/Document.vala:747
+#: src/Services/Document.vala:742
 msgid "Save changes elsewhere"
 msgstr "Sla veranderingen ergens anders op"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:776
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -414,21 +414,21 @@ msgstr ""
 "Het bestand \"%s\" is aangepast in een externe applicatie. Wilt u het "
 "bestand opnieuw laden of doorgaan met bewerken?"
 
-#: src/Services/Document.vala:784
+#: src/Services/Document.vala:779
 msgid "Load"
 msgstr "Laden"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:782
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Sjablonen"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
-msgstr "Geen Project Geselecteerd"
+msgstr "Geen project geselecteerd"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:100
@@ -441,7 +441,7 @@ msgstr "Actief Git project: %s"
 msgid "Filter projects"
 msgstr "Projecten filteren"
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:149
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstbestand van %s:%d"
@@ -462,21 +462,21 @@ msgstr "Filter talen"
 msgid "Plain Text"
 msgstr "Platte tekst"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:185
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d spatie"
 msgstr[1] "%d spaties"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:187
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d tabblad"
 msgstr[1] "%d tabbladen"
 
-#: src/Widgets/FormatBar.vala:207
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Ga naar lijn:"
 
@@ -516,11 +516,15 @@ msgstr "Schaal 1:1"
 msgid "Zoom In"
 msgstr "Inzoomen"
 
-#: src/Widgets/HeaderBar.vala:151
+#: src/Widgets/HeaderBar.vala:132
+msgid "Follow System Style"
+msgstr "Volg systeemstijl"
+
+#: src/Widgets/HeaderBar.vala:170
 msgid "Toggle Sidebar"
 msgstr "Zijpaneel inschakelen"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:201
 msgid "Menu"
 msgstr "Menu"
 
@@ -545,8 +549,8 @@ msgid "Find"
 msgstr "Zoek"
 
 #. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:587
-#: src/Widgets/SearchBar.vala:590
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:589
+#: src/Widgets/SearchBar.vala:592
 msgid "no results"
 msgstr "geen resultaten"
 
@@ -573,10 +577,8 @@ msgid "Case Insensitive"
 msgstr "Niet hoofdletter gevoelig"
 
 #: src/Widgets/SearchBar.vala:119
-#, fuzzy
-#| msgid "Use regular expressions:"
 msgid "Use regular expressions"
-msgstr "Gebruik reguliere uitdrukkingen:"
+msgstr "Gebruik reguliere uitdrukkingen"
 
 #: src/Widgets/SearchBar.vala:140
 msgid "Replace With"
@@ -590,10 +592,10 @@ msgstr "Vervang"
 msgid "Replace all"
 msgstr "Vervang alles"
 
-#: src/Widgets/SearchBar.vala:586
+#: src/Widgets/SearchBar.vala:588
 #, c-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d van %d"
 
 #: src/Widgets/SourceView.vala:514
 msgid "Sort Selected Lines"
@@ -715,12 +717,12 @@ msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:245
+#: plugins/terminal/terminal.vala:244
 msgid "Copy"
 msgstr "Kopiëren"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:252
+#: plugins/terminal/terminal.vala:251
 msgid "Paste"
 msgstr "Plakken"
 
