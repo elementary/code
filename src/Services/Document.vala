@@ -93,6 +93,7 @@ namespace Scratch.Services {
         public string original_content;
         private string last_save_content;
         public bool saved = true;
+        private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -193,8 +194,16 @@ namespace Scratch.Services {
                 }
             });
 
-            /* Create as loaded - could be new document */
-            loaded = true;
+            source_view.completion.show.connect (() => {
+                completion_shown = true;
+            });
+
+            source_view.completion.hide.connect (() => {
+                completion_shown = false;
+            });
+
+            // /* Create as loaded - could be new document */
+            loaded = file == null;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
@@ -233,6 +242,7 @@ namespace Scratch.Services {
         public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
+            loaded = false;
             if (load_cancellable != null) { /* just in case */
                 load_cancellable.cancel ();
             }
@@ -251,7 +261,6 @@ namespace Scratch.Services {
 
             source_view.sensitive = false;
             this.working = true;
-            loaded = false;
 
             var content_type = ContentType.from_mime_type (mime_type);
 
@@ -312,7 +321,6 @@ namespace Scratch.Services {
                     source_view.buffer.text = buffer.text;
                 }
 
-                loaded = true;
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
@@ -349,7 +357,8 @@ namespace Scratch.Services {
              * (large documents take time to format/display after loading)
              */
             Idle.add (() => {
-                this.working = false;
+                working = false;
+                loaded = true;
                 return false;
             });
 
@@ -442,11 +451,18 @@ namespace Scratch.Services {
         }
 
         public async bool save (bool force = false) {
-            if (!force && (source_view.buffer.get_modified () == false || this.loaded == false)) {
+            if (completion_shown ||
+                !force && (source_view.buffer.get_modified () == false ||
+                !loaded)) {
+
                 return false;
             }
 
             this.create_backup ();
+
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
+                strip_trailing_spaces ();
+            }
 
             // Replace old content with the new one
             save_cancellable.cancel ();
@@ -511,7 +527,7 @@ namespace Scratch.Services {
 
             if (success) {
                 source_view.buffer.set_modified (true);
-                var is_saved = yield save ();
+                var is_saved = yield save (true);
 
                 if (is_saved && is_current_file_temporary) {
                     try {
@@ -548,6 +564,10 @@ namespace Scratch.Services {
                 source_map.hide ();
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
+            }
+
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                strip_trailing_spaces ();
             }
         }
 
@@ -663,8 +683,8 @@ namespace Scratch.Services {
         }
 
         // Get selected text
-        public string get_selected_text () {
-            return this.source_view.get_selected_text ();
+        public string get_selected_text (bool replace_newline = true) {
+            return this.source_view.get_selected_text (replace_newline);
         }
 
         // Get language name
@@ -910,6 +930,63 @@ namespace Scratch.Services {
         private void unmounted_cb () {
             warning ("Folder containing the file was unmounted");
             mounted = false;
+        }
+
+        /* Pull the buffer into an array and then work out which parts are to be deleted.
+         * Do not strip line currently being edited unless forced */
+        private void strip_trailing_spaces () {
+            if (!loaded || source_view.language == null) {
+                return;
+            }
+
+            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            Gtk.TextIter iter;
+
+            var cursor_pos = source_buffer.cursor_position;
+            source_buffer.get_iter_at_offset (out iter, cursor_pos);
+            var orig_line = iter.get_line ();
+            var orig_offset = iter.get_line_offset ();
+
+            var text = source_buffer.text;
+
+            string[] lines = Regex.split_simple ("""[\r\n]""", text);
+            if (lines.length == 0) { // Can legitimately happen at startup or new document
+                return;
+            }
+
+            if (lines.length != source_buffer.get_line_count ()) {
+                critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
+                debug ("lines.length %u, buffer lines %u \n %s", lines.length, source_buffer.get_line_count (), text);
+                return;
+            }
+
+            MatchInfo info;
+            Gtk.TextIter start_delete, end_delete;
+            Regex whitespace;
+
+            try {
+                whitespace = new Regex ("[ \t]+$", 0);
+            } catch (RegexError e) {
+                critical ("Error while building regex to replace trailing whitespace: %s", e.message);
+                return;
+            }
+
+            for (int line_no = 0; line_no < lines.length; line_no++) {
+                if (whitespace.match (lines[line_no], 0, out info)) {
+
+                    source_buffer.get_iter_at_line (out start_delete, line_no);
+                    start_delete.forward_to_line_end ();
+                    end_delete = start_delete;
+                    end_delete.backward_chars (info.fetch (0).length);
+
+                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.@delete (ref start_delete, ref end_delete);
+                    source_buffer.end_not_undoable_action ();
+                }
+            }
+
+            source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
+            source_buffer.place_cursor (iter);
         }
     }
 }

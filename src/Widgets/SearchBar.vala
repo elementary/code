@@ -259,10 +259,6 @@ namespace Scratch.Widgets {
             this.window.get_current_document ().toggle_changed_handlers (true);
         }
 
-        public void set_search_string (string to_search) {
-            search_entry.text = to_search;
-        }
-
         private void on_search_entry_text_changed () {
             if (search_context == null) { // This can happen during start up
                 debug ("search entry changed with null context");

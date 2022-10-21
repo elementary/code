@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-07-24 14:49+0000\n"
+"PO-Revision-Date: 2022-09-30 16:04+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -132,7 +132,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Вырезание или копирование без активного выделения приведет к вырезанию или "
+"Вырезание или копирование без активного выделения приведёт к вырезанию или "
 "копированию всей текущей строки"
 
 #: src/Dialogs/PreferencesDialog.vala:55
@@ -214,7 +214,7 @@ msgstr "Пользовательский шрифт:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr "Вы уверены что хотите восстановить этот файл?"
+msgstr "Вы уверены, что хотите восстановить этот файл?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
@@ -317,7 +317,7 @@ msgstr "%s не является текстовым файлом"
 
 #: src/Services/Document.vala:260
 msgid "Code will not load this type of file."
-msgstr "Code не открывает файлы этого типа."
+msgstr "Код не открывает файлы этого типа."
 
 #: src/Services/Document.vala:262
 msgid "Load Anyway"
@@ -326,11 +326,11 @@ msgstr "Открыть всё равно"
 #: src/Services/Document.vala:283
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Загрузка файла «%s» продолжается слишком долго"
+msgstr "Загрузка файла «%s» занимает много времени"
 
 #: src/Services/Document.vala:284
 msgid "Please wait while Code is loading the file."
-msgstr "Пожалуйста, подождите, пока Code открывает файл."
+msgstr "Пожалуйста, подождите, пока Код открывает файл."
 
 #: src/Services/Document.vala:286
 msgid "Cancel Loading"
@@ -563,17 +563,17 @@ msgstr "Найти предыдущее"
 
 #: src/Widgets/SearchBar.vala:98
 msgid "Cyclic Search"
-msgstr "Циклический поиск"
+msgstr "Цикличный поиск"
 
 #. Need to SYNC_CREATE so tooltip present before toggled
 #. tooltip_val.set_string () does not work (?)
 #: src/Widgets/SearchBar.vala:111
 msgid "Case Sensitive"
-msgstr "С учетом регистра"
+msgstr "С учётом регистра"
 
 #: src/Widgets/SearchBar.vala:111
 msgid "Case Insensitive"
-msgstr "Без учета регистра"
+msgstr "Без учёта регистра"
 
 #: src/Widgets/SearchBar.vala:119
 msgid "Use regular expressions"
@@ -639,7 +639,7 @@ msgstr "Добавить папку проекта в боковую панел�
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
-msgstr "Загрузить в Pastebin"
+msgstr "Загрузить на Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
