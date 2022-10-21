@@ -952,7 +952,7 @@ namespace Scratch {
                 term = search_bar.search_entry.text;
             }
 
-            folder_manager_view.search_global (get_target_path_for_git_actions (param), term);
+            folder_manager_view.search_global (get_target_path_for_actions (param), term);
         }
 
         private void set_search_text () {
