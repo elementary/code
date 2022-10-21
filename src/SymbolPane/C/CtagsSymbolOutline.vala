@@ -17,7 +17,6 @@
  */
 
 public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutline {
-    // public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     private GLib.Subprocess current_subprocess;
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {

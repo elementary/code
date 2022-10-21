@@ -17,7 +17,6 @@
  */
 
 public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline {
-    // public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     private Code.Plugins.ValaSymbolResolver resolver;
     private Vala.Parser parser;
     private GLib.Cancellable cancellable;

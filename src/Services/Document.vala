@@ -939,7 +939,6 @@ namespace Scratch.Services {
 
         public void show_outline (bool show) {
             if (show && outline == null) {
-                // var mime_type = mime_type;
                 switch (mime_type) {
                     case "text/x-vala":
                         outline = new ValaSymbolOutline (this);
