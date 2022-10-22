@@ -29,6 +29,7 @@ code_files = files(
     'FolderManager/ProjectFolderItem.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
+    'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
     'Services/MonitoredRepository.vala',
