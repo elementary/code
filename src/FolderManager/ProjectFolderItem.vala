@@ -108,14 +108,57 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => {
+            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
+            close_folder_item.activate.connect (() => {
                 closed ();
             });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
             close_all_except_item.sensitive = view.root.children.size > 1;
+
+            var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
+            var open_text = ngettext (_("Close %u Open Document"),
+                                      _("Close %u Open Documents"),
+                                      n_open).printf (n_open);
+
+            var close_accellabel = new Granite.AccelLabel.from_action_name (
+                open_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS + "::"
+            );
+            var close_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            close_item.add (close_accellabel);
+
+            var hide_text = ngettext (_("Hide %u Open Document"),
+                                      _("Hide %u Open Documents"),
+                                      n_open).printf (n_open);
+
+            var hide_accellabel = new Granite.AccelLabel.from_action_name (
+                hide_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS + "::"
+            );
+            var hide_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            hide_item.add (hide_accellabel);
+
+            var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
+            var restore_text = ngettext (_("Restore %u Hidden Document"),
+                                         _("Restore %u Hidden Documents"),
+                                         n_restorable).printf (n_restorable);
+            var restore_accellabel = new Granite.AccelLabel.from_action_name (
+                restore_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS + "::"
+            );
+            var restore_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            restore_item.add (restore_accellabel);
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
@@ -129,7 +172,7 @@ namespace Scratch.FolderManager {
             );
 
             var search_item = new Gtk.MenuItem () {
-                action_name = "win.action_find_global",
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
                 action_target = new Variant.string (file.file.get_path ())
             };
             search_item.add (search_accellabel);
@@ -157,8 +200,22 @@ namespace Scratch.FolderManager {
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (close_item);
+            menu.append (close_folder_item);
             menu.append (close_all_except_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
+            if (n_restorable > 0) {
+                menu.append (restore_item);
+            }
+
+            if (n_open > 0) {
+                menu.append (hide_item);
+                menu.append (close_item);
+            }
+
+            if (n_restorable + n_open > 1) {
+                menu.append (new Gtk.SeparatorMenuItem ());
+            }
+
             menu.append (delete_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
