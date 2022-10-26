@@ -42,6 +42,11 @@
       <summary>Sidebar visibility</summary>
       <description>Whether or not the sidebar is open</description>
     </key>
+    <key name="outline-visible" type="b">
+      <default>false</default>
+      <summary>Symbol outline visibility</summary>
+      <description>Whether or not the symbol outline is visible</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">

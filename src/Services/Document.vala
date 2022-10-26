@@ -30,7 +30,6 @@ namespace Scratch.Services {
 
         public delegate void VoidFunc ();
         public signal void doc_opened ();
-        public signal void doc_saved ();
         public signal void doc_closed ();
 
         // The parent window's actions
@@ -89,7 +88,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-
+        private Scratch.Services.SymbolOutline? outline = null;
         public string original_content;
         private string last_save_content;
         public bool saved = true;
@@ -98,6 +97,7 @@ namespace Scratch.Services {
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
         private Gtk.SourceMap source_map;
+        private Gtk.Paned outline_widget_pane;
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
@@ -135,11 +135,15 @@ namespace Scratch.Services {
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
-            scroll = new Gtk.ScrolledWindow (null, null);
+            scroll = new Gtk.ScrolledWindow (null, null) {
+                expand = true
+            };
             scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
+            outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+
             if (builder_blocks_font != null && builder_font_map != null) {
                 source_map.set_font_map (builder_font_map);
                 source_map.font_desc = builder_blocks_font;
@@ -157,15 +161,18 @@ namespace Scratch.Services {
                 return working;
             });
 
-            var source_grid = new Gtk.Grid ();
-            source_grid.orientation = Gtk.Orientation.HORIZONTAL;
+            var source_grid = new Gtk.Grid () {
+                orientation = Gtk.Orientation.HORIZONTAL,
+                column_homogeneous = false
+            };
             source_grid.add (scroll);
             source_grid.add (source_map);
+            outline_widget_pane.pack1 (source_grid, true, false);
 
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
             doc_grid.add (info_bar);
-            doc_grid.add (source_grid);
+            doc_grid.add (outline_widget_pane);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
@@ -479,7 +486,10 @@ namespace Scratch.Services {
 
             source_view.buffer.set_modified (false);
 
-            doc_saved ();
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
+
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
@@ -927,9 +937,43 @@ namespace Scratch.Services {
             mounted = true;
         }
 
+        public void show_outline (bool show) {
+            if (show && outline == null) {
+                switch (mime_type) {
+                    case "text/x-vala":
+                        outline = new ValaSymbolOutline (this);
+                        break;
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
+                        outline = new CtagsSymbolOutline (this);
+                        break;
+                }
+
+                if (outline != null) {
+                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
+                    outline_widget_pane.set_position (position);
+                    outline.parse_symbols ();
+                }
+            } else if (!show && outline != null) {
+                outline_widget_pane.get_child2 ().destroy ();
+                outline = null;
+            }
+        }
+
         private void unmounted_cb () {
             warning ("Folder containing the file was unmounted");
             mounted = false;
+        }
+
+        public void goto (int line) {
+            var text = source_view;
+            Gtk.TextIter iter;
+            text.buffer.get_iter_at_line (out iter, line - 1);
+            text.buffer.place_cursor (iter);
+            text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
 
         /* Pull the buffer into an array and then work out which parts are to be deleted.

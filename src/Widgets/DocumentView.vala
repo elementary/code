@@ -40,6 +40,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public GLib.List<Services.Document> docs;
 
     public bool is_closing = false;
+    public bool outline_visible { get; set; default = false; }
 
     private Gtk.CssProvider style_provider;
 
@@ -103,10 +104,18 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var granite_settings = Granite.Settings.get_default ();
         granite_settings.notify["prefers-color-scheme"].connect (update_inline_tab_colors);
 
+        notify["outline-visible"].connect (update_outline_visible);
+
         // Handle Drag-and-drop of files onto add-tab button to create document
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
         Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         drag_data_received.connect (drag_received);
+    }
+
+    public void update_outline_visible () {
+        docs.@foreach ((doc) => {
+            doc.show_outline (outline_visible);
+        });
     }
 
     private void update_inline_tab_colors () {
@@ -163,6 +172,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return unsaved_file_path_builder (extension);
     }
 
+    private void insert_document (Scratch.Services.Document doc, int pos) {
+        insert_tab (doc, pos);
+        if (Scratch.saved_state.get_boolean ("outline-visible")) {
+            warning ("setting outline visible");
+            doc.show_outline (true);
+        }
+    }
+
     public void new_document () {
         var file = File.new_for_path (unsaved_file_path_builder ());
         try {
@@ -170,7 +187,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var doc = new Services.Document (window.actions, file);
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -190,7 +207,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var doc = new Services.Document (window.actions, file);
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -217,7 +234,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
         }
 
-        insert_tab (doc, -1);
+        insert_document (doc, -1);
         if (focus) {
             current_document = doc;
         }
@@ -252,7 +269,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 doc.save.begin (true);
             }
 
-            insert_tab (doc, -1);
+            insert_document (doc, -1);
             current_document = doc;
             doc.focus ();
         } catch (Error e) {
@@ -377,7 +394,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         // when we are modifying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
-            other_window.document_view.insert_tab (doc, -1);
+            other_window.document_view.insert_document (doc, -1);
 
             return false;
         });
