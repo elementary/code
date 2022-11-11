@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2021-10-27 15:35+0000\n"
+"PO-Revision-Date: 2022-11-12 13:29+0000\n"
 "Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
 "Language: zh\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: src/Application.vala:39
 msgid "New Tab"
@@ -31,7 +31,7 @@ msgstr "插件集"
 #: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
-msgstr "插件集"
+msgstr "插件"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
@@ -95,13 +95,13 @@ msgstr "区分大小写："
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "使用正则表达式："
 
 #: src/Dialogs/GlobalSearchDialog.vala:102
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
-msgstr "查找下一个"
+msgstr "搜索"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
