@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-09-30 16:04+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"PO-Revision-Date: 2022-11-19 08:15+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:39
@@ -160,10 +160,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Вставлять пробелы вместо табуляций:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Удалить конечные пробелы при сохранении"
+msgstr "Удалять пробелы в конце:"
 
 #: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -299,26 +297,25 @@ msgstr "Закрыть остальные папки"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Закрыть %u открытый документ"
+msgstr[1] "Закрыть %u открытых документа"
+msgstr[2] "Закрыть %u открытых документов"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Новый документ"
-msgstr[1] "Новый документ"
-msgstr[2] "Новый документ"
+msgstr[0] "Скрыть %u открытый документ"
+msgstr[1] "Скрыть %u открытых документа"
+msgstr[2] "Скрыть %u открытых документов"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Восстановить %u скрытый документ"
+msgstr[1] "Восстановить %u скрытых документа"
+msgstr[2] "Восстановить %u скрытых документов"
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
@@ -563,7 +560,7 @@ msgstr "Переключить боковую панель"
 
 #: src/Widgets/HeaderBar.vala:180
 msgid "Toggle Symbol Outline"
-msgstr ""
+msgstr "Переключить обводку символов"
 
 #: src/Widgets/HeaderBar.vala:212
 msgid "Menu"
