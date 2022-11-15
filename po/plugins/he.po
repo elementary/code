@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-14 13:52+0000\n"
 "PO-Revision-Date: 2021-07-27 11:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/plugins/he/"
@@ -59,14 +59,6 @@ msgstr "פעולות Markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "מוסיף קיצורי מקלדת לעריכה מהירה של קובצי Markdown"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "מתאר"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "סימני מתאר בקובץ הנוכחי שלך עבור Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "בודק איות"
 msgid "Checks the spelling of your documents"
 msgstr "בדיקת האיות של המסמכים שלך"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "מחיקת רווחים מובילים"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "מחיקת רווחים מובילים בעת השמירה"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "מסוף"
@@ -122,6 +106,18 @@ msgstr "השלמת מילים"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "הצגת חלונית השלמה עם המילים הנפוצות ביותר מהקבצים שלך"
+
+#~ msgid "Outline"
+#~ msgstr "מתאר"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "סימני מתאר בקובץ הנוכחי שלך עבור Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "מחיקת רווחים מובילים"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "מחיקת רווחים מובילים בעת השמירה"
 
 #~ msgid "Browser Preview"
 #~ msgstr "תצוגה מקדימה בדפדפן"

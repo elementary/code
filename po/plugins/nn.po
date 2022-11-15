@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-14 13:52+0000\n"
 "PO-Revision-Date: 2020-07-17 12:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/code/"
@@ -59,14 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Omrit"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Omrit av symbol i aktive Vala-filer"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Stavekontroll"
 msgid "Checks the spelling of your documents"
 msgstr "Sjekkar stavinga i dokumenta dine"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Fjern følgande blanke teikn"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Fjern følgande blanke teikn ved lagring"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "Terminal"
@@ -122,6 +106,18 @@ msgstr "Ordfullføring"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Vis ein fullføringsdialog med dei tre mest brukte orda frå filene dine"
+
+#~ msgid "Outline"
+#~ msgstr "Omrit"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Omrit av symbol i aktive Vala-filer"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Fjern følgande blanke teikn"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Fjern følgande blanke teikn ved lagring"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Nettlesarførehandsvising"

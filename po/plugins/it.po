@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-14 13:52+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/plugins/it/"
@@ -60,14 +60,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorno"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Evidenzia i simboli nel file attuale di Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Controllo ortografico"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Controlla l'ortografia dei tuoi documenti"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Rimuovi spazi a fine riga"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Rimuovi spazi a fine riga al salvataggio"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -124,6 +108,18 @@ msgstr "Autocompletamento parole"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostra una lista di alternative in base alle parole più usate nei tuoi file"
+
+#~ msgid "Outline"
+#~ msgstr "Contorno"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Evidenzia i simboli nel file attuale di Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Rimuovi spazi a fine riga"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Rimuovi spazi a fine riga al salvataggio"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Anteprima browser"
