@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-14 13:52+0000\n"
-"PO-Revision-Date: 2022-07-15 07:18+0000\n"
+"PO-Revision-Date: 2022-11-15 13:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -160,10 +160,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Wstawianie spacji zamiast znaku tabulatora:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Usuwaj końcowe białe znaki podczas zapisywania"
+msgstr "Usuwaj końcowe białe znaki:"
 
 #: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -300,12 +298,12 @@ msgstr "Zamknij inne foldery"
 #: src/FolderManager/ProjectFolderItem.vala:121
 #, c-format
 msgid "Close %u Open Document"
-msgstr ""
+msgstr "Zamknij %u Otwarty Dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:122
 #, c-format
 msgid "Close %u Open Documents"
-msgstr ""
+msgstr "Zamknij %u otwarte dokumenty"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy, c-format
