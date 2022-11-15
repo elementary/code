@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 13:52+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2022-11-15 13:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -296,35 +296,30 @@ msgid "Close Other Folders"
 msgstr "Zamknij inne foldery"
 
 #: src/FolderManager/ProjectFolderItem.vala:121
-#, c-format
+#, fuzzy, c-format
+#| msgid "Close %u Open Document"
 msgid "Close %u Open Document"
-msgstr "Zamknij %u Otwarty Dokument"
-
-#: src/FolderManager/ProjectFolderItem.vala:122
-#, c-format
-msgid "Close %u Open Documents"
-msgstr "Zamknij %u otwarte dokumenty"
+msgid_plural "Close %u Open Documents"
+msgstr[0] "Zamknij %u Otwarty Dokument"
+msgstr[1] "Zamknij %u Otwarty Dokument"
+msgstr[2] "Zamknij %u Otwarty Dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
-msgstr "Nowy dokument"
-
-#: src/FolderManager/ProjectFolderItem.vala:136
-#, c-format
-msgid "Hide %u Open Documents"
-msgstr ""
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "Nowy dokument"
+msgstr[1] "Nowy dokument"
+msgstr[2] "Nowy dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:151
-#, c-format
-msgid "Restore %u Hidden Documents"
-msgstr ""
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
@@ -775,6 +770,10 @@ msgstr "Proszę zainstalować chociaż jeden słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - uzupełnienie słowa"
+
+#, c-format
+#~ msgid "Close %u Open Documents"
+#~ msgstr "Zamknij %u otwarte dokumenty"
 
 #~ msgid "No Symbols Found"
 #~ msgstr "Nie znaleziono symboli"

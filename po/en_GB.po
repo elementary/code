@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 13:52+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2022-11-09 13:29+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -297,33 +297,24 @@ msgstr "Close Other Folders"
 #: src/FolderManager/ProjectFolderItem.vala:121
 #, c-format
 msgid "Close %u Open Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:122
-#, c-format
-msgid "Close %u Open Documents"
-msgstr ""
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
-msgstr "New Document"
-
-#: src/FolderManager/ProjectFolderItem.vala:136
-#, c-format
-msgid "Hide %u Open Documents"
-msgstr ""
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "New Document"
+msgstr[1] "New Document"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:151
-#, c-format
-msgid "Restore %u Hidden Documents"
-msgstr ""
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"

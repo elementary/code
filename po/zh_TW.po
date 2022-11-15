@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 13:52+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -301,33 +301,21 @@ msgstr "關閉其他資料夾"
 #: src/FolderManager/ProjectFolderItem.vala:121
 #, c-format
 msgid "Close %u Open Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:122
-#, c-format
-msgid "Close %u Open Documents"
-msgstr ""
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
-msgstr "新增文件"
-
-#: src/FolderManager/ProjectFolderItem.vala:136
-#, c-format
-msgid "Hide %u Open Documents"
-msgstr ""
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "新增文件"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:151
-#, c-format
-msgid "Restore %u Hidden Documents"
-msgstr ""
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 #, fuzzy

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 13:52+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -312,33 +312,27 @@ msgstr "Zatvori mapu"
 #: src/FolderManager/ProjectFolderItem.vala:121
 #, c-format
 msgid "Close %u Open Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:122
-#, c-format
-msgid "Close %u Open Documents"
-msgstr ""
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
-msgstr "Novi dokument"
-
-#: src/FolderManager/ProjectFolderItem.vala:136
-#, c-format
-msgid "Hide %u Open Documents"
-msgstr ""
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "Novi dokument"
+msgstr[1] "Novi dokument"
+msgstr[2] "Novi dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:151
-#, c-format
-msgid "Restore %u Hidden Documents"
-msgstr ""
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 #, fuzzy
