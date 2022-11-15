@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-11-15 13:25+0000\n"
+"PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -295,20 +295,19 @@ msgstr "ほかのフォルダーを閉じる"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
+msgstr[0] "%u 項目の開いているドキュメントを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "新しいドキュメント"
+msgstr[0] "%u 項目の開いているドキュメントを非表示にする"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
+msgstr[0] "%u 項目の非表示にしたドキュメントを復元"
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
