@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2021-07-27 15:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/plugins/ca/"
@@ -59,14 +59,6 @@ msgstr "Accions de Markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Afegiu dreceres de teclat per editar ràpidament fitxers de Markdown"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorn"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Marca el contorn dels símbols del fitxer actual per a Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Cubell d'enganxar"
@@ -90,14 +82,6 @@ msgstr "Comprovació d'ortografia"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Comprova l'ortografia dels documents"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Suprimeix l'espai en blanc del final"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Suprimeix l'espai en blanc del final en desar"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -124,6 +108,18 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostra un diàleg de compleció amb les paraules més usades segons els vostres "
 "fitxers"
+
+#~ msgid "Outline"
+#~ msgstr "Contorn"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Marca el contorn dels símbols del fitxer actual per a Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Suprimeix l'espai en blanc del final"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Suprimeix l'espai en blanc del final en desar"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Previsualització del navegador"

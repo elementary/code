@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2022-01-12 18:06+0000\n"
 "Last-Translator: Mathias Vervaeke <mathias.vervaeke@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/plugins/nl/>\n"
@@ -58,14 +58,6 @@ msgstr "Markdown Acties"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Voegt sneltoetsen toe voor snelbewerking van Markdown bestanden"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Omlijning"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Omlijn symbolen in uw huidige bestand voor Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -89,14 +81,6 @@ msgstr "Spellingscontrole"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Controleer de spelling van uw documenten"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Verwijder overbodige witruimte"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Overbodige witruimte wordt verwijderd tijdens het opslaan"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -122,6 +106,18 @@ msgstr "Woorden completeren"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Toon een completeer venster met de meest gebruikte woorden uit uw bestanden"
+
+#~ msgid "Outline"
+#~ msgstr "Omlijning"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Omlijn symbolen in uw huidige bestand voor Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Verwijder overbodige witruimte"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Overbodige witruimte wordt verwijderd tijdens het opslaan"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Preview in de browser"

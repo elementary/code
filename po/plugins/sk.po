@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2021-09-15 21:35+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/plugins/sk/"
@@ -59,14 +59,6 @@ msgstr "Akcie Markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Pridá klávesové skratky pre rýchlu úpravu súborov Markdown"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Prehľad"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Prehľad symbolov vo vašom aktuálnom súbore jazyku Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -90,14 +82,6 @@ msgstr "Kontrola pravopisu"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Kontroluje pravopis vašich dokumentov"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Odstránenie medzier na konci riadku"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Pri ukladaní odstráni medzery na konci riadkov"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -124,3 +108,15 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Zobrazte si dialóg doplňovania slov s najčastejšie používanými slovami z "
 "vašich súborov"
+
+#~ msgid "Outline"
+#~ msgstr "Prehľad"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Prehľad symbolov vo vašom aktuálnom súbore jazyku Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Odstránenie medzier na konci riadku"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Pri ukladaní odstráni medzery na konci riadkov"

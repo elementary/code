@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/plugins/"
@@ -60,14 +60,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Obris"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Obris simbola u Vašoj trenutnoj datoteci za Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Provjera pravopisa"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Provjerava pravopis Vaših dokumenata"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Ukloni bjeline na kraju retka"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Ukloni bjeline na kraju retka prilikom pohrane datoteke"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -126,6 +110,18 @@ msgstr "Dovršavanje riječi"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Prikaži dijalog dovršavanja s najčešće korištenim riječima iz Vaših datoteka"
+
+#~ msgid "Outline"
+#~ msgstr "Obris"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Obris simbola u Vašoj trenutnoj datoteci za Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Ukloni bjeline na kraju retka"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Ukloni bjeline na kraju retka prilikom pohrane datoteke"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Pretpregled u web pregledniku"

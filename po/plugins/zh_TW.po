@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2020-06-30 21:12+0000\n"
 "Last-Translator: Nan-Hung Hsieh <nhsieh@cvm.tamu.edu>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -59,14 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "概略"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "概略出目前檔案中的Vala語言符號"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "拼字檢查器"
 msgid "Checks the spelling of your documents"
 msgstr "檢查您文件的拼字"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "除去曳尾空白"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "儲存時除去曳尾空白"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "終端機"
@@ -122,6 +106,18 @@ msgstr "單字補完"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "顯示從您檔案中取中最常使用單字的補完對話窗"
+
+#~ msgid "Outline"
+#~ msgstr "概略"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "概略出目前檔案中的Vala語言符號"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "除去曳尾空白"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "儲存時除去曳尾空白"
 
 #~ msgid "Browser Preview"
 #~ msgstr "瀏覽器預覽"

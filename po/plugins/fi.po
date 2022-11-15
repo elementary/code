@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2022-11-15 13:25+0000\n"
 "PO-Revision-Date: 2021-08-04 08:28+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/plugins/fi/"
@@ -59,14 +59,6 @@ msgstr "Markdown-toiminnot"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Lisää pikanäppäimet Markdown-tiedostojen nopeaan muokkaukseen"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Yhteenveto"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Alleviivaa symboolit nykyisessä tiedostossasi Vala:aa varten"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,16 +83,6 @@ msgstr "Oikoluku"
 msgid "Checks the spelling of your documents"
 msgstr "Oikolukee asiakirjasi"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr ""
-"Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit tallennuksen "
-"yhteydessä"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "Pääte"
@@ -124,6 +106,20 @@ msgstr "Sanojen täydennys"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Näytä täydennysikkuna tiedostojesi käytetyimmistä sanoista"
+
+#~ msgid "Outline"
+#~ msgstr "Yhteenveto"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Alleviivaa symboolit nykyisessä tiedostossasi Vala:aa varten"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr ""
+#~ "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit tallennuksen "
+#~ "yhteydessä"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Esikatselu selaimessa"
