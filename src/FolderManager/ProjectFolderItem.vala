@@ -118,8 +118,8 @@ namespace Scratch.FolderManager {
             close_all_except_item.sensitive = view.root.children.size > 1;
 
             var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
-            var open_text = ngettext (_("Close %u Open Document"),
-                                      _("Close %u Open Documents"),
+            var open_text = ngettext ("Close %u Open Document",
+                                      "Close %u Open Documents",
                                       n_open).printf (n_open);
 
             var close_accellabel = new Granite.AccelLabel.from_action_name (
@@ -132,8 +132,8 @@ namespace Scratch.FolderManager {
             };
             close_item.add (close_accellabel);
 
-            var hide_text = ngettext (_("Hide %u Open Document"),
-                                      _("Hide %u Open Documents"),
+            var hide_text = ngettext ("Hide %u Open Document",
+                                      "Hide %u Open Documents",
                                       n_open).printf (n_open);
 
             var hide_accellabel = new Granite.AccelLabel.from_action_name (
@@ -147,8 +147,8 @@ namespace Scratch.FolderManager {
             hide_item.add (hide_accellabel);
 
             var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
-            var restore_text = ngettext (_("Restore %u Hidden Document"),
-                                         _("Restore %u Hidden Documents"),
+            var restore_text = ngettext ("Restore %u Hidden Document",
+                                         "Restore %u Hidden Documents",
                                          n_restorable).printf (n_restorable);
             var restore_accellabel = new Granite.AccelLabel.from_action_name (
                 restore_text,
