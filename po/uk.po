@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-07-14 13:17+0000\n"
+"PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -161,10 +161,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Вставляти пробіли замість табуляцій:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Вилучати пробіли в кінці рядків при збереженні"
+msgstr "Вилучати пробіли в кінці рядків:"
 
 #: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -300,26 +298,25 @@ msgstr "Закрити інші теки"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Закрити %u відкритий документ"
+msgstr[1] "Закрити %u відкриті документи"
+msgstr[2] "Закрити %u відкритих документів"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Новий документ"
-msgstr[1] "Новий документ"
-msgstr[2] "Новий документ"
+msgstr[0] "Сховати %u відкритий документ"
+msgstr[1] "Сховати %u відкриті документи"
+msgstr[2] "Сховати %u відкритих документів"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Відновити %u схований документ"
+msgstr[1] "Відновити %u сховані документи"
+msgstr[2] "Відновити %u схованих документів"
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
@@ -565,7 +562,7 @@ msgstr "Перемкнути бічну панель"
 
 #: src/Widgets/HeaderBar.vala:180
 msgid "Toggle Symbol Outline"
-msgstr ""
+msgstr "Перемкнути контур символу"
 
 #: src/Widgets/HeaderBar.vala:212
 msgid "Menu"
