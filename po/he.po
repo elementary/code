@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-07-20 21:46+0000\n"
+"PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:39
@@ -157,10 +157,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "הוספת רווחים במקום טבלרים:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "הסרה בעת שמירה של הרווחים בסוף השורה"
+msgstr "הסרה של הרווחים בסוף השורה:"
 
 #: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -296,23 +294,22 @@ msgstr "לסגור את התיקיות האחרות"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "סגירת מסמך אחד פתוח"
+msgstr[1] "סגירת %u מסמכים פתוחים"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "מסמך חדש"
-msgstr[1] "מסמך חדש"
+msgstr[0] "הסתרת מסמך פתוח"
+msgstr[1] "הסתרת %u מסמכים פתוחים"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "שחזור מסמך נסתר"
+msgstr[1] "שחזור %u מסמכים נסתרים"
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
@@ -551,7 +548,7 @@ msgstr "הצגה/הסתרה של לוח צד"
 
 #: src/Widgets/HeaderBar.vala:180
 msgid "Toggle Symbol Outline"
-msgstr ""
+msgstr "החלפת מצב קווי מתאר של סמלים"
 
 #: src/Widgets/HeaderBar.vala:212
 msgid "Menu"
