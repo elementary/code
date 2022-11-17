@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-07-16 00:49+0000\n"
+"PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -159,10 +159,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Leerzeichen anstelle von Tabulatoren einfügen:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Leerzeichen am Zeilenende beim Speichern entfernen"
+msgstr "Leerzeichen am Zeilenende entfernen:"
 
 #: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
 msgid "Tab width:"
@@ -300,23 +298,22 @@ msgstr "Andere Ordner schließen"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u geöffnetes Dokument schließen"
+msgstr[1] "%u geöffnete Dokumente schließen"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Neues Dokument"
-msgstr[1] "Neues Dokument"
+msgstr[0] "%u geöffnetes Dokument ausblenden"
+msgstr[1] "%u geöffnete Dokumente ausblenden"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ausgeblendetes Dokument wiederherstellen"
+msgstr[1] "%u ausgeblendete Dokumente wiederherstellen"
 
 #: src/FolderManager/ProjectFolderItem.vala:170
 msgid "Find in Project…"
@@ -562,8 +559,9 @@ msgid "Toggle Sidebar"
 msgstr "Seitenleiste umschalten"
 
 #: src/Widgets/HeaderBar.vala:180
+#, fuzzy
 msgid "Toggle Symbol Outline"
-msgstr ""
+msgstr "Symbol Outline umschalten"
 
 #: src/Widgets/HeaderBar.vala:212
 msgid "Menu"
