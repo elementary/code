@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 13:25+0000\n"
-"PO-Revision-Date: 2022-12-02 11:34+0000\n"
-"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
+"PO-Revision-Date: 2022-12-02 11:39+0000\n"
+"Last-Translator: Bora Can Aslı <boracasli1998@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -232,21 +232,22 @@ msgstr "Büyük projelerde arama yaparken çökmelerin önüne geçilmiştir"
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
-msgstr ""
+msgstr "Kod'u dış bir programdan açtıktan sonra doğru belgeye odaklanılmaktadır"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
+"Eğer herhangi bir seçim yoksa satır tekrarı doğru bir şekilde uygulanmaktadır"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Kod; bilinmeyen bir URI formatı açılması istendiğinde artık çökmüyor"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid ""
 "Projects with the same name now include their parent folder name as well"
-msgstr ""
+msgstr "Aynı isimli projeler şimdi bağlı oldukları klasörün adını da içerir"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid ""
@@ -255,7 +256,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "GTK'ninkinin yerine FileChooser portalını kullanın"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Center the global search dialog over the main Code window"
