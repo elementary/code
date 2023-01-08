@@ -27,7 +27,6 @@ namespace Scratch.Widgets {
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
 
-        public Gtk.Button search_button { get; private set; }
         public Gtk.ToggleButton find_button { get; private set; }
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
@@ -126,7 +125,7 @@ namespace Scratch.Widgets {
                 _("Find on Page…")
             );
 
-            search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
+            var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
                 action_target = new Variant.string ("")
             };
