@@ -20,6 +20,7 @@
 public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
+    public Hdy.HeaderBar headerbar { get; private set; }
 
     private Gtk.StackSwitcher stack_switcher;
 
@@ -28,8 +29,14 @@ public class Code.Sidebar : Gtk.Grid {
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
         choose_project_button = new Code.ChooseProjectButton () {
-            margin = 6
+            valign = Gtk.Align.CENTER
         };
+
+        headerbar = new Hdy.HeaderBar () {
+            custom_title = choose_project_button,
+            show_close_button = true
+        };
+        headerbar.get_style_context ().add_class(Gtk.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -70,7 +77,7 @@ public class Code.Sidebar : Gtk.Grid {
         actionbar.add (add_folder_button);
         actionbar.pack_end (project_more_button);
 
-        add (choose_project_button);
+        add (headerbar);
         add (stack_switcher);
         add (stack);
         add (actionbar);
