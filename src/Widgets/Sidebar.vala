@@ -29,6 +29,7 @@ public class Code.Sidebar : Gtk.Grid {
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
         choose_project_button = new Code.ChooseProjectButton () {
+            hexpand = true,
             valign = Gtk.Align.CENTER
         };
 
