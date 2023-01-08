@@ -36,7 +36,7 @@ public class Code.Sidebar : Gtk.Grid {
             custom_title = choose_project_button,
             show_close_button = true
         };
-        headerbar.get_style_context ().add_class(Gtk.STYLE_CLASS_FLAT);
+        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
