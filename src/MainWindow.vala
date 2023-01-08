@@ -271,7 +271,6 @@ namespace Scratch {
                     break;
             }
 
-            sidebar.bind_property ("visible", toolbar.choose_project_revealer, "reveal-child");
             // Show/Hide widgets
             show_all ();
 
@@ -294,7 +293,7 @@ namespace Scratch {
             toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
 
-            toolbar.choose_project_button.project_chosen.connect (() => {
+            sidebar.choose_project_button.project_chosen.connect (() => {
                 folder_manager_view.collapse_other_projects ();
             });
 
@@ -449,6 +448,7 @@ namespace Scratch {
                     title = doc.get_basename ();
 
                     toolbar.set_document_focus (doc);
+                    sidebar.choose_project_button.set_document (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Set actions sensitive property
