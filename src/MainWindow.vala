@@ -213,8 +213,8 @@ namespace Scratch {
                 if (name == ACTION_SHOW_FIND) {
                     if (new_state.get_boolean () == false) {
                         toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND),
-                            _("Find…")
+                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND + "::"),
+                            _("Find on Page…")
                         );
                     } else {
                         toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (

@@ -24,11 +24,13 @@ namespace Scratch.Widgets {
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
-        public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
         public Code.ChooseProjectButton choose_project_button;
         public Gtk.Revealer choose_project_revealer;
+
+        public Gtk.Button search_button { get; private set; }
+        public Gtk.ToggleButton find_button { get; private set; }
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
         private const string STYLE_SCHEME_LIGHT = "elementary-light";
@@ -84,14 +86,6 @@ namespace Scratch.Widgets {
                 _("Restore this file")
             );
 
-            find_button = new Gtk.ToggleButton ();
-            find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
-            find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
-            find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
-                _("Find…")
-            );
-
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
@@ -120,14 +114,47 @@ namespace Scratch.Widgets {
                 _("Zoom In")
             );
 
-            var font_size_grid = new Gtk.Grid ();
+            var font_size_grid = new Gtk.Grid () {
+                margin_top = 12,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
+            };
             font_size_grid.column_homogeneous = true;
             font_size_grid.hexpand = true;
-            font_size_grid.margin = 12;
             font_size_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             font_size_grid.add (zoom_out_button);
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
+
+            find_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND,
+                image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic", Gtk.IconSize.MENU)
+            };
+            find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND + "::"),
+                _("Find on Page…")
+            );
+
+            search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                action_target = new Variant.string ("")
+            };
+            search_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (search_button.action_name + "::"),
+                _("Find in Project…")
+            );
+
+            var find_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                hexpand = true,
+                homogeneous = true,
+                margin_end = 12,
+                margin_bottom = 12,
+                margin_start = 12
+            };
+            find_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            find_box.add (find_button);
+            find_box.add (search_button);
 
             var follow_system_switchmodelbutton = new Granite.SwitchModelButton (_("Follow System Style")) {
                 margin_top = 3
@@ -195,6 +222,7 @@ namespace Scratch.Widgets {
                 width_request = 200
             };
             menu_box.add (font_size_grid);
+            menu_box.add (find_box);
             menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             menu_box.add (follow_system_switchmodelbutton);
             menu_box.add (color_revealer);
@@ -227,8 +255,6 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);
-            pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-            pack_end (find_button);
 
             show_all ();
 
