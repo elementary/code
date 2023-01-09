@@ -25,6 +25,8 @@ namespace Scratch.Widgets {
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
         public Gtk.ToggleButton find_button;
+        public Gtk.ToggleButton outline_button;
+        public Gtk.ToggleButton sidebar_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
         public Code.ChooseProjectButton choose_project_button;
@@ -166,23 +168,15 @@ namespace Scratch.Widgets {
                 margin_top = 3
             };
 
-            var sidebar_button = new Gtk.ToggleButton () {
+            sidebar_button = new Gtk.ToggleButton () {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR,
                 image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
             };
-            sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (sidebar_button.action_name),
-                _("Toggle Sidebar")
-            );
 
-            var outline_button = new Gtk.ToggleButton () {
+            outline_button = new Gtk.ToggleButton () {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
                 image = new Gtk.Image.from_icon_name ("panel-right-symbolic", Gtk.IconSize.MENU)
             };
-            outline_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (outline_button.action_name),
-                _("Toggle Symbol Outline")
-            );
 
             var panels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 homogeneous = true,
