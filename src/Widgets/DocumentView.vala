@@ -123,9 +123,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (settings.get_boolean ("follow-system-style")) {
             var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
             if (system_prefers_dark) {
-                style_scheme = "solarized-dark";
+                style_scheme = "elementary-dark";
             } else {
-                style_scheme = "solarized-light";
+                style_scheme = "elementary-light";
             }
         } else {
             style_scheme = Scratch.settings.get_string ("style-scheme");
