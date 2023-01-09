@@ -166,25 +166,34 @@ namespace Scratch.Widgets {
                 margin_top = 3
             };
 
-            var toggle_sidebar_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Toggle Sidebar"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR
+            var sidebar_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR,
+                image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
+            };
+            sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (sidebar_button.action_name),
+                _("Toggle Sidebar")
             );
 
-            var toggle_sidebar_menuitem = new Gtk.ModelButton ();
-            toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
-            toggle_sidebar_menuitem.get_child ().destroy ();
-            toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
-
-            var toggle_outline_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Toggle Symbol Outline"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE
+            var outline_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
+                image = new Gtk.Image.from_icon_name ("panel-right-symbolic", Gtk.IconSize.MENU)
+            };
+            outline_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (outline_button.action_name),
+                _("Toggle Symbol Outline")
             );
 
-            var toggle_outline_menuitem = new Gtk.ModelButton ();
-            toggle_outline_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE;
-            toggle_outline_menuitem.get_child ().destroy ();
-            toggle_outline_menuitem.add (toggle_outline_accellabel);
+            var panels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                homogeneous = true,
+                margin_top = 6,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
+            };
+            panels_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            panels_box.add (sidebar_button);
+            panels_box.add (outline_button);
 
             var preferences_menuitem = new Gtk.ModelButton ();
             preferences_menuitem.text = _("Preferences");
@@ -198,9 +207,8 @@ namespace Scratch.Widgets {
             menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             menu_box.add (follow_system_switchmodelbutton);
             menu_box.add (color_revealer);
+            menu_box.add (panels_box);
             menu_box.add (menu_separator);
-            menu_box.add (toggle_sidebar_menuitem);
-            menu_box.add (toggle_outline_menuitem);
             menu_box.add (preferences_menuitem);
             menu_box.show_all ();
 
