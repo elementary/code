@@ -53,7 +53,7 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
-        public SimpleActionGroup actions { get; private set; }
+        public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_GROUP = "win";
         public const string ACTION_PREFIX = ACTION_GROUP + ".";
