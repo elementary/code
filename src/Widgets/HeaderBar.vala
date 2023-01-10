@@ -75,6 +75,15 @@ namespace Scratch.Widgets {
                 _("Restore this file")
             );
 
+            var terminal_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
+                image = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR)
+            };
+            terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (terminal_button.action_name),
+                _("Show Terminal")
+            );
+
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
@@ -243,8 +252,23 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);
+            pack_end (terminal_button);
 
             show_all ();
+
+            terminal_button.toggled.connect (() => {
+                if (terminal_button.active) {
+                    terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                        app_instance.get_accels_for_action (terminal_button.action_name),
+                        _("Hide Terminal")
+                    );
+                } else {
+                    terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                        app_instance.get_accels_for_action (terminal_button.action_name),
+                        _("Show Terminal")
+                    );
+                }
+            });
 
             share_menu.insert.connect (on_share_menu_changed);
             share_menu.remove.connect (on_share_menu_changed);
