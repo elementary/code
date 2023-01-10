@@ -26,8 +26,6 @@ namespace Scratch.Widgets {
         public Gtk.MenuButton app_menu;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
-        public Code.ChooseProjectButton choose_project_button;
-        public Gtk.Revealer choose_project_revealer;
 
         public Gtk.ToggleButton find_button { get; private set; }
 
@@ -44,14 +42,6 @@ namespace Scratch.Widgets {
 
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
-
-            choose_project_revealer = new Gtk.Revealer () {
-                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
-            };
-            choose_project_button = new Code.ChooseProjectButton () {
-                valign = Gtk.Align.CENTER
-            };
-            choose_project_revealer.add (choose_project_button);
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
@@ -245,7 +235,6 @@ namespace Scratch.Widgets {
             };
             set_custom_title (format_bar);
 
-            pack_start (choose_project_revealer);
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
@@ -388,7 +377,6 @@ namespace Scratch.Widgets {
 
         public void set_document_focus (Scratch.Services.Document doc) {
             format_bar.set_document (doc);
-            choose_project_button.set_document (doc);
         }
     }
 }
