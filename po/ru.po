@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 13:25+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2022-11-24 13:25+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -44,13 +44,15 @@ msgstr "Набор надстроек"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:433 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Поиск…"
+#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find on Page…"
+msgstr "Найти в проекте…"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -123,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Создать ветку"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:190
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
 msgid "Preferences"
 msgstr "Настройки"
 
@@ -317,7 +319,7 @@ msgstr[0] "Восстановить %u скрытый документ"
 msgstr[1] "Восстановить %u скрытых документа"
 msgstr[2] "Восстановить %u скрытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:170
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
 msgid "Find in Project…"
 msgstr "Найти в проекте…"
 
@@ -514,71 +516,71 @@ msgstr[2] "%d вкладок"
 msgid "Go To Line:"
 msgstr "Перейти к строке:"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
 msgstr "Открыть файл"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:55
 msgid "Project templates"
 msgstr "Шаблоны проекта"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file"
 msgstr "Сохранить этот файл"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:68
 msgid "Save this file with a different name"
 msgstr "Сохранить этот файл под другим именем"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Restore this file"
 msgstr "Вернуть файл в первоначальное состояние"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:82
 msgid "Share"
 msgstr "Опубликовать"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:89
 msgid "Zoom Out"
 msgstr "Уменьшить масштаб"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom In"
 msgstr "Увеличить масштаб"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:148
 msgid "Follow System Style"
 msgstr "Использовать стиль системы"
 
-#: src/Widgets/HeaderBar.vala:170
+#: src/Widgets/HeaderBar.vala:186
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
 
-#: src/Widgets/HeaderBar.vala:180
+#: src/Widgets/HeaderBar.vala:196
 msgid "Toggle Symbol Outline"
 msgstr "Переключить обводку символов"
 
-#: src/Widgets/HeaderBar.vala:212
+#: src/Widgets/HeaderBar.vala:229
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:49
 msgid "Open Project Folder…"
 msgstr "Открыть папку проекта…"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:52
 msgid "Collapse All"
 msgstr "Свернуть всё"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:56
 msgid "Alphabetize"
 msgstr "По алфавиту"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:68
 msgid "Manage project folders"
 msgstr "Управление папками проекта"
 
@@ -763,6 +765,9 @@ msgstr "Пожалуйста, установите хотя бы один [aspel
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s — Автозавершение слов"
+
+#~ msgid "Find…"
+#~ msgstr "Поиск…"
 
 #~ msgid "No Symbols Found"
 #~ msgstr "Символы не найдены"

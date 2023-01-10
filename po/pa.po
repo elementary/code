@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 13:25+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -38,13 +38,15 @@ msgstr "ਪਲੱਗਇਨ"
 msgid "[FILE…]"
 msgstr "[ਫ਼ਾਇਲ…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:433 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
 msgid "Code"
 msgstr "ਕੋਡ"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "ਲੱਭੋ…"
+#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find on Page…"
+msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -116,7 +118,7 @@ msgstr "ਸ਼ਾਖ਼ ਦਾ ਨਾਂ ਅਨੋਖਾ ਅਤੇ Git ਦੇ �
 msgid "Create Branch"
 msgstr "ਸ਼ਾਖ਼ ਬਣਾਓ"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:190
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
 msgid "Preferences"
 msgstr "ਤਰਜੀਹਾਂ"
 
@@ -306,7 +308,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
 msgid "Find in Project…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
@@ -500,71 +502,71 @@ msgstr[1] "%d ਟੈਬਾਂ"
 msgid "Go To Line:"
 msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
 msgstr "ਕੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:55
 msgid "Project templates"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫਰਮੇ"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:68
 msgid "Save this file with a different name"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਕਿਸੇ ਵੱਖਰੇ ਨਾਂ ਨਾਲ਼ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Restore this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:82
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:89
 msgid "Zoom Out"
 msgstr "ਜ਼ੂਮ ਘਟਾਓ"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom 1:1"
 msgstr "ਜ਼ੂਮ 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom In"
 msgstr "ਜ਼ੂਮ ਵਧਾਓ"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:148
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:170
+#: src/Widgets/HeaderBar.vala:186
 msgid "Toggle Sidebar"
 msgstr "ਸਾਈਡਬਾਰ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:180
+#: src/Widgets/HeaderBar.vala:196
 msgid "Toggle Symbol Outline"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:212
+#: src/Widgets/HeaderBar.vala:229
 msgid "Menu"
 msgstr "ਮੈਨਿਊ"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:49
 msgid "Open Project Folder…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ…"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:52
 msgid "Collapse All"
 msgstr "ਸਾਰਿਆਂ ਦੀ ਤਹਿ ਬੰਦ ਕਰੋ"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:56
 msgid "Alphabetize"
 msgstr "ਅੱਖਰ-ਤਰਤੀਬ ਮੁਤਾਬਕ"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:68
 msgid "Manage project folders"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰਾਂ ਦਾ ਰੱਖ-ਰਖਾਓ"
 
@@ -751,6 +753,9 @@ msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
+
+#~ msgid "Find…"
+#~ msgstr "ਲੱਭੋ…"
 
 #~ msgid "No Symbols Found"
 #~ msgstr "ਕੋਈ ਚਿੰਨ੍ਹ ਨਹੀਂ ਲੱਭਿਆ"

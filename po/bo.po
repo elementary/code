@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 13:25+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2019-08-29 15:22+0000\n"
 "Last-Translator: གངས་རྒྱན། <khyon_khangey@outlook.com>\n"
 "Language-Team: Tibetan <https://l10n.elementary.io/projects/code/code/bo/>\n"
@@ -38,12 +38,12 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:433 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
+#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+msgid "Find on Page…"
 msgstr ""
 
 #: src/MainWindow.vala:222
@@ -116,7 +116,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:190
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
 msgid "Preferences"
 msgstr ""
 
@@ -302,7 +302,7 @@ msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
 msgid "Find in Project…"
 msgstr ""
 
@@ -492,71 +492,71 @@ msgstr[1] ""
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:55
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:68
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:82
 msgid "Share"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:89
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:148
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:170
+#: src/Widgets/HeaderBar.vala:186
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:180
+#: src/Widgets/HeaderBar.vala:196
 msgid "Toggle Symbol Outline"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:212
+#: src/Widgets/HeaderBar.vala:229
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:49
 msgid "Open Project Folder…"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:52
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:56
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:68
 msgid "Manage project folders"
 msgstr ""
 

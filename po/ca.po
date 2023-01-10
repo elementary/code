@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 13:25+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2022-11-28 14:25+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -43,13 +43,15 @@ msgstr "connector"
 msgid "[FILE…]"
 msgstr "[FITXER…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:433 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Cerca…"
+#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find on Page…"
+msgstr "Troba al projecte…"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -123,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Crea'n una branca"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:190
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
 msgid "Preferences"
 msgstr "Preferències"
 
@@ -316,7 +318,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Restaura %u document amagat"
 msgstr[1] "Restaura %u documents amagats"
 
-#: src/FolderManager/ProjectFolderItem.vala:170
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
 msgid "Find in Project…"
 msgstr "Troba al projecte…"
 
@@ -513,71 +515,71 @@ msgstr[1] "%d pestanyes"
 msgid "Go To Line:"
 msgstr "Ves a la línia:"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
 msgstr "Obre un fitxer"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:55
 msgid "Project templates"
 msgstr "Plantilles de projectes"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file"
 msgstr "Desa aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:68
 msgid "Save this file with a different name"
 msgstr "Desa aquest fitxer amb un nom diferent"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Restore this file"
 msgstr "Restaura aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:82
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:89
 msgid "Zoom Out"
 msgstr "Allunya"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom 1:1"
 msgstr "Ampliació 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom In"
 msgstr "Apropa"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:148
 msgid "Follow System Style"
 msgstr "Segueix l'estil del sistema"
 
-#: src/Widgets/HeaderBar.vala:170
+#: src/Widgets/HeaderBar.vala:186
 msgid "Toggle Sidebar"
 msgstr "Commuta la barra lateral"
 
-#: src/Widgets/HeaderBar.vala:180
+#: src/Widgets/HeaderBar.vala:196
 msgid "Toggle Symbol Outline"
 msgstr "Commuta el contorn del símbol"
 
-#: src/Widgets/HeaderBar.vala:212
+#: src/Widgets/HeaderBar.vala:229
 msgid "Menu"
 msgstr "Menú"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:49
 msgid "Open Project Folder…"
 msgstr "Obre la carpeta del projecte…"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:52
 msgid "Collapse All"
 msgstr "Replega-ho tot"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:56
 msgid "Alphabetize"
 msgstr "Per ordre alfabètic"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:68
 msgid "Manage project folders"
 msgstr "Gestioneu les carpetes de projectes"
 
@@ -762,6 +764,9 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "Find…"
+#~ msgstr "Cerca…"
 
 #~ msgid "No Symbols Found"
 #~ msgstr "No s'ha trobat cap símbol."

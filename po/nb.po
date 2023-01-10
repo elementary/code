@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 13:25+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -44,13 +44,15 @@ msgstr "utvidelse"
 msgid "[FILE…]"
 msgstr "[FIL…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:433 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
 msgid "Code"
 msgstr "Kode"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Finn…"
+#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find on Page…"
+msgstr "Finn i prosjekt …"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -123,7 +125,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Opprett forgrening"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:190
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
 msgid "Preferences"
 msgstr "Innstillinger"
 
@@ -298,7 +300,7 @@ msgid "Close Other Folders"
 msgstr "Lukk andre mapper"
 
 #: src/FolderManager/ProjectFolderItem.vala:121
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Lukk %u åpent dokument"
@@ -313,13 +315,13 @@ msgstr[0] "Skjul %u åpent dokument"
 msgstr[1] "Skjul %u åpne dokumenter"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Gjenopprett %u skjult dokument"
 msgstr[1] "Gjenopprett %u skjulte dokumenter"
 
-#: src/FolderManager/ProjectFolderItem.vala:170
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
 msgid "Find in Project…"
 msgstr "Finn i prosjekt …"
 
@@ -515,73 +517,73 @@ msgstr[1] "%d faner"
 msgid "Go To Line:"
 msgstr "Gå til linje:"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
 msgstr "Åpne en fil"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:55
 msgid "Project templates"
 msgstr "Prosjektmaler"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file"
 msgstr "Lagre denne filen"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:68
 msgid "Save this file with a different name"
 msgstr "Lagre denne filen med et annet navn"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Restore this file"
 msgstr "Gjenoprett denne fila"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:82
 msgid "Share"
 msgstr "Del"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:89
 msgid "Zoom Out"
 msgstr "Forminsk"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:96
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:103
 msgid "Zoom In"
 msgstr "Forstørr"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:148
 #, fuzzy
 msgid "Follow System Style"
 msgstr "Følg systemets stil"
 
-#: src/Widgets/HeaderBar.vala:170
+#: src/Widgets/HeaderBar.vala:186
 msgid "Toggle Sidebar"
 msgstr "Veksle sidepanel"
 
-#: src/Widgets/HeaderBar.vala:180
+#: src/Widgets/HeaderBar.vala:196
 #, fuzzy
 msgid "Toggle Symbol Outline"
 msgstr "Veksle symbolomriss"
 
-#: src/Widgets/HeaderBar.vala:212
+#: src/Widgets/HeaderBar.vala:229
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:49
 msgid "Open Project Folder…"
 msgstr "Åpne prosjektmappe …"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:52
 msgid "Collapse All"
 msgstr "Fold sammen alle"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:56
 msgid "Alphabetize"
 msgstr "Alfabetiser"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:68
 msgid "Manage project folders"
 msgstr "Håndter prosjektmapper"
 
@@ -766,6 +768,9 @@ msgstr "Installer minst én [aspel]-ordbok."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordfullføring"
+
+#~ msgid "Find…"
+#~ msgstr "Finn…"
 
 #~ msgid "No Symbols Found"
 #~ msgstr "Fant ingen symboler"
