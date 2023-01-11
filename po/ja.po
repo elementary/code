@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-10 16:17+0000\n"
-"PO-Revision-Date: 2022-12-26 20:25+0000\n"
+"PO-Revision-Date: 2023-01-12 00:59+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -48,10 +48,8 @@ msgid "Code"
 msgstr "コード"
 
 #: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "プロジェクト内を検索…"
+msgstr "ページ内を検索…"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
