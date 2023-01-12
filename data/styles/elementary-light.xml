@@ -5,10 +5,10 @@
   <_description>Color scheme using the elementary color palette</_description>
 
   <!-- Background Colors Palette -->
-  <color name="bg-0"  value="#f7f3ed"/> <!-- LATTE100 SILVER100 MIX 25% -->
-  <color name="bg-1"  value="#f5eddf"/> <!-- LATTE100 SILVER100 MIX 50% -->
-  <color name="bg-2"  value="#f2e6d2"/> <!-- LATTE100 SILVER100 MIX 75% -->
-  <color name="bg-3"  value="#f0e2c9"/> <!-- LATTE100 SILVER100 MIX 90% -->
+  <color name="bg-0"  value="#fbf7f0"/> <!-- LATTE100 WHITE MIX 25% -->
+  <color name="bg-1"  value="#f7efe1"/> <!-- LATTE100 WHITE MIX 50% -->
+  <color name="bg-2"  value="#f3e7d3"/> <!-- LATTE100 WHITE MIX 75% -->
+  <color name="bg-3"  value="#f1e2ca"/> <!-- LATTE100 WHITE MIX 90% -->
   <color name="bg-4"  value="#efdfc4"/> <!-- LATTE100 -->
 
   <color name="fg-0"   value="#555761"/> <!-- SILVER900 -->
@@ -26,12 +26,12 @@
 
   <!-- Global Settings -->
   <style name="text"                        foreground="fg-0" background="bg-1"/>
-  <style name="selection"                   foreground="fg-1" background="bg-4"/>
+  <style name="selection"                   foreground="fg-0" background="bg-4"/>
   <style name="cursor"                      foreground="fg-0"/>
   <style name="secondary-cursor"            foreground="fg-1"/>
-  <style name="current-line"                background="bg-1"/>
+  <style name="current-line"                background="bg-3"/>
   <style name="line-numbers"                foreground="fg-1" background="bg-2"/>
-  <style name="background-pattern"          background="bg-4"/>
+  <style name="background-pattern"          background="bg-2"/>
   <style name="draw-spaces"                 foreground="fg-1"/>
 
   <!-- Bracket Matching -->

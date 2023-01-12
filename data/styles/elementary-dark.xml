@@ -26,12 +26,12 @@
 
   <!-- Global Settings -->
   <style name="text"                        foreground="fg-0" background="bg-2"/>
-  <style name="selection"                   foreground="bg-4" background="bg-0"/>
+  <style name="selection"                   foreground="fg-1" background="bg-4"/>
   <style name="cursor"                      foreground="fg-0"/>
   <style name="secondary-cursor"            foreground="fg-1"/>
   <style name="current-line"                background="bg-1"/>
   <style name="line-numbers"                foreground="fg-2" background="bg-3"/>
-  <style name="background-pattern"          background="bg-4"/>
+  <style name="background-pattern"          background="bg-3"/>
   <style name="draw-spaces"                 foreground="fg-2"/>
 
   <!-- Bracket Matching -->
