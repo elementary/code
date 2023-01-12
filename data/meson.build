@@ -25,7 +25,6 @@ install_data([
 install_data(
     'io.elementary.code.gschema.xml',
     'io.elementary.code.plugins.spell.gschema.xml',
-    'io.elementary.code.plugins.terminal.gschema.xml',
     install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'glib-2.0', 'schemas')
 )
 

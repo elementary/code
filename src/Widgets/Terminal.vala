@@ -11,12 +11,9 @@ public class Code.Terminal : Gtk.Box {
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
     private GLib.Pid child_pid;
-    private GLib.Settings settings;
     private Vte.Terminal terminal;
 
     construct {
-        settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.terminal");
-
         terminal = new Vte.Terminal () {
             hexpand = true,
             vexpand = true,
@@ -62,6 +59,7 @@ public class Code.Terminal : Gtk.Box {
             return false;
         });
 
+        var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
         try {
             var last_path_setting = settings.get_string ("last-opened-path");
             //FIXME Replace with the async method once the .vapi is fixed upstream.
