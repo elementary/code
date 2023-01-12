@@ -392,16 +392,23 @@ namespace Scratch {
             vp.pack1 (content_stack, true, false);
             vp.pack2 (terminal, false, false);
 
+            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box.add (toolbar);
+            box.add (vp);
+
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.position = 180;
             hp1.pack1 (sidebar, false, false);
-            hp1.pack2 (vp, true, false);
+            hp1.pack2 (box, true, false);
 
-            var grid = new Gtk.Grid ();
-            grid.attach (toolbar, 0, 0);
-            grid.attach (hp1, 0, 1);
+            add (hp1);
 
-            add (grid);
+            var header_group = new Hdy.HeaderGroup ();
+            header_group.add_header_bar (sidebar.headerbar);
+            header_group.add_header_bar (toolbar);
+
+            var size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
+            size_group.add_widget (sidebar.headerbar);
+            size_group.add_widget (toolbar);
 
             search_revealer.set_reveal_child (false);
 
