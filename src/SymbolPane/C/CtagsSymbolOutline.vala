@@ -16,41 +16,26 @@
  *
  */
 
-public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; protected set; }
-    Granite.Widgets.SourceList store;
-    Granite.Widgets.SourceList.ExpandableItem root;
-    GLib.Subprocess current_subprocess;
+public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutline {
+    private GLib.Subprocess current_subprocess;
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {
-        doc = _doc;
-        doc.doc_saved.connect (() => {parse_symbols ();});
-        doc.doc_closed.connect (doc_closed);
+        Object (
+            doc: _doc
+        );
+    }
 
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-
-        store = new Granite.Widgets.SourceList ();
-        store.root.add (root);
+    construct {
         store.item_selected.connect ((selected) => {
-            if (selected == null) {
-                return;
-            }
-
-            goto (doc, ((CtagsSymbol)selected).line);
-            store.selected = null;
+            doc.goto (((CtagsSymbol)selected).line);
         });
     }
 
     ~CtagsSymbolOutline () {
-        doc.doc_closed.disconnect (doc_closed);
+        debug ("Destroy Ctags outline");
     }
 
-    void doc_closed (Scratch.Services.Document doc) {
-        closed ();
-    }
-
-    public void parse_symbols () {
+    public override void parse_symbols () {
         if (current_subprocess != null)
             current_subprocess.force_exit ();
 
@@ -256,9 +241,5 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         return match;
-    }
-
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
     }
 }

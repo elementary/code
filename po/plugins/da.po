@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2020-05-27 12:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/plugins/da/"
@@ -59,14 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Oprids"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Se overblik over symboler i din Vala fil"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Stavekontrol"
 msgid "Checks the spelling of your documents"
 msgstr "Kontrollerer stavningen af dine dokumenter"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Fjern efterfølgende mellemrum"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Fjern efterfølgende mellemrum når der gemmes"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "Terminal"
@@ -122,6 +106,18 @@ msgstr "Ord Færdiggørelse"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Vis en færdiggørelsesdialog med de mest brugte ord fra dine filer"
+
+#~ msgid "Outline"
+#~ msgstr "Oprids"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Se overblik over symboler i din Vala fil"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Fjern efterfølgende mellemrum"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Fjern efterfølgende mellemrum når der gemmes"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Browser Forhåndsvisning"

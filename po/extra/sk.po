@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-04-20 08:53+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
+"PO-Revision-Date: 2022-09-30 22:14+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
 "Language: sk\n"
@@ -149,7 +149,7 @@ msgstr "Vylepšenia:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Možnosť rešpektovať systémové nastavenie tmavého štýlu"
 
 #: data/io.elementary.code.appdata.xml.in:35
 #: data/io.elementary.code.appdata.xml.in:55
@@ -161,11 +161,11 @@ msgstr "Opravy:"
 
 #: data/io.elementary.code.appdata.xml.in:37
 msgid "Drag and drop with text containing accented characters"
-msgstr ""
+msgstr "Funkcia uchop a pusť pre text obsahujúci znaky s farebným odtieňom"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Text duplication issues when dragging text between multiple windows"
-msgstr ""
+msgstr "Chyby duplikácie textu pri jeho presúvaní medzi viacerými oknami"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:63
@@ -623,10 +623,8 @@ msgid "io.elementary.code"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "text;IDE;scratch;"
+msgstr "text;IDE;scratch;kód;program;programovanie;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"

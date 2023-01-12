@@ -24,15 +24,14 @@ namespace Scratch.Widgets {
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
-        public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
         public Code.FormatBar format_bar;
-        public Code.ChooseProjectButton choose_project_button;
-        public Gtk.Revealer choose_project_revealer;
+
+        public Gtk.ToggleButton find_button { get; private set; }
 
         private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
-        private const string STYLE_SCHEME_LIGHT = "solarized-light";
-        private const string STYLE_SCHEME_DARK = "solarized-dark";
+        private const string STYLE_SCHEME_LIGHT = "elementary-light";
+        private const string STYLE_SCHEME_DARK = "elementary-dark";
 
         public HeaderBar () {
             Object (
@@ -43,14 +42,6 @@ namespace Scratch.Widgets {
 
         construct {
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
-
-            choose_project_revealer = new Gtk.Revealer () {
-                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
-            };
-            choose_project_button = new Code.ChooseProjectButton () {
-                valign = Gtk.Align.CENTER
-            };
-            choose_project_revealer.add (choose_project_button);
 
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
@@ -84,14 +75,6 @@ namespace Scratch.Widgets {
                 _("Restore this file")
             );
 
-            find_button = new Gtk.ToggleButton ();
-            find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
-            find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
-            find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
-                _("Find…")
-            );
-
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
@@ -120,14 +103,47 @@ namespace Scratch.Widgets {
                 _("Zoom In")
             );
 
-            var font_size_grid = new Gtk.Grid ();
+            var font_size_grid = new Gtk.Grid () {
+                margin_top = 12,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
+            };
             font_size_grid.column_homogeneous = true;
             font_size_grid.hexpand = true;
-            font_size_grid.margin = 12;
             font_size_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             font_size_grid.add (zoom_out_button);
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
+
+            find_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND,
+                image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic", Gtk.IconSize.MENU)
+            };
+            find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND + "::"),
+                _("Find on Page…")
+            );
+
+            var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                action_target = new Variant.string ("")
+            };
+            search_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (search_button.action_name + "::"),
+                _("Find in Project…")
+            );
+
+            var find_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                hexpand = true,
+                homogeneous = true,
+                margin_end = 12,
+                margin_bottom = 12,
+                margin_start = 12
+            };
+            find_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            find_box.add (find_button);
+            find_box.add (search_button);
 
             var follow_system_switchmodelbutton = new Granite.SwitchModelButton (_("Follow System Style")) {
                 margin_top = 3
@@ -176,6 +192,16 @@ namespace Scratch.Widgets {
             toggle_sidebar_menuitem.get_child ().destroy ();
             toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
 
+            var toggle_outline_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Toggle Symbol Outline"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE
+            );
+
+            var toggle_outline_menuitem = new Gtk.ModelButton ();
+            toggle_outline_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE;
+            toggle_outline_menuitem.get_child ().destroy ();
+            toggle_outline_menuitem.add (toggle_outline_accellabel);
+
             var preferences_menuitem = new Gtk.ModelButton ();
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
@@ -185,11 +211,13 @@ namespace Scratch.Widgets {
                 width_request = 200
             };
             menu_box.add (font_size_grid);
+            menu_box.add (find_box);
             menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             menu_box.add (follow_system_switchmodelbutton);
             menu_box.add (color_revealer);
             menu_box.add (menu_separator);
             menu_box.add (toggle_sidebar_menuitem);
+            menu_box.add (toggle_outline_menuitem);
             menu_box.add (preferences_menuitem);
             menu_box.show_all ();
 
@@ -207,7 +235,6 @@ namespace Scratch.Widgets {
             };
             set_custom_title (format_bar);
 
-            pack_start (choose_project_revealer);
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
@@ -216,8 +243,6 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);
-            pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-            pack_end (find_button);
 
             show_all ();
 
@@ -352,7 +377,6 @@ namespace Scratch.Widgets {
 
         public void set_document_focus (Scratch.Services.Document doc) {
             format_bar.set_document (doc);
-            choose_project_button.set_document (doc);
         }
     }
 }

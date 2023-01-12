@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2021-08-02 18:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/plugins/"
@@ -59,14 +59,6 @@ msgstr "Ações de Markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Adiciona teclas de atalho para edição rápida de ficheiros Markdown"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorno"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Contornar símbolos no seu ficheiro atual para Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Corretor ortográfico"
 msgid "Checks the spelling of your documents"
 msgstr "Verifica a ortografia dos seus documentos"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Eliminar espaços no final das linhas"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espaços no final das linhas ao guardar"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "Terminal"
@@ -122,6 +106,18 @@ msgstr "Completar palavras"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Mostra um diálogo de conclusão com as palavras mais usadas"
+
+#~ msgid "Outline"
+#~ msgstr "Contorno"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Contornar símbolos no seu ficheiro atual para Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Eliminar espaços no final das linhas"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Eliminar espaços no final das linhas ao guardar"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Pré-visualizar no navegador"

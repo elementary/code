@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2019-01-07 11:54+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/"
@@ -60,14 +60,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Apvesti"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Apvesti simbolius jūsų esamame Vala faile"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,14 +83,6 @@ msgstr "Rašybos tikrintuvė"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "Tikrina jūsų dokumentų rašybą"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Apkirpti galinius tarpus"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Įrašant, apkirpti galinius tarpus"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -125,6 +109,18 @@ msgstr "Žodžių užbaigimas"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Rodyti užbaigimo dialogą su daugiausiai naudojamais žodžiais iš jūsų failo"
+
+#~ msgid "Outline"
+#~ msgstr "Apvesti"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Apvesti simbolius jūsų esamame Vala faile"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Apkirpti galinius tarpus"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Įrašant, apkirpti galinius tarpus"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Peržiūra naršyklėje"

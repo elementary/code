@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2021-08-09 11:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/plugins/ja/"
@@ -60,14 +60,6 @@ msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 "Markdown ファイルをすばやく編集できるキーボードショートカットを追加します"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "アウトライン"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Vala 向けの現在のファイル内のアウトライン記号"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -92,14 +84,6 @@ msgstr "スペルチェッカー"
 msgid "Checks the spelling of your documents"
 msgstr "ドキュメントのスペルをチェックします"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "ファイル末尾の空白を削除"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "保存時にファイル末尾の空白を削除します"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "ターミナル"
@@ -123,6 +107,18 @@ msgstr "単語補完"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "ファイル内で最も使用された単語を補完するダイアログを表示します"
+
+#~ msgid "Outline"
+#~ msgstr "アウトライン"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Vala 向けの現在のファイル内のアウトライン記号"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "ファイル末尾の空白を削除"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "保存時にファイル末尾の空白を削除します"
 
 #~ msgid "Browser Preview"
 #~ msgstr "ブラウザープレビュー"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
-"PO-Revision-Date: 2022-06-27 08:28+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
+"PO-Revision-Date: 2022-12-03 12:25+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -150,7 +150,7 @@ msgstr "İyileştirmeler:"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Sistem koyu renk tema tercihini takip etme seçeneği eklendi"
 
 #: data/io.elementary.code.appdata.xml.in:35
 #: data/io.elementary.code.appdata.xml.in:55
@@ -162,11 +162,13 @@ msgstr "Düzeltmeler:"
 
 #: data/io.elementary.code.appdata.xml.in:37
 msgid "Drag and drop with text containing accented characters"
-msgstr ""
+msgstr "Aksanlı karakter içeren metinleri sürükleyip bırakma özelliği eklendi"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Text duplication issues when dragging text between multiple windows"
 msgstr ""
+"Birden fazla pencere arasında metin sürüklerken metnin tekrar edilmesi "
+"sorunu düzeltildi"
 
 #: data/io.elementary.code.appdata.xml.in:40
 #: data/io.elementary.code.appdata.xml.in:63
@@ -212,37 +214,41 @@ msgstr "Şu anda seçili olan sonuç ve sonuç sayısı arama sırasında görü
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "Arama çubuğunun şimdi düzenli ifade modu bulunmaktadır"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"Bir projede bulunan dokunulmamış dosyalar içeren Git dalını şimdi "
+"değiştirmeniz mümkün"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Büyük projelerde arama yaparken oluşan çökmelerin önüne geçilmiştir"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Kod'u dış bir programdan açtıktan sonra doğru belgeye odaklanılmaktadır"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
+"Eğer herhangi bir seçim yoksa satır tekrarı doğru bir şekilde uygulanmaktadır"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Kod; bilinmeyen bir URI formatı açılması istendiğinde artık çökmüyor"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid ""
 "Projects with the same name now include their parent folder name as well"
-msgstr ""
+msgstr "Aynı isimli projeler şimdi bağlı oldukları klasörün adını da içerir"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid ""
@@ -251,7 +257,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "GTK yerine FileChooser portalı kullanılacak"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Center the global search dialog over the main Code window"

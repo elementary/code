@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2022-04-02 23:23+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -59,14 +59,6 @@ msgstr "کردارەکانی مارکداون"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "زیادکردنی کورتەڕێی تەختەکلیل بۆ دەستکاریکردنی خێرای پەڕگەکانی مارکداون"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "پێشچاو"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "پێشچاو خستنی سمبولەکان لە پەڕگەی ئێستاتدا بۆ ڤالا"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "پەیست بین (Pastebin)"
@@ -90,14 +82,6 @@ msgstr "هەڵەچن"
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
 msgstr "هەڵەچنی ڕێنووسی دۆکیومێنتەکانت دەکات"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "(Strip trailing whitespace)"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "(Strip trailing whitespace on save)"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -124,3 +108,15 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "دیالۆگێکی تەواوکەر پیشان بدە کە زۆربەی وشە بەکارهێنراوەکان لە پەڕگەکانتەوە "
 "لەخۆ بگرێت"
+
+#~ msgid "Outline"
+#~ msgstr "پێشچاو"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "پێشچاو خستنی سمبولەکان لە پەڕگەی ئێستاتدا بۆ ڤالا"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "(Strip trailing whitespace)"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "(Strip trailing whitespace on save)"

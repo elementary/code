@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 18:45+0000\n"
+"POT-Creation-Date: 2023-01-10 16:17+0000\n"
 "PO-Revision-Date: 2020-01-07 16:31+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/plugins/"
@@ -60,14 +60,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Oris"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Oris simbolov v trenutni datoteki"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -92,14 +84,6 @@ msgstr "Črkovanje"
 msgid "Checks the spelling of your documents"
 msgstr "Preverjanje črkovanja in slovničnih napak v dokumentu"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Odstrani končne presledke"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Odstrani presledke na koncu datoteke ob shranjevanju"
-
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
 msgstr "Terminal"
@@ -123,6 +107,18 @@ msgstr "Dokončevanje besed"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Pokaže dialog za dokončevanje najbolj pogostih besed iz vaših datotek"
+
+#~ msgid "Outline"
+#~ msgstr "Oris"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Oris simbolov v trenutni datoteki"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Odstrani končne presledke"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Odstrani presledke na koncu datoteke ob shranjevanju"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Predogled v brskalniku"
