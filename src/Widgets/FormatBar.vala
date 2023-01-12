@@ -252,17 +252,13 @@ public class Code.FormatBar : Gtk.Grid {
 
     public void set_tab_width (int indent_width) {
         if (space_tab_switch.active) {
-            tab_toggle.text = "%d (Space)".printf (indent_width);
+            tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
-            tab_toggle.text = "%d (Tab)".printf (indent_width);
+            tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
         }
 
         if (tab_set_by_editor_config) {
-            tab_toggle.tooltip_text = _("Indent width and style fixed by editorconfig file");
-        } else {
-            tab_toggle.tooltip_text = _("Indent width using %s").printf (
-                                        space_tab_switch.active ? _("Spaces") : _("Tabs")
-                                      );
+            tab_toggle.tooltip_text = _("Indent width and style set by EditorConfig file");
         }
 
         if (doc != null) {
