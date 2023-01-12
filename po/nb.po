@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-10 16:17+0000\n"
-"PO-Revision-Date: 2022-11-19 08:15+0000\n"
+"PO-Revision-Date: 2023-01-11 08:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -49,10 +49,8 @@ msgid "Code"
 msgstr "Kode"
 
 #: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "Finn i prosjekt …"
+msgstr "Finn på side …"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -162,8 +160,6 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Sett inn mellomrom i stedet for tabulator:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
 msgstr "Fjern påfølgende blanktegn:"
 
@@ -300,22 +296,21 @@ msgid "Close Other Folders"
 msgstr "Lukk andre mapper"
 
 #: src/FolderManager/ProjectFolderItem.vala:121
-#, fuzzy, c-format
+#, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Lukk %u åpent dokument"
 msgstr[1] "Lukk %u åpne dokumenter"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Skjul %u åpent dokument"
 msgstr[1] "Skjul %u åpne dokumenter"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
-#, fuzzy, c-format
+#, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Gjenopprett %u skjult dokument"
@@ -554,7 +549,6 @@ msgid "Zoom In"
 msgstr "Forstørr"
 
 #: src/Widgets/HeaderBar.vala:148
-#, fuzzy
 msgid "Follow System Style"
 msgstr "Følg systemets stil"
 
@@ -563,7 +557,6 @@ msgid "Toggle Sidebar"
 msgstr "Veksle sidepanel"
 
 #: src/Widgets/HeaderBar.vala:196
-#, fuzzy
 msgid "Toggle Symbol Outline"
 msgstr "Veksle symbolomriss"
 
