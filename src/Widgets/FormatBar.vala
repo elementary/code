@@ -28,6 +28,7 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.SpinButton tab_width;
     private Gtk.Switch space_tab_switch;
     private Gtk.Switch autoindent_switch;
+    public bool tab_set_by_editor_config { get; set; default = false; }
 
     public FormatButton line_toggle;
     private Gtk.Entry goto_entry;
@@ -41,7 +42,7 @@ public class Code.FormatBar : Gtk.Grid {
 
         tab_toggle = new FormatButton ();
         tab_toggle.icon = new ThemedIcon ("format-indent-more-symbolic");
-        tab_toggle.tooltip_text = _("Tabs");
+        bind_property ("tab-set-by-editor-config", tab_toggle, "sensitive", BindingFlags.INVERT_BOOLEAN);
 
         lang_toggle = new FormatButton ();
         lang_toggle.icon = new ThemedIcon ("application-x-class-file-symbolic");
@@ -150,11 +151,11 @@ public class Code.FormatBar : Gtk.Grid {
         Scratch.settings.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
 
         tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
 
         space_tab_switch = new Gtk.Switch ();
         space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.GET);
 
         var tab_grid = new Gtk.Grid ();
         tab_grid.margin = 12;
@@ -173,24 +174,20 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.changed["indent-width"].connect (format_tab_header);
-        Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header);
+        Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
+        Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
     }
 
-    private void format_tab_header () {
+    private void format_tab_header_from_global_settings () {
+        if (tab_set_by_editor_config) {
+            return;
+        }
+
         var indent_width = Scratch.settings.get_int ("indent-width");
         var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
 
-        if (spaces_instead_of_tabs) {
-            tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
-        } else {
-            tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
-        }
-
-        if (doc != null) {
-            doc.source_view.tab_width = (uint)indent_width;
-            doc.source_view.insert_spaces_instead_of_tabs = spaces_instead_of_tabs;
-        }
+        set_tab_width (indent_width);
+        set_insert_spaces_instead_of_tabs (spaces_instead_of_tabs);
     }
 
     private void format_line_header () {
@@ -241,9 +238,33 @@ public class Code.FormatBar : Gtk.Grid {
         }
         this.doc = doc;
         update_current_lang ();
-        format_tab_header ();
+        format_tab_header_from_global_settings ();
         format_line_header ();
         this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+    }
+
+    public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
+        space_tab_switch.active = use_spaces;
+        if (doc != null) {
+            doc.source_view.insert_spaces_instead_of_tabs = use_spaces;
+        }
+    }
+
+    public void set_tab_width (int indent_width) {
+        if (space_tab_switch.active) {
+            tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
+        } else {
+            tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
+        }
+
+        if (tab_set_by_editor_config) {
+            tab_toggle.tooltip_text = _("Indent width and style set by EditorConfig file");
+        }
+
+        if (doc != null) {
+            doc.source_view.indent_width = indent_width;
+            doc.source_view.tab_width = indent_width;
+        }
     }
 
     private void update_current_lang () {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 16:17+0000\n"
+"POT-Creation-Date: 2023-01-12 00:59+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -45,7 +45,7 @@ msgstr "vtičnik"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
 msgid "Code"
 msgstr "Koda"
 
@@ -59,34 +59,34 @@ msgstr "Dodaj projektno mapo…"
 msgid "Hide search bar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:753 src/Services/Document.vala:508
+#: src/MainWindow.vala:755 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:757 src/Services/Document.vala:512
+#: src/MainWindow.vala:759 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:763
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:766
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:765 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:790
+#: src/MainWindow.vala:792
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:791
+#: src/MainWindow.vala:793
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -154,15 +154,15 @@ msgstr "Shrani datoteke ob spremembi:"
 msgid "Smart cut/copy lines:"
 msgstr "Pameteno izrezovanje/kopiranje vrstic:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "Zavihki"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
 msgid "Automatic indentation:"
 msgstr "Samodejno zamikanje:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
 msgid "Insert spaces instead of tabs:"
 msgstr "Vstavi presledke namesto tabulatorjev:"
 
@@ -172,7 +172,7 @@ msgstr "Vstavi presledke namesto tabulatorjev:"
 msgid "Strip trailing whitespace:"
 msgstr "Zbriši prazne znake na koncu ob shranjevanju"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
 msgid "Tab width:"
 msgstr "Širina tabulatorja:"
 
@@ -503,23 +503,27 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Tekstovna datoteka iz %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:49
 msgid "Syntax Highlighting"
 msgstr "Poudarjanje sintakse"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:57
 msgid "Line number"
 msgstr "Številka vrstice"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:84
 msgid "Filter languages"
 msgstr "Filtriraj jezike"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:108
 msgid "Plain Text"
 msgstr "Navadno besedilo"
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:205
+msgid "Go To Line:"
+msgstr "Pojdi na vrstico:"
+
+#: src/Widgets/FormatBar.vala:255
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -528,7 +532,7 @@ msgstr[1] "%d presledka"
 msgstr[2] "%d presledki"
 msgstr[3] "%d presledkov"
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:257
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -537,9 +541,9 @@ msgstr[1] "%d tabulatorja"
 msgstr[2] "%d tabulatorji"
 msgstr[3] "%d tabulatorjev"
 
-#: src/Widgets/FormatBar.vala:208
-msgid "Go To Line:"
-msgstr "Pojdi na vrstico:"
+#: src/Widgets/FormatBar.vala:261
+msgid "Indent width and style set by EditorConfig file"
+msgstr ""
 
 #: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
