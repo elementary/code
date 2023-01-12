@@ -1101,22 +1101,18 @@ namespace Scratch {
             doc.source_view.sort_selected_lines ();
         }
 
-        private void action_toggle_sidebar () {
+        private void action_toggle_sidebar (SimpleAction action) {
             if (sidebar == null) {
                 return;
             }
 
-            var sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
-            sidebar_action.set_state (!sidebar_action.get_state ().get_boolean ());
-
-            sidebar.visible = sidebar_action.get_state ().get_boolean ();
+            action.set_state (!action.get_state ().get_boolean ());
+            sidebar.visible = action.get_state ().get_boolean ();
         }
 
-        private void action_toggle_outline () {
-            var outline_action = Utils.action_from_group (ACTION_TOGGLE_OUTLINE, actions);
-            outline_action.set_state (!outline_action.get_state ().get_boolean ());
-
-            document_view.outline_visible = outline_action.get_state ().get_boolean ();
+        private void action_toggle_outline (SimpleAction action) {
+            action.set_state (!action.get_state ().get_boolean ());
+            document_view.outline_visible = action.get_state ().get_boolean ();
         }
 
         private void action_next_tab () {
