@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 16:17+0000\n"
+"POT-Creation-Date: 2023-01-12 00:59+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -38,7 +38,7 @@ msgstr "ਪਲੱਗਇਨ"
 msgid "[FILE…]"
 msgstr "[ਫ਼ਾਇਲ…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
 msgid "Code"
 msgstr "ਕੋਡ"
 
@@ -52,34 +52,34 @@ msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 msgid "Hide search bar"
 msgstr "ਖੋਜ-ਪੱਟੀ ਲੁਕਾਓ"
 
-#: src/MainWindow.vala:753 src/Services/Document.vala:508
+#: src/MainWindow.vala:755 src/Services/Document.vala:508
 msgid "All files"
 msgstr "ਸਾਰੀਆਂ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:757 src/Services/Document.vala:512
+#: src/MainWindow.vala:759 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "ਟੈਕਸਟ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:763
 msgid "Open some files"
 msgstr "ਕੁਝ ਫ਼ਾਇਲਾਂ ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:766
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:765 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/MainWindow.vala:790
+#: src/MainWindow.vala:792
 msgid "_Open"
 msgstr "_ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:791
+#: src/MainWindow.vala:793
 msgid "_Cancel"
 msgstr "_ਰੱਦ ਕਰੋ"
 
@@ -140,15 +140,15 @@ msgstr "ਤਬਦੀਲੀ ਹੋਵੇ ਤਾਂ ਫ਼ਾਇਲਾਂ ਸੇ�
 msgid "Smart cut/copy lines:"
 msgstr "ਲਾਈਨਾਂ ਨੂੰ ਚੁਸਤੀ ਨਾਲ਼ ਨਕਲ/ਕੱਟ ਕਰਨਾ:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "ਟੈਬਾਂ"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
 msgid "Automatic indentation:"
 msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
 msgid "Insert spaces instead of tabs:"
 msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
 
@@ -156,7 +156,7 @@ msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
 msgid "Strip trailing whitespace:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
 msgid "Tab width:"
 msgstr "ਟੈਬ ਦੀ ਚੌੜਾਈ:"
 
@@ -468,39 +468,43 @@ msgstr "ਪ੍ਰੋਜੈਕਟ ਛਾਣਨੀ"
 msgid "Text file from %s:%d"
 msgstr "ਟੈਕਸਟ (ਲਿਖਤ) ਫ਼ਾਇਲ %s:%d ਤੋਂ"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:49
 msgid "Syntax Highlighting"
 msgstr "ਢਾਂਚਾ ਉਜਾਗਰ ਕਰਨਾ"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:57
 msgid "Line number"
 msgstr "ਲਾਈਨ ਨੰਬਰ"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:84
 msgid "Filter languages"
 msgstr "ਬੋਲੀਆਂ ਛਾਣੋ"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:108
 msgid "Plain Text"
 msgstr "ਸਾਦੀ ਲਿਖਤ"
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:205
+msgid "Go To Line:"
+msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
+
+#: src/Widgets/FormatBar.vala:255
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d ਸਪੇਸ"
 msgstr[1] "%d ਸਪੇਸਾਂ"
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:257
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d ਟੈਬ"
 msgstr[1] "%d ਟੈਬਾਂ"
 
-#: src/Widgets/FormatBar.vala:208
-msgid "Go To Line:"
-msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
+#: src/Widgets/FormatBar.vala:261
+msgid "Indent width and style set by EditorConfig file"
+msgstr ""
 
 #: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"

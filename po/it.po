@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 16:17+0000\n"
+"POT-Creation-Date: 2023-01-12 00:59+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -43,7 +43,7 @@ msgstr "Componenti aggiuntivi"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:458
+#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
 msgid "Code"
 msgstr "Codice"
 
@@ -57,34 +57,34 @@ msgstr "Apri cartella progetto…"
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:753 src/Services/Document.vala:508
+#: src/MainWindow.vala:755 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:757 src/Services/Document.vala:512
+#: src/MainWindow.vala:759 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:761
+#: src/MainWindow.vala:763
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:766
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:765 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:790
+#: src/MainWindow.vala:792
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:791
+#: src/MainWindow.vala:793
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -154,15 +154,15 @@ msgstr "Salva i file appena modificati:"
 msgid "Smart cut/copy lines:"
 msgstr "Copia/Incolla righe intelligente:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "Tabulazioni"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
 msgid "Automatic indentation:"
 msgstr "Capoverso automatico:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserisci spazi invece di tabulazioni:"
 
@@ -172,7 +172,7 @@ msgstr "Inserisci spazi invece di tabulazioni:"
 msgid "Strip trailing whitespace:"
 msgstr "Rimuovi spazi a fine riga al salvataggio"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
 msgid "Tab width:"
 msgstr "Larghezza di tabulazione:"
 
@@ -502,39 +502,43 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "File di testo da %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:49
 msgid "Syntax Highlighting"
 msgstr "Evidenziazione sintassi"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:57
 msgid "Line number"
 msgstr "Numero di riga"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:84
 msgid "Filter languages"
 msgstr "Filtra i linguaggi"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:108
 msgid "Plain Text"
 msgstr "Testo semplice"
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:205
+msgid "Go To Line:"
+msgstr "Vai alla linea:"
+
+#: src/Widgets/FormatBar.vala:255
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d spazio"
 msgstr[1] "%d spazi"
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:257
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d scheda"
 msgstr[1] "%d schede"
 
-#: src/Widgets/FormatBar.vala:208
-msgid "Go To Line:"
-msgstr "Vai alla linea:"
+#: src/Widgets/FormatBar.vala:261
+msgid "Indent width and style set by EditorConfig file"
+msgstr ""
 
 #: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
