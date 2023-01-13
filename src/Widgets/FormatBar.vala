@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright 2017-2023 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.FormatBar : Gtk.Grid {
+public class Code.FormatBar : Gtk.Box {
     private Gtk.SourceLanguageManager manager;
     private FormatButton lang_toggle;
     private Gtk.ListBox lang_selection_listbox;
@@ -38,16 +38,20 @@ public class Code.FormatBar : Gtk.Grid {
 
         manager = Gtk.SourceLanguageManager.get_default ();
 
-        tab_toggle = new FormatButton ();
-        tab_toggle.icon = new ThemedIcon ("format-indent-more-symbolic");
+        tab_toggle = new FormatButton () {
+            icon = new ThemedIcon ("format-indent-more-symbolic")
+        };
+
         bind_property ("tab-set-by-editor-config", tab_toggle, "sensitive", BindingFlags.INVERT_BOOLEAN);
 
-        lang_toggle = new FormatButton ();
-        lang_toggle.icon = new ThemedIcon ("application-x-class-file-symbolic");
+        lang_toggle = new FormatButton () {
+            icon = new ThemedIcon ("application-x-class-file-symbolic")
+        };
         lang_toggle.tooltip_text = _("Syntax Highlighting");
 
-        line_toggle = new FormatButton ();
-        line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
+        line_toggle = new FormatButton () {
+            icon = new ThemedIcon ("view-continuous-symbolic")
+        };
         line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
             ((Scratch.Application) GLib.Application.get_default ()).get_accels_for_action (
                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
@@ -55,7 +59,7 @@ public class Code.FormatBar : Gtk.Grid {
             _("Line number")
         );
 
-        column_homogeneous = true;
+        homogeneous = true;
         add (tab_toggle);
         add (lang_toggle);
         add (line_toggle);
@@ -115,7 +119,8 @@ public class Code.FormatBar : Gtk.Grid {
         var lang_popover = new Gtk.Popover (lang_toggle);
         lang_popover.position = Gtk.PositionType.BOTTOM;
         lang_popover.add (popover_content);
-        lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+
+        lang_toggle.popover = lang_popover;
 
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
@@ -168,7 +173,7 @@ public class Code.FormatBar : Gtk.Grid {
         };
         tab_popover.add (box);
 
-        tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+        tab_toggle.popover = tab_popover;
 
         Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
         Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
@@ -217,7 +222,8 @@ public class Code.FormatBar : Gtk.Grid {
         line_popover.position = Gtk.PositionType.BOTTOM;
         line_popover.add (line_grid);
 
-        line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+        line_toggle.popover = line_popover;
+
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_entry.activate.connect_after (() => {
             int line, offset;
@@ -281,10 +287,10 @@ public class Code.FormatBar : Gtk.Grid {
         }
     }
 
-    public class FormatButton : Gtk.ToggleButton {
+    public class FormatButton : Gtk.MenuButton {
         public unowned string text {
             set {
-                label_widget.label = value;
+                label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
             }
         }
         public unowned GLib.Icon? icon {
@@ -300,18 +306,22 @@ public class Code.FormatBar : Gtk.Grid {
         private Gtk.Label label_widget;
 
         construct {
-            img = new Gtk.Image ();
-            img.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+            img = new Gtk.Image () {
+                icon_size = Gtk.IconSize.SMALL_TOOLBAR
+            };
 
-            label_widget = new Gtk.Label (null);
-            label_widget.ellipsize = Pango.EllipsizeMode.END;
+            label_widget = new Gtk.Label (null) {
+                ellipsize = Pango.EllipsizeMode.END,
+                use_markup = true
+            };
 
-            var grid = new Gtk.Grid ();
-            grid.halign = Gtk.Align.CENTER;
-            grid.margin_start = grid.margin_end = 6;
-            grid.add (img);
-            grid.add (label_widget);
-            add (grid);
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                halign = Gtk.Align.CENTER
+            };
+            box.add (img);
+            box.add (label_widget);
+
+            add (box);
         }
     }
 
