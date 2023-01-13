@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2021-07-27 21:21+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/plugins/de/"
@@ -84,14 +84,6 @@ msgstr "Rechtschreibprüfung"
 msgid "Checks the spelling of your documents"
 msgstr "Rechtschreibung in Dokumenten prüfen"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Ein Terminal in Ihrem Texteditor"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-Emulation"
@@ -108,6 +100,12 @@ msgstr "Wortvervollständigung"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Dialog mit den in Ihren Dateien am häufigsten verwendeten Wörtern anzeigen"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Ein Terminal in Ihrem Texteditor"
 
 #~ msgid "Outline"
 #~ msgstr "Outline"
