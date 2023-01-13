@@ -77,15 +77,6 @@ namespace Scratch.Widgets {
                 _("Restore this file")
             );
 
-            var terminal_button = new Gtk.ToggleButton () {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
-                image = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR)
-            };
-            terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (terminal_button.action_name),
-                _("Show Terminal")
-            );
-
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
@@ -198,6 +189,15 @@ namespace Scratch.Widgets {
                 image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
             };
 
+            var terminal_button = new Gtk.ToggleButton () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
+                image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
+            };
+            terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                app_instance.get_accels_for_action (terminal_button.action_name),
+                _("Show Terminal")
+            );
+
             outline_button = new Gtk.ToggleButton () {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
                 image = new Gtk.Image.from_icon_name ("panel-right-symbolic", Gtk.IconSize.MENU)
@@ -212,6 +212,7 @@ namespace Scratch.Widgets {
             };
             panels_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             panels_box.add (sidebar_button);
+            panels_box.add (terminal_button);
             panels_box.add (outline_button);
 
             var preferences_menuitem = new Gtk.ModelButton ();
@@ -254,7 +255,6 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_end (app_menu);
             pack_end (share_app_menu);
-            pack_end (terminal_button);
 
             show_all ();
 
