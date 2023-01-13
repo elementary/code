@@ -296,9 +296,9 @@ namespace Scratch.Widgets {
                 gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
 
                 if (system_prefers_dark) {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-dark");
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
                 } else {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("solarized-light");
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
                 }
             } else {
                 gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("prefer-dark-style");
