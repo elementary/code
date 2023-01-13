@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 10:52+0000\n"
+"POT-Creation-Date: 2023-01-13 15:54+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Tabs"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "સ્વયંસંચાલિત ઇન્ડેનટેસન"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "ટેબ્સને બદલે જગ્યાઓ સામેલ કરો"
 
@@ -180,7 +180,7 @@ msgstr "ટેબ્સને બદલે જગ્યાઓ સામેલ �
 msgid "Strip trailing whitespace:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "ટૅબની પહોળાઈ"
 
@@ -498,42 +498,60 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:49
+#: src/Widgets/FormatBar.vala:47
 msgid "Syntax Highlighting"
 msgstr "વાક્યરચનાને પ્રકાશિત કરી રહ્યુ છે"
 
-#: src/Widgets/FormatBar.vala:57
+#: src/Widgets/FormatBar.vala:55
 #, fuzzy
 msgid "Line number"
 msgstr "લીટી નંબર બતાવો"
 
-#: src/Widgets/FormatBar.vala:84
+#: src/Widgets/FormatBar.vala:82
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:108
+#: src/Widgets/FormatBar.vala:106
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:138
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "સ્વયંસંચાલિત ઇન્ડેનટેસન"
+
+#: src/Widgets/FormatBar.vala:140
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "ટેબ્સને બદલે જગ્યાઓ સામેલ કરો"
+
+#: src/Widgets/FormatBar.vala:142
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "ટૅબની પહોળાઈ"
+
+#: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:255
+#: src/Widgets/FormatBar.vala:254
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:257
+#: src/Widgets/FormatBar.vala:256
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "નવી ટેબ"
 msgstr[1] "નવી ટેબ"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:260
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 

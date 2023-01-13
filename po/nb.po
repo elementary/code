@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 10:52+0000\n"
+"POT-Creation-Date: 2023-01-13 15:54+0000\n"
 "PO-Revision-Date: 2023-01-11 08:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -175,11 +175,11 @@ msgstr "Smart utklipp/kopi av linjer:"
 msgid "Tabs"
 msgstr "Faner"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Automatisk innrykk:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Sett inn mellomrom i stedet for tabulator:"
 
@@ -187,7 +187,7 @@ msgstr "Sett inn mellomrom i stedet for tabulator:"
 msgid "Strip trailing whitespace:"
 msgstr "Fjern påfølgende blanktegn:"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Tabulatorbredde:"
 
@@ -502,41 +502,59 @@ msgstr "Filtrer prosjekter"
 msgid "Text file from %s:%d"
 msgstr "Tekstfil fra %s:%d"
 
-#: src/Widgets/FormatBar.vala:49
+#: src/Widgets/FormatBar.vala:47
 msgid "Syntax Highlighting"
 msgstr "Syntaksfremheving"
 
-#: src/Widgets/FormatBar.vala:57
+#: src/Widgets/FormatBar.vala:55
 msgid "Line number"
 msgstr "Linjenummer"
 
-#: src/Widgets/FormatBar.vala:84
+#: src/Widgets/FormatBar.vala:82
 msgid "Filter languages"
 msgstr "Filtrer språk"
 
-#: src/Widgets/FormatBar.vala:108
+#: src/Widgets/FormatBar.vala:106
 msgid "Plain Text"
 msgstr "Klartekst"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:138
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "Automatisk innrykk:"
+
+#: src/Widgets/FormatBar.vala:140
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Sett inn mellomrom i stedet for tabulator:"
+
+#: src/Widgets/FormatBar.vala:142
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "Tabulatorbredde:"
+
+#: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
 msgstr "Gå til linje:"
 
-#: src/Widgets/FormatBar.vala:255
+#: src/Widgets/FormatBar.vala:254
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d mellomrom"
 msgstr[1] "%d mellomrom"
 
-#: src/Widgets/FormatBar.vala:257
+#: src/Widgets/FormatBar.vala:256
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d fane"
 msgstr[1] "%d faner"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:260
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
