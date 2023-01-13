@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 10:52+0000\n"
 "PO-Revision-Date: 2022-12-10 06:25+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -44,48 +44,72 @@ msgstr "插件"
 msgid "[FILE…]"
 msgstr "[文件…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "代码"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#: src/MainWindow.vala:292
+msgid "Hide search bar"
+msgstr "隐藏搜索栏"
+
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "在项目中查找…"
 
-#: src/MainWindow.vala:222
-msgid "Hide search bar"
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
 msgstr "隐藏搜索栏"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "显示预览"
+
+#: src/MainWindow.vala:322
+#, fuzzy
+#| msgid "Toggle Symbol Outline"
+msgid "Hide Symbol Outline"
+msgstr "激活大纲符号"
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "Toggle Symbol Outline"
+msgid "Show Symbol Outline"
+msgstr "激活大纲符号"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "所有文件"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "文本文件"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "打开一些文件"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -124,7 +148,7 @@ msgstr "分支名称不能与其他分支相同，且必须遵循 Git 的命名�
 msgid "Create Branch"
 msgstr "创建分支"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "首选项"
 
@@ -310,7 +334,7 @@ msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "恢复显示 %u 个已隐藏的文件"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 msgid "Find in Project…"
 msgstr "在项目中查找…"
 
@@ -450,14 +474,14 @@ msgstr "符号"
 msgid "No Project Selected"
 msgstr "无选中项目"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr "活跃的 Git 项目：%s"
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr "筛选项目"
 
@@ -502,71 +526,63 @@ msgstr[0] "%d 标签"
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "打开文件"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "项目模板"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "保存此文件"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "另存为"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "恢复此文件"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "分享"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom Out"
 msgstr "缩小"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "原始大小"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 msgid "Zoom In"
 msgstr "放大"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr "跟随系统样式"
 
-#: src/Widgets/HeaderBar.vala:186
-msgid "Toggle Sidebar"
-msgstr "激活侧边栏"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr "激活大纲符号"
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr "菜单"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
 msgstr "打开项目文件夹…"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "全部折叠"
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "字母顺序"
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "管理项目文件夹"
 
@@ -752,6 +768,9 @@ msgstr "请安装至少一个 [aspell] 词典。"
 msgid "%s - Word Completion"
 msgstr "%s - 词语补全"
 
+#~ msgid "Toggle Sidebar"
+#~ msgstr "激活侧边栏"
+
 #~ msgid "Find…"
 #~ msgstr "查找…"
 
@@ -843,9 +862,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "Web Preview"
 #~ msgstr "网页预览"
-
-#~ msgid "Show Preview"
-#~ msgstr "显示预览"
 
 #~ msgid "Hide Preview"
 #~ msgstr "隐藏预览"

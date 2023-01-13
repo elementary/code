@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 10:52+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -38,48 +38,70 @@ msgstr "ਪਲੱਗਇਨ"
 msgid "[FILE…]"
 msgstr "[ਫ਼ਾਇਲ…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "ਕੋਡ"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#: src/MainWindow.vala:292
+msgid "Hide search bar"
+msgstr "ਖੋਜ-ਪੱਟੀ ਲੁਕਾਓ"
+
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
-#: src/MainWindow.vala:222
-msgid "Hide search bar"
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
 msgstr "ਖੋਜ-ਪੱਟੀ ਲੁਕਾਓ"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "No Project Selected"
+msgid "Show Projects Sidebar"
+msgstr "ਕੋਈ ਵੀ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਚੁਣਿਆ ਹੋਇਆ"
+
+#: src/MainWindow.vala:322
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "No Symbols Found"
+msgid "Show Symbol Outline"
+msgstr "ਕੋਈ ਚਿੰਨ੍ਹ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "ਸਾਰੀਆਂ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "ਟੈਕਸਟ ਫ਼ਾਇਲਾਂ"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "ਕੁਝ ਫ਼ਾਇਲਾਂ ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "_ਖੋਲ੍ਹੋ"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "_ਰੱਦ ਕਰੋ"
 
@@ -118,7 +140,7 @@ msgstr "ਸ਼ਾਖ਼ ਦਾ ਨਾਂ ਅਨੋਖਾ ਅਤੇ Git ਦੇ �
 msgid "Create Branch"
 msgstr "ਸ਼ਾਖ਼ ਬਣਾਓ"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "ਤਰਜੀਹਾਂ"
 
@@ -308,7 +330,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 msgid "Find in Project…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
@@ -452,14 +474,14 @@ msgstr "ਨਿਸ਼ਾਨ/ਚਿੰਨ੍ਹ"
 msgid "No Project Selected"
 msgstr "ਕੋਈ ਵੀ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਚੁਣਿਆ ਹੋਇਆ"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr "ਸਰਗਰਮ Git ਪ੍ਰੋਜੈਕਟ: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਛਾਣਨੀ"
 
@@ -506,71 +528,63 @@ msgstr[1] "%d ਟੈਬਾਂ"
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "ਕੋਈ ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫਰਮੇ"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਕਿਸੇ ਵੱਖਰੇ ਨਾਂ ਨਾਲ਼ ਸਾਂਭੋ"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom Out"
 msgstr "ਜ਼ੂਮ ਘਟਾਓ"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "ਜ਼ੂਮ 1:1"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 msgid "Zoom In"
 msgstr "ਜ਼ੂਮ ਵਧਾਓ"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:186
-msgid "Toggle Sidebar"
-msgstr "ਸਾਈਡਬਾਰ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr "ਮੈਨਿਊ"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ…"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "ਸਾਰਿਆਂ ਦੀ ਤਹਿ ਬੰਦ ਕਰੋ"
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "ਅੱਖਰ-ਤਰਤੀਬ ਮੁਤਾਬਕ"
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰਾਂ ਦਾ ਰੱਖ-ਰਖਾਓ"
 
@@ -758,11 +772,11 @@ msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [
 msgid "%s - Word Completion"
 msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
 
+#~ msgid "Toggle Sidebar"
+#~ msgstr "ਸਾਈਡਬਾਰ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
+
 #~ msgid "Find…"
 #~ msgstr "ਲੱਭੋ…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "ਕੋਈ ਚਿੰਨ੍ਹ ਨਹੀਂ ਲੱਭਿਆ"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "ਸਪੇਸਾਂ ਬਣਾਓ:"

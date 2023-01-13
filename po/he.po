@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 10:52+0000\n"
 "PO-Revision-Date: 2023-01-13 10:04+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -43,46 +43,70 @@ msgstr "תוסף"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
-msgid "Find on Page…"
-msgstr "איתור בעמוד…"
-
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:292
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+msgid "Find on Page…"
+msgstr "איתור בעמוד…"
+
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "הסתרת סרגל החיפוש"
+
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "הצגת תצוגה מקדימה"
+
+#: src/MainWindow.vala:322
+#, fuzzy
+#| msgid "Toggle Symbol Outline"
+msgid "Hide Symbol Outline"
+msgstr "החלפת מצב קווי מתאר של סמלים"
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "Toggle Symbol Outline"
+msgid "Show Symbol Outline"
+msgstr "החלפת מצב קווי מתאר של סמלים"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -121,7 +145,7 @@ msgstr "שם הענף חייב להיות ייחודי ולהיצמד לכללי
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -311,7 +335,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "שחזור מסמך נסתר"
 msgstr[1] "שחזור %u מסמכים נסתרים"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 msgid "Find in Project…"
 msgstr "איתור במיזם…"
 
@@ -452,14 +476,14 @@ msgstr "סמלים"
 msgid "No Project Selected"
 msgstr "לא נבחר מיזם"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr "מיזם Git פעיל: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr "סינון מיזמים"
 
@@ -506,71 +530,63 @@ msgstr[1] "%d טאבים"
 msgid "Indent width and style set by EditorConfig file"
 msgstr "הגדלת הרוחב והסגנון שהוגדר על ידי קובץ הגדרות עורך (EditorConfig)"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "פתיחת קובץ"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "תבניות מיזם"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "שמירת קובץ זה"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "שמירת קובץ זה בשם שונה"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "שחזור קובץ זה לקדמותו"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "תקריב 1:1"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr "כמו ערכת העיצוב של המערכת"
 
-#: src/Widgets/HeaderBar.vala:186
-msgid "Toggle Sidebar"
-msgstr "הצגה/הסתרה של לוח צד"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr "החלפת מצב קווי מתאר של סמלים"
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr "תפריט"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
 msgstr "לפתוח תיקיית מיזם…"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "לצמצם הכול"
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "סידור אלפביתי"
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "ניהול תיקיות המיזם"
 
@@ -756,6 +772,9 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
 
+#~ msgid "Toggle Sidebar"
+#~ msgstr "הצגה/הסתרה של לוח צד"
+
 #~ msgid "Find…"
 #~ msgstr "חיפוש…"
 
@@ -845,9 +864,6 @@ msgstr "%s - השלמת מילים"
 
 #~ msgid "Web Preview"
 #~ msgstr "תצוגה מקדימה ברשת"
-
-#~ msgid "Show Preview"
-#~ msgstr "הצגת תצוגה מקדימה"
 
 #~ msgid "Hide Preview"
 #~ msgstr "הסתרת תצוגה מקדימה"
