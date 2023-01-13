@@ -38,7 +38,6 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     }
 
     construct {
-        width_request = 180;
         icon_name = "folder-symbolic";
         title = _("Folders");
 
