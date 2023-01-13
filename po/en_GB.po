@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 15:54+0000\n"
 "PO-Revision-Date: 2022-11-09 13:29+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -44,48 +44,70 @@ msgstr "plugin"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#: src/MainWindow.vala:292
+msgid "Hide search bar"
+msgstr "Hide search bar"
+
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "Find in Project…"
 
-#: src/MainWindow.vala:222
-msgid "Hide search bar"
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "Show Preview"
+
+#: src/MainWindow.vala:322
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "No Symbols Found"
+msgid "Show Symbol Outline"
+msgstr "No Symbols Found"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -124,7 +146,7 @@ msgstr "The branch name must be unique and follow Git naming rules."
 msgid "Create Branch"
 msgstr "Create Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -152,11 +174,11 @@ msgstr "Smart cut/copy lines:"
 msgid "Tabs"
 msgstr "Tabs"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Automatic indentation:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Insert spaces instead of tabs:"
 
@@ -166,7 +188,7 @@ msgstr "Insert spaces instead of tabs:"
 msgid "Strip trailing whitespace:"
 msgstr "Strip trailing whitespace on save"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Tab width:"
 
@@ -318,7 +340,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 msgid "Find in Project…"
 msgstr "Find in Project…"
 
@@ -464,14 +486,14 @@ msgstr "Symbols"
 msgid "No Project Selected"
 msgstr "No Project Selected"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Active Git project: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr "Filter projects"
 
@@ -480,109 +502,119 @@ msgstr "Filter projects"
 msgid "Text file from %s:%d"
 msgstr "Text file from %s:%d"
 
-#: src/Widgets/FormatBar.vala:49
+#: src/Widgets/FormatBar.vala:47
 msgid "Syntax Highlighting"
 msgstr "Syntax Highlighting"
 
-#: src/Widgets/FormatBar.vala:57
+#: src/Widgets/FormatBar.vala:55
 msgid "Line number"
 msgstr "Line number"
 
-#: src/Widgets/FormatBar.vala:84
+#: src/Widgets/FormatBar.vala:82
 msgid "Filter languages"
 msgstr "Filter languages"
 
-#: src/Widgets/FormatBar.vala:108
+#: src/Widgets/FormatBar.vala:106
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:138
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "Automatic indentation:"
+
+#: src/Widgets/FormatBar.vala:140
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Insert spaces instead of tabs:"
+
+#: src/Widgets/FormatBar.vala:142
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "Tab width:"
+
+#: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
 msgstr "Go To Line:"
 
-#: src/Widgets/FormatBar.vala:255
+#: src/Widgets/FormatBar.vala:254
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Space"
 msgstr[1] "%d Spaces"
 
-#: src/Widgets/FormatBar.vala:257
+#: src/Widgets/FormatBar.vala:256
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Tab"
 msgstr[1] "%d Tabs"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:260
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "Open a file"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "Project templates"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "Save this file"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "Save this file with a different name"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "Restore this file"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "Share"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom Out"
 msgstr "Zoom Out"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 msgid "Zoom In"
 msgstr "Zoom In"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:186
-msgid "Toggle Sidebar"
-msgstr "Toggle Sidebar"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
 msgstr "Open Project Folder…"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "Collapse All"
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "Alphabetise"
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "Manage project folders"
 
@@ -768,11 +800,11 @@ msgstr "Please install at least one [aspell] dictionary."
 msgid "%s - Word Completion"
 msgstr "%s - Word Completion"
 
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Toggle Sidebar"
+
 #~ msgid "Find…"
 #~ msgstr "Find…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "No Symbols Found"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Draw Spaces:"
@@ -860,9 +892,6 @@ msgstr "%s - Word Completion"
 
 #~ msgid "Web Preview"
 #~ msgstr "Web Preview"
-
-#~ msgid "Show Preview"
-#~ msgstr "Show Preview"
 
 #~ msgid "Hide Preview"
 #~ msgstr "Hide Preview"

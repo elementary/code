@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 15:54+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -43,48 +43,70 @@ msgstr "플러그인"
 msgid "[FILE…]"
 msgstr "[파일…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#: src/MainWindow.vala:292
+msgid "Hide search bar"
+msgstr "검색 바 숨기기"
+
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "프로젝트에서 찾기…"
 
-#: src/MainWindow.vala:222
-msgid "Hide search bar"
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "미리 보기"
+
+#: src/MainWindow.vala:322
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "No Symbols Found"
+msgid "Show Symbol Outline"
+msgstr "심볼이 없습니다"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "텍스트 파일"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "취소"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -123,7 +145,7 @@ msgstr "브랜치 이름은 고유해야 하며 Git 명명 규칙을 따라야 �
 msgid "Create Branch"
 msgstr "브랜치 만들기"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -150,11 +172,11 @@ msgstr "스마트 컷/복사 라인:"
 msgid "Tabs"
 msgstr "탭"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "자동 들여쓰기:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "탭 대신 빈칸 표시:"
 
@@ -164,7 +186,7 @@ msgstr "탭 대신 빈칸 표시:"
 msgid "Strip trailing whitespace:"
 msgstr "저장시 따라오는 공백 제거"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "탭 너비:"
 
@@ -313,7 +335,7 @@ msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 msgid "Find in Project…"
 msgstr "프로젝트에서 찾기…"
 
@@ -458,14 +480,14 @@ msgstr "기호"
 msgid "No Project Selected"
 msgstr "선택한 프로젝트 없음"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr "활성한 Git 프로젝트: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr "필터 프로젝트"
 
@@ -474,107 +496,117 @@ msgstr "필터 프로젝트"
 msgid "Text file from %s:%d"
 msgstr "%s의 텍스트 파일:%d개"
 
-#: src/Widgets/FormatBar.vala:49
+#: src/Widgets/FormatBar.vala:47
 msgid "Syntax Highlighting"
 msgstr "구문 강조"
 
-#: src/Widgets/FormatBar.vala:57
+#: src/Widgets/FormatBar.vala:55
 msgid "Line number"
 msgstr "줄 번호"
 
-#: src/Widgets/FormatBar.vala:84
+#: src/Widgets/FormatBar.vala:82
 msgid "Filter languages"
 msgstr "언어 필터링"
 
-#: src/Widgets/FormatBar.vala:108
+#: src/Widgets/FormatBar.vala:106
 msgid "Plain Text"
 msgstr "일반 텍스트"
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:138
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "자동 들여쓰기:"
+
+#: src/Widgets/FormatBar.vala:140
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "탭 대신 빈칸 표시:"
+
+#: src/Widgets/FormatBar.vala:142
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "탭 너비:"
+
+#: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
 msgstr "줄로 이동:"
 
-#: src/Widgets/FormatBar.vala:255
+#: src/Widgets/FormatBar.vala:254
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d개 빈 칸"
 
-#: src/Widgets/FormatBar.vala:257
+#: src/Widgets/FormatBar.vala:256
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d개의 탭"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:260
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "파일 열기"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "프로젝트 템플릿"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "이 파일 저장하기"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "다른 이름으로 저장하기"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "원본으로 되돌리기"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "공유"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom Out"
 msgstr "축소"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "1:1 크기"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 msgid "Zoom In"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr "시스템 스타일 따르기"
 
-#: src/Widgets/HeaderBar.vala:186
-msgid "Toggle Sidebar"
-msgstr "사이드바 여닫기"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr "메뉴"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
 msgstr "프로젝트 폴더 열기…"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "모두 축소"
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "알파벳순으로"
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "프로젝트 폴더 관리"
 
@@ -760,11 +792,11 @@ msgstr "적어도 맞춤법 사전 [aspell] 한 개는 설치해주세요."
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
 
+#~ msgid "Toggle Sidebar"
+#~ msgstr "사이드바 여닫기"
+
 #~ msgid "Find…"
 #~ msgstr "찾기…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "심볼이 없습니다"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "빈칸 표시:"
@@ -838,9 +870,6 @@ msgstr "%s - 단어 완성"
 
 #~ msgid "Web Preview"
 #~ msgstr "웹 미리 보기"
-
-#~ msgid "Show Preview"
-#~ msgstr "미리 보기"
 
 #~ msgid "Hide Preview"
 #~ msgstr "미리 보기 숨기기"

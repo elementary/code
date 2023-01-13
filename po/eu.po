@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 00:59+0000\n"
+"POT-Creation-Date: 2023-01-13 15:54+0000\n"
 "PO-Revision-Date: 2016-09-11 21:29+0000\n"
 "Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -43,48 +43,70 @@ msgstr "Plugin-sorta"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:432 src/MainWindow.vala:460
+#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
+#: src/MainWindow.vala:292
+msgid "Hide search bar"
+msgstr "Ezkutatu bilaketa-barra"
+
+#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Ireki karpeta"
 
-#: src/MainWindow.vala:222
-msgid "Hide search bar"
+#: src/MainWindow.vala:308
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
 msgstr "Ezkutatu bilaketa-barra"
 
-#: src/MainWindow.vala:755 src/Services/Document.vala:508
+#: src/MainWindow.vala:313
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "Erakutsi aurreikuspena"
+
+#: src/MainWindow.vala:322
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:327
+#, fuzzy
+#| msgid "Symbols"
+msgid "Show Symbol Outline"
+msgstr "Ikurrak"
+
+#: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: src/MainWindow.vala:759 src/Services/Document.vala:512
+#: src/MainWindow.vala:809 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Testu-fitxategiak"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:813
 msgid "Open some files"
 msgstr "Fitxategi batzuk ireki"
 
-#: src/MainWindow.vala:766
+#: src/MainWindow.vala:816
 msgid "Open"
 msgstr "Ireki"
 
-#: src/MainWindow.vala:767 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:842
 msgid "_Open"
 msgstr "_Ireki"
 
-#: src/MainWindow.vala:793
+#: src/MainWindow.vala:843
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -127,7 +149,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Aldatu Scratch-en ezarpenak"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:206
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
 msgid "Preferences"
 msgstr "Hobespenak"
 
@@ -153,11 +175,11 @@ msgstr ""
 msgid "Tabs"
 msgstr "Fitxak"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:146
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Koska automatikoa:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:140
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Txertatu zuriuneak tabuladoreen ordez:"
 
@@ -167,7 +189,7 @@ msgstr "Txertatu zuriuneak tabuladoreen ordez:"
 msgid "Strip trailing whitespace:"
 msgstr "Garbitu amaierako zuriunea gordetzerakoan"
 
-#: src/Dialogs/PreferencesDialog.vala:68 src/Widgets/FormatBar.vala:143
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Tabuladorearen zabalera:"
 
@@ -330,7 +352,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
@@ -482,14 +504,14 @@ msgstr "Ikurrak"
 msgid "No Project Selected"
 msgstr "Proiektuaren txantiloiak"
 
-#: src/Widgets/ChooseProjectButton.vala:40
-#: src/Widgets/ChooseProjectButton.vala:102
-#: src/Widgets/ChooseProjectButton.vala:141
+#: src/Widgets/ChooseProjectButton.vala:38
+#: src/Widgets/ChooseProjectButton.vala:100
+#: src/Widgets/ChooseProjectButton.vala:139
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:55
+#: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
 msgstr ""
 
@@ -498,115 +520,124 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Testu-fitxategiak"
 
-#: src/Widgets/FormatBar.vala:49
+#: src/Widgets/FormatBar.vala:47
 msgid "Syntax Highlighting"
 msgstr "Sintaxiaren nabarmentzea"
 
-#: src/Widgets/FormatBar.vala:57
+#: src/Widgets/FormatBar.vala:55
 #, fuzzy
 msgid "Line number"
 msgstr "Erakutsi lerro zenbakiak:"
 
-#: src/Widgets/FormatBar.vala:84
+#: src/Widgets/FormatBar.vala:82
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:108
+#: src/Widgets/FormatBar.vala:106
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:205
+#: src/Widgets/FormatBar.vala:138
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "Koska automatikoa:"
+
+#: src/Widgets/FormatBar.vala:140
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Txertatu zuriuneak tabuladoreen ordez:"
+
+#: src/Widgets/FormatBar.vala:142
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "Tabuladorearen zabalera:"
+
+#: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
 msgstr "Joan lerrora:"
 
-#: src/Widgets/FormatBar.vala:255
+#: src/Widgets/FormatBar.vala:254
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:257
+#: src/Widgets/FormatBar.vala:256
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Fitxa berria"
 msgstr[1] "Fitxa berria"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:260
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
 msgstr "Ireki fitxategi bat"
 
-#: src/Widgets/HeaderBar.vala:55
+#: src/Widgets/HeaderBar.vala:57
 msgid "Project templates"
 msgstr "Proiektuaren txantiloiak"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file"
 msgstr "Gorde fitxategi hau"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Save this file with a different name"
 msgstr "Gorde fitxategi hau izen desberdin batekin"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:77
 msgid "Restore this file"
 msgstr "Leheneratu fitxategi hau"
 
-#: src/Widgets/HeaderBar.vala:82
+#: src/Widgets/HeaderBar.vala:84
 msgid "Share"
 msgstr "Partekatu"
 
-#: src/Widgets/HeaderBar.vala:89
+#: src/Widgets/HeaderBar.vala:91
 #, fuzzy
 msgid "Zoom Out"
 msgstr "Zoom-a"
 
-#: src/Widgets/HeaderBar.vala:96
+#: src/Widgets/HeaderBar.vala:98
 msgid "Zoom 1:1"
 msgstr "Zoom-a 1:1"
 
-#: src/Widgets/HeaderBar.vala:103
+#: src/Widgets/HeaderBar.vala:105
 #, fuzzy
 msgid "Zoom In"
 msgstr "Zoom-a"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:150
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:186
-#, fuzzy
-msgid "Toggle Sidebar"
-msgstr "Albo-barra"
-
-#: src/Widgets/HeaderBar.vala:196
-msgid "Toggle Symbol Outline"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:229
+#: src/Widgets/HeaderBar.vala:231
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:57
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Ireki karpeta"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:56
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:68
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr ""
 
@@ -800,13 +831,12 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Hitzak osatu"
 
+#, fuzzy
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Albo-barra"
+
 #~ msgid "Find…"
 #~ msgstr "Bilatu..."
-
-#, fuzzy
-#~| msgid "Symbols"
-#~ msgid "No Symbols Found"
-#~ msgstr "Ikurrak"
 
 #, fuzzy
 #~| msgid "Search next"
@@ -819,9 +849,6 @@ msgstr "%s - Hitzak osatu"
 
 #~ msgid "Web Preview"
 #~ msgstr "Web aurreikuspena"
-
-#~ msgid "Show Preview"
-#~ msgstr "Erakutsi aurreikuspena"
 
 #~ msgid "Hide Preview"
 #~ msgstr "Ezkutatu aurreikuspena"
