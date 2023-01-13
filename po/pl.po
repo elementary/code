@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-13 10:52+0000\n"
-"PO-Revision-Date: 2023-01-12 00:59+0000\n"
+"PO-Revision-Date: 2023-01-13 15:54+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -57,28 +57,20 @@ msgid "Find on Page…"
 msgstr "Znajdź na stronie…"
 
 #: src/MainWindow.vala:308
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Ukryj pasek wyszukiwania"
+msgstr "Ukryj panel boczny projektu"
 
 #: src/MainWindow.vala:313
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Pokaż podgląd"
+msgstr "Pokaż panel boczny projektu"
 
 #: src/MainWindow.vala:322
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "Przełącz strukturę symboli"
+msgstr "Ukryj przegląd symboli"
 
 #: src/MainWindow.vala:327
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "Przełącz strukturę symboli"
+msgstr "Pokaż przegląd symboli"
 
 #: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
@@ -545,7 +537,7 @@ msgstr[2] "%d tabulatorów"
 
 #: src/Widgets/FormatBar.vala:261
 msgid "Indent width and style set by EditorConfig file"
-msgstr ""
+msgstr "Szerokość wcięcia i styl ustawiony przy użyciu pliku EditorConfig"
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
