@@ -132,9 +132,9 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
-            { ACTION_TOGGLE_OUTLINE, action_toggle_outline },
+            { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
@@ -212,24 +212,6 @@ namespace Scratch {
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group (ACTION_GROUP, actions);
 
-            actions.action_state_changed.connect ((name, new_state) => {
-                if (name == ACTION_SHOW_FIND) {
-                    if (new_state.get_boolean () == false) {
-                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND + "::"),
-                            _("Find on Page…")
-                        );
-                    } else {
-                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                            {"Escape"},
-                            _("Hide search bar")
-                        );
-                    }
-
-                    search_revealer.set_reveal_child (new_state.get_boolean ());
-                }
-            });
-
             foreach (var action in action_accelerators.get_keys ()) {
                 var accels_array = action_accelerators[action].to_array ();
                 accels_array += null;
@@ -288,8 +270,69 @@ namespace Scratch {
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
+            actions.action_state_changed.connect ((name, new_state) => {
+                update_toolbar_button (name, new_state.get_boolean ());
+            });
+
+            var sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
+            sidebar_action.set_state (saved_state.get_boolean ("sidebar-visible"));
+            update_toolbar_button (ACTION_TOGGLE_SIDEBAR, saved_state.get_boolean ("sidebar-visible"));
+
+            var outline_action = Utils.action_from_group (ACTION_TOGGLE_OUTLINE, actions);
+            outline_action.set_state (saved_state.get_boolean ("outline-visible"));
+            update_toolbar_button (ACTION_TOGGLE_OUTLINE, saved_state.get_boolean ("outline-visible"));
+
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
+        }
+
+        private void update_toolbar_button (string name, bool new_state) {
+            switch (name) {
+                case ACTION_SHOW_FIND:
+                    if (new_state) {
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            {"Escape"},
+                            _("Hide search bar")
+                        );
+                    } else {
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Find on Page…")
+                        );
+                    }
+
+                    search_revealer.set_reveal_child (new_state);
+
+                    break;
+                case ACTION_TOGGLE_SIDEBAR:
+                    if (new_state) {
+                        toolbar.sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Projects Sidebar")
+                        );
+                    } else {
+                        toolbar.sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Projects Sidebar")
+                        );
+                    }
+
+                    break;
+                case ACTION_TOGGLE_OUTLINE:
+                    if (new_state) {
+                        toolbar.outline_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Symbol Outline")
+                        );
+                    } else {
+                        toolbar.outline_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Symbol Outline")
+                        );
+                    }
+
+                    break;
+            };
         }
 
         private void init_layout () {
@@ -1049,12 +1092,13 @@ namespace Scratch {
             doc.source_view.sort_selected_lines ();
         }
 
-        private void action_toggle_sidebar () {
+        private void action_toggle_sidebar (SimpleAction action) {
             if (sidebar == null) {
                 return;
             }
 
-            sidebar.visible = !sidebar.visible;
+            action.set_state (!action.get_state ().get_boolean ());
+            sidebar.visible = action.get_state ().get_boolean ();
         }
 
         private void action_toggle_terminal () {
@@ -1072,8 +1116,9 @@ namespace Scratch {
             }
         }
 
-        private void action_toggle_outline () {
-            document_view.outline_visible = !document_view.outline_visible;
+        private void action_toggle_outline (SimpleAction action) {
+            action.set_state (!action.get_state ().get_boolean ());
+            document_view.outline_visible = action.get_state ().get_boolean ();
         }
 
         private void action_next_tab () {
