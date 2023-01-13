@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-12 00:59+0000\n"
-"PO-Revision-Date: 2022-11-28 14:25+0000\n"
+"PO-Revision-Date: 2023-01-13 10:04+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -48,10 +48,8 @@ msgid "Code"
 msgstr "Codi"
 
 #: src/MainWindow.vala:217 src/Widgets/HeaderBar.vala:125
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "Troba al projecte…"
+msgstr "Troba a la pàgina…"
 
 #: src/MainWindow.vala:222
 msgid "Hide search bar"
@@ -517,7 +515,7 @@ msgstr[1] "%d pestanyes"
 
 #: src/Widgets/FormatBar.vala:261
 msgid "Indent width and style set by EditorConfig file"
-msgstr ""
+msgstr "Amplada i estil del sagnat establerts pel fitxer EditorConfig"
 
 #: src/Widgets/HeaderBar.vala:50
 msgid "Open a file"
