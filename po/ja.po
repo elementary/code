@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-13 10:52+0000\n"
-"PO-Revision-Date: 2023-01-13 10:04+0000\n"
+"PO-Revision-Date: 2023-01-13 15:54+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -49,35 +49,27 @@ msgstr "コード"
 
 #: src/MainWindow.vala:292
 msgid "Hide search bar"
-msgstr "検索バーを表示しない"
+msgstr "検索バーを非表示"
 
 #: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
 msgid "Find on Page…"
 msgstr "ページ内を検索…"
 
 #: src/MainWindow.vala:308
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "検索バーを表示しない"
+msgstr "プロジェクトサイドバーを非表示"
 
 #: src/MainWindow.vala:313
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "プレビューを表示"
+msgstr "プロジェクトサイドバーを表示"
 
 #: src/MainWindow.vala:322
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "シンボルアウトラインを表示／非表示"
+msgstr "シンボルアウトラインを非表示"
 
 #: src/MainWindow.vala:327
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "シンボルアウトラインを表示／非表示"
+msgstr "シンボルアウトラインを表示"
 
 #: src/MainWindow.vala:805 src/Services/Document.vala:508
 msgid "All files"
@@ -325,7 +317,7 @@ msgstr[0] "%u 項目の開いているドキュメントを閉じる"
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "%u 項目の開いているドキュメントを非表示にする"
+msgstr[0] "%u 項目の開いているドキュメントを非表示"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
@@ -743,7 +735,7 @@ msgstr "ターミナルを表示"
 
 #: plugins/terminal/terminal.vala:174
 msgid "Hide Terminal"
-msgstr "ターミナルを表示しない"
+msgstr "ターミナルを非表示"
 
 #: plugins/terminal/terminal.vala:184
 msgid "Terminal"
