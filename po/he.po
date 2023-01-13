@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2023-01-13 10:04+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -43,70 +43,70 @@ msgstr "תוסף"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 msgid "Find on Page…"
 msgstr "איתור בעמוד…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "הצגת תצוגה מקדימה"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
 msgstr "החלפת מצב קווי מתאר של סמלים"
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
 msgstr "החלפת מצב קווי מתאר של סמלים"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -145,7 +145,7 @@ msgstr "שם הענף חייב להיות ייחודי ולהיצמד לכללי
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -588,9 +588,17 @@ msgstr "התקרבות"
 msgid "Follow System Style"
 msgstr "כמו ערכת העיצוב של המערכת"
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "הצגת המסוף"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "תפריט"
+
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "הסתרת המסוף"
 
 #: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
@@ -668,6 +676,14 @@ msgstr "סידור השורות הנבחרות"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "החלפת מצב הערה"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "העתקה"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "הדבקה"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -754,29 +770,6 @@ msgstr "יום אחד"
 msgid "One month"
 msgstr "חודש אחד"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "הצגת המסוף"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "הסתרת המסוף"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "מסוף"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "העתקה"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "הדבקה"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "לא נמצאו מילונים מתאימים"
@@ -789,6 +782,9 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#~ msgid "Terminal"
+#~ msgstr "מסוף"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "הצגה/הסתרה של לוח צד"

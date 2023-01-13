@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
@@ -42,67 +42,67 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "શોધ બારને છુપાવો"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 msgid "Find on Page…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "શોધ બારને છુપાવો"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "પ્રોજેક્ટના ટેમ્પલેટ્સ"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "બધી ફાઇલો"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "ખોલો"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Scratch ના સેટિંગ્સ બદલો"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "પસંદગીઓ"
 
@@ -595,8 +595,16 @@ msgstr ""
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
 msgstr ""
 
 #: src/Widgets/Sidebar.vala:57
@@ -675,6 +683,14 @@ msgstr ""
 
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
+msgstr ""
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr ""
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
@@ -765,29 +781,6 @@ msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr ""
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr ""
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
 msgstr ""
 
 #: plugins/spell/spell.vala:73
