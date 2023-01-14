@@ -27,7 +27,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     }
 
     construct {
-        var app_instance = (Scratch.Application) GLib.Application.get_default ();
+        var app_instance = (Gtk.Application) GLib.Application.get_default ();
 
         var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR) {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN
