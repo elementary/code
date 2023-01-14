@@ -186,15 +186,9 @@ public class Code.FormatBar : Gtk.Box {
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
 
-        editorconfig_infobar.revealed = tab_set_by_editor_config;
-        space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
-        tab_box.sensitive = !tab_set_by_editor_config;
-
-        notify["tab-set-by-editor-config"].connect (() => {
-            editorconfig_infobar.revealed = tab_set_by_editor_config;
-            space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
-            tab_box.sensitive = !tab_set_by_editor_config;
-        });
+        bind_property ("tab-set-by-editor-config", editorconfig_infobar, "revealed", BindingFlags.SYNC_CREATE);
+        bind_property ("tab-set-by-editor-config", space_tab_modelbutton, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
+        bind_property ("tab-set-by-editor-config", tab_box, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
     }
 
     private void format_tab_header_from_global_settings () {
