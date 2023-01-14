@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/plugins/"
@@ -84,15 +84,6 @@ msgstr "Provjera pravopisa"
 msgid "Checks the spelling of your documents"
 msgstr "Provjerava pravopis Vaših dokumenata"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "Terminal u Vašem uređivaču teksta"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emulacija"
@@ -110,6 +101,13 @@ msgstr "Dovršavanje riječi"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Prikaži dijalog dovršavanja s najčešće korištenim riječima iz Vaših datoteka"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminal u Vašem uređivaču teksta"
 
 #~ msgid "Outline"
 #~ msgstr "Obris"

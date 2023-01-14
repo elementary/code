@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2019-11-09 11:24+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/plugins/"
@@ -83,14 +83,6 @@ msgstr "Literuman Kontrolilon"
 msgid "Checks the spelling of your documents"
 msgstr "Kontrolas literumon en viaj dokumentoj"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminalo"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Terminalo en via koda redaktilo"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Imitado de Vim"
@@ -106,6 +98,12 @@ msgstr "Vorta Kompletigo"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Montri kompletigan dialogon kun la plej uzataj vortoj el viaj dosieroj"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminalo"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminalo en via koda redaktilo"
 
 #~ msgid "Outline"
 #~ msgstr "Skemo"

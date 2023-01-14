@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2022-11-29 05:37+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
@@ -44,72 +44,72 @@ msgstr "bővítmények"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "Keresés a projektben…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Előnézet megjelenítése"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
 msgstr "Szimbólumok megjelenítése"
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
 msgstr "Szimbólumok megjelenítése"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ág létrehozása"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -601,9 +601,17 @@ msgstr "Nagyítás"
 msgid "Follow System Style"
 msgstr "Rendszertéma követése"
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "Terminál mutatása"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "Menü"
+
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "Terminál elrejtése"
 
 #: src/Widgets/Sidebar.vala:57
 msgid "Open Project Folder…"
@@ -681,6 +689,14 @@ msgstr "A kiválasztott sorok sorrendbe rakása"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Megjegyzés megjelenítése/elrejtése"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Másolás"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Beillesztés"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -767,29 +783,6 @@ msgstr "Egy nap"
 msgid "One month"
 msgstr "Egy hónap"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Terminál mutatása"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Terminál elrejtése"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Terminál"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "Másolás"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "Beillesztés"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nem találhatóak megfelelő szótárak"
@@ -802,6 +795,9 @@ msgstr "Telepítsen legalább egy [aspell] szótárt."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminál"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Oldalsáv"

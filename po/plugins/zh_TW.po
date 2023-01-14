@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2020-06-30 21:12+0000\n"
 "Last-Translator: Nan-Hung Hsieh <nhsieh@cvm.tamu.edu>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -83,14 +83,6 @@ msgstr "拼字檢查器"
 msgid "Checks the spelling of your documents"
 msgstr "檢查您文件的拼字"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "終端機"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "在編輯器中使用終端機"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim仿擬"
@@ -106,6 +98,12 @@ msgstr "單字補完"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "顯示從您檔案中取中最常使用單字的補完對話窗"
+
+#~ msgid "Terminal"
+#~ msgstr "終端機"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "在編輯器中使用終端機"
 
 #~ msgid "Outline"
 #~ msgstr "概略"

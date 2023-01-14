@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2021-08-26 13:23+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/plugins/"
@@ -83,14 +83,6 @@ msgstr "Helyesírás-ellenőrző"
 msgid "Checks the spelling of your documents"
 msgstr "Ellenőrzi a helyesírást a dokumentumaiban"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminál"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Egy terminál a szövegszerkesztőben"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emuláció"
@@ -108,6 +100,12 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Egy kiegészítő párbeszédablak megjelenítése a fájljaiban legtöbbet használt "
 "szavakkal"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminál"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Egy terminál a szövegszerkesztőben"
 
 #~ msgid "Outline"
 #~ msgstr "Kiemelés"
