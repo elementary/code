@@ -54,7 +54,7 @@ public class Code.Sidebar : Gtk.Grid {
         var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
             always_show_image = true,
-            label = _("Open Project Folder…")
+            label = _("Open Folder…")
         };
 
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
