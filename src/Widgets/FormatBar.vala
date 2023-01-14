@@ -138,8 +138,9 @@ public class Code.FormatBar : Gtk.Box {
 
     private void create_tabulation_popover () {
         var editorconfig_infobar = new Gtk.InfoBar () {
-            margin_end = 6,
-            margin_start = 6
+            margin_top = 9,
+            margin_end = 9,
+            margin_start = 9
         };
         editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
         editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
@@ -164,7 +165,6 @@ public class Code.FormatBar : Gtk.Box {
         tab_box.add (tab_width);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            margin_top = 6,
             margin_bottom = 12
         };
         box.add (editorconfig_infobar);
