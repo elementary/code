@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 23:34+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2021-02-15 11:35+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/code/code/sr/>\n"
@@ -287,7 +287,7 @@ msgstr "Преименуј"
 msgid "Move to Trash"
 msgstr "Премести у смеће"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Фасцикле"
 
@@ -524,45 +524,45 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Датотека текста из %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Истицање синтаксе"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "Број реда"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "Издвој језике"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "Обичан текст"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Аутоматско увлачење:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Уметни размаке уместо табулатора:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Ширина картице:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Иди на ред:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -570,7 +570,7 @@ msgstr[0] "%d размак"
 msgstr[1] "%d размака"
 msgstr[2] "%d размака"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -578,7 +578,7 @@ msgstr[0] "%d картица"
 msgstr[1] "%d картице"
 msgstr[2] "%d картица"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -635,8 +635,10 @@ msgid "Hide Terminal"
 msgstr "Сакриј терминал"
 
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "Отвори фасциклу пројекта…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "Отвори фасциклу"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -816,6 +818,9 @@ msgstr "Инсталирајте барем један [аспел] речник
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – завршавање речи"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "Отвори фасциклу пројекта…"
 
 #~ msgid "Terminal"
 #~ msgstr "Терминал"

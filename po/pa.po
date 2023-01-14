@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 23:34+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -268,7 +268,7 @@ msgstr "ਨਾਂ ਬਦਲੋ"
 msgid "Move to Trash"
 msgstr "ਕੂੜੇਦਾਨ ਵਿੱਚ (ਭੇਜੋ) ਸਥਾਨਅੰਤਰਨ ਕਰੋ"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "ਫ਼ੋਲਡਰ"
 
@@ -490,59 +490,59 @@ msgstr "ਪ੍ਰੋਜੈਕਟ ਛਾਣਨੀ"
 msgid "Text file from %s:%d"
 msgstr "ਟੈਕਸਟ (ਲਿਖਤ) ਫ਼ਾਇਲ %s:%d ਤੋਂ"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "ਢਾਂਚਾ ਉਜਾਗਰ ਕਰਨਾ"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "ਲਾਈਨ ਨੰਬਰ"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "ਬੋਲੀਆਂ ਛਾਣੋ"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "ਸਾਦੀ ਲਿਖਤ"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "ਟੈਬ ਦੀ ਚੌੜਾਈ:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "ਇਸ ਲਾਈਨ 'ਤੇ ਜਾਓ:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d ਸਪੇਸ"
 msgstr[1] "%d ਸਪੇਸਾਂ"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d ਟੈਬ"
 msgstr[1] "%d ਟੈਬਾਂ"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -599,8 +599,10 @@ msgid "Hide Terminal"
 msgstr "ਟਰਮੀਨਲ ਲੁਕਾਓ"
 
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -782,6 +784,9 @@ msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ…"
 
 #~ msgid "Terminal"
 #~ msgstr "ਟਰਮੀਨਲ"

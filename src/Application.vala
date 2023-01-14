@@ -130,9 +130,9 @@ namespace Scratch {
             var window = get_last_window ();
             if (window != null && create_new_window) {
                 create_new_window = false;
-                this.new_window ();
+                window = new MainWindow (false); // Will NOT restore documents in additional windows
             } else if (window == null) {
-                window = this.new_window (); // Will restore documents if required
+                window = new MainWindow (true); // Will restore documents if required
                 window.show ();
             } else {
                 window.present ();
@@ -164,10 +164,6 @@ namespace Scratch {
         public MainWindow? get_last_window () {
             unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
-        }
-
-        public MainWindow new_window () {
-            return new MainWindow (this);
         }
 
         public static int main (string[] args) {

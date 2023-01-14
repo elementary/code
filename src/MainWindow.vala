@@ -24,7 +24,8 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        public weak Scratch.Application app { get; construct; }
+        public Scratch.Application app { get; private set; }
+        public bool restore_docs { get; construct; }
 
         public Scratch.Widgets.DocumentView document_view;
 
@@ -144,12 +145,11 @@ namespace Scratch {
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
         };
 
-        public MainWindow (Scratch.Application scratch_app) {
+        public MainWindow (bool restore_docs) {
             Object (
-                application: scratch_app,
-                app: scratch_app,
                 icon_name: Constants.PROJECT_NAME,
-                title: _("Code")
+                title: _("Code"),
+                restore_docs: restore_docs
             );
         }
 
@@ -203,6 +203,9 @@ namespace Scratch {
         }
 
         construct {
+            application = ((Gtk.Application)(GLib.Application.get_default ()));
+            app = (Scratch.Application)application;
+
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code");
 
@@ -473,7 +476,10 @@ namespace Scratch {
             });
 
             document_view.realize.connect (() => {
-                restore_opened_documents ();
+                if (restore_docs) {
+                    restore_opened_documents ();
+                }
+
                 document_view.update_outline_visible ();
             });
 
@@ -1034,7 +1040,7 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            toolbar.format_bar.line_toggle.active = true;
+            toolbar.format_bar.line_menubutton.active = true;
         }
 
         private void action_templates () {

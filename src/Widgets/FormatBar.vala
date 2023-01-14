@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright 2017-2023 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,18 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.FormatBar : Gtk.Grid {
-    private Gtk.SourceLanguageManager manager;
-    private FormatButton lang_toggle;
+public class Code.FormatBar : Gtk.Box {
+    public bool tab_set_by_editor_config { get; set; default = false; }
+    public FormatButton line_menubutton { get; private set;}
+
+    private FormatButton lang_menubutton;
+    private FormatButton tab_menubutton;
+    private Granite.SwitchModelButton space_tab_modelbutton;
+    private Gtk.Entry goto_entry;
     private Gtk.ListBox lang_selection_listbox;
     private Gtk.SearchEntry lang_selection_filter;
+    private Gtk.SourceLanguageManager manager;
     private LangEntry normal_entry;
-
-    private FormatButton tab_toggle;
-    private Granite.SwitchModelButton space_tab_modelbutton;
-    public bool tab_set_by_editor_config { get; set; default = false; }
-
-    public FormatButton line_toggle;
-    private Gtk.Entry goto_entry;
 
     private unowned Scratch.Services.Document? doc = null;
 
@@ -38,26 +37,29 @@ public class Code.FormatBar : Gtk.Grid {
 
         manager = Gtk.SourceLanguageManager.get_default ();
 
-        tab_toggle = new FormatButton ();
-        tab_toggle.icon = new ThemedIcon ("format-indent-more-symbolic");
+        tab_menubutton = new FormatButton () {
+            icon = new ThemedIcon ("format-indent-more-symbolic")
+        };
 
-        lang_toggle = new FormatButton ();
-        lang_toggle.icon = new ThemedIcon ("application-x-class-file-symbolic");
-        lang_toggle.tooltip_text = _("Syntax Highlighting");
+        lang_menubutton = new FormatButton () {
+            icon = new ThemedIcon ("application-x-class-file-symbolic"),
+            tooltip_text = _("Syntax Highlighting")
+        };
 
-        line_toggle = new FormatButton ();
-        line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
-        line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
+        line_menubutton = new FormatButton () {
+            icon = new ThemedIcon ("view-continuous-symbolic")
+        };
+        line_menubutton.tooltip_markup = Granite.markup_accel_tooltip (
             ((Scratch.Application) GLib.Application.get_default ()).get_accels_for_action (
                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
             ),
             _("Line number")
         );
 
-        column_homogeneous = true;
-        add (tab_toggle);
-        add (lang_toggle);
-        add (line_toggle);
+        homogeneous = true;
+        add (tab_menubutton);
+        add (lang_menubutton);
+        add (line_menubutton);
 
         create_tabulation_popover ();
         create_language_popover ();
@@ -111,10 +113,11 @@ public class Code.FormatBar : Gtk.Grid {
 
         popover_content.show_all ();
 
-        var lang_popover = new Gtk.Popover (lang_toggle);
+        var lang_popover = new Gtk.Popover (lang_menubutton);
         lang_popover.position = Gtk.PositionType.BOTTOM;
         lang_popover.add (popover_content);
-        lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+
+        lang_menubutton.popover = lang_popover;
 
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
@@ -124,7 +127,7 @@ public class Code.FormatBar : Gtk.Grid {
 
     private void select_language (LangEntry lang, bool update_source_view = true) {
         lang_selection_listbox.select_row (lang);
-        lang_toggle.text = lang.lang_name;
+        lang_menubutton.text = lang.lang_name;
         if (update_source_view) {
             lang.active = true;
             doc.source_view.language = lang.lang_id != null ? manager.get_language (lang.lang_id) : null;
@@ -134,6 +137,13 @@ public class Code.FormatBar : Gtk.Grid {
     }
 
     private void create_tabulation_popover () {
+        var editorconfig_infobar = new Gtk.InfoBar () {
+            margin_end = 6,
+            margin_start = 6
+        };
+        editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
+        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
+
         var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
 
         space_tab_modelbutton = new Granite.SwitchModelButton (_("Insert Spaces Instead Of Tabs"));
@@ -157,17 +167,18 @@ public class Code.FormatBar : Gtk.Grid {
             margin_top = 6,
             margin_bottom = 12
         };
+        box.add (editorconfig_infobar);
         box.add (autoindent_modelbutton);
         box.add (space_tab_modelbutton);
         box.add (tab_box);
         box.show_all ();
 
-        var tab_popover = new Gtk.Popover (tab_toggle) {
+        var tab_popover = new Gtk.Popover (tab_menubutton) {
             position = Gtk.PositionType.BOTTOM
         };
         tab_popover.add (box);
 
-        tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+        tab_menubutton.popover = tab_popover;
 
         Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
         Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
@@ -175,10 +186,12 @@ public class Code.FormatBar : Gtk.Grid {
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
 
+        editorconfig_infobar.revealed = tab_set_by_editor_config;
         space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
-
         tab_box.sensitive = !tab_set_by_editor_config;
+
         notify["tab-set-by-editor-config"].connect (() => {
+            editorconfig_infobar.revealed = tab_set_by_editor_config;
             space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
             tab_box.sensitive = !tab_set_by_editor_config;
         });
@@ -203,7 +216,7 @@ public class Code.FormatBar : Gtk.Grid {
         buffer.get_iter_at_offset (out iter, position);
         var line = iter.get_line () + 1;
 
-        line_toggle.text = "%d.%d".printf (line, iter.get_line_offset ());
+        line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset ());
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset ());
     }
 
@@ -220,11 +233,12 @@ public class Code.FormatBar : Gtk.Grid {
         line_grid.attach (goto_entry, 1, 0, 1, 1);
         line_grid.show_all ();
 
-        var line_popover = new Gtk.Popover (line_toggle);
+        var line_popover = new Gtk.Popover (line_menubutton);
         line_popover.position = Gtk.PositionType.BOTTOM;
         line_popover.add (line_grid);
 
-        line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
+        line_menubutton.popover = line_popover;
+
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_entry.activate.connect_after (() => {
             int line, offset;
@@ -258,15 +272,9 @@ public class Code.FormatBar : Gtk.Grid {
 
     public void set_tab_width (int indent_width) {
         if (space_tab_modelbutton.active) {
-            tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
+            tab_menubutton.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
-            tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
-        }
-
-        if (tab_set_by_editor_config) {
-            tab_toggle.tooltip_text = _("Indent width and style set by EditorConfig file");
-        } else {
-            tab_toggle.tooltip_text = null;
+            tab_menubutton.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
         }
 
         if (doc != null) {
@@ -290,10 +298,10 @@ public class Code.FormatBar : Gtk.Grid {
         }
     }
 
-    public class FormatButton : Gtk.ToggleButton {
+    public class FormatButton : Gtk.MenuButton {
         public unowned string text {
             set {
-                label_widget.label = value;
+                label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
             }
         }
         public unowned GLib.Icon? icon {
@@ -309,18 +317,22 @@ public class Code.FormatBar : Gtk.Grid {
         private Gtk.Label label_widget;
 
         construct {
-            img = new Gtk.Image ();
-            img.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+            img = new Gtk.Image () {
+                icon_size = Gtk.IconSize.SMALL_TOOLBAR
+            };
 
-            label_widget = new Gtk.Label (null);
-            label_widget.ellipsize = Pango.EllipsizeMode.END;
+            label_widget = new Gtk.Label (null) {
+                ellipsize = Pango.EllipsizeMode.END,
+                use_markup = true
+            };
 
-            var grid = new Gtk.Grid ();
-            grid.halign = Gtk.Align.CENTER;
-            grid.margin_start = grid.margin_end = 6;
-            grid.add (img);
-            grid.add (label_widget);
-            add (grid);
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                halign = Gtk.Align.CENTER
+            };
+            box.add (img);
+            box.add (label_widget);
+
+            add (box);
         }
     }
 
