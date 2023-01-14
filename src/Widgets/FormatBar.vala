@@ -40,7 +40,6 @@ public class Code.FormatBar : Gtk.Grid {
 
         tab_toggle = new FormatButton ();
         tab_toggle.icon = new ThemedIcon ("format-indent-more-symbolic");
-        bind_property ("tab-set-by-editor-config", tab_toggle, "sensitive", BindingFlags.INVERT_BOOLEAN);
 
         lang_toggle = new FormatButton ();
         lang_toggle.icon = new ThemedIcon ("application-x-class-file-symbolic");
@@ -172,9 +171,17 @@ public class Code.FormatBar : Gtk.Grid {
 
         Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
         Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
-        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_modelbutton, "active", SettingsBindFlags.SET);
+        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_modelbutton, "active", SettingsBindFlags.GET);
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
+
+        space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
+
+        tab_box.sensitive = !tab_set_by_editor_config;
+        notify["tab-set-by-editor-config"].connect (() => {
+            space_tab_modelbutton.sensitive = !tab_set_by_editor_config;
+            tab_box.sensitive = !tab_set_by_editor_config;
+        });
     }
 
     private void format_tab_header_from_global_settings () {
@@ -258,6 +265,8 @@ public class Code.FormatBar : Gtk.Grid {
 
         if (tab_set_by_editor_config) {
             tab_toggle.tooltip_text = _("Indent width and style set by EditorConfig file");
+        } else {
+            tab_toggle.tooltip_text = null;
         }
 
         if (doc != null) {
