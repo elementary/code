@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 23:34+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2023-01-13 23:34+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
@@ -270,7 +270,7 @@ msgstr "Перейменувати"
 msgid "Move to Trash"
 msgstr "Перемістити до смітника"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Теки"
 
@@ -496,39 +496,39 @@ msgstr "Фільтрувати проєкти"
 msgid "Text file from %s:%d"
 msgstr "Текстовий файл з %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Підсвічування синтаксису"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "Номер рядка"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "Фільтрувати мови"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 msgid "Automatic Indentation"
 msgstr "Автовідступ"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Вставляти пробіли замість табуляцій"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 msgid "Tab width"
 msgstr "Ширина табуляції"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Перейти до рядка:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -536,7 +536,7 @@ msgstr[0] "%d пробіл"
 msgstr[1] "%d пробіли"
 msgstr[2] "%d пробілів"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -544,7 +544,7 @@ msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr "Ширина і стиль відступу визначаються файлом EditorConfig"
 
@@ -601,8 +601,10 @@ msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "Відкрити теку проєкту…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "Відкрити теку"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -782,6 +784,9 @@ msgstr "Установіть принаймні один словник [aspell]
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "Відкрити теку проєкту…"
 
 #~ msgid "Terminal"
 #~ msgstr "Термінал"
