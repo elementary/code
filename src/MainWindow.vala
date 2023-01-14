@@ -1034,7 +1034,7 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            toolbar.format_bar.line_toggle.active = true;
+            toolbar.format_bar.line_menubutton.active = true;
         }
 
         private void action_templates () {
