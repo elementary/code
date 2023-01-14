@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: elementary/docker:unstable
+      image: elementary/docker:next-unstable
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Dependencies
       run: |
         apt update
@@ -25,7 +25,6 @@ jobs:
         DESTDIR: out
       run: |
         meson build
-        ninja -C build
         ninja -C build install
 
   flatpak:
@@ -44,7 +43,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
@@ -72,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Lint
         run: io.elementary.vala-lint -d .
