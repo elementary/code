@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018–2021 elementary, Inc. <contact@elementary.io> -->
+<!-- Copyright 2018–2023 elementary, Inc. <contact@elementary.io> -->
 <component type="desktop">
   <id>io.elementary.code</id>
+  <launchable type="desktop-id">io.elementary.code.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
+
   <name>Code</name>
   <summary>The editor that works for you</summary>
   <description>
@@ -25,6 +26,41 @@
       <li>Optional mini-map to make navigating large files easier</li>
     </ul>
   </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/code/6.2.0/data/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/elementary/code/6.2.0/data/screenshot-dark.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>io.elementary.code</binary>
+  </provides>
+
+  <recommends>
+    <display_length compare="ge">648</display_length>
+  </recommends>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <url type="homepage">https://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/code/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/code/discussions/categories/q-a</url>
+  <url type="translate">https://l10n.elementary.io/projects/code</url>
+
+  <developer_name>elementary, Inc.</developer_name>
+  <project_group>elementary</project_group>
+  <update_contact>contact_AT_elementary.io</update_contact>
+
   <releases>
     <release version="6.3.0" date="2022-08-10" urgency="medium">
       <description>
@@ -43,6 +79,7 @@
         </ul>
       </description>
     </release>
+
     <release version="6.2.0" date="2022-04-01" urgency="medium">
       <description>
         <p>Improvements:</p>
@@ -66,6 +103,7 @@
         </ul>
       </description>
     </release>
+
     <release version="6.1.0" date="2021-11-23" urgency="medium">
       <description>
         <p>Improvements:</p>
@@ -88,6 +126,7 @@
         </ul>
       </description>
     </release>
+
     <release version="6.0.1" date="2021-08-28" urgency="medium">
       <description>
         <p>Fixes:</p>
@@ -106,6 +145,7 @@
         </ul>
       </description>
     </release>
+
     <release version="6.0.0" date="2021-07-15" urgency="medium">
       <description>
         <p>New features:</p>
@@ -142,167 +182,5 @@
         </ul>
       </description>
     </release>
-    <release version="3.4.1" date="2020-06-09">
-      <description>
-        <p>Fixes:</p>
-        <ul>
-          <li>Fix empty sidebar layout, ensuring folders can always be added</li>
-        </ul>
-        <p>Minor updates:</p>
-        <ul>
-          <li>Scroll past the end of a file</li>
-          <li>More efficiently save and restore window position</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.4.0" date="2020-04-01">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>Include Git status in file tooltips</li>
-          <li>Option for explicit case-sensitive Find</li>
-        </ul>
-        <p>Other updates:</p>
-        <ul>
-          <li>Correctly show Toggle Comment menu item when no text is selected</li>
-          <li>Fixed font switch alignment</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.3.0" date="2020-02-29">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>New "Close Other Folders" menu item to help clean up your sidebar</li>
-          <li>Save and restore cyclic search setting</li>
-        </ul>
-        <p>Other updates:</p>
-        <ul>
-          <li>Add keyboard shortcuts to menu items</li>
-          <li>Make sidebar folder items not selectable</li>
-          <li>Center new windows</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.2.0" date="2020-01-09">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>Visually deprioritize .gitignored files in project sidebar</li>
-          <li>Smart cut/copy lines with no active selection</li>
-          <li>Add a confirmation dialog to the "Restore" action</li>
-          <li>Add "Open In" menu to the top-level folder in the folder manager</li>
-          <li>Don't show temporary files in the folder manager</li>
-          <li>Add brackets completion and auto-indent by default</li>
-          <li>Zoom terminal plugin with keyboard</li>
-          <li>Honor global privacy setting when saving and restoring</li>
-        </ul>
-        <p>Other updates:</p>
-        <ul>
-          <li>Simplify "Draw spaces" preference</li>
-          <li>Fix the keyboard shortcut for going backwards in search results</li>
-          <li>Fix opening files from relative paths in Terminal</li>
-          <li>Fix null file dialog when opening a new window via the dock</li>
-          <li>Add "=" as a zoom key</li>
-          <li>Change search entry icon when results aren't found</li>
-          <li>Enter name of new file before creating it</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.1.1" date="2019-03-06">
-      <description>
-        <ul>
-          <li>Use Granite.MessageDialog throughout</li>
-          <li>Include non-text files in sidebar</li>
-          <li>Fix Remove Current View</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.1.0" date="2019-03-06">
-      <description>
-        <ul>
-          <li>Fix New Window desktop action behavior</li>
-          <li>Properly synchronize Ctrl+N key presses with number of new documents spawned</li>
-          <li>Build system fix for editorconfig dependency</li>
-          <li>Add Change Branch context menu item</li>
-          <li>Avoid possible startup crash related to how plugins load</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.0.2" date="2019-01-03">
-      <description>
-        <ul>
-          <li>Smarter file saving behavior</li>
-          <li>File saving fixes</li>
-          <li>Don't add temporary files to tab restore</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.0.1" date="2018-11-30">
-      <description>
-        <ul>
-          <li>Don't recreate deleted files when restoring session</li>
-          <li>Restore line wrap preference</li>
-          <li>Add accel tooltips</li>
-          <li>Minor bug fixes</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.0" date="2018-10-16"/>
-    <release version="2.4.1" date="2017-02-20"/>
   </releases>
-  <provides>
-    <binary>io.elementary.code</binary>
-  </provides>
-  <content_rating type="oars-1.1">
-    <content_attribute id="violence-cartoon">none</content_attribute>
-    <content_attribute id="violence-fantasy">none</content_attribute>
-    <content_attribute id="violence-realistic">none</content_attribute>
-    <content_attribute id="violence-bloodshed">none</content_attribute>
-    <content_attribute id="violence-sexual">none</content_attribute>
-    <content_attribute id="violence-desecration">none</content_attribute>
-    <content_attribute id="violence-slavery">none</content_attribute>
-    <content_attribute id="violence-worship">none</content_attribute>
-    <content_attribute id="drugs-alcohol">none</content_attribute>
-    <content_attribute id="drugs-narcotics">none</content_attribute>
-    <content_attribute id="drugs-tobacco">none</content_attribute>
-    <content_attribute id="sex-nudity">none</content_attribute>
-    <content_attribute id="sex-themes">none</content_attribute>
-    <content_attribute id="sex-homosexuality">none</content_attribute>
-    <content_attribute id="sex-prostitution">none</content_attribute>
-    <content_attribute id="sex-adultery">none</content_attribute>
-    <content_attribute id="sex-appearance">none</content_attribute>
-    <content_attribute id="language-profanity">none</content_attribute>
-    <content_attribute id="language-humor">none</content_attribute>
-    <content_attribute id="language-discrimination">none</content_attribute>
-    <content_attribute id="social-chat">none</content_attribute>
-    <content_attribute id="social-info">none</content_attribute>
-    <content_attribute id="social-audio">none</content_attribute>
-    <content_attribute id="social-location">none</content_attribute>
-    <content_attribute id="social-contacts">none</content_attribute>
-    <content_attribute id="money-purchasing">none</content_attribute>
-    <content_attribute id="money-gambling">none</content_attribute>
-  </content_rating>
-  <developer_name>elementary, Inc.</developer_name>
-  <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/code/issues</url>
-  <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://github.com/elementary/code/discussions/categories/q-a</url>
-  <url type="translate">https://l10n.elementary.io/projects/code</url>
-  <update_contact>contact_AT_elementary.io</update_contact>
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/master/data/screenshot.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/master/data/screenshot-dark.png</image>
-    </screenshot>
-  </screenshots>
 </component>
