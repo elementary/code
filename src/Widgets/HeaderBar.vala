@@ -279,7 +279,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         });
 
         Scratch.settings.changed["font"].connect (() => {
-            var active_window = (MainWindow) ((Gtk.Application) GLib.Application.get_default ()).active_window;
+            var active_window = (MainWindow) app_instance.active_window;
             if (active_window != null) {
                 zoom_default_button.label = "%.0f%%".printf (active_window.get_current_font_size () * 10);
             }
