@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-13 23:34+0000\n"
-"PO-Revision-Date: 2023-01-13 10:04+0000\n"
+"PO-Revision-Date: 2023-01-14 17:13+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -57,28 +57,20 @@ msgid "Find on Page…"
 msgstr "Найти на странице…"
 
 #: src/MainWindow.vala:311
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Скрыть панель поиска"
+msgstr "Скрыть панель проекта"
 
 #: src/MainWindow.vala:316
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Предпросмотр"
+msgstr "Показать панель проекта"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "Переключить обводку символов"
+msgstr "Скрыть обводку символов"
 
 #: src/MainWindow.vala:330
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "Переключить обводку символов"
+msgstr "Показать обводку символов"
 
 #: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
@@ -254,7 +246,7 @@ msgstr "Не восстанавливать"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr "Все равно восстановить"
+msgstr "Всё равно восстановить"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
@@ -373,7 +365,7 @@ msgstr "Код не открывает файлы этого типа."
 
 #: src/Services/Document.vala:278
 msgid "Load Anyway"
-msgstr "Открыть всё равно"
+msgstr "Всё равно открыть"
 
 #: src/Services/Document.vala:299
 #, c-format
@@ -519,22 +511,16 @@ msgid "Plain Text"
 msgstr "Простой текст"
 
 #: src/Widgets/FormatBar.vala:138
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Автоматическая расстановка отступов:"
+msgstr "Автоматическая расстановка отступов"
 
 #: src/Widgets/FormatBar.vala:140
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Вставлять пробелы вместо табуляций:"
+msgstr "Вставлять пробелы вместо табуляций"
 
 #: src/Widgets/FormatBar.vala:142
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Ширина табуляции:"
+msgstr "Ширина табуляции"
 
 #: src/Widgets/FormatBar.vala:204
 msgid "Go To Line:"
