@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:13+0000\n"
 "PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/plugins/hi/>\n"
@@ -82,15 +82,6 @@ msgstr "वर्तनी जाँच करनेवाला"
 msgid "Checks the spelling of your documents"
 msgstr "आपके दस्तावेज़ों की वर्तनी की जाँच करता है"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "टर्मिनल"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "आपके पाठ संपादक में एक टर्मिनल"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "विम इम्यूलेशन"
@@ -107,6 +98,13 @@ msgstr "शब्द पूर्णता"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "अपनी फ़ाइलों में बहुत बार उपयोग किए जाने वाले शब्दों का उपयोग करके एक पूर्ण संवाद दिखाएं"
+
+#~ msgid "Terminal"
+#~ msgstr "टर्मिनल"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "आपके पाठ संपादक में एक टर्मिनल"
 
 #~ msgid "Outline"
 #~ msgstr "बाह्यरेखा"

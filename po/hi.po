@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -44,70 +44,70 @@ msgstr "प्लगइन्स का समूह"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "एक फ़ोल्डर खोलें"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "पूर्वावलोकन दिखाएँ"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "संकेत"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "सभी फाइलें"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "टेक्स्ट फाइलें"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "खोलें"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "खोलें (_O)"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "शाखा बदलें"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "वरीयताएँ"
 
@@ -278,7 +278,7 @@ msgstr "पुनः नामकरण"
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "फोल्डर"
 
@@ -510,59 +510,59 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "टेक्स्ट फाइलें %s से : %d तक"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "सिंटेक्स हाईलाइटिंग"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "पंक्ति नंबर"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "भाषाएं फ़िल्टर करें"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "सादा पाठ"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "स्वचालित हाशिया:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "टैब की जगह रिक्ति डालें:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "टैब चौड़ाई :"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "पंक्ति पर जायें:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d स्पेस"
 msgstr[1] "%d  स्पेस"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d टैब"
 msgstr[1] "%d  टैब"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -606,15 +606,23 @@ msgstr "ज़ूम इन"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "टर्मिनल दिखाएँ"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "मेन्यू"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "टर्मिनल छिपाएं"
+
 #: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
-msgstr "एक फ़ोल्डर खोलें"
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "फाइल खोलें"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -688,6 +696,14 @@ msgstr "चयनित लाइनों को क्रमबद्ध क�
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल करें"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "प्रतिलिपि"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "चिपकाएं"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -778,29 +794,6 @@ msgstr "एक दिन"
 msgid "One month"
 msgstr "एक महीना"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "टर्मिनल दिखाएँ"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "टर्मिनल छिपाएं"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "टर्मिनल"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "प्रतिलिपि"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "चिपकाएं"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "कोई उपयुक्त डिक्शनरी नहीं मिला"
@@ -813,6 +806,14 @@ msgstr "कृपया कम से कम एक [aspell] शब्दको�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - शब्द समापन"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "एक फ़ोल्डर खोलें"
+
+#~ msgid "Terminal"
+#~ msgstr "टर्मिनल"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "बाजू की पट्टी टॉगल करें"

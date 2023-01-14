@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2016-03-03 17:53+0000\n"
 "Last-Translator: Dmitry Taranovich <vorbissmcgregor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,70 +38,70 @@ msgstr "Набор надбудоў"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "Схаваць поле пошуку"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Адкрыць тэчку"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Схаваць поле пошуку"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Паказаць перадпрагляд"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Сімвалы"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Усе файлы"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Тэкставыя файлы"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "Адкрыць некалькі файлаў"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "Адкрыць"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_Адкрыць"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_Адмяніць"
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Змяніць параметры Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -277,7 +277,7 @@ msgstr ""
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Тэчкі"
 
@@ -519,60 +519,60 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Тэкставы файл з "
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Падсветка сінтаксісу"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 #, fuzzy
 msgid "Line number"
 msgstr "Паказваць нумар радку:"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Аўтаматычнае структураванне:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Устаўляць прабелы замест табуляцый:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Шырыня ўкладкі:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Перайсці да радку:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Стварыць укладку"
 msgstr[1] "Стварыць укладку"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -618,14 +618,21 @@ msgstr "Маштабіраваць"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "Паказаць Тэрмінал"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr ""
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "Схаваць Тэрмінал"
+
 #: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
+msgid "Open Folder…"
 msgstr "Адкрыць тэчку"
 
 #: src/Widgets/Sidebar.vala:60
@@ -700,6 +707,14 @@ msgstr ""
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr ""
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Капіраваць"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Уставіць"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -794,29 +809,6 @@ msgstr "Адзін дзень"
 msgid "One month"
 msgstr "Адзін месяц"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Паказаць Тэрмінал"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Схаваць Тэрмінал"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Тэрмінал"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "Капіраваць"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "Уставіць"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -829,6 +821,14 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Дапаўненне слоў"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "Адкрыць тэчку"
+
+#~ msgid "Terminal"
+#~ msgstr "Тэрмінал"
 
 #~ msgid "Find…"
 #~ msgstr "Знайсці..."

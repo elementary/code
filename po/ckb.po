@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2022-07-31 11:42+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -39,70 +39,70 @@ msgstr "پێوەکراو"
 msgid "[FILE…]"
 msgstr "[پەڕگە...]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "دۆزینەوە لە پرۆژەدا…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "No Project Selected"
 msgid "Show Projects Sidebar"
 msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "هیچ سمبولێک نەدۆزرایەوە"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "هەموو پەڕگەکان"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "پەڕگە دەقییەکان"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "کردنەوەی چەند پەڕگەیەک"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "كردنەوە"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_کردنەوە"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_هەڵوەشاندنەوە"
 
@@ -141,7 +141,7 @@ msgstr "ناوی لق دەبێت بێ هاوتا بێت و شوێن یاساکا
 msgid "Create Branch"
 msgstr "دروستکردنی لق"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "هەڵبژاردەکان"
 
@@ -274,7 +274,7 @@ msgstr "ناوگۆڕین"
 msgid "Move to Trash"
 msgstr "ناردنی بۆ تەنەکە"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "بوخچەکان"
 
@@ -498,59 +498,59 @@ msgstr "فلتەرکردنی پڕۆژەکان"
 msgid "Text file from %s:%d"
 msgstr "پەڕگەی دەقی لە %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "بەرچاوکردنی ڕستەکار"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "ژمارەی دێڕ"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "فلتەرکردنی زمانەکان"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "دەقی خاو"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "دانانی خۆکارانەی بۆشایی سەرەتای دێڕ:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "لەجیاتی تابەکان بۆشاییەکان دابنێ:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "پانایی تابەکان:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "بڕۆ بۆ دێڕی:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d بۆشایی"
 msgstr[1] "%d بۆشایی"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d تاب"
 msgstr[1] "%d تاب"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -594,13 +594,23 @@ msgstr "هێنانەپێش (زووم)"
 msgid "Follow System Style"
 msgstr "هەمان ستایلی سیستەم هەڵگرە"
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "پیشاندانی تێرمیناڵ"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "لیست"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "شاردنەوەی تێرمیناڵ"
+
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "کردنەوەی بوخچەی پڕۆژە…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "کردنەوەی بوخچە"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -674,6 +684,14 @@ msgstr "ڕیزکردنی هێڵە دیاریکراوەکان"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "کردنەوەی/داخستنی کۆمێنت"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "لەبەرگرتنەوە"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "لکاندن"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -760,29 +778,6 @@ msgstr "یەک ڕۆژ"
 msgid "One month"
 msgstr "یەک مانگ"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "پیشاندانی تێرمیناڵ"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "شاردنەوەی تێرمیناڵ"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "تێرمیناڵ"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "لەبەرگرتنەوە"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "لکاندن"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "هیچ فەرهەنگێکی گونجاو نەدۆزرایەوە"
@@ -795,6 +790,12 @@ msgstr "تکایە لانیەکم یەک فەرهەنگی [aspell] دابمەز�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - تەواوکاری وشە"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "کردنەوەی بوخچەی پڕۆژە…"
+
+#~ msgid "Terminal"
+#~ msgstr "تێرمیناڵ"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "کردنەوەی/داخستنی سایدباڕ"

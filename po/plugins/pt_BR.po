@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:13+0000\n"
 "PO-Revision-Date: 2019-11-22 03:25+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
@@ -83,14 +83,6 @@ msgstr "Corretor Ortográfico"
 msgid "Checks the spelling of your documents"
 msgstr "Verifica a ortografia dos seus documentos"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Um terminal no seu editor de código"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulação do Vim"
@@ -107,6 +99,12 @@ msgstr "Completar Palavras"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Exibir diálogo de conclusão com as palavras mais usadas nos seus arquivos"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Um terminal no seu editor de código"
 
 #~ msgid "Outline"
 #~ msgstr "Contorno"

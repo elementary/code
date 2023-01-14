@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -38,70 +38,70 @@ msgstr "rozszyrzynie"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "Ôtwōrz katalog projektu…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Pokoż podglōnd"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Niy szło znojś żodnych symboli"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_Pociep"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Gałōńź"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "Preferyncyje"
 
@@ -277,7 +277,7 @@ msgstr "Przemianuj"
 msgid "Move to Trash"
 msgstr "Przeniyś do hasioka"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Katalogi"
 
@@ -513,45 +513,45 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Zbiōr tekstowy ze %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Wyrōżnianie składnie"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "Numer wiersza"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "Filtruj jynzyki"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "Ajnfachowy tekst"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Autōmatyczne wciyńcia:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Wraź spacyje zamiast tabulatorōw:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Szyrokość tabulacyje:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Idź do wiersza:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -559,7 +559,7 @@ msgstr[0] "%d ôdstymp"
 msgstr[1] "%d ôdstympy"
 msgstr[2] "%d ôdstympōw"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -567,7 +567,7 @@ msgstr[0] "%d tabulacyjo"
 msgstr[1] "%d tabulacyje"
 msgstr[2] "%d tabulacyji"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -611,15 +611,23 @@ msgstr "Powiynkszynie"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "Pokoż terminal"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "Myni"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "Skryj terminal"
+
 #: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open project folder…"
-msgid "Open Project Folder…"
-msgstr "Ôtwōrz katalog projektu…"
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "Ôtwōrz katalog"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -693,6 +701,14 @@ msgstr "Zortuj zaznaczōne wiersze"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Skopiuj"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Wraź"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -783,29 +799,6 @@ msgstr "Jedyn dziyń"
 msgid "One month"
 msgstr "Jedyn miesiōnc"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Pokoż terminal"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Skryj terminal"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Terminal"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "Skopiuj"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "Wraź"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Niy szło znojś ôdpednich słownikōw"
@@ -818,6 +811,14 @@ msgstr "Zainstaluj aby jedyn słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#, fuzzy
+#~| msgid "Open project folder…"
+#~ msgid "Open Project Folder…"
+#~ msgstr "Ôtwōrz katalog projektu…"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Szaltrowanie panelu bocznego"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2022-12-10 06:25+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -44,72 +44,72 @@ msgstr "插件"
 msgid "[FILE…]"
 msgstr "[文件…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "代码"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "隐藏搜索栏"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "在项目中查找…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "隐藏搜索栏"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "显示预览"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
 msgstr "激活大纲符号"
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
 msgstr "激活大纲符号"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "所有文件"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "文本文件"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "打开一些文件"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -148,7 +148,7 @@ msgstr "分支名称不能与其他分支相同，且必须遵循 Git 的命名�
 msgid "Create Branch"
 msgstr "创建分支"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "首选项"
 
@@ -276,7 +276,7 @@ msgstr "重命名"
 msgid "Move to Trash"
 msgstr "移至回收站"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "文件夹"
 
@@ -490,57 +490,57 @@ msgstr "筛选项目"
 msgid "Text file from %s:%d"
 msgstr "来自 %s:%d 的文本文档"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "语法高亮"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "行号"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "过滤器语言"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "纯文本"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "自动缩进："
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "空格代替制表符："
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "制表符宽度："
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "跳转至："
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d 空格"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d 标签"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -584,13 +584,23 @@ msgstr "放大"
 msgid "Follow System Style"
 msgstr "跟随系统样式"
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "显示终端"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "菜单"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "隐藏终端"
+
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "打开项目文件夹…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "打开文件夹"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -664,6 +674,14 @@ msgstr "整理选中文本"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "激活备注"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "复制"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "粘贴"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -750,29 +768,6 @@ msgstr "一天"
 msgid "One month"
 msgstr "一月"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "显示终端"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "隐藏终端"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "终端"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "复制"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "粘贴"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "未找到合适的词典"
@@ -785,6 +780,12 @@ msgstr "请安装至少一个 [aspell] 词典。"
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 词语补全"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "打开项目文件夹…"
+
+#~ msgid "Terminal"
+#~ msgstr "终端"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "激活侧边栏"

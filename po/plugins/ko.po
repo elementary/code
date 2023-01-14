@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:13+0000\n"
 "PO-Revision-Date: 2022-08-06 17:10+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/plugins/ko/"
@@ -83,14 +83,6 @@ msgstr "맞춤법 검사기"
 msgid "Checks the spelling of your documents"
 msgstr "문서의 철자를 검사합니다"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "터미널"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "코드 편집기의 터미널"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim 에뮬레이션"
@@ -106,6 +98,12 @@ msgstr "단어 완성"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "파일에서 가장 많이 사용한 단어로 완료 대화 상자 표시하기"
+
+#~ msgid "Terminal"
+#~ msgstr "터미널"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "코드 편집기의 터미널"
 
 #~ msgid "Outline"
 #~ msgstr "아웃라인"

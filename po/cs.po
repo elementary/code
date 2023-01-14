@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2022-03-02 13:56+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -43,70 +43,70 @@ msgstr "zásuvný modul"
 msgid "[FILE…]"
 msgstr "[SOUBOR…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "Skrýt vyhledávací panel"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "Vyhledat projekt…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Skrýt vyhledávací panel"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Zobrazit náhled"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Nenalezeny žádné symboly"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Textové soubory"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "Otevřít nějaké soubory"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_Otevřít"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_Zrušit"
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Vytvořit větev"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "Předvolby"
 
@@ -278,7 +278,7 @@ msgstr "Přejmenovat"
 msgid "Move to Trash"
 msgstr "Přesunout do Koše"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Složky"
 
@@ -503,45 +503,45 @@ msgstr "Filtrovat projekty"
 msgid "Text file from %s:%d"
 msgstr "Textový soubor z %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Zvýraznění syntaxe"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "Číslo řádku"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "Filtrovat jazyky"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "Prostý text"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Automatické odsazování:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Vkládat mezery místo tabulátorů:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Šířka tabulátoru:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Přejít na řádek:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -549,7 +549,7 @@ msgstr[0] "%d mezera"
 msgstr[1] "%d mezery"
 msgstr[2] "%d mezer"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -557,7 +557,7 @@ msgstr[0] "%d tabulátor"
 msgstr[1] "%d tabulátory"
 msgstr[2] "%d tabulátorů"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -601,13 +601,23 @@ msgstr "Přiblížit"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "Zobrazit terminál"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "Menu"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "Skrýt terminál"
+
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "Otevřít složku projektu…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "Otevřít složku"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -681,6 +691,14 @@ msgstr "Seřadit vybrané řádky"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Zobraz/nezobraz. komentář"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Zkopírovat"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Vložit"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -767,29 +785,6 @@ msgstr "Jeden den"
 msgid "One month"
 msgstr "Jeden měsíc"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Zobrazit terminál"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Skrýt terminál"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Terminál"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "Zkopírovat"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "Vložit"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nebyly nalezeny žádné vhodné slovníky"
@@ -802,6 +797,12 @@ msgstr "Nainstalujte prosím alespoň jeden [aspell] slovník."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – dokončování slov"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "Otevřít složku projektu…"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminál"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Skrýt/Zobrazit postranní panel"

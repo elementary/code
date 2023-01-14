@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
-"PO-Revision-Date: 2023-01-13 10:04+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
+"PO-Revision-Date: 2023-01-14 17:13+0000\n"
+"Last-Translator: Danil Shishkevich <danilshishkevich@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -34,80 +34,72 @@ msgstr "Распечатать информацию о версии и выйт�
 
 #: src/Application.vala:42
 msgid "Set of plugins"
-msgstr "Набор надстроек"
+msgstr "Набор расширений"
 
 #: src/Application.vala:42
 msgid "plugin"
-msgstr "Набор надстроек"
+msgstr "расширение"
 
 #: src/Application.vala:43
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 msgid "Find on Page…"
 msgstr "Найти на странице…"
 
-#: src/MainWindow.vala:308
-#, fuzzy
-#| msgid "Hide search bar"
+#: src/MainWindow.vala:311
 msgid "Hide Projects Sidebar"
-msgstr "Скрыть панель поиска"
+msgstr "Скрыть панель проекта"
 
-#: src/MainWindow.vala:313
-#, fuzzy
-#| msgid "Show Preview"
+#: src/MainWindow.vala:316
 msgid "Show Projects Sidebar"
-msgstr "Предпросмотр"
+msgstr "Показать панель проекта"
 
-#: src/MainWindow.vala:322
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
-msgstr "Переключить обводку символов"
+msgstr "Скрыть обводку символов"
 
-#: src/MainWindow.vala:327
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
+#: src/MainWindow.vala:330
 msgid "Show Symbol Outline"
-msgstr "Переключить обводку символов"
+msgstr "Показать обводку символов"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -147,7 +139,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Создать ветку"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "Настройки"
 
@@ -254,7 +246,7 @@ msgstr "Не восстанавливать"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr "Все равно восстановить"
+msgstr "Всё равно восстановить"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
 msgid "Other Application…"
@@ -277,7 +269,7 @@ msgstr "Переименовать"
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Папки"
 
@@ -373,7 +365,7 @@ msgstr "Код не открывает файлы этого типа."
 
 #: src/Services/Document.vala:278
 msgid "Load Anyway"
-msgstr "Открыть всё равно"
+msgstr "Всё равно открыть"
 
 #: src/Services/Document.vala:299
 #, c-format
@@ -502,45 +494,39 @@ msgstr "Отфильтровать проекты"
 msgid "Text file from %s:%d"
 msgstr "Текстовый файл от %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "Подсветка синтаксиса"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "Номера строк"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "Фильтр языков"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "Простой текст"
 
-#: src/Widgets/FormatBar.vala:138
-#, fuzzy
-#| msgid "Automatic indentation:"
-msgid "Automatic Indentation"
-msgstr "Автоматическая расстановка отступов:"
-
-#: src/Widgets/FormatBar.vala:140
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
-msgid "Insert Spaces Instead Of Tabs"
-msgstr "Вставлять пробелы вместо табуляций:"
-
 #: src/Widgets/FormatBar.vala:142
-#, fuzzy
-#| msgid "Tab width:"
-msgid "Tab width"
-msgstr "Ширина табуляции:"
+msgid "Automatic Indentation"
+msgstr "Автоматическая расстановка отступов"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:144
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Вставлять пробелы вместо табуляций"
+
+#: src/Widgets/FormatBar.vala:146
+msgid "Tab width"
+msgstr "Ширина табуляции"
+
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "Перейти к строке:"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -548,7 +534,7 @@ msgstr[0] "%d пробел"
 msgstr[1] "%d пробела"
 msgstr[2] "%d пробелов"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -556,7 +542,7 @@ msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr "Использовать ширину и стиль отступов из файла EditorConfig"
 
@@ -600,13 +586,23 @@ msgstr "Увеличить масштаб"
 msgid "Follow System Style"
 msgstr "Использовать стиль системы"
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "Показать Терминал"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "Меню"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "Скрыть Терминал"
+
 #: src/Widgets/Sidebar.vala:57
-msgid "Open Project Folder…"
-msgstr "Открыть папку проекта…"
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "Открыть папку"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -680,6 +676,14 @@ msgstr "Сортировать выделенные строки"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "Закомментировать/Раскомментировать"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Вставить"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -766,29 +770,6 @@ msgstr "Один день"
 msgid "One month"
 msgstr "Один месяц"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Показать Терминал"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Скрыть Терминал"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Терминал"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "Копировать"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "Вставить"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Не найдено подходящих словарей"
@@ -801,6 +782,12 @@ msgstr "Пожалуйста, установите хотя бы один [aspel
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s — Автозавершение слов"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "Открыть папку проекта…"
+
+#~ msgid "Terminal"
+#~ msgstr "Терминал"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Переключить боковую панель"

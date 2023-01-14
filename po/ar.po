@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-14 17:12+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -44,70 +44,70 @@ msgstr "اضافة"
 msgid "[FILE…]"
 msgstr "[ملف...]"
 
-#: src/MainWindow.vala:150 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
 msgid "Code"
 msgstr "كود"
 
-#: src/MainWindow.vala:292
+#: src/MainWindow.vala:295
 msgid "Hide search bar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:297 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:311
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:313
+#: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "اظهر المعاينة"
 
-#: src/MainWindow.vala:322
+#: src/MainWindow.vala:325
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:330
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/MainWindow.vala:805 src/Services/Document.vala:508
+#: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:809 src/Services/Document.vala:512
+#: src/MainWindow.vala:800 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:804
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:816
+#: src/MainWindow.vala:807
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:817 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:842
+#: src/MainWindow.vala:833
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:834
 msgid "_Cancel"
 msgstr "_الغاء"
 
@@ -146,7 +146,7 @@ msgstr "اسم الفرع يجب أن يكون مميز وأن يتبع قواع
 msgid "Create Branch"
 msgstr "إنشاء فرع"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:209
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
 msgid "Preferences"
 msgstr "التفضيلات"
 
@@ -275,7 +275,7 @@ msgstr "إعادة التسمية"
 msgid "Move to Trash"
 msgstr "انقل الى سلة المهملات"
 
-#: src/FolderManager/FileView.vala:43
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "المجلدات"
 
@@ -517,45 +517,45 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "ملف نصي من %s:%d"
 
-#: src/Widgets/FormatBar.vala:47
+#: src/Widgets/FormatBar.vala:48
 msgid "Syntax Highlighting"
 msgstr "إبراز تراكيب الجمله"
 
-#: src/Widgets/FormatBar.vala:55
+#: src/Widgets/FormatBar.vala:58
 msgid "Line number"
 msgstr "إعرض رقم السطر"
 
-#: src/Widgets/FormatBar.vala:82
+#: src/Widgets/FormatBar.vala:85
 msgid "Filter languages"
 msgstr "ترشيح اللغات"
 
-#: src/Widgets/FormatBar.vala:106
+#: src/Widgets/FormatBar.vala:109
 msgid "Plain Text"
 msgstr "نص بسيط"
 
-#: src/Widgets/FormatBar.vala:138
+#: src/Widgets/FormatBar.vala:142
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "التعرف التلقائي على المسافات الفارغة:"
 
-#: src/Widgets/FormatBar.vala:140
+#: src/Widgets/FormatBar.vala:144
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "ادخل مسافات بدلا من tabs:"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:146
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "عرض التبويب:"
 
-#: src/Widgets/FormatBar.vala:204
+#: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
 msgstr "إذهب الى السطر :"
 
-#: src/Widgets/FormatBar.vala:254
+#: src/Widgets/FormatBar.vala:259
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -566,7 +566,7 @@ msgstr[3] "%d مسافات"
 msgstr[4] "%d مسافات"
 msgstr[5] "%d مسافات"
 
-#: src/Widgets/FormatBar.vala:256
+#: src/Widgets/FormatBar.vala:261
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -577,7 +577,7 @@ msgstr[3] "%d تبويبات"
 msgstr[4] "%d تبويبات"
 msgstr[5] "%d تبويبات"
 
-#: src/Widgets/FormatBar.vala:260
+#: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
 msgstr ""
 
@@ -621,15 +621,23 @@ msgstr "تكبير للداخل"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:231
+#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+msgid "Show Terminal"
+msgstr "اظهر الطرفية"
+
+#: src/Widgets/HeaderBar.vala:241
 msgid "Menu"
 msgstr "القائمة"
 
+#: src/Widgets/HeaderBar.vala:264
+msgid "Hide Terminal"
+msgstr "اخفي الطرفية"
+
 #: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open project folder…"
-msgid "Open Project Folder…"
-msgstr "فتح مجلد المشروع…"
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "افتح مجلد"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -705,6 +713,14 @@ msgstr "رتب الأسطر التي تم اختيارها"
 #: src/Widgets/SourceView.vala:527
 msgid "Toggle Comment"
 msgstr "تحويل لتعليق"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "نسخ"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "لصق"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -795,29 +811,6 @@ msgstr "يوم واحد"
 msgid "One month"
 msgstr "شهر واحد"
 
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "اظهر الطرفية"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "اخفي الطرفية"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "الطرفية"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:244
-msgid "Copy"
-msgstr "نسخ"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:251
-msgid "Paste"
-msgstr "لصق"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "لا قواميس مناسبة تم ايجادها"
@@ -830,6 +823,14 @@ msgstr "رجاءً قم بتثبيت قاموس [aspell] واحد على الأ�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "اتمام %s من الكلمات"
+
+#, fuzzy
+#~| msgid "Open project folder…"
+#~ msgid "Open Project Folder…"
+#~ msgstr "فتح مجلد المشروع…"
+
+#~ msgid "Terminal"
+#~ msgstr "الطرفية"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "الشريط الجانبي"
