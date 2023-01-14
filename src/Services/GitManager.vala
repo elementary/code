@@ -45,8 +45,6 @@ namespace Scratch.Services {
         }
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
-            project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
-
             var root_path = root_folder.file.file.get_path ();
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
@@ -54,6 +52,7 @@ namespace Scratch.Services {
                     return project_gitrepo_map.@get (root_path);
                 }
 
+                project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
                 var monitored_repo = new MonitoredRepository (git_repo);
                 project_gitrepo_map.@set (root_path, monitored_repo);
                 return project_gitrepo_map.@get (root_path);
