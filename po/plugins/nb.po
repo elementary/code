@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2021-08-15 15:02+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -85,15 +85,6 @@ msgstr "Stavekontroll"
 msgid "Checks the spelling of your documents"
 msgstr "Sjekker stavingen i dokumentene dine"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "En terminal i din tekstbehandler"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-emulering"
@@ -109,6 +100,13 @@ msgstr "Ordfullføring"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Vis en fullføringsdialog med de mest brukte ordene fra filene dine"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "En terminal i din tekstbehandler"
 
 #~ msgid "Outline"
 #~ msgstr "Omriss"

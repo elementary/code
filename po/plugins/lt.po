@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2019-01-07 11:54+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/"
@@ -84,15 +84,6 @@ msgstr "Rašybos tikrintuvė"
 msgid "Checks the spelling of your documents"
 msgstr "Tikrina jūsų dokumentų rašybą"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminalas"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "Terminalas jūsų tekstų redaktoriuje"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emuliavimas"
@@ -109,6 +100,13 @@ msgstr "Žodžių užbaigimas"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Rodyti užbaigimo dialogą su daugiausiai naudojamais žodžiais iš jūsų failo"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminalas"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminalas jūsų tekstų redaktoriuje"
 
 #~ msgid "Outline"
 #~ msgstr "Apvesti"

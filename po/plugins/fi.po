@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2021-08-04 08:28+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/plugins/fi/"
@@ -83,14 +83,6 @@ msgstr "Oikoluku"
 msgid "Checks the spelling of your documents"
 msgstr "Oikolukee asiakirjasi"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Pääte"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Pääte tekstimuokkaimessasi"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-emulaatio"
@@ -106,6 +98,12 @@ msgstr "Sanojen täydennys"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Näytä täydennysikkuna tiedostojesi käytetyimmistä sanoista"
+
+#~ msgid "Terminal"
+#~ msgstr "Pääte"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Pääte tekstimuokkaimessasi"
 
 #~ msgid "Outline"
 #~ msgstr "Yhteenveto"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-13 23:34+0000\n"
 "PO-Revision-Date: 2021-07-27 21:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/plugins/"
@@ -84,14 +84,6 @@ msgstr "Перевірка правопису"
 msgid "Checks the spelling of your documents"
 msgstr "Перевіряє правопис ваших документів"
 
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Термінал"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Термінал у вашому редакторі коду"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Емуляція Vim"
@@ -108,6 +100,12 @@ msgstr "Завершення слів"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Показ діалогового вікна завершення з найвживанішими словами з ваших файлів"
+
+#~ msgid "Terminal"
+#~ msgstr "Термінал"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Термінал у вашому редакторі коду"
 
 #~ msgid "Outline"
 #~ msgstr "Контур"
