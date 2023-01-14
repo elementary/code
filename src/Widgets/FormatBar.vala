@@ -201,21 +201,48 @@ public class Code.FormatBar : Gtk.Grid {
     }
 
     private void create_line_popover () {
+        var line_width_modelbutton = new Granite.SwitchModelButton (_("Line Width Guide"));
+
+        var line_width_label = new Gtk.Label (_("Line width:")) {
+            halign = Gtk.Align.START,
+            hexpand = true
+        };
+
+        var line_width = new Gtk.SpinButton.with_range (1, 250, 1);
+
+        var line_width_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_end = 12,
+            margin_start = 12,
+        };
+        line_width_box.add (line_width_label);
+        line_width_box.add (line_width);
+
         var goto_label = new Gtk.Label (_("Go To Line:"));
-        goto_label.xalign = 1;
 
         goto_entry = new Gtk.Entry ();
 
-        var line_grid = new Gtk.Grid ();
-        line_grid.margin = 12;
-        line_grid.column_spacing = 12;
-        line_grid.attach (goto_label, 0, 0, 1, 1);
-        line_grid.attach (goto_entry, 1, 0, 1, 1);
-        line_grid.show_all ();
+        var goto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_end = 12,
+            margin_start = 12,
+        };
+        goto_box.add (goto_label);
+        goto_box.add (goto_entry);
 
-        var line_popover = new Gtk.Popover (line_toggle);
-        line_popover.position = Gtk.PositionType.BOTTOM;
-        line_popover.add (line_grid);
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            margin_top = 6,
+            margin_bottom = 12
+        };
+        box.add (line_width_modelbutton);
+        box.add (line_width_box);
+        box.add (goto_box);
+        box.show_all ();
+
+        var line_popover = new Gtk.Popover (line_toggle) {
+            position = Gtk.PositionType.BOTTOM
+        };
+        line_popover.add (box);
 
         line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
@@ -229,6 +256,10 @@ public class Code.FormatBar : Gtk.Grid {
             // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
             doc.source_view.grab_focus ();
         });
+
+        Scratch.settings.bind ("right-margin-position", line_width, "value", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("show-right-margin", line_width_box, "sensitive", SettingsBindFlags.GET);
+        Scratch.settings.bind ("show-right-margin", line_width_modelbutton, "active", SettingsBindFlags.DEFAULT);
     }
 
     public void set_document (Scratch.Services.Document doc) {
