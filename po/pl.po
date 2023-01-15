@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 17:12+0000\n"
-"PO-Revision-Date: 2023-01-13 15:54+0000\n"
+"POT-Creation-Date: 2023-01-15 11:44+0000\n"
+"PO-Revision-Date: 2023-01-15 11:44+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -44,62 +44,62 @@ msgstr "wtyczka"
 msgid "[FILE…]"
 msgstr "[PLIK…]"
 
-#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:295
+#: src/MainWindow.vala:298
 msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
-#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
 msgid "Find on Page…"
 msgstr "Znajdź na stronie…"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 msgid "Hide Projects Sidebar"
 msgstr "Ukryj panel boczny projektu"
 
-#: src/MainWindow.vala:316
+#: src/MainWindow.vala:319
 msgid "Show Projects Sidebar"
 msgstr "Pokaż panel boczny projektu"
 
-#: src/MainWindow.vala:325
+#: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
 msgstr "Ukryj przegląd symboli"
 
-#: src/MainWindow.vala:330
+#: src/MainWindow.vala:333
 msgid "Show Symbol Outline"
 msgstr "Pokaż przegląd symboli"
 
-#: src/MainWindow.vala:796 src/Services/Document.vala:508
+#: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:800 src/Services/Document.vala:512
+#: src/MainWindow.vala:806 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:804
+#: src/MainWindow.vala:810
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:813
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:833
+#: src/MainWindow.vala:839
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:834
+#: src/MainWindow.vala:840
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -499,45 +499,45 @@ msgstr "Filtruj projekty"
 msgid "Text file from %s:%d"
 msgstr "Plik tekstowy z %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
 msgstr "Wyróżnienie składni"
 
-#: src/Widgets/FormatBar.vala:58
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Numer wiersza"
 
-#: src/Widgets/FormatBar.vala:85
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Filtrowanie języków"
 
-#: src/Widgets/FormatBar.vala:109
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Tekst bez formatowania"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:145
 #, fuzzy
-#| msgid "Automatic indentation:"
+#| msgid "Indent width and style set by EditorConfig file"
+msgid "Some settings set by EditorConfig file"
+msgstr "Szerokość wcięcia i styl ustawiony przy użyciu pliku EditorConfig"
+
+#: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
-msgstr "Automatyczne wcięcia akapitu:"
+msgstr "Automatyczne wcięcia"
 
-#: src/Widgets/FormatBar.vala:144
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
+#: src/Widgets/FormatBar.vala:150
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Wstawianie spacji zamiast znaku tabulatora:"
+msgstr "Wstawianie spacji zamiast znaku tabulatora"
 
-#: src/Widgets/FormatBar.vala:146
-#, fuzzy
-#| msgid "Tab width:"
+#: src/Widgets/FormatBar.vala:152
 msgid "Tab width"
-msgstr "Szerokość tabulacji:"
+msgstr "Szerokość tabulacji"
 
-#: src/Widgets/FormatBar.vala:208
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Przechodzenie do wiersza:"
 
-#: src/Widgets/FormatBar.vala:259
+#: src/Widgets/FormatBar.vala:269
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -545,17 +545,13 @@ msgstr[0] "Jedna spacja"
 msgstr[1] "%d spacje"
 msgstr[2] "%d spacji"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:271
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Jeden tabulator"
 msgstr[1] "%d tabulatory"
 msgstr[2] "%d tabulatorów"
-
-#: src/Widgets/FormatBar.vala:265
-msgid "Indent width and style set by EditorConfig file"
-msgstr "Szerokość wcięcia i styl ustawiony przy użyciu pliku EditorConfig"
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
@@ -610,10 +606,8 @@ msgid "Hide Terminal"
 msgstr "Ukryj terminal"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Otwórz katalog"
+msgstr "Otwórz katalog…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
