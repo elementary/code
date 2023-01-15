@@ -38,6 +38,8 @@ namespace Scratch.Widgets {
         private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
+        private double total_delta = 0;
+        private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
@@ -126,11 +128,17 @@ namespace Scratch.Widgets {
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
             scroll_event.connect ((key_event) => {
-                if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
-                    return true;
-                } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
+                var handled = false;
+                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
+                    total_delta += key_event.delta_y;
+                    if (total_delta < -SCROLL_THRESHOLD) {
+                        ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
+                        total_delta = 0.0;
+                    } else if (total_delta > SCROLL_THRESHOLD) {
+                        ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
+                        total_delta = 0.0;
+                    }
+
                     return true;
                 }
 
