@@ -41,8 +41,6 @@ public class Code.FormatBar : Gtk.Box {
             icon = new ThemedIcon ("format-indent-more-symbolic")
         };
 
-        bind_property ("tab-set-by-editor-config", tab_menubutton, "sensitive", BindingFlags.INVERT_BOOLEAN);
-
         lang_menubutton = new FormatButton () {
             icon = new ThemedIcon ("application-x-class-file-symbolic"),
             tooltip_text = _("Syntax Highlighting")
@@ -139,6 +137,14 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     private void create_tabulation_popover () {
+        var editorconfig_infobar = new Gtk.InfoBar () {
+            margin_top = 9,
+            margin_end = 9,
+            margin_start = 9
+        };
+        editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
+        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
+
         var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
 
         space_tab_modelbutton = new Granite.SwitchModelButton (_("Insert Spaces Instead Of Tabs"));
@@ -159,9 +165,9 @@ public class Code.FormatBar : Gtk.Box {
         tab_box.add (tab_width);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            margin_top = 6,
             margin_bottom = 12
         };
+        box.add (editorconfig_infobar);
         box.add (autoindent_modelbutton);
         box.add (space_tab_modelbutton);
         box.add (tab_box);
@@ -176,9 +182,13 @@ public class Code.FormatBar : Gtk.Box {
 
         Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
         Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
-        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_modelbutton, "active", SettingsBindFlags.SET);
+        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_modelbutton, "active", SettingsBindFlags.GET);
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
+
+        bind_property ("tab-set-by-editor-config", editorconfig_infobar, "revealed", BindingFlags.SYNC_CREATE);
+        bind_property ("tab-set-by-editor-config", space_tab_modelbutton, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
+        bind_property ("tab-set-by-editor-config", tab_box, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
     }
 
     private void format_tab_header_from_global_settings () {
@@ -259,10 +269,6 @@ public class Code.FormatBar : Gtk.Box {
             tab_menubutton.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
             tab_menubutton.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
-        }
-
-        if (tab_set_by_editor_config) {
-            tab_menubutton.tooltip_text = _("Indent width and style set by EditorConfig file");
         }
 
         if (doc != null) {
