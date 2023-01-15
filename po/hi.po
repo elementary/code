@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 17:12+0000\n"
+"POT-Creation-Date: 2023-01-15 11:44+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -44,70 +44,70 @@ msgstr "प्लगइन्स का समूह"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:295
+#: src/MainWindow.vala:298
 msgid "Hide search bar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "एक फ़ोल्डर खोलें"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:316
+#: src/MainWindow.vala:319
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "पूर्वावलोकन दिखाएँ"
 
-#: src/MainWindow.vala:325
+#: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:330
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "संकेत"
 
-#: src/MainWindow.vala:796 src/Services/Document.vala:508
+#: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
 msgstr "सभी फाइलें"
 
-#: src/MainWindow.vala:800 src/Services/Document.vala:512
+#: src/MainWindow.vala:806 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "टेक्स्ट फाइलें"
 
-#: src/MainWindow.vala:804
+#: src/MainWindow.vala:810
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:813
 msgid "Open"
 msgstr "खोलें"
 
-#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/MainWindow.vala:833
+#: src/MainWindow.vala:839
 msgid "_Open"
 msgstr "खोलें (_O)"
 
-#: src/MainWindow.vala:834
+#: src/MainWindow.vala:840
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
@@ -510,61 +510,61 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "टेक्स्ट फाइलें %s से : %d तक"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
 msgstr "सिंटेक्स हाईलाइटिंग"
 
-#: src/Widgets/FormatBar.vala:58
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "पंक्ति नंबर"
 
-#: src/Widgets/FormatBar.vala:85
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "भाषाएं फ़िल्टर करें"
 
-#: src/Widgets/FormatBar.vala:109
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "सादा पाठ"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:145
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:148
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "स्वचालित हाशिया:"
 
-#: src/Widgets/FormatBar.vala:144
+#: src/Widgets/FormatBar.vala:150
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "टैब की जगह रिक्ति डालें:"
 
-#: src/Widgets/FormatBar.vala:146
+#: src/Widgets/FormatBar.vala:152
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "टैब चौड़ाई :"
 
-#: src/Widgets/FormatBar.vala:208
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "पंक्ति पर जायें:"
 
-#: src/Widgets/FormatBar.vala:259
+#: src/Widgets/FormatBar.vala:269
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d स्पेस"
 msgstr[1] "%d  स्पेस"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:271
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d टैब"
 msgstr[1] "%d  टैब"
-
-#: src/Widgets/FormatBar.vala:265
-msgid "Indent width and style set by EditorConfig file"
-msgstr ""
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"

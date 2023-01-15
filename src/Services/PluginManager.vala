@@ -27,7 +27,6 @@ namespace Scratch.Services {
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
-        public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
 
@@ -67,7 +66,6 @@ namespace Scratch.Services {
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
-        public signal void hook_notebook_bottom (Gtk.Notebook notebook);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
 
