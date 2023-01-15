@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 17:12+0000\n"
+"POT-Creation-Date: 2023-01-15 11:44+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -45,70 +45,70 @@ msgstr "įskiepis"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
 msgid "Code"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:295
+#: src/MainWindow.vala:298
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Atverti aplanką"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:316
+#: src/MainWindow.vala:319
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Rodyti peržiūrą"
 
-#: src/MainWindow.vala:325
+#: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:330
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Simboliai"
 
-#: src/MainWindow.vala:796 src/Services/Document.vala:508
+#: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:800 src/Services/Document.vala:512
+#: src/MainWindow.vala:806 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
-#: src/MainWindow.vala:804
+#: src/MainWindow.vala:810
 msgid "Open some files"
 msgstr "Atverti failus"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:813
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:833
+#: src/MainWindow.vala:839
 msgid "_Open"
 msgstr "At_verti"
 
-#: src/MainWindow.vala:834
+#: src/MainWindow.vala:840
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
@@ -524,45 +524,49 @@ msgstr ""
 msgid "Text file from %s:%d"
 msgstr "Tekstinis failas iš %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
 msgstr "Sintaksės paryškinimas"
 
-#: src/Widgets/FormatBar.vala:58
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Eilutės numeris"
 
-#: src/Widgets/FormatBar.vala:85
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Filtruoti kalbas"
 
-#: src/Widgets/FormatBar.vala:109
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Grynasis tekstas"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:145
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:148
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Automatinė įtrauka:"
 
-#: src/Widgets/FormatBar.vala:144
+#: src/Widgets/FormatBar.vala:150
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Įterpti tarpus vietoj tabuliavimo žymių:"
 
-#: src/Widgets/FormatBar.vala:146
+#: src/Widgets/FormatBar.vala:152
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Tabuliavimo plotis:"
 
-#: src/Widgets/FormatBar.vala:208
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Pereiti į eilutę:"
 
-#: src/Widgets/FormatBar.vala:259
+#: src/Widgets/FormatBar.vala:269
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -571,7 +575,7 @@ msgstr[1] "%d tarpai"
 msgstr[2] "%d tarpų"
 msgstr[3] "%d tarpas"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:271
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -579,10 +583,6 @@ msgstr[0] "%d Tab žymė"
 msgstr[1] "%d Tab žymės"
 msgstr[2] "%d Tab žymių"
 msgstr[3] "%d Tab žymė"
-
-#: src/Widgets/FormatBar.vala:265
-msgid "Indent width and style set by EditorConfig file"
-msgstr ""
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"

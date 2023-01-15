@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 17:12+0000\n"
+"POT-Creation-Date: 2023-01-15 11:44+0000\n"
 "PO-Revision-Date: 2022-12-26 20:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
@@ -43,70 +43,70 @@ msgstr "zásuvný modul"
 msgid "[FILE…]"
 msgstr "[SÚBOR…]"
 
-#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:295
+#: src/MainWindow.vala:298
 msgid "Hide search bar"
 msgstr "Skryť panel vyhľadávania"
 
-#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "Nájsť v projekte…"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Skryť panel vyhľadávania"
 
-#: src/MainWindow.vala:316
+#: src/MainWindow.vala:319
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Zobraziť náhľad"
 
-#: src/MainWindow.vala:325
+#: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:330
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Neboli nájdené žiadne symboly"
 
-#: src/MainWindow.vala:796 src/Services/Document.vala:508
+#: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/MainWindow.vala:800 src/Services/Document.vala:512
+#: src/MainWindow.vala:806 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/MainWindow.vala:804
+#: src/MainWindow.vala:810
 msgid "Open some files"
 msgstr "Otvorte nejaké súbory"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:813
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/MainWindow.vala:833
+#: src/MainWindow.vala:839
 msgid "_Open"
 msgstr "_Otvoriť"
 
-#: src/MainWindow.vala:834
+#: src/MainWindow.vala:840
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -503,45 +503,49 @@ msgstr "Filtrovať projekty"
 msgid "Text file from %s:%d"
 msgstr "Textový súbor z %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
 msgstr "Zvýrazňovanie syntaxe"
 
-#: src/Widgets/FormatBar.vala:58
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Číslo riadku"
 
-#: src/Widgets/FormatBar.vala:85
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Filtrovať jazyky"
 
-#: src/Widgets/FormatBar.vala:109
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Jednoduchý text"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:145
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:148
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Automatické odsadzovanie:"
 
-#: src/Widgets/FormatBar.vala:144
+#: src/Widgets/FormatBar.vala:150
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Vkladať medzery namiesto tabulátorov:"
 
-#: src/Widgets/FormatBar.vala:146
+#: src/Widgets/FormatBar.vala:152
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Šírka tabulátora:"
 
-#: src/Widgets/FormatBar.vala:208
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Prejsť na riadok:"
 
-#: src/Widgets/FormatBar.vala:259
+#: src/Widgets/FormatBar.vala:269
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -549,17 +553,13 @@ msgstr[0] "%d medzera"
 msgstr[1] "%d medzery"
 msgstr[2] "%d medzier"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:271
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d tabulátor"
 msgstr[1] "%d tabulátory"
 msgstr[2] "%d tabulátorov"
-
-#: src/Widgets/FormatBar.vala:265
-msgid "Indent width and style set by EditorConfig file"
-msgstr ""
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
