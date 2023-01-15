@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-14 17:12+0000\n"
-"PO-Revision-Date: 2023-01-11 08:20+0000\n"
+"PO-Revision-Date: 2023-01-15 11:44+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -60,25 +60,21 @@ msgstr "Finn på side …"
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Skjul søkefeltet"
+msgstr "Skjul prosjekt-sidefelt"
 
 #: src/MainWindow.vala:316
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Forhåndsvisning"
+msgstr "Vis prosjekt-sidefelt"
 
 #: src/MainWindow.vala:325
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "Veksle symbolomriss"
+msgstr "Skjul symbolomriss"
 
 #: src/MainWindow.vala:330
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "Veksle symbolomriss"
+msgstr "Vis symbolomriss"
 
 #: src/MainWindow.vala:796 src/Services/Document.vala:508
 msgid "All files"
@@ -519,22 +515,16 @@ msgid "Plain Text"
 msgstr "Klartekst"
 
 #: src/Widgets/FormatBar.vala:142
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Automatisk innrykk:"
+msgstr "Automatisk innrykk"
 
 #: src/Widgets/FormatBar.vala:144
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Sett inn mellomrom i stedet for tabulator:"
+msgstr "Sett inn mellomrom i stedet for tabulator"
 
 #: src/Widgets/FormatBar.vala:146
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Tabulatorbredde:"
+msgstr "Tabulatorbredde"
 
 #: src/Widgets/FormatBar.vala:208
 msgid "Go To Line:"
@@ -556,7 +546,7 @@ msgstr[1] "%d faner"
 
 #: src/Widgets/FormatBar.vala:265
 msgid "Indent width and style set by EditorConfig file"
-msgstr ""
+msgstr "Innrykksbredde og stil satt av EditorConfig-filen"
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
@@ -611,10 +601,8 @@ msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Åpne mappe"
+msgstr "Åpne mappe …"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
