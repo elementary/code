@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 17:12+0000\n"
-"PO-Revision-Date: 2023-01-13 23:34+0000\n"
+"POT-Creation-Date: 2023-01-15 11:44+0000\n"
+"PO-Revision-Date: 2023-01-15 11:44+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -45,62 +45,62 @@ msgstr "плагін"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:152 src/MainWindow.vala:482 src/MainWindow.vala:510
+#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:295
+#: src/MainWindow.vala:298
 msgid "Hide search bar"
 msgstr "Сховати панель пошуку"
 
-#: src/MainWindow.vala:300 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
 msgid "Find on Page…"
 msgstr "Знайти на сторінці…"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 msgid "Hide Projects Sidebar"
 msgstr "Сховати бічну панель проєктів"
 
-#: src/MainWindow.vala:316
+#: src/MainWindow.vala:319
 msgid "Show Projects Sidebar"
 msgstr "Показати бічну панель проєктів"
 
-#: src/MainWindow.vala:325
+#: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
 msgstr "Сховати контур символу"
 
-#: src/MainWindow.vala:330
+#: src/MainWindow.vala:333
 msgid "Show Symbol Outline"
 msgstr "Показати контур символу"
 
-#: src/MainWindow.vala:796 src/Services/Document.vala:508
+#: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:800 src/Services/Document.vala:512
+#: src/MainWindow.vala:806 src/Services/Document.vala:512
 msgid "Text files"
 msgstr "Текстові файли"
 
-#: src/MainWindow.vala:804
+#: src/MainWindow.vala:810
 msgid "Open some files"
 msgstr "Відкрити файли"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:813
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/MainWindow.vala:808 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/MainWindow.vala:833
+#: src/MainWindow.vala:839
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: src/MainWindow.vala:834
+#: src/MainWindow.vala:840
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -496,39 +496,45 @@ msgstr "Фільтрувати проєкти"
 msgid "Text file from %s:%d"
 msgstr "Текстовий файл з %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
 msgstr "Підсвічування синтаксису"
 
-#: src/Widgets/FormatBar.vala:58
+#: src/Widgets/FormatBar.vala:56
 msgid "Line number"
 msgstr "Номер рядка"
 
-#: src/Widgets/FormatBar.vala:85
+#: src/Widgets/FormatBar.vala:83
 msgid "Filter languages"
 msgstr "Фільтрувати мови"
 
-#: src/Widgets/FormatBar.vala:109
+#: src/Widgets/FormatBar.vala:107
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
-#: src/Widgets/FormatBar.vala:142
+#: src/Widgets/FormatBar.vala:145
+#, fuzzy
+#| msgid "Indent width and style set by EditorConfig file"
+msgid "Some settings set by EditorConfig file"
+msgstr "Ширина і стиль відступу визначаються файлом EditorConfig"
+
+#: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
 msgstr "Автовідступ"
 
-#: src/Widgets/FormatBar.vala:144
+#: src/Widgets/FormatBar.vala:150
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Вставляти пробіли замість табуляцій"
 
-#: src/Widgets/FormatBar.vala:146
+#: src/Widgets/FormatBar.vala:152
 msgid "Tab width"
 msgstr "Ширина табуляції"
 
-#: src/Widgets/FormatBar.vala:208
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Перейти до рядка:"
 
-#: src/Widgets/FormatBar.vala:259
+#: src/Widgets/FormatBar.vala:269
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -536,17 +542,13 @@ msgstr[0] "%d пробіл"
 msgstr[1] "%d пробіли"
 msgstr[2] "%d пробілів"
 
-#: src/Widgets/FormatBar.vala:261
+#: src/Widgets/FormatBar.vala:271
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
-
-#: src/Widgets/FormatBar.vala:265
-msgid "Indent width and style set by EditorConfig file"
-msgstr "Ширина і стиль відступу визначаються файлом EditorConfig"
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Open a file"
@@ -601,10 +603,8 @@ msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Відкрити теку"
+msgstr "Відкрити теку…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
