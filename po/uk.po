@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 11:44+0000\n"
-"PO-Revision-Date: 2023-01-15 11:44+0000\n"
+"POT-Creation-Date: 2023-01-16 06:59+0000\n"
+"PO-Revision-Date: 2023-01-16 07:00+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -513,10 +513,8 @@ msgid "Plain Text"
 msgstr "Звичайний текст"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "Ширина і стиль відступу визначаються файлом EditorConfig"
+msgstr "Деякі налаштування визначаються файлом EditorConfig"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -671,11 +669,11 @@ msgstr "Замінити все"
 msgid "%d of %d"
 msgstr "%d з %d"
 
-#: src/Widgets/SourceView.vala:514
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Впорядкувати вибрані рядки"
 
-#: src/Widgets/SourceView.vala:527
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 
