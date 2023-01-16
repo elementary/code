@@ -47,13 +47,13 @@ desktop_file = i18n.merge_file(
     install: true
 )
 
-# Translate the AppData file
-appstream_file = i18n.merge_file(
-    input: 'io.elementary.code.appdata.xml.in',
-    output: '@BASENAME@',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
-    install_dir: join_paths(get_option('datadir'), 'metainfo'),
-    install: true
+i18n.merge_file(
+    input: 'code.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
+    po_dir: meson.source_root() / 'po' / 'extra',
+    type: 'xml',
+    install: true,
+    install_dir: get_option('datadir') / 'metainfo',
 )
 
 config_data = configuration_data()
