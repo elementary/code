@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-08-11 21:46+0000\n"
+"PO-Revision-Date: 2023-01-19 00:25+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
@@ -146,11 +146,11 @@ msgstr "Удосконалення:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Оновлений дизайн піктограми застосунку"
 
 #: data/code.metainfo.xml.in:70
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Нові користувацькі темні та світлі стилі elementary для перегляду коду"
 
 #: data/code.metainfo.xml.in:71
 msgid "Option to follow the system dark style preference"
@@ -158,7 +158,7 @@ msgstr "Опція дотримання темного стилю системи
 
 #: data/code.metainfo.xml.in:72
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Можливість розділення плитки навпіл на невеликих дисплеях ноутбуків"
 
 #: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
@@ -171,45 +171,61 @@ msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Функції «Знайти на сторінці» та «Знайти в проєкті» відтепер доступні з меню "
+"застосунку, а не з панелі заголовка"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options for hiding and showing panels and now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Опції приховування та показу панелей відтепер представлені у вигляді "
+"компактного набору пов'язаних кнопок у меню застосунку"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"Бічна панель відтепер містить кнопку вибору проєкту та заповнює всю висоту "
+"вікна"
 
 #: data/code.metainfo.xml.in:79
 msgid "Started a global search with text selected now pre-fills that text"
 msgstr ""
+"Запущено глобальний пошук з виділеним текстом, який тепер попередньо "
+"заповнює цей текст"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"Панель контуру символу відтепер показана праворуч від початкового вигляду і "
+"може бути показана і схована комбінацією клавіш «Alt + \\»"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Плагіни Terminal, Symbol outline та Strip Trailing Whitespace стали частиною "
+"основної кодової бази"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Показ інфопанелі під час перезапису налаштувань ширини вкладки файлом "
+"EditorConfig"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"Відтепер «Ctrl + |» — це комбінація клавіш для перебудови списку слів "
+"доповнення"
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
