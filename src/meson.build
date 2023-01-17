@@ -29,6 +29,7 @@ code_files = files(
     'FolderManager/ProjectFolderItem.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
+    'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
     'Services/MonitoredRepository.vala',
@@ -44,7 +45,17 @@ code_files = files(
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
+    'Widgets/Terminal.vala',
     'Widgets/WelcomeView.vala',
+    'SymbolPane/SymbolOutline.vala',
+    'SymbolPane/Vala/ValaComparisonHelper.vala',
+    'SymbolPane/Vala/ValaSymbolItem.vala',
+    'SymbolPane/Vala/ValaSymbolOutline.vala',
+    'SymbolPane/Vala/ValaSymbolResolver.vala',
+    'SymbolPane/C/CtagsSymbol.vala',
+    'SymbolPane/C/CtagsSymbolIter.vala',
+    'SymbolPane/C/CtagsSymbolOutline.vala',
+
 )
 
 executable(

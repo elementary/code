@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
 "PO-Revision-Date: 2019-11-09 11:24+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/plugins/mr/"
@@ -59,14 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "बाह्यरेखा"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "आपल्या वर्तमान फाईल मध्ये सिम्बॉल्सला बाह्यरेखा बनवा"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "पेस्टबीन"
@@ -91,22 +83,6 @@ msgstr "शब्दलेखन तपासक"
 msgid "Checks the spelling of your documents"
 msgstr "आपल्या दस्तऐवजांची शब्दलेखन तपासा"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "शेवटी असलेली व्हाईट स्पेस काढून टाका"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "सेव्ह करताना शेवटी असलेली व्हाईट स्पेस काढून टाका"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "टर्मिनल"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "आपल्या टेक्स्ट एडिटरमधील एक टर्मिनल"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "विम इम्यूलेशन"
@@ -122,6 +98,24 @@ msgstr "शब्द पूर्णता"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "आपल्या फाइल्समध्ये बरेचदा वापरलेले शब्द वापरून एक संपुर्ण संवाद दर्शवा"
+
+#~ msgid "Terminal"
+#~ msgstr "टर्मिनल"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "आपल्या टेक्स्ट एडिटरमधील एक टर्मिनल"
+
+#~ msgid "Outline"
+#~ msgstr "बाह्यरेखा"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "आपल्या वर्तमान फाईल मध्ये सिम्बॉल्सला बाह्यरेखा बनवा"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "शेवटी असलेली व्हाईट स्पेस काढून टाका"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "सेव्ह करताना शेवटी असलेली व्हाईट स्पेस काढून टाका"
 
 #~ msgid "Browser Preview"
 #~ msgstr "ब्राउज़र पूर्वावलोकन"

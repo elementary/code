@@ -25,22 +25,24 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        public weak Scratch.Application app { get; construct; }
+        public Scratch.Application app { get; private set; }
+        public bool restore_docs { get; construct; }
 
         public Scratch.Widgets.DocumentView document_view;
 
         // Widgets
-        public Scratch.Widgets.HeaderBar toolbar;
+        public Scratch.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
+        private Code.Terminal terminal;
         private FolderManager.FileView folder_manager_view;
+        private Scratch.Services.DocumentManager document_manager;
 
         // Plugins
         private Scratch.Services.PluginsManager plugins;
 
         // Widgets for Plugins
-        public Gtk.Notebook bottombar;
         public Code.Sidebar sidebar;
 
         private Granite.Dialog? preferences_dialog = null;
@@ -55,7 +57,8 @@ namespace Scratch {
 
         public SimpleActionGroup actions { get; construct; }
 
-        public const string ACTION_PREFIX = "win.";
+        public const string ACTION_GROUP = "win";
+        public const string ACTION_PREFIX = ACTION_GROUP + ".";
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
@@ -87,10 +90,15 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_TOGGLE_OUTLINE = "action_toggle_outline";
+        public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
+        public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
+        public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
+        public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -126,19 +134,23 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
+            { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
+            { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" }
+            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
+            { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
+            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
         };
 
-        public MainWindow (Scratch.Application scratch_app) {
+        public MainWindow (bool restore_docs) {
             Object (
-                application: scratch_app,
-                app: scratch_app,
                 icon_name: Constants.PROJECT_NAME,
-                title: _("Code")
+                title: _("Code"),
+                restore_docs: restore_docs
             );
         }
 
@@ -173,10 +185,14 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
+            action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
+            action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -188,30 +204,17 @@ namespace Scratch {
         }
 
         construct {
+            application = ((Gtk.Application)(GLib.Application.get_default ()));
+            app = (Scratch.Application)application;
+
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code");
 
+            document_manager = Scratch.Services.DocumentManager.get_instance ();
+
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
-            insert_action_group ("win", actions);
-
-            actions.action_state_changed.connect ((name, new_state) => {
-                if (name == ACTION_SHOW_FIND) {
-                    if (new_state.get_boolean () == false) {
-                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND),
-                            _("Find…")
-                        );
-                    } else {
-                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                            {"Escape"},
-                            _("Hide search bar")
-                        );
-                    }
-
-                    search_revealer.set_reveal_child (new_state.get_boolean ());
-                }
-            });
+            insert_action_group (ACTION_GROUP, actions);
 
             foreach (var action in action_accelerators.get_keys ()) {
                 var accels_array = action_accelerators[action].to_array ();
@@ -257,7 +260,6 @@ namespace Scratch {
                     break;
             }
 
-            sidebar.bind_property ("visible", toolbar.choose_project_revealer, "reveal-child");
             // Show/Hide widgets
             show_all ();
 
@@ -272,13 +274,78 @@ namespace Scratch {
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
+            actions.action_state_changed.connect ((name, new_state) => {
+                update_toolbar_button (name, new_state.get_boolean ());
+            });
+
+            var sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
+            sidebar_action.set_state (saved_state.get_boolean ("sidebar-visible"));
+            update_toolbar_button (ACTION_TOGGLE_SIDEBAR, saved_state.get_boolean ("sidebar-visible"));
+
+            var outline_action = Utils.action_from_group (ACTION_TOGGLE_OUTLINE, actions);
+            outline_action.set_state (saved_state.get_boolean ("outline-visible"));
+            update_toolbar_button (ACTION_TOGGLE_OUTLINE, saved_state.get_boolean ("outline-visible"));
+
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
         }
 
+        private void update_toolbar_button (string name, bool new_state) {
+            switch (name) {
+                case ACTION_SHOW_FIND:
+                    if (new_state) {
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            {"Escape"},
+                            _("Hide search bar")
+                        );
+                    } else {
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Find on Page…")
+                        );
+                    }
+
+                    search_revealer.set_reveal_child (new_state);
+
+                    break;
+                case ACTION_TOGGLE_SIDEBAR:
+                    if (new_state) {
+                        toolbar.sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Projects Sidebar")
+                        );
+                    } else {
+                        toolbar.sidebar_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Projects Sidebar")
+                        );
+                    }
+
+                    break;
+                case ACTION_TOGGLE_OUTLINE:
+                    if (new_state) {
+                        toolbar.outline_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Symbol Outline")
+                        );
+                    } else {
+                        toolbar.outline_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Symbol Outline")
+                        );
+                    }
+
+                    break;
+            };
+        }
+
         private void init_layout () {
-            toolbar = new Scratch.Widgets.HeaderBar ();
+            toolbar = new Scratch.HeaderBar ();
             toolbar.title = title;
+
+            sidebar.choose_project_button.project_chosen.connect (() => {
+                folder_manager_view.collapse_other_projects ();
+            });
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
@@ -289,7 +356,7 @@ namespace Scratch {
                 set_search_text ();
             });
             search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
-                search_bar.set_search_string ("");
+                search_bar.search_entry.text = "";
                 search_bar.highlight_none ();
             });
             search_bar.search_empty.connect (() => {
@@ -340,23 +407,12 @@ namespace Scratch {
                 }
             });
 
-            folder_manager_view.close_all_docs_from_path.connect ((a) => {
-                var docs = document_view.docs.copy ();
-                docs.foreach ((doc) => {
-                    if (doc.file.get_path ().has_prefix (a)) {
-                        document_view.close_document.begin (doc);
-                    }
-                });
-            });
-
             folder_manager_view.restore_saved_state ();
 
-            bottombar = new Gtk.Notebook ();
-            bottombar.no_show_all = true;
-            bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
-            bottombar.page_added.connect (() => {
-                on_plugin_toggled (bottombar);
-            });
+            terminal = new Code.Terminal () {
+                no_show_all = true,
+                visible = false
+            };
 
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
@@ -380,29 +436,36 @@ namespace Scratch {
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
             vp.pack1 (content_stack, true, false);
-            vp.pack2 (bottombar, false, false);
+            vp.pack2 (terminal, false, false);
+
+            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box.add (toolbar);
+            box.add (vp);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.position = 180;
             hp1.pack1 (sidebar, false, false);
-            hp1.pack2 (vp, true, false);
+            hp1.pack2 (box, true, false);
 
-            var grid = new Gtk.Grid ();
-            grid.attach (toolbar, 0, 0);
-            grid.attach (hp1, 0, 1);
+            add (hp1);
 
-            add (grid);
+            var header_group = new Hdy.HeaderGroup ();
+            header_group.add_header_bar (sidebar.headerbar);
+            header_group.add_header_bar (toolbar);
+
+            var size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
+            size_group.add_widget (sidebar.headerbar);
+            size_group.add_widget (toolbar);
 
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
                     plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
-                    plugins.hook_notebook_bottom (bottombar);
                 };
 
                 plugins.extension_added.connect (() => {
@@ -413,7 +476,11 @@ namespace Scratch {
             });
 
             document_view.realize.connect (() => {
-                restore_opened_documents ();
+                if (restore_docs) {
+                    restore_opened_documents ();
+                }
+
+                document_view.update_outline_visible ();
             });
 
             document_view.request_placeholder.connect (() => {
@@ -431,13 +498,16 @@ namespace Scratch {
 
             document_view.document_change.connect ((doc) => {
                 if (doc != null) {
-                    plugins.hook_document (doc);
                     search_bar.set_text_view (doc.source_view);
                     // Update MainWindow title
                     title = doc.get_basename ();
 
                     toolbar.set_document_focus (doc);
+                    sidebar.choose_project_button.set_document (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
+
+                    // Must follow setting focus document for editorconfig plug
+                    plugins.hook_document (doc);
 
                     // Set actions sensitive property
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
@@ -517,13 +587,6 @@ namespace Scratch {
             return false;
         }
 
-        private void on_plugin_toggled (Gtk.Notebook notebook) {
-            var pages = notebook.get_n_pages ();
-            notebook.set_show_tabs (pages > 1);
-            notebook.no_show_all = (pages == 0);
-            notebook.visible = (pages > 0);
-        }
-
         protected override bool delete_event (Gdk.EventAny event) {
             handle_quit.begin ();
             // Do not want the signal to be propagated, handle_quit will destroy the app if possible.
@@ -544,11 +607,6 @@ namespace Scratch {
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
-
-            // PlugIns
-            if (val) {
-                on_plugin_toggled (bottombar);
-            }
         }
 
         // Get current document
@@ -566,7 +624,10 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0) {
+        public void open_document (Scratch.Services.Document doc,
+                                   bool focus = true,
+                                   int cursor_position = 0) {
+
             FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             doc.source_view.project = project;
             document_view.open_document (doc, focus, cursor_position);
@@ -661,16 +722,19 @@ namespace Scratch {
         }
 
         public void set_default_zoom () {
+            terminal.set_default_font_size ();
             Scratch.settings.set_string ("font", get_current_font () + " " + get_default_font_size ().to_string ());
         }
 
         // Ctrl + scroll
         public void action_zoom_in () {
+            terminal.increment_size ();
             zooming (Gdk.ScrollDirection.UP);
         }
 
         // Ctrl + scroll
         public void action_zoom_out () {
+            terminal.decrement_size ();
             zooming (Gdk.ScrollDirection.DOWN);
         }
 
@@ -875,11 +939,46 @@ namespace Scratch {
             }
         }
 
+        private void action_hide_project_docs (SimpleAction action, Variant? param) {
+            close_project_docs (get_target_path_for_actions (param), true);
+        }
+
+        private void action_close_project_docs (SimpleAction action, Variant? param) {
+            close_project_docs (get_target_path_for_actions (param), false);
+        }
+
+        private void action_restore_project_docs (SimpleAction action, Variant? param) {
+            restore_project_docs (get_target_path_for_actions (param));
+        }
+
+        private void close_project_docs (string project_path, bool make_restorable) {
+            unowned var docs = document_view.docs;
+            docs.foreach ((doc) => {
+                if (doc.file.get_path ().has_prefix (project_path)) {
+                    document_view.close_document (doc);
+                    if (make_restorable) {
+                        document_manager.make_restorable (doc);
+                    }
+                }
+            });
+
+            if (!make_restorable) {
+                document_manager.remove_project (project_path);
+            }
+        }
+
+        private void restore_project_docs (string project_path) {
+            document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
+                var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
+                open_document (doc); // Use this to reassociate project and document.
+                return true;
+            });
+        }
+
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
-
             if (!search_revealer.child_revealed) {
                 var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (fetch_action.enabled) {
@@ -902,22 +1001,39 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            folder_manager_view.search_global (get_target_path_for_git_actions (param));
+            var current_doc = get_current_document ();
+            var selected_text = current_doc.get_selected_text (false);
+            if (selected_text != "") {
+                selected_text = selected_text.split ("\n", 2)[0];
+            }
+            // If search entry focused use its text for search term, else use selected text
+            var term = search_bar.search_entry.has_focus ?
+                            search_bar.search_entry.text : selected_text;
+
+            // If no focused selected text fallback to search entry text if visible
+            if (term == "" &&
+                !search_bar.search_entry.has_focus &&
+                search_revealer.reveal_child) {
+
+                term = search_bar.search_entry.text;
+            }
+
+            folder_manager_view.search_global (get_target_path_for_actions (param), term);
         }
 
         private void set_search_text () {
             if (current_search_term != "") {
-                search_bar.set_search_string (current_search_term);
+                search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.
                 if (current_doc != null) {
-                    var selected_text = current_doc.get_selected_text ();
+                    var selected_text = current_doc.get_selected_text (false);
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                        current_search_term = selected_text;
-                        search_bar.set_search_string (current_search_term);
+                        current_search_term = selected_text.split ("\n", 2)[0];
+                        search_bar.search_entry.text = current_search_term;
                     }
 
                     search_bar.search_entry.grab_focus (); /* causes loss of document selection */
@@ -936,7 +1052,7 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            toolbar.format_bar.line_toggle.active = true;
+            toolbar.format_bar.line_menubutton.active = true;
         }
 
         private void action_templates () {
@@ -994,12 +1110,33 @@ namespace Scratch {
             doc.source_view.sort_selected_lines ();
         }
 
-        private void action_toggle_sidebar () {
+        private void action_toggle_sidebar (SimpleAction action) {
             if (sidebar == null) {
                 return;
             }
 
-            sidebar.visible = !sidebar.visible;
+            action.set_state (!action.get_state ().get_boolean ());
+            sidebar.visible = action.get_state ().get_boolean ();
+        }
+
+        private void action_toggle_terminal () {
+            var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+            terminal_action.set_state (!terminal_action.get_state ().get_boolean ());
+
+            terminal.visible = terminal_action.get_state ().get_boolean ();
+
+            if (terminal_action.get_state ().get_boolean ()) {
+                terminal.no_show_all = false;
+                terminal.show_all ();
+                terminal.grab_focus ();
+            } else if (get_current_document () != null) {
+                get_current_document ().focus ();
+            }
+        }
+
+        private void action_toggle_outline (SimpleAction action) {
+            action.set_state (!action.get_state ().get_boolean ());
+            document_view.outline_visible = action.get_state ().get_boolean ();
         }
 
         private void action_next_tab () {
@@ -1020,10 +1157,10 @@ namespace Scratch {
         }
 
         private void action_new_branch (SimpleAction action, Variant? param) {
-            folder_manager_view.new_branch (get_target_path_for_git_actions (param));
+            folder_manager_view.new_branch (get_target_path_for_actions (param));
         }
 
-        private string? get_target_path_for_git_actions (Variant? path_variant) {
+        private string? get_target_path_for_actions (Variant? path_variant) {
              string? path = "";
              if (path_variant != null) {
                  path = path_variant.get_string ();

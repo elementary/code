@@ -2,14 +2,21 @@ icon_sizes = ['16', '24', '32', '48', '64', '128']
 
 foreach i : icon_sizes
     install_data(
-        join_paths('icons', i, meson.project_name() + '.svg'),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
+        'icons' / i + '.svg',
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i / 'apps',
+        rename: meson.project_name() + '.svg'
     )
     install_data(
-        join_paths('icons', i, meson.project_name() + '.svg'),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps')
+        'icons' / i + '.svg',
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i + '@2' / 'apps',
+        rename: meson.project_name() + '.svg'
     )
 endforeach
+
+install_data([
+  'styles/elementary-dark.xml',
+  'styles/elementary-light.xml',
+], install_dir: join_paths(get_option('datadir'), 'gtksourceview-4', 'styles'))
 
 install_data([
   'fonts/BuilderBlocks.ttf',
@@ -18,7 +25,6 @@ install_data([
 install_data(
     'io.elementary.code.gschema.xml',
     'io.elementary.code.plugins.spell.gschema.xml',
-    'io.elementary.code.plugins.terminal.gschema.xml',
     install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'glib-2.0', 'schemas')
 )
 
@@ -41,13 +47,13 @@ desktop_file = i18n.merge_file(
     install: true
 )
 
-# Translate the AppData file
-appstream_file = i18n.merge_file(
-    input: 'io.elementary.code.appdata.xml.in',
-    output: '@BASENAME@',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
-    install_dir: join_paths(get_option('datadir'), 'metainfo'),
-    install: true
+i18n.merge_file(
+    input: 'code.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
+    po_dir: meson.source_root() / 'po' / 'extra',
+    type: 'xml',
+    install: true,
+    install_dir: get_option('datadir') / 'metainfo',
 )
 
 config_data = configuration_data()

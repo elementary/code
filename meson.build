@@ -38,11 +38,16 @@ git_dep = dependency('libgit2-glib-1.0')
 fontconfig_dep = dependency('fontconfig')
 pangofc_dep = dependency('pangoft2')
 posix_dep = meson.get_compiler('vala').find_library('posix')
+vte_dep = dependency('vte-2.91')
 
 code_resources = gnome.compile_resources(
     'code-resources', 'data/' + meson.project_name() + '.gresource.xml',
     source_dir: 'data'
 )
+
+# We need libvala-X.XX library, but it changes depending on the version that is installed
+vala_version = run_command (meson.get_compiler('vala'), '--api-version').stdout().strip()
+vala_dep = dependency('libvala-@0@'.format(vala_version))
 
 dependencies = [
     glib_dep,
@@ -58,6 +63,8 @@ dependencies = [
     fontconfig_dep,
     pangofc_dep,
     posix_dep,
+    vala_dep,
+    vte_dep
 ]
 
 subdir('data')

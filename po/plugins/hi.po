@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 08:49+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
 "PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/plugins/hi/>\n"
@@ -58,14 +58,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "बाह्यरेखा"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Vala के लिए अपनी वर्तमान फ़ाइल में प्रतीकों को रेखांकित करें"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "पेस्टबीन"
@@ -90,23 +82,6 @@ msgstr "वर्तनी जाँच करनेवाला"
 msgid "Checks the spelling of your documents"
 msgstr "आपके दस्तावेज़ों की वर्तनी की जाँच करता है"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "समाप्त सफेद स्थान को हटा दें"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "सेव्ह करते समय अंतिम सफेद स्थान निकालें"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "टर्मिनल"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "आपके पाठ संपादक में एक टर्मिनल"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "विम इम्यूलेशन"
@@ -123,6 +98,25 @@ msgstr "शब्द पूर्णता"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "अपनी फ़ाइलों में बहुत बार उपयोग किए जाने वाले शब्दों का उपयोग करके एक पूर्ण संवाद दिखाएं"
+
+#~ msgid "Terminal"
+#~ msgstr "टर्मिनल"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "आपके पाठ संपादक में एक टर्मिनल"
+
+#~ msgid "Outline"
+#~ msgstr "बाह्यरेखा"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Vala के लिए अपनी वर्तमान फ़ाइल में प्रतीकों को रेखांकित करें"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "समाप्त सफेद स्थान को हटा दें"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "सेव्ह करते समय अंतिम सफेद स्थान निकालें"
 
 #~ msgid "Browser Preview"
 #~ msgstr "ब्राउज़र पूर्वावलोकन"

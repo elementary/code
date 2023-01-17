@@ -22,6 +22,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
 
+    public signal void project_chosen ();
+
     construct {
         var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
@@ -29,9 +31,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         };
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
-            width_chars = 24,
             ellipsize = Pango.EllipsizeMode.MIDDLE,
-            max_width_chars = 24,
             xalign = 0.0f
         };
 
@@ -105,6 +105,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
+            project_chosen ();
         });
     }
 
