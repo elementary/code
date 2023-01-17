@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-11-29 05:37+0000\n"
+"PO-Revision-Date: 2023-01-19 00:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,34 +53,24 @@ msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
 #: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "Keresés a projektben…"
+msgstr "Keresés az oldalon…"
 
 #: src/MainWindow.vala:314
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "A keresősáv elrejtése"
+msgstr "A Projektek oldalsáv elrejtése"
 
 #: src/MainWindow.vala:319
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Előnézet megjelenítése"
+msgstr "A Projektek oldalsáv megjelenítése"
 
 #: src/MainWindow.vala:328
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "Szimbólumok megjelenítése"
+msgstr "Szimbólumok körvonalának elrejtése"
 
 #: src/MainWindow.vala:333
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "Szimbólumok megjelenítése"
+msgstr "Szimbólumok körvonalának megjelenítése"
 
 #: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
@@ -523,25 +513,19 @@ msgstr "Egyszerű szöveg"
 
 #: src/Widgets/FormatBar.vala:145
 msgid "Some settings set by EditorConfig file"
-msgstr ""
+msgstr "Néhány beállítás az EditorConfig fájl által lett beállítva"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Automatikus behúzás:"
+msgstr "Automatikus behúzás"
 
 #: src/Widgets/FormatBar.vala:150
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Szóközök beillesztése tabulátorok helyett:"
+msgstr "Szóközök beillesztése tabulátorok helyett"
 
 #: src/Widgets/FormatBar.vala:152
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Tabulátor szélessége:"
+msgstr "Tabulátorok szélessége"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -614,10 +598,8 @@ msgid "Hide Terminal"
 msgstr "Terminál elrejtése"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Mappa megnyitása"
+msgstr "Mappa megnyitása…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
