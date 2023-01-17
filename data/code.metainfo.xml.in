@@ -62,22 +62,35 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="6.3.0" date="2022-08-10" urgency="medium">
+    <release version="7.0.0" date="2023-01-16" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
+          <li>Redesigned app icon</li>
+          <li>New custom dark and light elementary styles for the source view</li>
           <li>Option to follow the system dark style preference</li>
-        </ul>
-        <p>Fixes:</p>
-        <ul>
-          <li>Drag and drop with text containing accented characters</li>
-          <li>Text duplication issues when dragging text between multiple windows</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
+          <li>Both Find on Page and Find in Project are now available from the app's menu instead of in the headerbar</li>
+          <li>Options for hiding and showing panels and now all present in a compact set of linked buttons in the app's menu</li>
+          <li>The sidebar now contains the project chooser button and fills the height of the window</li>
+          <li>Started a global search with text selected now pre-fills that text</li>
+          <li>The symbol outline pane is now shown to the right of the source view and can be shown and hidden with the keyboard shortcut "Alt + \"</li>
+          <li>Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now part of the main codebase</li>
+          <li>Show an infobar when tab width settings are being overwritten by an EditorConfig file</li>
+          <li>The shortcut for rebuilding the completion word list is now "Ctrl + |"</li>
           <li>Updated translations</li>
         </ul>
       </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1191">Drag and drop of selected text not working with accented characters</issue>
+        <issue url="https://github.com/elementary/code/issues/1193">Dragging text into document in a second window duplicates it</issue>
+        <issue url="https://github.com/elementary/code/issues/1142">Tab width label does not update properly</issue>
+        <issue url="https://github.com/elementary/code/issues/1140">Open tab in new window also opens other tabs in the new window</issue>
+        <issue url="https://github.com/elementary/code/issues/1141">Project list contains duplicates after creating new window</issue>
+        <issue url="https://github.com/elementary/code/issues/1244">Changing zoom with scroll lags</issue>
+      </issues>
     </release>
 
     <release version="6.2.0" date="2022-04-01" urgency="medium">
