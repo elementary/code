@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-11-02 15:15+0000\n"
+"PO-Revision-Date: 2023-01-19 00:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/extra/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/extra/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
@@ -26,7 +26,7 @@ msgstr "Kód"
 
 #: data/code.metainfo.xml.in:10
 msgid "The editor that works for you"
-msgstr "A megfelelő szerkesztő ön számára"
+msgstr "A szerkesztő, amely elvégzi Ön helyett a munkát"
 
 #: data/code.metainfo.xml.in:12
 msgid ""
@@ -38,7 +38,7 @@ msgstr ""
 "Akár Markdown-fájlokat szerkeszt, akár összetett kódbázist kezel, a Kód a "
 "megfelelő szerkesztő az ön számára. Automatikusan menti a fájlokat, hogy "
 "mindig aktuálisak legyenek, illetve megjegyzi a megnyitott lapokat — még "
-"munkamenetek közt is — így ön mindig tudni fogja, hol tart a munkájában."
+"munkamenetek közt is — így mindig tudni fogja, hol tart a munkájában."
 
 #: data/code.metainfo.xml.in:13
 msgid ""
@@ -46,6 +46,10 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Mivel projektalapú munkára lett tervezve, a Kód tud az ön különálló "
+"kódbázisairól. Hasznos Git integrációjának köszönhetően lehetővé teszi az "
+"ágak könnyű létrehozását, azok közötti váltást, valamint kijelzi a "
+"változásokat tartalmazó fájlokat és sorokat a projektjeiben."
 
 #: data/code.metainfo.xml.in:14
 msgid ""
@@ -64,6 +68,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Találjon meg bármit a megnyitott fájljaiban, bizonyos mappákban vagy az "
+"egész projektjében. Mindezek mellett testreszabhatja a kis- és nagybetűk "
+"érzékenységét, sőt, használhat reguláris kifejezéseket is."
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -72,6 +79,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Okos funkciók mindenfelé: automatikus behúzás, okos kivágás/másolás, látható "
+"szóközök a kiválasztott szövegben és a sorok végén, valamint opcionális "
+"bővítmények Markdown-műveletekhez, helyesírás-ellenőrzéshez, szóközök "
+"levágásához, szókiegészítéshez és így tovább."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -79,44 +90,53 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Szabja hozzá a Kódot a munkastílusához: állíthatja a működését és felületét "
+"igényei szerint rengeteg hasznos és átgondolt bővítménnyel és beállítással."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "És egy rakás további dolog:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Szolarizált világos, szolarizált Sötét és Magas kontrasztú színsémák, "
+"amelyek az egész felületre kihatással vannak"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Kapcsolható oldalsáv, a munkastílusának megfelelően"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Okos behúzás és .editorconfig-támogatás"
 
 #: data/code.metainfo.xml.in:23
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Böngésző-szintű lapok húzásos áthelyezéssel, duplikálással, bezárás "
+"visszaállításával és előzményekkel"
 
 #: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Aktuális sor és karakter kijelzése - és gyors ugrás másikra"
 
 #: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"A fájl végén túl is görgethet - így az épp szerkesztett sort olyan magasan "
+"tarthatja, amilyenen csak szeretné"
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
+"Opcionális minitérkép a nagy fájlokban való könnyebb navigáció érdekében"
 
 #: data/code.metainfo.xml.in:60
 msgid "elementary, Inc."
@@ -125,29 +145,29 @@ msgstr "elementary, Inc."
 #: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:99
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:151
 msgid "Improvements:"
-msgstr ""
+msgstr "Fejlesztések:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Újratervezett alkalmazásikon"
 
 #: data/code.metainfo.xml.in:70
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Új egyedi sötét és világos elementary témák"
 
 #: data/code.metainfo.xml.in:71
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Lehetőség a rendszer színsémájának követésére"
 
 #: data/code.metainfo.xml.in:72
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Kis laptopkijelzőkön fél oldalra rakható"
 
 #: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
 #: data/code.metainfo.xml.in:176
 msgid "Minor updates:"
-msgstr ""
+msgstr "Kisebb frissítések:"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
