@@ -371,15 +371,14 @@ namespace Scratch.Services {
             return;
         }
 
-        // Call before destroying the document
-        public async bool ensure_saved () {
+        public async bool ensure_saved (bool confirm = false) {
             if (!loaded) {
                 load_cancellable.cancel ();
                 return true;
             }
 
-            bool success = true; // True if saved or does not need saving
-            bool autosave = Scratch.settings.get_boolean ("autosave");
+            var success = true;
+            var autosave = Scratch.settings.get_boolean ("autosave");
             if (is_file_temporary) {
                 if (get_text ().length > 0) {
                     success = yield confirm_save ();
@@ -387,26 +386,31 @@ namespace Scratch.Services {
                     delete_temporary_file ();
                 }
             } else if (!saved) {
-                if (autosave) {
+                if (autosave || !confirm) {
                     success = yield save_with_hold ();
                 } else {
                     success = yield confirm_save ();
                 }
             }
+
+            // Success means the file has been saved or it does not need
+            // saving or (if confirm == true) the user has confirmed it should not saved
             return success;
         }
 
         private async bool confirm_save () {
             var dialog = new Granite.MessageDialog (
                 _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
-                _("If you don't save, changes will be permanently lost."),
+                _("If you do not save, then changes will be permanently lost."),
                 new ThemedIcon ("dialog-warning"),
                 Gtk.ButtonsType.NONE
             ) {
                 transient_for = (Gtk.Window)source_view.get_toplevel ()
             };
 
-            var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+            var no_save_button = (Gtk.Button) dialog.add_button (
+                _("Close Without Saving"), Gtk.ResponseType.NO
+            );
             no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
@@ -435,7 +439,6 @@ namespace Scratch.Services {
                 default: // Cancelled
                     return false;
             }
-
         }
 
         // Should only be called after doc has been prepared for closing.
@@ -445,57 +448,72 @@ namespace Scratch.Services {
             doc_closed ();
         }
 
-        // Call directly to force saving
+        // Only return false if user cancels the process
         public async bool save_with_hold () {
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            result = yield save ();
+            var result = yield save ();
             GLib.Application.get_default ().release ();
 
             return result;
         }
 
+        // Only return false if user cancels the process
         public async bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            result = yield save_as ();
+            var result = yield save_as ();
             GLib.Application.get_default ().release ();
 
             return result;
         }
 
-        public async bool save (bool force = false) {
-            if (completion_shown || !loaded) {
-                return false;
+        // This function must return "true" unless the user has cancelled the process
+        private async bool save () {
+            if (!loaded) {
+                return true;
             }
 
-            // No check is made whether the file can be saved, we just deal with any error arising by giving
-            // chance to save with different name, cancel or ignore the error (e.g. so that app or tab can close)
+            source_view.completion.hide ();
+            // No check is made whether the file can be saved,
+            // We just deal with any error arising by giving a chance to save with
+            // a different name, cancel or ignore the error (i.e.so that app or tab can close)
             this.create_backup ();
 
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
+            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
                 strip_trailing_spaces ();
             }
 
+            // Guard against this function being called again before save is complete
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+            var source_file_saver = new Gtk.SourceFileSaver (
+                (Gtk.SourceBuffer) source_view.buffer, source_file
+            );
+
+            bool success = true;
             try {
-                yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
+                // Assume anything causing an unsuccessful save will throw an error
+                yield source_file_saver.save_async (
+                    GLib.Priority.DEFAULT, save_cancellable, null
+                );
             } catch (Error e) {
                 // We don't need to send an error message at cancellation
                 if (e.code != IOError.CANCELLED) {
                     var primary = _("Cannot save \"%s\"").printf (get_basename ());
                     var secondary = _("%s").printf (e.message);
                     var dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                        primary, secondary, "dialog-warning", Gtk.ButtonsType.CANCEL) {
+                        primary, secondary, "dialog-warning", Gtk.ButtonsType.CANCEL
+                    ) {
                         transient_for = (Gtk.Window)source_view.get_toplevel ()
                     };
 
-                    var no_save_button = (Gtk.Button) dialog.add_button (_("Ignore"), Gtk.ResponseType.NO);
+                    var no_save_button = (Gtk.Button) dialog.add_button (
+                        _("Ignore"), Gtk.ResponseType.NO
+                    );
                     no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-                    var save_as_button = dialog.add_button ("Save As", Gtk.ResponseType.YES);
+                    var save_as_button = dialog.add_button (
+                        "Save As", Gtk.ResponseType.YES
+                    );
                     save_as_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
 
@@ -503,32 +521,35 @@ namespace Scratch.Services {
                     dialog.destroy ();
                     switch (response) {
                         case Gtk.ResponseType.YES:
-                            return yield save_as ();
-                        case Gtk.ResponseType.NO:
+                            success = yield save_as ();
                             break;
-                        default:
-                            return false;
+                        case Gtk.ResponseType.NO:
+                            success = true;
+                            break;
+                        default: // CANCEL pressed
+                            success = false;
+                            break;
                     }
                 }
             }
 
-            source_view.buffer.set_modified (false);
+            // If success is true then the file can be regarded as saved
+            if (success) {
+                source_view.buffer.set_modified (false);
+                if (outline != null) {
+                    outline.parse_symbols ();
+                }
 
-            if (outline != null) {
-                outline.parse_symbols ();
+                this.set_saved_status (true);
+                last_save_content = source_view.buffer.text;
+
+                debug ("File \"%s\" saved successfully", get_basename ());
             }
 
-            this.set_saved_status (true);
-            last_save_content = source_view.buffer.text;
-
-            debug ("File \"%s\" saved successfully", get_basename ());
-
-            return true;
+            return success;
         }
 
-        //This function is re-entrant.
         private async bool save_as () {
-            // New file
             if (!loaded) {
                 return false;
             }
@@ -543,7 +564,7 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                (Gtk.Window) this.get_toplevel (),
+                (Gtk.Window)(this.get_toplevel ()),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")

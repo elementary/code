@@ -301,7 +301,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     // Only use for single documents when app remains open
     public async bool close_document (Services.Document doc) {
-        if (yield doc.ensure_saved ()) {
+        if (yield doc.ensure_saved (true)) {
             doc.do_close ();
             remove_tab (doc);
             return true;
@@ -310,7 +310,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    // Must call before the app is closed
+    // Must call before the app is closed.  This function must  either leave the app in a
+    // closable state or the user has cancelled closing
     public async bool prepare_to_close () {
         tab_removed.disconnect (on_doc_removed);
         tab_switched.disconnect (on_tab_switched);
@@ -318,20 +319,19 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var docs = docs.copy ();
         bool success = true;
         foreach (var doc in docs) {
-            success = success && yield doc.ensure_saved (); // This may rename the document
+            // Give the user the chance to cancel or rename
+            success = success && yield doc.ensure_saved (true);
         };
 
-        if (!success) {
-            return false; // Either a document could not be saved or the operation was cancelled
+        if (success) {
+            remember_opened_files ();
+            foreach (var doc in docs) {
+                doc.do_close ();
+                remove_tab (doc);
+            };
         }
 
-        remember_opened_files ();
-        foreach (var doc in docs) {
-            doc.do_close ();
-            remove_tab (doc);
-        };
-
-        return true;
+        return success;
     }
 
     public void request_placeholder_if_empty () {
