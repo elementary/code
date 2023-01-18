@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-08-12 07:24+0000\n"
+"PO-Revision-Date: 2023-01-19 00:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
@@ -149,11 +149,11 @@ msgstr "Ulepszenia:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Przeprojektowano ikonę aplikacji"
 
 #: data/code.metainfo.xml.in:70
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Nowe dostosowane ciemne i jasne style elementary dla widoku źródła"
 
 #: data/code.metainfo.xml.in:71
 msgid "Option to follow the system dark style preference"
@@ -161,7 +161,7 @@ msgstr "Możliwość ustawienia trybu ciemnego na podstawie ustawień systemu"
 
 #: data/code.metainfo.xml.in:72
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Możliwość do zmniejszenia o połowę kafelku na ekranach notebooków"
 
 #: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
@@ -174,22 +174,30 @@ msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Zarówno Znajdź na stronie jak i Znajdź w projekcie są teraz dostępne z menu "
+"aplikacji zamiast z paska górnego"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options for hiding and showing panels and now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Opcje do chowania i pokazywania paneli są teraz dostępne w kompaktowym "
+"zbiorze połączonych przycisków w menu aplikacji"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"Panel boczny zawiera teraz przycisk wybierania projektu oraz zajmuje całą "
+"wysokość okna"
 
 #: data/code.metainfo.xml.in:79
 msgid "Started a global search with text selected now pre-fills that text"
 msgstr ""
+"Rozpoczęcie globalnego wyszukiwania z zaznaczonym tekstem wykorzystuje teraz "
+"ten tekst"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
