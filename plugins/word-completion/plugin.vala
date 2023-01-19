@@ -68,8 +68,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
             parser.cancel_parsing ();
 
-            if (timeout_id > 0)
+            if (timeout_id > 0) {
                 GLib.Source.remove (timeout_id);
+                timeout_id = 0;
+            }
 
             cleanup (current_view);
         }

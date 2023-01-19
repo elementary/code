@@ -587,7 +587,6 @@ namespace Scratch.Widgets {
             } else {
                 selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
             }
-
         }
 
         bool selection_changed_event () {
@@ -607,6 +606,7 @@ namespace Scratch.Widgets {
         private void schedule_refresh_diff () {
             if (refresh_diff_timeout_id > 0) {
                 Source.remove (refresh_diff_timeout_id);
+                refresh_diff_timeout_id = 0;
             }
 
             refresh_diff_timeout_id = Timeout.add (250, () => {

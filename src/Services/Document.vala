@@ -222,6 +222,7 @@ namespace Scratch.Services {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
                     if (onchange_handler_id != 0) {
                         this.source_view.buffer.disconnect (onchange_handler_id);
+                        onchange_handler_id = 0;
                     }
 
                     // Signals for SourceView
@@ -246,10 +247,11 @@ namespace Scratch.Services {
                 });
             } else if (onchange_handler_id != 0) {
                 this.source_view.buffer.disconnect (onchange_handler_id);
+                onchange_handler_id = 0;
             }
         }
 
-        private uint load_timout_id = 0;
+        private uint load_timeout_id = 0;
         public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
@@ -298,7 +300,7 @@ namespace Scratch.Services {
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
 
-            load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
+            load_timeout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
@@ -311,12 +313,12 @@ namespace Scratch.Services {
                         load_cancellable.cancel ();
                         doc_closed ();
                     });
-                    load_timout_id = 0;
 
+                    load_timeout_id = 0;
                     return GLib.Source.REMOVE;
                 }
 
-                load_timout_id = 0;
+                load_timeout_id = 0;
                 return GLib.Source.REMOVE;
             });
 
@@ -340,8 +342,9 @@ namespace Scratch.Services {
                 return;
             } finally {
                 load_cancellable = null;
-                if (load_timout_id > 0) {
-                    Source.remove (load_timout_id);
+                if (load_timeout_id > 0) {
+                    Source.remove (load_timeout_id);
+                    load_timeout_id = 0;
                 }
             }
 
