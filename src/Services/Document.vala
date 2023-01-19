@@ -213,6 +213,8 @@ namespace Scratch.Services {
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
+        // Changed handler is disabled during programmed text changes
+        // currentl only search and replace all
         public void toggle_changed_handlers (bool enabled) {
             if (enabled) {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
@@ -232,7 +234,8 @@ namespace Scratch.Services {
                                 timeout_saving = 0;
                             }
                             timeout_saving = Timeout.add (1000, () => {
-                                save.begin ();
+                                //Not closing not stripping
+                                ensure_saved.begin (false, false);
                                 timeout_saving = 0;
                                 return false;
                             });
@@ -371,34 +374,44 @@ namespace Scratch.Services {
             return;
         }
 
-        public async bool ensure_saved (bool confirm = false) {
+        // By default (e.g. during autosave) this saves without stripping or confirmation
+        // When saving due to user action, stripping occurs subject to setting but no confirmation
+        // When closing tab or app, stripping occurs subject to setting and a confirmation dialog
+        // shows for documents that have not already been saved.
+        public async bool ensure_saved (
+            bool closing = false,
+            bool strip = false
+        ) {
+            var success = true;
             if (!loaded) {
                 load_cancellable.cancel ();
-                return true;
-            }
-
-            var success = true;
-            var autosave = Scratch.settings.get_boolean ("autosave");
-            if (is_file_temporary) {
-                if (get_text ().length > 0) {
-                    success = yield confirm_save ();
-                } else {
+            } else {
+                if (is_file_temporary && get_text ().length == 0) {
                     delete_temporary_file ();
-                }
-            } else if (!saved) {
-                if (autosave || !confirm) {
-                    success = yield save_with_hold ();
-                } else {
-                    success = yield confirm_save ();
+                } else if (!saved || strip) { // If stripping have to save after
+                    //Should not strip while editing - annoying, but should strip
+                    // when manually saved
+                   if (strip) {
+                       strip_trailing_spaces ();
+                   }
+
+                   if (closing) {
+                       success = yield confirm_save_before_close ();
+                   } else {
+                       success = yield save_with_hold ();
+                   }
                 }
             }
-
             // Success means the file has been saved or it does not need
             // saving or (if confirm == true) the user has confirmed it should not saved
+            if (!saved) {
+                critical ("%s Not saved after ensure saved", file.get_basename ());
+            }
+
             return success;
         }
 
-        private async bool confirm_save () {
+        private async bool confirm_save_before_close () {
             var dialog = new Granite.MessageDialog (
                 _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
                 _("If you do not save, then changes will be permanently lost."),
@@ -443,6 +456,7 @@ namespace Scratch.Services {
 
         // Should only be called after doc has been prepared for closing.
         public void do_close () {
+            assert (!loaded || saved);
             debug ("Closing \"%s\"", get_basename ());
             delete_backup ();
             doc_closed ();
@@ -460,6 +474,7 @@ namespace Scratch.Services {
         // Only return false if user cancels the process
         public async bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
+            strip_trailing_spaces ();
             var result = yield save_as ();
             GLib.Application.get_default ().release ();
 
@@ -476,10 +491,20 @@ namespace Scratch.Services {
             // No check is made whether the file can be saved,
             // We just deal with any error arising by giving a chance to save with
             // a different name, cancel or ignore the error (i.e.so that app or tab can close)
-            this.create_backup ();
 
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-                strip_trailing_spaces ();
+            // Backup functions
+            if (!can_write ()) {
+                return true;
+            }
+
+            var backup = File.new_for_path (this.file.get_path () + "~");
+
+            if (!backup.query_exists ()) {
+                try {
+                    file.copy (backup, FileCopyFlags.NONE);
+                } catch (Error e) {
+                    warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+                }
             }
 
             // Guard against this function being called again before save is complete
@@ -515,7 +540,6 @@ namespace Scratch.Services {
                         "Save As", Gtk.ResponseType.YES
                     );
                     save_as_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
 
                     var response = dialog.run ();
                     dialog.destroy ();
@@ -623,9 +647,7 @@ namespace Scratch.Services {
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
 
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-                strip_trailing_spaces ();
-            }
+            strip_trailing_spaces ();
         }
 
         // Focus the SourceView
@@ -791,7 +813,7 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        this.save_as.begin ();
+                        this.save_as_with_hold.begin ();
                         hide_info_bar ();
                     });
                 } else {
@@ -800,7 +822,7 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save.begin ();
+                        this.ensure_saved.begin (false, true);
                         hide_info_bar ();
                     });
                 }
@@ -890,23 +912,6 @@ namespace Scratch.Services {
             }
         }
 
-        // Backup functions
-        private void create_backup () {
-            if (!can_write ()) {
-                return;
-            }
-
-            var backup = File.new_for_path (this.file.get_path () + "~");
-
-            if (!backup.query_exists ()) {
-                try {
-                    file.copy (backup, FileCopyFlags.NONE);
-                } catch (Error e) {
-                    warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
-                }
-            }
-        }
-
         private void delete_backup (string? backup_path = null) {
             string backup_file;
 
@@ -961,7 +966,7 @@ namespace Scratch.Services {
                 writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
                 return writable;
             } catch (Error e) {
-                warning ("query_info failed, but filename appears to be correct, allowing as new file");
+                debug ("query_info failed, but filename appears to be correct, allowing as new file");
                 writable = true;
                 return writable;
             }
@@ -1030,8 +1035,11 @@ namespace Scratch.Services {
         /* Pull the buffer into an array and then work out which parts are to be deleted.
          * Do not strip line currently being edited unless forced */
         private void strip_trailing_spaces () {
-            if (!loaded || source_view.language == null) {
-                return;
+            if (!loaded ||
+                source_view.language == null ||
+                !Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    return;
             }
 
             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
@@ -1066,6 +1074,7 @@ namespace Scratch.Services {
                 return;
             }
 
+            toggle_changed_handlers (false); // Avoid triggering autosave
             for (int line_no = 0; line_no < lines.length; line_no++) {
                 if (whitespace.match (lines[line_no], 0, out info)) {
 
@@ -1082,6 +1091,8 @@ namespace Scratch.Services {
 
             source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
             source_buffer.place_cursor (iter);
+
+            toggle_changed_handlers (true);
         }
     }
 }

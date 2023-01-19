@@ -18,7 +18,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-
 namespace Scratch {
     public class MainWindow : Hdy.Window {
         public const int FONT_SIZE_MAX = 72;
@@ -588,7 +587,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit.begin ();
+            handle_quit ();
             // Do not want the signal to be propagated, handle_quit will destroy the app if possible.
             return Gdk.EVENT_STOP;
         }
@@ -689,14 +688,20 @@ namespace Scratch {
         }
 
         // For exit cleanup
-        private async void handle_quit () {
+        //This will close the app after saving content as needed
+        // and recording open documents (if history on)
+        // unless the user cancels the process
+        // When closing due to logout ???
+        private void handle_quit () {
             // Prevent plugins possibly leaving output streams on disk.
             plugins.deactivate_plugins ();
 
-            if (yield document_view.prepare_to_close ()) {
-                update_saved_state (); // Remember window state
-                destroy ();
-            }
+            document_view.prepare_to_close.begin ((obj, res) => {
+                if (document_view.prepare_to_close.end (res)) {
+                    update_saved_state (); // Remember window state
+                    destroy ();
+                }
+            });
         }
 
         public void set_default_zoom () {
@@ -784,7 +789,7 @@ namespace Scratch {
         }
 
         private void action_quit () {
-            handle_quit.begin ();
+            handle_quit ();
         }
 
         private void action_open () {
@@ -853,11 +858,7 @@ namespace Scratch {
         private void action_save () {
             var doc = get_current_document (); /* may return null */
             if (doc != null) {
-                if (doc.is_file_temporary == true) {
-                    action_save_as ();
-                } else {
-                    doc.save_with_hold.begin ();
-                }
+                doc.ensure_saved.begin (false, true); // No confirm, strip
             }
         }
 

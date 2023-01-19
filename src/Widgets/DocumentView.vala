@@ -172,7 +172,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     private void insert_document (Scratch.Services.Document doc, int pos) {
         insert_tab (doc, pos);
         if (Scratch.saved_state.get_boolean ("outline-visible")) {
-            warning ("setting outline visible");
+            debug ("setting outline visible");
             doc.show_outline (true);
         }
     }
@@ -320,6 +320,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         bool success = true;
         foreach (var doc in docs) {
             // Give the user the chance to cancel or rename
+            // Once success is false, no ensure_saved is not called again
             success = success && yield doc.ensure_saved (true);
         };
 
