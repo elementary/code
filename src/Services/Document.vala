@@ -182,8 +182,10 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (!saved && Scratch.settings.get_boolean ("autosave")) {
-                    save.begin ();
+                if (!saved && Scratch.settings.get_boolean ("autosave") ||
+                    Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    ensure_saved.begin (false, true);
                 }
 
                 return Gdk.EVENT_PROPAGATE;
