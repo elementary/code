@@ -215,7 +215,7 @@ namespace Scratch.Services {
         }
 
         public void toggle_changed_handlers (bool enabled) {
-            if (enabled) {
+            if (enabled && onchange_handler_id == 0) {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
                     if (onchange_handler_id != 0) {
                         this.source_view.buffer.disconnect (onchange_handler_id);
@@ -224,7 +224,7 @@ namespace Scratch.Services {
                     // Signals for SourceView
                     uint timeout_saving = 0;
                     check_undoable_actions ();
-                    this.source_view.buffer.changed.connect (() => {
+                    onchange_handler_id = source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
                         if (Scratch.settings.get_boolean ("autosave")) {
@@ -240,8 +240,9 @@ namespace Scratch.Services {
                         }
                      });
                 });
-            } else if (onchange_handler_id != 0) {
+            } else if (!enabled && onchange_handler_id != 0) {
                 this.source_view.buffer.disconnect (onchange_handler_id);
+                onchange_handler_id = 0;
             }
         }
 
@@ -294,6 +295,7 @@ namespace Scratch.Services {
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
 
+            assert (load_timout_id == 0);
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
