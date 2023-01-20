@@ -968,12 +968,12 @@ namespace Scratch {
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
             if (!search_revealer.child_revealed) {
-                var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-                if (fetch_action.enabled) {
+                var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+                if (show_find_action.enabled) {
                     /* Toggling the fetch action causes this function to be called again but the search_revealer child
                      * is still not revealed so nothing more happens.  We use the map signal on the search entry
                      * to set it up once it has been revealed. */
-                    fetch_action.set_state (true);
+                    show_find_action.set_state (true);
                 }
             } else {
                 set_search_text ();
