@@ -481,6 +481,7 @@ namespace Scratch {
                 }
 
                 document_view.update_outline_visible ();
+                update_find_actions ();
             });
 
             document_view.request_placeholder.connect (() => {
@@ -494,6 +495,11 @@ namespace Scratch {
                 content_stack.visible_child = view_grid;
                 toolbar.document_available (true);
                 set_widgets_sensitive (true);
+                update_find_actions ();
+            });
+
+            document_view.tab_removed.connect (() => {
+                update_find_actions ();
             });
 
             document_view.document_change.connect ((doc) => {
@@ -1010,6 +1016,19 @@ namespace Scratch {
             }
 
             folder_manager_view.search_global (get_target_path_for_actions (param), term);
+        }
+
+        private void update_find_actions () {
+            // Idle needed to ensure that existence of current_doc is up to date
+            Idle.add (() => {
+                var is_current_doc = get_current_document () != null;
+                Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
+                return Source.REMOVE;
+            });
         }
 
         private void set_search_text () {
