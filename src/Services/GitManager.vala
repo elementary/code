@@ -41,6 +41,7 @@ namespace Scratch.Services {
         }
 
         private GitManager () {
+            // Used to populate the ChooseProject popover in sorted order
             project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
         }
 
