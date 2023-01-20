@@ -342,10 +342,6 @@ namespace Scratch {
             toolbar = new Scratch.HeaderBar ();
             toolbar.title = title;
 
-            sidebar.choose_project_button.project_chosen.connect (() => {
-                folder_manager_view.collapse_other_projects ();
-            });
-
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
             search_revealer = new Gtk.Revealer ();
@@ -394,6 +390,10 @@ namespace Scratch {
 
             sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();
+
+            sidebar.choose_project_button.project_chosen.connect (() => {
+                folder_manager_view.collapse_other_projects ();
+            });
 
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
