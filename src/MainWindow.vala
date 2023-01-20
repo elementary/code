@@ -990,6 +990,9 @@ namespace Scratch {
 
         private void action_find_global (SimpleAction action, Variant? param) {
             var current_doc = get_current_document ();
+            if (current_doc == null) {
+                return;
+            }
             var selected_text = current_doc.get_selected_text (false);
             if (selected_text != "") {
                 selected_text = selected_text.split ("\n", 2)[0];
