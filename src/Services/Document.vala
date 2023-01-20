@@ -295,7 +295,6 @@ namespace Scratch.Services {
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
 
-            assert (load_timout_id == 0);
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
