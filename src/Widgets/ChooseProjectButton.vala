@@ -90,12 +90,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         var model = Scratch.Services.GitManager.get_instance ().project_liststore;
 
         model.items_changed.connect ((pos, n_removed, n_added) => {
-            // This model is get in sort order by the GitManager so model pos the same as listbox index
+            // This model is put in sort order by the GitManager so model pos the same as listbox index
             var project_folder = (Scratch.FolderManager.ProjectFolderItem)(model.get_item (pos));
             if (n_added > 0) {
                 var row = create_project_row (project_folder);
                 project_listbox.insert (row, (int)pos);
             } else {
+                // Double check we are removing correct row (do not rely on pos)
                 var row = find_row_for_path (project_folder.file.file.get_path ());
                 if (row != null) {
                     project_listbox.remove (row);
