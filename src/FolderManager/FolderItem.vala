@@ -224,8 +224,9 @@ namespace Scratch.FolderManager {
 
         private new void remove (Granite.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
-                foreach (var child in item.children) {
-                    item.remove (child);
+                var folder = (FolderItem)item;
+                foreach (var child in folder.children) {
+                    folder.remove (child);
                 }
             }
 
