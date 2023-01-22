@@ -71,8 +71,7 @@ namespace Scratch.FolderManager {
             });
 
             try {
-                // monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
-                monitor = file.file.monitor_directory (GLib.FileMonitorFlags.SEND_MOVED);
+                monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
                 monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
