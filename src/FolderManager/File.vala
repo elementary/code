@@ -102,6 +102,10 @@ namespace Scratch.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
+                if (path.has_prefix (".goutputstream")) {
+                    return false;
+                }
+
                 if (info.get_is_backup ()) {
                     return false;
                 }
