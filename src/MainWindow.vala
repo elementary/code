@@ -481,6 +481,7 @@ namespace Scratch {
                 }
 
                 document_view.update_outline_visible ();
+                update_find_actions ();
             });
 
             document_view.request_placeholder.connect (() => {
@@ -494,6 +495,11 @@ namespace Scratch {
                 content_stack.visible_child = view_grid;
                 toolbar.document_available (true);
                 set_widgets_sensitive (true);
+                update_find_actions ();
+            });
+
+            document_view.tab_removed.connect (() => {
+                update_find_actions ();
             });
 
             document_view.document_change.connect ((doc) => {
@@ -968,12 +974,12 @@ namespace Scratch {
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
             if (!search_revealer.child_revealed) {
-                var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-                if (fetch_action.enabled) {
+                var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+                if (show_find_action.enabled) {
                     /* Toggling the fetch action causes this function to be called again but the search_revealer child
                      * is still not revealed so nothing more happens.  We use the map signal on the search entry
                      * to set it up once it has been revealed. */
-                    fetch_action.set_state (true);
+                    show_find_action.set_state (true);
                 }
             } else {
                 set_search_text ();
@@ -990,7 +996,11 @@ namespace Scratch {
 
         private void action_find_global (SimpleAction action, Variant? param) {
             var current_doc = get_current_document ();
-            var selected_text = current_doc.get_selected_text (false);
+            string selected_text = "";
+            if (current_doc != null) {
+                selected_text = current_doc.get_selected_text (false);
+            }
+
             if (selected_text != "") {
                 selected_text = selected_text.split ("\n", 2)[0];
             }
@@ -1007,6 +1017,21 @@ namespace Scratch {
             }
 
             folder_manager_view.search_global (get_target_path_for_actions (param), term);
+        }
+
+        private void update_find_actions () {
+            // Idle needed to ensure that existence of current_doc is up to date
+            Idle.add (() => {
+                var is_current_doc = get_current_document () != null;
+                Utils.action_from_group (ACTION_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
+
+                var is_active_project = Services.GitManager.get_instance ().active_project_path != "";
+                Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_active_project);
+                return Source.REMOVE;
+            });
         }
 
         private void set_search_text () {
