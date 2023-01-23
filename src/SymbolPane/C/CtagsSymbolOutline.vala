@@ -25,6 +25,14 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         );
     }
 
+    static construct {
+        filters = {
+            SymbolType.METHOD,
+            SymbolType.STRUCT,
+            SymbolType.ENUM,
+            SymbolType.CONSTANT
+        };
+    }
     construct {
         store.item_selected.connect ((selected) => {
             doc.goto (((CtagsSymbol)selected).line);

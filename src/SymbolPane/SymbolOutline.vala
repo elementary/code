@@ -16,9 +16,53 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public abstract class Scratch.Services.SymbolOutline : Object {
-    public Scratch.Services.Document doc { get; construct; }
+namespace Scratch.Services {
+public enum SymbolType {
+    CLASS,
+    PROPERTY,
+    SIGNAL,
+    METHOD,
+    STRUCT,
+    ENUM,
+    CONSTANT,
+    OTHER;
 
+    public unowned string to_string () {
+        switch (this) {
+            case SymbolType.CLASS:
+                return _("Class");
+            case SymbolType.PROPERTY:
+                return _("Property");
+            case SymbolType.SIGNAL:
+                return _("Signal");
+            case SymbolType.METHOD:
+                return _("Method");
+            case SymbolType.STRUCT:
+                return _("Struct");
+            case SymbolType.ENUM:
+                return _("Enum");
+            case SymbolType.CONSTANT:
+                return _("Constant");
+            case SymbolType.OTHER:
+                return _("Other");
+            default:
+                assert_not_reached ();
+        }
+    }
+}
+
+public interface SymbolItem : Granite.Widgets.SourceList.ExpandableItem {
+    public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
+}
+}
+
+public abstract class Scratch.Services.SymbolOutline : Object {
+    protected static SymbolType[] filters;
+
+    public Scratch.Services.Document doc { get; construct; }
+    //TODO Should this be a class property or an instance property?
+
+    protected Gee.HashMap<SymbolType, Gtk.CheckButton> checks;
     protected Gtk.Box symbol_pane;
     protected Granite.Widgets.SourceList store;
     protected Granite.Widgets.SourceList.ExpandableItem root;
@@ -27,14 +71,53 @@ public abstract class Scratch.Services.SymbolOutline : Object {
     public abstract void parse_symbols ();
 
     construct {
-        symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        var search_entry = new Gtk.SearchEntry ();
-        search_entry.placeholder_text = _("Find");
         store = new Granite.Widgets.SourceList ();
+        checks = new Gee.HashMap<SymbolType, Gtk.CheckButton> ();
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
-        symbol_pane.add (search_entry);
+        symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true
+        };
+        var tool_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) ;
+        var search_entry = new Gtk.SearchEntry () {
+            placeholder_text = _("Find Symbol"),
+            hexpand = true
+        };
+
+        var filter_popover = new Gtk.Popover (null);
+        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        foreach (var filter in filters) {
+            var check = new Gtk.CheckButton.with_label (filter.to_string ()) {
+                active = true
+            };
+            popover_content.add (check);
+            checks[filter] = check;
+        }
+        //Always have OTHER category
+        var check = new Gtk.CheckButton.with_label (SymbolType.OTHER.to_string ()) {
+            active = true
+        };
+        popover_content.add (check);
+        checks[SymbolType.OTHER] = check;
+
+        popover_content.show_all ();
+        //TODO Provide "filter" icon?
+        filter_popover.add (popover_content);
+
+        var filter_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name (
+                "open-menu-symbolic",
+                Gtk.IconSize.SMALL_TOOLBAR
+            ),
+            popover = filter_popover,
+            tooltip_text = _("Filter symbol type"),
+        };
+
+        tool_box.add (search_entry);
+        tool_box.add (filter_button);
+
+        symbol_pane.add (tool_box);
         symbol_pane.add (store);
         set_up_css ();
         symbol_pane.show_all ();
@@ -51,16 +134,30 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                     } else if (search_entry.text == null) {
                         warning ("seach entry text is null");
                         return true;
-                    } else if (!(item is ValaSymbolItem)) {
-                        return true;
                     } else if ((item is Granite.Widgets.SourceList.ExpandableItem) &&
                                 item.n_children > 0) {
 
                         return true;
-                    } else {
-                        return item.name.contains (search_entry.text);
+                    } else if (item is SymbolItem) {
+                        var symbol = (SymbolItem)item;
+                        if (checks[symbol.symbol_type] != null &&
+                            !checks[symbol.symbol_type].active) {
+
+                            return false;
+                        }
+
+                        if (checks[symbol.symbol_type] == null &&
+                            !checks[SymbolType.OTHER].active) {
+
+                            return false;
+                        }
+
+                        if (!symbol.name.contains (search_entry.text)) {
+                            return false;
+                        }
                     }
 
+                    return true;
                 },
                 false
             );

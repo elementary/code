@@ -26,6 +26,15 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         );
     }
 
+    static construct {
+        filters = {
+            SymbolType.CLASS,
+            SymbolType.PROPERTY,
+            SymbolType.SIGNAL,
+            SymbolType.METHOD
+        };
+    }
+
     construct {
         parser = new Vala.Parser ();
         resolver = new Code.Plugins.ValaSymbolResolver ();
