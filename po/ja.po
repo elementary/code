@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 11:44+0000\n"
-"PO-Revision-Date: 2023-01-14 17:13+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"PO-Revision-Date: 2023-01-21 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -51,7 +51,7 @@ msgstr "コード"
 msgid "Hide search bar"
 msgstr "検索バーを非表示"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "ページ内を検索…"
 
@@ -137,7 +137,7 @@ msgstr "ブランチ名は固有で Git の命名規則に従う必要があり�
 msgid "Create Branch"
 msgstr "ブランチを作成"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "設定"
 
@@ -325,7 +325,7 @@ msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u 項目の非表示にしたドキュメントを復元"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "プロジェクト内を検索…"
 
@@ -504,10 +504,8 @@ msgid "Plain Text"
 msgstr "プレーンテキスト"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "EditorConfig ファイルで設定された、インデント幅とスタイル"
+msgstr "一部は EditorConfig ファイルによって設定されています"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -537,63 +535,61 @@ msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d個のタブ"
 
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "ファイルを開きます"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "プロジェクトテンプレート"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "このファイルを保存します"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "このファイルを別の名前で保存します"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "このファイルを編集前の状態に復元します"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "共有"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "ズームアウト"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "100% ズーム"
 
-#: src/Widgets/HeaderBar.vala:105
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "ズームイン"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:144
 msgid "Follow System Style"
 msgstr "システムのスタイルに従う"
 
-#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
-#: src/Widgets/HeaderBar.vala:241
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/HeaderBar.vala:264
+#: src/Widgets/HeaderBar.vala:260
 msgid "Hide Terminal"
 msgstr "ターミナルを非表示"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "フォルダーを開く"
+msgstr "フォルダーを開く…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -660,11 +656,11 @@ msgstr "すべて置換"
 msgid "%d of %d"
 msgstr "%d / %d件"
 
-#: src/Widgets/SourceView.vala:514
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
-#: src/Widgets/SourceView.vala:527
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "コメントアウト／コメントイン"
 

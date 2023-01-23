@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 11:44+0000\n"
-"PO-Revision-Date: 2023-01-15 11:44+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"PO-Revision-Date: 2023-01-16 07:00+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -51,7 +51,7 @@ msgstr "קוד"
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "איתור בעמוד…"
 
@@ -137,7 +137,7 @@ msgstr "שם הענף חייב להיות ייחודי ולהיצמד לכללי
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -327,7 +327,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "שחזור מסמך נסתר"
 msgstr[1] "שחזור %u מסמכים נסתרים"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "איתור במיזם…"
 
@@ -501,10 +501,8 @@ msgid "Plain Text"
 msgstr "טקסט פשוט"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "הגדלת הרוחב והסגנון שהוגדר על ידי קובץ הגדרות עורך (EditorConfig)"
+msgstr "חלק מההגדרות הוגדרו על ידי קובץ הגדרות עורך (EditorConfig)"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -536,55 +534,55 @@ msgid_plural "%d Tabs"
 msgstr[0] "טאב אחד"
 msgstr[1] "%d טאבים"
 
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "פתיחת קובץ"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "תבניות מיזם"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "שמירת קובץ זה"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "שמירת קובץ זה בשם שונה"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "שחזור קובץ זה לקדמותו"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "תקריב 1:1"
 
-#: src/Widgets/HeaderBar.vala:105
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:144
 msgid "Follow System Style"
 msgstr "כמו ערכת העיצוב של המערכת"
 
-#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
 msgid "Show Terminal"
 msgstr "הצגת המסוף"
 
-#: src/Widgets/HeaderBar.vala:241
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "תפריט"
 
-#: src/Widgets/HeaderBar.vala:264
+#: src/Widgets/HeaderBar.vala:260
 msgid "Hide Terminal"
 msgstr "הסתרת המסוף"
 
@@ -657,11 +655,11 @@ msgstr "החלפת הכול"
 msgid "%d of %d"
 msgstr "%d מתוך %d"
 
-#: src/Widgets/SourceView.vala:514
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "סידור השורות הנבחרות"
 
-#: src/Widgets/SourceView.vala:527
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "החלפת מצב הערה"
 

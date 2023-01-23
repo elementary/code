@@ -30,7 +30,7 @@ namespace Scratch {
         public Scratch.Widgets.DocumentView document_view;
 
         // Widgets
-        public Scratch.Widgets.HeaderBar toolbar;
+        public Scratch.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
@@ -339,7 +339,7 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            toolbar = new Scratch.Widgets.HeaderBar ();
+            toolbar = new Scratch.HeaderBar ();
             toolbar.title = title;
 
             sidebar.choose_project_button.project_chosen.connect (() => {
