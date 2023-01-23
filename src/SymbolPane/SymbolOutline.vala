@@ -19,18 +19,58 @@
 public abstract class Scratch.Services.SymbolOutline : Object {
     public Scratch.Services.Document doc { get; construct; }
 
+    protected Gtk.Box symbol_pane;
     protected Granite.Widgets.SourceList store;
     protected Granite.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
-    public Gtk.Widget get_widget () { return store; }
+    public Gtk.Widget get_widget () { return (Gtk.Widget)symbol_pane; }
     public abstract void parse_symbols ();
 
     construct {
+        symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var search_entry = new Gtk.SearchEntry ();
+        search_entry.placeholder_text = _("Find");
         store = new Granite.Widgets.SourceList ();
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
+        symbol_pane.add (search_entry);
+        symbol_pane.add (store);
         set_up_css ();
+        symbol_pane.show_all ();
+
+        symbol_pane.realize.connect (() => {
+            store.set_filter_func (
+                (item) => {
+                    if (item == null) {
+                        critical ("item is null");
+                        return false;
+                    } else if (search_entry == null) {
+                        critical ("search_entry is null");
+                        return true;
+                    } else if (search_entry.text == null) {
+                        warning ("seach entry text is null");
+                        return true;
+                    } else if (!(item is ValaSymbolItem)) {
+                        return true;
+                    } else if ((item is Granite.Widgets.SourceList.ExpandableItem) &&
+                                item.n_children > 0) {
+
+                        return true;
+                    } else {
+                        return item.name.contains (search_entry.text);
+                    }
+
+                },
+                false
+            );
+
+            search_entry.changed.connect (() => {
+                //TODO Throttle for fast typing
+                store.refilter ();
+            });
+        });
+
     }
 
     protected void set_up_css () {
