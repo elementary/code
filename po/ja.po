@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2023-01-14 17:13+0000\n"
+"PO-Revision-Date: 2023-01-21 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -504,10 +504,8 @@ msgid "Plain Text"
 msgstr "プレーンテキスト"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "EditorConfig ファイルで設定された、インデント幅とスタイル"
+msgstr "一部は EditorConfig ファイルによって設定されています"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -590,10 +588,8 @@ msgid "Hide Terminal"
 msgstr "ターミナルを非表示"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "フォルダーを開く"
+msgstr "フォルダーを開く…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
