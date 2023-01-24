@@ -27,6 +27,7 @@ public enum SymbolType {
     CONSTANT,
     CONSTRUCTOR,
     INTERFACE,
+    NAMESPACE,
     OTHER;
 
     public unowned string to_string () {
@@ -49,6 +50,8 @@ public enum SymbolType {
                 return _("Constructor");
             case SymbolType.INTERFACE:
                 return _("Interface");
+            case SymbolType.NAMESPACE:
+                return _("Namespace");
             case SymbolType.OTHER:
                 return _("Other");
             default:
@@ -101,6 +104,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             checks[filter] = check;
             check.toggled.connect (schedule_refilter);
         }
+
         //Always have OTHER category
         var check = new Gtk.CheckButton.with_label (SymbolType.OTHER.to_string ()) {
             active = true
@@ -109,6 +113,29 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         checks[SymbolType.OTHER] = check;
         check.toggled.connect (schedule_refilter);
 
+        var clear_button = new Gtk.Button.from_icon_name ("edit-clear-all") {
+            tooltip_text = _("Deselect All")
+        };
+        clear_button.clicked.connect (() => {
+            foreach (var chck in checks.values) {
+                chck.active = false;
+            }
+        });
+
+        var select_all_button = new Gtk.Button.from_icon_name ("edit-select-all") {
+            tooltip_text = _("Select All")
+        };
+
+        select_all_button.clicked.connect (() => {
+            foreach (var chck in checks.values) {
+                chck.active = true;
+            }
+        });
+
+        var button_bar = new Gtk.ActionBar ();
+        button_bar.pack_end (clear_button);
+        button_bar.pack_end (select_all_button);
+        popover_content.add (button_bar);
         popover_content.show_all ();
         //TODO Provide "filter" icon?
         filter_popover.add (popover_content);
@@ -135,6 +162,12 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                 (item) => {
                     if (item is SymbolItem) {
                         var symbol = (SymbolItem)item;
+                        // Always show "OTHER" category else namespaces
+                        // hidden and nothing shows
+                        if (symbol.symbol_type == SymbolType.NAMESPACE) {
+                            return true;
+                        }
+
                         if (checks[symbol.symbol_type] != null &&
                             !checks[symbol.symbol_type].active) {
 

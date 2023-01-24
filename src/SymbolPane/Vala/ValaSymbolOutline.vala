@@ -210,6 +210,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             tree_child.symbol_type = SymbolType.METHOD;
         } else if (symbol is Vala.Namespace) {
             tree_child.icon = new ThemedIcon ("lang-namespace");
+            tree_child.symbol_type = SymbolType.NAMESPACE;
         } else if (symbol is Vala.ErrorDomain) {
             tree_child.icon = new ThemedIcon ("lang-errordomain");
         } else if (symbol is Vala.Delegate) {

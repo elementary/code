@@ -146,6 +146,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                         break;
                     case "namespace":
                         icon = new ThemedIcon ("lang-namespace");
+                        s_type = SymbolType.NAMESPACE;
                         break;
                     case "package":
                         break;
