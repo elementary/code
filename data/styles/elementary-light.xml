@@ -26,10 +26,10 @@
 
   <!-- Global Settings -->
   <style name="text"                        foreground="fg-0" background="bg-1"/>
-  <style name="selection"                   foreground="fg-0" background="bg-4"/>
+  <style name="selection"                   foreground="fg-1" background="bg-4"/>
   <style name="cursor"                      foreground="fg-0"/>
   <style name="secondary-cursor"            foreground="fg-1"/>
-  <style name="current-line"                background="bg-3"/>
+  <style name="current-line"                background="bg-2"/>
   <style name="line-numbers"                foreground="fg-1" background="bg-2"/>
   <style name="background-pattern"          background="bg-2"/>
   <style name="draw-spaces"                 foreground="fg-1"/>
