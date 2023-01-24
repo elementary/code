@@ -184,7 +184,6 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                         // hide hits on its children
                         if (item is Granite.Widgets.SourceList.ExpandableItem) {
                             var expandable = (Granite.Widgets.SourceList.ExpandableItem)item;
-                            warning ("expandable %s has %u n_children", expandable.name, expandable.n_children);
 
                             return ((expandable.n_children == 0 &&
                                     symbol.name.contains (search_entry.text)) ||
