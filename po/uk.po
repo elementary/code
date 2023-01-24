@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 11:44+0000\n"
-"PO-Revision-Date: 2023-01-15 11:44+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"PO-Revision-Date: 2023-01-16 07:00+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -53,7 +53,7 @@ msgstr "Код"
 msgid "Hide search bar"
 msgstr "Сховати панель пошуку"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "Знайти на сторінці…"
 
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Створити гілку"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Налаштування"
 
@@ -334,7 +334,7 @@ msgstr[0] "Відновити %u схований документ"
 msgstr[1] "Відновити %u сховані документи"
 msgstr[2] "Відновити %u схованих документів"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "Пошук у проєкті…"
 
@@ -513,10 +513,8 @@ msgid "Plain Text"
 msgstr "Звичайний текст"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "Ширина і стиль відступу визначаються файлом EditorConfig"
+msgstr "Деякі налаштування визначаються файлом EditorConfig"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -550,55 +548,55 @@ msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
 
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Відкрити файл"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Шаблони проєктів"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Зберегти цей файл"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Зберегти цей файл під іншою назвою"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Повернути файл до початкового стану"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Поділитися"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "Зменшити"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
-#: src/Widgets/HeaderBar.vala:105
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "Збільшити"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:144
 msgid "Follow System Style"
 msgstr "Використовувати стиль системи"
 
-#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
 msgid "Show Terminal"
 msgstr "Показати термінал"
 
-#: src/Widgets/HeaderBar.vala:241
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Widgets/HeaderBar.vala:264
+#: src/Widgets/HeaderBar.vala:260
 msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
@@ -671,11 +669,11 @@ msgstr "Замінити все"
 msgid "%d of %d"
 msgstr "%d з %d"
 
-#: src/Widgets/SourceView.vala:514
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Впорядкувати вибрані рядки"
 
-#: src/Widgets/SourceView.vala:527
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 

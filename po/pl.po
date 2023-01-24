@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 11:44+0000\n"
-"PO-Revision-Date: 2023-01-15 11:44+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"PO-Revision-Date: 2023-01-17 11:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -52,7 +52,7 @@ msgstr "Kod"
 msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "Znajdź na stronie…"
 
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Utwórz branch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferencje"
 
@@ -335,7 +335,7 @@ msgstr[0] "Przywróć %u otwarty dokument"
 msgstr[1] "Przywróć %u otwarte dokumenty"
 msgstr[2] "Przywróć %u otwartych dokumentów"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "Znajdź w projekcie…"
 
@@ -516,10 +516,8 @@ msgid "Plain Text"
 msgstr "Tekst bez formatowania"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "Szerokość wcięcia i styl ustawiony przy użyciu pliku EditorConfig"
+msgstr "Niektóre ustawienia ustawione przy użyciu pliku EditorConfig"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -553,55 +551,55 @@ msgstr[0] "Jeden tabulator"
 msgstr[1] "%d tabulatory"
 msgstr[2] "%d tabulatorów"
 
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Otwiera plik"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Szablony projektów"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Zapisz ten plik"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Zapisz ten plik pod inną nazwą"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Przywraca zawartość bieżącego pliku"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Udostępnia dokument"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "Pomniejszenie"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Skala 1:1"
 
-#: src/Widgets/HeaderBar.vala:105
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "Powiększenie"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:144
 msgid "Follow System Style"
 msgstr "Na podstawie stylu systemu"
 
-#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
 msgid "Show Terminal"
 msgstr "Pokaż terminal"
 
-#: src/Widgets/HeaderBar.vala:241
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/HeaderBar.vala:264
+#: src/Widgets/HeaderBar.vala:260
 msgid "Hide Terminal"
 msgstr "Ukryj terminal"
 
@@ -674,11 +672,11 @@ msgstr "Zastąp wszystko"
 msgid "%d of %d"
 msgstr "%d z %d"
 
-#: src/Widgets/SourceView.vala:514
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Sortuj wybrane wiersze"
 
-#: src/Widgets/SourceView.vala:527
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Przełącz komentarze"
 
