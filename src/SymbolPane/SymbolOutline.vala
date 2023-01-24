@@ -133,20 +133,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         symbol_pane.realize.connect (() => {
             store.set_filter_func (
                 (item) => {
-                    if (item == null) {
-                        critical ("item is null");
-                        return false;
-                    } else if (search_entry == null) {
-                        critical ("search_entry is null");
-                        return true;
-                    } else if (search_entry.text == null) {
-                        warning ("seach entry text is null");
-                        return true;
-                    } else if ((item is Granite.Widgets.SourceList.ExpandableItem) &&
-                                item.n_children > 0) {
-
-                        return true;
-                    } else if (item is SymbolItem) {
+                    if (item is SymbolItem) {
                         var symbol = (SymbolItem)item;
                         if (checks[symbol.symbol_type] != null &&
                             !checks[symbol.symbol_type].active) {
@@ -163,6 +150,8 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                         if (!symbol.name.contains (search_entry.text)) {
                             return false;
                         }
+
+                        return true;
                     }
 
                     return true;
@@ -172,13 +161,14 @@ public abstract class Scratch.Services.SymbolOutline : Object {
 
             search_entry.changed.connect (schedule_refilter);
         });
-
     }
 
     uint refilter_timeout_id = 0;
     bool delay_refilter = false;
     protected void schedule_refilter () {
-        if (!delay_refilter) {
+        // Ensure a refilter happens at least 500mS later if not already
+        // delayed.
+        if (!delay_refilter || refilter_timeout_id == 0) {
             delay_refilter = true;
             if (refilter_timeout_id == 0) {
                 refilter_timeout_id = Timeout.add (500, () => {
@@ -188,6 +178,8 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                     } else {
                         refilter_timeout_id = 0;
                         store.refilter ();
+                        // Ensure new visible items shown when filter removed
+                        store.root.expand_all (true, true);
                         return Source.REMOVE;
                     }
                 });

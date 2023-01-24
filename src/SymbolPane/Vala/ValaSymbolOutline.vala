@@ -166,6 +166,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             } else {
                 tree_child.icon = new ThemedIcon ("lang-class");
             }
+
             tree_child.symbol_type = SymbolType.CLASS;
         } else if (symbol is Vala.Constant) {
             tree_child.icon = new ThemedIcon ("lang-constant");
