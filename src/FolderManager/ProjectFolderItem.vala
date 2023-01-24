@@ -224,7 +224,11 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        public void update_item_status (FolderItem? start_folder) requires (monitored_repo != null) {
+        public void update_item_status (FolderItem? start_folder) {
+            if (monitored_repo == null) {
+                debug ("Ignore non-git folders");
+                return;
+            }
             bool is_new = false;
             string start_path = start_folder != null ? start_folder.path : "";
             visible_item_list.@foreach ((visible_item) => {
