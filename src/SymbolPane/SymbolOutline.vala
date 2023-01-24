@@ -99,6 +99,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             };
             popover_content.add (check);
             checks[filter] = check;
+            check.toggled.connect (schedule_refilter);
         }
         //Always have OTHER category
         var check = new Gtk.CheckButton.with_label (SymbolType.OTHER.to_string ()) {
@@ -106,6 +107,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         };
         popover_content.add (check);
         checks[SymbolType.OTHER] = check;
+        check.toggled.connect (schedule_refilter);
 
         popover_content.show_all ();
         //TODO Provide "filter" icon?
@@ -168,12 +170,29 @@ public abstract class Scratch.Services.SymbolOutline : Object {
                 false
             );
 
-            search_entry.changed.connect (() => {
-                //TODO Throttle for fast typing
-                store.refilter ();
-            });
+            search_entry.changed.connect (schedule_refilter);
         });
 
+    }
+
+    uint refilter_timeout_id = 0;
+    bool delay_refilter = false;
+    protected void schedule_refilter () {
+        if (!delay_refilter) {
+            delay_refilter = true;
+            if (refilter_timeout_id == 0) {
+                refilter_timeout_id = Timeout.add (500, () => {
+                    if (delay_refilter) {
+                        delay_refilter = false;
+                        return Source.CONTINUE;
+                    } else {
+                        refilter_timeout_id = 0;
+                        store.refilter ();
+                        return Source.REMOVE;
+                    }
+                });
+            }
+        }
     }
 
     protected void set_up_css () {
