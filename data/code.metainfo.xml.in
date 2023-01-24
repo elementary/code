@@ -43,7 +43,7 @@
   </provides>
 
   <recommends>
-    <display_length compare="ge">648</display_length>
+    <display_length compare="ge">604</display_length>
   </recommends>
   <supports>
     <control>pointing</control>
@@ -69,6 +69,7 @@
           <li>Redesigned app icon</li>
           <li>New custom dark and light elementary styles for the source view</li>
           <li>Option to follow the system dark style preference</li>
+          <li>Ability to half tile on small notebook displays</li>
         </ul>
         <p>Minor updates:</p>
         <ul>

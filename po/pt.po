@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:59+0000\n"
-"PO-Revision-Date: 2022-08-01 23:15+0000\n"
+"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"PO-Revision-Date: 2023-01-23 17:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -52,33 +52,25 @@ msgstr "Code"
 msgid "Hide search bar"
 msgstr "Ocultar barra de pesquisa"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:127
-#, fuzzy
-#| msgid "Find in Project…"
+#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
-msgstr "Localizar no Projeto…"
+msgstr "Localizar na Página…"
 
 #: src/MainWindow.vala:314
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Ocultar barra de pesquisa"
+msgstr "Ocultar barra lateral de Projetos"
 
 #: src/MainWindow.vala:319
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Mostrar a pré-visualização"
+msgstr "Mostrar a barra lateral de Projetos"
 
 #: src/MainWindow.vala:328
 msgid "Hide Symbol Outline"
-msgstr ""
+msgstr "Ocultar contorno do símbolo"
 
 #: src/MainWindow.vala:333
-#, fuzzy
-#| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
-msgstr "Nenhum símbolo encontrado"
+msgstr "Mostrar contorno do símbolo"
 
 #: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
@@ -147,7 +139,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Criar Ramo"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:219
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -184,10 +176,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Inserir espaços em vez de separadores:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Eliminar espaços no final das linhas ao guardar"
+msgstr "Eliminar espaços no final das linhas:"
 
 #: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
@@ -325,25 +315,24 @@ msgstr "Fechar outras pastas"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fechar %u documento aberto"
+msgstr[1] "Fechar %u documentos abertos"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Novo documento"
-msgstr[1] "Novo documento"
+msgstr[0] "Ocultar %u documento aberto"
+msgstr[1] "Ocultar %u documentos abertos"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Restaurar %u documento oculto"
+msgstr[1] "Restaurar %u documentos ocultos"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:136
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "Localizar no Projeto…"
 
@@ -526,25 +515,19 @@ msgstr "Texto simples"
 
 #: src/Widgets/FormatBar.vala:145
 msgid "Some settings set by EditorConfig file"
-msgstr ""
+msgstr "Algumas definições configuradas pelo ficheiro EditorConfig"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Indentação automática:"
+msgstr "Indentação automática"
 
 #: src/Widgets/FormatBar.vala:150
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Inserir espaços em vez de separadores:"
+msgstr "Inserir espaços em vez de separadores"
 
 #: src/Widgets/FormatBar.vala:152
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Largura do separador:"
+msgstr "Largura do separador"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -564,63 +547,61 @@ msgid_plural "%d Tabs"
 msgstr[0] "%d Separador"
 msgstr[1] "%d Separadores"
 
-#: src/Widgets/HeaderBar.vala:52
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Abrir um ficheiro"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Modelos de projeto"
 
-#: src/Widgets/HeaderBar.vala:63
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Guardar este ficheiro"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Guardar ficheiro com outro nome"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Restaurar este ficheiro"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Partilhar"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "Reduzir"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Ampliação 1:1"
 
-#: src/Widgets/HeaderBar.vala:105
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "Ampliar"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:144
 msgid "Follow System Style"
 msgstr "Seguir o estilo do sistema"
 
-#: src/Widgets/HeaderBar.vala:198 src/Widgets/HeaderBar.vala:269
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
 msgid "Show Terminal"
 msgstr "Mostrar o Terminal"
 
-#: src/Widgets/HeaderBar.vala:241
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/HeaderBar.vala:264
+#: src/Widgets/HeaderBar.vala:260
 msgid "Hide Terminal"
 msgstr "Ocultar o Terminal"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Abrir pasta"
+msgstr "Abrir pasta…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
