@@ -25,6 +25,8 @@ public enum SymbolType {
     STRUCT,
     ENUM,
     CONSTANT,
+    CONSTRUCTOR,
+    INTERFACE,
     OTHER;
 
     public unowned string to_string () {
@@ -43,6 +45,10 @@ public enum SymbolType {
                 return _("Enum");
             case SymbolType.CONSTANT:
                 return _("Constant");
+            case SymbolType.CONSTRUCTOR:
+                return _("Constructor");
+            case SymbolType.INTERFACE:
+                return _("Interface");
             case SymbolType.OTHER:
                 return _("Other");
             default:

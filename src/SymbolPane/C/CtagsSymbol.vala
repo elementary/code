@@ -17,14 +17,28 @@
  */
 
 public class Scratch.Services.CtagsSymbol : Granite.Widgets.SourceList.ExpandableItem,
-Scratch.Services.SymbolItem
-{
+Scratch.Services.SymbolItem {
+
     public Scratch.Services.Document doc { get; construct set; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public int line { get; construct set; }
 
-    public CtagsSymbol (Scratch.Services.Document doc, string name, int line, Icon? _icon) {
-        Object (doc: doc, name: name, line: line);
+    public CtagsSymbol (
+        Scratch.Services.Document doc,
+        string name,
+        int line,
+        Icon? _icon,
+        SymbolType? s_type = null) {
+
+        Object (
+            doc: doc,
+            name: name,
+            line: line
+        );
+
         icon = _icon;
+        if (s_type != null) {
+            symbol_type = s_type;
+        }
     }
 }
