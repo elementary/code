@@ -47,20 +47,30 @@ namespace Scratch.Services {
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
             var root_path = root_folder.file.file.get_path ();
+            MonitoredRepository? monitored_repo = null;
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
-                if (project_gitrepo_map.has_key (root_path)) {
-                    return project_gitrepo_map.@get (root_path);
-                }
+                if (!project_gitrepo_map.has_key (root_path)) {
 
-                project_liststore.insert_sorted (root_folder, (CompareDataFunc<GLib.Object>) project_sort_func);
-                var monitored_repo = new MonitoredRepository (git_repo);
-                project_gitrepo_map.@set (root_path, monitored_repo);
-                return project_gitrepo_map.@get (root_path);
+                    monitored_repo = new MonitoredRepository (git_repo);
+                    project_gitrepo_map.@set (root_path, monitored_repo);
+                }
             } catch (Error e) {
-                debug ("Error opening git repo for %s, means this probably isn't one: %s", root_path, e.message);
-                return null;
+                debug (
+                    "Error opening git repo for %s, means this probably isn't one: %s",
+                    root_path,
+                    e.message
+                );
+            } finally {
+                project_liststore.insert_sorted (
+                  root_folder,
+                  (CompareDataFunc<GLib.Object>) project_sort_func
+                );
             }
+
+            //Ensure active_project_path always set
+            active_project_path = root_path;
+            return project_gitrepo_map.@get (root_path);
         }
 
         [CCode (instance_pos = -1)]
