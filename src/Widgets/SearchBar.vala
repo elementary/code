@@ -245,7 +245,8 @@ namespace Scratch.Widgets {
             }
 
             string replace_string = replace_entry.text;
-            this.window.get_current_document ().toggle_changed_handlers (false);
+            this.window.get_current_document ().before_undoable_change ();
+            // this.window.get_current_document ().toggle_changed_handlers (false);
             try {
                 cancel_update_search_occurence_label ();
                 search_context.replace_all (replace_string, replace_string.length);
@@ -256,7 +257,8 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            this.window.get_current_document ().toggle_changed_handlers (true);
+            // this.window.get_current_document ().toggle_changed_handlers (true);
+            this.window.get_current_document ().after_undoable_change ();
         }
 
         private void on_search_entry_text_changed () {

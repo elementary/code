@@ -265,9 +265,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
             doc.source_view.language = original.source_view.language;
-            if (Scratch.settings.get_boolean ("autosave")) {
-                doc.save.begin (true);
-            }
+            DocumentManager.get_instance ().save_request (doc, false).
+
 
             insert_document (doc, -1);
             current_document = doc;

@@ -88,11 +88,28 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-        private Scratch.Services.SymbolOutline? outline = null;
-        public string original_content;
-        private string last_save_content;
+
+
         public bool saved = true;
+        public bool delay_saving {
+            get {
+                return completion_shown || is_saving;
+            }
+        }
+
+        public bool inhibit_saving {
+            get {
+                return !can_write () || !loaded;
+            }
+        }
+
+        public bool is_saving { get; private set; }
+
+        private Scratch.Services.SymbolOutline? outline = null;
+        private string original_content; // For restoring to original
+        private string last_save_content;
         private bool completion_shown = false;
+        private bool loaded = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -101,8 +118,8 @@ namespace Scratch.Services {
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
-        private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
-        private bool loaded = false;
+        // private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
+
         private bool mounted = true; // Mount state of the file
         private Mount mount;
 
@@ -179,7 +196,7 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            toggle_changed_handlers (true);
+            // toggle_changed_handlers (true);
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
@@ -214,37 +231,37 @@ namespace Scratch.Services {
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
-        public void toggle_changed_handlers (bool enabled) {
-            if (enabled && onchange_handler_id == 0) {
-                onchange_handler_id = this.source_view.buffer.changed.connect (() => {
-                    if (onchange_handler_id != 0) {
-                        this.source_view.buffer.disconnect (onchange_handler_id);
-                    }
+        // public void toggle_changed_handlers (bool enabled) {
+        //     if (enabled && onchange_handler_id == 0) {
+        //         onchange_handler_id = this.source_view.buffer.changed.connect (() => {
+        //             if (onchange_handler_id != 0) {
+        //                 this.source_view.buffer.disconnect (onchange_handler_id);
+        //             }
 
-                    // Signals for SourceView
-                    uint timeout_saving = 0;
-                    check_undoable_actions ();
-                    onchange_handler_id = source_view.buffer.changed.connect (() => {
-                        check_undoable_actions ();
-                        // Save if autosave is ON
-                        if (Scratch.settings.get_boolean ("autosave")) {
-                            if (timeout_saving > 0) {
-                                Source.remove (timeout_saving);
-                                timeout_saving = 0;
-                            }
-                            timeout_saving = Timeout.add (1000, () => {
-                                save.begin ();
-                                timeout_saving = 0;
-                                return false;
-                            });
-                        }
-                     });
-                });
-            } else if (!enabled && onchange_handler_id != 0) {
-                this.source_view.buffer.disconnect (onchange_handler_id);
-                onchange_handler_id = 0;
-            }
-        }
+        //             // Signals for SourceView
+        //             uint timeout_saving = 0;
+        //             check_undoable_actions ();
+        //             onchange_handler_id = source_view.buffer.changed.connect (() => {
+        //                 check_undoable_actions ();
+        //                 // Save if autosave is ON
+        //                 if (Scratch.settings.get_boolean ("autosave")) {
+        //                     if (timeout_saving > 0) {
+        //                         Source.remove (timeout_saving);
+        //                         timeout_saving = 0;
+        //                     }
+        //                     timeout_saving = Timeout.add (1000, () => {
+        //                         save.begin ();
+        //                         timeout_saving = 0;
+        //                         return false;
+        //                     });
+        //                 }
+        //              });
+        //         });
+        //     } else if (!enabled && onchange_handler_id != 0) {
+        //         this.source_view.buffer.disconnect (onchange_handler_id);
+        //         onchange_handler_id = 0;
+        //     }
+        // }
 
         private uint load_timout_id = 0;
         public async void open (bool force = false) {
@@ -458,46 +475,7 @@ namespace Scratch.Services {
             return result;
         }
 
-        public async bool save (bool force = false) {
-            if (completion_shown ||
-                !force && (source_view.buffer.get_modified () == false ||
-                !loaded)) {
 
-                return false;
-            }
-
-            this.create_backup ();
-
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
-                strip_trailing_spaces ();
-            }
-
-            // Replace old content with the new one
-            save_cancellable.cancel ();
-            save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
-            try {
-                yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
-            } catch (Error e) {
-                // We don't need to send an error message at cancellation (corresponding to error code 19)
-                if (e.code != 19)
-                    warning ("Cannot save \"%s\": %s", get_basename (), e.message);
-                return false;
-            }
-
-            source_view.buffer.set_modified (false);
-
-            if (outline != null) {
-                outline.parse_symbols ();
-            }
-
-            this.set_saved_status (true);
-            last_save_content = source_view.buffer.text;
-
-            debug ("File \"%s\" saved successfully", get_basename ());
-
-            return true;
-        }
 
         public async bool save_as () {
             // New file
@@ -829,6 +807,20 @@ namespace Scratch.Services {
             );
         }
 
+        public void before_undoable_change () {
+            source_buffer.set_editable (false);
+        }
+
+        public void after_undoable_change () {
+            source_view.buffer.set_modified (false);
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
+        }
+
+
+
+
         // Set saved status
         public void set_saved_status (bool val) {
             this.saved = val;
@@ -844,22 +836,22 @@ namespace Scratch.Services {
             }
         }
 
-        // Backup functions
-        private void create_backup () {
-            if (!can_write ()) {
-                return;
-            }
+        // // Backup functions
+        // private void create_backup () {
+        //     if (!can_write ()) {
+        //         return;
+        //     }
 
-            var backup = File.new_for_path (this.file.get_path () + "~");
+        //     var backup = File.new_for_path (this.file.get_path () + "~");
 
-            if (!backup.query_exists ()) {
-                try {
-                    file.copy (backup, FileCopyFlags.NONE);
-                } catch (Error e) {
-                    warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
-                }
-            }
-        }
+        //     if (!backup.query_exists ()) {
+        //         try {
+        //             file.copy (backup, FileCopyFlags.NONE);
+        //         } catch (Error e) {
+        //             warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+        //         }
+        //     }
+        // }
 
         private void delete_backup (string? backup_path = null) {
             string backup_file;
@@ -900,21 +892,28 @@ namespace Scratch.Services {
             return false;
         }
 
-        // Return true if the file is writable
-        public bool can_write () {
+        // Return true if the file is writable. Keep testing as may change
+        private bool can_write () {
             FileInfo info;
-
             bool writable = false;
-
             try {
-                info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
-                writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
-                return writable;
+                info = this.file.query_info (
+                    FileAttribute.ACCESS_CAN_WRITE,
+                    FileQueryInfoFlags.NONE,
+                    null
+                );
+                writable = info.get_attribute_boolean (
+                    FileAttribute.ACCESS_CAN_WRITE
+                );
             } catch (Error e) {
-                warning ("query_info failed, but filename appears to be correct, allowing as new file");
+                debug (
+                    "Error determining write access: %s. Allowing write",
+                     e.message
+                );
                 writable = true;
-                return writable;
             }
+
+            return writable;
         }
 
         // Return true if the file exists
@@ -977,61 +976,64 @@ namespace Scratch.Services {
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
 
-        /* Pull the buffer into an array and then work out which parts are to be deleted.
-         * Do not strip line currently being edited unless forced */
-        private void strip_trailing_spaces () {
-            if (!loaded || source_view.language == null) {
-                return;
-            }
+    //     /* Pull the buffer into an array and then work out which parts are to be deleted.
+    //      * Do not strip line currently being edited unless forced */
+    //     private void strip_trailing_spaces () {
+    //         if (!loaded || source_view.language == null) {
+    //             return;
+    //         }
 
-            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
-            Gtk.TextIter iter;
+    //         stripping = true;
+    //         var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+    //         Gtk.TextIter iter;
 
-            var cursor_pos = source_buffer.cursor_position;
-            source_buffer.get_iter_at_offset (out iter, cursor_pos);
-            var orig_line = iter.get_line ();
-            var orig_offset = iter.get_line_offset ();
+    //         var cursor_pos = source_buffer.cursor_position;
+    //         source_buffer.get_iter_at_offset (out iter, cursor_pos);
+    //         var orig_line = iter.get_line ();
+    //         var orig_offset = iter.get_line_offset ();
 
-            var text = source_buffer.text;
+    //         var text = source_buffer.text;
 
-            string[] lines = Regex.split_simple ("""[\r\n]""", text);
-            if (lines.length == 0) { // Can legitimately happen at startup or new document
-                return;
-            }
+    //         string[] lines = Regex.split_simple ("""[\r\n]""", text);
+    //         if (lines.length == 0) { // Can legitimately happen at startup or new document
+    //             return;
+    //         }
 
-            if (lines.length != source_buffer.get_line_count ()) {
-                critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
-                debug ("lines.length %u, buffer lines %u \n %s", lines.length, source_buffer.get_line_count (), text);
-                return;
-            }
+    //         if (lines.length != source_buffer.get_line_count ()) {
+    //             critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
+    //             debug ("lines.length %u, buffer lines %u \n %s", lines.length, source_buffer.get_line_count (), text);
+    //             return;
+    //         }
 
-            MatchInfo info;
-            Gtk.TextIter start_delete, end_delete;
-            Regex whitespace;
+    //         MatchInfo info;
+    //         Gtk.TextIter start_delete, end_delete;
+    //         Regex whitespace;
 
-            try {
-                whitespace = new Regex ("[ \t]+$", 0);
-            } catch (RegexError e) {
-                critical ("Error while building regex to replace trailing whitespace: %s", e.message);
-                return;
-            }
+    //         try {
+    //             whitespace = new Regex ("[ \t]+$", 0);
+    //         } catch (RegexError e) {
+    //             critical ("Error while building regex to replace trailing whitespace: %s", e.message);
+    //             return;
+    //         }
 
-            for (int line_no = 0; line_no < lines.length; line_no++) {
-                if (whitespace.match (lines[line_no], 0, out info)) {
+    //         for (int line_no = 0; line_no < lines.length; line_no++) {
+    //             if (whitespace.match (lines[line_no], 0, out info)) {
 
-                    source_buffer.get_iter_at_line (out start_delete, line_no);
-                    start_delete.forward_to_line_end ();
-                    end_delete = start_delete;
-                    end_delete.backward_chars (info.fetch (0).length);
+    //                 source_buffer.get_iter_at_line (out start_delete, line_no);
+    //                 start_delete.forward_to_line_end ();
+    //                 end_delete = start_delete;
+    //                 end_delete.backward_chars (info.fetch (0).length);
 
-                    source_buffer.begin_not_undoable_action ();
-                    source_buffer.@delete (ref start_delete, ref end_delete);
-                    source_buffer.end_not_undoable_action ();
-                }
-            }
+    //                 source_buffer.begin_not_undoable_action ();
+    //                 source_buffer.@delete (ref start_delete, ref end_delete);
+    //                 source_buffer.end_not_undoable_action ();
+    //             }
+    //         }
 
-            source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
-            source_buffer.place_cursor (iter);
-        }
-    }
+    //         source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
+    //         source_buffer.place_cursor (iter);
+    //     }
+
+    //     stripping = false;
+    // }
 }
