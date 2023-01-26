@@ -89,13 +89,14 @@
         if (is_closing) {
            Source.remove (doc_timeout_map[doc]);
            doc_timeout_map[doc] = null;
-           save_doc (doc);
+           save_doc (doc, true);
         } else if (doc_timeout_map[doc] == null {
            doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () =>
                 if (doc.delay_saving) {
                     return Source.CONTINUE;
                 }
                 warning ("autosave doc %s", doc.file.get_path ());
+                save_doc (doc, false);
                 doc_timeout_map[doc] = null;
                 return Source.REMOVE;
            })
@@ -103,7 +104,7 @@
     }
 
     // This must only be called once the save is expected to succeed.
-    private void save_doc (Document doc) {
+    private void save_doc (Document doc, bool with_hold) {
         var save_buffer = new Gtk.SourceBuffer (null);
         var source_buffer = doc.source_view.buffer;
         save_buffer.text = source_buffer.text;
@@ -137,11 +138,13 @@
             doc.source_file
         );
 
+        if (with_hold) {
+            GLib.Application.get_default ().hold ();
+        }
         source_file_saver.save_async.begin (
             GLib.Priority.DEFAULT,
             save_cancellable,
             null,
-
             (obj, res) => {
                 try {
                     if (source_file_saver.save_async.end (res)) {
@@ -158,6 +161,10 @@
                             get_basename (),
                             e.message
                         );
+                    }
+                } finally {
+                    if (with_hold) {
+                        GLib.Application.get_default ().release ();
                     }
                 }
             }
