@@ -393,8 +393,7 @@ namespace Scratch.Services {
             return;
         }
 
-        // Return "true" allows app to close else quitting will be cancelled
-        // Note: return "false" does not stop a tab from closing (atm)??
+        // Returns "false" only if user cancelled operation
         public bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
 

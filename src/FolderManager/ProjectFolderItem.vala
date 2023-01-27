@@ -264,10 +264,6 @@ namespace Scratch.FolderManager {
             });
         }
 
-        public bool contains_file (GLib.File descendant) {
-            return file.file.get_relative_path (descendant) != null;
-        }
-
         private void deprioritize_git_ignored () requires (monitored_repo != null) {
             visible_item_list.@foreach ((visible_item) => {
                 var item = visible_item.item;
