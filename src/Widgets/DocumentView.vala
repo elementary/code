@@ -265,8 +265,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
             doc.source_view.language = original.source_view.language;
-            DocumentManager.get_instance ().save_request (doc, false).
-
+            // Document will be either autosaved or treeted as unsaved document
 
             insert_document (doc, -1);
             current_document = doc;
@@ -309,7 +308,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         return false;
-
     }
 
     public void close_current_document () {

@@ -43,7 +43,8 @@ namespace Scratch.Services {
             }
         }
 
-        private Gtk.SourceFile source_file;
+        public Gtk.SourceFile source_file { get; private set; }
+
         public GLib.File file {
             get {
                 return source_file.location;
@@ -116,10 +117,11 @@ namespace Scratch.Services {
         private Gtk.SourceMap source_map;
         private Gtk.Paned outline_widget_pane;
 
-        private GLib.Cancellable save_cancellable;
-        private GLib.Cancellable load_cancellable;
-        // private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
+        // Used by DocumentManager
+        public GLib.Cancellable save_cancellable;
+        public GLib.Cancellable load_cancellable;
 
+        // private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool mounted = true; // Mount state of the file
         private Mount mount;
 
@@ -211,7 +213,7 @@ namespace Scratch.Services {
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     set_saved_status (false); // For visibility while developing
-                    DocumentManager.get_instance ().save_request (doc, false);
+                    DocumentManager.get_instance ().save_request (this, false);
                     // saved = false;
                     // if (!Scratch.settings.get_boolean ("autosave")) {
                     //     set_saved_status (false);
@@ -402,7 +404,7 @@ namespace Scratch.Services {
                 return true;
             }
 
-            if (DocumentManager.get_instance ().save_request (doc, true)) {
+            if (DocumentManager.get_instance ().save_request (this, true)) {
                 delete_backup ();
                 doc_closed ();
                 return true;
@@ -471,8 +473,9 @@ namespace Scratch.Services {
         //     return ret_value;
         // }
 
-        public bool save_with_hold () {
-            DocumentManager.get_instance ().save_request (doc, true);
+        public bool save () {
+        // public bool save_with_hold () {
+            return DocumentManager.get_instance ().save_request (this, true);
         // public bool save_with_hold (bool force = false) {
             // GLib.Application.get_default ().hold ();
             // bool result = false;
@@ -484,13 +487,26 @@ namespace Scratch.Services {
             // return result;
         }
 
-        public bool save_as_with_hold () {
-            var new_path = get_save_as_uri ();
-            if (new_path = "") {
+        public bool save_as () {
+            var new_uri = get_save_as_uri ();
+            if (new_uri != null) {
+                var old_uri = file.get_uri ();
+                file = GLib.File.new_for_uri (new_uri);
+                if (!DocumentManager.get_instance ().save_request (this, true)) {
+                    file = GLib.File.new_for_uri (old_uri);
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
                 return false;
             }
+            // var new_path = get_save_as_uri ();
+            // if (new_path = "") {
+            //     return false;
+            // }
 
-            return save_with_hold ();
+            // DocumentManager.get_instance ().save_request (this, true);
         }
         //     GLib.Application.get_default ().hold ();
         //     bool result = false;
@@ -531,8 +547,8 @@ namespace Scratch.Services {
             );
 
             var new_path = "";
-            var current_file = file.get_path ();
-            var is_current_file_temporary = this.is_file_temporary;
+            // var current_file = file.get_path ();
+            // var is_current_file_temporary = this.is_file_temporary;
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
                 file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
@@ -569,9 +585,7 @@ namespace Scratch.Services {
 
         public bool move (File new_dest) {
             this.file = new_dest;
-            this.save.begin ();
-
-            return true;
+            return DocumentManager.get_instance ().save_request (this, true);
         }
 
         private void restore_settings () {
@@ -584,9 +598,11 @@ namespace Scratch.Services {
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
 
-            if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-                strip_trailing_spaces ();
-            }
+            // Stripping spaces only happens before save
+
+            // if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+            //     strip_trailing_spaces ();
+            // }
         }
 
         // Focus the SourceView
@@ -757,8 +773,16 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        this.save_as.begin ();
+                        // this.save_as.begin ();
                         hide_info_bar ();
+                        var new_uri = get_save_as_uri ();
+                        if (new_uri != null) {
+                            var old_uri = file.get_uri ();
+                            file = GLib.File.new_for_uri (new_uri);
+                            if (!DocumentManager.get_instance ().save_request (this, true)) {
+                                file = GLib.File.new_for_uri (old_uri);
+                            }
+                        }
                     });
                 } else {
                     string message = _(
@@ -766,8 +790,8 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save.begin ();
                         hide_info_bar ();
+                        DocumentManager.get_instance ().save_request (this, true);
                     });
                 }
 
@@ -783,8 +807,16 @@ namespace Scratch.Services {
                 ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
-                    this.save_as.begin ();
                     hide_info_bar ();
+                    //TODO DRY this block
+                    var new_uri = get_save_as_uri ();
+                    if (new_uri != null) {
+                        var old_uri = file.get_uri ();
+                        file = GLib.File.new_for_uri (new_uri);
+                        if (!DocumentManager.get_instance ().save_request (this, true)) {
+                            file = GLib.File.new_for_uri (old_uri);
+                        }
+                    }
                 });
 
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
@@ -811,8 +843,13 @@ namespace Scratch.Services {
                         return;
                     }
 
+                    // "is_modified" returns false if no internal edits made since last time
+                    // the app saved the content.
                     if (!source_view.buffer.get_modified ()) {
+                        // The source_view.buffer has not been modified in app
+                        //TODO Needs explanation?
                         if (Scratch.settings.get_boolean ("autosave")) {
+                            // Not sure why we do not confirm in this case.
                             source_view.set_text (new_buffer.text, false);
                         } else {
                             string message = _(
@@ -826,6 +863,10 @@ namespace Scratch.Services {
                                 hide_info_bar ();
                             });
                         }
+                    } else {
+                        critical ("Possibly conflicting external and in app edits");
+                        //TODO Handle this case?
+                        // Currently assume that the in app edits take priority over any external edits.
                     }
                 });
             }
@@ -842,11 +883,12 @@ namespace Scratch.Services {
         }
 
         public void before_undoable_change () {
-            source_buffer.set_editable (false);
+            source_view.set_editable (false);
         }
 
         public void after_undoable_change () {
             source_view.buffer.set_modified (false);
+            source_view.set_editable (true);
             if (outline != null) {
                 outline.parse_symbols ();
             }
@@ -861,26 +903,16 @@ namespace Scratch.Services {
                     tab_name = unsaved_identifier + this.label;
                 }
             } else {
-                tab_name = this.label.replace (unsaved_identifier, "");
+                if (!source_view.buffer.get_modified ()) {
+                    tab_name = this.label.replace (unsaved_identifier, "");
+                    last_save_content = source_view.buffer.text;
+                } else {
+                    critical ("Buffer contents changed during save operation");
+                }
             }
         }
 
-        // // Backup functions
-        // private void create_backup () {
-        //     if (!can_write ()) {
-        //         return;
-        //     }
 
-        //     var backup = File.new_for_path (this.file.get_path () + "~");
-
-        //     if (!backup.query_exists ()) {
-        //         try {
-        //             file.copy (backup, FileCopyFlags.NONE);
-        //         } catch (Error e) {
-        //             warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
-        //         }
-        //     }
-        // }
 
         private void delete_backup (string? backup_path = null) {
             string backup_file;
@@ -909,7 +941,7 @@ namespace Scratch.Services {
 
 
         // Return true if the file is writable. Keep testing as may change
-        private bool can_write () {
+        public bool can_write () {
             FileInfo info;
             bool writable = false;
             try {
@@ -991,6 +1023,7 @@ namespace Scratch.Services {
             text.buffer.place_cursor (iter);
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
+    }
 
     //     /* Pull the buffer into an array and then work out which parts are to be deleted.
     //      * Do not strip line currently being edited unless forced */

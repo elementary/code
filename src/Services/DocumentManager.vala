@@ -22,6 +22,7 @@
     static Gee.HashMultiMap <string, string> project_restorable_docs_map;
     static Gee.HashMultiMap <string, string> project_open_docs_map;
     static Gee.HashMap <Document, uint> doc_timeout_map;
+    uint AUTOSAVE_RATE_MSEC = 1000;
 
     static DocumentManager? instance;
     public static DocumentManager get_instance () {
@@ -91,13 +92,15 @@
         // Always save on closing. Otherwise only if autosave active.
         if (!(force || autosave)) {
             // Comes here when changed
-            return;
+            return true;
         }
 
         if (force) {
-            Source.remove (doc_timeout_map[doc]);
-            doc_timeout_map[doc] = null;
-            if (!autosave && doc.is_changed) {
+            if (doc_timeout_map.has_key (doc)) {
+                Source.remove (doc_timeout_map[doc]);
+                doc_timeout_map.unset (doc);
+            }
+            if (doc.source_view.buffer.get_modified ()) {
                 bool save_changes;
                 if (!query_save_changes (doc, out save_changes)) {
                     return false;
@@ -110,27 +113,29 @@
             }
 
             save_doc (doc, true);
-        } else if (doc_timeout_map[doc] == null {
+        } else if (!doc_timeout_map.has_key (doc)) {
             // Autosaving - need to create new timeout
-           doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () =>
+           doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
                 if (doc.delay_saving || doc.is_saving) {
                     return Source.CONTINUE;
                 }
                 warning ("autosave doc %s", doc.file.get_path ());
                 save_doc (doc, false);
-                doc_timeout_map[doc] = null;
+                doc_timeout_map.unset (doc);
                 return Source.REMOVE;
-           })
-        })
+           });
+        }
+
+        return true;
     }
 
     // This must only be called when the save is expected to succeed
     // e.g. during autosave.
     private void save_doc (Document doc, bool with_hold) {
         var save_buffer = new Gtk.SourceBuffer (null);
-        var source_buffer = doc.source_view.buffer;
+        var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         save_buffer.text = source_buffer.text;
-        doc.before_save ();
+        doc.before_undoable_change ();
 
         if (Scratch.settings.get_boolean ("strip-trailing-on-save") &&
             doc.source_view.language != null) {
@@ -139,9 +144,9 @@
             source_buffer.get_iter_at_offset (out iter, cursor_pos);
             var orig_line = iter.get_line ();
             var orig_offset = iter.get_line_offset ();
-            strip_trailing_spaces (save_buffer);
+            strip_trailing_spaces_before_save (save_buffer);
             source_buffer.begin_not_undoable_action ();
-                source_buffer.text = save_buffer.text
+                source_buffer.text = save_buffer.text;
                 source_buffer.get_iter_at_line_offset (
                     out iter,
                     orig_line,
@@ -151,10 +156,11 @@
             source_buffer.end_not_undoable_action ();
         }
 
-        doc.create_backup ();
+        create_doc_backup (doc);
         // Replace old content with the new one
-        save_cancellable.cancel ();
-        save_cancellable = new GLib.Cancellable ();
+        //TODO Handle cancellables internally
+        doc.save_cancellable.cancel ();
+        doc.save_cancellable = new GLib.Cancellable ();
         var source_file_saver = new Gtk.SourceFileSaver (
             source_buffer,
             doc.source_file
@@ -165,22 +171,21 @@
         }
         source_file_saver.save_async.begin (
             GLib.Priority.DEFAULT,
-            save_cancellable,
+            doc.save_cancellable,
             null,
             (obj, res) => {
                 try {
                     if (source_file_saver.save_async.end (res)) {
-                        doc.set_saved_status (success);
-                        doc.last_save_content = save_buffer.text;
-                        debug ("File \"%s\" saved successfully", get_basename ());
+                        doc.set_saved_status (true);
+                        debug ("File \"%s\" saved successfully", doc.get_basename ());
                     }
 
                     doc.after_undoable_change ();
-                } catch {
-                    if (e.code != 19) // Not cancelled
+                } catch (Error e) {
+                    if (e.code != 19) { // Not cancelled
                         critical (
                             "Cannot save \"%s\": %s",
-                            get_basename (),
+                            doc.get_basename (),
                             e.message
                         );
                     }
@@ -193,17 +198,34 @@
         );
     }
 
+        // // Backup functions
+        // private void create_backup () {
+        //     if (!can_write ()) {
+        //         return;
+        //     }
+
+        //     var backup = File.new_for_path (this.file.get_path () + "~");
+
+        //     if (!backup.query_exists ()) {
+        //         try {
+        //             file.copy (backup, FileCopyFlags.NONE);
+        //         } catch (Error e) {
+        //             warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+        //         }
+        //     }
+        // }
+
     private void create_doc_backup (Document doc) {
-        if (!can_write ()) {
+        if (!doc.can_write ()) {
             return;
         }
 
-        var backup = File.new_for_path (this.file.get_path () + "~");
+        var backup = File.new_for_path (doc.file.get_path () + "~");
         if (!backup.query_exists ()) {
             try {
-                file.copy (backup, FileCopyFlags.NONE);
+                doc.file.copy (backup, FileCopyFlags.NONE);
             } catch (Error e) {
-                warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+                warning ("Cannot create backup copy for file \"%s\": %s", doc.get_basename (), e.message);
             }
         }
     }
@@ -227,7 +249,7 @@
         try {
             whitespace = new Regex ("[ \t]+$", 0);
         } catch (RegexError e) {
-            critical ("Stripping: error building regex", e.message);
+            critical ("Stripping: error building regex: %s", e.message);
             assert_not_reached (); // Regex is constant so trap errors on dev
         }
 
@@ -246,24 +268,24 @@
     }
 
     private bool delete_if_temporary (Document doc) {
-        if (!is_file_temporary) {
+        if (!doc.is_file_temporary) {
             return false;
         }
 
         try {
-            file.delete ();
+            doc.file.delete ();
             return true;
         } catch (Error e) {
-            warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
+            warning ("Cannot delete temporary file \"%s\": %s", doc.file.get_uri (), e.message);
         }
 
         return false;
     }
 
     private bool query_save_changes (Document doc, out bool save_changes) {
-        var parent_window = source_view.get_toplevel () as Gtk.Window;
+        var parent_window = doc.source_view.get_toplevel () as Gtk.Window;
         var dialog = new Granite.MessageDialog (
-            _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+            _("Save changes to \"%s\" before closing?").printf (doc.get_basename ()),
             _("If you don't save, changes will be permanently lost."),
             new ThemedIcon ("dialog-warning"),
             Gtk.ButtonsType.NONE
@@ -278,7 +300,7 @@
         dialog.add_button (_("Save"), Gtk.ResponseType.YES);
         dialog.set_default_response (Gtk.ResponseType.YES);
         int response = dialog.run ();
-        bool close_document;
+        bool close_document = false;
         switch (response) {
             case Gtk.ResponseType.CANCEL:
             case Gtk.ResponseType.DELETE_EVENT:
@@ -292,6 +314,7 @@
             case Gtk.ResponseType.NO:
                 save_changes = false;
                 close_document = true;
+                break;
         }
 
         dialog.destroy ();
