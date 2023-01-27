@@ -77,22 +77,43 @@
     }
 
     /* Code to manage safe saving of documents */
-    public void save_request (Document doc, bool is_closing) {
+    /*******************************************/
+
+    // @force is "true" when tab or app is closing or when user activated "action-save"
+    // Returns "false" if operation cancelled by user
+    public bool save_request (Document doc, bool force) {
         if (doc.inhibit_saving) {
-            return;
+            //TODO Confirm with user whether to proceed?
+            return true;
         }
+
+        var autosave = Scratch.settings.get_boolean ("autosave");
         // Always save on closing. Otherwise only if autosave active.
-        if (!(is_closing || Scratch.settings.get_boolean ("autosave"))) {
+        if (!(force || autosave)) {
+            // Comes here when changed
             return;
         }
-        // Tab is closing or whole app is closing save immediately
-        if (is_closing) {
-           Source.remove (doc_timeout_map[doc]);
-           doc_timeout_map[doc] = null;
-           save_doc (doc, true);
+
+        if (force) {
+            Source.remove (doc_timeout_map[doc]);
+            doc_timeout_map[doc] = null;
+            if (!autosave && doc.is_changed) {
+                bool save_changes;
+                if (!query_save_changes (doc, out save_changes)) {
+                    return false;
+                }
+
+                if (!save_changes) {
+                    delete_if_temporary (doc);
+                    return true;
+                }
+            }
+
+            save_doc (doc, true);
         } else if (doc_timeout_map[doc] == null {
+            // Autosaving - need to create new timeout
            doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () =>
-                if (doc.delay_saving) {
+                if (doc.delay_saving || doc.is_saving) {
                     return Source.CONTINUE;
                 }
                 warning ("autosave doc %s", doc.file.get_path ());
@@ -103,7 +124,8 @@
         })
     }
 
-    // This must only be called once the save is expected to succeed.
+    // This must only be called when the save is expected to succeed
+    // e.g. during autosave.
     private void save_doc (Document doc, bool with_hold) {
         var save_buffer = new Gtk.SourceBuffer (null);
         var source_buffer = doc.source_view.buffer;
@@ -187,9 +209,7 @@
     }
 
     private void strip_trailing_spaces_before_save (Gtk.SourceBuffer save_buffer) {
-
         var text = save_buffer.text;
-
         string[] lines = Regex.split_simple ("""[\r\n]""", text);
         if (lines.length == 0) { // Can legitimately happen at startup or new document
             return;
@@ -224,4 +244,57 @@
             }
         }
     }
- }
+
+    private bool delete_if_temporary (Document doc) {
+        if (!is_file_temporary) {
+            return false;
+        }
+
+        try {
+            file.delete ();
+            return true;
+        } catch (Error e) {
+            warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
+        }
+
+        return false;
+    }
+
+    private bool query_save_changes (Document doc, out bool save_changes) {
+        var parent_window = source_view.get_toplevel () as Gtk.Window;
+        var dialog = new Granite.MessageDialog (
+            _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+            _("If you don't save, changes will be permanently lost."),
+            new ThemedIcon ("dialog-warning"),
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = parent_window;
+        var no_save_button = (Gtk.Button) dialog.add_button (
+            _("Close Without Saving"),
+            Gtk.ResponseType.NO
+        );
+        no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+        dialog.add_button (_("Save"), Gtk.ResponseType.YES);
+        dialog.set_default_response (Gtk.ResponseType.YES);
+        int response = dialog.run ();
+        bool close_document;
+        switch (response) {
+            case Gtk.ResponseType.CANCEL:
+            case Gtk.ResponseType.DELETE_EVENT:
+                save_changes = false;
+                close_document = false;
+                break;
+            case Gtk.ResponseType.YES:
+                save_changes = true;
+                close_document = true;
+                break;
+            case Gtk.ResponseType.NO:
+                save_changes = false;
+                close_document = true;
+        }
+
+        dialog.destroy ();
+        return close_document;
+    }
+}
