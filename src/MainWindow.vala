@@ -949,16 +949,22 @@ namespace Scratch {
             unowned var docs = document_view.docs;
             docs.foreach ((doc) => {
                 if (doc.file.get_path ().has_prefix (project_path)) {
-                    document_view.close_document (doc);
+                    if (!(document_view.close_document (doc))) {
+                        return;
+                    }
+
                     if (make_restorable) {
                         document_manager.make_restorable (doc);
                     }
                 }
             });
 
+
             if (!make_restorable) {
                 document_manager.remove_project (project_path);
             }
+
+            folder_manager_view.remove_project_for_path (project_path);
         }
 
         private void restore_project_docs (string project_path) {

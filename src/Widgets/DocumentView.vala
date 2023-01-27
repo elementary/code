@@ -303,9 +303,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void close_document (Services.Document doc) {
-        remove_tab (doc);
-        doc.do_close ();
+    public bool close_document (Services.Document doc) {
+        if (doc.do_close ()) {
+            remove_tab (doc);
+            return true;
+        }
+
+        return false;
+
     }
 
     public void close_current_document () {

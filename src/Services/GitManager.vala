@@ -82,7 +82,6 @@ namespace Scratch.Services {
 
         public void remove_project (FolderManager.ProjectFolderItem root_folder) {
             var root_path = root_folder.file.file.get_path ();
-
             uint position;
             if (project_liststore.find (root_folder, out position)) {
                 project_liststore.remove (position);

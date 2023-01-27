@@ -373,6 +373,7 @@ namespace Scratch.Services {
             return;
         }
 
+        // Returns "false" only if user cancelled operation
         public bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
 
