@@ -245,20 +245,26 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         };
         set_custom_title (format_bar);
 
-        var branch_label = new Gtk.Label (
-            _("Running Development Branch: %s").printf (Constants.BRANCH)
-        );
-
-        if (branch_label.label == "master" || branch_label.label == "main") {
-            branch_label.visible = false;
-            branch_label.no_show_all = true;
-        }
         pack_start (open_button);
         pack_start (templates_button);
         pack_start (save_button);
         pack_start (save_as_button);
         pack_start (revert_button);
-        pack_start (branch_label);
+
+        if (Constants.BRANCH != null &&
+            Constants.BRANCH != "" &&
+            Constants.BRANCH != "master" &&
+            Constants.BRANCH != "main") {
+
+            //TODO Decide on best place to expose this information
+            //Putting in headerbar for immediate visibility while developing
+            var branch_label = new Gtk.Label (Constants.BRANCH) {
+                tooltip_text = _("Branch of source code currently running")
+            };
+
+            pack_start (branch_label);
+        }
+
         pack_end (app_menu);
         pack_end (share_app_menu);
 
