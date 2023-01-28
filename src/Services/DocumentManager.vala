@@ -18,7 +18,21 @@
  * Authored by: Jeremy Wootten <jeremy@elementaryos.org>
  */
 
- public class Scratch.Services.DocumentManager : Object {
+public enum Scratch.SaveReason {
+    USER_REQUEST,
+    TAB_CLOSING,
+    APP_CLOSING,
+    AUTOSAVE,
+    FOCUS_OUT
+}
+public enum Scratch.SaveStatus {
+    SAVED,
+    UNSAVED,
+    SAVING,
+    SAVE_ERROR
+}
+
+public class Scratch.Services.DocumentManager : Object {
     static Gee.HashMultiMap <string, string> project_restorable_docs_map;
     static Gee.HashMultiMap <string, string> project_open_docs_map;
     static Gee.HashMap <Document, uint> doc_timeout_map;
@@ -82,80 +96,130 @@
 
     // @force is "true" when tab or app is closing or when user activated "action-save"
     // Returns "false" if operation cancelled by user
-    public bool save_request (Document doc, bool force) {
+    public bool save_request (Document doc, Scratch.SaveReason reason) {
         if (doc.inhibit_saving) {
             //TODO Confirm with user whether to proceed?
             return true;
         }
 
-        var autosave = Scratch.settings.get_boolean ("autosave");
-        // Always save on closing. Otherwise only if autosave active.
-        if (!(force || autosave)) {
-            // Comes here when changed
+        var buffer_modified = doc.source_view.buffer.get_modified ();
+        var autosave_on = Scratch.settings.get_boolean ("auto-save");
+        if (reason == SaveReason.AUTOSAVE) {
+            if (autosave_on) {
+                if (!doc_timeout_map.has_key (doc)) {
+                    doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
+                        if (doc.delay_saving || doc.is_saving) {
+                            return Source.CONTINUE;
+                        }
+                        warning ("autosave doc %s", doc.file.get_path ());
+                        start_to_save (doc, reason);
+                        doc_timeout_map.unset (doc);
+                        return Source.REMOVE;
+                    });
+                }
+            } else {
+                remove_autosave_for_doc (doc);
+            }
+
             return true;
+        } 
+
+        remove_autosave_for_doc (doc);
+
+        bool confirm, closing;
+        switch (reason) {
+            case USER_REQUEST:
+            case AUTOSAVE:
+            case FOCUS_OUT:
+                confirm = false;
+                closing = false;
+                break;
+            case TAB_CLOSING:
+            case APP_CLOSING:
+                if (!doc.is_file_temporary) {
+                    confirm = !autosave_on;
+                } else {
+                    //Always give opportunity to save as permanent file
+                    confirm = true;
+                }
+                
+                closing = true;
+                break;
+            default:
+                assert_not_reached ();
         }
 
-        if (force) {
-            if (doc_timeout_map.has_key (doc)) {
-                Source.remove (doc_timeout_map[doc]);
-                doc_timeout_map.unset (doc);
-            }
-            if (doc.source_view.buffer.get_modified ()) {
-                bool save_changes;
-                if (!query_save_changes (doc, out save_changes)) {
-                    return false;
-                }
-
-                if (!save_changes) {
-                    delete_if_temporary (doc);
-                    return true;
-                }
+        if (confirm) {
+            bool save_changes;
+            if (!query_save_changes (doc, out save_changes)) {
+                // User cancelled operation
+                return false;
             }
 
-            save_doc (doc, true);
-        } else if (!doc_timeout_map.has_key (doc)) {
-            // Autosaving - need to create new timeout
-           doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
-                if (doc.delay_saving || doc.is_saving) {
-                    return Source.CONTINUE;
-                }
-                warning ("autosave doc %s", doc.file.get_path ());
-                save_doc (doc, false);
-                doc_timeout_map.unset (doc);
-                return Source.REMOVE;
-           });
+            if (!save_changes && doc.is_file_temporary) {
+                //User chose to discard the temporary file rather than save
+                delete_doc_file (doc);
+                return true;
+            }
         }
 
+        start_to_save (doc, reason);
+        //Saving was successfully started (but may yet fail asynchronously)
         return true;
     }
 
+    private void remove_autosave_for_doc (Document doc) {
+        if (doc_timeout_map.has_key (doc)) {
+            Source.remove (doc_timeout_map[doc]);
+            doc_timeout_map.unset (doc);
+        }
+    }
+
+    private void start_to_save (Document doc, SaveReason reason) {
+        //Assume buffer was editable if a save request was generated
+        doc.before_undoable_change ();
+        if (reason != SaveReason.AUTOSAVE &&
+            reason != SaveReason.FOCUS_OUT &&
+            Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+            strip_trailing_spaces_before_save (doc);
+        }
+
+        // Saving to the location given in the doc source file will be attempted
+        save_doc.begin (doc, reason, (obj, res) => {
+            try {
+                if (save_doc.end (res)) {
+                    doc.set_saved_status (true);
+                    doc.source_view.buffer.set_modified (false);
+                    doc.last_save_content = doc.source_view.buffer.text;
+                    
+                    if (doc.outline != null) {
+                        doc.outline.parse_symbols ();
+                    }
+                    debug ("File \"%s\" saved successfully", doc.get_basename ());
+                }
+            } catch (Error e) {
+                if (e.code != 19) { // Not cancelled
+                    //TODO Inform user of failure
+                    critical (
+                        "Cannot save \"%s\": %s",
+                        doc.get_basename (),
+                        e.message
+                    );
+                    doc.set_saved_status (false);
+                }
+            } finally {
+                doc.after_undoable_change ();
+            }
+        });
+    }
     // This must only be called when the save is expected to succeed
-    // e.g. during autosave.
-    private void save_doc (Document doc, bool with_hold) {
+    // It is expected that the document buffer will not change during this process
+    // Any stripping or other automatic change has already taken place
+    private async bool save_doc (Document doc, SaveReason reason) throws Error {
         var save_buffer = new Gtk.SourceBuffer (null);
         var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         save_buffer.text = source_buffer.text;
-        doc.before_undoable_change ();
-
-        if (Scratch.settings.get_boolean ("strip-trailing-on-save") &&
-            doc.source_view.language != null) {
-            Gtk.TextIter iter;
-            var cursor_pos = source_buffer.cursor_position;
-            source_buffer.get_iter_at_offset (out iter, cursor_pos);
-            var orig_line = iter.get_line ();
-            var orig_offset = iter.get_line_offset ();
-            strip_trailing_spaces_before_save (save_buffer);
-            source_buffer.begin_not_undoable_action ();
-                source_buffer.text = save_buffer.text;
-                source_buffer.get_iter_at_line_offset (
-                    out iter,
-                    orig_line,
-                    orig_offset
-                );
-                source_buffer.place_cursor (iter);
-            source_buffer.end_not_undoable_action ();
-        }
-
         create_doc_backup (doc);
         // Replace old content with the new one
         //TODO Handle cancellables internally
@@ -166,54 +230,22 @@
             doc.source_file
         );
 
-        if (with_hold) {
+        if (reason == SaveReason.APP_CLOSING) {
             GLib.Application.get_default ().hold ();
         }
-        source_file_saver.save_async.begin (
+
+        var success = yield source_file_saver.save_async (
             GLib.Priority.DEFAULT,
             doc.save_cancellable,
-            null,
-            (obj, res) => {
-                try {
-                    if (source_file_saver.save_async.end (res)) {
-                        doc.set_saved_status (true);
-                        debug ("File \"%s\" saved successfully", doc.get_basename ());
-                    }
-
-                    doc.after_undoable_change ();
-                } catch (Error e) {
-                    if (e.code != 19) { // Not cancelled
-                        critical (
-                            "Cannot save \"%s\": %s",
-                            doc.get_basename (),
-                            e.message
-                        );
-                    }
-                } finally {
-                    if (with_hold) {
-                        GLib.Application.get_default ().release ();
-                    }
-                }
-            }
+            null
         );
+
+        if (reason == SaveReason.APP_CLOSING) {
+            GLib.Application.get_default ().release ();
+        }
+        
+        return success;
     }
-
-        // // Backup functions
-        // private void create_backup () {
-        //     if (!can_write ()) {
-        //         return;
-        //     }
-
-        //     var backup = File.new_for_path (this.file.get_path () + "~");
-
-        //     if (!backup.query_exists ()) {
-        //         try {
-        //             file.copy (backup, FileCopyFlags.NONE);
-        //         } catch (Error e) {
-        //             warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
-        //         }
-        //     }
-        // }
 
     private void create_doc_backup (Document doc) {
         if (!doc.can_write ()) {
@@ -230,14 +262,15 @@
         }
     }
 
-    private void strip_trailing_spaces_before_save (Gtk.SourceBuffer save_buffer) {
-        var text = save_buffer.text;
+    private void strip_trailing_spaces_before_save (Document doc) {
+        var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
+        var text = source_buffer.text;
         string[] lines = Regex.split_simple ("""[\r\n]""", text);
         if (lines.length == 0) { // Can legitimately happen at startup or new document
             return;
         }
 
-        if (lines.length != save_buffer.get_line_count ()) {
+        if (lines.length != source_buffer.get_line_count ()) {
             critical ("Stripping: Mismatch between line counts, not continuing");
             return;
         }
@@ -255,23 +288,16 @@
 
         for (int line_no = 0; line_no < lines.length; line_no++) {
             if (whitespace.match (lines[line_no], 0, out info)) {
-                save_buffer.get_iter_at_line (out start_delete, line_no);
+                source_buffer.get_iter_at_line (out start_delete, line_no);
                 start_delete.forward_to_line_end ();
                 end_delete = start_delete;
                 end_delete.backward_chars (info.fetch (0).length);
-
-
-                save_buffer.@delete (ref start_delete, ref end_delete);
-
+                source_buffer.@delete (ref start_delete, ref end_delete);
             }
         }
     }
 
-    private bool delete_if_temporary (Document doc) {
-        if (!doc.is_file_temporary) {
-            return false;
-        }
-
+    private bool delete_doc_file (Document doc) {
         try {
             doc.file.delete ();
             return true;
@@ -315,6 +341,8 @@
                 save_changes = false;
                 close_document = true;
                 break;
+            default:
+                assert_not_reached ();
         }
 
         dialog.destroy ();
