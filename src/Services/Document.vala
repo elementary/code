@@ -92,15 +92,11 @@ namespace Scratch.Services {
 
 
         public bool saved = true;
-        public bool delay_saving {
-            get {
-                return completion_shown || is_saving;
-            }
-        }
+        public bool delay_autosaving { get; set; }
 
         public bool inhibit_saving {
             get {
-                return !can_write () || !loaded;
+                return !can_write () || !loaded || completion_shown;
             }
         }
 
@@ -199,11 +195,13 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                return DocumentManager.get_instance ().save_request (this, SaveReason.FOCUS_OUT);
-            });
-
+            // // Focus out event for SourceView
+            // this.source_view.focus_out_event.connect (() => {
+            //     warning ("focus out");
+            //     // DocumentManager.get_instance ().save_request (this, SaveReason.FOCUS_OUT);
+            //     return false;
+            // });
+ 
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
