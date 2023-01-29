@@ -365,7 +365,7 @@ namespace Scratch.Services {
             }
 
             if (DocumentManager.get_instance ().save_request (
-                this, 
+                this,
                 app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING
             )) {
                 delete_backup ();
@@ -745,12 +745,14 @@ namespace Scratch.Services {
         }
 
         public void after_undoable_change () {
+warning ("after undoable change");
             source_view.set_editable (true);
+            set_saved_status ();
             if (outline != null) {
                 outline.parse_symbols ();
             }
         }
- 
+
         // Set saved status
         public void set_saved_status () {
             // this.saved = val;

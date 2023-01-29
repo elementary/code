@@ -125,7 +125,7 @@ public class Scratch.Services.DocumentManager : Object {
 
             doc.set_saved_status ();
             return true;
-        } 
+        }
 
         remove_autosave_for_doc (doc);
 
@@ -149,7 +149,7 @@ public class Scratch.Services.DocumentManager : Object {
                 } else {
                     confirm = false;
                 }
-                
+
                 break;
             default:
                 assert_not_reached ();
@@ -204,10 +204,10 @@ warning ("start to save");
                 if (save_doc.end (res)) {
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
-                    
-                    if (doc.outline != null) {
-                        doc.outline.parse_symbols ();
-                    }
+
+                    // if (doc.outline != null) {
+                    //     doc.outline.parse_symbols ();
+                    // }
                     debug ("File \"%s\" saved successfully", doc.get_basename ());
                 }
             } catch (Error e) {
@@ -221,7 +221,6 @@ warning ("start to save");
                 }
             } finally {
                 doc.after_undoable_change ();
-                doc.set_saved_status ();
             }
         });
     }
@@ -256,7 +255,7 @@ warning ("save doc");
         if (reason == SaveReason.APP_CLOSING) {
             GLib.Application.get_default ().release ();
         }
-        
+
         return success;
     }
 
