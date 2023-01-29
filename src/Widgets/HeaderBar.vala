@@ -49,7 +49,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             app_instance.get_accels_for_action (save_button.action_name),
             _("Save this file")
         );
-
+    
         var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR) {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS
         };

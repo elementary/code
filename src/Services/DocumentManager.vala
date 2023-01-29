@@ -202,7 +202,6 @@ warning ("start to save");
         save_doc.begin (doc, reason, (obj, res) => {
             try {
                 if (save_doc.end (res)) {
-                    doc.set_saved_status ();
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
                     
@@ -219,10 +218,10 @@ warning ("start to save");
                         doc.get_basename (),
                         e.message
                     );
-                    doc.set_saved_status ();
                 }
             } finally {
                 doc.after_undoable_change ();
+                doc.set_saved_status ();
             }
         });
     }

@@ -103,9 +103,9 @@ namespace Scratch.Services {
         public bool is_saving { get; private set; }
 
         public Scratch.Services.SymbolOutline? outline { get; private set; default = null; }
-        private string original_content; // For restoring to original
+        private string original_content = ""; // For restoring to original
         //TODO Do we need this AND buffer.get_modified ()?
-        public string last_save_content; // For detecting unsaved content
+        public string last_save_content = ""; // For detecting unsaved content
         private bool completion_shown = false;
         private bool loaded = false;
 
@@ -200,12 +200,18 @@ namespace Scratch.Services {
             //     warning ("focus out");
             //     // DocumentManager.get_instance ().save_request (this, SaveReason.FOCUS_OUT);
             //     return false;
-            // });
- 
-            source_view.buffer.changed.connect (() => {
-                // if (source_view.buffer.text != last_save_content) {
+            // })
+            set_saved_status ();
+            check_undoable_actions ();
+            source_view.buffer.modified_changed.connect ((buffer) => {
+                warning ("modified changed");
+                // This signal triggers even when modified is not changed
+                if (buffer.get_modified ()) {
                     DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
-                // }
+                }
+
+                set_saved_status ();
+                check_undoable_actions ();
             });
 
             source_view.completion.show.connect (() => {
@@ -220,38 +226,6 @@ namespace Scratch.Services {
             loaded = file == null;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
-
-        // public void toggle_changed_handlers (bool enabled) {
-        //     if (enabled && onchange_handler_id == 0) {
-        //         onchange_handler_id = this.source_view.buffer.changed.connect (() => {
-        //             if (onchange_handler_id != 0) {
-        //                 this.source_view.buffer.disconnect (onchange_handler_id);
-        //             }
-
-        //             // Signals for SourceView
-        //             uint timeout_saving = 0;
-        //             check_undoable_actions ();
-        //             onchange_handler_id = source_view.buffer.changed.connect (() => {
-        //                 check_undoable_actions ();
-        //                 // Save if autosave is ON
-        //                 if (Scratch.settings.get_boolean ("autosave")) {
-        //                     if (timeout_saving > 0) {
-        //                         Source.remove (timeout_saving);
-        //                         timeout_saving = 0;
-        //                     }
-        //                     timeout_saving = Timeout.add (1000, () => {
-        //                         save.begin ();
-        //                         timeout_saving = 0;
-        //                         return false;
-        //                     });
-        //                 }
-        //              });
-        //         });
-        //     } else if (!enabled && onchange_handler_id != 0) {
-        //         this.source_view.buffer.disconnect (onchange_handler_id);
-        //         onchange_handler_id = 0;
-        //     }
-        // }
 
         private uint load_timout_id = 0;
         public async void open (bool force = false) {
@@ -364,6 +338,7 @@ namespace Scratch.Services {
             original_content = source_view.buffer.text;
             last_save_content = original_content;
             set_saved_status ();
+            check_undoable_actions ();
 
             doc_opened ();
             source_view.sensitive = true;
@@ -400,66 +375,6 @@ namespace Scratch.Services {
 
             return false;
         }
-        //     bool needs_save = source_view.buffer.modified ||
-        //                       (app_closing && is_file_temporary && !delete_temporary_file ())
-        //     bool ret_value = true;
-        //     if (source_view.buffer.text.modified) {
-        //     // if (Scratch.settings.get_boolean ("autosave") && !saved) {
-        //         save_with_hold ();
-        //     } else if (app_closing &&
-        //                is_file_temporary &&
-        //                !delete_temporary_file ()) {
-        //         // Save temp files with temp uri
-        //         debug ("Save temporary file!");
-        //         save_with_hold ();
-        //     }
-        //     // Check for unsaved changes
-        //     else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-        //         var parent_window = source_view.get_toplevel () as Gtk.Window;
-
-        //         var dialog = new Granite.MessageDialog (
-        //             _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
-        //             _("If you don't save, changes will be permanently lost."),
-        //             new ThemedIcon ("dialog-warning"),
-        //             Gtk.ButtonsType.NONE
-        //         );
-        //         dialog.transient_for = parent_window;
-
-        //         var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
-        //         no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-        //         dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        //         dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-        //         dialog.set_default_response (Gtk.ResponseType.YES);
-
-        //         int response = dialog.run ();
-        //         switch (response) {
-        //             case Gtk.ResponseType.CANCEL:
-        //             case Gtk.ResponseType.DELETE_EVENT:
-        //                 ret_value = false;
-        //                 break;
-        //             case Gtk.ResponseType.YES:
-        //                 if (this.is_file_temporary)
-        //                     save_as_with_hold ();
-        //                 else
-        //                     save_with_hold ();
-        //                 break;
-        //             case Gtk.ResponseType.NO:
-        //                 if (this.is_file_temporary)
-        //                     delete_temporary_file (true);
-        //                 break;
-        //         }
-        //         dialog.destroy ();
-        //     }
-
-        //     if (ret_value) {
-        //         // Delete backup copy file
-        //         delete_backup ();
-        //         doc_closed ();
-        //     }
-
-        //     return ret_value;
-        // }
 
         public bool save () {
             return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
@@ -510,8 +425,6 @@ namespace Scratch.Services {
             );
 
             var new_path = "";
-            // var current_file = file.get_path ();
-            // var is_current_file_temporary = this.is_file_temporary;
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
                 file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
@@ -522,29 +435,6 @@ namespace Scratch.Services {
             file_chooser.destroy ();
             return new_path;
         }
-        //     if (success) {
-        //         source_view.buffer.set_modified (true);
-        //         var is_saved = yield save (true);
-        //         if (is_saved && is_current_file_temporary) {
-        //             try {
-        //                 // Delete temporary file
-        //                 File.new_for_path (current_file).delete ();
-        //             } catch (Error err) {
-        //                 warning ("Temporary file cannot be deleted: %s", current_file);
-        //             }
-        //         }
-
-        //         delete_backup (current_file + "~");
-        //         this.source_view.change_syntax_highlight_from_file (this.file);
-        //     }
-
-        //     /* We delay destruction of file chooser dialog til now to avoid
-        //      * the document focussing in,
-        //      * which triggers premature loading of overwritten content.
-        //      */
-
-        //     return success;
-        // }
 
         public bool move (File new_dest) {
             this.file = new_dest;
@@ -663,19 +553,19 @@ namespace Scratch.Services {
         // Undo
         public void undo () {
             this.source_view.undo ();
-            check_undoable_actions ();
         }
 
         // Redo
         public void redo () {
             this.source_view.redo ();
-            check_undoable_actions ();
         }
 
         // Revert
         public void revert () {
             this.source_view.set_text (original_content, false);
+            source_view.buffer.set_modified (false);
             check_undoable_actions ();
+            set_saved_status ();
         }
 
         // Get text
@@ -842,8 +732,11 @@ namespace Scratch.Services {
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
-                original_content != source_buffer.text
+                //This reverts to original loaded content, not to last saved content!
+                //TODO Warn user if this would overwrite saved content?
+                source_view.buffer.text != original_content
             );
+            warning ("revertable %s", (source_view.buffer.text != original_content).to_string ());
         }
 
         // Used by SearchBar when search/replacing
@@ -862,8 +755,7 @@ namespace Scratch.Services {
         public void set_saved_status () {
             // this.saved = val;
             string unsaved_identifier = "* ";
-            var contents_changed = last_save_content != source_view.buffer.text;
-            if (contents_changed) {
+            if (source_view.buffer.get_modified ()) {
                 if (!(unsaved_identifier in this.label)) {
                     tab_name = unsaved_identifier + this.label;
                 }
