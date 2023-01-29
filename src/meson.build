@@ -1,5 +1,3 @@
-output = run_command('git','branch','--show-current')
-branch = output.stdout().strip()
 conf_data = configuration_data()
 conf_data.set_quoted('PROJECT_NAME', meson.project_name())
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -8,7 +6,15 @@ conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
 conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
 conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
-conf_data.set_quoted('BRANCH', branch)
+
+output = run_command('git','branch','--show-current')
+branch = output.stdout().strip()
+if branch == development_focus
+    conf_data.set_quoted('BRANCH', '')
+else
+    conf_data.set_quoted('BRANCH', branch)
+endif
+
 config_header = configure_file(
     input : 'config.vala.in',
     output : 'config.vala',

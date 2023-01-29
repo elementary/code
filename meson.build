@@ -4,6 +4,8 @@ project(
     version: '7.0.0'
 )
 
+development_focus = 'master'
+
 add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
     ],

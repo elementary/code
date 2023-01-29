@@ -23,7 +23,6 @@ namespace Scratch {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
-        private static string base_title;
 
         public Scratch.Application app { get; private set; }
         public bool restore_docs { get; construct; }
@@ -101,6 +100,7 @@ namespace Scratch {
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+        private static string base_title;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
@@ -199,7 +199,12 @@ namespace Scratch {
                 Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
-            base_title = _("Code") + " (%s)".printf (Constants.BRANCH);
+            if (Constants.BRANCH != "") {
+                base_title = _("Code") + " (%s)".printf (Constants.BRANCH);
+            } else {
+                base_title = _("Code");
+            }
+
             Hdy.init ();
         }
 
