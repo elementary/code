@@ -204,16 +204,13 @@ namespace Scratch.Services {
             set_saved_status ();
             check_undoable_actions ();
             source_view.buffer.modified_changed.connect ((buffer) => {
-                warning ("modified changed");
-                // This signal triggers even when modified is not changed
-                if (buffer.get_modified ()) {
-                    DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
-                }
-
                 set_saved_status ();
                 check_undoable_actions ();
             });
 
+            source_view.buffer.changed.connect ((buffer) => {
+                DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
+            });
             source_view.completion.show.connect (() => {
                 completion_shown = true;
             });
@@ -736,16 +733,14 @@ namespace Scratch.Services {
                 //TODO Warn user if this would overwrite saved content?
                 source_view.buffer.text != original_content
             );
-            warning ("revertable %s", (source_view.buffer.text != original_content).to_string ());
         }
 
-        // Used by SearchBar when search/replacing
+        // Two functoins Used by SearchBar when search/replacing as well as 
+        // DocumentManager while saving.
         public void before_undoable_change () {
             source_view.set_editable (false);
         }
-
         public void after_undoable_change () {
-warning ("after undoable change");
             source_view.set_editable (true);
             set_saved_status ();
             if (outline != null) {
@@ -789,8 +784,6 @@ warning ("after undoable change");
                 warning ("Cannot delete backup for file \"%s\": %s", get_basename (), e.message);
             }
         }
-
-
 
         // Return true if the file is writable. Keep testing as may change
         public bool can_write () {

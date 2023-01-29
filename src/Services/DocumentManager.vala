@@ -101,10 +101,9 @@ public class Scratch.Services.DocumentManager : Object {
             return true;
         }
 
-        var content_changed = doc.source_view.buffer.text != doc.last_save_content;
         var autosave_on = Scratch.settings.get_boolean ("autosave");
         if (reason == SaveReason.AUTOSAVE) {
-            if (autosave_on && content_changed) {
+            if (autosave_on) {
                 if (!doc_timeout_map.has_key (doc)) {
                     doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
                         if (doc.delay_autosaving || doc.is_saving) {
@@ -119,6 +118,8 @@ public class Scratch.Services.DocumentManager : Object {
                 } else {
                     doc.delay_autosaving = true;
                 }
+                // Do not set saved status when autosave is on
+                return true;
             } else {
                 remove_autosave_for_doc (doc);
             }
@@ -139,15 +140,11 @@ public class Scratch.Services.DocumentManager : Object {
                 break;
             case TAB_CLOSING:
             case APP_CLOSING:
-                if (content_changed) {
-                    if (!doc.is_file_temporary) {
-                        confirm = !autosave_on;
-                    } else {
-                        //Always give opportunity to save as permanent file
-                        confirm = true;
-                    }
+                if (!doc.is_file_temporary) {
+                    confirm = !autosave_on;
                 } else {
-                    confirm = false;
+                    //Always give opportunity to save as permanent file
+                    confirm = true;
                 }
 
                 break;
@@ -155,7 +152,10 @@ public class Scratch.Services.DocumentManager : Object {
                 assert_not_reached ();
         }
 
-        if (content_changed && confirm) {
+        // Only ask user if there are some changes
+        if (confirm &&      
+            doc.source_view.buffer.text != doc.last_save_content) {
+
             bool save_changes;
             if (!query_save_changes (doc, out save_changes)) {
                 // User cancelled operation
@@ -188,7 +188,6 @@ public class Scratch.Services.DocumentManager : Object {
     }
 
     private void start_to_save (Document doc, SaveReason reason) {
-warning ("start to save");
         //Assume buffer was editable if a save request was generated
         doc.before_undoable_change ();
         if (reason != SaveReason.AUTOSAVE &&
@@ -204,10 +203,6 @@ warning ("start to save");
                 if (save_doc.end (res)) {
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
-
-                    // if (doc.outline != null) {
-                    //     doc.outline.parse_symbols ();
-                    // }
                     debug ("File \"%s\" saved successfully", doc.get_basename ());
                 }
             } catch (Error e) {
@@ -221,6 +216,7 @@ warning ("start to save");
                 }
             } finally {
                 doc.after_undoable_change ();
+                doc.set_saved_status ();
             }
         });
     }
@@ -228,7 +224,6 @@ warning ("start to save");
     // It is expected that the document buffer will not change during this process
     // Any stripping or other automatic change has already taken place
     private async bool save_doc (Document doc, SaveReason reason) throws Error {
-warning ("save doc");
         var save_buffer = new Gtk.SourceBuffer (null);
         var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         save_buffer.text = source_buffer.text;
@@ -260,7 +255,6 @@ warning ("save doc");
     }
 
     private void create_doc_backup (Document doc) {
-warning ("create doc backup");
         if (!doc.can_write ()) {
             return;
         }
@@ -276,7 +270,6 @@ warning ("create doc backup");
     }
 
     private void strip_trailing_spaces_before_save (Document doc) {
-warning ("strup ");
         var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         var text = source_buffer.text;
         string[] lines = Regex.split_simple ("""[\r\n]""", text);
@@ -312,7 +305,6 @@ warning ("strup ");
     }
 
     private bool query_save_changes (Document doc, out bool save_changes) {
-warning ("query save");
         var parent_window = doc.source_view.get_toplevel () as Gtk.Window;
         var dialog = new Granite.MessageDialog (
             _("Save changes to \"%s\" before closing?").printf (doc.get_basename ()),
