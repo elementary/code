@@ -6,5 +6,4 @@ namespace Constants {
     public const string INSTALL_PREFIX = @PREFIX@;
     public const string DATADIR = @DATADIR@;
     public const string LOCALEDIR = @LOCALEDIR@;
-    public const string BRANCH = @BRANCH@;
 }
