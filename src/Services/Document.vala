@@ -4,6 +4,7 @@
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
                 2013      Mario Guerriero <mario@elemnetaryos.org>
+                2023 elementary LLC. <https://elementary.io>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -451,12 +452,6 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
-
-            // Stripping spaces only happens before save
-
-            // if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-            //     strip_trailing_spaces ();
-            // }
         }
 
         // Focus the SourceView
@@ -618,7 +613,7 @@ namespace Scratch.Services {
 
         // Check if the file was deleted/changed by an external source
         // Only called on focus in
-        public void check_file_status () {
+        private void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
@@ -680,51 +675,51 @@ namespace Scratch.Services {
                 this.source_view.editable = true;
             }
 
-        //TODO Fix this so that it does not trigger due to internal changes
-        //     // Detect external changes
-        //     if (loaded) {
-        //         var new_buffer = new Gtk.SourceBuffer (null);
-        //         var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
-        //         source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
-        //             try {
-        //                 source_file_loader.load_async.end (res);
-        //             } catch (Error e) {
-        //                 critical (e.message);
-        //                 show_default_load_error_view ();
-        //                 return;
-        //             }
+            // Detect external changes
+            if (loaded) {
+                var new_buffer = new Gtk.SourceBuffer (null);
+                var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
+                source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
+                    try {
+                        source_file_loader.load_async.end (res);
+                    } catch (Error e) {
+                        critical (e.message);
+                        show_default_load_error_view ();
+                        return;
+                    }
 
-        //             if (source_view.buffer.text == new_buffer.text) {
-        //                 return;
-        //             }
+                    if (source_view.buffer.text == new_buffer.text) {
+                        return;
+                    }
 
-        //             // "is_modified" returns false if no internal edits made since last time
-        //             // the app saved the content.
-        //             if (!source_view.buffer.get_modified ()) {
-        //                 // The source_view.buffer has not been modified in app
-        //                 //TODO Needs explanation?
-        //                 if (Scratch.settings.get_boolean ("autosave")) {
-        //                     // Not sure why we do not confirm in this case.
-        //                     source_view.set_text (new_buffer.text, false);
-        //                 } else {
-        //                     string message = _(
-        // "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
-        //                     ).printf ("<b>%s</b>".printf (get_basename ()));
-
-        //                     set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-        //                         this.source_view.set_text (new_buffer.text, false);
-        //                         hide_info_bar ();
-        //                     }, _("Continue"), () => {
-        //                         hide_info_bar ();
-        //                     });
-        //                 }
-        //             } else {
-        //                 critical ("Possibly conflicting external and in app edits");
-        //                 //TODO Handle this case?
-        //                 // Currently assume that the in app edits take priority over any external edits.
-        //             }
-        //         });
-        //     }
+                    //TODO Give opportunity to rename document in case of conflict
+                    string message = _(
+"File \"%s\" was modified by an external application.\n Do you want to load it again and lose your changes or continue editing and overwrite external changes if you save this document?"
+                    ).printf ("<b>%s</b>".printf (get_basename ()));
+                    if (!source_view.buffer.get_modified ()) {
+                        set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
+                            source_view.set_text (new_buffer.text, false);
+                            last_save_content = new_buffer.text;
+                            // Should already be in "saved" state
+                            hide_info_bar ();
+                        }, _("Continue"), () => {
+                            hide_info_bar ();
+                        });
+                    } else {
+                     set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
+                         source_view.set_text (new_buffer.text, false);
+                        // Put in "saved" state
+                         last_save_content = new_buffer.text;
+                         source_view.buffer.set_modified (false);
+                         check_undoable_actions ();
+                         set_saved_status ();
+                         hide_info_bar ();
+                     }, _("Continue"), () => {
+                         hide_info_bar ();
+                     });
+                    }
+                });
+            }
         }
 
         // Set Undo/Redo action sensitive property
@@ -873,65 +868,4 @@ namespace Scratch.Services {
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
     }
-
-    //     /* Pull the buffer into an array and then work out which parts are to be deleted.
-    //      * Do not strip line currently being edited unless forced */
-    //     private void strip_trailing_spaces () {
-    //         if (!loaded || source_view.language == null) {
-    //             return;
-    //         }
-
-    //         stripping = true;
-    //         var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
-    //         Gtk.TextIter iter;
-
-    //         var cursor_pos = source_buffer.cursor_position;
-    //         source_buffer.get_iter_at_offset (out iter, cursor_pos);
-    //         var orig_line = iter.get_line ();
-    //         var orig_offset = iter.get_line_offset ();
-
-    //         var text = source_buffer.text;
-
-    //         string[] lines = Regex.split_simple ("""[\r\n]""", text);
-    //         if (lines.length == 0) { // Can legitimately happen at startup or new document
-    //             return;
-    //         }
-
-    //         if (lines.length != source_buffer.get_line_count ()) {
-    //             critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
-    //             debug ("lines.length %u, buffer lines %u \n %s", lines.length, source_buffer.get_line_count (), text);
-    //             return;
-    //         }
-
-    //         MatchInfo info;
-    //         Gtk.TextIter start_delete, end_delete;
-    //         Regex whitespace;
-
-    //         try {
-    //             whitespace = new Regex ("[ \t]+$", 0);
-    //         } catch (RegexError e) {
-    //             critical ("Error while building regex to replace trailing whitespace: %s", e.message);
-    //             return;
-    //         }
-
-    //         for (int line_no = 0; line_no < lines.length; line_no++) {
-    //             if (whitespace.match (lines[line_no], 0, out info)) {
-
-    //                 source_buffer.get_iter_at_line (out start_delete, line_no);
-    //                 start_delete.forward_to_line_end ();
-    //                 end_delete = start_delete;
-    //                 end_delete.backward_chars (info.fetch (0).length);
-
-    //                 source_buffer.begin_not_undoable_action ();
-    //                 source_buffer.@delete (ref start_delete, ref end_delete);
-    //                 source_buffer.end_not_undoable_action ();
-    //             }
-    //         }
-
-    //         source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
-    //         source_buffer.place_cursor (iter);
-    //     }
-
-    //     stripping = false;
-    // }
 }
