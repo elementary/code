@@ -97,16 +97,14 @@ public class Scratch.Services.DocumentManager : Object {
     // @force is "true" when tab or app is closing or when user activated "action-save"
     // Returns "false" if operation cancelled by user
     public bool save_request (Document doc, Scratch.SaveReason reason) {
-warning ("save request reason %s", reason.to_string ());
         if (doc.inhibit_saving) {
-            //TODO Confirm with user whether to proceed?
             return true;
         }
 
-        var buffer_modified = doc.source_view.buffer.get_modified ();
+        var content_changed = doc.source_view.buffer.text != doc.last_save_content;
         var autosave_on = Scratch.settings.get_boolean ("autosave");
         if (reason == SaveReason.AUTOSAVE) {
-            if (autosave_on) {
+            if (autosave_on && content_changed) {
                 if (!doc_timeout_map.has_key (doc)) {
                     doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
                         if (doc.delay_autosaving || doc.is_saving) {
@@ -125,6 +123,7 @@ warning ("save request reason %s", reason.to_string ());
                 remove_autosave_for_doc (doc);
             }
 
+            doc.set_saved_status ();
             return true;
         } 
 
@@ -133,14 +132,14 @@ warning ("save request reason %s", reason.to_string ());
         bool confirm, closing;
         switch (reason) {
             case USER_REQUEST:
-            case AUTOSAVE:
+            // case AUTOSAVE:
             case FOCUS_OUT:
                 confirm = false;
                 closing = false;
                 break;
             case TAB_CLOSING:
             case APP_CLOSING:
-                if (buffer_modified) {
+                if (content_changed) {
                     if (!doc.is_file_temporary) {
                         confirm = !autosave_on;
                     } else {
@@ -156,7 +155,7 @@ warning ("save request reason %s", reason.to_string ());
                 assert_not_reached ();
         }
 
-        if (confirm) {
+        if (content_changed && confirm) {
             bool save_changes;
             if (!query_save_changes (doc, out save_changes)) {
                 // User cancelled operation
@@ -165,7 +164,13 @@ warning ("save request reason %s", reason.to_string ());
 
             if (!save_changes && doc.is_file_temporary) {
                 //User chose to discard the temporary file rather than save
-                delete_doc_file (doc);
+                try {
+                    doc.file.delete ();
+                } catch (Error e) {
+                    //TODO Inform user in UI?
+                    warning ("Cannot delete temporary file \"%s\": %s", doc.file.get_uri (), e.message);
+                }
+
                 return true;
             }
         }
@@ -197,7 +202,7 @@ warning ("start to save");
         save_doc.begin (doc, reason, (obj, res) => {
             try {
                 if (save_doc.end (res)) {
-                    doc.set_saved_status (true);
+                    doc.set_saved_status ();
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
                     
@@ -214,7 +219,7 @@ warning ("start to save");
                         doc.get_basename (),
                         e.message
                     );
-                    doc.set_saved_status (false);
+                    doc.set_saved_status ();
                 }
             } finally {
                 doc.after_undoable_change ();
@@ -308,17 +313,6 @@ warning ("strup ");
         }
     }
 
-    private bool delete_doc_file (Document doc) {
-        try {
-            doc.file.delete ();
-            return true;
-        } catch (Error e) {
-            warning ("Cannot delete temporary file \"%s\": %s", doc.file.get_uri (), e.message);
-        }
-
-        return false;
-    }
-      
     private bool query_save_changes (Document doc, out bool save_changes) {
 warning ("query save");
         var parent_window = doc.source_view.get_toplevel () as Gtk.Window;

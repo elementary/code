@@ -203,9 +203,9 @@ namespace Scratch.Services {
             // });
  
             source_view.buffer.changed.connect (() => {
-                if (source_view.buffer.text != last_save_content) {
+                // if (source_view.buffer.text != last_save_content) {
                     DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
-                }
+                // }
             });
 
             source_view.completion.show.connect (() => {
@@ -363,7 +363,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = original_content;
-            set_saved_status (true);
+            set_saved_status ();
 
             doc_opened ();
             source_view.sensitive = true;
@@ -859,20 +859,16 @@ namespace Scratch.Services {
         }
  
         // Set saved status
-        public void set_saved_status (bool val) {
+        public void set_saved_status () {
             // this.saved = val;
             string unsaved_identifier = "* ";
-            if (!val) {
+            var contents_changed = last_save_content != source_view.buffer.text;
+            if (contents_changed) {
                 if (!(unsaved_identifier in this.label)) {
                     tab_name = unsaved_identifier + this.label;
                 }
             } else {
-                if (!source_view.buffer.get_modified ()) {
-                    tab_name = this.label.replace (unsaved_identifier, "");
-                    last_save_content = source_view.buffer.text;
-                } else {
-                    critical ("Buffer contents changed during save operation");
-                }
+                tab_name = this.label.replace (unsaved_identifier, "");
             }
         }
 
