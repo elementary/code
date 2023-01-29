@@ -36,7 +36,7 @@ public class Scratch.Services.DocumentManager : Object {
     static Gee.HashMultiMap <string, string> project_restorable_docs_map;
     static Gee.HashMultiMap <string, string> project_open_docs_map;
     static Gee.HashMap <Document, uint> doc_timeout_map;
-    uint AUTOSAVE_RATE_MSEC = 1000;
+    const uint AUTOSAVE_RATE_MSEC = 1000;
 
     static DocumentManager? instance;
     public static DocumentManager get_instance () {
@@ -153,7 +153,7 @@ public class Scratch.Services.DocumentManager : Object {
         }
 
         // Only ask user if there are some changes
-        if (confirm &&      
+        if (confirm &&
             doc.source_view.buffer.text != doc.last_save_content) {
 
             bool save_changes;
@@ -189,12 +189,14 @@ public class Scratch.Services.DocumentManager : Object {
 
     private void start_to_save (Document doc, SaveReason reason) {
         //Assume buffer was editable if a save request was generated
-        doc.before_undoable_change ();
+        doc.working = true;
         if (reason != SaveReason.AUTOSAVE &&
             reason != SaveReason.FOCUS_OUT &&
             Scratch.settings.get_boolean ("strip-trailing-on-save")) {
 
+            doc.before_undoable_change ();
             strip_trailing_spaces_before_save (doc);
+            doc.after_undoable_change ();
         }
 
         // Saving to the location given in the doc source file will be attempted
@@ -215,11 +217,12 @@ public class Scratch.Services.DocumentManager : Object {
                     );
                 }
             } finally {
-                doc.after_undoable_change ();
                 doc.set_saved_status ();
+                doc.working = false;
             }
         });
     }
+
     // This must only be called when the save is expected to succeed
     // It is expected that the document buffer will not change during this process
     // Any stripping or other automatic change has already taken place

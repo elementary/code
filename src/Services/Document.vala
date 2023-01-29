@@ -172,10 +172,9 @@ namespace Scratch.Services {
             restore_settings ();
 
             settings.changed.connect (restore_settings);
-            /* Block user editing while working */
-            source_view.key_press_event.connect (() => {
-                return working;
-            });
+
+            // Use `set_editable ()`(undoable actions) or `sensitive` (while loading) when we wish to inhibit editing
+            // This gives audible feedback
 
             var source_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.HORIZONTAL,
@@ -209,7 +208,12 @@ namespace Scratch.Services {
             });
 
             source_view.buffer.changed.connect ((buffer) => {
-                DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
+                // May need to wait for completion to close which would otherwise inhibit
+                // saving
+                Idle.add (() => {
+                    DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
+                    return Source.REMOVE;
+                });
             });
             source_view.completion.show.connect (() => {
                 completion_shown = true;
