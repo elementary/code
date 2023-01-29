@@ -173,10 +173,9 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
         foreach (var item in root.children) {
             if (item is ProjectFolderItem) {
-                var folder_file = ((ProjectFolderItem)item).file.file;
-                if (folder_file.equal (file) ||
-                    folder_file.get_relative_path (file) != null) {
-                    return (ProjectFolderItem)item;
+                var folder = (ProjectFolderItem)item;
+                if (folder.contains_file (file)) {
+                    return folder;
                 }
             }
         }
@@ -263,10 +262,16 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
 
         folder_root.expanded = expand;
         folder_root.closed.connect (() => {
-            toplevel_action_group.activate_action (
-                MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                new Variant.string (folder_root.path)
-            );
+            toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
+            root.remove (folder_root);
+            foreach (var child in root.children) {
+                var child_folder = (ProjectFolderItem) child;
+                if (child_folder.name != child_folder.file.name) {
+                    rename_items_with_same_name (child_folder);
+                }
+            }
+            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+            write_settings ();
         });
 
         folder_root.close_all_except.connect (() => {
@@ -274,30 +279,14 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
                 var project_folder_item = (ProjectFolderItem)child;
                 if (project_folder_item != folder_root) {
                     toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                    root.remove (project_folder_item);
+                    Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
                 }
             }
+
+            write_settings ();
         });
 
-        write_settings ();
-    }
-
-    // Callback for MainWindow.ACTION_CLOSE_PROJECT_DOCS when not cancelled
-    public void remove_project_for_path (string path) {
-        var folder_root = get_project_for_file (GLib.File.new_for_path (path));
-        if (folder_root == null) {
-            critical ("Could not find project for path %s", path);
-            return;
-        }
-
-        root.remove (folder_root);
-        foreach (var child in root.children) {
-            var child_folder = (ProjectFolderItem) child;
-            if (child_folder.name != child_folder.file.name) {
-                rename_items_with_same_name (child_folder);
-            }
-        }
-
-        Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
         write_settings ();
     }
 
