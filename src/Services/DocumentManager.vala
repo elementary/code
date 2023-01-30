@@ -221,14 +221,28 @@ public class Scratch.Services.DocumentManager : Object {
         });
     }
 
-    // This must only be called when the save is expected to succeed
+    // This is only called once but is split out for clarity
     // It is expected that the document buffer will not change during this process
     // Any stripping or other automatic change has already taken place
     private async bool save_doc (Document doc, SaveReason reason) throws Error {
         var save_buffer = new Gtk.SourceBuffer (null);
         var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         save_buffer.text = source_buffer.text;
-        create_doc_backup (doc);
+
+        var backup = File.new_for_path (doc.file.get_path () + "~");
+        if (!backup.query_exists ()) {
+            try {
+                doc.file.copy (backup, FileCopyFlags.NONE);
+            } catch (Error e) {
+                warning (
+                    "Cannot create backup copy for file \"%s\": %s",
+                    doc.get_basename (),
+                    e.message
+                );
+                //Should we return fail now? The actual save will probably fail too
+            }
+        }
+
         // Replace old content with the new one
         //TODO Handle cancellables internally
         doc.save_cancellable.cancel ();
@@ -255,21 +269,7 @@ public class Scratch.Services.DocumentManager : Object {
         return success;
     }
 
-    private void create_doc_backup (Document doc) {
-        if (!doc.can_write ()) {
-            return;
-        }
-
-        var backup = File.new_for_path (doc.file.get_path () + "~");
-        if (!backup.query_exists ()) {
-            try {
-                doc.file.copy (backup, FileCopyFlags.NONE);
-            } catch (Error e) {
-                warning ("Cannot create backup copy for file \"%s\": %s", doc.get_basename (), e.message);
-            }
-        }
-    }
-
+    // This is only called once but is split out for clarity
     private void strip_trailing_spaces_before_save (Document doc) {
         var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
         var text = source_buffer.text;
@@ -305,6 +305,7 @@ public class Scratch.Services.DocumentManager : Object {
         }
     }
 
+    // This is only called once but is split out for clarity
     private bool query_save_changes (Document doc, out bool save_changes) {
         var parent_window = doc.source_view.get_toplevel () as Gtk.Window;
         var dialog = new Granite.MessageDialog (

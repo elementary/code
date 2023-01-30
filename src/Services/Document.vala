@@ -620,15 +620,8 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        // this.save_as.begin ();
-                        hide_info_bar ();
-                        var new_uri = get_save_as_uri ();
-                        if (new_uri != null) {
-                            var old_uri = file.get_uri ();
-                            file = GLib.File.new_for_uri (new_uri);
-                            if (!DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST)) {
-                                file = GLib.File.new_for_uri (old_uri);
-                            }
+                        if (save_as ()) {
+                            hide_info_bar ();
                         }
                     });
                 } else {
@@ -637,8 +630,11 @@ namespace Scratch.Services {
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        hide_info_bar ();
-                        DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
+                        if (save ()) {
+                            hide_info_bar ();
+                        } else {
+                        //TODO Provide feedback on failure
+                        }
                     });
                 }
 
@@ -654,15 +650,10 @@ namespace Scratch.Services {
                 ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
-                    hide_info_bar ();
-                    //TODO DRY this block
-                    var new_uri = get_save_as_uri ();
-                    if (new_uri != null) {
-                        var old_uri = file.get_uri ();
-                        file = GLib.File.new_for_uri (new_uri);
-                        if (!DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST)) {
-                            file = GLib.File.new_for_uri (old_uri);
-                        }
+                    if (save_as ()) {
+                        hide_info_bar ();
+                    } else {
+                    //TODO Provide feedback on failure
                     }
                 });
 
