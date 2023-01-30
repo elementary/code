@@ -174,9 +174,6 @@ namespace Scratch.Services {
 
             settings.changed.connect (restore_settings);
 
-            // Use `set_editable ()`(undoable actions) or `sensitive` (while loading) when we wish to inhibit editing
-            // This gives audible feedback
-
             var source_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.HORIZONTAL,
                 column_homogeneous = false
@@ -203,8 +200,8 @@ namespace Scratch.Services {
             });
 
             source_view.buffer.changed.connect ((buffer) => {
-                // May need to wait for completion to close which would otherwise inhibit
-                // saving
+                // May need to wait for completion to close
+                // which would otherwise inhibit saving
                 Idle.add (() => {
                     DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
                     return Source.REMOVE;
@@ -226,7 +223,10 @@ namespace Scratch.Services {
         private uint load_timout_id = 0;
         public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
-             * In most cases, an error will be thrown and caught. */
+            * In most cases, an error will be thrown and caught. */
+            if (loaded) {
+                focus_in_event.disconnect (on_focus_in);
+            }
             loaded = false;
             if (load_cancellable != null) { /* just in case */
                 load_cancellable.cancel ();
@@ -731,13 +731,13 @@ namespace Scratch.Services {
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
                 //This reverts to original loaded content, not to last saved content!
-                //TODO Warn user if this would overwrite saved content?
                 source_view.buffer.text != original_content
             );
         }
 
-        // Two functoins Used by SearchBar when search/replacing as well as
-        // DocumentManager while saving.
+        // Two functions Used by SearchBar when search/replacing as well as
+        // DocumentManager while saving in order to prevent user changing the
+        // the document during critical operations, and to update things after.
         public void before_undoable_change () {
             source_view.set_editable (false);
         }
@@ -749,9 +749,8 @@ namespace Scratch.Services {
             }
         }
 
-        // Set saved status
+        // Show whether there are unsaved changes in the tab label
         public void set_saved_status () {
-            // this.saved = val;
             string unsaved_identifier = "* ";
             if (source_view.buffer.get_modified ()) {
                 if (!(unsaved_identifier in this.label)) {

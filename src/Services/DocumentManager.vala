@@ -173,6 +173,7 @@ public class Scratch.Services.DocumentManager : Object {
             }
         }
 
+        // Save even when no changes as may need to overwrite external changes
         start_to_save (doc, reason);
         //Saving was successfully started (but may yet fail asynchronously)
         return true;
