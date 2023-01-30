@@ -343,12 +343,7 @@ namespace Scratch.Services {
             }
 
             // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                check_file_status ();
-                check_undoable_actions ();
-
-                return false;
-            });
+            this.source_view.focus_in_event.connect (on_focus_in);
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
@@ -735,8 +730,14 @@ namespace Scratch.Services {
             main_stack.set_visible_child (alert_view);
         }
 
+        private bool on_focus_in () {
+            check_file_status ();
+            check_undoable_actions ();
+
+            return false;
+        }
         // Check if the file was deleted/changed by an external source
-        public void check_file_status () {
+        private void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
