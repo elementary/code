@@ -450,9 +450,13 @@ namespace Scratch.Services {
         public bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
+            string old_uri = file.get_uri ();
             save_as.begin ((obj, res) => {
                 result = save_as.end (res);
                 GLib.Application.get_default ().release ();
+                if (!result) {
+                    file = File.new_for_uri (old_uri);
+                }
             });
 
             return result;
@@ -480,8 +484,9 @@ namespace Scratch.Services {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
-                if (e.code != 19)
+                if (e.code != 19) {
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                }
                 return false;
             }
 
@@ -536,28 +541,30 @@ namespace Scratch.Services {
                 success = true;
             }
 
+            var is_saved = false;
             if (success) {
                 source_view.buffer.set_modified (true);
-                var is_saved = yield save (true);
-
-                if (is_saved && is_current_file_temporary) {
-                    try {
-                        // Delete temporary file
-                        File.new_for_path (current_file).delete ();
-                    } catch (Error err) {
-                        warning ("Temporary file cannot be deleted: %s", current_file);
+                is_saved = yield save (true);
+                if (is_saved) {
+                    if (is_current_file_temporary) {
+                        try {
+                            // Delete temporary file
+                            File.new_for_path (current_file).delete ();
+                        } catch (Error err) {
+                            warning ("Temporary file cannot be deleted: %s", current_file);
+                        }
                     }
-                }
 
-                delete_backup (current_file + "~");
-                this.source_view.change_syntax_highlight_from_file (this.file);
+                    delete_backup (current_file + "~");
+                    this.source_view.change_syntax_highlight_from_file (this.file);
+                }
             }
 
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
             file_chooser.destroy ();
-            return success;
+            return is_saved;
         }
 
         public bool move (File new_dest) {
