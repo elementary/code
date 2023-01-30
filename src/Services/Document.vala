@@ -358,7 +358,7 @@ namespace Scratch.Services {
                 this,
                 app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING
             )) {
-                delete_backup ();
+                // DocumentManager will delete any backup
                 doc_closed ();
                 return true;
             }
@@ -749,30 +749,6 @@ namespace Scratch.Services {
                 }
             } else {
                 tab_name = this.label.replace (unsaved_identifier, "");
-            }
-        }
-
-        private void delete_backup (string? backup_path = null) {
-            string backup_file;
-
-            if (backup_path == null) {
-                backup_file = file.get_path () + "~";
-            } else {
-                backup_file = backup_path;
-            }
-
-            debug ("Backup file deleting: %s", backup_file);
-            var backup = File.new_for_path (backup_file);
-            if (backup == null || !backup.query_exists ()) {
-                debug ("Backup file doesn't exists: %s", backup.get_path ());
-                return;
-            }
-
-            try {
-                backup.delete ();
-                debug ("Backup file deleted: %s", backup_file);
-            } catch (Error e) {
-                warning ("Cannot delete backup for file \"%s\": %s", get_basename (), e.message);
             }
         }
 

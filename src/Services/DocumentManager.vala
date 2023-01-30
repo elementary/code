@@ -204,6 +204,24 @@ public class Scratch.Services.DocumentManager : Object {
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
                     debug ("File \"%s\" saved successfully", doc.get_basename ());
+                    if (reason == SaveReason.APP_CLOSING ||
+                        reason == SaveReason.TAB_CLOSING) {
+                        // Delete Backup
+                        var backup_file_path = doc.file.get_path () + "~";
+                        debug ("Backup file deleting: %s", backup_file_path);
+                        var backup = File.new_for_path (backup_file_path);
+                        if (backup == null || !backup.query_exists ()) {
+                            critical ("Backup file doesn't exists: %s", backup_file_path);
+                            return;
+                        }
+
+                        try {
+                            backup.delete ();
+                            debug ("Backup file deleted: %s", backup_file_path);
+                        } catch (Error e) {
+                            critical ("Cannot delete backup \"%s\": %s", backup_file_path, e.message);
+                        }
+                    }
                 }
             } catch (Error e) {
                 if (e.code != 19) { // Not cancelled
