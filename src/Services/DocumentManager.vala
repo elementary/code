@@ -105,7 +105,7 @@ public class Scratch.Services.DocumentManager : Object {
             if (autosave_on) {
                 if (!doc_timeout_map.has_key (doc)) {
                     doc_timeout_map[doc] = Timeout.add (AUTOSAVE_RATE_MSEC, () => {
-                        if (doc.delay_autosaving || doc.is_saving) {
+                        if (doc.delay_autosaving || doc.working) {
                             doc.delay_autosaving = false;
                             return Source.CONTINUE;
                         }
@@ -227,6 +227,8 @@ public class Scratch.Services.DocumentManager : Object {
                             critical ("Cannot delete backup \"%s\": %s", backup_file_path, e.message);
                         }
                     }
+                } else {
+                    critical ("saving failed without error thrown");
                 }
             } catch (Error e) {
                 if (e.code != 19) { // Not cancelled

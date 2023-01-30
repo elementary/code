@@ -52,6 +52,7 @@ namespace Scratch.Services {
             }
 
             private set {
+            warning ("setting file to %s", value.get_path ());
                 source_file.set_location (value);
                 source_view.location = value;
                 file_changed ();
@@ -97,11 +98,9 @@ namespace Scratch.Services {
 
         public bool inhibit_saving {
             get {
-                return !can_write () || !loaded || completion_shown;
+                return !loaded || completion_shown;
             }
         }
-
-        public bool is_saving { get; private set; }
 
         public Scratch.Services.SymbolOutline? outline { get; private set; default = null; }
         private string original_content = ""; // For restoring to original
@@ -365,10 +364,12 @@ namespace Scratch.Services {
         }
 
         public bool save () {
+warning ("save");
             return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
         }
 
         public bool save_as () {
+warning ("save as");
             var new_uri = get_save_as_uri ();
             assert_nonnull (new_uri);
             if (new_uri != "") {
@@ -382,6 +383,7 @@ namespace Scratch.Services {
                     return true;
                 }
             } else {
+            warning ("new uri null ignore");
                 return false;
             }
         }
@@ -391,7 +393,7 @@ namespace Scratch.Services {
             if (!loaded) {
                 return "";
             }
-
+warning ("get save as uri");
             var all_files_filter = new Gtk.FileFilter ();
             all_files_filter.set_filter_name (_("All files"));
             all_files_filter.add_pattern ("*");
@@ -416,13 +418,19 @@ namespace Scratch.Services {
 
             var new_path = "";
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-                file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
                 new_path = file_chooser.get_file ().get_uri ();
                 Utils.last_path = Path.get_dirname (new_path);
             }
 
             file_chooser.destroy ();
+
+            //Check that the location is writable
+            var new_file = File.new_for_path (new_path);
+            if (!can_write (new_file)) {
+                new_path = "";
+            }
+
             return new_path;
         }
 
@@ -760,11 +768,11 @@ namespace Scratch.Services {
         }
 
         // Return true if the file is writable. Keep testing as may change
-        public bool can_write () {
+        public bool can_write (GLib.File test_file = this.file) {
             FileInfo info;
             bool writable = false;
             try {
-                info = this.file.query_info (
+                info = test_file.query_info (
                     FileAttribute.ACCESS_CAN_WRITE,
                     FileQueryInfoFlags.NONE,
                     null
@@ -773,11 +781,11 @@ namespace Scratch.Services {
                     FileAttribute.ACCESS_CAN_WRITE
                 );
             } catch (Error e) {
-                debug (
-                    "Error determining write access: %s. Allowing write",
+                critical (
+                    "Error determining write access: %s. Not allowing write",
                      e.message
                 );
-                writable = true;
+                writable = false;
             }
 
             return writable;
