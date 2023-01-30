@@ -320,14 +320,8 @@ namespace Scratch.Services {
             }
 
             // Focus in event for SourceView
-            focus_in_event.connect (() => {
-warning ("focus in event");
-                check_file_status ();
-                check_undoable_actions ();
+            focus_in_event.connect (on_focus_in);
 
-                return false;
-            });
-            
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -535,8 +529,13 @@ warning ("focus in event");
 
         // Hide InfoBar when not needed
         public void hide_info_bar () {
+            source_view.focus_in_event.disconnect (on_focus_in);
             info_bar.no_show_all = true;
             info_bar.visible = false;
+            Idle.add (() => {
+                source_view.focus_in_event.connect (on_focus_in);
+                return Source.REMOVE;
+            });
         }
 
         // SourceView related functions
@@ -605,6 +604,11 @@ warning ("focus in event");
             main_stack.set_visible_child (alert_view);
         }
 
+        private bool on_focus_in () {
+            check_file_status ();
+            check_undoable_actions ();
+            return false;
+        }
         // Check if the file was deleted/changed by an external source
         // Only called on focus in
         private void check_file_status () {
@@ -699,9 +703,9 @@ warning ("focus in event");
 "File \"%s\" was modified by an external application while you were also making changes.\n Do you want to load the external changes and lose your changes or continue and overwrite the external changes if you save this document?"
                         ).printf ("<b>%s</b>".printf (get_basename ()));
                     }
-                    
+
                     set_message (Gtk.MessageType.WARNING, message,
-                        _("Load"), 
+                        _("Load"),
                         () => {
                             source_view.set_text (new_buffer.text, false);
                             // Put in "saved" state
@@ -711,7 +715,7 @@ warning ("focus in event");
                             set_saved_status ();
                             hide_info_bar ();
                         },
-                        _("Continue"), 
+                        _("Continue"),
                         () => {
                             hide_info_bar ();
                         }
@@ -732,7 +736,7 @@ warning ("focus in event");
             );
         }
 
-        // Two functoins Used by SearchBar when search/replacing as well as 
+        // Two functoins Used by SearchBar when search/replacing as well as
         // DocumentManager while saving.
         public void before_undoable_change () {
             source_view.set_editable (false);
