@@ -365,12 +365,14 @@ namespace Scratch.Services {
         }
 
         public bool save () {
+        warning ("action save");
             return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
         }
 
         public bool save_as () {
             var new_uri = get_save_as_uri ();
-            if (new_uri != null) {
+            assert_nonnull (new_uri);
+            if (new_uri != "") {
                 var old_uri = file.get_uri ();
                 file = GLib.File.new_for_uri (new_uri);
                 if (!DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST)) {
@@ -387,6 +389,7 @@ namespace Scratch.Services {
         public string get_save_as_uri () {
             // Get new path to save to from user
             if (!loaded) {
+                warning ("not loaded");
                 return "";
             }
 
@@ -452,6 +455,7 @@ namespace Scratch.Services {
 
         // Get file name
         public string get_basename () {
+            assert_nonnull (file);
             if (is_file_temporary) {
                 return _("New Document");
             } else {
