@@ -52,7 +52,6 @@ namespace Scratch.Services {
             }
 
             private set {
-            warning ("setting file to %s", value.get_path ());
                 source_file.set_location (value);
                 source_view.location = value;
                 file_changed ();
