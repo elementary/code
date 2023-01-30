@@ -595,7 +595,7 @@ namespace Scratch {
 
         protected override bool delete_event (Gdk.EventAny event) {
             handle_quit ();
-            return !check_unsaved_changes ();
+            return Gdk.EVENT_STOP;
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -643,18 +643,18 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
-            document_view.is_closing = true;
-            foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
-                    document_view.current_document = doc;
-                    return false;
-                }
-            }
+        // // Check if there no unsaved changes
+        // private bool check_unsaved_changes () {
+        //     document_view.is_closing = true;
+        //     foreach (var doc in document_view.docs) {
+        //         if (!doc.do_close (true)) {
+        //             document_view.current_document = doc;
+        //             return false;
+        //         }
+        //     }
 
-            return true;
-        }
+        //     return true;
+        // }
 
         // Save session information different from window state
         private void restore_saved_state_extra () {
@@ -708,8 +708,22 @@ namespace Scratch {
 
         // For exit cleanup
         private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+            save_all_documents.begin ((obj, res) => {
+                if (save_all_documents.end (res)) {
+                    destroy ();
+                }
+            });
+        }
+
+        private async bool save_all_documents () {
+            unowned var docs = document_view.docs;
+            var success = true;
+            var docs_copy = docs.copy ();
+            foreach (var doc in docs_copy) {
+                success = success && yield doc.do_close (true);
+            }
+
+            return success;
         }
 
         public void set_default_zoom () {
@@ -798,9 +812,9 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            // if (check_unsaved_changes ()) {
+            //     destroy ();
+            // }
         }
 
         private void action_open () {
@@ -872,7 +886,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save ();
+                    doc.save.begin ();
                 }
             }
         }
@@ -880,7 +894,7 @@ namespace Scratch {
         private void action_save_as () {
             var doc = get_current_document ();
             if (doc != null) {
-                doc.save_as ();
+                doc.save_as.begin ();
             }
         }
 

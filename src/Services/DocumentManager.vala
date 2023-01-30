@@ -95,7 +95,7 @@ public class Scratch.Services.DocumentManager : Object {
 
     // @force is "true" when tab or app is closing or when user activated "action-save"
     // Returns "false" if operation cancelled by user
-    public bool save_request (Document doc, Scratch.SaveReason reason) {
+    public async bool save_request (Document doc, Scratch.SaveReason reason) {
         if (doc.inhibit_saving) {
             return true;
         }
@@ -110,7 +110,8 @@ public class Scratch.Services.DocumentManager : Object {
                             return Source.CONTINUE;
                         }
 
-                        start_to_save (doc, reason);
+                        // When autosaving should not need to handle errors?
+                        start_to_save.begin (doc, reason);
                         doc_timeout_map.unset (doc);
                         return Source.REMOVE;
                     });
@@ -174,9 +175,7 @@ public class Scratch.Services.DocumentManager : Object {
         }
 
         // Save even when no changes as may need to overwrite external changes
-        start_to_save (doc, reason);
-        //Saving was successfully started (but may yet fail asynchronously)
-        return true;
+        return yield start_to_save (doc, reason);
     }
 
     private void remove_autosave_for_doc (Document doc) {
@@ -186,7 +185,7 @@ public class Scratch.Services.DocumentManager : Object {
         }
     }
 
-    private void start_to_save (Document doc, SaveReason reason) {
+    private async bool start_to_save (Document doc, SaveReason reason) {
         //Assume buffer was editable if a save request was generated
         doc.working = true;
         var closing = reason == SaveReason.APP_CLOSING ||
@@ -203,59 +202,7 @@ public class Scratch.Services.DocumentManager : Object {
             }
         }
 
-        // Saving to the location given in the doc source file will be attempted
-        save_doc.begin (doc, reason, (obj, res) => {
-            try {
-                if (save_doc.end (res)) {
-                    doc.source_view.buffer.set_modified (false);
-                    doc.last_save_content = doc.source_view.buffer.text;
-                    debug ("File \"%s\" saved successfully", doc.get_basename ());
-                    if (closing) {
-                        // Delete Backup
-                        var backup_file_path = doc.file.get_path () + "~";
-                        debug ("Backup file deleting: %s", backup_file_path);
-                        var backup = File.new_for_path (backup_file_path);
-                        if (backup == null || !backup.query_exists ()) {
-                            critical ("Backup file doesn't exists: %s", backup_file_path);
-                            return;
-                        }
-
-                        try {
-                            backup.delete ();
-                            debug ("Backup file deleted: %s", backup_file_path);
-                        } catch (Error e) {
-                            critical ("Cannot delete backup \"%s\": %s", backup_file_path, e.message);
-                        }
-                    }
-                } else {
-                    critical ("saving failed without error thrown");
-                }
-            } catch (Error e) {
-                if (e.code != 19) { // Not cancelled
-                    critical (
-                        "Cannot save \"%s\": %s",
-                        doc.get_basename (),
-                        e.message
-                    );
-                    
-                    // Inform user of failure
-                    doc.check_file_status ();
-                }
-            } finally {
-                doc.working = false;
-                doc.set_saved_status ();
-            }
-        });
-    }
-
-    // This is only called once but is split out for clarity
-    // It is expected that the document buffer will not change during this process
-    // Any stripping or other automatic change has already taken place
-    private async bool save_doc (Document doc, SaveReason reason) throws Error {
-        var save_buffer = new Gtk.SourceBuffer (null);
-        var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
-        save_buffer.text = source_buffer.text;
-
+        //Create backup file
         var backup = File.new_for_path (doc.file.get_path () + "~");
         if (!backup.query_exists ()) {
             try {
@@ -270,31 +217,88 @@ public class Scratch.Services.DocumentManager : Object {
             }
         }
 
-        // Replace old content with the new one
-        //TODO Handle cancellables internally
-        doc.save_cancellable.cancel ();
-        doc.save_cancellable = new GLib.Cancellable ();
-        var source_file_saver = new Gtk.SourceFileSaver (
-            source_buffer,
-            doc.source_file
-        );
+        // Saving to the location given in the doc source file will be attempted
+        var is_saved = false;
+       var save_buffer = new Gtk.SourceBuffer (null);
+       var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
+       save_buffer.text = source_buffer.text;
 
+       // Replace old content with the new one
+       //TODO Handle cancellables internally
+       doc.save_cancellable.cancel ();
+       doc.save_cancellable = new GLib.Cancellable ();
+       var source_file_saver = new Gtk.SourceFileSaver (
+           source_buffer,
+           doc.source_file
+       );
         if (reason == SaveReason.APP_CLOSING) {
-            GLib.Application.get_default ().hold ();
+           GLib.Application.get_default ().hold ();
         }
 
-        var success = yield source_file_saver.save_async (
-            GLib.Priority.DEFAULT,
-            doc.save_cancellable,
-            null
-        );
+        try {
 
-        if (reason == SaveReason.APP_CLOSING) {
-            GLib.Application.get_default ().release ();
+           is_saved = yield source_file_saver.save_async (
+               GLib.Priority.DEFAULT,
+               doc.save_cancellable,
+               null
+           );
+            // is_saved = yield save_doc (doc, reason);
+        } catch (Error e){
+            if (e.code != 19) { // Not cancelled
+                critical (
+                    "Cannot save \"%s\": %s",
+                    doc.get_basename (),
+                    e.message
+                );
+
+                // Inform user of failure
+                doc.check_file_status ();
+            }
+        } finally {
+            doc.working = false;
+            doc.set_saved_status ();
+
+           if (reason == SaveReason.APP_CLOSING) {
+               GLib.Application.get_default ().release ();
+           }
         }
 
-        return success;
+        return is_saved;
     }
+
+    // This is only called once but is split out for clarity
+    // It is expected that the document buffer will not change during this process
+    // Any stripping or other automatic change has already taken place
+    // private async bool save_doc (Document doc, SaveReason reason) throws Error {
+        // var save_buffer = new Gtk.SourceBuffer (null);
+        // var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
+        // save_buffer.text = source_buffer.text;
+
+        // // Replace old content with the new one
+        // //TODO Handle cancellables internally
+        // doc.save_cancellable.cancel ();
+        // doc.save_cancellable = new GLib.Cancellable ();
+        // var source_file_saver = new Gtk.SourceFileSaver (
+        //     source_buffer,
+        //     doc.source_file
+        // );
+
+        // if (reason == SaveReason.APP_CLOSING) {
+        //     GLib.Application.get_default ().hold ();
+        // }
+
+        // var success = yield source_file_saver.save_async (
+        //     GLib.Priority.DEFAULT,
+        //     doc.save_cancellable,
+        //     null
+        // );
+
+        // if (reason == SaveReason.APP_CLOSING) {
+        //     GLib.Application.get_default ().release ();
+        // }
+
+    //     return success;
+    // }
 
     // This is only called once but is split out for clarity
     private void strip_trailing_spaces_before_save (Document doc) {

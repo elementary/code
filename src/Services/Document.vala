@@ -200,7 +200,9 @@ namespace Scratch.Services {
                 // May need to wait for completion to close
                 // which would otherwise inhibit saving
                 Idle.add (() => {
-                    DocumentManager.get_instance ().save_request (this, SaveReason.AUTOSAVE);
+                    DocumentManager.get_instance ().save_request.begin (
+                        this, SaveReason.AUTOSAVE
+                    );
                     return Source.REMOVE;
                 });
             });
@@ -343,7 +345,7 @@ namespace Scratch.Services {
             return;
         }
 
-        public bool do_close (bool app_closing = false) {
+        public async bool do_close (bool app_closing) {
             debug ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
@@ -351,7 +353,7 @@ namespace Scratch.Services {
                 return true;
             }
 
-            if (DocumentManager.get_instance ().save_request (
+            if (yield DocumentManager.get_instance ().save_request (
                 this,
                 app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING
             )) {
@@ -363,27 +365,27 @@ namespace Scratch.Services {
             return false;
         }
 
-        public bool save () {
+        public async bool save () {
 warning ("save");
-            return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
+            return yield DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
         }
 
-        public bool save_as () {
-warning ("save as");
+        public async bool save_as () {
             var new_uri = get_save_as_uri ();
             assert_nonnull (new_uri);
             if (new_uri != "") {
                 var old_uri = file.get_uri ();
                 file = GLib.File.new_for_uri (new_uri);
-                if (!DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST)) {
+                if (!(yield DocumentManager.get_instance ().save_request (
+                    this, SaveReason.USER_REQUEST))) {
+                    // Revert to original location if save failed or cancelled
                     file = GLib.File.new_for_uri (old_uri);
                     return false;
-                } else {
-                    // Save may not have completed as it happens async
-                    return true;
                 }
+
+                return true;
             } else {
-            warning ("new uri null ignore");
+                warning ("Save As: Failed to get new uri");
                 return false;
             }
         }
@@ -393,7 +395,7 @@ warning ("save as");
             if (!loaded) {
                 return "";
             }
-warning ("get save as uri");
+
             var all_files_filter = new Gtk.FileFilter ();
             all_files_filter.set_filter_name (_("All files"));
             all_files_filter.add_pattern ("*");
@@ -425,18 +427,18 @@ warning ("get save as uri");
 
             file_chooser.destroy ();
 
-            //Check that the location is writable
-            var new_file = File.new_for_path (new_path);
-            if (!can_write (new_file)) {
-                new_path = "";
-            }
+            // //Check that the location is writable
+            // var new_file = File.new_for_path (new_path);
+            // if (!can_write (new_file)) {
+            //     new_path = "";
+            // }
 
             return new_path;
         }
 
-        public bool move (File new_dest) {
+        public async bool move (File new_dest) {
             this.file = new_dest;
-            return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
+            return yield DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
         }
 
         private void restore_settings () {
@@ -634,9 +636,11 @@ warning ("get save as uri");
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        if (save_as ()) {
-                            hide_info_bar ();
-                        }
+                        save_as.begin ((obj, res) => {
+                            if (save_as.end (res)) {
+                                hide_info_bar ();
+                            }
+                        });
                     });
                 } else {
                     string message = _(
@@ -644,11 +648,11 @@ warning ("get save as uri");
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        if (save ()) {
-                            hide_info_bar ();
-                        } else {
-                        //TODO Provide feedback on failure
-                        }
+                        save.begin ((obj, res) => {
+                            if (save.end (res)) {
+                                hide_info_bar ();
+                            }
+                        });
                     });
                 }
 
@@ -664,11 +668,11 @@ warning ("get save as uri");
                 ).printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
-                    if (save_as ()) {
-                        hide_info_bar ();
-                    } else {
-                    //TODO Provide feedback on failure
-                    }
+                    save_as.begin ((obj, res) => {
+                        if (save_as.end (res)) {
+                            hide_info_bar ();
+                        }
+                    });
                 });
 
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
@@ -749,7 +753,7 @@ warning ("get save as uri");
         public void after_undoable_change () {
             source_view.set_editable (true);
             set_saved_status ();
-            
+
             if (outline != null) {
                 outline.parse_symbols ();
             }

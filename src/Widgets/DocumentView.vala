@@ -69,17 +69,22 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         close_tab_requested.connect ((tab) => {
-            var document = tab as Services.Document;
-            if (!document.is_file_temporary && document.file != null) {
-                tab.restore_data = document.get_uri ();
-            }
+            var doc = tab as Services.Document;
+            doc.do_close.begin (false, (obj, res) => {
+                if (doc.do_close.end (res)) {
+                    if (!doc.is_file_temporary && doc.file != null) {
+                        tab.restore_data = doc.get_uri ();
+                        remove_tab (doc);
+                    }
+                }
+            });
 
-            return document.do_close ();
+            return true;
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
             /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
-            save_focused_document_uri (new_tab as Services.Document);
+            remember_focused_document_uri (new_tab as Services.Document);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -190,7 +195,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
-            save_opened_files ();
+            remember_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -210,7 +215,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
-            save_opened_files ();
+            remember_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -248,7 +253,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 if (cursor_position > 0) {
                     doc.source_view.cursor_position = cursor_position;
                 }
-                save_opened_files ();
+
+                remember_opened_files ();
             });
 
             return false;
@@ -300,22 +306,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public bool close_document (Services.Document doc) {
-        if (doc.do_close ()) {
-            remove_tab (doc);
-            return true;
-        }
-
-        return false;
+    public void close_document (Services.Document doc) {
+        close_tab_requested (doc);
     }
 
     public void close_current_document () {
         var doc = current_document;
-        if (doc != null) {
-            if (close_tab_requested (doc)) {
-                remove_tab (doc);
-            }
-        }
+        close_tab_requested (doc);
     }
 
     public void request_placeholder_if_empty () {
@@ -381,7 +378,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         if (!is_closing) {
-            save_opened_files ();
+            remember_opened_files ();
         }
     }
 
@@ -409,7 +406,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         doc.focus ();
 
-        save_opened_files ();
+        remember_opened_files ();
     }
 
     private bool on_focus_in_event () {
@@ -443,7 +440,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void save_opened_files () {
+    public void remember_opened_files () {
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var vb = new VariantBuilder (new VariantType ("a(si)"));
             tabs.foreach ((tab) => {
@@ -457,7 +454,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    private void save_focused_document_uri (Services.Document? current_document) {
+    private void remember_focused_document_uri (Services.Document? current_document) {
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var file_uri = "";
 
