@@ -242,8 +242,7 @@ public class Scratch.Services.DocumentManager : Object {
                doc.save_cancellable,
                null
            );
-            // is_saved = yield save_doc (doc, reason);
-        } catch (Error e){
+        } catch (Error e) {
             if (e.code != 19) { // Not cancelled
                 critical (
                     "Cannot save \"%s\": %s",
