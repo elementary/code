@@ -365,7 +365,6 @@ namespace Scratch.Services {
         }
 
         public bool save () {
-        warning ("action save");
             return DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
         }
 
@@ -379,6 +378,7 @@ namespace Scratch.Services {
                     file = GLib.File.new_for_uri (old_uri);
                     return false;
                 } else {
+                    // Save may not have completed as it happens async
                     return true;
                 }
             } else {
@@ -389,7 +389,6 @@ namespace Scratch.Services {
         public string get_save_as_uri () {
             // Get new path to save to from user
             if (!loaded) {
-                warning ("not loaded");
                 return "";
             }
 
@@ -607,13 +606,18 @@ namespace Scratch.Services {
         }
 
         private bool on_focus_in () {
-            check_file_status ();
-            check_undoable_actions ();
+            // Ignore if saving underway. DocumentManager will perform same
+            // operations when finished.
+            if (!working) {
+                check_file_status ();
+                check_undoable_actions ();
+            }
+
             return false;
         }
         // Check if the file was deleted/changed by an external source
-        // Only called on focus in
-        private void check_file_status () {
+        // Called on focus in and after failed saving
+        public void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
@@ -737,6 +741,7 @@ namespace Scratch.Services {
         public void after_undoable_change () {
             source_view.set_editable (true);
             set_saved_status ();
+            
             if (outline != null) {
                 outline.parse_symbols ();
             }

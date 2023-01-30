@@ -230,16 +230,18 @@ public class Scratch.Services.DocumentManager : Object {
                 }
             } catch (Error e) {
                 if (e.code != 19) { // Not cancelled
-                    //TODO Inform user of failure
                     critical (
                         "Cannot save \"%s\": %s",
                         doc.get_basename (),
                         e.message
                     );
+                    
+                    // Inform user of failure
+                    doc.check_file_status ();
                 }
             } finally {
-                doc.set_saved_status ();
                 doc.working = false;
+                doc.set_saved_status ();
             }
         });
     }
