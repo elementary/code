@@ -22,8 +22,7 @@ public enum Scratch.SaveReason {
     USER_REQUEST,
     TAB_CLOSING,
     APP_CLOSING,
-    AUTOSAVE,
-    FOCUS_OUT
+    AUTOSAVE
 }
 public enum Scratch.SaveStatus {
     SAVED,
@@ -133,11 +132,10 @@ public class Scratch.Services.DocumentManager : Object {
         bool confirm, closing;
         switch (reason) {
             case USER_REQUEST:
-            // case AUTOSAVE:
-            case FOCUS_OUT:
                 confirm = false;
                 closing = false;
                 break;
+
             case TAB_CLOSING:
             case APP_CLOSING:
                 if (!doc.is_file_temporary) {
@@ -191,7 +189,6 @@ public class Scratch.Services.DocumentManager : Object {
         //Assume buffer was editable if a save request was generated
         doc.working = true;
         if (reason != SaveReason.AUTOSAVE &&
-            reason != SaveReason.FOCUS_OUT &&
             Scratch.settings.get_boolean ("strip-trailing-on-save")) {
 
             doc.before_undoable_change ();

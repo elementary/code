@@ -195,12 +195,6 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            // // Focus out event for SourceView
-            // this.source_view.focus_out_event.connect (() => {
-            //     warning ("focus out");
-            //     // DocumentManager.get_instance ().save_request (this, SaveReason.FOCUS_OUT);
-            //     return false;
-            // })
             set_saved_status ();
             check_undoable_actions ();
             source_view.buffer.modified_changed.connect ((buffer) => {
@@ -326,13 +320,14 @@ namespace Scratch.Services {
             }
 
             // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
+            focus_in_event.connect (() => {
+warning ("focus in event");
                 check_file_status ();
                 check_undoable_actions ();
 
                 return false;
             });
-
+            
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -687,36 +682,40 @@ namespace Scratch.Services {
                         return;
                     }
 
-                    if (source_view.buffer.text == new_buffer.text) {
+                    if (last_save_content == new_buffer.text) {
                         return;
                     }
 
-                    //TODO Give opportunity to rename document in case of conflict
-                    string message = _(
-"File \"%s\" was modified by an external application.\n Do you want to load it again and lose your changes or continue editing and overwrite external changes if you save this document?"
-                    ).printf ("<b>%s</b>".printf (get_basename ()));
+                    // In case of conflict, either discard current changes and load external changes
+                    // or continue. If continuing, the user can later rename this document to keep
+                    // external changes or overwrite them by saving with the same name.
+                    string message;
                     if (!source_view.buffer.get_modified ()) {
-                        set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                            source_view.set_text (new_buffer.text, false);
-                            last_save_content = new_buffer.text;
-                            // Should already be in "saved" state
-                            hide_info_bar ();
-                        }, _("Continue"), () => {
-                            hide_info_bar ();
-                        });
+                        message = _(
+"File \"%s\" was modified by an external application.\n Do you want to load the external changes or continue and overwrite the external changes if you save this document?"
+                        ).printf ("<b>%s</b>".printf (get_basename ()));
                     } else {
-                     set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                         source_view.set_text (new_buffer.text, false);
-                        // Put in "saved" state
-                         last_save_content = new_buffer.text;
-                         source_view.buffer.set_modified (false);
-                         check_undoable_actions ();
-                         set_saved_status ();
-                         hide_info_bar ();
-                     }, _("Continue"), () => {
-                         hide_info_bar ();
-                     });
+                        message = _(
+"File \"%s\" was modified by an external application while you were also making changes.\n Do you want to load the external changes and lose your changes or continue and overwrite the external changes if you save this document?"
+                        ).printf ("<b>%s</b>".printf (get_basename ()));
                     }
+                    
+                    set_message (Gtk.MessageType.WARNING, message,
+                        _("Load"), 
+                        () => {
+                            source_view.set_text (new_buffer.text, false);
+                            // Put in "saved" state
+                            last_save_content = new_buffer.text;
+                            source_view.buffer.set_modified (false);
+                            check_undoable_actions ();
+                            set_saved_status ();
+                            hide_info_bar ();
+                        },
+                        _("Continue"), 
+                        () => {
+                            hide_info_bar ();
+                        }
+                    );
                 });
             }
         }
