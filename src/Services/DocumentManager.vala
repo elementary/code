@@ -189,12 +189,18 @@ public class Scratch.Services.DocumentManager : Object {
     private void start_to_save (Document doc, SaveReason reason) {
         //Assume buffer was editable if a save request was generated
         doc.working = true;
+        var closing = reason == SaveReason.APP_CLOSING ||
+                      reason == SaveReason.TAB_CLOSING;
+
         if (reason != SaveReason.AUTOSAVE &&
             Scratch.settings.get_boolean ("strip-trailing-on-save")) {
 
             doc.before_undoable_change ();
             strip_trailing_spaces_before_save (doc);
-            doc.after_undoable_change ();
+            if (!closing) {
+                // Only call if not closing to avoid terminal errors
+                doc.after_undoable_change ();
+            }
         }
 
         // Saving to the location given in the doc source file will be attempted
@@ -204,8 +210,7 @@ public class Scratch.Services.DocumentManager : Object {
                     doc.source_view.buffer.set_modified (false);
                     doc.last_save_content = doc.source_view.buffer.text;
                     debug ("File \"%s\" saved successfully", doc.get_basename ());
-                    if (reason == SaveReason.APP_CLOSING ||
-                        reason == SaveReason.TAB_CLOSING) {
+                    if (closing) {
                         // Delete Backup
                         var backup_file_path = doc.file.get_path () + "~";
                         debug ("Backup file deleting: %s", backup_file_path);
