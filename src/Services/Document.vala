@@ -192,8 +192,6 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            set_saved_status ();
-            check_undoable_actions ();
             source_view.buffer.modified_changed.connect ((buffer) => {
                 set_saved_status ();
                 check_undoable_actions ();
