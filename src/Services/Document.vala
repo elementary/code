@@ -102,7 +102,7 @@ namespace Scratch.Services {
 
         private Scratch.Services.SymbolOutline? outline  = null;
         private string original_content = ""; // For restoring to original
-        private string last_save_content = ""; // For detecting unsaved content
+        public string last_save_content = ""; // For detecting internal and external changes
         private bool completion_shown = false;
         private bool loaded = false;
 
@@ -218,6 +218,7 @@ namespace Scratch.Services {
             loaded = file == null;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
+
 
         private uint load_timout_id = 0;
         public async void open (bool force = false) {
@@ -347,16 +348,13 @@ namespace Scratch.Services {
 
         public async bool do_close (bool app_closing) {
             debug ("Closing \"%s\"", get_basename ());
-
             if (!loaded) {
                 load_cancellable.cancel ();
                 return true;
             }
 
-            if (yield doc_manager.save_request (
-                this,
-                app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING
-            )) {
+            var reason = app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING;
+            if (yield doc_manager.save_request (this, reason)) {
                 // DocumentManager will delete any backup
                 doc_closed ();
                 return true;
@@ -366,7 +364,6 @@ namespace Scratch.Services {
         }
 
         public async bool save () {
-warning ("save");
             return yield doc_manager.save_request (this, SaveReason.USER_REQUEST);
         }
 
@@ -629,6 +626,7 @@ warning ("save");
         // Called on focus in and after failed saving
         public void check_file_status () {
             // If the file does not exist anymore
+            assert (!working);
             if (!exists ()) {
                 if (mounted == false) {
                     string message = _(
@@ -699,6 +697,7 @@ warning ("save");
                         return;
                     }
 
+warning ("last save content not equal to new_buffer.text");
                     // In case of conflict, either discard current changes and load external changes
                     // or continue. If continuing, the user can later rename this document to keep
                     // external changes or overwrite them by saving with the same name.

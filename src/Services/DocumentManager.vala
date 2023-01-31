@@ -217,29 +217,33 @@ public class Scratch.Services.DocumentManager : Object {
 
         // Saving to the location given in the doc source file will be attempted
         var is_saved = false;
-       var save_buffer = new Gtk.SourceBuffer (null);
-       var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
-       save_buffer.text = source_buffer.text;
+        var save_buffer = new Gtk.SourceBuffer (null);
+        var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
+        save_buffer.text = source_buffer.text;
 
-       // Replace old content with the new one
-       //TODO Handle cancellables internally
-       doc.save_cancellable.cancel ();
-       doc.save_cancellable = new GLib.Cancellable ();
-       var source_file_saver = new Gtk.SourceFileSaver (
-           source_buffer,
-           doc.source_file
-       );
+        // Replace old content with the new one
+        //TODO Handle cancellables internally
+        doc.save_cancellable.cancel ();
+        doc.save_cancellable = new GLib.Cancellable ();
+        var source_file_saver = new Gtk.SourceFileSaver (
+            source_buffer,
+            doc.source_file
+        );
+
         if (reason == SaveReason.APP_CLOSING) {
            GLib.Application.get_default ().hold ();
         }
 
         try {
-
            is_saved = yield source_file_saver.save_async (
                GLib.Priority.DEFAULT,
                doc.save_cancellable,
                null
            );
+
+           if (is_saved) {
+               doc.last_save_content = save_buffer.text;
+           }
         } catch (Error e) {
             if (e.code != 19) { // Not cancelled
                 critical (
@@ -262,40 +266,6 @@ public class Scratch.Services.DocumentManager : Object {
 
         return is_saved;
     }
-
-    // This is only called once but is split out for clarity
-    // It is expected that the document buffer will not change during this process
-    // Any stripping or other automatic change has already taken place
-    // private async bool save_doc (Document doc, SaveReason reason) throws Error {
-        // var save_buffer = new Gtk.SourceBuffer (null);
-        // var source_buffer = (Gtk.SourceBuffer)(doc.source_view.buffer);
-        // save_buffer.text = source_buffer.text;
-
-        // // Replace old content with the new one
-        // //TODO Handle cancellables internally
-        // doc.save_cancellable.cancel ();
-        // doc.save_cancellable = new GLib.Cancellable ();
-        // var source_file_saver = new Gtk.SourceFileSaver (
-        //     source_buffer,
-        //     doc.source_file
-        // );
-
-        // if (reason == SaveReason.APP_CLOSING) {
-        //     GLib.Application.get_default ().hold ();
-        // }
-
-        // var success = yield source_file_saver.save_async (
-        //     GLib.Priority.DEFAULT,
-        //     doc.save_cancellable,
-        //     null
-        // );
-
-        // if (reason == SaveReason.APP_CLOSING) {
-        //     GLib.Application.get_default ().release ();
-        // }
-
-    //     return success;
-    // }
 
     // This is only called once but is split out for clarity
     private void strip_trailing_spaces_before_save (Document doc) {
