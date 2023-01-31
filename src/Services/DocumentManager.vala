@@ -149,16 +149,16 @@ public class Scratch.Services.DocumentManager : Object {
                 assert_not_reached ();
         }
 
-        bool save_changes = false;
+        bool save_required = true;
         // Only ask user if there are some changes or file is temporary
         if (confirm && (doc.content_changed || doc.is_file_temporary)) {
-            if (!query_save_changes (doc, out save_changes)) {
+            if (!query_save_changes (doc, out save_required)) {
                 // User cancelled operation
                 return false;
             }
         }
 
-        if (!save_changes) {
+        if (!save_required) {
             if (doc.is_file_temporary) {
                 FileHandler.delete_file_and_backup (doc.file);
             } else {
@@ -245,6 +245,7 @@ public class Scratch.Services.DocumentManager : Object {
             }
         }
 
+        //NOTE If save failed, the backup file remains on disk, but is not used
         return is_saved;
     }
 

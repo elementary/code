@@ -146,17 +146,17 @@ namespace Scratch.Services {
         public static void create_backup (GLib.File file) {
             //Create backup file
             var backup = File.new_for_path (file.get_path () + "~");
-            if (!backup.query_exists ()) {
-                try {
-                    file.copy (backup, FileCopyFlags.NONE);
-                } catch (Error e) {
-                    warning (
-                        "Cannot create backup copy for file \"%s\": %s",
-                        file.get_basename (),
-                        e.message
-                    );
-                    //Should we return fail now? The actual save will probably fail too
-                }
+            // Any existing file will be out of date - delete it.
+            delete_backup (backup);
+            try {
+                file.copy (backup, FileCopyFlags.NONE);
+            } catch (Error e) {
+                warning (
+                    "Cannot create backup copy for file \"%s\": %s",
+                    file.get_basename (),
+                    e.message
+                );
+                //Should we return fail now? The actual save will probably fail too
             }
         }
 
