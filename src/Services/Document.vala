@@ -375,6 +375,7 @@ namespace Scratch.Services {
             assert_nonnull (new_uri);
             if (new_uri != "") {
                 var old_uri = file.get_uri ();
+                var was_temporary = is_file_temporary;
                 file = GLib.File.new_for_uri (new_uri);
                 if (!(yield doc_manager.save_request (
                     this, SaveReason.USER_REQUEST))) {
@@ -401,8 +402,17 @@ namespace Scratch.Services {
                     );
 
                     return false;
+                } else if (was_temporary) {
+                    //Need to delete old temp file and backup
+                    var temp_file = GLib.File.new_for_uri (old_uri);
+                    //TODO DRY this (also in DocumentManager)
+                    try {
+                        temp_file.delete ();
+                    } catch (Error e) {
+                        //TODO Inform user in UI?
+                        warning ("Cannot delete temporary file \"%s\": %s", old_uri, e.message);
+                    }
                 }
-
                 return true;
             } else {
                 warning ("Save As: Failed to get new uri");

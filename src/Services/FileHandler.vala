@@ -19,7 +19,6 @@
 ***/
 
 namespace Scratch.Services {
-
     public enum FileOption {
         EXISTS,
         IS_DIR,
@@ -142,6 +141,37 @@ namespace Scratch.Services {
             }
             else
                 return false;
+        }
+
+        public static void create_backup (GLib.File file) {
+            //Create backup file
+            var backup = File.new_for_path (file.get_path () + "~");
+            if (!backup.query_exists ()) {
+                try {
+                    file.copy (backup, FileCopyFlags.NONE);
+                } catch (Error e) {
+                    warning (
+                        "Cannot create backup copy for file \"%s\": %s",
+                        file.get_basename (),
+                        e.message
+                    );
+                    //Should we return fail now? The actual save will probably fail too
+                }
+            }
+        }
+
+        public static void delete_file_and_backup (GLib.File file) {
+            delete_backup (file);
+            try {
+                file.delete ();
+            } catch (Error e) {}
+        }
+
+        public static void delete_backup (GLib.File file) {
+            var backup = File.new_for_path (file.get_path () + "~");
+            try {
+                backup.delete ();
+            } catch (Error e) {}
         }
     }
 

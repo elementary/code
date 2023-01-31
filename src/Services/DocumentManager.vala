@@ -130,46 +130,42 @@ public class Scratch.Services.DocumentManager : Object {
 
         remove_autosave_for_doc (doc);
 
-        bool confirm, closing;
+        bool confirm;
         switch (reason) {
             case USER_REQUEST:
+            case AUTOSAVE: // Should not come here
                 confirm = false;
-                closing = false;
                 break;
 
             case TAB_CLOSING:
-            case APP_CLOSING:
-                if (!doc.is_file_temporary) {
-                    confirm = !autosave_on;
-                } else {
-                    //Always give opportunity to save as permanent file
-                    confirm = true;
-                }
-
+                confirm = true;
                 break;
+
+            case APP_CLOSING:
+                confirm = false; // Always just save open docs
+                break;
+
             default:
                 assert_not_reached ();
         }
 
-        // Only ask user if there are some changes
-        if (confirm && doc.content_changed) {
-            bool save_changes;
+        bool save_changes = false;
+        // Only ask user if there are some changes or file is temporary
+        if (confirm && (doc.content_changed || doc.is_file_temporary)) {
             if (!query_save_changes (doc, out save_changes)) {
                 // User cancelled operation
                 return false;
             }
+        }
 
-            if (!save_changes && doc.is_file_temporary) {
-                //User chose to discard the temporary file rather than save
-                try {
-                    doc.file.delete ();
-                } catch (Error e) {
-                    //TODO Inform user in UI?
-                    warning ("Cannot delete temporary file \"%s\": %s", doc.file.get_uri (), e.message);
-                }
-
-                return true;
+        if (!save_changes) {
+            if (doc.is_file_temporary) {
+                FileHandler.delete_file_and_backup (doc.file);
+            } else {
+                FileHandler.delete_backup (doc.file);
             }
+
+            return true;
         }
 
         // Save even when no changes as may need to overwrite external changes
@@ -200,20 +196,7 @@ public class Scratch.Services.DocumentManager : Object {
             }
         }
 
-        //Create backup file
-        var backup = File.new_for_path (doc.file.get_path () + "~");
-        if (!backup.query_exists ()) {
-            try {
-                doc.file.copy (backup, FileCopyFlags.NONE);
-            } catch (Error e) {
-                warning (
-                    "Cannot create backup copy for file \"%s\": %s",
-                    doc.get_basename (),
-                    e.message
-                );
-                //Should we return fail now? The actual save will probably fail too
-            }
-        }
+        FileHandler.create_backup (doc.file);
 
         // Saving to the location given in the doc source file will be attempted
         var is_saved = false;
@@ -243,6 +226,7 @@ public class Scratch.Services.DocumentManager : Object {
 
            if (is_saved) {
                doc.last_save_content = save_buffer.text;
+               FileHandler.delete_backup (doc.file);
            }
         } catch (Error e) {
             if (e.code != 19) { // Not cancelled
