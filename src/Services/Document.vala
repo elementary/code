@@ -446,19 +446,7 @@ namespace Scratch.Services {
             }
 
             file_chooser.destroy ();
-
-            // //Check that the location is writable
-            // var new_file = File.new_for_path (new_path);
-            // if (!can_write (new_file)) {
-            //     new_path = "";
-            // }
-
             return new_path;
-        }
-
-        public async bool move (File new_dest) {
-            this.file = new_dest;
-            return yield doc_manager.save_request (this, SaveReason.USER_REQUEST);
         }
 
         private void restore_settings () {
