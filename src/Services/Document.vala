@@ -246,9 +246,8 @@ namespace Scratch.Services {
 
             source_view.sensitive = false;
             this.working = true;
-
+            // Check whether it is a text file
             var content_type = ContentType.from_mime_type (mime_type);
-
             if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
                 var title = _("%s Is Not a Text File").printf (get_basename ());
                 var description = _("Code will not load this type of file.");
@@ -271,7 +270,7 @@ namespace Scratch.Services {
             }
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
-
+            // Set time limit on loading the file
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
@@ -294,6 +293,7 @@ namespace Scratch.Services {
                 return GLib.Source.REMOVE;
             });
 
+            //Try to load the file
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
@@ -319,8 +319,7 @@ namespace Scratch.Services {
                 }
             }
 
-            // Focus in event for SourceView
-            focus_in_event.connect (on_focus_in);
+
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
@@ -340,6 +339,10 @@ namespace Scratch.Services {
             Idle.add (() => {
                 working = false;
                 loaded = true;
+                // Check file status etc
+                on_focus_in ();
+                // File status rechecked on every focus in
+                focus_in_event.connect (on_focus_in);
                 return false;
             });
 
