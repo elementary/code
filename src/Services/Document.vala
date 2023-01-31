@@ -380,6 +380,26 @@ namespace Scratch.Services {
                     this, SaveReason.USER_REQUEST))) {
                     // Revert to original location if save failed or cancelled
                     file = GLib.File.new_for_uri (old_uri);
+                    string message = _(
+                        "You cannot save to the file \"%s\".\n Do you want to save the changes somewhere else?"
+                    ).printf ("<b>%s</b>".printf (new_uri));
+
+                    set_message (
+                        Gtk.MessageType.WARNING,
+                        message,
+                        _("Save changes elsewhere"),
+                        () => {
+                            save_as.begin ((obj, res) => {
+                                if (save_as.end (res)) {
+                                    hide_info_bar ();
+                                }
+                            });
+                        },
+                        _("Cancel"), () => {
+                            hide_info_bar ();
+                        }
+                    );
+
                     return false;
                 }
 
