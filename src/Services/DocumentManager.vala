@@ -152,9 +152,7 @@ public class Scratch.Services.DocumentManager : Object {
         }
 
         // Only ask user if there are some changes
-        if (confirm &&
-            doc.source_view.buffer.text != doc.last_save_content) {
-
+        if (confirm && doc.content_changed) {
             bool save_changes;
             if (!query_save_changes (doc, out save_changes)) {
                 // User cancelled operation

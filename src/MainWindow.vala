@@ -643,19 +643,6 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // // Check if there no unsaved changes
-        // private bool check_unsaved_changes () {
-        //     document_view.is_closing = true;
-        //     foreach (var doc in document_view.docs) {
-        //         if (!doc.do_close (true)) {
-        //             document_view.current_document = doc;
-        //             return false;
-        //         }
-        //     }
-
-        //     return true;
-        // }
-
         // Save session information different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
@@ -812,9 +799,6 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            // if (check_unsaved_changes ()) {
-            //     destroy ();
-            // }
         }
 
         private void action_open () {

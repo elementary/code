@@ -35,6 +35,8 @@ namespace Scratch.Services {
 
         // The parent window's actions
         public unowned SimpleActionGroup actions { get; set construct; }
+        public Gtk.SourceFile source_file { get; private set; }
+        public Scratch.Widgets.SourceView source_view { get; private set; }
 
         public bool is_file_temporary {
             get {
@@ -43,8 +45,6 @@ namespace Scratch.Services {
                 );
             }
         }
-
-        public Gtk.SourceFile source_file { get; private set; }
 
         public GLib.File file {
             get {
@@ -88,31 +88,30 @@ namespace Scratch.Services {
             }
         }
 
-        public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
-
-
-        public bool saved = true;
         public bool delay_autosaving { get; set; }
-
         public bool inhibit_saving {
             get {
                 return !loaded || completion_shown;
             }
         }
+        public bool content_changed {
+            get {
+                return last_save_content != source_view.buffer.text;
+            }
+        }
 
-        public Scratch.Services.SymbolOutline? outline { get; private set; default = null; }
+        private Scratch.Services.SymbolOutline? outline  = null;
         private string original_content = ""; // For restoring to original
-        //TODO Do we need this AND buffer.get_modified ()?
-        public string last_save_content = ""; // For detecting unsaved content
+        private string last_save_content = ""; // For detecting unsaved content
         private bool completion_shown = false;
         private bool loaded = false;
 
+        private Gtk.Stack main_stack;
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
         private Gtk.SourceMap source_map;
         private Gtk.Paned outline_widget_pane;
-
+        private DocumentManager doc_manager;
         // Used by DocumentManager
         public GLib.Cancellable save_cancellable;
         public GLib.Cancellable load_cancellable;
@@ -159,6 +158,8 @@ namespace Scratch.Services {
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
+            doc_manager = DocumentManager.get_instance ();
+
             if (builder_blocks_font != null && builder_font_map != null) {
                 source_map.set_font_map (builder_font_map);
                 source_map.font_desc = builder_blocks_font;
@@ -195,11 +196,11 @@ namespace Scratch.Services {
                 check_undoable_actions ();
             });
 
-            source_view.buffer.changed.connect ((buffer) => {
+            source_view.buffer.changed.connect (() => {
                 // May need to wait for completion to close
                 // which would otherwise inhibit saving
                 Idle.add (() => {
-                    DocumentManager.get_instance ().save_request.begin (
+                    doc_manager.save_request.begin (
                         this, SaveReason.AUTOSAVE
                     );
                     return Source.REMOVE;
@@ -352,7 +353,7 @@ namespace Scratch.Services {
                 return true;
             }
 
-            if (yield DocumentManager.get_instance ().save_request (
+            if (yield doc_manager.save_request (
                 this,
                 app_closing ? SaveReason.APP_CLOSING : SaveReason.TAB_CLOSING
             )) {
@@ -366,7 +367,7 @@ namespace Scratch.Services {
 
         public async bool save () {
 warning ("save");
-            return yield DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
+            return yield doc_manager.save_request (this, SaveReason.USER_REQUEST);
         }
 
         public async bool save_as () {
@@ -375,7 +376,7 @@ warning ("save");
             if (new_uri != "") {
                 var old_uri = file.get_uri ();
                 file = GLib.File.new_for_uri (new_uri);
-                if (!(yield DocumentManager.get_instance ().save_request (
+                if (!(yield doc_manager.save_request (
                     this, SaveReason.USER_REQUEST))) {
                     // Revert to original location if save failed or cancelled
                     file = GLib.File.new_for_uri (old_uri);
@@ -437,7 +438,7 @@ warning ("save");
 
         public async bool move (File new_dest) {
             this.file = new_dest;
-            return yield DocumentManager.get_instance ().save_request (this, SaveReason.USER_REQUEST);
+            return yield doc_manager.save_request (this, SaveReason.USER_REQUEST);
         }
 
         private void restore_settings () {
