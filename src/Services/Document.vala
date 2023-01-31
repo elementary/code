@@ -100,7 +100,7 @@ namespace Scratch.Services {
             }
         }
 
-        private Scratch.Services.SymbolOutline? outline  = null;
+        private Scratch.Services.SymbolOutline? outline = null;
         private string original_content = ""; // For restoring to original
         public string last_save_content = ""; // For detecting internal and external changes
         private bool completion_shown = false;

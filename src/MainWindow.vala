@@ -697,6 +697,7 @@ namespace Scratch {
         private void handle_quit () {
             save_all_documents.begin ((obj, res) => {
                 if (save_all_documents.end (res)) {
+                    update_saved_state ();
                     destroy ();
                 }
             });
