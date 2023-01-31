@@ -251,17 +251,14 @@ public class Scratch.Services.DocumentManager : Object {
                     doc.get_basename (),
                     e.message
                 );
-
-                // Inform user of failure
-                doc.check_file_status ();
             }
         } finally {
             doc.working = false;
             doc.set_saved_status ();
 
-           if (reason == SaveReason.APP_CLOSING) {
-               GLib.Application.get_default ().release ();
-           }
+            if (reason == SaveReason.APP_CLOSING) {
+                GLib.Application.get_default ().release ();
+            }
         }
 
         return is_saved;
