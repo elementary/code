@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-08-22 12:55+0000\n"
+"PO-Revision-Date: 2023-02-02 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
@@ -154,11 +154,13 @@ msgstr "Améliorations :"
 
 #: data/code.metainfo.xml.in:69
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Nouvelle icône de l'application"
 
 #: data/code.metainfo.xml.in:70
 msgid "New custom dark and light elementary styles for the source view"
 msgstr ""
+"Nouveaux thèmes sombre et clair personnalisés d'elementary pour la vue du "
+"code source"
 
 #: data/code.metainfo.xml.in:71
 msgid "Option to follow the system dark style preference"
@@ -167,6 +169,8 @@ msgstr "Option pour suivre le thème du système"
 #: data/code.metainfo.xml.in:72
 msgid "Ability to half tile on small notebook displays"
 msgstr ""
+"Possibilité d'utiliser la moitié de l'écran sur les petits écrans "
+"d'ordinateurs portables"
 
 #: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
@@ -179,45 +183,64 @@ msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Les fonctions « Rechercher sur la page » et « Rechercher dans le projet » "
+"sont désormais disponibles dans le menu de l'application et non plus dans la "
+"barre de titre"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options for hiding and showing panels and now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Les options permettant de masquer et d'afficher les panneaux sont désormais "
+"toutes présentes dans un ensemble compact de boutons liés dans le menu de "
+"l'application"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"La barre latérale contient désormais le bouton de sélection des projets et "
+"occupe toute la hauteur de la fenêtre"
 
 #: data/code.metainfo.xml.in:79
 msgid "Started a global search with text selected now pre-fills that text"
 msgstr ""
+"Le lancement d'une recherche globale avec du texte sélectionné pré-remplit "
+"désormais le champ"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"Le volet de contour des symboles est désormais affiché à droite de la vue du "
+"code source et peut être affiché et masqué à l'aide du raccourci clavier « "
+"Alt + \\ »"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Les modules Terminal, Contour de symbole et Suppression des espaces blancs "
+"de fin de ligne font désormais partie intégrante de l'application"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Affichage d'une barre d'information lorsque les paramètres de largeur de "
+"tabulation sont écrasés par un fichier EditorConfig"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"Le raccourci pour reconstituer la liste d'autocomplétion est désormais « "
+"Ctrl + | »"
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
