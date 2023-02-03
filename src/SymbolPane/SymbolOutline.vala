@@ -45,11 +45,23 @@ public abstract class Scratch.Services.SymbolOutline : Object {
 
         update_source_list_colors ();
         Scratch.settings.changed["style-scheme"].connect (update_source_list_colors);
+        Scratch.settings.changed["follow-system-style"].connect (update_source_list_colors);
     }
 
     protected void update_source_list_colors () {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
-        var style_scheme = Scratch.settings.get_string ("style-scheme");
+        var style_scheme = "";
+        if (settings.get_boolean ("follow-system-style")) {
+            var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            if (system_prefers_dark) {
+                style_scheme = "elementary-dark";
+            } else {
+                style_scheme = "elementary-light";
+            }
+        } else {
+            style_scheme = Scratch.settings.get_string ("style-scheme");
+        }
+
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
