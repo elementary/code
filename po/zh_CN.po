@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-12-10 06:25+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"PO-Revision-Date: 2023-02-04 12:25+0000\n"
+"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -53,34 +53,28 @@ msgid "Hide search bar"
 msgstr "隐藏搜索栏"
 
 #: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "在项目中查找…"
+msgstr "在页面内查找…"
 
 #: src/MainWindow.vala:314
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "隐藏搜索栏"
+msgstr "隐藏项目侧边栏"
 
 #: src/MainWindow.vala:319
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "显示预览"
+msgstr "显示项目侧边栏"
 
 #: src/MainWindow.vala:328
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
-msgstr "激活大纲符号"
+msgstr "隐藏符号大纲"
 
 #: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
-msgstr "激活大纲符号"
+msgstr "显示符号大纲"
 
 #: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
@@ -508,25 +502,19 @@ msgstr "纯文本"
 
 #: src/Widgets/FormatBar.vala:145
 msgid "Some settings set by EditorConfig file"
-msgstr ""
+msgstr "部分设置已由 EditorConfig 文件配置"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "自动缩进："
+msgstr "自动缩进"
 
 #: src/Widgets/FormatBar.vala:150
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "空格代替制表符："
+msgstr "空格代替制表符"
 
 #: src/Widgets/FormatBar.vala:152
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "制表符宽度："
+msgstr "制表符宽度"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -597,10 +585,8 @@ msgid "Hide Terminal"
 msgstr "隐藏终端"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "打开文件夹"
+msgstr "打开文件夹…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
