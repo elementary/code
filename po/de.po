@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2022-11-19 08:15+0000\n"
+"PO-Revision-Date: 2023-02-06 17:25+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -52,32 +52,24 @@ msgid "Hide search bar"
 msgstr "Suchleiste ausblenden"
 
 #: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "Im Projekt suchen …"
+msgstr "Auf Seite suchen …"
 
 #: src/MainWindow.vala:314
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Suchleiste ausblenden"
+msgstr "Projektleiste ausblenden"
 
 #: src/MainWindow.vala:319
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Vorschau anzeigen"
+msgstr "Projektleiste anzeigen"
 
 #: src/MainWindow.vala:328
-#, fuzzy
 msgid "Hide Symbol Outline"
-msgstr "Symbol Outline umschalten"
+msgstr "Gliederungsymbole ausblenden"
 
 #: src/MainWindow.vala:333
-#, fuzzy
 msgid "Show Symbol Outline"
-msgstr "Symbol Outline umschalten"
+msgstr "Gliederungsymbole anzeigen"
 
 #: src/MainWindow.vala:802 src/Services/Document.vala:508
 msgid "All files"
@@ -522,25 +514,19 @@ msgstr "Einfacher Text"
 
 #: src/Widgets/FormatBar.vala:145
 msgid "Some settings set by EditorConfig file"
-msgstr ""
+msgstr "Einige Einstellungen durch EditorConfig-Datei vorgenommen"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Automatisches Einrücken:"
+msgstr "Automatisch einrücken"
 
 #: src/Widgets/FormatBar.vala:150
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Leerzeichen anstelle von Tabulatoren einfügen:"
+msgstr "Leerzeichen anstelle von Tabulatoren einfügen"
 
 #: src/Widgets/FormatBar.vala:152
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Tabulatorbreite:"
+msgstr "Tabulatorbreite"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -613,10 +599,8 @@ msgid "Hide Terminal"
 msgstr "Terminal ausblenden"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Ordner öffnen"
+msgstr "Ordner öffnen …"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
