@@ -67,6 +67,13 @@ dependencies = [
     vte_dep
 ]
 
+git = find_program('git', required: false)
+branch = ''
+if get_option('development') and git.found ()
+    output = run_command('git','branch','--show-current', check: false)
+    branch = output.stdout().strip()
+endif
+
 subdir('data')
 subdir('src')
 if get_option('plugins')

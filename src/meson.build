@@ -6,14 +6,7 @@ conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
 conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
 conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
-conf_data.set_quoted('BRANCH', '')
-git = find_program('git', required: false)
-
-if get_option('development') and git.found ()
-    output = run_command('git','branch','--show-current', check: false)
-    branch = output.stdout().strip()
-    conf_data.set_quoted('BRANCH', branch)
-endif
+conf_data.set_quoted('BRANCH', branch)
 
 config_header = configure_file(
     input : 'config.vala.in',
