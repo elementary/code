@@ -200,8 +200,7 @@ namespace Scratch {
             );
 
             if (Constants.BRANCH != "") {
-                // Put longer app info on second line to avoid ellipsizing
-                base_title = "\n%s (%s)".printf (Constants.PROJECT_NAME, Constants.BRANCH);
+                base_title = _("Code (%s)").printf (Constants.BRANCH);
             } else {
                 base_title = _("Code");
             }
