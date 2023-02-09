@@ -1,9 +1,10 @@
 app-id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '6'
+runtime-version: '7.1'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
+  - '--filesystem=xdg-run/gvfsd'
   - '--filesystem=host'
 
   - '--share=ipc'
@@ -30,17 +31,18 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
-        tag: '4.8.0'
+        tag: '4.8.4'
 
   - name: peas
     buildsystem: meson
     config-opts:
-      - '-Dgtk-doc=false'
+      - '-Dgtk_doc=false'
       - '-Ddemos=false'
+      - '-Dvapi=true'
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libpeas.git
-        tag: libpeas-1.28.0
+        tag: libpeas-1.34.0
 
   - name: git2-glib
     buildsystem: meson
@@ -50,7 +52,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libgit2-glib.git
-        tag: v0.99.0.1
+        tag: v1.1.0
     modules:
       - name: ssh2
         buildsystem: cmake-ninja
@@ -66,7 +68,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
-            tag: libssh2-1.9.0
+            tag: libssh2-1.10.0
       - name: libgit2
         buildsystem: cmake-ninja
         config-opts:
@@ -74,7 +76,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
-            tag: 'v1.1.0'
+            tag: 'v1.5.1'
 
   - name: editorconfig
     buildsystem: cmake-ninja
@@ -84,7 +86,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/editorconfig/editorconfig-core-c.git
-        tag: 'v0.12.4'
+        tag: 'v0.12.6'
+        disable-submodules: true
 
   - name: gtkspell
     config-opts:
@@ -111,13 +114,13 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/vte.git
-        branch: '0.62.1'
+        branch: '0.70.2'
 
   - name: universal-ctags
     sources:
       - type: git
         url: https://github.com/universal-ctags/ctags.git
-        tag: p5.9.20201101.0
+        tag: v6.0.0
 
   - name: code
     buildsystem: meson
