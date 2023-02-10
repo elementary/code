@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-10 13:12+0000\n"
-"PO-Revision-Date: 2023-01-16 07:00+0000\n"
+"PO-Revision-Date: 2023-02-10 22:38+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -45,10 +45,9 @@ msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Код"
+msgstr "Код (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
@@ -83,7 +82,7 @@ msgstr "Показать обводку символов"
 #: src/MainWindow.vala:513
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s – %s"
 
 #: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
