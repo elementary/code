@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -44,70 +44,83 @@ msgstr "Σετ προσθέτων"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
+#: src/MainWindow.vala:203
+#, fuzzy, c-format
+#| msgid "Code"
+msgid "Code (%s)"
+msgstr "Κώδικας"
+
+#: src/MainWindow.vala:205
 msgid "Code"
 msgstr "Κώδικας"
 
-#: src/MainWindow.vala:298
+#: src/MainWindow.vala:305
 msgid "Hide search bar"
 msgstr "Απόκρυψη γραμμής αναζήτησης"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Άνοιγμα ενός φακέλου"
 
-#: src/MainWindow.vala:314
+#: src/MainWindow.vala:321
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Απόκρυψη γραμμής αναζήτησης"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:326
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Εμφάνιση προεπισκόπησης"
 
-#: src/MainWindow.vala:328
+#: src/MainWindow.vala:335
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:340
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Σύμβολα"
 
-#: src/MainWindow.vala:802 src/Services/Document.vala:508
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:513
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
 msgstr "Όλα τα αρχεία"
 
-#: src/MainWindow.vala:806 src/Services/Document.vala:512
+#: src/MainWindow.vala:820 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "Αρχεία κειμένου"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:824
 msgid "Open some files"
 msgstr "Άνοιγμα μερικών αρχείων"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:827
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
+#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:853
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:854
 msgid "_Cancel"
 msgstr "_Ακύρωση"
 
@@ -306,8 +319,8 @@ msgstr "Άδειο αρχείο"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:247
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "Νέα Καρτέλα"
@@ -359,94 +372,94 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "Άνοιγμα ενός φακέλου"
 
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:291
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:573
+#: src/FolderManager/ProjectFolderItem.vala:577
 #, fuzzy
 msgid "New Branch…"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:586
+#: src/FolderManager/ProjectFolderItem.vala:590
 #, fuzzy
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:276
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "Το %s δεν είναι αρχείο κειμένου"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:277
 msgid "Code will not load this type of file."
 msgstr "Ο κώδικας δεν μπορεί να φορτώσει αυτόν τον τύπο αρχείου."
 
-#: src/Services/Document.vala:278
+#: src/Services/Document.vala:279
 msgid "Load Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:300
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:301
 msgid "Please wait while Code is loading the file."
 msgstr "Παρακαλώ περιμένετε όσο ο κώδικας φορτώνει το αρχείο."
 
-#: src/Services/Document.vala:302
+#: src/Services/Document.vala:303
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ακύρωση"
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:396
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
 "μόνιμα."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:403
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Κλείσιμο χωρίς αποθήκευση"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:519
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:407 src/Services/Document.vala:525
+#: src/Services/Document.vala:763
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:522
 msgid "Save File"
 msgstr "Αποθήκευση Αρχείου"
 
-#: src/Services/Document.vala:597 src/Services/Document.vala:606
+#: src/Services/Document.vala:605 src/Services/Document.vala:614
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Το αρχείο \"%s\" δεν μπορεί να διαβαστεί"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:738
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματα."
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -455,17 +468,17 @@ msgstr ""
 "Η τοποθεσία που περιέχει το αρχείο \"%s\" δεν μπορεί να βρεθεί. Θέλετε να "
 "αποθηκεύσετε σε κάποια άλλη τοποθεσία;"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:754
 msgid "Save As…"
 msgstr "Αποθήκευση Ως…"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:760
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 "Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
 
-#: src/Services/Document.vala:769
+#: src/Services/Document.vala:777
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -474,11 +487,11 @@ msgstr ""
 "Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
 "αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
 
-#: src/Services/Document.vala:772
+#: src/Services/Document.vala:780
 msgid "Save changes elsewhere"
 msgstr "Αποθήκευση των αλλαγών αλλού"
 
-#: src/Services/Document.vala:806
+#: src/Services/Document.vala:814
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -487,11 +500,11 @@ msgstr ""
 "Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
 "φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
 
-#: src/Services/Document.vala:809
+#: src/Services/Document.vala:817
 msgid "Load"
 msgstr "Φόρτωση"
 
-#: src/Services/Document.vala:812
+#: src/Services/Document.vala:820
 msgid "Continue"
 msgstr "Συνέχεια"
 
@@ -513,8 +526,8 @@ msgid "No Project Selected"
 msgstr "Πρότυπα έργων"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:139
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
