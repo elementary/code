@@ -100,6 +100,7 @@ namespace Scratch {
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+        private static string base_title;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
@@ -148,7 +149,6 @@ namespace Scratch {
         public MainWindow (bool restore_docs) {
             Object (
                 icon_name: Constants.PROJECT_NAME,
-                title: _("Code"),
                 restore_docs: restore_docs
             );
         }
@@ -199,12 +199,19 @@ namespace Scratch {
                 Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
+            if (Constants.BRANCH != "") {
+                base_title = _("Code (%s)").printf (Constants.BRANCH);
+            } else {
+                base_title = _("Code");
+            }
+
             Hdy.init ();
         }
 
         construct {
             application = ((Gtk.Application)(GLib.Application.get_default ()));
             app = (Scratch.Application)application;
+            title = base_title;
 
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code");
@@ -340,7 +347,7 @@ namespace Scratch {
 
         private void init_layout () {
             toolbar = new Scratch.HeaderBar ();
-            toolbar.title = title;
+            toolbar.title = base_title;
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
@@ -482,7 +489,7 @@ namespace Scratch {
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                title = _("Code");
+                title = base_title;
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -502,7 +509,8 @@ namespace Scratch {
                 if (doc != null) {
                     search_bar.set_text_view (doc.source_view);
                     // Update MainWindow title
-                    title = doc.get_basename ();
+                    /// TRANSLATORS: First placeholder is document name, second placeholder is app name
+                    title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
                     sidebar.choose_project_button.set_document (doc);
@@ -515,7 +523,7 @@ namespace Scratch {
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
                     doc.check_undoable_actions ();
                 } else {
-                    title = _("Code");
+                    title = base_title;
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
                 }
             });

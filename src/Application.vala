@@ -58,6 +58,9 @@ namespace Scratch {
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
             application_id = Constants.PROJECT_NAME;
+            if (Constants.BRANCH != "") {
+                application_id += "." + Constants.BRANCH.replace ("/", ".").replace ("-", "_");
+            }
 
             add_main_option_entries (ENTRIES);
 
