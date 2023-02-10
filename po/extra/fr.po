@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
 "PO-Revision-Date: 2023-02-02 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "Code"
 
@@ -216,8 +216,8 @@ msgid ""
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
 "Le volet de contour des symboles est désormais affiché à droite de la vue du "
-"code source et peut être affiché et masqué à l'aide du raccourci clavier « "
-"Alt + \\ »"
+"code source et peut être affiché et masqué à l'aide du raccourci clavier "
+"« Alt + \\ »"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
@@ -239,8 +239,8 @@ msgstr ""
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
-"Le raccourci pour reconstituer la liste d'autocomplétion est désormais « "
-"Ctrl + | »"
+"Le raccourci pour reconstituer la liste d'autocomplétion est désormais "
+"« Ctrl + | »"
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
@@ -499,6 +499,10 @@ msgstr "Suppression de la vue scindée"
 #: data/code.metainfo.xml.in:194
 msgid "Remove browser preview"
 msgstr "Suppression de l'aperçu dans le navigateur"
+
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"

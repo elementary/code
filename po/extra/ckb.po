@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
 "PO-Revision-Date: 2022-09-10 09:55+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "كۆد"
 
@@ -448,6 +448,10 @@ msgstr "رەشکردنی دیمەنی جیاکردنەوە"
 #: data/code.metainfo.xml.in:194
 msgid "Remove browser preview"
 msgstr "رەشکردنەوەی پێشبینینی وێبگەڕ"
+
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
