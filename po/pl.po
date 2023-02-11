@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-10 13:12+0000\n"
-"PO-Revision-Date: 2023-01-17 11:25+0000\n"
+"PO-Revision-Date: 2023-02-11 17:36+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -45,10 +45,9 @@ msgid "[FILE…]"
 msgstr "[PLIK…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Kod"
+msgstr "Kod (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
@@ -83,7 +82,7 @@ msgstr "Pokaż przegląd symboli"
 #: src/MainWindow.vala:513
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
