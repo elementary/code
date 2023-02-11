@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-10 13:12+0000\n"
-"PO-Revision-Date: 2023-02-02 09:25+0000\n"
-"Last-Translator: Thierry Flament <thierry.flament@outlook.com>\n"
+"PO-Revision-Date: 2023-02-11 17:36+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "[FILE…]"
 msgstr "[BESTAND…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Code"
+msgstr "Code (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
@@ -82,7 +81,7 @@ msgstr "Toon symbooloverzicht"
 #: src/MainWindow.vala:513
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
