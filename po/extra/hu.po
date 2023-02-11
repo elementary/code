@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2023-01-19 00:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/extra/hu/"
@@ -440,10 +440,6 @@ msgstr "Kódfájlok szerkesztése"
 msgid "Code Editor"
 msgstr "Kód szerkesztő"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
 msgstr "szöveg;IDE;kód;szerkesztő;"
@@ -463,6 +459,9 @@ msgstr ""
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Use Granite.MessageDialog throughout"
 #~ msgstr "Használja a Granite.MessageDialogot mindenhol"

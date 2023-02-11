@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2020-03-14 21:09+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/extra/eo/"
@@ -440,10 +440,6 @@ msgstr "Modifi kodajn dosierojn"
 msgid "Code Editor"
 msgstr "Koda Redaktilo"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 #| msgid "text;IDE;scratch;"
@@ -465,6 +461,9 @@ msgstr ""
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Other updates:"
 #~ msgstr "Aliaj ĝisdatigoj:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -435,10 +435,6 @@ msgstr "編輯源碼檔"
 msgid "Code Editor"
 msgstr "Code 編輯器"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 msgid "text;IDE;scratch;code;"
@@ -459,6 +455,9 @@ msgstr ""
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid ""
 #~ "Make it yours. Code is written from the ground up to be extensible. Keep "

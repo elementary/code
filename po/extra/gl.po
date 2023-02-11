@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2019-10-10 15:23+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/code/extra/gl/"
@@ -440,10 +440,6 @@ msgstr "Editar ficheiros de código"
 msgid "Code Editor"
 msgstr "Editor de código"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 #| msgid "text;IDE;scratch;"
@@ -465,6 +461,9 @@ msgstr ""
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #, fuzzy
 #~ msgid "Don't show temporary files in the folder manager"

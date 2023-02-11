@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2021-07-11 21:53+0000\n"
 "Last-Translator: Krammer <vitorcsilva180396@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
@@ -439,10 +439,6 @@ msgstr "Edite arquivos de código"
 msgid "Code Editor"
 msgstr "Editor Code"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 #| msgid "text;IDE;scratch;"
@@ -464,6 +460,9 @@ msgstr "Executar Code como Administrador"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "A autenticação é necessária para executar o Code como Administrador"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Fix empty sidebar layout, ensuring folders can always be added"
 #~ msgstr ""

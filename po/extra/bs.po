@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2018-11-04 10:58+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/extra/bs/"
@@ -436,10 +436,6 @@ msgstr "Uredite datoteke s kodom"
 msgid "Code Editor"
 msgstr "Kod uređivač"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 msgid "text;IDE;scratch;code;"
@@ -460,6 +456,9 @@ msgstr ""
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid ""
 #~ "Make it yours. Code is written from the ground up to be extensible. Keep "

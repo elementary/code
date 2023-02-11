@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2021-07-21 15:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/extra/fi/>\n"
@@ -434,10 +434,6 @@ msgstr "Muokkaa kooditiedostoja"
 msgid "Code Editor"
 msgstr "Koodimuokkain"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 #| msgid "text;IDE;scratch;"
@@ -460,6 +456,9 @@ msgstr "Suorita koodimuokkain ylläpitäjän oikeuksin"
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
 "Koodimuokkaimen käynnistäminen ylläpitäjän oikeuksin vaatii tunnistautumisen"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Other updates:"
 #~ msgstr "Muut päivitykset:"

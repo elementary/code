@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2023-01-21 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
@@ -468,10 +468,6 @@ msgstr "コードファイルを編集します"
 msgid "Code Editor"
 msgstr "コードエディター"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
 msgstr "text;IDE;scratch;code;テキスト;統合開発環境;コード;"
@@ -491,6 +487,9 @@ msgstr "“コード”を管理者として実行"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "“コード”を管理者として実行するには認証が必要です"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Drag and drop with text containing accented characters"
 #~ msgstr "アクセント記号を含むテキストのドラッグアンドドロップに対応"

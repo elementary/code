@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-11 17:36+0000\n"
 "PO-Revision-Date: 2023-02-02 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
@@ -512,10 +512,6 @@ msgstr "Modifier des fichiers de code"
 msgid "Code Editor"
 msgstr "Éditeur de code"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
 msgstr "Texte;IDE;Scratch;Code;"
@@ -536,6 +532,9 @@ msgstr "Exécuter Code en tant qu'administrateur"
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
 "Une authentification est requise pour exécuter Code en tant qu'administrateur"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Drag and drop with text containing accented characters"
 #~ msgstr "Glisser-déposer pour le texte comportant des caractères accentués"
