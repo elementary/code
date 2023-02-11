@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2023-01-19 00:25+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"PO-Revision-Date: 2023-02-10 22:38+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "Codi"
 
@@ -230,8 +230,8 @@ msgstr ""
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
-"La drecera per reconstruir la llista de paraules de compleció ara és \"Ctrl +"
-" |\"."
+"La drecera per reconstruir la llista de paraules de compleció ara és \"Ctrl "
+"+ |\"."
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
@@ -480,6 +480,10 @@ msgstr "Supressió de la visualització dividida"
 #: data/code.metainfo.xml.in:194
 msgid "Remove browser preview"
 msgstr "Supressió de la previsualització del navegador"
+
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr "@NOM@"
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"

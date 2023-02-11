@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
 "PO-Revision-Date: 2023-01-21 11:25+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "קוד"
 
@@ -427,6 +427,10 @@ msgstr "הסרת תצוגה מפוצלת"
 #: data/code.metainfo.xml.in:194
 msgid "Remove browser preview"
 msgstr "הסרת דפדפן תצוגה מקדימה"
+
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"

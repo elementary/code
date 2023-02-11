@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-10 13:12+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
@@ -43,65 +43,77 @@ msgstr "Набір плагінів"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
+#: src/MainWindow.vala:203
+#, c-format
+msgid "Code (%s)"
+msgstr ""
+
+#: src/MainWindow.vala:205
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:298
+#: src/MainWindow.vala:305
 msgid "Hide search bar"
 msgstr "Спрятати панель гледаня"
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Отворити файл"
 
-#: src/MainWindow.vala:314
+#: src/MainWindow.vala:321
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Спрятати панель гледаня"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:326
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:328
+#: src/MainWindow.vala:335
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:340
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:802 src/Services/Document.vala:508
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:513
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
 msgstr "Вшиткі файли"
 
-#: src/MainWindow.vala:806 src/Services/Document.vala:512
+#: src/MainWindow.vala:820 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "Текстовий файл"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:824
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:827
 msgid "Open"
 msgstr "Отворити"
 
-#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
+#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:853
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:854
 msgid "_Cancel"
 msgstr ""
 
@@ -294,8 +306,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:247
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr ""
 
@@ -344,128 +356,128 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "Отворити файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:291
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:573
+#: src/FolderManager/ProjectFolderItem.vala:577
 #, fuzzy
 msgid "New Branch…"
 msgstr "Поміняти настройки Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:586
+#: src/FolderManager/ProjectFolderItem.vala:590
 #, fuzzy
 msgid "Branch"
 msgstr "Поміняти настройки Scratch"
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:276
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:277
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:278
+#: src/Services/Document.vala:279
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:300
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:301
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:302
+#: src/Services/Document.vala:303
 msgid "Cancel Loading"
 msgstr ""
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:396
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Уложити зміни в документі %s перед затвореням?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Кіть неуложите файл, то зміни за послінні 4 секунди будуть вернуті."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:403
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Затворити без уложиня"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:519
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:407 src/Services/Document.vala:525
+#: src/Services/Document.vala:763
 msgid "Save"
 msgstr "Уложити"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:522
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:597 src/Services/Document.vala:606
+#: src/Services/Document.vala:605 src/Services/Document.vala:614
 msgid "New Document"
 msgstr "Новий документ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:738
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:754
 msgid "Save As…"
 msgstr ""
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:760
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: src/Services/Document.vala:769
+#: src/Services/Document.vala:777
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:772
+#: src/Services/Document.vala:780
 msgid "Save changes elsewhere"
 msgstr "Уложити зміни диь инде"
 
-#: src/Services/Document.vala:806
+#: src/Services/Document.vala:814
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:809
+#: src/Services/Document.vala:817
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:812
+#: src/Services/Document.vala:820
 msgid "Continue"
 msgstr ""
 
@@ -485,8 +497,8 @@ msgid "No Project Selected"
 msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:139
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
