@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-11 17:36+0000\n"
-"PO-Revision-Date: 2023-01-21 11:25+0000\n"
+"PO-Revision-Date: 2023-02-12 20:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -44,10 +44,9 @@ msgid "[FILE…]"
 msgstr "[ファイル…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "コード"
+msgstr "コード (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
@@ -82,7 +81,7 @@ msgstr "シンボルアウトラインを表示"
 #: src/MainWindow.vala:513
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
