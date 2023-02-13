@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-11 17:36+0000\n"
-"PO-Revision-Date: 2023-01-15 11:44+0000\n"
+"PO-Revision-Date: 2023-02-14 13:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -85,9 +85,9 @@ msgstr "Vis symbolomriss"
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
 #: src/MainWindow.vala:513
-#, c-format
+#, c-format, fuzzy
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:816 src/Services/Document.vala:514
 msgid "All files"
