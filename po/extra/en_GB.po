@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-11 17:36+0000\n"
-"PO-Revision-Date: 2021-11-30 09:45+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
+"PO-Revision-Date: 2023-02-17 10:09+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -147,19 +147,19 @@ msgstr "Improvements:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Redesigned app icon"
 
 #: data/code.metainfo.xml.in:70
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "New custom dark and light elementary styles for the source view"
 
 #: data/code.metainfo.xml.in:71
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Option to follow the system dark style preference"
 
 #: data/code.metainfo.xml.in:72
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Ability to half tile on small notebook displays"
 
 #: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
@@ -172,45 +172,58 @@ msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Both Find on Page and Find in Project are now available from the app's menu "
+"instead of in the headerbar"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options for hiding and showing panels and now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Options for hiding and showing panels are now all present in a compact set "
+"of linked buttons in the app's menu"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"The sidebar now contains the project chooser button and fills the height of "
+"the window"
 
 #: data/code.metainfo.xml.in:79
 msgid "Started a global search with text selected now pre-fills that text"
-msgstr ""
+msgstr "Starting a global search with text selected now pre-fills that text"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"The symbol outline pane is now shown to the right of the source view and can "
+"be shown and hidden with the keyboard shortcut \"Alt + \\\""
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
+"part of the main codebase"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Show an infobar when tab width settings are being overwritten by an "
+"EditorConfig file"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
@@ -223,20 +236,24 @@ msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
 
 #: data/code.metainfo.xml.in:102
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Hidden folders are now shown in the project sidebar"
 
 #: data/code.metainfo.xml.in:103
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"The currently selected result and the number of results is displayed while "
+"searching"
 
 #: data/code.metainfo.xml.in:104
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "The search bar now has a regular expression mode"
 
 #: data/code.metainfo.xml.in:106 data/code.metainfo.xml.in:130
 #: data/code.metainfo.xml.in:146
@@ -248,25 +265,30 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
 
 #: data/code.metainfo.xml.in:109
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Crashes are prevented while searching in large projects"
 
 #: data/code.metainfo.xml.in:110
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"The correct document is now focused after opening Code from an external "
+"program"
 
 #: data/code.metainfo.xml.in:111
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
+"Line duplication is now actioned correctly if there is no selection present"
 
 #: data/code.metainfo.xml.in:112
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Code no longer crashes when asked to open an unknown URI format"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
@@ -434,7 +456,7 @@ msgstr "Remove browser preview"
 
 #: data/io.elementary.code.desktop.in.in:4
 msgid "@NAME@"
-msgstr ""
+msgstr "@NAME@"
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -445,10 +467,8 @@ msgid "Code Editor"
 msgstr "Code Editor"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "text;IDE;scratch;"
+msgstr "text;IDE;scratch;code;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
