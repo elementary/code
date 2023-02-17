@@ -238,8 +238,11 @@ namespace Scratch {
             default_width = rect.width;
             default_height = rect.height;
 
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+
+            if (!Scratch.settings.get_boolean ("follow-system-style")) {
+                var gtk_settings = Gtk.Settings.get_default ();
+                gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            }
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
