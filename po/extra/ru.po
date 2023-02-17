@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-11 17:36+0000\n"
+"POT-Creation-Date: 2023-02-17 10:09+0000\n"
 "PO-Revision-Date: 2023-02-10 22:38+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
@@ -176,8 +176,12 @@ msgstr ""
 "а не в заголовке"
 
 #: data/code.metainfo.xml.in:77
+#, fuzzy
+#| msgid ""
+#| "Options for hiding and showing panels and now all present in a compact "
+#| "set of linked buttons in the app's menu"
 msgid ""
-"Options for hiding and showing panels and now all present in a compact set "
+"Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
 "Опции для скрытия и показа панелей, и теперь они представлены в компактном "
@@ -192,7 +196,9 @@ msgstr ""
 "окна"
 
 #: data/code.metainfo.xml.in:79
-msgid "Started a global search with text selected now pre-fills that text"
+#, fuzzy
+#| msgid "Started a global search with text selected now pre-fills that text"
+msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 "Если при начале глобального поиска был выбран текст, то теперь он будет уже "
 "введён"
