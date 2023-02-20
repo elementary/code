@@ -301,15 +301,12 @@ namespace Scratch.Widgets {
             var gtk_settings = Gtk.Settings.get_default ();
             if (settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-                gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
-
                 if (system_prefers_dark) {
                     source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
                 } else {
                     source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
                 }
             } else {
-                gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("prefer-dark-style");
                 var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
                 source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
             }
