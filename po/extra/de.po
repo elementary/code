@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 10:09+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2022-07-06 19:12+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/extra/de/>\n"
@@ -145,158 +145,162 @@ msgstr "Optionale Mini-Map um das Navigieren in großen Dateien zu vereinfachen"
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:99
-#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:151
-msgid "Improvements:"
-msgstr "Verbesserungen:"
-
-#: data/code.metainfo.xml.in:69
-msgid "Redesigned app icon"
-msgstr ""
-
-#: data/code.metainfo.xml.in:70
-msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
-
-#: data/code.metainfo.xml.in:71
-msgid "Option to follow the system dark style preference"
-msgstr ""
-
-#: data/code.metainfo.xml.in:72
-msgid "Ability to half tile on small notebook displays"
-msgstr ""
-
-#: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
-#: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
-#: data/code.metainfo.xml.in:176
+#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:90
+#: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:171
 msgid "Minor updates:"
 msgstr "Weitere Aktualisierungen:"
 
-#: data/code.metainfo.xml.in:76
+#: data/code.metainfo.xml.in:69
+msgid "Show when running a development branch of Code"
+msgstr ""
+
+#: data/code.metainfo.xml.in:70 data/code.metainfo.xml.in:100
+#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:174
+msgid "Updated translations"
+msgstr "Aktualisierte Übersetzungen"
+
+#: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:167
+msgid "Improvements:"
+msgstr "Verbesserungen:"
+
+#: data/code.metainfo.xml.in:85
+msgid "Redesigned app icon"
+msgstr ""
+
+#: data/code.metainfo.xml.in:86
+msgid "New custom dark and light elementary styles for the source view"
+msgstr ""
+
+#: data/code.metainfo.xml.in:87
+msgid "Option to follow the system dark style preference"
+msgstr ""
+
+#: data/code.metainfo.xml.in:88
+msgid "Ability to half tile on small notebook displays"
+msgstr ""
+
+#: data/code.metainfo.xml.in:92
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:77
+#: data/code.metainfo.xml.in:93
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
 
-#: data/code.metainfo.xml.in:78
+#: data/code.metainfo.xml.in:94
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
 
-#: data/code.metainfo.xml.in:79
+#: data/code.metainfo.xml.in:95
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 
-#: data/code.metainfo.xml.in:80
+#: data/code.metainfo.xml.in:96
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:81
+#: data/code.metainfo.xml.in:97
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
 
-#: data/code.metainfo.xml.in:82
+#: data/code.metainfo.xml.in:98
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
 
-#: data/code.metainfo.xml.in:83
+#: data/code.metainfo.xml.in:99
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
-#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
-#: data/code.metainfo.xml.in:195
-msgid "Updated translations"
-msgstr "Aktualisierte Übersetzungen"
-
-#: data/code.metainfo.xml.in:101
+#: data/code.metainfo.xml.in:117
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
 
-#: data/code.metainfo.xml.in:102
+#: data/code.metainfo.xml.in:118
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:119
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:120
 msgid "The search bar now has a regular expression mode"
 msgstr ""
 
-#: data/code.metainfo.xml.in:106 data/code.metainfo.xml.in:130
-#: data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:162
 msgid "Fixes:"
 msgstr "Fehlerbehebungen:"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:124
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:125
 msgid "Crashes are prevented while searching in large projects"
 msgstr ""
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:126
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:127
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:128
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:141
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:142
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:143
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr ""
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:144
 msgid "Center the global search dialog over the main Code window"
 msgstr ""
 
-#: data/code.metainfo.xml.in:132
+#: data/code.metainfo.xml.in:148
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr ""
 "Sichtbarkeit des Terminal-Buttons auf der Willkommensseite sicherstellen"
 
-#: data/code.metainfo.xml.in:133
+#: data/code.metainfo.xml.in:149
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -304,144 +308,34 @@ msgstr ""
 "Behebt einen Fehler, bei dem einige Tastenkürzel ihren Effekt auf ein nicht "
 "ausgewähltes Dokument statt des gewählten hatten"
 
-#: data/code.metainfo.xml.in:134
+#: data/code.metainfo.xml.in:150
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
 
-#: data/code.metainfo.xml.in:138
+#: data/code.metainfo.xml.in:154
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr ""
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:164
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
 "Behebt einen Fehler beim Öffnen neuer Fenster durch das Ablegen eines Tabs"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:165
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
 "Sicherstellen, dass über die Seitenleiste erstellte Dateien automatisch "
 "geöffnet werden"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:169
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "Projekt-Wahlbutton verstecken, wenn die Seitenleiste versteckt wird"
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:173
 msgid "Ensure all copy is translatable"
 msgstr "Sicherstellen, dass Copytext übersetzbar ist"
-
-#: data/code.metainfo.xml.in:165
-msgid "New features:"
-msgstr "Neue Funktionen:"
-
-#: data/code.metainfo.xml.in:167
-msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "Neues Markdown-Plugin für WYSIWYG-ähnliche Textbearbeitung."
-
-#: data/code.metainfo.xml.in:168
-msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr "Git Zweige direkt im Projektordner-Kontextmenü wechseln oder erstellen"
-
-#: data/code.metainfo.xml.in:169
-msgid "Show Git diff status in source view gutters"
-msgstr "Zeige Git diff status in der Quellcodeansicht-Seitenleiste"
-
-#: data/code.metainfo.xml.in:170
-msgid "Full text search within project folder."
-msgstr "Volltextsuche im Projektordner."
-
-#: data/code.metainfo.xml.in:171
-msgid "Save and restore cursor position between sessions"
-msgstr "Sichern und Wiederherstellen der Cursorposition zwischen Sessions"
-
-#: data/code.metainfo.xml.in:172
-msgid "Close files from a project when that project is closed"
-msgstr "Projektdaten schliessen wenn das Projekt geschlossen wird"
-
-#: data/code.metainfo.xml.in:173
-msgid "Show full file path in tab tooltips"
-msgstr "Zeige vollständigen Dateipfad in den Tab Tooltips"
-
-#: data/code.metainfo.xml.in:174
-msgid "Clear lines with Ctrl + K"
-msgstr "Zeilen löschen mit Strg + K"
-
-#: data/code.metainfo.xml.in:178
-msgid "Allow Spell Checker extension in Markdown files"
-msgstr "Erweiterung der Rechtschreibprüfung in Markdown-Dateien erlauben"
-
-#: data/code.metainfo.xml.in:179
-msgid "Improve multi-line duplication"
-msgstr "Duplizieren von mehreren Zeilen verbessert"
-
-#: data/code.metainfo.xml.in:180
-msgid "Remember whether the sidebar is open"
-msgstr "Merken, ob die Seitenleiste geöffnet ist"
-
-#: data/code.metainfo.xml.in:181
-msgid "Set window title to the focused file"
-msgstr "Namen der aktiven Datei als Fenstertitel setzen"
-
-#: data/code.metainfo.xml.in:182
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr ""
-"Hinzufügen von Tastaturkürzeln für nächste und vorhergegangene Dokumente"
-
-#: data/code.metainfo.xml.in:183
-msgid "Show full document path in tab tooltip"
-msgstr "Vollen Dokumentenpfad im Tab Tooltip anzeigen"
-
-#: data/code.metainfo.xml.in:184
-msgid "Update Pastebin plugin"
-msgstr "Aktualisieren des Pastebin-Plugins"
-
-#: data/code.metainfo.xml.in:185
-msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
-"Letzte Zeile korrekt Einrücken, wenn das preserve whitespace-Plugin benutzt "
-"wird"
-
-#: data/code.metainfo.xml.in:186
-msgid "Keep syntax highlighting when duplicating a file"
-msgstr "Syntax-Hervorhebung beibehalten wenn eine Datei dupliziert wird"
-
-#: data/code.metainfo.xml.in:187
-msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
-"Zugeklappten Ordner aufklappen wenn zweimal versucht wird ihn zu öffnen"
-
-#: data/code.metainfo.xml.in:188
-msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
-"Behebt einen Fehler, bei dem Suchvorgänge verloren gehen wenn Code nicht "
-"mehr das aktive Fenster ist"
-
-#: data/code.metainfo.xml.in:189
-msgid "Start Vim plugin in command mode"
-msgstr "Starte Vim plugin im Command-Mode"
-
-#: data/code.metainfo.xml.in:190
-msgid "Fix and add new Vim commands"
-msgstr "Neue Vim Kommandos hinzugefügt und Fehler behoben"
-
-#: data/code.metainfo.xml.in:191
-msgid "Show project folders with a hidden root folder"
-msgstr "Zeige Projektordner bei verstecktem Root-Ordner"
-
-#: data/code.metainfo.xml.in:192
-msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr "Gestatte den Start mit pkexec und verbiete den Start mit sudo"
-
-#: data/code.metainfo.xml.in:193
-msgid "Remove split view"
-msgstr "Split View entfernt"
-
-#: data/code.metainfo.xml.in:194
-msgid "Remove browser preview"
-msgstr "Browservorschau entfernt"
 
 #: data/io.elementary.code.desktop.in.in:4
 msgid "@NAME@"
@@ -477,6 +371,92 @@ msgstr "Code als Administrator ausführen"
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
 "Um Code als Administrator auszuführen ist eine Authentifizierung erforderlich"
+
+#~ msgid "New features:"
+#~ msgstr "Neue Funktionen:"
+
+#~ msgid "New Markdown plugin for WYSIWYG-like editing."
+#~ msgstr "Neues Markdown-Plugin für WYSIWYG-ähnliche Textbearbeitung."
+
+#~ msgid ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+#~ msgstr ""
+#~ "Git Zweige direkt im Projektordner-Kontextmenü wechseln oder erstellen"
+
+#~ msgid "Show Git diff status in source view gutters"
+#~ msgstr "Zeige Git diff status in der Quellcodeansicht-Seitenleiste"
+
+#~ msgid "Full text search within project folder."
+#~ msgstr "Volltextsuche im Projektordner."
+
+#~ msgid "Save and restore cursor position between sessions"
+#~ msgstr "Sichern und Wiederherstellen der Cursorposition zwischen Sessions"
+
+#~ msgid "Close files from a project when that project is closed"
+#~ msgstr "Projektdaten schliessen wenn das Projekt geschlossen wird"
+
+#~ msgid "Show full file path in tab tooltips"
+#~ msgstr "Zeige vollständigen Dateipfad in den Tab Tooltips"
+
+#~ msgid "Clear lines with Ctrl + K"
+#~ msgstr "Zeilen löschen mit Strg + K"
+
+#~ msgid "Allow Spell Checker extension in Markdown files"
+#~ msgstr "Erweiterung der Rechtschreibprüfung in Markdown-Dateien erlauben"
+
+#~ msgid "Improve multi-line duplication"
+#~ msgstr "Duplizieren von mehreren Zeilen verbessert"
+
+#~ msgid "Remember whether the sidebar is open"
+#~ msgstr "Merken, ob die Seitenleiste geöffnet ist"
+
+#~ msgid "Set window title to the focused file"
+#~ msgstr "Namen der aktiven Datei als Fenstertitel setzen"
+
+#~ msgid "Add keyboard shortcuts for next and previous documents"
+#~ msgstr ""
+#~ "Hinzufügen von Tastaturkürzeln für nächste und vorhergegangene Dokumente"
+
+#~ msgid "Show full document path in tab tooltip"
+#~ msgstr "Vollen Dokumentenpfad im Tab Tooltip anzeigen"
+
+#~ msgid "Update Pastebin plugin"
+#~ msgstr "Aktualisieren des Pastebin-Plugins"
+
+#~ msgid "Correctly indent last line when using the preserve whitespace plugin"
+#~ msgstr ""
+#~ "Letzte Zeile korrekt Einrücken, wenn das preserve whitespace-Plugin "
+#~ "benutzt wird"
+
+#~ msgid "Keep syntax highlighting when duplicating a file"
+#~ msgstr "Syntax-Hervorhebung beibehalten wenn eine Datei dupliziert wird"
+
+#~ msgid "Expand a collapsed folder if you attempt to open it twice"
+#~ msgstr ""
+#~ "Zugeklappten Ordner aufklappen wenn zweimal versucht wird ihn zu öffnen"
+
+#~ msgid "Fix an issue where searches are lost when Code loses focus"
+#~ msgstr ""
+#~ "Behebt einen Fehler, bei dem Suchvorgänge verloren gehen wenn Code nicht "
+#~ "mehr das aktive Fenster ist"
+
+#~ msgid "Start Vim plugin in command mode"
+#~ msgstr "Starte Vim plugin im Command-Mode"
+
+#~ msgid "Fix and add new Vim commands"
+#~ msgstr "Neue Vim Kommandos hinzugefügt und Fehler behoben"
+
+#~ msgid "Show project folders with a hidden root folder"
+#~ msgstr "Zeige Projektordner bei verstecktem Root-Ordner"
+
+#~ msgid "Allow launching with pkexec and disallow launching with sudo"
+#~ msgstr "Gestatte den Start mit pkexec und verbiete den Start mit sudo"
+
+#~ msgid "Remove split view"
+#~ msgstr "Split View entfernt"
+
+#~ msgid "Remove browser preview"
+#~ msgstr "Browservorschau entfernt"
 
 #~ msgid "io.elementary.code"
 #~ msgstr "io.elementary.code"
