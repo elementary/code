@@ -31,13 +31,10 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
-        // public Gtk.ToggleButton tool_cycle_search { get; construct; }
-        public Granite.SwitchModelButton tool_cycle_search { get; construct; }
-        public Granite.SwitchModelButton case_sensitive_button { get; construct; }
-        public Granite.SwitchModelButton tool_regex_button { get; construct; }
-        // private Gtk.ToggleButton case_sensitive_button;
-        // private Gtk.ToggleButton tool_regex_button;
+        private Granite.SwitchModelButton tool_cycle_search ;
 
+        private Granite.SwitchModelButton case_sensitive_button;
+        private Granite.SwitchModelButton tool_regex_button;
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
 
@@ -111,48 +108,22 @@ namespace Scratch.Widgets {
             search_popover.show_all ();
 
             var search_menu = new Gtk.MenuButton () {
-                image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.SMALL_TOOLBAR),
+                image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
                 popover = search_popover,
                 tooltip_text = _("Search Options")
             };
-            search_menu.get_style_context ().add_class ("flat");
-            // tool_cycle_search = new Gtk.ToggleButton () {
-            //     image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
-            //     tooltip_text = _("Cyclic Search")
-            // };
-            // tool_cycle_search.clicked.connect (on_search_entry_text_changed);
 
-            // case_sensitive_button = new Gtk.ToggleButton () {
-            //     image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
-            // };
-            // case_sensitive_button.bind_property (
-            //     "active",
-            //     case_sensitive_button, "tooltip-text",
-            //     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE, // Need to SYNC_CREATE so tooltip present before toggled
-            //     (binding, active_val, ref tooltip_val) => {
-            //         ((Gtk.Widget)(binding.target)).set_tooltip_text ( //tooltip_val.set_string () does not work (?)
-            //             active_val.get_boolean () ? _("Case Sensitive") : _("Case Insensitive")
-            //         );
-            //     }
-            // );
-            // case_sensitive_button.clicked.connect (on_search_entry_text_changed);
+            tool_cycle_search.toggled.connect (on_search_entry_text_changed);
+            case_sensitive_button.toggled.connect (on_search_entry_text_changed);
+            tool_regex_button.toggled.connect (on_search_entry_text_changed);
 
-            // tool_regex_button = new Gtk.ToggleButton () {
-            //     image = new Gtk.Image.from_icon_name ("text-html-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
-            //     tooltip_text = _("Use regular expressions")
-            // };
-            // tool_regex_button.clicked.connect (on_search_entry_text_changed);
+            Scratch.settings.bind ("cyclic-search", tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
             search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             search_grid.add (search_entry);
             search_grid.add (search_occurence_count_label);
-            // search_grid.add (tool_arrow_down);
-            // search_grid.add (tool_arrow_up);
-            // search_grid.add (tool_cycle_search);
-            // search_grid.add (case_sensitive_button);
-            // search_grid.add (tool_regex_button);
             search_grid.add (search_menu);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
