@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *               2013      Mario Guerriero <mario@elementaryos.org>
+                 2014-2023 elementary, Inc. (https://elementary.io)
  *
  * This file is part of Code.
  *
@@ -30,9 +31,12 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
-        public Gtk.ToggleButton tool_cycle_search { get; construct; }
-        private Gtk.ToggleButton case_sensitive_button;
-        private Gtk.ToggleButton tool_regex_button;
+        // public Gtk.ToggleButton tool_cycle_search { get; construct; }
+        public Granite.SwitchModelButton tool_cycle_search { get; construct; }
+        public Granite.SwitchModelButton case_sensitive_button { get; construct; }
+        public Granite.SwitchModelButton tool_regex_button { get; construct; }
+        // private Gtk.ToggleButton case_sensitive_button;
+        // private Gtk.ToggleButton tool_regex_button;
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
@@ -93,43 +97,63 @@ namespace Scratch.Widgets {
                 _("Search previous")
             );
 
-            tool_cycle_search = new Gtk.ToggleButton () {
-                image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
-                tooltip_text = _("Cyclic Search")
-            };
-            tool_cycle_search.clicked.connect (on_search_entry_text_changed);
+            tool_cycle_search = new Granite.SwitchModelButton (_("Cyclic Search"));
+            case_sensitive_button = new Granite.SwitchModelButton (_("Case Sensitive Search"));
+            tool_regex_button = new Granite.SwitchModelButton (_("Regex Search"));
 
-            case_sensitive_button = new Gtk.ToggleButton () {
-                image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
-            };
-            case_sensitive_button.bind_property (
-                "active",
-                case_sensitive_button, "tooltip-text",
-                BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE, // Need to SYNC_CREATE so tooltip present before toggled
-                (binding, active_val, ref tooltip_val) => {
-                    ((Gtk.Widget)(binding.target)).set_tooltip_text ( //tooltip_val.set_string () does not work (?)
-                        active_val.get_boolean () ? _("Case Sensitive") : _("Case Insensitive")
-                    );
-                }
-            );
-            case_sensitive_button.clicked.connect (on_search_entry_text_changed);
+            var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+            search_option_box.add (tool_cycle_search);
+            search_option_box.add (case_sensitive_button);
+            search_option_box.add (tool_regex_button);
 
-            tool_regex_button = new Gtk.ToggleButton () {
-                image = new Gtk.Image.from_icon_name ("text-html-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
-                tooltip_text = _("Use regular expressions")
+            var search_popover = new Gtk.Popover (null);
+            search_popover.add (search_option_box);
+            search_popover.show_all ();
+
+            var search_menu = new Gtk.MenuButton () {
+                image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.SMALL_TOOLBAR),
+                popover = search_popover,
+                tooltip_text = _("Search Options")
             };
-            tool_regex_button.clicked.connect (on_search_entry_text_changed);
+            search_menu.get_style_context ().add_class ("flat");
+            // tool_cycle_search = new Gtk.ToggleButton () {
+            //     image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+            //     tooltip_text = _("Cyclic Search")
+            // };
+            // tool_cycle_search.clicked.connect (on_search_entry_text_changed);
+
+            // case_sensitive_button = new Gtk.ToggleButton () {
+            //     image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+            // };
+            // case_sensitive_button.bind_property (
+            //     "active",
+            //     case_sensitive_button, "tooltip-text",
+            //     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE, // Need to SYNC_CREATE so tooltip present before toggled
+            //     (binding, active_val, ref tooltip_val) => {
+            //         ((Gtk.Widget)(binding.target)).set_tooltip_text ( //tooltip_val.set_string () does not work (?)
+            //             active_val.get_boolean () ? _("Case Sensitive") : _("Case Insensitive")
+            //         );
+            //     }
+            // );
+            // case_sensitive_button.clicked.connect (on_search_entry_text_changed);
+
+            // tool_regex_button = new Gtk.ToggleButton () {
+            //     image = new Gtk.Image.from_icon_name ("text-html-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+            //     tooltip_text = _("Use regular expressions")
+            // };
+            // tool_regex_button.clicked.connect (on_search_entry_text_changed);
 
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
             search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             search_grid.add (search_entry);
             search_grid.add (search_occurence_count_label);
-            search_grid.add (tool_arrow_down);
-            search_grid.add (tool_arrow_up);
-            search_grid.add (tool_cycle_search);
-            search_grid.add (case_sensitive_button);
-            search_grid.add (tool_regex_button);
+            // search_grid.add (tool_arrow_down);
+            // search_grid.add (tool_arrow_up);
+            // search_grid.add (tool_cycle_search);
+            // search_grid.add (case_sensitive_button);
+            // search_grid.add (tool_regex_button);
+            search_grid.add (search_menu);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
             search_flow_box_child.can_focus = false;
