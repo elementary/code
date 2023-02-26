@@ -265,8 +265,11 @@ namespace Scratch.Widgets {
 
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
-            bool case_sensitive = is_case_sensitive (search_string);
-            search_context.settings.case_sensitive = case_sensitive;
+            search_context.settings.case_sensitive =
+                case_sensitive_search_button.active ||
+                !((search_string.up () == search_string) || (search_string.down () == search_string));
+
+            search_context.settings.at_word_boundaries = whole_word_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
 
             bool matches = search ();
@@ -544,11 +547,6 @@ namespace Scratch.Widgets {
             }
 
             return false;
-        }
-
-        private bool is_case_sensitive (string search_string) {
-            return case_sensitive_search_button.active ||
-                   !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
 
         private void cancel_update_search_occurence_label () {
