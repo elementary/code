@@ -21,6 +21,12 @@
 
 namespace Scratch.Widgets {
     public class SearchBar : Gtk.FlowBox {
+        enum CaseSensitiveMode {
+            NEVER,
+            MIXED,
+            ALWAYS
+        }
+
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -32,7 +38,7 @@ namespace Scratch.Widgets {
          * of the search entry.
          **/
         private Granite.SwitchModelButton cycle_search_button ;
-        private Granite.SwitchModelButton case_sensitive_search_button;
+        private Gtk.ComboBoxText case_sensitive_search_button;
         private Granite.SwitchModelButton regex_search_button;
         private Granite.SwitchModelButton whole_word_search_button;
         public Gtk.SearchEntry search_entry;
@@ -95,18 +101,33 @@ namespace Scratch.Widgets {
             );
 
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
-            case_sensitive_search_button = new Granite.SwitchModelButton (_("Case Sensitive Search"));
+            case_sensitive_search_button = new Gtk.ComboBoxText () {
+                margin_start = 16,
+                margin_end = 16
+            };
+            case_sensitive_search_button.append (null, _("Never"));
+            case_sensitive_search_button.append (null, _("Mixed Case Only"));
+            case_sensitive_search_button.append (null, _("Always"));
+            case_sensitive_search_button.active = 0;
+            var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive")) {
+                xalign = 0.0f,
+                margin_start = 16
+            };
+
             regex_search_button = new Granite.SwitchModelButton (_("Regex Search"));
             whole_word_search_button = new Granite.SwitchModelButton (_("Whole Word Search"));
 
-            var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-            search_option_box.add (cycle_search_button);
-            search_option_box.add (case_sensitive_search_button);
-            search_option_box.add (whole_word_search_button);
-            search_option_box.add (regex_search_button);
+            var search_option_grid = new Gtk.Grid () {
+                column_homogeneous = true
+            };
+            search_option_grid.attach (cycle_search_button, 0, 0, 2, 1);
+            search_option_grid.attach (case_sensitive_search_label, 0, 1, 1, 1);
+            search_option_grid.attach (case_sensitive_search_button, 1, 1, 1, 1);
+            search_option_grid.attach (whole_word_search_button, 0, 2, 2, 1);
+            search_option_grid.attach (regex_search_button, 0, 3, 2, 1);
 
             var search_popover = new Gtk.Popover (null);
-            search_popover.add (search_option_box);
+            search_popover.add (search_option_grid);
             search_popover.show_all ();
 
             var search_menu = new Gtk.MenuButton () {
@@ -116,7 +137,7 @@ namespace Scratch.Widgets {
             };
 
             cycle_search_button.toggled.connect (on_search_entry_text_changed);
-            case_sensitive_search_button.toggled.connect (on_search_entry_text_changed);
+            case_sensitive_search_button.changed.connect (on_search_entry_text_changed);
             whole_word_search_button.toggled.connect (on_search_entry_text_changed);
             regex_search_button.toggled.connect (on_search_entry_text_changed);
 
@@ -265,9 +286,20 @@ namespace Scratch.Widgets {
 
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
-            search_context.settings.case_sensitive =
-                case_sensitive_search_button.active ||
-                !((search_string.up () == search_string) || (search_string.down () == search_string));
+            var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
+            switch (case_mode) {
+                case CaseSensitiveMode.NEVER:
+                    search_context.settings.case_sensitive = false;
+                    break;
+                case CaseSensitiveMode.MIXED:
+                    search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+                    break;
+                case CaseSensitiveMode.ALWAYS:
+                    search_context.settings.case_sensitive = true;
+                    break;
+                default:
+                    assert_not_reached ();
+            }
 
             search_context.settings.at_word_boundaries = whole_word_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
