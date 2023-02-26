@@ -31,10 +31,10 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
-        private Granite.SwitchModelButton tool_cycle_search ;
-
-        private Granite.SwitchModelButton case_sensitive_button;
-        private Granite.SwitchModelButton tool_regex_button;
+        private Granite.SwitchModelButton cycle_search_button ;
+        private Granite.SwitchModelButton case_sensitive_search_button;
+        private Granite.SwitchModelButton regex_search_button;
+        private Granite.SwitchModelButton whole_word_search_button;
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
 
@@ -94,14 +94,16 @@ namespace Scratch.Widgets {
                 _("Search previous")
             );
 
-            tool_cycle_search = new Granite.SwitchModelButton (_("Cyclic Search"));
-            case_sensitive_button = new Granite.SwitchModelButton (_("Case Sensitive Search"));
-            tool_regex_button = new Granite.SwitchModelButton (_("Regex Search"));
+            cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
+            case_sensitive_search_button = new Granite.SwitchModelButton (_("Case Sensitive Search"));
+            regex_search_button = new Granite.SwitchModelButton (_("Regex Search"));
+            whole_word_search_button = new Granite.SwitchModelButton (_("Whole Word Search"));
 
             var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-            search_option_box.add (tool_cycle_search);
-            search_option_box.add (case_sensitive_button);
-            search_option_box.add (tool_regex_button);
+            search_option_box.add (cycle_search_button);
+            search_option_box.add (case_sensitive_search_button);
+            search_option_box.add (whole_word_search_button);
+            search_option_box.add (regex_search_button);
 
             var search_popover = new Gtk.Popover (null);
             search_popover.add (search_option_box);
@@ -113,11 +115,12 @@ namespace Scratch.Widgets {
                 tooltip_text = _("Search Options")
             };
 
-            tool_cycle_search.toggled.connect (on_search_entry_text_changed);
-            case_sensitive_button.toggled.connect (on_search_entry_text_changed);
-            tool_regex_button.toggled.connect (on_search_entry_text_changed);
+            cycle_search_button.toggled.connect (on_search_entry_text_changed);
+            case_sensitive_search_button.toggled.connect (on_search_entry_text_changed);
+            whole_word_search_button.toggled.connect (on_search_entry_text_changed);
+            regex_search_button.toggled.connect (on_search_entry_text_changed);
 
-            Scratch.settings.bind ("cyclic-search", tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
 
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
@@ -196,8 +199,8 @@ namespace Scratch.Widgets {
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
-            search_context.settings.wrap_around = tool_cycle_search.active;
-            search_context.settings.regex_enabled = tool_regex_button.active;
+            search_context.settings.wrap_around = cycle_search_button.active;
+            search_context.settings.regex_enabled = regex_search_button.active;
             search_context.settings.search_text = search_entry.text;
         }
 
@@ -264,7 +267,7 @@ namespace Scratch.Widgets {
             search_context.settings.search_text = search_string;
             bool case_sensitive = is_case_sensitive (search_string);
             search_context.settings.case_sensitive = case_sensitive;
-            search_context.settings.regex_enabled = tool_regex_button.active;
+            search_context.settings.regex_enabled = regex_search_button.active;
 
             bool matches = search ();
             update_replace_tool_sensitivities (matches);
@@ -411,7 +414,7 @@ namespace Scratch.Widgets {
             Gtk.TextIter? start_iter, end_iter;
             if (text_buffer != null) {
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if (!search_for_iter_backward (start_iter, out end_iter) && tool_cycle_search.active) {
+                if (!search_for_iter_backward (start_iter, out end_iter) && cycle_search_button.active) {
                     text_buffer.get_end_iter (out start_iter);
                     search_for_iter_backward (start_iter, out end_iter);
                 }
@@ -426,7 +429,7 @@ namespace Scratch.Widgets {
             Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
             if (text_buffer != null) {
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if (!search_for_iter (end_iter, out end_iter_tmp) && tool_cycle_search.active) {
+                if (!search_for_iter (end_iter, out end_iter_tmp) && cycle_search_button.active) {
                     text_buffer.get_start_iter (out start_iter);
                     search_for_iter (start_iter, out end_iter);
                 }
@@ -444,7 +447,7 @@ namespace Scratch.Widgets {
                     tool_arrow_up.sensitive = false;
                     tool_arrow_down.sensitive = false;
                 } else if (text_buffer != null) {
-                    if (tool_cycle_search.active) {
+                    if (cycle_search_button.active) {
                         tool_arrow_down.sensitive = true;
                         tool_arrow_up.sensitive = true;
                         return;
@@ -544,7 +547,7 @@ namespace Scratch.Widgets {
         }
 
         private bool is_case_sensitive (string search_string) {
-            return case_sensitive_button.active ||
+            return case_sensitive_search_button.active ||
                    !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
 
