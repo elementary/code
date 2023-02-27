@@ -405,7 +405,6 @@ namespace Scratch.Widgets {
                     search_for_iter_backward (start_iter, out end_iter);
                 }
 
-                update_tool_arrows ();
                 update_search_widgets ();
             }
         }
@@ -420,7 +419,6 @@ namespace Scratch.Widgets {
                     search_for_iter (start_iter, out end_iter);
                 }
 
-                update_tool_arrows ();
                 update_search_widgets ();
             }
         }
