@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -55,33 +55,33 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr "Sakrij traku pretrage"
 
-#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Otvori mapu"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Sakrij traku pretrage"
 
-#: src/MainWindow.vala:326
+#: src/MainWindow.vala:338
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Prikaži pregled"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:347
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:352
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
@@ -89,39 +89,39 @@ msgstr "Simboli"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:513
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:816 src/Services/Document.vala:514
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:820 src/Services/Document.vala:518
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "Tekstovne datoteke"
 
-#: src/MainWindow.vala:824
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Otvori datoteke"
 
-#: src/MainWindow.vala:827
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
 #: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/MainWindow.vala:853
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:854
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -731,12 +731,12 @@ msgstr "Zamijeni sve"
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Za odabrani tekst"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr ""
 

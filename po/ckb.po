@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2022-07-31 11:42+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -49,33 +49,33 @@ msgstr "كۆد"
 msgid "Code"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "دۆزینەوە لە پرۆژەدا…"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:326
+#: src/MainWindow.vala:338
 #, fuzzy
 #| msgid "No Project Selected"
 msgid "Show Projects Sidebar"
 msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:347
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:352
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
@@ -83,39 +83,39 @@ msgstr "هیچ سمبولێک نەدۆزرایەوە"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:513
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:816 src/Services/Document.vala:514
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr "هەموو پەڕگەکان"
 
-#: src/MainWindow.vala:820 src/Services/Document.vala:518
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "پەڕگە دەقییەکان"
 
-#: src/MainWindow.vala:824
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "کردنەوەی چەند پەڕگەیەک"
 
-#: src/MainWindow.vala:827
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "كردنەوە"
 
-#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
 #: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/MainWindow.vala:853
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_کردنەوە"
 
-#: src/MainWindow.vala:854
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_هەڵوەشاندنەوە"
 
@@ -690,11 +690,11 @@ msgstr "جێ گۆڕینەوەی هەموویان"
 msgid "%d of %d"
 msgstr "%d ی %d"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
 msgstr "ڕیزکردنی هێڵە دیاریکراوەکان"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr "کردنەوەی/داخستنی کۆمێنت"
 

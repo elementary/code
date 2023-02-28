@@ -62,6 +62,22 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="7.0.1" date="2023-02-22" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Show when running a development branch of Code</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1261">Handle saving to unwritable location better to avoid data loss</issue>
+        <issue url="https://github.com/elementary/code/issues/1263">Symbol outline does not respect system style</issue>
+        <issue url="https://github.com/elementary/code/issues/1270">Does not follow system color scheme when launching with no files open</issue>
+        <issue url="https://github.com/elementary/code/pull/1254">Ensure active project at startup (include non-git folders)</issue>
+      </issues>
+    </release>
+
     <release version="7.0.0" date="2023-01-23" urgency="medium">
       <description>
         <p>Improvements:</p>
@@ -74,9 +90,9 @@
         <p>Minor updates:</p>
         <ul>
           <li>Both Find on Page and Find in Project are now available from the app's menu instead of in the headerbar</li>
-          <li>Options for hiding and showing panels and now all present in a compact set of linked buttons in the app's menu</li>
+          <li>Options for hiding and showing panels are now all present in a compact set of linked buttons in the app's menu</li>
           <li>The sidebar now contains the project chooser button and fills the height of the window</li>
-          <li>Started a global search with text selected now pre-fills that text</li>
+          <li>Starting a global search with text selected now pre-fills that text</li>
           <li>The symbol outline pane is now shown to the right of the source view and can be shown and hidden with the keyboard shortcut "Alt + \"</li>
           <li>Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now part of the main codebase</li>
           <li>Show an infobar when tab width settings are being overwritten by an EditorConfig file</li>
@@ -160,41 +176,6 @@
       </description>
     </release>
 
-    <release version="6.0.0" date="2021-07-15" urgency="medium">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>New Markdown plugin for WYSIWYG-like editing.</li>
-          <li>Switch Git branches or create new ones in project folder context menus</li>
-          <li>Show Git diff status in source view gutters</li>
-          <li>Full text search within project folder.</li>
-          <li>Save and restore cursor position between sessions</li>
-          <li>Close files from a project when that project is closed</li>
-          <li>Show full file path in tab tooltips</li>
-          <li>Clear lines with Ctrl + K</li>
-        </ul>
-        <p>Minor updates:</p>
-        <ul>
-          <li>Allow Spell Checker extension in Markdown files</li>
-          <li>Improve multi-line duplication</li>
-          <li>Remember whether the sidebar is open</li>
-          <li>Set window title to the focused file</li>
-          <li>Add keyboard shortcuts for next and previous documents</li>
-          <li>Show full document path in tab tooltip</li>
-          <li>Update Pastebin plugin</li>
-          <li>Correctly indent last line when using the preserve whitespace plugin</li>
-          <li>Keep syntax highlighting when duplicating a file</li>
-          <li>Expand a collapsed folder if you attempt to open it twice</li>
-          <li>Fix an issue where searches are lost when Code loses focus</li>
-          <li>Start Vim plugin in command mode</li>
-          <li>Fix and add new Vim commands</li>
-          <li>Show project folders with a hidden root folder</li>
-          <li>Allow launching with pkexec and disallow launching with sudo</li>
-          <li>Remove split view</li>
-          <li>Remove browser preview</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
+    <release version="6.0.0" date="2021-07-15"/>
   </releases>
 </component>

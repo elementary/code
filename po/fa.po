@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -54,70 +54,70 @@ msgstr "کد"
 msgid "Code"
 msgstr "کد"
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 msgid "Find on Page…"
 msgstr "باز کردن پرونده"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: src/MainWindow.vala:326
+#: src/MainWindow.vala:338
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "قالب پروژه ها"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:347
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:352
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:513
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:816 src/Services/Document.vala:514
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr "همه  ی فایل‌ها"
 
-#: src/MainWindow.vala:820 src/Services/Document.vala:518
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "پرونده‌های متنی"
 
-#: src/MainWindow.vala:824
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "باز کردن چند پرونده"
 
-#: src/MainWindow.vala:827
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "باز کردن"
 
-#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
 #: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "انصراف"
 
-#: src/MainWindow.vala:853
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:854
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr ""
 
@@ -704,11 +704,11 @@ msgstr "جايگزينی همه"
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr "نمایش دیدگاه"
 

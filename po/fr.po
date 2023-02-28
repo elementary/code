@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
-"PO-Revision-Date: 2023-02-02 09:25+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"PO-Revision-Date: 2023-02-16 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -44,74 +44,73 @@ msgid "[FILE…]"
 msgstr "[FICHIER…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Code"
+msgstr "Code (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr "Cacher la barre de recherche"
 
-#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "Rechercher sur la page…"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:333
 msgid "Hide Projects Sidebar"
 msgstr "Masquer la barre latérale des projets"
 
-#: src/MainWindow.vala:326
+#: src/MainWindow.vala:338
 msgid "Show Projects Sidebar"
 msgstr "Afficher la barre latérale des projets"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:347
 msgid "Hide Symbol Outline"
 msgstr "Masquer le contour des symboles"
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:352
 msgid "Show Symbol Outline"
 msgstr "Afficher le contour des symboles"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:513
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
-#: src/MainWindow.vala:816 src/Services/Document.vala:514
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:820 src/Services/Document.vala:518
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:824
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:827
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
 #: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:853
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:854
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -680,11 +679,11 @@ msgstr "Tout remplacer"
 msgid "%d of %d"
 msgstr "%d sur %d"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 

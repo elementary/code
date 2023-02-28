@@ -238,8 +238,10 @@ namespace Scratch {
             default_width = rect.width;
             default_height = rect.height;
 
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            update_style ();
+            Scratch.settings.changed["follow-system-style"].connect (() => {
+                update_style ();
+            });
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
@@ -294,6 +296,16 @@ namespace Scratch {
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
+        }
+
+        private void update_style () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            if (Scratch.settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
+            } else {
+                gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            }
         }
 
         private void update_toolbar_button (string name, bool new_state) {

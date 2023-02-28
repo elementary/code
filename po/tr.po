@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 13:12+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2022-11-19 08:15+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -53,35 +53,35 @@ msgstr "Kod"
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:310 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "Projede Bul…"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:333
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:326
+#: src/MainWindow.vala:338
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Önizlemeyi Göster"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:347
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Hide Symbol Outline"
 msgstr "Sembol Listesini Aç/Kapat"
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:352
 #, fuzzy
 #| msgid "Toggle Symbol Outline"
 msgid "Show Symbol Outline"
@@ -89,39 +89,39 @@ msgstr "Sembol Listesini Aç/Kapat"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:513
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:816 src/Services/Document.vala:514
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:820 src/Services/Document.vala:518
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:824
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:827
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:828 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
 #: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:853
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:854
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -694,11 +694,11 @@ msgstr "Tümünü değiştir"
 msgid "%d of %d"
 msgstr "%d / %d"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
 msgstr "Seçili Satırları Sırala"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr "Yorum Aç/Kapat"
 
