@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
-"PO-Revision-Date: 2021-11-30 09:45+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"PO-Revision-Date: 2023-02-24 07:12+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "Code"
 
@@ -140,159 +140,185 @@ msgstr "Optional mini-map to make navigating large files easier"
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:99
-#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:151
-msgid "Improvements:"
-msgstr "Improvements:"
-
-#: data/code.metainfo.xml.in:69
-msgid "Redesigned app icon"
-msgstr ""
-
-#: data/code.metainfo.xml.in:70
-msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
-
-#: data/code.metainfo.xml.in:71
-msgid "Option to follow the system dark style preference"
-msgstr ""
-
-#: data/code.metainfo.xml.in:72
-msgid "Ability to half tile on small notebook displays"
-msgstr ""
-
-#: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
-#: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
-#: data/code.metainfo.xml.in:176
+#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:90
+#: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:171
 msgid "Minor updates:"
 msgstr "Minor updates:"
 
-#: data/code.metainfo.xml.in:76
+#: data/code.metainfo.xml.in:69
+msgid "Show when running a development branch of Code"
+msgstr "Show when running a development branch of Code"
+
+#: data/code.metainfo.xml.in:70 data/code.metainfo.xml.in:100
+#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:174
+msgid "Updated translations"
+msgstr "Updated translations"
+
+#: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:167
+msgid "Improvements:"
+msgstr "Improvements:"
+
+#: data/code.metainfo.xml.in:85
+msgid "Redesigned app icon"
+msgstr "Redesigned app icon"
+
+#: data/code.metainfo.xml.in:86
+msgid "New custom dark and light elementary styles for the source view"
+msgstr "New custom dark and light elementary styles for the source view"
+
+#: data/code.metainfo.xml.in:87
+msgid "Option to follow the system dark style preference"
+msgstr "Option to follow the system dark style preference"
+
+#: data/code.metainfo.xml.in:88
+msgid "Ability to half tile on small notebook displays"
+msgstr "Ability to half tile on small notebook displays"
+
+#: data/code.metainfo.xml.in:92
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Both Find on Page and Find in Project are now available from the app's menu "
+"instead of in the headerbar"
 
-#: data/code.metainfo.xml.in:77
+#: data/code.metainfo.xml.in:93
 msgid ""
-"Options for hiding and showing panels and now all present in a compact set "
+"Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Options for hiding and showing panels are now all present in a compact set "
+"of linked buttons in the app's menu"
 
-#: data/code.metainfo.xml.in:78
+#: data/code.metainfo.xml.in:94
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"The sidebar now contains the project chooser button and fills the height of "
+"the window"
 
-#: data/code.metainfo.xml.in:79
-msgid "Started a global search with text selected now pre-fills that text"
-msgstr ""
+#: data/code.metainfo.xml.in:95
+msgid "Starting a global search with text selected now pre-fills that text"
+msgstr "Starting a global search with text selected now pre-fills that text"
 
-#: data/code.metainfo.xml.in:80
+#: data/code.metainfo.xml.in:96
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"The symbol outline pane is now shown to the right of the source view and can "
+"be shown and hidden with the keyboard shortcut \"Alt + \\\""
 
-#: data/code.metainfo.xml.in:81
+#: data/code.metainfo.xml.in:97
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
+"part of the main codebase"
 
-#: data/code.metainfo.xml.in:82
+#: data/code.metainfo.xml.in:98
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Show an infobar when tab width settings are being overwritten by an "
+"EditorConfig file"
 
-#: data/code.metainfo.xml.in:83
+#: data/code.metainfo.xml.in:99
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 
-#: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
-#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
-#: data/code.metainfo.xml.in:195
-msgid "Updated translations"
-msgstr "Updated translations"
-
-#: data/code.metainfo.xml.in:101
+#: data/code.metainfo.xml.in:117
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
 
-#: data/code.metainfo.xml.in:102
+#: data/code.metainfo.xml.in:118
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Hidden folders are now shown in the project sidebar"
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:119
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
+"The currently selected result and the number of results is displayed while "
+"searching"
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:120
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "The search bar now has a regular expression mode"
 
-#: data/code.metainfo.xml.in:106 data/code.metainfo.xml.in:130
-#: data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:162
 msgid "Fixes:"
 msgstr "Fixes:"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:124
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:125
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Crashes are prevented while searching in large projects"
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:126
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"The correct document is now focused after opening Code from an external "
+"program"
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:127
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
+"Line duplication is now actioned correctly if there is no selection present"
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:128
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "Code no longer crashes when asked to open an unknown URI format"
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:141
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
 "Projects with the same name now include their parent folder name as well"
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:142
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 "When scrolling to search results, overshoot slightly for better visibility"
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:143
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr "Use the FileChooser portal instead of the one from GTK"
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:144
 msgid "Center the global search dialog over the main Code window"
 msgstr "Center the global search dialog over the main Code window"
 
-#: data/code.metainfo.xml.in:132
+#: data/code.metainfo.xml.in:148
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr "Fix visibility of Terminal button on Welcome page"
 
-#: data/code.metainfo.xml.in:133
+#: data/code.metainfo.xml.in:149
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -300,7 +326,7 @@ msgstr ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 
-#: data/code.metainfo.xml.in:134
+#: data/code.metainfo.xml.in:150
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
@@ -308,129 +334,29 @@ msgstr ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 
-#: data/code.metainfo.xml.in:138
+#: data/code.metainfo.xml.in:154
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "\"Visible whitespace\" combobox is now a switch"
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:164
 msgid "Fix crash when creating new window from tab drop"
 msgstr "Fix crash when creating new window from tab drop"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:165
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr "Ensure files created from the sidebar are automatically opened"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:169
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "Hide project chooser button when hiding sidebar"
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:173
 msgid "Ensure all copy is translatable"
 msgstr "Ensure all copy is translatable"
 
-#: data/code.metainfo.xml.in:165
-msgid "New features:"
-msgstr "New features:"
-
-#: data/code.metainfo.xml.in:167
-msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "New Markdown plugin for WYSIWYG-like editing."
-
-#: data/code.metainfo.xml.in:168
-msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr "Switch Git branches or create new ones in project folder context menus"
-
-#: data/code.metainfo.xml.in:169
-msgid "Show Git diff status in source view gutters"
-msgstr "Show Git diff status in source view gutters"
-
-#: data/code.metainfo.xml.in:170
-msgid "Full text search within project folder."
-msgstr "Full text search within project folder."
-
-#: data/code.metainfo.xml.in:171
-msgid "Save and restore cursor position between sessions"
-msgstr "Save and restore cursor position between sessions"
-
-#: data/code.metainfo.xml.in:172
-msgid "Close files from a project when that project is closed"
-msgstr "Close files from a project when that project is closed"
-
-#: data/code.metainfo.xml.in:173
-msgid "Show full file path in tab tooltips"
-msgstr "Show full file path in tab tooltips"
-
-#: data/code.metainfo.xml.in:174
-msgid "Clear lines with Ctrl + K"
-msgstr "Clear lines with Ctrl + K"
-
-#: data/code.metainfo.xml.in:178
-msgid "Allow Spell Checker extension in Markdown files"
-msgstr "Allow Spell Checker extension in Markdown files"
-
-#: data/code.metainfo.xml.in:179
-msgid "Improve multi-line duplication"
-msgstr "Improve multi-line duplication"
-
-#: data/code.metainfo.xml.in:180
-msgid "Remember whether the sidebar is open"
-msgstr "Remember whether the sidebar is open"
-
-#: data/code.metainfo.xml.in:181
-msgid "Set window title to the focused file"
-msgstr "Set window title to the focused file"
-
-#: data/code.metainfo.xml.in:182
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "Add keyboard shortcuts for next and previous documents"
-
-#: data/code.metainfo.xml.in:183
-msgid "Show full document path in tab tooltip"
-msgstr "Show full document path in tab tooltip"
-
-#: data/code.metainfo.xml.in:184
-msgid "Update Pastebin plugin"
-msgstr "Update Pastebin plugin"
-
-#: data/code.metainfo.xml.in:185
-msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr "Correctly indent last line when using the preserve whitespace plugin"
-
-#: data/code.metainfo.xml.in:186
-msgid "Keep syntax highlighting when duplicating a file"
-msgstr "Keep syntax highlighting when duplicating a file"
-
-#: data/code.metainfo.xml.in:187
-msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "Expand a collapsed folder if you attempt to open it twice"
-
-#: data/code.metainfo.xml.in:188
-msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr "Fix an issue where searches are lost when Code loses focus"
-
-#: data/code.metainfo.xml.in:189
-msgid "Start Vim plugin in command mode"
-msgstr "Start Vim plugin in command mode"
-
-#: data/code.metainfo.xml.in:190
-msgid "Fix and add new Vim commands"
-msgstr "Fix and add new Vim commands"
-
-#: data/code.metainfo.xml.in:191
-msgid "Show project folders with a hidden root folder"
-msgstr "Show project folders with a hidden root folder"
-
-#: data/code.metainfo.xml.in:192
-msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr "Allow launching with pkexec and disallow launching with sudo"
-
-#: data/code.metainfo.xml.in:193
-msgid "Remove split view"
-msgstr "Remove split view"
-
-#: data/code.metainfo.xml.in:194
-msgid "Remove browser preview"
-msgstr "Remove browser preview"
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr "@NAME@"
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -440,15 +366,9 @@ msgstr "Edit code files"
 msgid "Code Editor"
 msgstr "Code Editor"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "text;IDE;scratch;"
+msgstr "text;IDE;scratch;code;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
@@ -465,6 +385,90 @@ msgstr "Run Code as Administrator"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "Authentication is required to run Code as Administrator"
+
+#~ msgid "New features:"
+#~ msgstr "New features:"
+
+#~ msgid "New Markdown plugin for WYSIWYG-like editing."
+#~ msgstr "New Markdown plugin for WYSIWYG-like editing."
+
+#~ msgid ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+#~ msgstr ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+
+#~ msgid "Show Git diff status in source view gutters"
+#~ msgstr "Show Git diff status in source view gutters"
+
+#~ msgid "Full text search within project folder."
+#~ msgstr "Full text search within project folder."
+
+#~ msgid "Save and restore cursor position between sessions"
+#~ msgstr "Save and restore cursor position between sessions"
+
+#~ msgid "Close files from a project when that project is closed"
+#~ msgstr "Close files from a project when that project is closed"
+
+#~ msgid "Show full file path in tab tooltips"
+#~ msgstr "Show full file path in tab tooltips"
+
+#~ msgid "Clear lines with Ctrl + K"
+#~ msgstr "Clear lines with Ctrl + K"
+
+#~ msgid "Allow Spell Checker extension in Markdown files"
+#~ msgstr "Allow Spell Checker extension in Markdown files"
+
+#~ msgid "Improve multi-line duplication"
+#~ msgstr "Improve multi-line duplication"
+
+#~ msgid "Remember whether the sidebar is open"
+#~ msgstr "Remember whether the sidebar is open"
+
+#~ msgid "Set window title to the focused file"
+#~ msgstr "Set window title to the focused file"
+
+#~ msgid "Add keyboard shortcuts for next and previous documents"
+#~ msgstr "Add keyboard shortcuts for next and previous documents"
+
+#~ msgid "Show full document path in tab tooltip"
+#~ msgstr "Show full document path in tab tooltip"
+
+#~ msgid "Update Pastebin plugin"
+#~ msgstr "Update Pastebin plugin"
+
+#~ msgid "Correctly indent last line when using the preserve whitespace plugin"
+#~ msgstr ""
+#~ "Correctly indent last line when using the preserve whitespace plugin"
+
+#~ msgid "Keep syntax highlighting when duplicating a file"
+#~ msgstr "Keep syntax highlighting when duplicating a file"
+
+#~ msgid "Expand a collapsed folder if you attempt to open it twice"
+#~ msgstr "Expand a collapsed folder if you attempt to open it twice"
+
+#~ msgid "Fix an issue where searches are lost when Code loses focus"
+#~ msgstr "Fix an issue where searches are lost when Code loses focus"
+
+#~ msgid "Start Vim plugin in command mode"
+#~ msgstr "Start Vim plugin in command mode"
+
+#~ msgid "Fix and add new Vim commands"
+#~ msgstr "Fix and add new Vim commands"
+
+#~ msgid "Show project folders with a hidden root folder"
+#~ msgstr "Show project folders with a hidden root folder"
+
+#~ msgid "Allow launching with pkexec and disallow launching with sudo"
+#~ msgstr "Allow launching with pkexec and disallow launching with sudo"
+
+#~ msgid "Remove split view"
+#~ msgstr "Remove split view"
+
+#~ msgid "Remove browser preview"
+#~ msgstr "Remove browser preview"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Fix empty sidebar layout, ensuring folders can always be added"
 #~ msgstr "Fix empty sidebar layout, ensuring folders can always be added"

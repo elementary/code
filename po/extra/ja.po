@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2023-01-21 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
-"\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "コード"
 
@@ -140,85 +140,89 @@ msgstr "行数の多いファイルでも移動が簡単になるミニマップ
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:99
-#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:151
-msgid "Improvements:"
-msgstr "改善点:"
-
-#: data/code.metainfo.xml.in:69
-msgid "Redesigned app icon"
-msgstr "アプリアイコンのデザインを変更"
-
-#: data/code.metainfo.xml.in:70
-msgid "New custom dark and light elementary styles for the source view"
-msgstr "編集画面に新しいダークスタイル／elementary ライトスタイルを追加"
-
-#: data/code.metainfo.xml.in:71
-msgid "Option to follow the system dark style preference"
-msgstr "システムのダークスタイル設定に従うオプションを追加"
-
-#: data/code.metainfo.xml.in:72
-msgid "Ability to half tile on small notebook displays"
-msgstr "画面幅の小さなノートパソコンでもウィンドウをタイル表示できるように修正"
-
-#: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
-#: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
-#: data/code.metainfo.xml.in:176
+#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:90
+#: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:171
 msgid "Minor updates:"
 msgstr "そのほかのアップデート:"
 
-#: data/code.metainfo.xml.in:76
+#: data/code.metainfo.xml.in:69
+msgid "Show when running a development branch of Code"
+msgstr ""
+
+#: data/code.metainfo.xml.in:70 data/code.metainfo.xml.in:100
+#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:174
+msgid "Updated translations"
+msgstr "翻訳の更新"
+
+#: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:167
+msgid "Improvements:"
+msgstr "改善点:"
+
+#: data/code.metainfo.xml.in:85
+msgid "Redesigned app icon"
+msgstr "アプリアイコンのデザインを変更"
+
+#: data/code.metainfo.xml.in:86
+msgid "New custom dark and light elementary styles for the source view"
+msgstr "編集画面に新しいダークスタイル／elementary ライトスタイルを追加"
+
+#: data/code.metainfo.xml.in:87
+msgid "Option to follow the system dark style preference"
+msgstr "システムのダークスタイル設定に従うオプションを追加"
+
+#: data/code.metainfo.xml.in:88
+msgid "Ability to half tile on small notebook displays"
+msgstr "画面幅の小さなノートパソコンでもウィンドウをタイル表示できるように修正"
+
+#: data/code.metainfo.xml.in:92
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:77
+#: data/code.metainfo.xml.in:93
 msgid ""
-"Options for hiding and showing panels and now all present in a compact set "
+"Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
 
-#: data/code.metainfo.xml.in:78
+#: data/code.metainfo.xml.in:94
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
 
-#: data/code.metainfo.xml.in:79
-msgid "Started a global search with text selected now pre-fills that text"
+#: data/code.metainfo.xml.in:95
+msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 
-#: data/code.metainfo.xml.in:80
+#: data/code.metainfo.xml.in:96
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:81
+#: data/code.metainfo.xml.in:97
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
 
-#: data/code.metainfo.xml.in:82
+#: data/code.metainfo.xml.in:98
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
 
-#: data/code.metainfo.xml.in:83
+#: data/code.metainfo.xml.in:99
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
-#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
-#: data/code.metainfo.xml.in:195
-msgid "Updated translations"
-msgstr "翻訳の更新"
-
-#: data/code.metainfo.xml.in:101
+#: data/code.metainfo.xml.in:117
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -226,26 +230,26 @@ msgstr ""
 "マルチタスク画面でのウィンドウタイトルとして、現在編集中のファイル名を使用す"
 "るように変更"
 
-#: data/code.metainfo.xml.in:102
+#: data/code.metainfo.xml.in:118
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "隠しフォルダーもプロジェクトサイドバーで表示されるように修正"
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:119
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr "現在選択している検索結果と検索数を、文字検索中も表示するように修正"
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:120
 msgid "The search bar now has a regular expression mode"
 msgstr "検索バーに正規表現モードを搭載"
 
-#: data/code.metainfo.xml.in:106 data/code.metainfo.xml.in:130
-#: data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:162
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:124
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -253,11 +257,11 @@ msgstr ""
 "プロジェクトに追跡されていないファイルがある場合でも、ブランチを切り替えでき"
 "るように修正"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:125
 msgid "Crashes are prevented while searching in large projects"
 msgstr "大規模なプロジェクト内で検索するとクラッシュする不具合を修正"
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:126
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
@@ -265,44 +269,44 @@ msgstr ""
 "外部プログラムから“コード”を開いた際に、開いたドキュメントがフォーカスされる"
 "ように修正"
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:127
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr "選択中の行がなくても、行の複製が正しく実行されるように修正"
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:128
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr "不明な URI 形式を開くように指示されてもクラッシュしないように修正"
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:141
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr "プロジェクト名が同じ場合は親フォルダーの名前も表示するように修正"
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:142
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 "検索結果にスクロールする際に、見やすくなるように余分にスクロールするように変"
 "更"
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:143
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr ""
 "GTK が提供するファイル選択ダイアログではなく、ファイル選択ポータルを使用する"
 "ように修正"
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:144
 msgid "Center the global search dialog over the main Code window"
 msgstr ""
 "プロジェクト全体の検索ダイアログを“コード”の主ウィンドウに対して中央に表示す"
 "るように修正"
 
-#: data/code.metainfo.xml.in:132
+#: data/code.metainfo.xml.in:148
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr "ようこそ画面の“ターミナル”ボタンが消える不具合を修正"
 
-#: data/code.metainfo.xml.in:133
+#: data/code.metainfo.xml.in:149
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -310,7 +314,7 @@ msgstr ""
 "キーボードショートカットがフォーカス状態のターミナルではなく、フォーカスされ"
 "ていないテキストビューに適用される不具合を修正"
 
-#: data/code.metainfo.xml.in:134
+#: data/code.metainfo.xml.in:150
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
@@ -318,143 +322,31 @@ msgstr ""
 "シェルが終了した場合はターミナルを閉じ、シェルなしでターミナルが開かれた場合"
 "は新しいターミナルを作成するように修正"
 
-#: data/code.metainfo.xml.in:138
+#: data/code.metainfo.xml.in:154
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "“空白を表示”コンボボックスをスイッチに変更"
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:164
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
 "タブをドロップして新しいウィンドウを開こうとするとクラッシュする不具合を修正"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:165
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr "サイドバーで作成したファイルを自動的に開くように修正"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:169
 msgid "Hide project chooser button when hiding sidebar"
 msgstr ""
 "サイドバーを表示していない場合はプロジェクト選択ボタンも表示しないように修正"
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:173
 msgid "Ensure all copy is translatable"
 msgstr "すべてのテキストが翻訳できるように修正"
 
-#: data/code.metainfo.xml.in:165
-msgid "New features:"
-msgstr "新機能:"
-
-#: data/code.metainfo.xml.in:167
-msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "WYSIWYG 風に編集できる Markdown プラグインを追加しました。"
-
-#: data/code.metainfo.xml.in:168
-msgid "Switch Git branches or create new ones in project folder context menus"
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
 msgstr ""
-"プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えたり"
-"新しいブランチを作成したりできる機能を追加"
-
-#: data/code.metainfo.xml.in:169
-msgid "Show Git diff status in source view gutters"
-msgstr "ソースビューの左端に Git の差分を表示する機能を追加"
-
-#: data/code.metainfo.xml.in:170
-msgid "Full text search within project folder."
-msgstr "プロジェクトフォルダー内での全文検索に対応しました。"
-
-#: data/code.metainfo.xml.in:171
-msgid "Save and restore cursor position between sessions"
-msgstr "セッションの最後のカーソル位置を保存し復元する機能を追加"
-
-#: data/code.metainfo.xml.in:172
-msgid "Close files from a project when that project is closed"
-msgstr ""
-"プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
-
-#: data/code.metainfo.xml.in:173
-msgid "Show full file path in tab tooltips"
-msgstr "タブのツールチップにファイルのフルパスを表示するように変更"
-
-#: data/code.metainfo.xml.in:174
-msgid "Clear lines with Ctrl + K"
-msgstr "Ctrl + K で行の文字を消去する機能を追加"
-
-#: data/code.metainfo.xml.in:178
-msgid "Allow Spell Checker extension in Markdown files"
-msgstr "Markdown ファイルでスペルチェッカー拡張機能を利用できるように変更"
-
-#: data/code.metainfo.xml.in:179
-msgid "Improve multi-line duplication"
-msgstr "複数行の複製を改善"
-
-#: data/code.metainfo.xml.in:180
-msgid "Remember whether the sidebar is open"
-msgstr "サイドバーの表示／非表示の状態を保存するように変更"
-
-#: data/code.metainfo.xml.in:181
-msgid "Set window title to the focused file"
-msgstr "現在表示中のファイル名をウィンドウのタイトルとして設定するように修正"
-
-#: data/code.metainfo.xml.in:182
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "タブを切り替えるキーボードショートカットを追加"
-
-#: data/code.metainfo.xml.in:183
-msgid "Show full document path in tab tooltip"
-msgstr "タブのツールチップにドキュメントのフルパスを表示するように変更"
-
-#: data/code.metainfo.xml.in:184
-msgid "Update Pastebin plugin"
-msgstr "Pastebin プラグインをアップデート"
-
-#: data/code.metainfo.xml.in:185
-msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
-"“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントするよ"
-"うに修正"
-
-#: data/code.metainfo.xml.in:186
-msgid "Keep syntax highlighting when duplicating a file"
-msgstr ""
-"複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
-
-#: data/code.metainfo.xml.in:187
-msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
-"折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するように"
-"変更"
-
-#: data/code.metainfo.xml.in:188
-msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
-"“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされてし"
-"まう不具合を修正"
-
-#: data/code.metainfo.xml.in:189
-msgid "Start Vim plugin in command mode"
-msgstr "Vim プラグインをコマンドラインモードで開始するように変更"
-
-#: data/code.metainfo.xml.in:190
-msgid "Fix and add new Vim commands"
-msgstr "Vim コマンドの修正と追加"
-
-#: data/code.metainfo.xml.in:191
-msgid "Show project folders with a hidden root folder"
-msgstr ""
-"ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示す"
-"るように修正"
-
-#: data/code.metainfo.xml.in:192
-msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr "pkexec での起動を可能にし、sudo での起動ができないように修正"
-
-#: data/code.metainfo.xml.in:193
-msgid "Remove split view"
-msgstr "分割ビューを削除"
-
-#: data/code.metainfo.xml.in:194
-msgid "Remove browser preview"
-msgstr "ブラウザープレビューを削除"
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -463,10 +355,6 @@ msgstr "コードファイルを編集します"
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
 msgstr "コードエディター"
-
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
@@ -487,6 +375,101 @@ msgstr "“コード”を管理者として実行"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "“コード”を管理者として実行するには認証が必要です"
+
+#~ msgid "New features:"
+#~ msgstr "新機能:"
+
+#~ msgid "New Markdown plugin for WYSIWYG-like editing."
+#~ msgstr "WYSIWYG 風に編集できる Markdown プラグインを追加しました。"
+
+#~ msgid ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+#~ msgstr ""
+#~ "プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えた"
+#~ "り新しいブランチを作成したりできる機能を追加"
+
+#~ msgid "Show Git diff status in source view gutters"
+#~ msgstr "ソースビューの左端に Git の差分を表示する機能を追加"
+
+#~ msgid "Full text search within project folder."
+#~ msgstr "プロジェクトフォルダー内での全文検索に対応しました。"
+
+#~ msgid "Save and restore cursor position between sessions"
+#~ msgstr "セッションの最後のカーソル位置を保存し復元する機能を追加"
+
+#~ msgid "Close files from a project when that project is closed"
+#~ msgstr ""
+#~ "プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
+
+#~ msgid "Show full file path in tab tooltips"
+#~ msgstr "タブのツールチップにファイルのフルパスを表示するように変更"
+
+#~ msgid "Clear lines with Ctrl + K"
+#~ msgstr "Ctrl + K で行の文字を消去する機能を追加"
+
+#~ msgid "Allow Spell Checker extension in Markdown files"
+#~ msgstr "Markdown ファイルでスペルチェッカー拡張機能を利用できるように変更"
+
+#~ msgid "Improve multi-line duplication"
+#~ msgstr "複数行の複製を改善"
+
+#~ msgid "Remember whether the sidebar is open"
+#~ msgstr "サイドバーの表示／非表示の状態を保存するように変更"
+
+#~ msgid "Set window title to the focused file"
+#~ msgstr ""
+#~ "現在表示中のファイル名をウィンドウのタイトルとして設定するように修正"
+
+#~ msgid "Add keyboard shortcuts for next and previous documents"
+#~ msgstr "タブを切り替えるキーボードショートカットを追加"
+
+#~ msgid "Show full document path in tab tooltip"
+#~ msgstr "タブのツールチップにドキュメントのフルパスを表示するように変更"
+
+#~ msgid "Update Pastebin plugin"
+#~ msgstr "Pastebin プラグインをアップデート"
+
+#~ msgid "Correctly indent last line when using the preserve whitespace plugin"
+#~ msgstr ""
+#~ "“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントする"
+#~ "ように修正"
+
+#~ msgid "Keep syntax highlighting when duplicating a file"
+#~ msgstr ""
+#~ "複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
+
+#~ msgid "Expand a collapsed folder if you attempt to open it twice"
+#~ msgstr ""
+#~ "折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するよ"
+#~ "うに変更"
+
+#~ msgid "Fix an issue where searches are lost when Code loses focus"
+#~ msgstr ""
+#~ "“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされて"
+#~ "しまう不具合を修正"
+
+#~ msgid "Start Vim plugin in command mode"
+#~ msgstr "Vim プラグインをコマンドラインモードで開始するように変更"
+
+#~ msgid "Fix and add new Vim commands"
+#~ msgstr "Vim コマンドの修正と追加"
+
+#~ msgid "Show project folders with a hidden root folder"
+#~ msgstr ""
+#~ "ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示"
+#~ "するように修正"
+
+#~ msgid "Allow launching with pkexec and disallow launching with sudo"
+#~ msgstr "pkexec での起動を可能にし、sudo での起動ができないように修正"
+
+#~ msgid "Remove split view"
+#~ msgstr "分割ビューを削除"
+
+#~ msgid "Remove browser preview"
+#~ msgstr "ブラウザープレビューを削除"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
 
 #~ msgid "Drag and drop with text containing accented characters"
 #~ msgstr "アクセント記号を含むテキストのドラッグアンドドロップに対応"

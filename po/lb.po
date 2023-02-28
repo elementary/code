@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-02-22 18:35+0000\n"
 "PO-Revision-Date: 2017-08-09 15:06+0000\n"
 "Last-Translator: Yvo Marques <macghivo@gmail.com>\n"
 "Language-Team: Luxembourgish <https://weblate.elementary.io/projects/scratch/"
@@ -40,64 +40,76 @@ msgstr "Set vun plugins"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:151 src/MainWindow.vala:488 src/MainWindow.vala:516
+#: src/MainWindow.vala:203
+#, c-format
+msgid "Code (%s)"
+msgstr ""
+
+#: src/MainWindow.vala:205
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:298
+#: src/MainWindow.vala:317
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:303 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Datei opmaachen"
 
-#: src/MainWindow.vala:314
+#: src/MainWindow.vala:333
 #, fuzzy
 msgid "Hide Projects Sidebar"
 msgstr "Datei opmaachen"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:338
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:328
+#: src/MainWindow.vala:347
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:352
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:802 src/Services/Document.vala:508
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:525
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:828 src/Services/Document.vala:514
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:806 src/Services/Document.vala:512
+#: src/MainWindow.vala:832 src/Services/Document.vala:518
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Fichier opmaachen"
 
-#: src/MainWindow.vala:813
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:814 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:520 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
+#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ofbriechen"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr ""
 
@@ -285,8 +297,8 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:247
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "Neien Tab"
@@ -336,87 +348,87 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "Datei opmaachen"
 
-#: src/FolderManager/ProjectFolderItem.vala:253
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:291
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:573
+#: src/FolderManager/ProjectFolderItem.vala:577
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:586
+#: src/FolderManager/ProjectFolderItem.vala:590
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:275
+#: src/Services/Document.vala:276
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:277
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:278
+#: src/Services/Document.vala:279
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:299
+#: src/Services/Document.vala:300
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:301
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:302
+#: src/Services/Document.vala:303
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ofbriechen"
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:396
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ännerungen virum zoumaachen späicheren?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:397
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Wann Dier nët späichert, ginn äer Ännerungen vun den läschten 4 Sekonnen "
 "verworf."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:403
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Ouni ze späicheren zoumaachen"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:519
-#: src/Services/Document.vala:755
+#: src/Services/Document.vala:407 src/Services/Document.vala:525
+#: src/Services/Document.vala:763
 msgid "Save"
 msgstr "Späicheren"
 
-#: src/Services/Document.vala:516
+#: src/Services/Document.vala:522
 msgid "Save File"
 msgstr "Fichier späicheren"
 
-#: src/Services/Document.vala:597 src/Services/Document.vala:606
+#: src/Services/Document.vala:605 src/Services/Document.vala:614
 msgid "New Document"
 msgstr "Neit Dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:737
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:738
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
@@ -424,7 +436,7 @@ msgstr ""
 "sinn\n"
 "oder Dier hudd nët d'Erlaabnis fir deen Fichier liesen ze kënnen."
 
-#: src/Services/Document.vala:743
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -433,16 +445,16 @@ msgstr ""
 "Déi Plaatz, wou den Fichier \"%s\" ofgespäicher war, war nët agehaangen. "
 "Wëllt Dier den Fichier iergendswou aaneschters ofspäicheren?"
 
-#: src/Services/Document.vala:746
+#: src/Services/Document.vala:754
 msgid "Save As…"
 msgstr "Ofspäicheren als..."
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:760
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Den Fichier \"%s gouf geläscht. Wëllt Dier en trotzdem späicheren?"
 
-#: src/Services/Document.vala:769
+#: src/Services/Document.vala:777
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -451,11 +463,11 @@ msgstr ""
 "Du kanns keng Ännerungen op Datei \"%s\" speichern. Wëllt dir d 'Ännerungen "
 "zu dës Datei op enger anerer Plaatz sécheren?"
 
-#: src/Services/Document.vala:772
+#: src/Services/Document.vala:780
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: src/Services/Document.vala:806
+#: src/Services/Document.vala:814
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -464,11 +476,11 @@ msgstr ""
 "Fichier \"%s\" gouf vun engem externe Programm veränneren. Wëllt Dir et erëm "
 "lueden oder weider redigéieren?"
 
-#: src/Services/Document.vala:809
+#: src/Services/Document.vala:817
 msgid "Load"
 msgstr "Lueden"
 
-#: src/Services/Document.vala:812
+#: src/Services/Document.vala:820
 msgid "Continue"
 msgstr "Weidermaachen"
 
@@ -488,8 +500,8 @@ msgid "No Project Selected"
 msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:139
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -675,11 +687,11 @@ msgstr "All ersetzen"
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:532
 msgid "Toggle Comment"
 msgstr ""
 
