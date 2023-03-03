@@ -773,17 +773,7 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _(
-                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
-                ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
-                    this.save_as.begin ();
-                    hide_info_bar ();
-                });
-
-                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
-                this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
+                ask_save_location ();
             } else {
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
@@ -826,6 +816,26 @@ namespace Scratch.Services {
             }
         }
 
+        private void ask_save_location () {
+            // We must assume that already asking for save location if infobar is
+            // visible.
+            if (info_bar.visible == true) {
+                return;
+            }
+
+            string message = _(
+                "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+            ).printf ("<b>%s</b>".printf (get_basename ()));
+
+            set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
+                this.save_as.begin ();
+                hide_info_bar ();
+            });
+
+            Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
+            this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
+        }
+
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
@@ -858,12 +868,12 @@ namespace Scratch.Services {
             }
 
             var backup = File.new_for_path (this.file.get_path () + "~");
-
             if (!backup.query_exists ()) {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);
                 } catch (Error e) {
                     warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+                    ask_save_location ();
                 }
             }
         }
@@ -911,17 +921,17 @@ namespace Scratch.Services {
         public bool can_write () {
             FileInfo info;
 
-            bool writable = false;
-
+            var has_writable = false;
             try {
                 info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
-                writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
-                return writable;
+                if (info.has_attribute (FileAttribute.ACCESS_CAN_WRITE)) {
+                    return info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
+                }
             } catch (Error e) {
-                warning ("query_info failed, but filename appears to be correct, allowing as new file");
-                writable = true;
-                return writable;
+                warning ("query_info ACCESS_CAN_WRITE failed");
             }
+
+            return true;  //Assume writable and deal with error if occurs
         }
 
         // Return true if the file exists
