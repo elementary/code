@@ -470,18 +470,16 @@ namespace Scratch.Services {
                 return false;
             }
 
-            this.create_backup ();
-
             if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
                 strip_trailing_spaces ();
             }
 
-            // Replace old content with the new one
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
             try {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
+                this.create_backup ();
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19) {
@@ -531,7 +529,8 @@ namespace Scratch.Services {
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
-            var current_file = file.get_path ();
+            var current_file = file.dup ();
+            warning ("SAVEAS current file is %s", current_file.get_basename ());
             var is_current_file_temporary = this.is_file_temporary;
 
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
@@ -543,20 +542,28 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
+            warning ("Chosen file is %s", file.get_uri ());
                 source_view.buffer.set_modified (true);
                 is_saved = yield save (true);
                 if (is_saved) {
+                warning ("is saved");
                     if (is_current_file_temporary) {
                         try {
                             // Delete temporary file
-                            File.new_for_path (current_file).delete ();
+                            current_file.delete ();
                         } catch (Error err) {
-                            warning ("Temporary file cannot be deleted: %s", current_file);
+                            warning ("Temporary file cannot be deleted: %s", current_file.get_uri ());
                         }
                     }
 
-                    delete_backup (current_file + "~");
+                    delete_backup (current_file.get_uri () + "~");
                     this.source_view.change_syntax_highlight_from_file (this.file);
+                } else {
+                warning ("NOT SAVED");
+                    // Restore original file
+                    warning ("File could not be saved - show infobar");
+                    file = current_file;
+                    ask_save_location ();
                 }
             }
 
@@ -816,6 +823,14 @@ namespace Scratch.Services {
             }
         }
 
+        private void save_as_and_hide_infobar () {
+            save_as.begin ((obj, res) => {
+                if (save_as.end (res)) {
+                    hide_info_bar ();
+                }
+            });
+        }
+
         private void ask_save_location () {
             // We must assume that already asking for save location if infobar is
             // visible.
@@ -827,10 +842,12 @@ namespace Scratch.Services {
                 "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
             ).printf ("<b>%s</b>".printf (get_basename ()));
 
-            set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
-                this.save_as.begin ();
-                hide_info_bar ();
-            });
+            set_message (
+                Gtk.MessageType.WARNING,
+                message,
+                _("Save changes elsewhere"),
+                save_as_and_hide_infobar
+            );
 
             Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
             this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
@@ -863,6 +880,7 @@ namespace Scratch.Services {
 
         // Backup functions
         private void create_backup () {
+            warning ("create nackup");
             if (!can_write ()) {
                 return;
             }

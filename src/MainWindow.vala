@@ -898,6 +898,7 @@ namespace Scratch {
         }
 
         private void action_save_as () {
+        warning ("action save as");
             var doc = get_current_document ();
             if (doc != null) {
                 doc.save_as.begin ();
