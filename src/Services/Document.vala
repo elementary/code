@@ -919,16 +919,13 @@ namespace Scratch.Services {
 
         // Return true if the file is writable
         public bool can_write () {
-            FileInfo info;
-
-            var has_writable = false;
             try {
-                info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                var info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
                 if (info.has_attribute (FileAttribute.ACCESS_CAN_WRITE)) {
                     return info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
                 }
             } catch (Error e) {
-                warning ("query_info ACCESS_CAN_WRITE failed");
+                debug ("query_info ACCESS_CAN_WRITE failed");
             }
 
             return true;  //Assume writable and deal with error if occurs
