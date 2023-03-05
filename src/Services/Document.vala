@@ -30,7 +30,7 @@ namespace Scratch.Services {
 
         public delegate void VoidFunc ();
         public signal void doc_opened ();
-        public signal void doc_closed ();
+        public signal void doc_closed (); // Connects to some plugins
 
         // The parent window's actions
         public unowned SimpleActionGroup actions { get; set construct; }
@@ -104,6 +104,7 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
+        // private bool can_remove_tab = false;
         private Mount mount;
 
         private static Pango.FontDescription? builder_blocks_font = null;
@@ -373,7 +374,7 @@ namespace Scratch.Services {
             return;
         }
 
-        public bool do_close (bool app_closing = false) {
+        public async bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
@@ -383,13 +384,12 @@ namespace Scratch.Services {
 
             bool ret_value = true;
             if (Scratch.settings.get_boolean ("autosave") && !saved) {
-                save_with_hold ();
+                ret_value = yield save_with_hold ();
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                save_with_hold ();
-            }
-            // Check for unsaved changes
-            else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
+                ret_value = yield save_with_hold ();
+            } else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
+                // Check for unsaved changes
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
 
                 var dialog = new Granite.MessageDialog (
@@ -414,14 +414,17 @@ namespace Scratch.Services {
                         ret_value = false;
                         break;
                     case Gtk.ResponseType.YES:
-                        if (this.is_file_temporary)
-                            save_as_with_hold ();
-                        else
-                            save_with_hold ();
+                        if (this.is_file_temporary) {
+                            ret_value = yield save_as_with_hold ();
+                        } else {
+                            ret_value = yield save_with_hold ();
+                        }
                         break;
                     case Gtk.ResponseType.NO:
-                        if (this.is_file_temporary)
+                        ret_value = true;
+                        if (this.is_file_temporary) {
                             delete_temporary_file (true);
+                        }
                         break;
                 }
                 dialog.destroy ();
@@ -436,38 +439,37 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        public bool save_with_hold (bool force = false) {
+        public async bool save_with_hold (bool force = false) {
+warning ("HOLD1");
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            save.begin (force, (obj, res) => {
-                result = save.end (res);
-                GLib.Application.get_default ().release ();
-            });
+            var result = yield save (force);
+warning ("RELEASE1 - result %s", result.to_string ());
+            GLib.Application.get_default ().release ();
 
             return result;
         }
 
-        public bool save_as_with_hold () {
+        public async bool save_as_with_hold () {
+            var old_uri = file.get_uri ();
+warning ("HOLD2");
             GLib.Application.get_default ().hold ();
-            bool result = false;
-            string old_uri = file.get_uri ();
-            save_as.begin ((obj, res) => {
-                result = save_as.end (res);
-                GLib.Application.get_default ().release ();
-                if (!result) {
-                    file = File.new_for_uri (old_uri);
-                }
-            });
+            var result = yield save ();
+warning ("RELEASE2 - result %s", result.to_string ());
+            GLib.Application.get_default ().release ();
+            if (!result) {
+                file = File.new_for_uri (old_uri);
+            }
 
             return result;
         }
 
-        public async bool save (bool force = false) {
+        private async bool save (bool force = false, bool saving_as = false) {
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
 
-                return false;
+warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modified ()).to_string (), loaded.to_string ());
+                return (source_view.buffer.get_modified () == false); // Do not want to stop closing unnecessarily
             }
 
             if (Scratch.settings.get_boolean ("strip-trailing-on-save") && force) {
@@ -481,9 +483,14 @@ namespace Scratch.Services {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
                 this.create_backup ();
             } catch (Error e) {
+            warning ("Error saving %s", e.message);
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19) {
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                    // If called by `save_as ()` then that function will show infobar
+                    if (!saving_as) {
+                        ask_save_location (false);
+                    }
                 }
                 return false;
             }
@@ -542,9 +549,8 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
-            warning ("Chosen file is %s", file.get_uri ());
                 source_view.buffer.set_modified (true);
-                is_saved = yield save (true);
+                is_saved = yield save (true, true);
                 if (is_saved) {
                 warning ("is saved");
                     if (is_current_file_temporary) {
@@ -563,7 +569,7 @@ namespace Scratch.Services {
                     // Restore original file
                     warning ("File could not be saved - show infobar");
                     file = current_file;
-                    ask_save_location ();
+                    ask_save_location (true);
                 }
             }
 
@@ -612,6 +618,15 @@ namespace Scratch.Services {
                 return _("New Document");
             } else {
                 return file.get_basename ();
+            }
+        }
+
+        // Get file directory
+        public string get_directory () {
+            if (file.has_parent (null)) {
+                return file.get_parent ().get_uri ();
+            } else {
+                return ""; // Should never happen
             }
         }
 
@@ -831,21 +846,28 @@ namespace Scratch.Services {
             });
         }
 
-        private void ask_save_location () {
+        private void ask_save_location (bool save_as = false) {
             // We must assume that already asking for save location if infobar is
             // visible.
             if (info_bar.visible == true) {
                 return;
             }
 
-            string message = _(
-                "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
-            ).printf ("<b>%s</b>".printf (get_basename ()));
+            string message;
+            if (save_as) {
+                message = _(
+                    "You cannot save the document to \"%s\". Do you want to save the file somewhere else?"
+                ).printf ("<b>%s</b>".printf (get_directory ()));
+            } else {
+                message = _(
+                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+                ).printf ("<b>%s</b>".printf (get_basename ()));
+            }
 
             set_message (
                 Gtk.MessageType.WARNING,
                 message,
-                _("Save changes elsewhere"),
+                _("Save the document elsewhere"),
                 save_as_and_hide_infobar
             );
 

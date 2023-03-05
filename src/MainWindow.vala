@@ -614,8 +614,9 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit ();
-            return !check_unsaved_changes ();
+        warning ("delete event");
+            action_quit ();
+            return true;
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -663,11 +664,11 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
+        // Check that there no unsaved changes and all saves are successful
+        private async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
+                if (!yield (doc.do_close (true))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -818,9 +819,11 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            check_unsaved_changes.begin ((obj, res) => {
+                if (check_unsaved_changes.end (res)) {
+                    destroy ();
+                }
+            });
         }
 
         private void action_open () {
@@ -892,7 +895,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin (true);
+                    doc.save_with_hold.begin (true);
                 }
             }
         }
@@ -901,7 +904,7 @@ namespace Scratch {
         warning ("action save as");
             var doc = get_current_document ();
             if (doc != null) {
-                doc.save_as.begin ();
+                doc.save_as_with_hold.begin ();
             }
         }
 

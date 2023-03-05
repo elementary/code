@@ -74,7 +74,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 tab.restore_data = document.get_uri ();
             }
 
-            return document.do_close ();
+            close_document (document); // Will remove tab if possible
+            return false;
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
@@ -266,7 +267,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             doc.source_view.set_text (original.get_text ());
             doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
-                doc.save.begin (true);
+                doc.save_with_hold.begin (true);
             }
 
             insert_document (doc, -1);
@@ -304,18 +305,21 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     public void close_document (Services.Document doc) {
-        remove_tab (doc);
-        doc.do_close ();
-    }
-
-    public void close_current_document () {
-        var doc = current_document;
-        if (doc != null) {
-            if (close_tab_requested (doc)) {
+        doc.do_close.begin (false, (obj, res) => {
+            if (doc.do_close.end (res)) {
                 remove_tab (doc);
             }
-        }
+        });
     }
+
+    // public void close_current_document () {
+    //     var doc = current_document;
+    //     if (doc != null) {
+    //         if (close_tab_requested (doc)) {
+    //             remove_tab (doc);
+    //         }
+    //     }
+    // }
 
     public void request_placeholder_if_empty () {
         if (docs.length () == 0) {
