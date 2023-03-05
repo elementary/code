@@ -312,15 +312,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
     }
 
-    // public void close_current_document () {
-    //     var doc = current_document;
-    //     if (doc != null) {
-    //         if (close_tab_requested (doc)) {
-    //             remove_tab (doc);
-    //         }
-    //     }
-    // }
-
     public void request_placeholder_if_empty () {
         if (docs.length () == 0) {
             request_placeholder ();
@@ -390,7 +381,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
         var doc = tab as Services.Document;
-
         var other_window = new MainWindow (false);
         other_window.move (x, y);
 

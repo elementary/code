@@ -614,7 +614,6 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-        warning ("delete event");
             action_quit ();
             return true;
         }
@@ -901,7 +900,6 @@ namespace Scratch {
         }
 
         private void action_save_as () {
-        warning ("action save as");
             var doc = get_current_document ();
             if (doc != null) {
                 doc.save_as_with_hold.begin ();

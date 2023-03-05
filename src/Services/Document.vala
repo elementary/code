@@ -440,10 +440,8 @@ namespace Scratch.Services {
         }
 
         public async bool save_with_hold (bool force = false) {
-warning ("HOLD1");
             GLib.Application.get_default ().hold ();
             var result = yield save (force);
-warning ("RELEASE1 - result %s", result.to_string ());
             GLib.Application.get_default ().release ();
 
             return result;
@@ -451,10 +449,8 @@ warning ("RELEASE1 - result %s", result.to_string ());
 
         public async bool save_as_with_hold () {
             var old_uri = file.get_uri ();
-warning ("HOLD2");
             GLib.Application.get_default ().hold ();
             var result = yield save ();
-warning ("RELEASE2 - result %s", result.to_string ());
             GLib.Application.get_default ().release ();
             if (!result) {
                 file = File.new_for_uri (old_uri);
@@ -468,7 +464,6 @@ warning ("RELEASE2 - result %s", result.to_string ());
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
 
-warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modified ()).to_string (), loaded.to_string ());
                 return (source_view.buffer.get_modified () == false); // Do not want to stop closing unnecessarily
             }
 
@@ -483,7 +478,6 @@ warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modif
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
                 this.create_backup ();
             } catch (Error e) {
-            warning ("Error saving %s", e.message);
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19) {
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
@@ -537,7 +531,6 @@ warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modif
 
             var success = false;
             var current_file = file.dup ();
-            warning ("SAVEAS current file is %s", current_file.get_basename ());
             var is_current_file_temporary = this.is_file_temporary;
 
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
@@ -552,7 +545,6 @@ warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modif
                 source_view.buffer.set_modified (true);
                 is_saved = yield save (true, true);
                 if (is_saved) {
-                warning ("is saved");
                     if (is_current_file_temporary) {
                         try {
                             // Delete temporary file
@@ -565,9 +557,7 @@ warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modif
                     delete_backup (current_file.get_uri () + "~");
                     this.source_view.change_syntax_highlight_from_file (this.file);
                 } else {
-                warning ("NOT SAVED");
                     // Restore original file
-                    warning ("File could not be saved - show infobar");
                     file = current_file;
                     ask_save_location (true);
                 }
@@ -902,7 +892,6 @@ warning ("aborting save - modified %s, loaded %s", (source_view.buffer.get_modif
 
         // Backup functions
         private void create_backup () {
-            warning ("create nackup");
             if (!can_write ()) {
                 return;
             }
