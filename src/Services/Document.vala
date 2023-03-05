@@ -438,19 +438,34 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        public async bool save_with_hold (bool force = false) {
-            GLib.Application.get_default ().hold ();
-            var result = yield save (force);
-            GLib.Application.get_default ().release ();
+        private bool is_saving = false;
+        public async bool save_with_hold (bool force = false, bool saving_as = false) {
+            // Prevent reentry which could result in mismatched holds on Application
+            if (is_saving) {
+                return true;
+            } else {
+                is_saving = true;
+            }
 
+            bool result;
+            lock (is_saving) {
+                // Application is only held here
+                GLib.Application.get_default ().hold ();
+                if (saving_as) {
+                    result = yield save_as ();
+                } else {
+                    result = yield save (force);
+                }
+                GLib.Application.get_default ().release ();
+
+                is_saving = false;
+            }
             return result;
         }
 
         public async bool save_as_with_hold () {
             var old_uri = file.get_uri ();
-            GLib.Application.get_default ().hold ();
-            var result = yield save ();
-            GLib.Application.get_default ().release ();
+            var result = yield save_with_hold (true, true);
             if (!result) {
                 file = File.new_for_uri (old_uri);
             }
