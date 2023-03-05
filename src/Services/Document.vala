@@ -104,7 +104,6 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
-        // private bool can_remove_tab = false;
         private Mount mount;
 
         private static Pango.FontDescription? builder_blocks_font = null;
@@ -476,6 +475,7 @@ namespace Scratch.Services {
             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
             try {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
+                // Only create backup once save successful
                 this.create_backup ();
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
