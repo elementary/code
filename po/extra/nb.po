@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-22 18:35+0000\n"
-"PO-Revision-Date: 2021-02-26 13:42+0000\n"
+"PO-Revision-Date: 2023-03-01 16:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "extra/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -52,6 +52,10 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Kode er designet rundt prosjektbasert arbeidsflyt og kjenner dine "
+"forskjellige kodebaser. Det kommer med nyttig Git-integrasjon for å opprette "
+"og bytte mellom forgreninger og vise endrede filer og linjer i prosjektene "
+"dine."
 
 #: data/code.metainfo.xml.in:14
 #, fuzzy
@@ -76,6 +80,9 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Finn hva som helst i nåværende fil, spesifikke mapper, eller hele prosjekter "
+"med alternativer med søk som gjør forskjell på små og store bokstaver og "
+"bruker regulære uttrykk."
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -84,6 +91,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Smarte funksjoner gjennomgående: automatisk innrykk, smart klipp ut/lim inn-"
+"oppførsel, synlige blanktegn for valgt tekst og på slutten av linjer som "
+"forvalg, og valgfrie utvidelser for Markdown-handlinger, stavekontroll, "
+"blanktegnstrimming, ordfullføring, med mer."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -91,44 +102,54 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Bruk Kode i din arbeidsflyt. Du kan tilpasse adferd og grensesnitt som det "
+"passer seg med en håndfull nyttige og vel-overveide utvidelser og "
+"innstillinger."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Med mer:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Solarisert lys, solarisert mørk, og høykontrast-fargedrakter som har "
+"innvirkning på hele grensesnittet."
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Sidefelt som kan veksles på og av for å passe deg"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Smart innrykk og .editorconfig-støtte"
 
 #: data/code.metainfo.xml.in:23
+#, fuzzy
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Nettleserklasse-faner med dra og slipp, duplisering, angring av lukking, og "
+"fanehistorikk."
 
 #: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Vis nåværende linje og tegn, og hopp raskt til en ny linje"
 
 #: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Rull forbi slutten av filen slik at du kan beholde nåværende linje når det "
+"er beleilig"
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Alternativt minikart for å gjøre navigering av større filer enklere"
 
 #: data/code.metainfo.xml.in:60
 #, fuzzy
@@ -144,7 +165,7 @@ msgstr "Små oppdateringer:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Show when running a development branch of Code"
-msgstr ""
+msgstr "Vis kjøring av utviklingsforgrening av Kode"
 
 #: data/code.metainfo.xml.in:70 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:155
@@ -155,29 +176,31 @@ msgstr "Oppdaterte oversettelser"
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:167
 msgid "Improvements:"
-msgstr ""
+msgstr "Forbedringer:"
 
 #: data/code.metainfo.xml.in:85
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Redesignet programikon"
 
 #: data/code.metainfo.xml.in:86
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Vis egendefinert mørk og lys elementary-stil for kildevisningen"
 
 #: data/code.metainfo.xml.in:87
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Alternativ for følging av mørk stilinnstilling"
 
 #: data/code.metainfo.xml.in:88
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Mulighet til å bruke halv-flis på små bærbare"
 
 #: data/code.metainfo.xml.in:92
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Både «Finn på siden» og «Finn i prosjekt» er nå tilgjengelige fra "
+"programmets meny istedenfor tittelfeltet"
 
 #: data/code.metainfo.xml.in:93
 msgid ""
@@ -349,8 +372,9 @@ msgid "New Window"
 msgstr "Nytt vindu"
 
 #: data/code.policy.in.in:10
+#, fuzzy
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Kjør Kode som administrator"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"

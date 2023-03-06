@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-22 18:35+0000\n"
-"PO-Revision-Date: 2023-02-04 12:25+0000\n"
+"PO-Revision-Date: 2023-03-01 16:25+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -45,10 +45,9 @@ msgid "[FILE…]"
 msgstr "[文件…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "代码"
+msgstr "代码 (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
