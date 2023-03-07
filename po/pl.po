@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-03-07 12:34+0000\n"
 "PO-Revision-Date: 2023-02-11 17:36+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -635,9 +635,7 @@ msgstr "Zarządzaj folderami projektu"
 msgid "Find"
 msgstr "Szukaj"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
 msgid "no results"
 msgstr "brak wyników"
 
@@ -679,7 +677,7 @@ msgstr "Zastąp"
 msgid "Replace all"
 msgstr "Zastąp wszystko"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:526
 #, c-format
 msgid "%d of %d"
 msgstr "%d z %d"

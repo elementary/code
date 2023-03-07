@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-03-07 12:34+0000\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -668,9 +668,7 @@ msgstr ""
 msgid "Find"
 msgstr "Find"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
 msgid "no results"
 msgstr ""
 
@@ -712,7 +710,7 @@ msgstr "Replace"
 msgid "Replace all"
 msgstr "Replace all"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:526
 #, c-format
 msgid "%d of %d"
 msgstr ""

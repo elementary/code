@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-03-07 12:34+0000\n"
 "PO-Revision-Date: 2023-02-10 22:38+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
@@ -632,9 +632,7 @@ msgstr "Керувати теками проєкту"
 msgid "Find"
 msgstr "Знайти"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
 msgid "no results"
 msgstr "нічого не знайдено"
 
@@ -676,7 +674,7 @@ msgstr "Замінити"
 msgid "Replace all"
 msgstr "Замінити все"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:526
 #, c-format
 msgid "%d of %d"
 msgstr "%d з %d"
