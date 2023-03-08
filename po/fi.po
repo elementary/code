@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-03-07 12:34+0000\n"
 "PO-Revision-Date: 2023-02-17 10:09+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
@@ -631,9 +631,7 @@ msgstr "Hallitse projektikansioita"
 msgid "Find"
 msgstr "Etsi"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
 msgid "no results"
 msgstr "ei tuloksia"
 
@@ -675,7 +673,7 @@ msgstr "Korvaa"
 msgid "Replace all"
 msgstr "Korvaa kaikki"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:526
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
