@@ -328,12 +328,11 @@ namespace Scratch.Services {
                 } else {
                     source_view.buffer.text = buffer.text;
                 }
-
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_default_load_error_view ();
                 working = false;
+                show_default_load_error_view (buffer.text);
                 return;
             } finally {
                 load_cancellable = null;
@@ -357,7 +356,6 @@ namespace Scratch.Services {
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
             set_saved_status (true);
-
             doc_opened ();
             source_view.sensitive = true;
 
@@ -733,10 +731,29 @@ namespace Scratch.Services {
         }
 
         // Show an error view which says "Hey, I cannot read that file!"
-        private void show_default_load_error_view () {
+        private void show_default_load_error_view (string? invalid_content = null) {
             var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
             var description = _("It may be corrupt or you don't have permission to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            if (invalid_content != null) {
+                alert_view.show_action (_("Show as text"));
+                alert_view.action_activated.connect (() => {
+                    main_stack.set_visible_child_name ("content");
+                    Idle.add (() => {
+                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        clipboard.set_text (invalid_content, -1);
+                        var clipboard_action = Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, actions);
+                        clipboard_action.set_enabled (true);
+                        clipboard_action.activate (null);
+
+                        var close_tab_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TAB, actions);
+                        close_tab_action.set_enabled (true);
+                        close_tab_action.activate (new Variant ("s", file.get_path ()));
+                        return false;
+                    });
+                });
+            }
+
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
             main_stack.set_visible_child (alert_view);
