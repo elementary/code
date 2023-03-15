@@ -731,12 +731,19 @@ namespace Scratch.Services {
         }
 
         // Show an error view which says "Hey, I cannot read that file!"
-        private void show_default_load_error_view (string? invalid_content = null) {
-            var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("It may be corrupt or you don't have permission to read it.");
+        private void show_default_load_error_view (string invalid_content = "") {
+            var title = _("Cannot read text in file \"%s\"").printf (get_basename ());
+            string description;
+            if (invalid_content == "") {
+                description = _("You may not have permission to read the file.");
+            } else {
+                description = _("The file may be corrupt or may not be a text file");
+            }
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
-            if (invalid_content != null) {
-                alert_view.show_action (_("Show as text"));
+            // Lack of read permission results in empty content string. Do not give option to open
+            // in new document in that case.
+            if (invalid_content != "") {
+                alert_view.show_action (_("Convert to text and show in a new document"));
                 alert_view.action_activated.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
