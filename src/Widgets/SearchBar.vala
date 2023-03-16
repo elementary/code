@@ -224,6 +224,7 @@ namespace Scratch.Widgets {
             search_context.settings.wrap_around = cycle_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
             search_context.settings.search_text = search_entry.text;
+            on_text_buffer_changed ();
         }
 
         private void on_text_buffer_changed () {
