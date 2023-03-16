@@ -62,9 +62,11 @@ namespace Scratch.Widgets {
         construct {
             get_style_context ().add_class ("search-bar");
 
-            search_entry = new Gtk.SearchEntry ();
-            search_entry.hexpand = true;
-            search_entry.placeholder_text = _("Find");
+            search_entry = new Gtk.SearchEntry () {
+                hexpand = true,
+                placeholder_text = _("Find"),
+                primary_icon_activatable = true
+            };
 
             search_occurence_count_label = new Gtk.Label (_("no results")) {
                 margin_start = 4
@@ -531,7 +533,6 @@ namespace Scratch.Widgets {
                         tool_arrow_down.sensitive = true;
                         tool_arrow_up.sensitive =true;
                     } else {
-                        // Gtk.TextIter? start_iter, end_iter;
                         Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
                         bool is_in_start, is_in_end;
@@ -567,13 +568,25 @@ namespace Scratch.Widgets {
                 ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
                 ctx.remove_class (Gtk.STYLE_CLASS_WARNING);
                 search_entry.primary_icon_name = "edit-find-symbolic";
+                search_entry.primary_icon_sensitive = true;
+                search_entry.set_icon_tooltip_text (
+                    Gtk.EntryIconPosition.PRIMARY, _("Click to find next match")
+                );
                 if (search_entry.text != "") {
                     if (count_of_search == 0) {
                         ctx.add_class (Gtk.STYLE_CLASS_ERROR);
                         search_entry.primary_icon_name = "dialog-error-symbolic";
+                        search_entry.primary_icon_sensitive = false;
+                        search_entry.set_icon_tooltip_text (
+                            Gtk.EntryIconPosition.PRIMARY, _("No matches")
+                        );
                     } else if (location_of_search == 0) {
                         ctx.add_class (Gtk.STYLE_CLASS_WARNING);
                         search_entry.primary_icon_name = "dialog-warning-symbolic";
+                        search_entry.primary_icon_sensitive = false;
+                        search_entry.set_icon_tooltip_text (
+                          Gtk.EntryIconPosition.PRIMARY, _("Search is past last match and is not cyclic")
+                        );
                     }
                 }
 
