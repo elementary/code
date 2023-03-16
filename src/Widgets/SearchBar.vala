@@ -578,6 +578,21 @@ namespace Scratch.Widgets {
                     }
                 }
 
+                // Update appearance of search entry
+                var ctx = search_entry.get_style_context ();
+                ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
+                ctx.remove_class (Gtk.STYLE_CLASS_WARNING);
+                search_entry.primary_icon_name = "edit-find-symbolic";
+                if (search_entry.text != "") {
+                    if (count_of_search == 0) {
+                        ctx.add_class (Gtk.STYLE_CLASS_ERROR);
+                        search_entry.primary_icon_name = "dialog-error-symbolic";
+                    } else if (location_of_search == 0) {
+                        ctx.add_class (Gtk.STYLE_CLASS_WARNING);
+                        search_entry.primary_icon_name = "dialog-warning-symbolic";
+                    }
+                }
+
                 return Source.REMOVE;
             });
 
