@@ -275,23 +275,8 @@ namespace Scratch.Widgets {
                 return false;
             }
 
-            Gtk.TextIter? iter, start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out iter, text_buffer.cursor_position);
-            end_iter = iter;
-
-            bool found = search_context.forward (iter, out start_iter, out end_iter, null);
-            if (found) {
-                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
-                search_entry.primary_icon_name = "edit-find-symbolic";
-                return true;
-            } else {
-                if (search_entry.text != "") {
-                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
-                }
-
-                return false;
-            }
+            update_search_widgets ();
+            return false;
         }
 
         public bool search () {
@@ -303,7 +288,6 @@ namespace Scratch.Widgets {
 
             if (!has_matches ()) {
                 debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
-                search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
 
