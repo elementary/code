@@ -74,7 +74,8 @@ namespace Scratch.Widgets {
             search_entry.placeholder_text = _("Find");
 
             search_occurence_count_label = new Gtk.Label (_("no results")) {
-                margin_start = 4
+                margin_start = 4,
+                margin_end = 4
             };
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
