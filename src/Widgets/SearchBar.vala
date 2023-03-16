@@ -180,7 +180,7 @@ namespace Scratch.Widgets {
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
-            search_entry.search_changed.connect (update_search_occurence_label);
+            search_entry.search_changed.connect (update_search_widgets);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
@@ -202,11 +202,11 @@ namespace Scratch.Widgets {
             add (search_flow_box_child);
             add (replace_flow_box_child);
 
-            update_replace_tool_sensitivities (false);
+            update_search_widgets ();
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
-            cancel_update_search_occurence_label ();
+            cancel_update_search_widgets ();
             this.text_view = text_view;
 
             if (text_view == null) {
@@ -226,10 +226,7 @@ namespace Scratch.Widgets {
         }
 
         private void on_text_buffer_changed () {
-            update_search_occurence_label ();
-            update_tool_arrows ();
-            bool matches = has_matches ();
-            update_replace_tool_sensitivities (matches);
+            update_search_widgets ();
         }
 
         private void on_replace_entry_activate () {
@@ -244,12 +241,9 @@ namespace Scratch.Widgets {
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
                 try {
-                    cancel_update_search_occurence_label ();
+                    cancel_update_search_widgets ();
                     search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
-                    bool matches = search ();
-                    update_replace_tool_sensitivities (matches);
-                    update_tool_arrows ();
-                    update_search_occurence_label ();
+                    update_search_widgets ();
                     debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
                 } catch (Error e) {
                     critical (e.message);
@@ -266,11 +260,9 @@ namespace Scratch.Widgets {
             string replace_string = replace_entry.text;
             this.window.get_current_document ().toggle_changed_handlers (false);
             try {
-                cancel_update_search_occurence_label ();
+                cancel_update_search_widgets ();
                 search_context.replace_all (replace_string, replace_string.length);
-                update_tool_arrows ();
-                update_search_occurence_label ();
-                update_replace_tool_sensitivities (false);
+                update_search_widgets ();
             } catch (Error e) {
                 critical (e.message);
             }
@@ -304,19 +296,11 @@ namespace Scratch.Widgets {
             search_context.settings.at_word_boundaries = whole_word_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
 
-            bool matches = search ();
-            update_replace_tool_sensitivities (matches);
-            update_search_occurence_label ();
-            update_tool_arrows ();
+            update_search_widgets ();
 
             if (search_entry.text == "") {
                 search_empty ();
             }
-        }
-
-        private void update_replace_tool_sensitivities (bool matches) {
-            replace_tool_button.sensitive = matches && search_entry.text != "";
-            replace_all_tool_button.sensitive = matches && search_entry.text != "";
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -454,8 +438,7 @@ namespace Scratch.Widgets {
                     search_for_iter_backward (start_iter, out end_iter);
                 }
 
-                update_tool_arrows ();
-                update_search_occurence_label ();
+                update_search_widgets ();
             }
         }
 
@@ -469,54 +452,7 @@ namespace Scratch.Widgets {
                     search_for_iter (start_iter, out end_iter);
                 }
 
-                update_tool_arrows ();
-                update_search_occurence_label ();
-            }
-        }
-
-        private void update_tool_arrows () {
-            /* We don't need to compute the sensitive states of these widgets
-             * if they don't exist. */
-             if (tool_arrow_up != null && tool_arrow_down != null) {
-                if (search_entry.text == "") {
-                    tool_arrow_up.sensitive = false;
-                    tool_arrow_down.sensitive = false;
-                } else if (text_buffer != null) {
-                    if (cycle_search_button.active) {
-                        tool_arrow_down.sensitive = true;
-                        tool_arrow_up.sensitive = true;
-                        return;
-                    }
-
-                    Gtk.TextIter? start_iter, end_iter;
-                    Gtk.TextIter? tmp_start_iter, tmp_end_iter;
-
-                    bool is_in_start, is_in_end;
-
-                    text_buffer.get_start_iter (out tmp_start_iter);
-                    text_buffer.get_end_iter (out tmp_end_iter);
-
-                    text_buffer.get_selection_bounds (out start_iter, out end_iter);
-
-                    is_in_start = start_iter.compare (tmp_start_iter) == 0;
-                    is_in_end = end_iter.compare (tmp_end_iter) == 0;
-
-                    if (!is_in_end) {
-                        tool_arrow_down.sensitive = search_context.forward (
-                            end_iter, out tmp_start_iter, out tmp_end_iter, null
-                        );
-                    } else {
-                        tool_arrow_down.sensitive = false;
-                    }
-
-                    if (!is_in_start) {
-                        tool_arrow_up.sensitive = search_context.backward (
-                            start_iter, out tmp_start_iter, out end_iter, null
-                        );
-                    } else {
-                        tool_arrow_up.sensitive = false;
-                    }
-                }
+                update_search_widgets ();
             }
         }
 
@@ -581,19 +517,24 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        private void cancel_update_search_occurence_label () {
+        private void cancel_update_search_widgets () {
             if (update_search_label_timeout_id > 0) {
                 Source.remove (update_search_label_timeout_id);
                 update_search_label_timeout_id = 0;
             }
         }
 
-        private void update_search_occurence_label () {
-            cancel_update_search_occurence_label ();
+        // Update search occurrence label, tool arrows and replace buttons in sync
+        private void update_search_widgets () {
+            cancel_update_search_widgets ();
             update_search_label_timeout_id = Timeout.add (100, () => {
                 update_search_label_timeout_id = 0;
                 if (search_context == null) {
-                    warning ("update occurrence with null context");
+                    debug ("update occurrence with null context");
+                    replace_tool_button.sensitive = false;
+                    replace_all_tool_button.sensitive = false;
+                    tool_arrow_up.sensitive = false;
+                    tool_arrow_down.sensitive = false;
                     return Source.REMOVE;
                 }
 
@@ -602,18 +543,67 @@ namespace Scratch.Widgets {
 
                 int count_of_search = search_context.get_occurrences_count ();
 
-                int location_of_search = -1;
+                int location_of_search = 0;
                 bool found = search_context.forward (iter, out start_iter, out end_iter, null);
                 if (count_of_search > 0 && found) {
                     location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
                 }
 
-                if (count_of_search > 0 && location_of_search > 0) {
-                    search_occurence_count_label.label = _("%d of %d").printf (location_of_search, count_of_search);
-                } else if (count_of_search == -1 && search_occurence_count_label.label != _("no results")) {
-                    //We don't want to flicker back to no results while we're still searching but we have previous results
+                if (count_of_search > -1) {
+                    if (count_of_search > 0) {
+                        search_occurence_count_label.label = _("%d of %d").printf (
+                            location_of_search,
+                            count_of_search
+                        );
+                    } else {
+                        search_occurence_count_label.label = _("no results");
+                    }
+                }
+
+                replace_tool_button.sensitive = location_of_search > 0;
+                replace_all_tool_button.sensitive = count_of_search > 0;
+
+                // Update tool arrows
+                if (text_buffer == null ||
+                    search_entry.text == "" ||
+                    count_of_search == 0) {
+
+                    tool_arrow_up.sensitive = false;
+                    tool_arrow_down.sensitive = false;
                 } else {
-                    search_occurence_count_label.label = _("no results");
+                    if (cycle_search_button.active) {
+                        tool_arrow_down.sensitive = true;
+                        tool_arrow_up.sensitive =true;
+                    } else {
+                        // Gtk.TextIter? start_iter, end_iter;
+                        Gtk.TextIter? tmp_start_iter, tmp_end_iter;
+
+                        bool is_in_start, is_in_end;
+
+                        text_buffer.get_start_iter (out tmp_start_iter);
+                        text_buffer.get_end_iter (out tmp_end_iter);
+
+                        text_buffer.get_selection_bounds (out start_iter, out end_iter);
+
+                        is_in_start = start_iter.compare (tmp_start_iter) == 0;
+                        is_in_end = end_iter.compare (tmp_end_iter) == 0;
+
+                        if (!is_in_end) {
+                            tool_arrow_down.sensitive = search_context.forward (
+                                end_iter, out tmp_start_iter, out tmp_end_iter, null
+                            );
+                        } else {
+                            tool_arrow_down.sensitive = false;
+                        }
+
+                        if (!is_in_start) {
+                            tool_arrow_up.sensitive = search_context.backward (
+                                start_iter, out tmp_start_iter, out end_iter, null
+                            );
+                        } else {
+                            tool_arrow_up.sensitive = false;
+                        }
+                    }
                 }
 
                 return Source.REMOVE;

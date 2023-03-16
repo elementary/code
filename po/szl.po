@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-03-07 12:34+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -658,9 +658,7 @@ msgstr "Zarzōndzej katalogami projektōw"
 msgid "Find"
 msgstr "Znojdź"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
+#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
 msgid "no results"
 msgstr ""
 
@@ -702,7 +700,7 @@ msgstr "Zastōmp"
 msgid "Replace all"
 msgstr "Zastōmp wszyjske"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:526
 #, c-format
 msgid "%d of %d"
 msgstr ""
