@@ -10,9 +10,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [stable, unstable, development-target]
     container:
-      image: elementary/docker:next-unstable
+      image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
     - uses: actions/checkout@v3
@@ -47,7 +50,7 @@ jobs:
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
         with:
           platforms: arm64
 
