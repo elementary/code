@@ -743,7 +743,7 @@ namespace Scratch.Services {
             // Lack of read permission results in empty content string. Do not give option to open
             // in new document in that case.
             if (invalid_content != "") {
-                alert_view.show_action (_("Convert to text and show in a new document"));
+                alert_view.show_action (_("Show Anyway"));
                 alert_view.action_activated.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
