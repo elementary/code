@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-12 20:25+0000\n"
+"PO-Revision-Date: 2023-03-18 14:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:39
@@ -456,16 +456,11 @@ msgid "Continue"
 msgstr "編集を続行"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
-msgstr ""
-"ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
-"か？"
+msgstr "ドキュメントを \"%s\" に保存できません。ファイルをほかの場所に保存しますか？"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -477,10 +472,8 @@ msgstr ""
 "か？"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "現在のファイルを保存"
+msgstr "ドキュメントをほかの場所に保存"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
