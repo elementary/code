@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-07 12:34+0000\n"
+"POT-Creation-Date: 2023-03-18 09:21+0000\n"
 "PO-Revision-Date: 2016-03-03 17:53+0000\n"
 "Last-Translator: Dmitry Taranovich <vorbissmcgregor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,34 +86,34 @@ msgstr "Сімвалы"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:514
+#: src/MainWindow.vala:830 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Усе файлы"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:518
+#: src/MainWindow.vala:834 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Тэкставыя файлы"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "Адкрыць некалькі файлаў"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "Адкрыць"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
-#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
+#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "_Адкрыць"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "_Адмяніць"
 
@@ -410,78 +410,65 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "Скасаваць"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:395
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Захаваць змены ў дакуменце %s перад закрыццём?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:396
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Калі вы  не захаваеце, змены за апошнія 4 секунды будуць назаўсёды страчаны."
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:402
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Закрыць не захоўваючы"
 
-#: src/Services/Document.vala:407 src/Services/Document.vala:525
-#: src/Services/Document.vala:763
+#: src/Services/Document.vala:406 src/Services/Document.vala:539
+#: src/Services/Document.vala:790
 msgid "Save"
 msgstr "Захаваць"
 
-#: src/Services/Document.vala:522
+#: src/Services/Document.vala:536
 msgid "Save File"
 msgstr "Захаваць файл"
 
-#: src/Services/Document.vala:605 src/Services/Document.vala:614
+#: src/Services/Document.vala:623 src/Services/Document.vala:641
 msgid "New Document"
 msgstr "Новы дакумент"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:764
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:765
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Немагчыма прачытаць файл \"%s\". Магчыма, ён сапсаваны альбо Вы не маеце "
 "патрэбных прывілеяў, каб яго прачытаць."
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:778
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "Месца з файлам \"%s\" адмацавана. Жадаеце захаваць у іншым месцы?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:781
 msgid "Save As…"
 msgstr "Захаваць як..."
 
-#: src/Services/Document.vala:760
+#: src/Services/Document.vala:787
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Файл \"%s\" быў выдалены. Захаваць усё роўна?"
 
-#: src/Services/Document.vala:777
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Вы не можаце захаваць змены ў файле \"%s\". Жадаеце захаваць змены гэтага "
-"файла дзе-небудзь яшчэ?"
-
-#: src/Services/Document.vala:780
-msgid "Save changes elsewhere"
-msgstr "Захаваць змены ў іншым месцы"
-
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:831
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -490,13 +477,37 @@ msgstr ""
 "Файл \"%s\" быў зменены знешнім прыкладаннем. Загрузіць яго зноў ці "
 "працягнуць рэдагаванне?"
 
-#: src/Services/Document.vala:817
+#: src/Services/Document.vala:834
 msgid "Load"
 msgstr "Загрузіць"
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:837
 msgid "Continue"
 msgstr "Працягваць"
+
+#: src/Services/Document.vala:864
+#, fuzzy, c-format
+msgid ""
+"You cannot save the document to \"%s\". Do you want to save the file "
+"somewhere else?"
+msgstr ""
+"Вы не можаце захаваць змены ў файле \"%s\". Жадаеце захаваць змены гэтага "
+"файла дзе-небудзь яшчэ?"
+
+#: src/Services/Document.vala:868
+#, fuzzy, c-format
+msgid ""
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
+msgstr ""
+"Вы не можаце захаваць змены ў файле \"%s\". Жадаеце захаваць змены гэтага "
+"файла дзе-небудзь яшчэ?"
+
+#: src/Services/Document.vala:875
+#, fuzzy
+#| msgid "Save changes elsewhere"
+msgid "Save the document elsewhere"
+msgstr "Захаваць змены ў іншым месцы"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -526,7 +537,7 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:158
+#: src/Widgets/DocumentView.vala:159
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Тэкставы файл з "
