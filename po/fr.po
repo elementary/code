@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-07 12:34+0000\n"
+"POT-Creation-Date: 2023-03-18 09:21+0000\n"
 "PO-Revision-Date: 2023-02-16 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
@@ -83,34 +83,34 @@ msgstr "Afficher le contour des symboles"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:514
+#: src/MainWindow.vala:830 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:518
+#: src/MainWindow.vala:834 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
-#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
+#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -390,45 +390,45 @@ msgstr "Veuillez patienter pendant que Code charge le fichier."
 msgid "Cancel Loading"
 msgstr "Annuler le chargement"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:395
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr ""
 "Voulez-vous enregistrer les modifications apportées à %s avant de fermer ?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:396
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Si vous n'enregistrez pas, les modifications seront perdues définitivement."
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:402
 msgid "Close Without Saving"
 msgstr "Fermer sans enregistrer"
 
-#: src/Services/Document.vala:407 src/Services/Document.vala:525
-#: src/Services/Document.vala:763
+#: src/Services/Document.vala:406 src/Services/Document.vala:539
+#: src/Services/Document.vala:790
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/Services/Document.vala:522
+#: src/Services/Document.vala:536
 msgid "Save File"
 msgstr "Enregistrer le fichier"
 
-#: src/Services/Document.vala:605 src/Services/Document.vala:614
+#: src/Services/Document.vala:623 src/Services/Document.vala:641
 msgid "New Document"
 msgstr "Nouveau document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:764
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Impossible de lire le fichier « %s »"
 
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:765
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Il peut être corrompu ou vous n'avez pas la permission de le lire."
 
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:778
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -437,30 +437,17 @@ msgstr ""
 "Le répertoire contenant le fichier « %s » a été démonté. Voulez-vous "
 "l'enregistrer ailleurs ?"
 
-#: src/Services/Document.vala:754
+#: src/Services/Document.vala:781
 msgid "Save As…"
 msgstr "Enregistrer sous…"
 
-#: src/Services/Document.vala:760
+#: src/Services/Document.vala:787
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 "Le fichier « %s » a été supprimé. Voulez-vous tout de même l'enregistrer ?"
 
-#: src/Services/Document.vala:777
-#, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Impossible d'enregistrer les modifications dans le fichier « %s ». Voulez-"
-"vous les enregistrer dans un emplacement différent ?"
-
-#: src/Services/Document.vala:780
-msgid "Save changes elsewhere"
-msgstr "Enregistrer les modifications ailleurs"
-
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:831
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -469,13 +456,40 @@ msgstr ""
 "Le fichier « %s » a été modifié par une application externe. Voulez-vous le "
 "recharger ou continuer votre édition ?"
 
-#: src/Services/Document.vala:817
+#: src/Services/Document.vala:834
 msgid "Load"
 msgstr "Charger"
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:837
 msgid "Continue"
 msgstr "Continuer"
+
+#: src/Services/Document.vala:864
+#, fuzzy, c-format
+#| msgid ""
+#| "You cannot save changes to the file \"%s\". Do you want to save the "
+#| "changes somewhere else?"
+msgid ""
+"You cannot save the document to \"%s\". Do you want to save the file "
+"somewhere else?"
+msgstr ""
+"Impossible d'enregistrer les modifications dans le fichier « %s ». Voulez-"
+"vous les enregistrer dans un emplacement différent ?"
+
+#: src/Services/Document.vala:868
+#, c-format
+msgid ""
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
+msgstr ""
+"Impossible d'enregistrer les modifications dans le fichier « %s ». Voulez-"
+"vous les enregistrer dans un emplacement différent ?"
+
+#: src/Services/Document.vala:875
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save the document elsewhere"
+msgstr "Enregistrer le fichier actuel"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -503,7 +517,7 @@ msgstr "Projet Git actif : %s"
 msgid "Filter projects"
 msgstr "Filtrer les projets"
 
-#: src/Widgets/DocumentView.vala:158
+#: src/Widgets/DocumentView.vala:159
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Fichier texte à partir de %s:%d"
@@ -790,6 +804,9 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
+
+#~ msgid "Save changes elsewhere"
+#~ msgstr "Enregistrer les modifications ailleurs"
 
 #~ msgid "Open Project Folder…"
 #~ msgstr "Ouvrir le dossier du projet…"
@@ -1332,9 +1349,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "The file %s was deleted."
 #~ msgstr "Ce fichier %s a été supprimé."
-
-#~ msgid "Save the current file"
-#~ msgstr "Enregistrer le fichier actuel"
 
 #~ msgid "Choose the new location"
 #~ msgstr "Choisir le nouvel emplacement"
