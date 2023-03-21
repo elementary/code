@@ -71,6 +71,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
 
     protected Gee.HashMap<SymbolType, Gtk.CheckButton> checks;
     protected Gtk.Box symbol_pane;
+    protected Gtk.SearchEntry search_entry;
     protected Granite.Widgets.SourceList store;
     protected Granite.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
@@ -87,7 +88,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             hexpand = true
         };
         var tool_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) ;
-        var search_entry = new Gtk.SearchEntry () {
+        search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),
             hexpand = true
         };
@@ -161,48 +162,42 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         symbol_pane.show_all ();
 
         symbol_pane.realize.connect (() => {
-            store.set_filter_func (
-                (item) => {
-                    if (item is SymbolItem) {
-                        var symbol = (SymbolItem)item;
-                        // Always show "OTHER" category else namespaces
-                        // hidden and nothing shows
-                        if (symbol.symbol_type == SymbolType.NAMESPACE) {
-                            return true;
-                        }
-
-                        if (checks[symbol.symbol_type] != null &&
-                            !checks[symbol.symbol_type].active) {
-
-                            return false;
-                        }
-
-                        if (checks[symbol.symbol_type] == null &&
-                            !checks[SymbolType.OTHER].active) {
-
-                            return false;
-                        }
-
-                        // Do not exclude misses on Item with children as may
-                        // hide hits on its children
-                        if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                            var expandable = (Granite.Widgets.SourceList.ExpandableItem)item;
-
-                            return ((expandable.n_children == 0 &&
-                                    symbol.name.contains (search_entry.text)) ||
-                                    expandable.n_children > 0);
-                        }
-
-                        return true;
-                    }
-
-                    return true;
-                },
-                false
-            );
-
+            store.set_filter_func (filter_func, false);
             search_entry.changed.connect (schedule_refilter);
         });
+    }
+
+    protected bool filter_func (Object item) {
+        if (!(item is SymbolItem)) {
+            return true;
+        }
+
+        var symbol_type = ((SymbolItem)item).symbol_type;
+
+        if (symbol_type == SymbolType.NAMESPACE) {
+            return true;
+        }
+
+        if (checks[symbol_type] == null) {
+            symbol_type = SymbolType.OTHER;
+        }
+
+        if (!checks[symbol_type].active) {
+            return false;
+        }
+
+        // Do not exclude misses on Item with children as may
+        // hide hits on its children
+        if (item is Granite.Widgets.SourceList.ExpandableItem) {
+            var expandable = (Granite.Widgets.SourceList.ExpandableItem)item;
+            if (expandable.n_children > 0) {
+                return true;
+            }
+
+            return ((SymbolItem)item).name.contains (search_entry.text);
+        }
+
+        return true;
     }
 
     uint refilter_timeout_id = 0;
