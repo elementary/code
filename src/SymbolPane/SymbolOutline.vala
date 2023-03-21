@@ -92,24 +92,23 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             hexpand = true
         };
 
-        var filter_popover = new Gtk.Popover (null);
-        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var filter_header = new Granite.HeaderLabel (_("Filter Symbols"));
+        var filter_items = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
+            margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12
+        };
+        //Always have OTHER category
+        filters.resize (filters.length + 1);
+        filters[filters.length - 1] = SymbolType.OTHER;
         foreach (var filter in filters) {
             var check = new Gtk.CheckButton.with_label (filter.to_string ()) {
                 active = true
             };
-            popover_content.add (check);
+            filter_items.add (check);
             checks[filter] = check;
             check.toggled.connect (schedule_refilter);
         }
-
-        //Always have OTHER category
-        var check = new Gtk.CheckButton.with_label (SymbolType.OTHER.to_string ()) {
-            active = true
-        };
-        popover_content.add (check);
-        checks[SymbolType.OTHER] = check;
-        check.toggled.connect (schedule_refilter);
 
         var clear_button = new Gtk.Button.from_icon_name ("edit-clear-all") {
             tooltip_text = _("Deselect All")
@@ -133,9 +132,15 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         var button_bar = new Gtk.ActionBar ();
         button_bar.pack_end (clear_button);
         button_bar.pack_end (select_all_button);
+
+        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+        popover_content.add (filter_header);
+        popover_content.add (filter_items);
         popover_content.add (button_bar);
         popover_content.show_all ();
         //TODO Provide "filter" icon?
+
+        var filter_popover = new Gtk.Popover (null);
         filter_popover.add (popover_content);
 
         var filter_button = new Gtk.MenuButton () {
