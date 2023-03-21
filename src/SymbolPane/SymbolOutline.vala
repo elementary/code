@@ -16,8 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Scratch.Services {
-public enum SymbolType {
+public enum Scratch.Services.SymbolType {
     CLASS,
     PROPERTY,
     SIGNAL,
@@ -60,9 +59,8 @@ public enum SymbolType {
     }
 }
 
-public interface SymbolItem : Granite.Widgets.SourceList.ExpandableItem {
+public interface Scratch.Services.SymbolItem : Granite.Widgets.SourceList.ExpandableItem {
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
-}
 }
 
 public abstract class Scratch.Services.SymbolOutline : Object {
