@@ -58,6 +58,9 @@ namespace Scratch {
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
             application_id = Constants.PROJECT_NAME;
+            if (Constants.BRANCH != "") {
+                application_id += "." + Constants.BRANCH.replace ("/", ".").replace ("-", "_");
+            }
 
             add_main_option_entries (ENTRIES);
 
@@ -127,21 +130,19 @@ namespace Scratch {
         }
 
         protected override void activate () {
-            var window = get_last_window ();
-            if (window != null && create_new_window) {
+            if (active_window == null) {
+                add_window (new MainWindow (true)); // Will restore documents if required
+            } else if (create_new_window) {
                 create_new_window = false;
-                window = new MainWindow (false); // Will NOT restore documents in additional windows
-            } else if (window == null) {
-                window = new MainWindow (true); // Will restore documents if required
-                window.show ();
-            } else {
-                window.present ();
+                add_window (new MainWindow (false)); // Will NOT restore documents in additional windows
             }
+
+            active_window.present ();
 
             // Create a new document if requested
             if (create_new_tab) {
                 create_new_tab = false;
-                Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
+                activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB, null);
             }
         }
 

@@ -100,6 +100,7 @@ namespace Scratch {
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+        private static string base_title;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
@@ -148,7 +149,6 @@ namespace Scratch {
         public MainWindow (bool restore_docs) {
             Object (
                 icon_name: Constants.PROJECT_NAME,
-                title: _("Code"),
                 restore_docs: restore_docs
             );
         }
@@ -199,12 +199,19 @@ namespace Scratch {
                 Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
+            if (Constants.BRANCH != "") {
+                base_title = _("Code (%s)").printf (Constants.BRANCH);
+            } else {
+                base_title = _("Code");
+            }
+
             Hdy.init ();
         }
 
         construct {
             application = ((Gtk.Application)(GLib.Application.get_default ()));
             app = (Scratch.Application)application;
+            title = base_title;
 
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code");
@@ -231,8 +238,10 @@ namespace Scratch {
             default_width = rect.width;
             default_height = rect.height;
 
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            update_style ();
+            Scratch.settings.changed["follow-system-style"].connect (() => {
+                update_style ();
+            });
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
@@ -289,6 +298,16 @@ namespace Scratch {
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
         }
 
+        private void update_style () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            if (Scratch.settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
+            } else {
+                gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            }
+        }
+
         private void update_toolbar_button (string name, bool new_state) {
             switch (name) {
                 case ACTION_SHOW_FIND:
@@ -340,11 +359,7 @@ namespace Scratch {
 
         private void init_layout () {
             toolbar = new Scratch.HeaderBar ();
-            toolbar.title = title;
-
-            sidebar.choose_project_button.project_chosen.connect (() => {
-                folder_manager_view.collapse_other_projects ();
-            });
+            toolbar.title = base_title;
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
@@ -481,11 +496,12 @@ namespace Scratch {
                 }
 
                 document_view.update_outline_visible ();
+                update_find_actions ();
             });
 
             document_view.request_placeholder.connect (() => {
                 content_stack.visible_child = welcome_view;
-                title = _("Code");
+                title = base_title;
                 toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
@@ -494,13 +510,19 @@ namespace Scratch {
                 content_stack.visible_child = view_grid;
                 toolbar.document_available (true);
                 set_widgets_sensitive (true);
+                update_find_actions ();
+            });
+
+            document_view.tab_removed.connect (() => {
+                update_find_actions ();
             });
 
             document_view.document_change.connect ((doc) => {
                 if (doc != null) {
                     search_bar.set_text_view (doc.source_view);
                     // Update MainWindow title
-                    title = doc.get_basename ();
+                    /// TRANSLATORS: First placeholder is document name, second placeholder is app name
+                    title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
                     sidebar.choose_project_button.set_document (doc);
@@ -513,9 +535,13 @@ namespace Scratch {
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
                     doc.check_undoable_actions ();
                 } else {
-                    title = _("Code");
+                    title = base_title;
                     Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (false);
                 }
+            });
+
+            sidebar.choose_project_button.project_chosen.connect (() => {
+                folder_manager_view.collapse_other_projects ();
             });
 
             set_widgets_sensitive (false);
@@ -588,8 +614,8 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit ();
-            return !check_unsaved_changes ();
+            action_quit ();
+            return true;
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -637,11 +663,11 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
+        // Check that there no unsaved changes and all saves are successful
+        private async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
+                if (!yield (doc.do_close (true))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -792,9 +818,11 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            check_unsaved_changes.begin ((obj, res) => {
+                if (check_unsaved_changes.end (res)) {
+                    destroy ();
+                }
+            });
         }
 
         private void action_open () {
@@ -866,7 +894,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin (true);
+                    doc.save_with_hold.begin (true);
                 }
             }
         }
@@ -874,7 +902,7 @@ namespace Scratch {
         private void action_save_as () {
             var doc = get_current_document ();
             if (doc != null) {
-                doc.save_as.begin ();
+                doc.save_as_with_hold.begin ();
             }
         }
 
@@ -968,12 +996,12 @@ namespace Scratch {
         private void action_fetch (SimpleAction action, Variant? param) {
             current_search_term = param.get_string ();
             if (!search_revealer.child_revealed) {
-                var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-                if (fetch_action.enabled) {
+                var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+                if (show_find_action.enabled) {
                     /* Toggling the fetch action causes this function to be called again but the search_revealer child
                      * is still not revealed so nothing more happens.  We use the map signal on the search entry
                      * to set it up once it has been revealed. */
-                    fetch_action.set_state (true);
+                    show_find_action.set_state (true);
                 }
             } else {
                 set_search_text ();
@@ -990,7 +1018,11 @@ namespace Scratch {
 
         private void action_find_global (SimpleAction action, Variant? param) {
             var current_doc = get_current_document ();
-            var selected_text = current_doc.get_selected_text (false);
+            string selected_text = "";
+            if (current_doc != null) {
+                selected_text = current_doc.get_selected_text (false);
+            }
+
             if (selected_text != "") {
                 selected_text = selected_text.split ("\n", 2)[0];
             }
@@ -1007,6 +1039,21 @@ namespace Scratch {
             }
 
             folder_manager_view.search_global (get_target_path_for_actions (param), term);
+        }
+
+        private void update_find_actions () {
+            // Idle needed to ensure that existence of current_doc is up to date
+            Idle.add (() => {
+                var is_current_doc = get_current_document () != null;
+                Utils.action_from_group (ACTION_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
+
+                var is_active_project = Services.GitManager.get_instance ().active_project_path != "";
+                Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_active_project);
+                return Source.REMOVE;
+            });
         }
 
         private void set_search_text () {

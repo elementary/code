@@ -174,7 +174,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         foreach (var item in root.children) {
             if (item is ProjectFolderItem) {
                 var folder = (ProjectFolderItem)item;
-                if (folder.is_git_repo && folder.contains_file (file)) {
+                if (folder.contains_file (file)) {
                     return folder;
                 }
             }

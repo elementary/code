@@ -1,7 +1,7 @@
 project(
     'io.elementary.code',
     'vala', 'c',
-    version: '6.2.0'
+    version: '7.0.0'
 )
 
 add_project_arguments([
@@ -66,6 +66,13 @@ dependencies = [
     vala_dep,
     vte_dep
 ]
+
+git = find_program('git', required: false)
+branch = ''
+if get_option('development') and git.found ()
+    output = run_command('git','branch','--show-current', check: false)
+    branch = output.stdout().strip()
+endif
 
 subdir('data')
 subdir('src')
