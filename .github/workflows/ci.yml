@@ -10,9 +10,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [stable, unstable, development-target]
     container:
-      image: elementary/docker:next-unstable
+      image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
     - uses: actions/checkout@v3
@@ -38,7 +41,7 @@ jobs:
       fail-fast: false
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:6-${{ matrix.arch }}
+      image: ghcr.io/elementary/flatpak-platform/runtime:7.1-${{ matrix.arch }}
       options: --privileged
 
     steps:
@@ -47,16 +50,15 @@ jobs:
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
         with:
           platforms: arm64
 
       - name: Build
-        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v5
         with:
           bundle: code.flatpak
           manifest-path: io.elementary.code.yml
-          run-tests: true
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"

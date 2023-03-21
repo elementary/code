@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 17:39+0000\n"
+"POT-Creation-Date: 2023-03-18 09:21+0000\n"
 "PO-Revision-Date: 2022-09-10 09:55+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/code.metainfo.xml.in:9 data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "كۆد"
 
@@ -144,85 +144,89 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
 
-#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:99
-#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:151
-msgid "Improvements:"
-msgstr "پێشکەوتنەکان:"
-
-#: data/code.metainfo.xml.in:69
-msgid "Redesigned app icon"
-msgstr ""
-
-#: data/code.metainfo.xml.in:70
-msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
-
-#: data/code.metainfo.xml.in:71
-msgid "Option to follow the system dark style preference"
-msgstr "بژاردەیەک بۆ وەرگرتنی هەمان دۆخی سیستەم (تاریک و ڕووناک)"
-
-#: data/code.metainfo.xml.in:72
-msgid "Ability to half tile on small notebook displays"
-msgstr ""
-
-#: data/code.metainfo.xml.in:74 data/code.metainfo.xml.in:114
-#: data/code.metainfo.xml.in:136 data/code.metainfo.xml.in:155
-#: data/code.metainfo.xml.in:176
+#: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:90
+#: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:171
 msgid "Minor updates:"
 msgstr "وردە نوێکارییەکان:"
 
-#: data/code.metainfo.xml.in:76
+#: data/code.metainfo.xml.in:69
+msgid "Show when running a development branch of Code"
+msgstr ""
+
+#: data/code.metainfo.xml.in:70 data/code.metainfo.xml.in:100
+#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:174
+msgid "Updated translations"
+msgstr "وەرگێڕانەکان نوێکراونەوە"
+
+#: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:167
+msgid "Improvements:"
+msgstr "پێشکەوتنەکان:"
+
+#: data/code.metainfo.xml.in:85
+msgid "Redesigned app icon"
+msgstr ""
+
+#: data/code.metainfo.xml.in:86
+msgid "New custom dark and light elementary styles for the source view"
+msgstr ""
+
+#: data/code.metainfo.xml.in:87
+msgid "Option to follow the system dark style preference"
+msgstr "بژاردەیەک بۆ وەرگرتنی هەمان دۆخی سیستەم (تاریک و ڕووناک)"
+
+#: data/code.metainfo.xml.in:88
+msgid "Ability to half tile on small notebook displays"
+msgstr ""
+
+#: data/code.metainfo.xml.in:92
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:77
+#: data/code.metainfo.xml.in:93
 msgid ""
-"Options for hiding and showing panels and now all present in a compact set "
+"Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
 
-#: data/code.metainfo.xml.in:78
+#: data/code.metainfo.xml.in:94
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
 
-#: data/code.metainfo.xml.in:79
-msgid "Started a global search with text selected now pre-fills that text"
+#: data/code.metainfo.xml.in:95
+msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 
-#: data/code.metainfo.xml.in:80
+#: data/code.metainfo.xml.in:96
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:81
+#: data/code.metainfo.xml.in:97
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
 
-#: data/code.metainfo.xml.in:82
+#: data/code.metainfo.xml.in:98
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
 
-#: data/code.metainfo.xml.in:83
+#: data/code.metainfo.xml.in:99
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:116
-#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:158
-#: data/code.metainfo.xml.in:195
-msgid "Updated translations"
-msgstr "وەرگێڕانەکان نوێکراونەوە"
-
-#: data/code.metainfo.xml.in:101
+#: data/code.metainfo.xml.in:117
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -230,27 +234,27 @@ msgstr ""
 "لە کاتی مەڵتی تاسکینگدا، ناوی پەڕگەی کراوە وەکو لە تایتڵی پەنجەرەدا "
 "دەردەکەوێت"
 
-#: data/code.metainfo.xml.in:102
+#: data/code.metainfo.xml.in:118
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "بوخچە شاراوەکان لە سایدباڕی پڕۆژەکدا دەردەکەون"
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:119
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
 "ئەنجامە دیاریکراوەکانی ئێستا و ژمارەی ئەنجامەکان پیشان دەدرێن لەکاتی گەڕان"
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:120
 msgid "The search bar now has a regular expression mode"
 msgstr "شریتی گەڕان ئێستا دۆخی دەربڕینی ئاسایی هەیە"
 
-#: data/code.metainfo.xml.in:106 data/code.metainfo.xml.in:130
-#: data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:146
+#: data/code.metainfo.xml.in:162
 msgid "Fixes:"
 msgstr "چاککردنەکان:"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:124
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -258,53 +262,53 @@ msgstr ""
 "ئێستا دەتوانرێ برانچی گیت بگۆڕیت لەگەڵ فایلە نەدۆزراوەکان کە لە پرۆژەکەدا "
 "هەیە"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:125
 msgid "Crashes are prevented while searching in large projects"
 msgstr "ڕێگری لە تێکچوونی کۆد کراوە لەکاتی گەڕان لە پڕۆژە گەورەکاندا"
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:126
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
 "دۆکیومێنتە دروستەکە ئێستا سەرنجدراوە دوای کردنەوەی کۆد لە بەرنامەیەکی دەرەکی"
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:127
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 "بە دووکردنی دێڕ ئێستا بە دروستی کارپێکراوە ئەگەر هیچ دیاریکردنێک بوونی نەبێت"
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:128
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 "ئەپەکە لەکار ناکەوێت ئەگەر داوای لێ بکرێت فۆڕماتێکی نەزانرای URI بکاتەوە"
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:141
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr "ئێستا ئەو پڕۆژانەی کە هەمان ناویان هەیە، ناوی باوانیشیان پشان دەدرێت"
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:142
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 "کاتێك سكڕۆڵ دەکەیت بۆ ئەنجامەکانی گەڕان، کەمێك زیاتر بڕۆ خوارەوە بۆ بینینێکی "
 "باشتر"
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:143
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr "بەکارهێنانی دەرچەی FileChooser لە جێگەی دانەکەی GTK"
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:144
 msgid "Center the global search dialog over the main Code window"
 msgstr "دایەلۆگی گەڕانی گشتی خراوەتە ناوەڕاست، بەسەر پەنجەرەی سەرەکی کۆددا"
 
-#: data/code.metainfo.xml.in:132
+#: data/code.metainfo.xml.in:148
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr "چارەسەرکردنی دەرکەوتنی دوگمەی تێرمیناڵ لە پەنجەرەی بەخێرهاتندا"
 
-#: data/code.metainfo.xml.in:133
+#: data/code.metainfo.xml.in:149
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -312,7 +316,7 @@ msgstr ""
 "چاککردنی هەندێک کورتەڕێی تەختەکلیل کە کاردەکاتە سەر ئەو دۆکیومێنتەی کە "
 "سەرنجی نەخراوەتەوە سەر بەجێگەی تێرمیناڵی سەرنج دراو"
 
-#: data/code.metainfo.xml.in:134
+#: data/code.metainfo.xml.in:150
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
@@ -320,134 +324,30 @@ msgstr ""
 "داخستنی تێرمیناڵ ئەگەر شێڵ بوونی هەبوو و دروستکردنی تێرمیناڵێکی نوێ ئەگەر "
 "دوبارە بەبێ شێڵ کرایەوە"
 
-#: data/code.metainfo.xml.in:138
+#: data/code.metainfo.xml.in:154
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "کۆمبۆبۆکسی \"بۆشایی سپی دیار\" ئێستا بووە بە سویچ"
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:164
 msgid "Fix crash when creating new window from tab drop"
 msgstr "چارەسەرکردنی تێکچوون کاتێک پەنجەرەیەکی نوێ لە تاب درۆپەوە دەکەیەوە"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:165
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr ""
 "دڵنیابوونەوە لە بوونەوەی خۆکارانەی ئەو پەڕگانەی کە لە سایدباڕدا دروست دەکرێن"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:169
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "شاردنەوەی دوگمەی هەڵبژێرەری پڕۆژە کاتێک سایدباڕ دەشارییەوە"
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:173
 msgid "Ensure all copy is translatable"
 msgstr "دڵنیابوونەوە لەوەی کە هەموو لەبەرگیراوەکان وەردەگێڕدرێن"
 
-#: data/code.metainfo.xml.in:165
-msgid "New features:"
-msgstr "تایبەتمەندییە تازەکان:"
-
-#: data/code.metainfo.xml.in:167
-msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "پێوەکراوی نوێی مارک داون بۆ دەستکاریکردنی وەک WYSIWYG."
-
-#: data/code.metainfo.xml.in:168
-msgid "Switch Git branches or create new ones in project folder context menus"
-msgstr "گۆڕین یان دروستکردنی بڕانچی نوێی گیت لە لیستی دەقی بوخچەی پڕۆژە"
-
-#: data/code.metainfo.xml.in:169
-msgid "Show Git diff status in source view gutters"
-msgstr "پشاندانی دۆخی گیت دیف"
-
-#: data/code.metainfo.xml.in:170
-msgid "Full text search within project folder."
-msgstr "گەڕانی دەقی تەواو لە بوخچەی پڕۆژەدا."
-
-#: data/code.metainfo.xml.in:171
-msgid "Save and restore cursor position between sessions"
-msgstr "پاشەکەوتکردن و هێنانەوەی نیشاندەری دەق لە نێوان سێشنەکاندا"
-
-#: data/code.metainfo.xml.in:172
-msgid "Close files from a project when that project is closed"
-msgstr "داخستنی پەڕگەکانی پڕۆژەیەک کاتێک پڕۆژەکە دادەخەیت"
-
-#: data/code.metainfo.xml.in:173
-msgid "Show full file path in tab tooltips"
-msgstr "پشاندانی شوێنی تەواوی پەڕگە لە توڵتیپسی تابدا"
-
-#: data/code.metainfo.xml.in:174
-msgid "Clear lines with Ctrl + K"
-msgstr "پاککردەوەی دێڕەکان بە کۆنتڕۆڵ و K"
-
-#: data/code.metainfo.xml.in:178
-msgid "Allow Spell Checker extension in Markdown files"
-msgstr "ڕێگەدان بە کارکردنی پێوەکراوی هەڵەچنین لە پەڕگە مارکداونەکاندا"
-
-#: data/code.metainfo.xml.in:179
-msgid "Improve multi-line duplication"
-msgstr "گەشەدان بە بەدووکردنی جوت هێڵ"
-
-#: data/code.metainfo.xml.in:180
-msgid "Remember whether the sidebar is open"
-msgstr "بیریبێت کە سایدباڕ کراوەیە"
-
-#: data/code.metainfo.xml.in:181
-msgid "Set window title to the focused file"
-msgstr "گۆڕینی تایتڵی پەنجەرە بۆ فایلی کارا و سەرنج دراو"
-
-#: data/code.metainfo.xml.in:182
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "زیادکردنی کورتەڕێی تەختەکلیل بۆ دۆکیومێنتەکانی دواتر و پێشتر"
-
-#: data/code.metainfo.xml.in:183
-msgid "Show full document path in tab tooltip"
-msgstr "پشاندانی شوێنی تەواوی دۆکیومێنت لە توڵتیپی تابدا"
-
-#: data/code.metainfo.xml.in:184
-msgid "Update Pastebin plugin"
-msgstr "نوێکردنەوەی پێوەکراوی پەیست بین (Pastebin)"
-
-#: data/code.metainfo.xml.in:185
-msgid "Correctly indent last line when using the preserve whitespace plugin"
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
 msgstr ""
-"زیادکردنی بۆشایی سەرەتای دێڕ بۆ کۆتا دێڕ بەشێوەیەکی دروست کاتێک پێوەکراوی "
-"بۆشایی سپی بەکار دەهێنیت"
-
-#: data/code.metainfo.xml.in:186
-msgid "Keep syntax highlighting when duplicating a file"
-msgstr "هێشتنەوەی هایلایتکردنی سینتاکسلە کاتی بەدووکردنی پەڕگەیەک"
-
-#: data/code.metainfo.xml.in:187
-msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr "کردنەوەی بوخچەیەکی کۆکراوە ئەگەر هەوڵ بدەیت دوو جار بیکەیتەوە"
-
-#: data/code.metainfo.xml.in:188
-msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
-"چارەسەرکردنی کێشەیەک کە گەڕانەکان بزر دەبون کاتێک سەرنج لەسەر پەنجەری کۆد نە "
-"دەما"
-
-#: data/code.metainfo.xml.in:189
-msgid "Start Vim plugin in command mode"
-msgstr "دەستپێکردنی پێوەکراوی ڤیم (Vim) لە دۆخی فەرماندا"
-
-#: data/code.metainfo.xml.in:190
-msgid "Fix and add new Vim commands"
-msgstr "چاککردن و زیادکردنی فەرمانی نوێی ڤیم (Vim)"
-
-#: data/code.metainfo.xml.in:191
-msgid "Show project folders with a hidden root folder"
-msgstr "پشاندانی بوخچەکانی پڕۆژە لە بوخچەی ڕوتی شاراوەدا"
-
-#: data/code.metainfo.xml.in:192
-msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr "ڕێگەدان بە کردنەوە لەگەڵ pkexec و ڕێگە نەدان بە کردنەوە لەگەڵ sudo"
-
-#: data/code.metainfo.xml.in:193
-msgid "Remove split view"
-msgstr "رەشکردنی دیمەنی جیاکردنەوە"
-
-#: data/code.metainfo.xml.in:194
-msgid "Remove browser preview"
-msgstr "رەشکردنەوەی پێشبینینی وێبگەڕ"
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -456,10 +356,6 @@ msgstr "دەستکاریکردنی پەڕگەکانی کۆد"
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
 msgstr "دەستکاریکەری کۆد"
-
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
@@ -480,6 +376,89 @@ msgstr "کارپێکردنی کۆد وەکو ئەدمین"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "سەلماندنی ڕەسەنێتی پێویستە بۆ کارپێکردنی کۆد وەکو ئەدمین"
+
+#~ msgid "New features:"
+#~ msgstr "تایبەتمەندییە تازەکان:"
+
+#~ msgid "New Markdown plugin for WYSIWYG-like editing."
+#~ msgstr "پێوەکراوی نوێی مارک داون بۆ دەستکاریکردنی وەک WYSIWYG."
+
+#~ msgid ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+#~ msgstr "گۆڕین یان دروستکردنی بڕانچی نوێی گیت لە لیستی دەقی بوخچەی پڕۆژە"
+
+#~ msgid "Show Git diff status in source view gutters"
+#~ msgstr "پشاندانی دۆخی گیت دیف"
+
+#~ msgid "Full text search within project folder."
+#~ msgstr "گەڕانی دەقی تەواو لە بوخچەی پڕۆژەدا."
+
+#~ msgid "Save and restore cursor position between sessions"
+#~ msgstr "پاشەکەوتکردن و هێنانەوەی نیشاندەری دەق لە نێوان سێشنەکاندا"
+
+#~ msgid "Close files from a project when that project is closed"
+#~ msgstr "داخستنی پەڕگەکانی پڕۆژەیەک کاتێک پڕۆژەکە دادەخەیت"
+
+#~ msgid "Show full file path in tab tooltips"
+#~ msgstr "پشاندانی شوێنی تەواوی پەڕگە لە توڵتیپسی تابدا"
+
+#~ msgid "Clear lines with Ctrl + K"
+#~ msgstr "پاککردەوەی دێڕەکان بە کۆنتڕۆڵ و K"
+
+#~ msgid "Allow Spell Checker extension in Markdown files"
+#~ msgstr "ڕێگەدان بە کارکردنی پێوەکراوی هەڵەچنین لە پەڕگە مارکداونەکاندا"
+
+#~ msgid "Improve multi-line duplication"
+#~ msgstr "گەشەدان بە بەدووکردنی جوت هێڵ"
+
+#~ msgid "Remember whether the sidebar is open"
+#~ msgstr "بیریبێت کە سایدباڕ کراوەیە"
+
+#~ msgid "Set window title to the focused file"
+#~ msgstr "گۆڕینی تایتڵی پەنجەرە بۆ فایلی کارا و سەرنج دراو"
+
+#~ msgid "Add keyboard shortcuts for next and previous documents"
+#~ msgstr "زیادکردنی کورتەڕێی تەختەکلیل بۆ دۆکیومێنتەکانی دواتر و پێشتر"
+
+#~ msgid "Show full document path in tab tooltip"
+#~ msgstr "پشاندانی شوێنی تەواوی دۆکیومێنت لە توڵتیپی تابدا"
+
+#~ msgid "Update Pastebin plugin"
+#~ msgstr "نوێکردنەوەی پێوەکراوی پەیست بین (Pastebin)"
+
+#~ msgid "Correctly indent last line when using the preserve whitespace plugin"
+#~ msgstr ""
+#~ "زیادکردنی بۆشایی سەرەتای دێڕ بۆ کۆتا دێڕ بەشێوەیەکی دروست کاتێک پێوەکراوی "
+#~ "بۆشایی سپی بەکار دەهێنیت"
+
+#~ msgid "Keep syntax highlighting when duplicating a file"
+#~ msgstr "هێشتنەوەی هایلایتکردنی سینتاکسلە کاتی بەدووکردنی پەڕگەیەک"
+
+#~ msgid "Expand a collapsed folder if you attempt to open it twice"
+#~ msgstr "کردنەوەی بوخچەیەکی کۆکراوە ئەگەر هەوڵ بدەیت دوو جار بیکەیتەوە"
+
+#~ msgid "Fix an issue where searches are lost when Code loses focus"
+#~ msgstr ""
+#~ "چارەسەرکردنی کێشەیەک کە گەڕانەکان بزر دەبون کاتێک سەرنج لەسەر پەنجەری کۆد "
+#~ "نە دەما"
+
+#~ msgid "Start Vim plugin in command mode"
+#~ msgstr "دەستپێکردنی پێوەکراوی ڤیم (Vim) لە دۆخی فەرماندا"
+
+#~ msgid "Fix and add new Vim commands"
+#~ msgstr "چاککردن و زیادکردنی فەرمانی نوێی ڤیم (Vim)"
+
+#~ msgid "Show project folders with a hidden root folder"
+#~ msgstr "پشاندانی بوخچەکانی پڕۆژە لە بوخچەی ڕوتی شاراوەدا"
+
+#~ msgid "Allow launching with pkexec and disallow launching with sudo"
+#~ msgstr "ڕێگەدان بە کردنەوە لەگەڵ pkexec و ڕێگە نەدان بە کردنەوە لەگەڵ sudo"
+
+#~ msgid "Remove split view"
+#~ msgstr "رەشکردنی دیمەنی جیاکردنەوە"
+
+#~ msgid "Remove browser preview"
+#~ msgstr "رەشکردنەوەی پێشبینینی وێبگەڕ"
 
 #~ msgid "Drag and drop with text containing accented characters"
 #~ msgstr "ڕاکێشان و بەردانەوە بە دەقێک کە پیتی ئەکسێنتدی تێدایە"
