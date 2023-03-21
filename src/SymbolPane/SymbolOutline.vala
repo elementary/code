@@ -210,23 +210,23 @@ public abstract class Scratch.Services.SymbolOutline : Object {
     protected void schedule_refilter () {
         // Ensure a refilter happens at least 500mS later if not already
         // delayed.
-        if (!delay_refilter || refilter_timeout_id == 0) {
+        if (refilter_timeout_id > 0) {
             delay_refilter = true;
-            if (refilter_timeout_id == 0) {
-                refilter_timeout_id = Timeout.add (500, () => {
-                    if (delay_refilter) {
-                        delay_refilter = false;
-                        return Source.CONTINUE;
-                    } else {
-                        refilter_timeout_id = 0;
-                        store.refilter ();
-                        // Ensure new visible items shown when filter removed
-                        store.root.expand_all (true, true);
-                        return Source.REMOVE;
-                    }
-                });
-            }
+            return;
         }
+
+        refilter_timeout_id = Timeout.add (500, () => {
+            if (delay_refilter) {
+                delay_refilter = false;
+                return Source.CONTINUE;
+            } else {
+                refilter_timeout_id = 0;
+                store.refilter ();
+                // Ensure new visible items shown when filter removed
+                store.root.expand_all (true, true);
+                return Source.REMOVE;
+            }
+        });
     }
 
     protected void set_up_css () {
