@@ -31,6 +31,12 @@ install_data(
 config_data = configuration_data()
 config_data.set('EXEC_NAME', meson.project_name())
 
+if (branch != '')
+    config_data.set('NAME', 'Code - ' + branch)
+else
+    config_data.set('NAME', 'Code')
+endif
+
 # Set the executable name and translate the desktop files
 desktop_in_file = configure_file(
     input: 'io.elementary.code.desktop.in.in',
