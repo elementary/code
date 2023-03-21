@@ -45,36 +45,45 @@ namespace Scratch.FolderManager {
             ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
-            toggled.connect (() => {
-                var root = get_root_folder ();
-                if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
-                    foreach (var child in file.children) {
-                        Granite.Widgets.SourceList.Item item = null;
-                        if (child.is_valid_directory ()) {
-                            item = new FolderItem (child, view);
-                        } else if (child.is_valid_textfile) {
-                            item = new FileItem (child, view);
-                        }
-
-                        if (item != null) {
-                            add (item);
-                        }
-                    }
-
-                    children_loaded = true;
-                    if (root != null) {
-                        root.child_folder_loaded (this);
-                    }
-                } else if (!expanded && root != null && root.monitored_repo != null) {
-                    root.update_item_status (this); //When toggled closed, update status to reflect hidden contents
-                }
-            });
+            toggled.connect (on_toggled);
 
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
                 monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
+            }
+        }
+
+        private void on_toggled () {
+            var root = get_root_folder ();
+            if (!children_loaded &&
+                 expanded &&
+                 n_children <= 1 &&
+                 file.children.size > 0) {
+
+                foreach (var child in file.children) {
+                    Granite.Widgets.SourceList.Item item = null;
+                    if (child.is_valid_directory ()) {
+                        item = new FolderItem (child, view);
+                    } else if (child.is_valid_textfile) {
+                        item = new FileItem (child, view);
+                    }
+
+                    if (item != null) {
+                        add (item);
+                    }
+                }
+
+                children_loaded = true;
+                if (root != null) {
+                    root.child_folder_loaded (this);
+                }
+            } else if (!expanded &&
+                       root != null &&
+                       root.monitored_repo != null) {
+                //When toggled closed, update status to reflect hidden contents
+                root.update_item_status (this);
             }
         }
 
@@ -232,7 +241,8 @@ namespace Scratch.FolderManager {
 
             view.ignore_next_select = true;
             ((Granite.Widgets.SourceList.ExpandableItem)this).remove (item);
-            if (!has_dummy && n_children == 0) {
+            // Add back dummy if empty unless we are removing a rename item
+            if (!(item is RenameItem || has_dummy || n_children > 0)) {
                 ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }
@@ -253,9 +263,15 @@ namespace Scratch.FolderManager {
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         file.invalidate_cache (); //TODO Throttle if required
+                        if (expanded) {
+                            toggled ();
+                        }
                         break;
                     case GLib.FileMonitorEvent.CREATED:
                         file.invalidate_cache ();  //TODO Throttle if required
+                        if (expanded) {
+                            toggled ();
+                        }
                         break;
                     case FileMonitorEvent.RENAMED:
                     case FileMonitorEvent.PRE_UNMOUNT:
