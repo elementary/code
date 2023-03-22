@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-12 20:25+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -465,16 +465,13 @@ msgid "Continue"
 msgstr "Fortfahren"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Sie können die Änderungen an der Datei »%s« nicht speichern. Möchten Sie die "
-"Änderungen an einem anderen Ort speichern?"
+"Sie können das Dokument nicht in »%s« speichern. Möchten Sie die Datei an "
+"einem anderen Ort speichern?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -486,10 +483,8 @@ msgstr ""
 "Änderungen an einem anderen Ort speichern?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Aktuelle Datei speichern"
+msgstr "Dokument an anderem Ort speichern"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
