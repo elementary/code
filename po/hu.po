@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-14 13:25+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:39
@@ -464,16 +464,13 @@ msgid "Continue"
 msgstr "Folytatás"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
-"módosításait egy másik helyre menteni?"
+"Nem menthető a dokumentum a(z) \"%s\" helyre. Szeretné a fájlt egy másik "
+"helyre menteni?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -485,10 +482,8 @@ msgstr ""
 "módosításait egy másik helyre menteni?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "A jelenlegi fájl mentése"
+msgstr "A dokumentum mentése máshova"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
