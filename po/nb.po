@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-02-14 13:25+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -45,10 +45,9 @@ msgid "[FILE…]"
 msgstr "[FIL…]"
 
 #: src/MainWindow.vala:203
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Kode"
+msgstr "Kode (%s)"
 
 #: src/MainWindow.vala:205
 msgid "Code"
@@ -468,16 +467,12 @@ msgid "Continue"
 msgstr "Fortsett"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Du kan ikke lagre endringer i filen \"%s\". Ønsker du å lagre endringene et "
-"annet sted?"
+"Du kan ikke lagre dokumentet i «%s». Ønsker du å lagre filen et annet sted?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -489,10 +484,8 @@ msgstr ""
 "annet sted?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Lagre aktiv fil"
+msgstr "Lagre dokumentet et annet sted"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -542,10 +535,8 @@ msgid "Plain Text"
 msgstr "Klartekst"
 
 #: src/Widgets/FormatBar.vala:145
-#, fuzzy
-#| msgid "Indent width and style set by EditorConfig file"
 msgid "Some settings set by EditorConfig file"
-msgstr "Innrykksbredde og stil satt av EditorConfig-filen"
+msgstr "Noen innstillinger satt av EditorConfig-filen"
 
 #: src/Widgets/FormatBar.vala:148
 msgid "Automatic Indentation"
@@ -650,10 +641,8 @@ msgid "Find"
 msgstr "Søk"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "resultatløst"
+msgstr "Resultatløst"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -673,7 +662,7 @@ msgstr "Aldri"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Små og store bokstaver"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -691,13 +680,11 @@ msgstr "Bruk regulære uttrykk"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Jamfør hele ord"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Søk forrige"
+msgstr "Søkealternativer"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
