@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-22 03:59+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -645,10 +645,8 @@ msgid "Find"
 msgstr "Szukaj"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "brak wyników"
+msgstr "Brak wyników"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -668,7 +666,7 @@ msgstr "Nigdy"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Różnymi literami"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -679,20 +677,16 @@ msgid "Case Sensitive"
 msgstr "Wielkość liter ma znaczenie"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Użyj wyrażeń regularnych"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Dopasuj całe słowa"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Wyszukaj poprzednie"
+msgstr "Opcje wyszukiwania"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
