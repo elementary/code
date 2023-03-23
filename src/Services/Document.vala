@@ -93,6 +93,7 @@ namespace Scratch.Services {
         private string last_save_content;
         public bool saved = true;
         private bool completion_shown = false;
+        private bool ignore_external_changes = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -251,6 +252,8 @@ namespace Scratch.Services {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
             loaded = false;
+            ignore_external_changes = false;
+
             if (load_cancellable != null) { /* just in case */
                 load_cancellable.cancel ();
             }
@@ -557,9 +560,9 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
-                source_view.buffer.set_modified (true);
                 is_saved = yield save (true, true);
                 if (is_saved) {
+                    source_view.buffer.set_modified (false);
                     if (is_current_file_temporary) {
                         try {
                             // Delete temporary file
@@ -806,8 +809,14 @@ namespace Scratch.Services {
                 this.source_view.editable = true;
             }
 
-            // Detect external changes
-            if (loaded) {
+            // Detect external changes by comparing file content with buffer content.
+            // Only done when no unsaved internal changes else  difference from saved
+            // file are to be expected. If user selects to continue regardless then no further
+            // check made for this document - external changes will be overwritten on next (auto) save
+            if (loaded &&
+                !source_view.buffer.get_modified () &&
+                !ignore_external_changes) {
+
                 var new_buffer = new Gtk.SourceBuffer (null);
                 var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
                 source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
@@ -823,22 +832,26 @@ namespace Scratch.Services {
                         return;
                     }
 
-                    if (!source_view.buffer.get_modified ()) {
-                        if (Scratch.settings.get_boolean ("autosave")) {
-                            source_view.set_text (new_buffer.text, false);
-                        } else {
-                            string message = _(
-        "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
-                            ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                            set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                                this.source_view.set_text (new_buffer.text, false);
-                                hide_info_bar ();
-                            }, _("Continue"), () => {
-                                hide_info_bar ();
-                            });
-                        }
+                    string message;
+                    if (Scratch.settings.get_boolean ("autosave")) {
+                        message = _(
+    "File \"%s\" was modified by an external application. Do you want to reload the document? \nOtherwise, if you continue, the external changes will be overwritten by your next edit and any further external changes will be ignored."
+                        ).printf ("<b>%s</b>".printf (get_basename ()));
+                    } else {
+                        message = _(
+    "File \"%s\" was modified by an external application. Do you want to reload the document? \nOtherwise, if you continue, the external changes will be overwritten by your next save and any further external changes will be ignored."
+                        ).printf ("<b>%s</b>".printf (get_basename ()));
                     }
+
+                    set_message (Gtk.MessageType.WARNING, message, _("Reload"), () => {
+                        // this.source_view.set_text (new_buffer.text, false);
+                        // set_modified (false);
+                        hide_info_bar ();
+                        this.open.begin (true);
+                    }, _("Continue"), () => {
+                        hide_info_bar ();
+                        ignore_external_changes = true;
+                    });
                 });
             }
         }
