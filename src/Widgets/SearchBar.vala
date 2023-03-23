@@ -152,8 +152,8 @@ namespace Scratch.Widgets {
             };
             search_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             search_box.add (search_entry);
-            search_box.add (tool_arrow_up);
             search_box.add (tool_arrow_down);
+            search_box.add (tool_arrow_up);
             search_box.add (search_menubutton);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
