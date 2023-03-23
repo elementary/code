@@ -67,16 +67,12 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            get_style_context ().add_class ("search-bar");
-
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
 
-            search_occurence_count_label = new Gtk.Label (_("no results")) {
-                margin_start = 4,
-                margin_end = 4
-            };
+            search_occurence_count_label = new Gtk.Label (_("No Results"));
+            search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
@@ -89,7 +85,6 @@ namespace Scratch.Widgets {
                 ),
                 _("Search next")
             );
-            tool_arrow_down.set_margin_start (4);
 
             tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_up.clicked.connect (search_previous);
@@ -102,40 +97,45 @@ namespace Scratch.Widgets {
             );
 
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
-            case_sensitive_search_button = new Gtk.ComboBoxText () {
-                margin_start = 16,
-                margin_end = 16
-            };
+
+            case_sensitive_search_button = new Gtk.ComboBoxText ();
             case_sensitive_search_button.append (null, _("Never"));
-            case_sensitive_search_button.append (null, _("Mixed Case Only"));
+            case_sensitive_search_button.append (null, _("Mixed Case"));
             case_sensitive_search_button.append (null, _("Always"));
-            case_sensitive_search_button.active = 0;
-            var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive")) {
-                xalign = 0.0f,
-                margin_start = 16
-            };
+            case_sensitive_search_button.active = 1;
 
-            regex_search_button = new Granite.SwitchModelButton (_("Regex Search"));
-            whole_word_search_button = new Granite.SwitchModelButton (_("Whole Word Search"));
+            var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
 
-            var search_option_grid = new Gtk.Grid () {
-                column_homogeneous = true
+            var case_sensitive_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+            case_sensitive_box.add (case_sensitive_search_label);
+            case_sensitive_box.add (case_sensitive_search_button);
+            case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+            regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
+            whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
+
+            var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+                margin_top = 3,
+                margin_bottom = 3
             };
-            search_option_grid.attach (cycle_search_button, 0, 0, 2, 1);
-            search_option_grid.attach (case_sensitive_search_label, 0, 1, 1, 1);
-            search_option_grid.attach (case_sensitive_search_button, 1, 1, 1, 1);
-            search_option_grid.attach (whole_word_search_button, 0, 2, 2, 1);
-            search_option_grid.attach (regex_search_button, 0, 3, 2, 1);
+            search_option_box.add (cycle_search_button);
+            search_option_box.add (case_sensitive_box);
+            search_option_box.add (whole_word_search_button);
+            search_option_box.add (regex_search_button);
 
             var search_popover = new Gtk.Popover (null);
-            search_popover.add (search_option_grid);
+            search_popover.add (search_option_box);
             search_popover.show_all ();
 
-            var search_menu = new Gtk.MenuButton () {
-                image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+            var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+            search_buttonbox.add (search_occurence_count_label);
+            search_buttonbox.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
+
+            var search_menubutton = new Gtk.MenuButton () {
                 popover = search_popover,
                 tooltip_text = _("Search Options")
             };
+            search_menubutton.add (search_buttonbox);
 
             cycle_search_button.toggled.connect (on_search_entry_text_changed);
             case_sensitive_search_button.changed.connect (on_search_entry_text_changed);
@@ -144,16 +144,21 @@ namespace Scratch.Widgets {
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
 
-            var search_grid = new Gtk.Grid ();
-            search_grid.margin = 3;
-            search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-            search_grid.add (search_entry);
-            search_grid.add (search_occurence_count_label);
-            search_grid.add (search_menu);
+            var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                margin_top = 3,
+                margin_end = 3,
+                margin_bottom = 3,
+                margin_start = 6
+            };
+            search_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            search_box.add (search_entry);
+            search_box.add (tool_arrow_up);
+            search_box.add (tool_arrow_down);
+            search_box.add (search_menubutton);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
             search_flow_box_child.can_focus = false;
-            search_flow_box_child.add (search_grid);
+            search_flow_box_child.add (search_box);
 
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.hexpand = true;
@@ -166,8 +171,12 @@ namespace Scratch.Widgets {
             replace_all_tool_button = new Gtk.Button.with_label (_("Replace all"));
             replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
 
-            var replace_grid = new Gtk.Grid ();
-            replace_grid.margin = 3;
+            var replace_grid = new Gtk.Grid () {
+                margin_top = 3,
+                margin_end = 6,
+                margin_bottom = 3,
+                margin_start = 3
+            };
             replace_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
             replace_grid.add (replace_entry);
             replace_grid.add (replace_tool_button);
@@ -200,6 +209,7 @@ namespace Scratch.Widgets {
             selection_mode = Gtk.SelectionMode.NONE;
             column_spacing = 6;
             max_children_per_line = 2;
+            get_style_context ().add_class ("search-bar");
             add (search_flow_box_child);
             add (replace_flow_box_child);
 
