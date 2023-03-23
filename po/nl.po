@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-11 17:36+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -463,16 +463,13 @@ msgid "Continue"
 msgstr "Doorgaan"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"U kunt de wijzigingen in het bestand \"%s\" niet opslaan. Wilt u een kopie "
-"van dit bestand opslaan op een andere locatie?"
+"U kunt het document niet opslaan in \"%s\". Wilt u het bestand ergens anders "
+"opslaan?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -484,10 +481,8 @@ msgstr ""
 "van dit bestand opslaan op een andere locatie?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Huidige bestand opslaan"
+msgstr "Huidige bestand elders opslaan"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
