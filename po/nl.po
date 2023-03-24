@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-22 03:59+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -638,10 +638,8 @@ msgid "Find"
 msgstr "Zoek"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "geen resultaten"
+msgstr "Geen resultaten"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -661,7 +659,7 @@ msgstr "Nooit"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Gemixte boven- en onderkast"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -672,20 +670,16 @@ msgid "Case Sensitive"
 msgstr "Hoofdletter gevoelig"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Gebruik reguliere uitdrukkingen"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Hele woorden matchen"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Vorige zoeken"
+msgstr "Zoekinstellingen"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
