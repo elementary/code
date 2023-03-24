@@ -93,7 +93,7 @@ namespace Scratch.Services {
         private string last_save_content;
         public bool saved = true;
         private bool completion_shown = false;
-        private bool ignore_external_changes = false;
+        private bool inhibit_autosave = false;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -184,7 +184,7 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("autosave")) {
+                if (Scratch.settings.get_boolean ("autosave") && !inhibit_autosave) {
                     save.begin ();
                 }
 
@@ -228,7 +228,7 @@ namespace Scratch.Services {
                     onchange_handler_id = source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
-                        if (Scratch.settings.get_boolean ("autosave")) {
+                        if (Scratch.settings.get_boolean ("autosave") && !inhibit_autosave) {
                             if (timeout_saving > 0) {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
@@ -252,7 +252,7 @@ namespace Scratch.Services {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
             loaded = false;
-            ignore_external_changes = false;
+            inhibit_autosave = false;
 
             if (load_cancellable != null) { /* just in case */
                 load_cancellable.cancel ();
@@ -515,6 +515,11 @@ namespace Scratch.Services {
 
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
+            // If saving in response to external changes hide the infobar now.
+            if (inhibit_autosave) {
+                inhibit_autosave = false;
+                hide_info_bar ();
+            }
 
             debug ("File \"%s\" saved successfully", get_basename ());
 
@@ -813,10 +818,7 @@ namespace Scratch.Services {
             // Only done when no unsaved internal changes else  difference from saved
             // file are to be expected. If user selects to continue regardless then no further
             // check made for this document - external changes will be overwritten on next (auto) save
-            if (loaded &&
-                !source_view.buffer.get_modified () &&
-                !ignore_external_changes) {
-
+            if (loaded) {
                 var new_buffer = new Gtk.SourceBuffer (null);
                 var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
                 source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
@@ -828,30 +830,37 @@ namespace Scratch.Services {
                         return;
                     }
 
-                    if (source_view.buffer.text == new_buffer.text) {
+                    if (last_save_content == new_buffer.text) {
                         return;
                     }
 
                     string message;
-                    if (Scratch.settings.get_boolean ("autosave")) {
-                        message = _(
-    "File \"%s\" was modified by an external application. Do you want to reload the document? \nOtherwise, if you continue, the external changes will be overwritten by your next edit and any further external changes will be ignored."
-                        ).printf ("<b>%s</b>".printf (get_basename ()));
+                    if (source_view.buffer.get_modified ()) {
+                            message = _(
+        "File \"%s\" was modified by an external application. \nThere are also unsaved changes. \nReload the document and lose the unsaved changes? \nOtherwise, overwrite the external changes or save with a different name."
+                            ).printf ("<b>%s</b>".printf (get_basename ()));
                     } else {
-                        message = _(
-    "File \"%s\" was modified by an external application. Do you want to reload the document? \nOtherwise, if you continue, the external changes will be overwritten by your next save and any further external changes will be ignored."
-                        ).printf ("<b>%s</b>".printf (get_basename ()));
+                            message = _(
+        "File \"%s\" was modified by an external application. \nReload the document? \nOtherwise, overwrite the external changes or save with a different name."
+                            ).printf ("<b>%s</b>".printf (get_basename ()));
                     }
 
-                    set_message (Gtk.MessageType.WARNING, message, _("Reload"), () => {
-                        // this.source_view.set_text (new_buffer.text, false);
-                        // set_modified (false);
-                        hide_info_bar ();
-                        this.open.begin (true);
-                    }, _("Continue"), () => {
-                        hide_info_bar ();
-                        ignore_external_changes = true;
-                    });
+                    inhibit_autosave = true;
+                    set_message (
+                        Gtk.MessageType.WARNING,
+                        message,
+                        _("Reload"), () => {
+                            source_view.buffer.text = new_buffer.text;
+                            source_view.buffer.set_modified (false);
+                            last_save_content = source_view.buffer.text;
+                            set_saved_status (true);
+                            inhibit_autosave = false;
+                            hide_info_bar ();
+                        },
+                        _("Overwrite"), () => {
+                            save_with_hold.begin (true, false);
+                        }
+                    );
                 });
             }
         }
