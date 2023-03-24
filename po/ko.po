@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"POT-Creation-Date: 2023-03-24 23:26+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -43,43 +43,43 @@ msgstr "플러그인"
 msgid "[FILE…]"
 msgstr "[파일…]"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:205
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "코드"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:319
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "프로젝트에서 찾기…"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:335
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:340
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "미리 보기"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:349
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:354
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
@@ -87,39 +87,39 @@ msgstr "심볼이 없습니다"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:523
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:528
+#: src/MainWindow.vala:830 src/Services/Document.vala:526
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:532
+#: src/MainWindow.vala:834 src/Services/Document.vala:530
 msgid "Text files"
 msgstr "텍스트 파일"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
+#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "취소"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -383,8 +383,9 @@ msgid "Load Anyway"
 msgstr "그래도 가져오기"
 
 #: src/Services/Document.vala:300
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+#, fuzzy, c-format
+#| msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "파일 \"%s\" 불러 오는데 시간이 오래 걸립니다"
 
 #: src/Services/Document.vala:301
@@ -395,98 +396,124 @@ msgstr "코드가 파일을 불러오는 동안 기다려주세요."
 msgid "Cancel Loading"
 msgstr "불러오기 취소"
 
-#: src/Services/Document.vala:395
-#, c-format
-msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:393
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "닫기 전에 %s 문서의 변경 사항을 저장하시겠습니까?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:394
 msgid "If you don't save, changes will be permanently lost."
 msgstr "저장하지 않으면, 변경한 내용은 사라집니다."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:400
 msgid "Close Without Saving"
 msgstr "저장하지 않고 닫기"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:539
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:404 src/Services/Document.vala:537
+#: src/Services/Document.vala:814
 msgid "Save"
 msgstr "저장"
 
-#: src/Services/Document.vala:536
+#: src/Services/Document.vala:534
 msgid "Save File"
 msgstr "파일 저장"
 
-#: src/Services/Document.vala:623 src/Services/Document.vala:641
+#: src/Services/Document.vala:621 src/Services/Document.vala:639
 msgid "New Document"
 msgstr "새 문서"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:764
-#, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "파일 \"%s\" 읽을 수 없습니다"
+#: src/Services/Document.vala:762
+#, fuzzy, c-format
+#| msgid "Search for text in “%s”"
+msgid "Cannot read text in file “%s”"
+msgstr "\"%s\"에서 텍스트 검색"
 
 #: src/Services/Document.vala:765
-msgid "It may be corrupt or you don't have permission to read it."
+#, fuzzy
+#| msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr "파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
 
-#: src/Services/Document.vala:778
-#, c-format
+#: src/Services/Document.vala:767
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:773
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "그래도 가져오기"
+
+#: src/Services/Document.vala:802
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
+"The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:805
 msgid "Save As…"
 msgstr "다른 이름으로 저장…"
 
-#: src/Services/Document.vala:787
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:811
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
 
-#: src/Services/Document.vala:831
-#, c-format
+#: src/Services/Document.vala:855
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
+"File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니"
 "면 편집을 계속하실건가요?"
 
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:858
 msgid "Load"
 msgstr "불러오기"
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:861
 msgid "Continue"
 msgstr "계속"
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:888
 #, fuzzy, c-format
 #| msgid ""
 #| "You cannot save changes to the file \"%s\". Do you want to save the "
 #| "changes somewhere else?"
 msgid ""
-"You cannot save the document to \"%s\". Do you want to save the file "
-"somewhere else?"
+"You cannot save the document to “%s”. Do you want to save the file somewhere "
+"else?"
 msgstr ""
 "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다"
 "른 위치에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:868
-#, c-format
+#: src/Services/Document.vala:892
+#, fuzzy, c-format
+#| msgid ""
+#| "You cannot save changes to the file \"%s\". Do you want to save the "
+#| "changes somewhere else?"
 msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다"
 "른 위치에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:899
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save the document elsewhere"
@@ -831,6 +858,10 @@ msgstr "적어도 맞춤법 사전 [aspell] 한 개는 설치해주세요."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "파일 \"%s\" 읽을 수 없습니다"
 
 #~ msgid "Case Insensitive"
 #~ msgstr "대소문자 구분"

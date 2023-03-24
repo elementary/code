@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"POT-Creation-Date: 2023-03-24 23:26+0000\n"
 "PO-Revision-Date: 2020-02-25 20:09+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/code/code/gl/>\n"
@@ -43,43 +43,43 @@ msgstr "complemento"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:205
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Code"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:319
 msgid "Hide search bar"
 msgstr "Agochar a barra de buscas"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Abrir un cartafol"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:335
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Agochar a barra de buscas"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:340
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Mostrar vista previa"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:349
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:354
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
@@ -87,39 +87,39 @@ msgstr "Simbolos"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:523
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:528
+#: src/MainWindow.vala:830 src/Services/Document.vala:526
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:532
+#: src/MainWindow.vala:834 src/Services/Document.vala:530
 msgid "Text files"
 msgstr "Ficheiros de texto"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "Abrir algúns ficheiros"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
+#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -401,8 +401,9 @@ msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
 #: src/Services/Document.vala:300
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+#, fuzzy, c-format
+#| msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Cargando Ficheiro \"%s\" Está a Tomar Moito Tempo"
 
 #: src/Services/Document.vala:301
@@ -413,99 +414,124 @@ msgstr "Por favor agarda mentres Code está cargando o ficheiro."
 msgid "Cancel Loading"
 msgstr "Cancelar carga"
 
-#: src/Services/Document.vala:395
-#, c-format
-msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:393
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Gardar os cambios ao documento «%s» antes de pechar?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:394
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Se non garda o documento, os cambios perderanse permanentemente."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:400
 msgid "Close Without Saving"
 msgstr "Pechar sen gardar cambios"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:539
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:404 src/Services/Document.vala:537
+#: src/Services/Document.vala:814
 msgid "Save"
 msgstr "Gardar"
 
-#: src/Services/Document.vala:536
+#: src/Services/Document.vala:534
 msgid "Save File"
 msgstr "Gardar o ficheiro"
 
-#: src/Services/Document.vala:623 src/Services/Document.vala:641
+#: src/Services/Document.vala:621 src/Services/Document.vala:639
 msgid "New Document"
 msgstr "Novo documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:764
+#: src/Services/Document.vala:762
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
+msgid "Cannot read text in file “%s”"
+msgstr ""
 
 #: src/Services/Document.vala:765
-msgid "It may be corrupt or you don't have permission to read it."
+#, fuzzy
+#| msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr "Talvez está danado ou non dispós dos permisos necesarios para lelo."
 
-#: src/Services/Document.vala:778
-#, c-format
+#: src/Services/Document.vala:767
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:773
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "Cargar de todos modos"
+
+#: src/Services/Document.vala:802
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
+"The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 "A ubicación que conten o arquivo \"%s\" está desmotanda. Quere gardar en "
 "outro sitio?"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:805
 msgid "Save As…"
 msgstr "Gardar como…"
 
-#: src/Services/Document.vala:787
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:811
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgstr "O arquivo \"%s\" foi eliminado. Desexa gardar de todas formas?"
 
-#: src/Services/Document.vala:831
-#, c-format
+#: src/Services/Document.vala:855
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
+"File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 "O arquivo \"%s\" foi modificado por unha aplicación externa. Desexa cargalo "
 "de novo ou continuar editando?"
 
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:858
 msgid "Load"
 msgstr "Cargar"
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:861
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:888
 #, fuzzy, c-format
 #| msgid ""
 #| "You cannot save changes to the file \"%s\". Do you want to save the "
 #| "changes somewhere else?"
 msgid ""
-"You cannot save the document to \"%s\". Do you want to save the file "
-"somewhere else?"
+"You cannot save the document to “%s”. Do you want to save the file somewhere "
+"else?"
 msgstr ""
 "Non se poden gardar os cambios no arquivo \"%s\". Quere gardar os cambios en "
 "outro lugar?"
 
-#: src/Services/Document.vala:868
-#, c-format
+#: src/Services/Document.vala:892
+#, fuzzy, c-format
+#| msgid ""
+#| "You cannot save changes to the file \"%s\". Do you want to save the "
+#| "changes somewhere else?"
 msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 "Non se poden gardar os cambios no arquivo \"%s\". Quere gardar os cambios en "
 "outro lugar?"
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:899
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save the document elsewhere"
@@ -854,6 +880,10 @@ msgstr "Por favor, instale polo menos un diccionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Completado de palabras"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
 
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Gardar os cambios noutro lugar"
