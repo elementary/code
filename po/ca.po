@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-22 03:59+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -638,10 +638,8 @@ msgid "Find"
 msgstr "Cerca"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "sense resultats"
+msgstr "Sense resultats"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -661,7 +659,7 @@ msgstr "Mai"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Majúscules i minúscules"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -672,20 +670,16 @@ msgid "Case Sensitive"
 msgstr "Distinció de majúscules"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Usa expressions regulars"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Coincidència de paraules senceres"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Cerca l'anterior"
+msgstr "Opcions de la cerca"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
