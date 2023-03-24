@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-22 03:59+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -640,8 +640,6 @@ msgid "Find"
 msgstr "Rechercher"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
 msgstr "Aucun résultat"
 
@@ -663,7 +661,7 @@ msgstr "Jamais"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Casse mixte"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -674,20 +672,16 @@ msgid "Case Sensitive"
 msgstr "Sensible à la casse"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Utiliser des expressions régulières"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Faire correspondre des mots entiers"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Rechercher le précédent"
+msgstr "Options de recherche"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
