@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-18 14:44+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -635,10 +635,8 @@ msgid "Find"
 msgstr "Find"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "no results"
+msgstr "No Results"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -658,7 +656,7 @@ msgstr "Never"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "Mixed Case"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
@@ -669,20 +667,16 @@ msgid "Case Sensitive"
 msgstr "Case Sensitive"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
-msgstr "Use regular expressions"
+msgstr "Use Regular Expressions"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Match Whole Words"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Search previous"
+msgstr "Search Options"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
