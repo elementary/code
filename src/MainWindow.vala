@@ -379,8 +379,6 @@ namespace Scratch {
                 folder_manager_view.clear_badges ();
             });
 
-            Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
-
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen

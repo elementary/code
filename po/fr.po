@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-16 09:25+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -78,39 +78,39 @@ msgstr "Afficher le contour des symboles"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -465,16 +465,13 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Impossible d'enregistrer les modifications dans le fichier « %s ». Voulez-"
-"vous les enregistrer dans un emplacement différent ?"
+"Impossible d'enregistrer le document dans « %s ». Voulez-vous enregistrer le "
+"fichier dans un emplacement différent ?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -486,10 +483,8 @@ msgstr ""
 "vous les enregistrer dans un emplacement différent ?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Enregistrer le fichier actuel"
+msgstr "Enregistrer le fichier ailleurs"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -640,56 +635,80 @@ msgstr "Trier par ordre alphabétique"
 msgid "Manage project folders"
 msgstr "Gérer les dossiers du projet"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "Rechercher"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+#, fuzzy
+#| msgid "no results"
+msgid "No Results"
 msgstr "Aucun résultat"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Rechercher le suivant"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Rechercher le précédent"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Recherche cyclique"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Jamais"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Toujours"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "Sensible à la casse"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "Insensible à la casse"
-
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions"
+msgid "Use Regular Expressions"
 msgstr "Utiliser des expressions régulières"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Rechercher le précédent"
+
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "Remplacer par"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "Remplacer"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
 msgstr "%d sur %d"
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
+msgstr "Aucun résultat"
 
 #: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
@@ -772,10 +791,6 @@ msgstr "Formats disponibles"
 msgid "Select Format"
 msgstr "Choisissez un format"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Jamais"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Dix minutes"
@@ -805,6 +820,9 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
 
+#~ msgid "Case Insensitive"
+#~ msgstr "Insensible à la casse"
+
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Enregistrer les modifications ailleurs"
 
@@ -828,9 +846,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "For selected text"
 #~ msgstr "Pour le texte sélectionné"
-
-#~ msgid "Always"
-#~ msgstr "Toujours"
 
 #~ msgid "High Contrast"
 #~ msgstr "Contraste élevé"
