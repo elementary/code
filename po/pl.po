@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-11 17:36+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -79,39 +79,39 @@ msgstr "Pokaż przegląd symboli"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -468,15 +468,12 @@ msgid "Continue"
 msgstr "Kontynuuj"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Nie można zapisać zmian w pliku \"%s\". Czy chcesz zapisać zmiany w innym "
+"Nie można zapisać dokumentu w \"%s\". Czy chcesz zapisać plik w innym "
 "miejscu?"
 
 #: src/Services/Document.vala:868
@@ -489,10 +486,8 @@ msgstr ""
 "miejscu?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Zapisuje bieżący plik"
+msgstr "Zapisuje dokument gdzie indziej"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -645,56 +640,80 @@ msgstr "Ułóż alfabetycznie"
 msgid "Manage project folders"
 msgstr "Zarządzaj folderami projektu"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "Szukaj"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+#, fuzzy
+#| msgid "no results"
+msgid "No Results"
 msgstr "brak wyników"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Wyszukaj następne"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Wyszukaj poprzednie"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Cykliczne wyszukiwanie"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Nigdy"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Zawsze"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "Wielkość liter ma znaczenie"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "Wielkość liter nie ma znaczenia"
-
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions"
+msgid "Use Regular Expressions"
 msgstr "Użyj wyrażeń regularnych"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Wyszukaj poprzednie"
+
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "Zastąp przez"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "Zastąp"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "Zastąp wszystko"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
 msgstr "%d z %d"
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
+msgstr "brak wyników"
 
 #: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
@@ -777,10 +796,6 @@ msgstr "Dostępne formaty"
 msgid "Select Format"
 msgstr "Wybierz format"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Nigdy"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "10 minut"
@@ -810,6 +825,9 @@ msgstr "Proszę zainstalować chociaż jeden słownik [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - uzupełnienie słowa"
 
+#~ msgid "Case Insensitive"
+#~ msgstr "Wielkość liter nie ma znaczenia"
+
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Zapisz zmiany w innym miejscu"
 
@@ -837,9 +855,6 @@ msgstr "%s - uzupełnienie słowa"
 
 #~ msgid "For selected text"
 #~ msgstr "Dla wybranego tekstu"
-
-#~ msgid "Always"
-#~ msgstr "Zawsze"
 
 #~ msgid "High Contrast"
 #~ msgstr "Wysoki kontrast"

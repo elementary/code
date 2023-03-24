@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -88,39 +88,39 @@ msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( va
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_الغاء"
 
@@ -676,57 +676,77 @@ msgstr "ترتيب بالأبجدية"
 msgid "Manage project folders"
 msgstr "إدارة مجلدات المشروع"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "بحث"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "البحث عن التالي"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "البحث عن السابق"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "دورة البحث"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "أبداً"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "دائما"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "حساسة لحالة الأحرف (يهم إذا الأحرف كبيرة أو صغيرة)"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "غير حساسة لحالة الأحرف (غير مهم الأحرف كبيرة أو صغيرة)"
-
-#: src/Widgets/SearchBar.vala:119
+#: src/Widgets/SearchBar.vala:114
 #, fuzzy
 #| msgid "Use regular expressions:"
-msgid "Use regular expressions"
+msgid "Use Regular Expressions"
 msgstr "استخدام التعابير النمطية:"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "البحث عن السابق"
+
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "استبدل بـ"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "إستبدال"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "استبدال الكل"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
 msgstr ""
 
 #: src/Widgets/SourceView.vala:519
@@ -814,10 +834,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "إختر الخط :"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "أبداً"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "10 دقائق"
@@ -847,6 +863,9 @@ msgstr "رجاءً قم بتثبيت قاموس [aspell] واحد على الأ�
 msgid "%s - Word Completion"
 msgstr "اتمام %s من الكلمات"
 
+#~ msgid "Case Insensitive"
+#~ msgstr "غير حساسة لحالة الأحرف (غير مهم الأحرف كبيرة أو صغيرة)"
+
 #~ msgid "Save changes elsewhere"
 #~ msgstr "احفظ التغييرات في مكان آخر"
 
@@ -869,9 +888,6 @@ msgstr "اتمام %s من الكلمات"
 
 #~ msgid "For selected text"
 #~ msgstr "للنصوص المختارة"
-
-#~ msgid "Always"
-#~ msgstr "دائما"
 
 #~ msgid "High Contrast"
 #~ msgstr "تباين عالي"

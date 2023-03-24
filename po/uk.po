@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
-"PO-Revision-Date: 2023-02-10 22:38+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -80,39 +80,39 @@ msgstr "Показати контур символу"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Текстові файли"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Відкрити файли"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -465,16 +465,12 @@ msgid "Continue"
 msgstr "Далі"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to \"%s\". Do you want to save the file "
 "somewhere else?"
 msgstr ""
-"Ви не можете зберегти зміни в файлі «%s». Бажаєте зберегти зміни до іншого "
-"місця?"
+"Ви не можете документ файлі «%s». Бажаєте зберегти файл до іншого місця?"
 
 #: src/Services/Document.vala:868
 #, c-format
@@ -486,10 +482,8 @@ msgstr ""
 "місця?"
 
 #: src/Services/Document.vala:875
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save the document elsewhere"
-msgstr "Зберегти поточний файл"
+msgstr "Зберегти документ в іншому місці"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -642,56 +636,80 @@ msgstr "За абеткою"
 msgid "Manage project folders"
 msgstr "Керувати теками проєкту"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "Знайти"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+#, fuzzy
+#| msgid "no results"
+msgid "No Results"
 msgstr "нічого не знайдено"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Шукати далі"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Шукати позаду"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Циклічний пошук"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Ніколи"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Завжди"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "З урахуванням регістру"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "Без врахування регістру"
-
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions"
+msgid "Use Regular Expressions"
 msgstr "Застосувати регулярний вираз"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Шукати позаду"
+
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "Замінити на"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "Замінити"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "Замінити все"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
 msgstr "%d з %d"
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
+msgstr "нічого не знайдено"
 
 #: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
@@ -774,10 +792,6 @@ msgstr "Доступні формати"
 msgid "Select Format"
 msgstr "Вибрати формат"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Ніколи"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Десять хвилин"
@@ -807,6 +821,9 @@ msgstr "Установіть принаймні один словник [aspell]
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"
 
+#~ msgid "Case Insensitive"
+#~ msgstr "Без врахування регістру"
+
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Зберегти зміни в іншому місці"
 
@@ -830,9 +847,6 @@ msgstr "%s - завершення слів"
 
 #~ msgid "For selected text"
 #~ msgstr "Для вибраного тексту"
-
-#~ msgid "Always"
-#~ msgstr "Завжди"
 
 #~ msgid "High Contrast"
 #~ msgstr "Висококонтрастна"

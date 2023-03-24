@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
 "PO-Revision-Date: 2022-11-12 13:29+0000\n"
 "Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
@@ -81,39 +81,39 @@ msgstr "符号"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "文本文档"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "打开文件"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_打开"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_取消"
 
@@ -641,55 +641,77 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "查找"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "查找下一个"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "查找上一个"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "循环查找"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "从不"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "总是"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions:"
+msgid "Use Regular Expressions"
+msgstr "使用正则表达式："
+
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
-msgstr ""
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "查找上一个"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "替换为"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "替换"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "替换全部"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
 msgstr ""
 
 #: src/Widgets/SourceView.vala:519
@@ -777,10 +799,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "格式:"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "从不"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "10分钟"
@@ -826,9 +844,6 @@ msgstr "%s - 单词完成"
 
 #~ msgid "For selected text"
 #~ msgstr "对于选择的文本"
-
-#~ msgid "Always"
-#~ msgstr "总是"
 
 #~ msgid "High Contrast"
 #~ msgstr "高对比度"
