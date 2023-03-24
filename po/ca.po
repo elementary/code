@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-18 09:21+0000\n"
+"POT-Creation-Date: 2023-03-23 20:40+0000\n"
 "PO-Revision-Date: 2023-03-22 03:59+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -78,39 +78,39 @@ msgstr "Mostra el contorn del símbol"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:523
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:528
+#: src/MainWindow.vala:828 src/Services/Document.vala:528
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:532
+#: src/MainWindow.vala:832 src/Services/Document.vala:532
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:836
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:839
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
 #: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:865
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:866
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -633,56 +633,80 @@ msgstr "Per ordre alfabètic"
 msgid "Manage project folders"
 msgstr "Gestioneu les carpetes de projectes"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:72
 msgid "Find"
 msgstr "Cerca"
 
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:531
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+#, fuzzy
+#| msgid "no results"
+msgid "No Results"
 msgstr "sense resultats"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Cerca el següent"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Cerca l'anterior"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Cerca cíclica"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Mai"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Sempre"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "Distinció de majúscules"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "No distinció de majúscules"
-
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions"
+msgid "Use Regular Expressions"
 msgstr "Usa expressions regulars"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Cerca l'anterior"
+
+#: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
 msgstr "Reemplaça amb"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace"
 msgstr "Reemplaça"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace all"
 msgstr "Reemplaça-ho tot"
 
-#: src/Widgets/SearchBar.vala:526
+#: src/Widgets/SearchBar.vala:566
 #, c-format
 msgid "%d of %d"
 msgstr "%d de %d"
+
+#: src/Widgets/SearchBar.vala:571
+msgid "no results"
+msgstr "sense resultats"
 
 #: src/Widgets/SourceView.vala:519
 msgid "Sort Selected Lines"
@@ -765,10 +789,6 @@ msgstr "Formats disponibles"
 msgid "Select Format"
 msgstr "Seleccioneu un format"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Mai"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Deu minuts"
@@ -798,6 +818,9 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
 
+#~ msgid "Case Insensitive"
+#~ msgstr "No distinció de majúscules"
+
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Desa els canvis a una altra ubicació"
 
@@ -821,9 +844,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "For selected text"
 #~ msgstr "Per al text seleccionat"
-
-#~ msgid "Always"
-#~ msgstr "Sempre"
 
 #~ msgid "High Contrast"
 #~ msgstr "Contrast alt"
