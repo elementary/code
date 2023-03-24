@@ -262,7 +262,7 @@ namespace Scratch.Services {
                 try {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
-                    warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
+                    warning ("Cannot create file “%s”: %s", get_basename (), e.message);
                     return;
                 }
             }
@@ -297,7 +297,7 @@ namespace Scratch.Services {
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
-                    var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
+                    var title = _("Loading File “%s” Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
                     alert_view.show_action (_("Cancel Loading"));
@@ -328,12 +328,11 @@ namespace Scratch.Services {
                 } else {
                     source_view.buffer.text = buffer.text;
                 }
-
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_default_load_error_view ();
                 working = false;
+                show_default_load_error_view (buffer.text);
                 return;
             } finally {
                 load_cancellable = null;
@@ -357,7 +356,6 @@ namespace Scratch.Services {
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
             set_saved_status (true);
-
             doc_opened ();
             source_view.sensitive = true;
 
@@ -392,7 +390,7 @@ namespace Scratch.Services {
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
 
                 var dialog = new Granite.MessageDialog (
-                    _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+                    _("Save changes to “%s” before closing?").printf (this.get_basename ()),
                     _("If you don't save, changes will be permanently lost."),
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.NONE
@@ -495,7 +493,7 @@ namespace Scratch.Services {
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19) {
-                    warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                    warning ("Cannot save “%s”: %s", get_basename (), e.message);
                     // If called by `save_as ()` then that function will show infobar
                     if (!saving_as) {
                         ask_save_location (false);
@@ -513,7 +511,7 @@ namespace Scratch.Services {
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
 
-            debug ("File \"%s\" saved successfully", get_basename ());
+            debug ("File “%s” saved successfully", get_basename ());
 
             return true;
         }
@@ -760,10 +758,36 @@ namespace Scratch.Services {
         }
 
         // Show an error view which says "Hey, I cannot read that file!"
-        private void show_default_load_error_view () {
-            var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("It may be corrupt or you don't have permission to read it.");
+        private void show_default_load_error_view (string invalid_content = "") {
+            var title = _("Cannot read text in file “%s”").printf (get_basename ());
+            string description;
+            if (invalid_content == "") {
+                description = _("You may not have permission to read the file.");
+            } else {
+                description = _("The file may be corrupt or may not be a text file");
+            }
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            // Lack of read permission results in empty content string. Do not give option to open
+            // in new document in that case.
+            if (invalid_content != "") {
+                alert_view.show_action (_("Show Anyway"));
+                alert_view.action_activated.connect (() => {
+                    main_stack.set_visible_child_name ("content");
+                    Idle.add (() => {
+                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        clipboard.set_text (invalid_content, -1);
+                        var clipboard_action = Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, actions);
+                        clipboard_action.set_enabled (true);
+                        clipboard_action.activate (null);
+
+                        var close_tab_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TAB, actions);
+                        close_tab_action.set_enabled (true);
+                        close_tab_action.activate (new Variant ("s", file.get_path ()));
+                        return false;
+                    });
+                });
+            }
+
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
             main_stack.set_visible_child (alert_view);
@@ -775,7 +799,7 @@ namespace Scratch.Services {
             if (!exists ()) {
                 if (mounted == false) {
                     string message = _(
-                        "The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?"
+                        "The location containing the file “%s” was unmounted. Do you want to save somewhere else?"
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
@@ -784,7 +808,7 @@ namespace Scratch.Services {
                     });
                 } else {
                     string message = _(
-                        "File \"%s\" was deleted. Do you want to save it anyway?"
+                        "File “%s” was deleted. Do you want to save it anyway?"
                     ).printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
@@ -828,7 +852,7 @@ namespace Scratch.Services {
                             source_view.set_text (new_buffer.text, false);
                         } else {
                             string message = _(
-        "File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?"
+        "File “%s” was modified by an external application. Do you want to load it again or continue your editing?"
                             ).printf ("<b>%s</b>".printf (get_basename ()));
 
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
@@ -861,11 +885,11 @@ namespace Scratch.Services {
             string message;
             if (save_as) {
                 message = _(
-                    "You cannot save the document to \"%s\". Do you want to save the file somewhere else?"
+                    "You cannot save the document to “%s”. Do you want to save the file somewhere else?"
                 ).printf ("<b>%s</b>".printf (get_directory ()));
             } else {
                 message = _(
-                    "You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?"
+                    "You cannot save changes to the file “%s”. Do you want to save the changes somewhere else?"
                 ).printf ("<b>%s</b>".printf (get_basename ()));
             }
 
@@ -916,7 +940,7 @@ namespace Scratch.Services {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);
                 } catch (Error e) {
-                    warning ("Cannot create backup copy for file \"%s\": %s", get_basename (), e.message);
+                    warning ("Cannot create backup copy for file “%s”: %s", get_basename (), e.message);
                     ask_save_location ();
                 }
             }
@@ -942,7 +966,7 @@ namespace Scratch.Services {
                 backup.delete ();
                 debug ("Backup file deleted: %s", backup_file);
             } catch (Error e) {
-                warning ("Cannot delete backup for file \"%s\": %s", get_basename (), e.message);
+                warning ("Cannot delete backup for file “%s”: %s", get_basename (), e.message);
             }
         }
 
@@ -955,7 +979,7 @@ namespace Scratch.Services {
                 file.delete ();
                 return true;
             } catch (Error e) {
-                warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
+                warning ("Cannot delete temporary file “%s”: %s", file.get_uri (), e.message);
             }
 
             return false;
