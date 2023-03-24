@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 20:40+0000\n"
-"PO-Revision-Date: 2023-03-22 03:59+0000\n"
+"PO-Revision-Date: 2023-03-24 23:26+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -628,8 +628,6 @@ msgid "Find"
 msgstr "検索"
 
 #: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
 msgstr "結果がありません"
 
@@ -651,31 +649,27 @@ msgstr "なし"
 
 #: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "検索用語に大文字・小文字が含まれる場合"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
-msgstr "常に表示"
+msgstr "常に"
 
 #: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
 #: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "正規表現を使う"
 
 #: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "完全一致"
 
 #: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "前を検索"
+msgstr "検索オプション"
 
 #: src/Widgets/SearchBar.vala:165
 msgid "Replace With"
