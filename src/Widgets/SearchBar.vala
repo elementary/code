@@ -605,29 +605,21 @@ namespace Scratch.Widgets {
 
                 // Update appearance of search entry
                 var ctx = search_entry.get_style_context ();
-                ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
-                ctx.remove_class (Gtk.STYLE_CLASS_WARNING);
-                search_entry.primary_icon_name = "edit-find-symbolic";
-                search_entry.primary_icon_sensitive = true;
-                search_entry.set_icon_tooltip_text (
-                    Gtk.EntryIconPosition.PRIMARY, _("Click to find next match")
-                );
-                if (search_entry.text != "") {
-                    if (count_of_search == 0) {
-                        ctx.add_class (Gtk.STYLE_CLASS_ERROR);
-                        search_entry.primary_icon_name = "dialog-error-symbolic";
-                        search_entry.primary_icon_sensitive = false;
-                        search_entry.set_icon_tooltip_text (
-                            Gtk.EntryIconPosition.PRIMARY, _("No matches")
-                        );
-                    } else if (location_of_search == 0) {
-                        ctx.add_class (Gtk.STYLE_CLASS_WARNING);
-                        search_entry.primary_icon_name = "dialog-warning-symbolic";
-                        search_entry.primary_icon_sensitive = false;
-                        search_entry.set_icon_tooltip_text (
-                          Gtk.EntryIconPosition.PRIMARY, _("Search is past last match and is not cyclic")
-                        );
-                    }
+
+                if (search_entry.text != "" && count_of_search == 0) {
+                    ctx.add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
+                    search_entry.primary_icon_sensitive = false;
+                    search_entry.set_icon_tooltip_text (
+                        Gtk.EntryIconPosition.PRIMARY, _("No matches")
+                    );
+                } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
+                    ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "edit-find-symbolic";
+                    search_entry.primary_icon_sensitive = true;
+                    search_entry.set_icon_tooltip_text (
+                        Gtk.EntryIconPosition.PRIMARY, _("Click to find next match")
+                    );
                 }
 
                 return Source.REMOVE;
