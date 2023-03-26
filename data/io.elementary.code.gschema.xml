@@ -160,6 +160,11 @@
       <summary>Whether search is cyclic</summary>
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
     </key>
+    <key name="wholeword-search" type="b">
+      <default>false</default>
+      <summary>Whether search is for whole words</summary>
+      <description>Whether the search should only match whole words.</description>
+    </key>
     <key name="case-sensitive-search" enum="io.elementary.code.case-sensitive-mode">
       <default>"Mixed Case"</default>
       <summary>When text search is case sensitive</summary>
