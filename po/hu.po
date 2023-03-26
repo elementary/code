@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-24 23:26+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-03-27 00:59+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -378,8 +378,7 @@ msgid "Load Anyway"
 msgstr "Betöltés mindenképp"
 
 #: src/Services/Document.vala:300
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
@@ -392,8 +391,7 @@ msgid "Cancel Loading"
 msgstr "Betöltés megszakítása"
 
 #: src/Services/Document.vala:393
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Menti a(z) %s módosításait bezárás előtt?"
 
@@ -420,36 +418,28 @@ msgstr "Új dokumentum"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:762
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Szöveg keresése itt: \"%s\""
+msgstr "A szöveg beolvasása sikertelen a(z) \"%s\" fájlban"
 
 #: src/Services/Document.vala:765
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr ""
-"Lehet, hogy sérült, vagy nem rendelkezik a szükséges engedélyekkel ahhoz, "
-"hogy elolvashassa."
+"Lehet, hogy nem rendelkezik a szükséges engedélyekkel ahhoz, hogy olvashassa "
+"a fájlt."
 
 #: src/Services/Document.vala:767
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "A fál sérült lehet, vagy pedig nem szövegfájl"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
 #: src/Services/Document.vala:773
-#, fuzzy
-#| msgid "Load Anyway"
 msgid "Show Anyway"
-msgstr "Betöltés mindenképp"
+msgstr "Megnyitás mindenképp"
 
 #: src/Services/Document.vala:802
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
@@ -462,16 +452,12 @@ msgid "Save As…"
 msgstr "Mentés másként…"
 
 #: src/Services/Document.vala:811
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgstr "A(z) \"%s\" fájl törölve lett. Szeretné mégis menteni?"
 
 #: src/Services/Document.vala:855
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid ""
 "File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
@@ -488,10 +474,7 @@ msgid "Continue"
 msgstr "Folytatás"
 
 #: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save the document to \"%s\". Do you want to save the file "
-#| "somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to “%s”. Do you want to save the file somewhere "
 "else?"
@@ -500,10 +483,7 @@ msgstr ""
 "helyre menteni?"
 
 #: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
