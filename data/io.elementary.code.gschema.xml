@@ -10,6 +10,11 @@
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
+  <enum id="io.elementary.code.case-sensitive-mode">
+    <value nick="Never" value="0" />
+    <value nick="Mixed Case" value="1" />
+    <value nick="Always" value="2" />
+  </enum>
 
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
     <key name="window-state" enum="io.elementary.code.window-states">
@@ -154,6 +159,11 @@
       <default>false</default>
       <summary>Whether search is cyclic</summary>
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
+    </key>
+    <key name="case-sensitive-search" enum="io.elementary.code.case-sensitive-mode">
+      <default>"Mixed Case"</default>
+      <summary>When text search is case sensitive</summary>
+      <description>Whether the text search is case sensitive never, always or only when search term is mixed case</description>
     </key>
     <key name="strip-trailing-on-save" type="b">
       <default>false</default>
