@@ -170,6 +170,7 @@ namespace Scratch.Widgets {
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind_with_mapping (
                 "case-sensitive-search",
                 case_sensitive_search_button, "active",
