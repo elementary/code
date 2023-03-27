@@ -95,6 +95,7 @@ namespace Scratch {
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
+        public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
@@ -141,6 +142,7 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_CLOSE_TAB, action_close_tab, "s"},
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
@@ -951,6 +953,16 @@ namespace Scratch {
             } else {
                 fullscreen ();
             }
+        }
+
+        private void action_close_tab (SimpleAction action, Variant? param) {
+            var close_path = get_target_path_for_actions (param);
+            unowned var docs = document_view.docs;
+            docs.foreach ((doc) => {
+                if (doc.file.get_path () == close_path) {
+                    document_view.close_document (doc);
+                }
+            });
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {

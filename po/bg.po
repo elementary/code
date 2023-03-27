@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"POT-Creation-Date: 2023-03-24 23:26+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/code/code/bg/"
@@ -45,80 +45,80 @@ msgstr "Набор от добавки"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:205
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:319
 msgid "Hide search bar"
 msgstr "Скриване на лентата за търсене"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Отвори папка"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:335
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Скриване на лентата за търсене"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:340
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Предварителен преглед"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:349
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:354
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:523
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:528
+#: src/MainWindow.vala:830 src/Services/Document.vala:526
 msgid "All files"
 msgstr "Всички файлове"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:532
+#: src/MainWindow.vala:834 src/Services/Document.vala:530
 msgid "Text files"
 msgstr "Текстови файлове"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "Отваряне на файлове"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "Отваряне"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
+#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "_Отвори"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "_Отмени"
 
@@ -404,7 +404,7 @@ msgstr ""
 
 #: src/Services/Document.vala:300
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
 #: src/Services/Document.vala:301
@@ -416,103 +416,120 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "Отказ"
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:393
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Записване на промените в документа %s преди затваряне?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:394
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ако не съхраните файла, промените от предходните 4 секунди ще бъдат загубени "
 "окончателно."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:400
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Затваряне без запазване"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:539
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:404 src/Services/Document.vala:537
+#: src/Services/Document.vala:814
 msgid "Save"
 msgstr "Запазване"
 
-#: src/Services/Document.vala:536
+#: src/Services/Document.vala:534
 msgid "Save File"
 msgstr "Запазване на файл"
 
-#: src/Services/Document.vala:623 src/Services/Document.vala:641
+#: src/Services/Document.vala:621 src/Services/Document.vala:639
 msgid "New Document"
 msgstr "Нов документ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:764
+#: src/Services/Document.vala:762
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
+msgid "Cannot read text in file “%s”"
 msgstr ""
 
 #: src/Services/Document.vala:765
 #, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr ""
 "Файлът \"%s\" не може да бъде прочетен. Възможно е да е повреден или вие "
 "нямате необходимите права, за да го прочетете."
 
-#: src/Services/Document.vala:778
-#, c-format
+#: src/Services/Document.vala:767
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:773
+msgid "Show Anyway"
+msgstr ""
+
+#: src/Services/Document.vala:802
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
+"The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 "Източникът съдържащ файлът \"%s\" бе демонтиран. Искате ли да го запазите на "
 "друго място?"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:805
 msgid "Save As…"
 msgstr "Запазване като…"
 
-#: src/Services/Document.vala:787
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:811
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgstr "Файла \"%s\" бе изтрит. Искате ли да го запазите все пак?"
 
-#: src/Services/Document.vala:831
-#, c-format
+#: src/Services/Document.vala:855
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
+"File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 "Файла \"%s\" се модифицира от друго приложение. Искате ли да го заредите "
 "отново или да продължите редактирането си?"
 
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:858
 msgid "Load"
 msgstr "Зареждане"
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:861
 msgid "Continue"
 msgstr "Продължаване"
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:888
 #, fuzzy, c-format
 msgid ""
-"You cannot save the document to \"%s\". Do you want to save the file "
+"You cannot save the document to “%s”. Do you want to save the file somewhere "
+"else?"
+msgstr ""
+"Не можете да запазите промените на файл \"%s\". Искате ли да запазите "
+"промените на файла на друго място?"
+
+#: src/Services/Document.vala:892
+#, fuzzy, c-format
+msgid ""
+"You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 "Не можете да запазите промените на файл \"%s\". Искате ли да запазите "
 "промените на файла на друго място?"
 
-#: src/Services/Document.vala:868
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Не можете да запазите промените на файл \"%s\". Искате ли да запазите "
-"промените на файла на друго място?"
-
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:899
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save the document elsewhere"
