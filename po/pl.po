@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-24 23:26+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-03-27 00:59+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -382,10 +382,9 @@ msgid "Load Anyway"
 msgstr "Wczytaj mimo wszystko"
 
 #: src/Services/Document.vala:300
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "Wczytywanie pliku \"%s\" trwa długi czas"
+msgstr "Wczytywanie pliku „%s” trwa długi czas"
 
 #: src/Services/Document.vala:301
 msgid "Please wait while Code is loading the file."
@@ -396,8 +395,7 @@ msgid "Cancel Loading"
 msgstr "Anuluj wczytywanie"
 
 #: src/Services/Document.vala:393
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Zachować zmiany w pliku „%s” przed zamknięciem?"
 
@@ -424,63 +422,49 @@ msgstr "Nowy dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:762
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Znajdź tekst w „%s”"
+msgstr "Nie udało się przeczytać tekstu w „%s”"
 
 #: src/Services/Document.vala:765
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
-msgstr ""
-"Prawdopodobnie jest uszkodzony lub nie posiadasz wystarczających uprawnień "
-"do jego odczytu."
+msgstr "Możesz nie posiadać wystarczających uprawnień do odczytania pliku."
 
 #: src/Services/Document.vala:767
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "Plik może być uszkodzony lub może nie być plikiem tekstowym"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
 #: src/Services/Document.vala:773
-#, fuzzy
-#| msgid "Load Anyway"
 msgid "Show Anyway"
-msgstr "Wczytaj mimo wszystko"
+msgstr "Pokaż mimo to"
 
 #: src/Services/Document.vala:802
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Położenie zawierające plik \"%s\" jest niedostępne. Czy chcesz zapisać plik "
-"w innym miejscu?"
+"Położenie zawierające plik „%s” jest niedostępne. Czy chcesz zapisać plik w "
+"innym miejscu?"
 
 #: src/Services/Document.vala:805
 msgid "Save As…"
 msgstr "Zapisz jako…"
 
 #: src/Services/Document.vala:811
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgstr "Plik \"%s\" został usunięty. Czy mimo to chcesz go zapisać?"
+msgstr "Plik „%s” został usunięty. Czy mimo to chcesz go zapisać?"
 
 #: src/Services/Document.vala:855
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid ""
 "File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Plik \"%s\" został zmieniony przez zewnętrzny program. Chcesz wczytać go "
+"Plik „%s” został zmieniony przez zewnętrzną aplikację. Chcesz wczytać go "
 "ponownie, czy kontynuować edycję?"
 
 #: src/Services/Document.vala:858
@@ -492,27 +476,20 @@ msgid "Continue"
 msgstr "Kontynuuj"
 
 #: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save the document to \"%s\". Do you want to save the file "
-#| "somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to “%s”. Do you want to save the file somewhere "
 "else?"
 msgstr ""
-"Nie można zapisać dokumentu w \"%s\". Czy chcesz zapisać plik w innym "
-"miejscu?"
+"Nie można zapisać dokumentu w „%s”. Czy chcesz zapisać plik w innym miejscu?"
 
 #: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Nie można zapisać zmian w pliku \"%s\". Czy chcesz zapisać zmiany w innym "
+"Nie można zapisać zmian w pliku „%s”. Czy chcesz zapisać zmiany w innym "
 "miejscu?"
 
 #: src/Services/Document.vala:899
