@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-24 23:26+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-03-27 00:59+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -376,10 +376,9 @@ msgid "Load Anyway"
 msgstr "Load Anyway"
 
 #: src/Services/Document.vala:300
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "Loading File \"%s\" Is Taking a Long Time"
+msgstr "Loading File “%s” Is Taking a Long Time"
 
 #: src/Services/Document.vala:301
 msgid "Please wait while Code is loading the file."
@@ -390,10 +389,9 @@ msgid "Cancel Loading"
 msgstr "Cancel Loading"
 
 #: src/Services/Document.vala:393
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "Save changes to \"%s\" before closing?"
+msgstr "Save changes to “%s” before closing?"
 
 #: src/Services/Document.vala:394
 msgid "If you don't save, changes will be permanently lost."
@@ -418,39 +416,31 @@ msgstr "New Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:762
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Search for text in “%s”"
+msgstr "Cannot read text in file “%s”"
 
 #: src/Services/Document.vala:765
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
-msgstr "It may be corrupt or you don't have permission to read it."
+msgstr "You may not have permission to read the file."
 
 #: src/Services/Document.vala:767
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "The file may be corrupt or may not be a text file"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
 #: src/Services/Document.vala:773
-#, fuzzy
-#| msgid "Load Anyway"
 msgid "Show Anyway"
-msgstr "Load Anyway"
+msgstr "Show Anyway"
 
 #: src/Services/Document.vala:802
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
+"The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 
 #: src/Services/Document.vala:805
@@ -458,21 +448,17 @@ msgid "Save As…"
 msgstr "Save As…"
 
 #: src/Services/Document.vala:811
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "File “%s” was deleted. Do you want to save it anyway?"
 
 #: src/Services/Document.vala:855
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid ""
 "File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"File \"%s\" was modified by an external application. Do you want to load it "
+"File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 
 #: src/Services/Document.vala:858
@@ -484,27 +470,21 @@ msgid "Continue"
 msgstr "Continue"
 
 #: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save the document to \"%s\". Do you want to save the file "
-#| "somewhere else?"
+#, c-format
 msgid ""
 "You cannot save the document to “%s”. Do you want to save the file somewhere "
 "else?"
 msgstr ""
-"You cannot save the document to \"%s\". Do you want to save the file "
-"somewhere else?"
+"You cannot save the document to “%s”. Do you want to save the file somewhere "
+"else?"
 
 #: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
+#, c-format
 msgid ""
 "You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 
 #: src/Services/Document.vala:899
