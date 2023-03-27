@@ -11,9 +11,9 @@
     <value nick="Always" value="2" />
   </enum>
   <enum id="io.elementary.code.case-sensitive-mode">
-    <value nick="Never" value="0" />
-    <value nick="Mixed Case" value="1" />
-    <value nick="Always" value="2" />
+    <value nick="never" value="0" />
+    <value nick="mixed" value="1" />
+    <value nick="always" value="2" />
   </enum>
 
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
@@ -171,7 +171,7 @@
       <description>Whether the search should use the search term as a regex expression for matching.</description>
     </key>
     <key name="case-sensitive-search" enum="io.elementary.code.case-sensitive-mode">
-      <default>"Mixed Case"</default>
+      <default>'mixed'</default>
       <summary>When text search is case sensitive</summary>
       <description>Whether the text search is case sensitive never, always or only when search term is mixed case</description>
     </key>
