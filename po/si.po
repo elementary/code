@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 20:40+0000\n"
+"POT-Creation-Date: 2023-03-24 23:26+0000\n"
 "PO-Revision-Date: 2021-03-04 17:58+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@pm.me>\n"
 "Language-Team: Sinhala <https://l10n.elementary.io/projects/code/code/si/>\n"
@@ -39,80 +39,80 @@ msgstr "ප්ලගීන ලැයිස්තුව"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:205
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "කේතය"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 msgid "Code"
 msgstr "කේතය"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:319
 msgid "Hide search bar"
 msgstr "සෙවුම් තීරුව සඟවන්න"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open Project Folder…"
 msgid "Find on Page…"
 msgstr "ව්‍යාපෘති බහාලුම විවෘත කරන්න…"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:335
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "සෙවුම් තීරුව සඟවන්න"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:340
 #, fuzzy
 msgid "Show Projects Sidebar"
 msgstr "තෝරාගත් පාඨය සඳහා"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:349
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:354
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:523
+#: src/MainWindow.vala:525
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:528
+#: src/MainWindow.vala:830 src/Services/Document.vala:526
 msgid "All files"
 msgstr "සියලුම ගොනු"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:532
+#: src/MainWindow.vala:834 src/Services/Document.vala:530
 msgid "Text files"
 msgstr "පාඨ ගොනු"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:838
 msgid "Open some files"
 msgstr "ගොනු කිහිපයක් විවෘත කරන්න"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:841
 msgid "Open"
 msgstr "විවෘත කරන්න"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:405
-#: src/Services/Document.vala:540 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
+#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:867
 msgid "_Open"
 msgstr "_විවෘත කරන්න"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:868
 msgid "_Cancel"
 msgstr "_අවලංගු කරන්න"
 
@@ -381,8 +381,9 @@ msgid "Load Anyway"
 msgstr "කෙසේ හෝ ප්රවේශනය කරන්න"
 
 #: src/Services/Document.vala:300
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+#, fuzzy, c-format
+#| msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "%s ගොනුව ප්රවේශනයට දිගු වේලාවක් ගත වේ"
 
 #: src/Services/Document.vala:301
@@ -393,91 +394,107 @@ msgstr "කේත ගොනුව ප්‍රවේශනය වනතෙක්
 msgid "Cancel Loading"
 msgstr "පූරනය අවලංගු කරන්න"
 
-#: src/Services/Document.vala:395
+#: src/Services/Document.vala:393
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "වසා දැමීමට පෙර %s ලේඛනය සුරකින්නද?"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:394
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ඔබ සුරක්ෂිත නොකළහොත්, අවසන් තත්පර 4 සිට වෙනස්කම් සදහටම අහිමි වනු ඇත."
 
-#: src/Services/Document.vala:402
+#: src/Services/Document.vala:400
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "සුරැකීමෙන් තොරව වසා දමන්න"
 
-#: src/Services/Document.vala:406 src/Services/Document.vala:539
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:404 src/Services/Document.vala:537
+#: src/Services/Document.vala:814
 msgid "Save"
 msgstr "සුරකින්න"
 
-#: src/Services/Document.vala:536
+#: src/Services/Document.vala:534
 msgid "Save File"
 msgstr "ගොනුව සුරකින්න"
 
-#: src/Services/Document.vala:623 src/Services/Document.vala:641
+#: src/Services/Document.vala:621 src/Services/Document.vala:639
 msgid "New Document"
 msgstr "නව ලේඛනය"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:764
+#: src/Services/Document.vala:762
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "%s ගොනුව කියවිය නොහැක"
+msgid "Cannot read text in file “%s”"
+msgstr ""
 
 #: src/Services/Document.vala:765
 #, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr "සමහර විට දත්ත විකුර්තවී හෝ ඔබට එය කියවීමට අවශ්ය අවසර නැත."
 
-#: src/Services/Document.vala:778
-#, c-format
+#: src/Services/Document.vala:767
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:773
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "කෙසේ හෝ ප්රවේශනය කරන්න"
+
+#: src/Services/Document.vala:802
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
+"The location containing the file “%s” was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "%s ගොනුව අඩංගු ස්ථානය ඉවත් කර ඇත. වෙනත් ස්ථානයක සුරැකීමට ඔබට අවශ්යද?"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:805
 msgid "Save As…"
 msgstr "සුරකින්න…"
 
-#: src/Services/Document.vala:787
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:811
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgstr "%s ගොනුව  මකාදමා ඇත. එසේඋනත් ඔබට එය සුරැකීමට අවශ්යද?"
 
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:855
 #, c-format
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
+"File “%s” was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:858
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:861
 msgid "Continue"
 msgstr ""
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:888
 #, fuzzy, c-format
 msgid ""
-"You cannot save the document to \"%s\". Do you want to save the file "
+"You cannot save the document to “%s”. Do you want to save the file somewhere "
+"else?"
+msgstr "%s ගොනුව අඩංගු ස්ථානය ඉවත් කර ඇත. වෙනත් ස්ථානයක සුරැකීමට ඔබට අවශ්යද?"
+
+#: src/Services/Document.vala:892
+#, fuzzy, c-format
+msgid ""
+"You cannot save changes to the file “%s”. Do you want to save the changes "
 "somewhere else?"
 msgstr "%s ගොනුව අඩංගු ස්ථානය ඉවත් කර ඇත. වෙනත් ස්ථානයක සුරැකීමට ඔබට අවශ්යද?"
 
-#: src/Services/Document.vala:868
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr "%s ගොනුව අඩංගු ස්ථානය ඉවත් කර ඇත. වෙනත් ස්ථානයක සුරැකීමට ඔබට අවශ්යද?"
-
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:899
 msgid "Save the document elsewhere"
 msgstr ""
 
@@ -818,6 +835,10 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "%s ගොනුව කියවිය නොහැක"
 
 #~ msgid "Open Project Folder…"
 #~ msgstr "ව්‍යාපෘති බහාලුම විවෘත කරන්න…"
