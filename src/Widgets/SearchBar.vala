@@ -24,33 +24,7 @@ namespace Scratch.Widgets {
         enum CaseSensitiveMode {
             NEVER,
             MIXED,
-            ALWAYS;
-
-            public string to_string () {
-                switch (this) {
-                    case NEVER:
-                        return "Never";
-                    case MIXED:
-                        return "Mixed Case";
-                    case ALWAYS:
-                        return "Always";
-                    default:
-                        assert_not_reached ();
-                }
-            }
-
-            public static CaseSensitiveMode from_string (string s) {
-                switch (s) {
-                    case "Never":
-                        return NEVER;
-                    case "Mixed Case":
-                        return MIXED;
-                    case "Always":
-                        return ALWAYS;
-                    default:
-                        assert_not_reached ();
-                }
-            }
+            ALWAYS
         }
 
         public weak MainWindow window { get; construct; }
@@ -125,9 +99,9 @@ namespace Scratch.Widgets {
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
             case_sensitive_search_button = new Gtk.ComboBoxText ();
-            case_sensitive_search_button.append (null, _("Never"));
-            case_sensitive_search_button.append (null, _("Mixed Case"));
-            case_sensitive_search_button.append (null, _("Always"));
+            case_sensitive_search_button.append ("never", _("Never"));
+            case_sensitive_search_button.append ("mixed", _("Mixed Case"));
+            case_sensitive_search_button.append ("always", _("Always"));
             case_sensitive_search_button.active = 1;
 
             var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
@@ -171,20 +145,7 @@ namespace Scratch.Widgets {
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind_with_mapping (
-                "case-sensitive-search",
-                case_sensitive_search_button, "active",
-                SettingsBindFlags.DEFAULT,
-                (to_val, from_variant) => {
-                    to_val.set_int (CaseSensitiveMode.from_string (from_variant.get_string ()));
-                    return true;
-                },
-                (from_val, vartype) => {
-                    var mode_s = ((CaseSensitiveMode)(from_val.get_int ())).to_string ();
-                    return new Variant.string (mode_s);
-                },
-                null, null
-            );
+            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
 
             var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 margin_top = 3,
