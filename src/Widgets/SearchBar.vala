@@ -100,9 +100,9 @@ namespace Scratch.Widgets {
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
             case_sensitive_search_button = new Gtk.ComboBoxText ();
-            case_sensitive_search_button.append (null, _("Never"));
-            case_sensitive_search_button.append (null, _("Mixed Case"));
-            case_sensitive_search_button.append (null, _("Always"));
+            case_sensitive_search_button.append ("never", _("Never"));
+            case_sensitive_search_button.append ("mixed", _("Mixed Case"));
+            case_sensitive_search_button.append ("always", _("Always"));
             case_sensitive_search_button.active = 1;
 
             var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
@@ -144,6 +144,9 @@ namespace Scratch.Widgets {
             regex_search_button.toggled.connect (on_search_entry_text_changed);
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
 
             var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 margin_top = 3,
