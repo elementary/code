@@ -69,8 +69,7 @@ namespace Scratch.Widgets {
         construct {
             search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
-                placeholder_text = _("Find"),
-                primary_icon_activatable = true
+                placeholder_text = _("Find")
             };
 
             search_occurence_count_label = new Gtk.Label (_("No Results"));
@@ -614,17 +613,9 @@ namespace Scratch.Widgets {
                 if (search_entry.text != "" && count_of_search == 0) {
                     ctx.add_class (Gtk.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "dialog-error-symbolic";
-                    search_entry.primary_icon_sensitive = false;
-                    search_entry.set_icon_tooltip_text (
-                        Gtk.EntryIconPosition.PRIMARY, _("No matches")
-                    );
                 } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
                     ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "edit-find-symbolic";
-                    search_entry.primary_icon_sensitive = true;
-                    search_entry.set_icon_tooltip_text (
-                        Gtk.EntryIconPosition.PRIMARY, _("Click to find next match")
-                    );
                 }
 
                 return Source.REMOVE;
