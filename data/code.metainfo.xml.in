@@ -77,11 +77,13 @@
       </description>
       <issues>
         <issue url="https://github.com/elementary/code/issues/933">Add whole word search</issue>
-        <issue url="https://github.com/elementary/code/issues/1275">Case sensitive/insensitive search does not work as expected with mixed case search term</issue>
         <issue url="https://github.com/elementary/code/issues/1175">Search occurence label does not update when active document changed</issue>
         <issue url="https://github.com/elementary/code/issues/1261">Handle saving to unwritable location better to avoid data loss</issue>
         <issue url="https://github.com/elementary/code/issues/1263">Symbol outline does not respect system style</issue>
         <issue url="https://github.com/elementary/code/issues/1270">Does not follow system color scheme when launching with no files open</issue>
+        <issue url="https://github.com/elementary/code/issues/1275">Case sensitive/insensitive search does not work as expected with mixed case search term</issue>
+        <issue url="https://github.com/elementary/code/issues/1282">Cannot open files with unknown characters</issue>
+        <issue url="https://github.com/elementary/code/issues/1293">Search results change when document focused in</issue>
         <issue url="https://github.com/elementary/code/pull/1254">Ensure active project at startup (include non-git folders)</issue>
       </issues>
     </release>

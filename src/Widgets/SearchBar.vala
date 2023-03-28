@@ -217,9 +217,8 @@ namespace Scratch.Widgets {
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
-            // Do not needlessly recreate search context as this has
-            // unexpected effects
             if (this.text_view == text_view) {
+                // Do not needlessly recreate SearchContext - may interfere with ongoing search
                 return;
             }
 
