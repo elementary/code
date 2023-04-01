@@ -46,25 +46,47 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
-        if (!start.equal (end)) {
-            // Expand highlight to current word
-            if (!start.starts_word ()) {
-                start.backward_word_start ();
-            }
+        current_search_context = new Gtk.SourceSearchContext (
+            (Gtk.SourceBuffer)current_source.buffer,
+            null
+        );
+        current_search_context.settings.search_text = "";
+        current_search_context.set_highlight (false);
 
-            if (!end.ends_word ()) {
-                end.forward_word_end ();
-            }
+        start.forward_find_char (
+            (uc) => {
+                return !uc.isspace ();
+            },
+            end
+        );
+        start.backward_find_char (
+            (uc) => {
+                return uc.isspace ();
+            },
+            null
+        );
+        start.forward_char ();
 
-            string selected_text = start.get_buffer ().get_text (start, end, false);
-            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
-                return;
-            }
+        end.backward_find_char (
+            (uc) => {
+                return !uc.isspace ();
+            },
+            start
+        );
+        end.forward_find_char (
+            (uc) => {
+                return uc.isspace ();
+            },
+            null
+        );
 
-            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
-            current_search_context.settings.search_text = selected_text;
-            current_search_context.set_highlight (true);
+        var selected_text = start.get_text (end);
+        if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
+            return;
         }
+
+        current_search_context.settings.search_text = selected_text;
+        current_search_context.set_highlight (true);
     }
 
     public void on_deselection () {
