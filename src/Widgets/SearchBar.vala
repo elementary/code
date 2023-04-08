@@ -67,9 +67,10 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            search_entry = new Gtk.SearchEntry ();
-            search_entry.hexpand = true;
-            search_entry.placeholder_text = _("Find");
+            search_entry = new Gtk.SearchEntry () {
+                hexpand = true,
+                placeholder_text = _("Find")
+            };
 
             search_occurence_count_label = new Gtk.Label (_("No Results"));
             search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
@@ -99,9 +100,9 @@ namespace Scratch.Widgets {
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
             case_sensitive_search_button = new Gtk.ComboBoxText ();
-            case_sensitive_search_button.append (null, _("Never"));
-            case_sensitive_search_button.append (null, _("Mixed Case"));
-            case_sensitive_search_button.append (null, _("Always"));
+            case_sensitive_search_button.append ("never", _("Never"));
+            case_sensitive_search_button.append ("mixed", _("Mixed Case"));
+            case_sensitive_search_button.append ("always", _("Always"));
             case_sensitive_search_button.active = 1;
 
             var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
@@ -143,6 +144,9 @@ namespace Scratch.Widgets {
             regex_search_button.toggled.connect (on_search_entry_text_changed);
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
 
             var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 margin_top = 3,
@@ -217,6 +221,11 @@ namespace Scratch.Widgets {
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
+            if (this.text_view == text_view) {
+                // Do not needlessly recreate SearchContext - may interfere with ongoing search
+                return;
+            }
+
             cancel_update_search_widgets ();
             this.text_view = text_view;
 
@@ -320,23 +329,8 @@ namespace Scratch.Widgets {
                 return false;
             }
 
-            Gtk.TextIter? iter, start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out iter, text_buffer.cursor_position);
-            end_iter = iter;
-
-            bool found = search_context.forward (iter, out start_iter, out end_iter, null);
-            if (found) {
-                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
-                search_entry.primary_icon_name = "edit-find-symbolic";
-                return true;
-            } else {
-                if (search_entry.text != "") {
-                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
-                }
-
-                return false;
-            }
+            update_search_widgets ();
+            return false;
         }
 
         public bool search () {
@@ -348,7 +342,6 @@ namespace Scratch.Widgets {
 
             if (!has_matches ()) {
                 debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
-                search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
 
@@ -587,7 +580,6 @@ namespace Scratch.Widgets {
                         tool_arrow_down.sensitive = true;
                         tool_arrow_up.sensitive =true;
                     } else {
-                        // Gtk.TextIter? start_iter, end_iter;
                         Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
                         bool is_in_start, is_in_end;
@@ -616,6 +608,17 @@ namespace Scratch.Widgets {
                             tool_arrow_up.sensitive = false;
                         }
                     }
+                }
+
+                // Update appearance of search entry
+                var ctx = search_entry.get_style_context ();
+
+                if (search_entry.text != "" && count_of_search == 0) {
+                    ctx.add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
+                } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
+                    ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "edit-find-symbolic";
                 }
 
                 return Source.REMOVE;
