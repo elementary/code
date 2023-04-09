@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-04-10 09:59+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
 "Language: pl\n"
@@ -160,6 +160,8 @@ msgstr "Dodano opcję dopasowania całych słów"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Ustawienia całyc słów, dopasowywania wielkości liter i wyszukiwania "
+"wyrażeniami regularnymi są teraz zapisywane"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -170,42 +172,55 @@ msgstr "Mniejsze aktualizacje:"
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"Pasek wyszukiwania jest teraz aktualizowany przy zmianie aktywnego dokumentu"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Próba zapisania dokumentu w miejscu w którym nie da się zapisywać jest teraz "
+"lepiej obsługiwana"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"Styl systemowy jest teraz przestrzegany przez zarys symbolu i bez otwartych "
+"dokumentów"
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
 msgstr ""
+"Wyszukiwanie z uwzględnieniem wielkości liter działa teraz zgodnie z "
+"oczekiwaniami gdy litery są różnej wielkości"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
 msgstr ""
+"Wyniki wyszukiwania nie zmieniają się niespodziewanie przy fokusowaniu na "
+"dokumencie"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Teraz przy starcie zawsze istnieje aktywny projekt gdy w panelu bocznym są "
+"projekty"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Jeśli uruchamiana jest wersja deweloperska to pojawia się to w nazwie okna i "
+"tooltipie w doku"
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Skróty klawiszowe Ctrl+PageUp i Ctrl+PageDown zmieniają teraz karty"
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180
