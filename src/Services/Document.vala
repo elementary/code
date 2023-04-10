@@ -493,12 +493,12 @@ namespace Scratch.Services {
             } catch (Error e) {
                 // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19) {
-                    warning ("Cannot save “%s”: %s", get_basename (), e.message);
                     // If called by `save_as ()` then that function will show infobar
                     if (!saving_as) {
-                        ask_save_location (false);
+                        ask_save_location (_("Save operation failed - %s").printf (e.message));
                     }
                 }
+
                 return false;
             }
 
@@ -572,7 +572,8 @@ namespace Scratch.Services {
                 } else {
                     // Restore original file
                     file = current_file;
-                    ask_save_location (true);
+                    //TODO Get details from save ()
+                    ask_save_location (_("Save as operation failed when saving"));
                 }
             }
 
@@ -643,7 +644,7 @@ namespace Scratch.Services {
         }
 
         // Set InfoBars message
-        public void set_message (Gtk.MessageType type, string label,
+        private void set_message (Gtk.MessageType type, string label,
                                   string? button1 = null, owned VoidFunc? callback1 = null,
                                   string? button2 = null, owned VoidFunc? callback2 = null) {
 
@@ -794,37 +795,29 @@ namespace Scratch.Services {
         }
 
         // Check if the file was deleted/changed by an external source
-        public void check_file_status () {
+        private void check_file_status () {
+warning ("check file status");
             // If the file does not exist anymore
             if (!exists ()) {
-                if (mounted == false) {
-                    string message = _(
-                        "The location containing the file “%s” was unmounted. Do you want to save somewhere else?"
-                    ).printf ("<b>%s</b>".printf (get_basename ()));
+                string message = !mounted ? _(
+                    "The location containing the file “%s” was unmounted."
+                ) : _(
+                    "File “%s” was deleted"
+                );
 
-                    set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        this.save_as.begin ();
-                        hide_info_bar ();
-                    });
-                } else {
-                    string message = _(
-                        "File “%s” was deleted. Do you want to save it anyway?"
-                    ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save.begin ();
-                        hide_info_bar ();
-                    });
-                }
+                ask_save_location (
+                    message.printf ("<b>%s</b>".printf (get_basename ()))
+                );
 
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
                 this.source_view.editable = false;
                 return;
             }
 
+            //TODO Should this only be tested after loaded??
             // If the file can't be written
             if (!can_write ()) {
-                ask_save_location ();
+                ask_save_location (_("File access permissions do not include write"));
             } else {
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
@@ -875,7 +868,7 @@ namespace Scratch.Services {
             });
         }
 
-        private void ask_save_location (bool save_as = false) {
+        private void ask_save_location (string details) {
             // We must assume that already asking for save location if infobar is
             // visible.
             if (info_bar.visible == true) {
@@ -883,7 +876,7 @@ namespace Scratch.Services {
             }
 
             string message;
-            if (save_as) {
+            if (!source_view.buffer.get_modified ()) {
                 message = _(
                     "You cannot save the document to “%s”. Do you want to save the file somewhere else?"
                 ).printf ("<b>%s</b>".printf (get_directory ()));
@@ -895,7 +888,9 @@ namespace Scratch.Services {
 
             set_message (
                 Gtk.MessageType.WARNING,
-                message,
+                message + "\n" + details,
+                _("Ignore"),
+                hide_info_bar,
                 _("Save the document elsewhere"),
                 save_as_and_hide_infobar
             );
@@ -940,11 +935,11 @@ namespace Scratch.Services {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);
                 } catch (Error e) {
-                    warning ("Cannot create backup copy for file “%s”: %s", get_basename (), e.message);
-                    ask_save_location ();
+                    ask_save_location (("Failed to create backup - %s").printf (e.message));
                 }
             }
         }
+
 
         private void delete_backup (string? backup_path = null) {
             string backup_file;
