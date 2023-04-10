@@ -796,8 +796,7 @@ namespace Scratch.Services {
 
         // Check if the file was deleted/changed by an external source
         private void check_file_status () {
-warning ("check file status");
-            // If the file does not exist anymore
+            // If the file does not exist anymore - either deleted or unmounted
             if (!exists ()) {
                 string message = !mounted ? _(
                     "The location containing the file “%s” was unmounted."
@@ -814,7 +813,6 @@ warning ("check file status");
                 return;
             }
 
-            //TODO Should this only be tested after loaded??
             // If the file can't be written
             if (!can_write ()) {
                 ask_save_location (_("File access permissions do not include write"));
