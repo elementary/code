@@ -876,17 +876,17 @@ namespace Scratch.Services {
             string message;
             if (!source_view.buffer.get_modified ()) {
                 message = _(
-                    "You cannot save the document to “%s”. Do you want to save the file somewhere else?"
+                    "You cannot save the document to “%s”."
                 ).printf ("<b>%s</b>".printf (get_directory ()));
             } else {
                 message = _(
-                    "You cannot save changes to the file “%s”. Do you want to save the changes somewhere else?"
+                    "You cannot save changes to the file “%s”."
                 ).printf ("<b>%s</b>".printf (get_basename ()));
             }
 
             set_message (
                 Gtk.MessageType.WARNING,
-                message + "\n" + details,
+                "<big>" + message + "</big>\n" + details,
                 _("Ignore"),
                 hide_info_bar,
                 _("Save the document elsewhere"),
