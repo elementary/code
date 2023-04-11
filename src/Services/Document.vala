@@ -837,37 +837,80 @@ namespace Scratch.Services {
         }
 
         // Check if the file was deleted/changed by an external source
-        public void check_file_status () {
+        private void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
+                locked = true;
+                string details;
                 if (mounted == false) {
-                    string message = _(
-                        "The location containing the file “%s” was unmounted. Do you want to save somewhere else?"
-                    ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                    set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                        this.save_as.begin ();
-                        hide_info_bar ();
-                    });
+                    details = _("The location containing the file “%s” was unmounted.");
                 } else {
-                    string message = _(
-                        "File “%s” was deleted. Do you want to save it anyway?"
-                    ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save.begin ();
-                        hide_info_bar ();
-                    });
+                    details = _("File “%s” was deleted.");
                 }
 
-                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
-                this.source_view.editable = false;
-                return;
-            }
+                ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
+            } else if (loaded) { // Check external changes after loading
+                if (!locked && !can_write () && source_view.buffer.get_modified ()) {
+                // The file has become unwritable while changes are pending
+                    locked = true;
+                    var details = _("File “%s” was does not have write permission.");
+                    ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
+                } else {
+                // Check for external changes (can load even if locked or unwritable)
+                    var new_buffer = new Gtk.SourceBuffer (null);
+                    var source_file_loader = new Gtk.SourceFileLoader (
+                        new_buffer,
+                        source_file
+                    );
+                    source_file_loader.load_async.begin (
+                        GLib.Priority.DEFAULT,
+                        null,
+                        null,
+                        (obj, res) => {
+                            try {
+                                source_file_loader.load_async.end (res);
+                            } catch (Error e) {
+                                critical (e.message);
+                                show_default_load_error_view ();
+                                return;
+                            }
 
-            // If the file can't be written
-            if (!can_write ()) {
-                ask_save_location ();
+                            if (source_view.buffer.text == new_buffer.text) {
+                                return;
+                            }
+
+                            if (!source_view.buffer.get_modified ()) {
+                                //FIXME Should block editing until responded?
+                                if (Scratch.settings.get_boolean ("autosave")) {
+                                    source_view.set_text (new_buffer.text, false);
+                                } else {
+                                    string message = _(
+                                        "File “%s” was modified by an external application."
+                                    ).printf ("<b>%s</b>".printf (get_uri ()));
+
+                                    set_message (
+                                        Gtk.MessageType.WARNING,
+                                        message,
+                                         _("Reload"), () => {
+                                            this.source_view.set_text (
+                                                new_buffer.text, false
+                                            );
+                                            hide_info_bar ();
+                                        },
+                                        _("Continue"), () => {
+                                            hide_info_bar ();
+                                        })
+                                    ;
+                                }
+                            } else {
+                                //TODO Handle conflicting changes (dialog?)
+                            }
+                        }
+                    );
+                }
+            }
+        }
+
             } else {
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
