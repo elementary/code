@@ -231,7 +231,7 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
-            // /* Create as loaded - could be new document */
+            // /* Create as loaded and unlocked - could be new document */
             loaded = file == null;
             locked = false;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
@@ -273,6 +273,7 @@ namespace Scratch.Services {
         public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
+            locked = true;
             loaded = false;
             if (load_cancellable != null) { /* just in case */
                 load_cancellable.cancel ();
@@ -366,8 +367,10 @@ namespace Scratch.Services {
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
-                check_file_status ();
-                check_undoable_actions ();
+                if (!locked) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
 
                 return false;
             });
@@ -388,6 +391,7 @@ namespace Scratch.Services {
             Idle.add (() => {
                 working = false;
                 loaded = true;
+                check_file_status ();
                 return false;
             });
 
