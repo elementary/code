@@ -201,11 +201,9 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            toggle_changed_handlers (true);
-
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("autosave")) {
+                if (!locked && Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
                 }
 
@@ -215,7 +213,8 @@ namespace Scratch.Services {
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
-                    if (!Scratch.settings.get_boolean ("autosave")) {
+                    // Autosave does not work on locked document
+                    if (locked || !Scratch.settings.get_boolean ("autosave")) {
                         set_saved_status (false);
                     }
                 } else {
@@ -401,7 +400,7 @@ namespace Scratch.Services {
         public async bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
 
-            if (!loaded) {
+            if (!loaded || locked) {
                 load_cancellable.cancel ();
                 return true;
             }
@@ -466,7 +465,7 @@ namespace Scratch.Services {
         private bool is_saving = false;
         public async bool save_with_hold (bool force = false, bool saving_as = false) {
             // Prevent reentry which could result in mismatched holds on Application
-            if (is_saving) {
+            if (is_saving || locked) {
                 return true;
             } else {
                 is_saving = true;
@@ -485,20 +484,24 @@ namespace Scratch.Services {
 
                 is_saving = false;
             }
+
             return result;
         }
 
         public async bool save_as_with_hold () {
             var old_uri = file.get_uri ();
+            var old_locked = locked;
+            locked = false;  // Can always try to save as a different file
             var result = yield save_with_hold (true, true);
             if (!result) {
                 file = File.new_for_uri (old_uri);
+                locked = old_locked;
             }
 
             return result;
         }
 
-        private async bool save (bool force = false, bool saving_as = false) {
+        private async bool save (bool force = false, bool saving_as = false) requires (!locked) {
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -543,7 +546,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        public async bool save_as () {
+        private async bool save_as () requires (!locked) {
             // New file
             if (!loaded) {
                 return false;
