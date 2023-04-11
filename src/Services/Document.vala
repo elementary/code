@@ -686,7 +686,7 @@ namespace Scratch.Services {
         }
 
         // Set InfoBars message
-        public void set_message (Gtk.MessageType type, string label,
+        private void set_message (Gtk.MessageType type, string label,
                                   string? button1 = null, owned VoidFunc? callback1 = null,
                                   string? button2 = null, owned VoidFunc? callback2 = null) {
 
