@@ -86,6 +86,26 @@ namespace Scratch.Services {
             }
         }
 
+        // Locked documents can be edited but cannot be (auto)saved to the current file.
+        // Locked documents can be saved to a different file (when they will be unlocked)
+        private bool _locked = true;
+        public bool locked {
+            get {
+                return _locked;
+            }
+
+            set {
+                _locked = value;
+                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (!value);
+                toggle_changed_handlers (!value); //Do not autosave locked documents
+                if (locked) {
+                    icon = locked_icon;
+                } else {
+                    icon = null;
+                }
+            }
+        }
+
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
@@ -105,6 +125,7 @@ namespace Scratch.Services {
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
         private Mount mount;
+        private Icon locked_icon;
 
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
@@ -132,6 +153,7 @@ namespace Scratch.Services {
         }
 
         construct {
+            locked_icon = new ThemedIcon ("locked");
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
@@ -211,6 +233,7 @@ namespace Scratch.Services {
 
             // /* Create as loaded - could be new document */
             loaded = file == null;
+            locked = false;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
