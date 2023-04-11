@@ -911,83 +911,46 @@ namespace Scratch.Services {
             }
         }
 
+        private void ask_save_location (
+            string details,
+            string error_text = ""
+        ) {
+            locked = true;
+            string primary_text;
+            if (source_view.buffer.get_modified ()) {
+                primary_text = _("The document cannot be saved");
             } else {
-                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
-                this.source_view.editable = true;
+                primary_text = _("The changes to the document cannot be saved");
             }
 
-            // Detect external changes
-            if (loaded) {
-                var new_buffer = new Gtk.SourceBuffer (null);
-                var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
-                source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
-                    try {
-                        source_file_loader.load_async.end (res);
-                    } catch (Error e) {
-                        critical (e.message);
-                        show_default_load_error_view ();
-                        return;
-                    }
-
-                    if (source_view.buffer.text == new_buffer.text) {
-                        return;
-                    }
-
-                    if (!source_view.buffer.get_modified ()) {
-                        if (Scratch.settings.get_boolean ("autosave")) {
-                            source_view.set_text (new_buffer.text, false);
-                        } else {
-                            string message = _(
-        "File “%s” was modified by an external application. Do you want to load it again or continue your editing?"
-                            ).printf ("<b>%s</b>".printf (get_basename ()));
-
-                            set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                                this.source_view.set_text (new_buffer.text, false);
-                                hide_info_bar ();
-                            }, _("Continue"), () => {
-                                hide_info_bar ();
-                            });
-                        }
-                    }
-                });
-            }
-        }
-
-        private void save_as_and_hide_infobar () {
-            save_as.begin ((obj, res) => {
-                if (save_as.end (res)) {
-                    hide_info_bar ();
-                }
-            });
-        }
-
-        private void ask_save_location (bool save_as = false) {
-            // We must assume that already asking for save location if infobar is
-            // visible.
-            if (info_bar.visible == true) {
-                return;
-            }
-
-            string message;
-            if (save_as) {
-                message = _(
-                    "You cannot save the document to “%s”. Do you want to save the file somewhere else?"
-                ).printf ("<b>%s</b>".printf (get_directory ()));
-            } else {
-                message = _(
-                    "You cannot save changes to the file “%s”. Do you want to save the changes somewhere else?"
-                ).printf ("<b>%s</b>".printf (get_basename ()));
-            }
-
-            set_message (
-                Gtk.MessageType.WARNING,
-                message,
-                _("Save the document elsewhere"),
-                save_as_and_hide_infobar
+            var dialog = new Scratch.Dialogs.AskSaveLocationDialog (
+                primary_text,
+                details,
+                error_text
             );
 
-            Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
-            this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
+            dialog.response.connect ((id) => {
+                dialog.destroy ();
+                Idle.add (() => {
+                    switch (id) {
+                        case Gtk.ResponseType.ACCEPT:
+                            save_as_with_hold.begin ((obj, res) => {
+                                if (save_as_with_hold.end (res)) {
+                                    locked = false;
+                                }
+                            });
+                            break;
+                        case Gtk.ResponseType.REJECT:
+                            break;
+                        default:
+                            assert_not_reached ();
+                    }
+
+                    return false;
+                });
+            });
+
+            dialog.present ();
         }
 
         // Set Undo/Redo action sensitive property
