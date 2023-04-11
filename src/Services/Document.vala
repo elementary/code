@@ -179,8 +179,8 @@ namespace Scratch.Services {
 
             settings.changed.connect (restore_settings);
             /* Block user editing while working */
-            source_view.key_press_event.connect (() => {
-                return working;
+            notify["working"].connect (() => {
+                source_view.sensitive = !working;
             });
 
             var source_grid = new Gtk.Grid () {
@@ -601,7 +601,7 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
-                source_view.buffer.set_modified (true);
+                // Should not set "modified" state of the buffer to true - this is automatic
                 is_saved = yield save (true, true);
                 if (is_saved) {
                     if (is_current_file_temporary) {
@@ -989,8 +989,7 @@ namespace Scratch.Services {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);
                 } catch (Error e) {
-                    warning ("Cannot create backup copy for file “%s”: %s", get_basename (), e.message);
-                    ask_save_location ();
+                    warning ("Cannot create backup copy for file “%s”: %s", get_uri (), e.message);
                 }
             }
         }

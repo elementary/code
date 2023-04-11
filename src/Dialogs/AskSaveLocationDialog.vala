@@ -3,7 +3,7 @@
  */
 public class Scratch.Dialogs.AskSaveLocationDialog : Granite.MessageDialog {
 
-    public AskSaveLocationDialog (string primary_text, string secondary_text, string error_message = "") {
+    public AskSaveLocationDialog (string primary_text, string secondary_text, string error_message) {
         Object (
             buttons: Gtk.ButtonsType.NONE,
             primary_text: primary_text,
