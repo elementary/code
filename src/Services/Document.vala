@@ -516,19 +516,35 @@ namespace Scratch.Services {
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+            var success = false;
+            var error = "";
             try {
-                yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
+                success = yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
                 // Only create backup once save successful
-                this.create_backup ();
-            } catch (Error e) {
-                // We don't need to send an error message at cancellation (corresponding to error code 19)
-                if (e.code != 19) {
-                    warning ("Cannot save “%s”: %s", get_basename (), e.message);
-                    // If called by `save_as ()` then that function will show infobar
-                    if (!saving_as) {
-                        ask_save_location (false);
-                    }
+                if (success) {
+                    create_backup ();
                 }
+            } catch (Error e) {
+                if (e.code != 19) { // Not cancelled
+                    error = e.message;
+                } else {
+                    return false;
+                }
+            }
+
+            if (!success) {
+                warning ("Cannot save “%s”: %s", get_uri (), error);
+                locked = true;
+                // Allow save process to complete before showing dialog
+                Idle.add (() => {
+                    ask_save_location (
+                        _("Saving to “%s” failed.").printf (get_uri ()),
+                        error
+                    );
+
+                    return Source.REMOVE;
+                });
+
                 return false;
             }
 
@@ -599,11 +615,8 @@ namespace Scratch.Services {
 
                     delete_backup (current_file.get_uri () + "~");
                     this.source_view.change_syntax_highlight_from_file (this.file);
-                } else {
-                    // Restore original file
-                    file = current_file;
-                    ask_save_location (true);
                 }
+                // Calling function responsible for restoring original
             }
 
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
