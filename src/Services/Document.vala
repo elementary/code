@@ -103,6 +103,8 @@ namespace Scratch.Services {
                 } else {
                     icon = null;
                 }
+                // Show "unsaved" marker on tab when locked even when autosave is ON
+                set_saved_status (!source_view.buffer.get_modified ());
             }
         }
 
