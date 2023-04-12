@@ -390,6 +390,7 @@ namespace Scratch.Services {
             Idle.add (() => {
                 working = false;
                 loaded = true;
+                locked = false; // Assume writable until status checked
                 check_file_status ();
                 return false;
             });
