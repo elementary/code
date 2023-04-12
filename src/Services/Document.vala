@@ -687,6 +687,8 @@ namespace Scratch.Services {
         public string get_tab_tooltip () {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
+            } else if (locked) {
+                return _("Cannot save this document to %s").printf (Scratch.Utils.replace_home_with_tilde (file.get_path ()));
             } else {
                 return Scratch.Utils.replace_home_with_tilde (file.get_path ());
             }
