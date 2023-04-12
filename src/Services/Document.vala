@@ -401,19 +401,22 @@ namespace Scratch.Services {
         public async bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
 
-            if (!loaded || locked) {
+            if (!loaded) {
                 load_cancellable.cancel ();
                 return true;
             }
 
             bool ret_value = true;
-            if (Scratch.settings.get_boolean ("autosave") && !saved) {
+            // Prevent trying to save locked document to current location
+            if (!locked && Scratch.settings.get_boolean ("autosave") && !saved) {
                 ret_value = yield save_with_hold ();
-            } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
+            } else if (!locked && app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
                 ret_value = yield save_with_hold ();
-            } else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-                // Check for unsaved changes
+            } else if (!this.saved ||  // Even locked documents can be modified
+                       (!app_closing && is_file_temporary && !delete_temporary_file ())) {
+
+                // Ask whether to save changes
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
 
                 var dialog = new Granite.MessageDialog (
@@ -438,7 +441,8 @@ namespace Scratch.Services {
                         ret_value = false;
                         break;
                     case Gtk.ResponseType.YES:
-                        if (this.is_file_temporary) {
+                        // Must save locked or temporary documents to a different location
+                        if (locked || this.is_file_temporary) {
                             ret_value = yield save_as_with_hold ();
                         } else {
                             ret_value = yield save_with_hold ();
