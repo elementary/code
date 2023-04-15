@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 23:26+0000\n"
+"POT-Creation-Date: 2023-04-06 18:49+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -44,43 +44,43 @@ msgstr "اضافة"
 msgid "[FILE…]"
 msgstr "[ملف...]"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "كود"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "كود"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:337
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:342
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "اظهر المعاينة"
 
-#: src/MainWindow.vala:349
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:354
+#: src/MainWindow.vala:356
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
@@ -88,39 +88,39 @@ msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( va
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:526
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:530
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:840
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:843
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
 #: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:869
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:870
 msgid "_Cancel"
 msgstr "_الغاء"
 
@@ -707,72 +707,72 @@ msgstr "إدارة مجلدات المشروع"
 msgid "Find"
 msgstr "بحث"
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:75
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:87
 msgid "Search next"
 msgstr "البحث عن التالي"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:97
 msgid "Search previous"
 msgstr "البحث عن السابق"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:100
 msgid "Cyclic Search"
 msgstr "دورة البحث"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "أبداً"
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:104
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:105
 msgid "Always"
 msgstr "دائما"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:108
 msgid "Case Sensitive"
 msgstr "حساسة لحالة الأحرف (يهم إذا الأحرف كبيرة أو صغيرة)"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:115
 #, fuzzy
 #| msgid "Use regular expressions:"
 msgid "Use Regular Expressions"
 msgstr "استخدام التعابير النمطية:"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:116
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:137
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "البحث عن السابق"
 
-#: src/Widgets/SearchBar.vala:165
+#: src/Widgets/SearchBar.vala:169
 msgid "Replace With"
 msgstr "استبدل بـ"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:172
 msgid "Replace"
 msgstr "إستبدال"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:175
 msgid "Replace all"
 msgstr "استبدال الكل"
 
-#: src/Widgets/SearchBar.vala:566
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:571
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 23:26+0000\n"
+"POT-Creation-Date: 2023-04-06 18:49+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,74 +38,74 @@ msgstr "Плагинсен наборе"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr ""
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:337
 msgid "Hide Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:342
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:349
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:354
+#: src/MainWindow.vala:356
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:526
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:530
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:840
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:843
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
 #: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "вăйран кăлар"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:869
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:870
 msgid "_Cancel"
 msgstr ""
 
@@ -640,68 +640,68 @@ msgstr ""
 msgid "Find"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:75
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:87
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:97
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:100
 msgid "Cyclic Search"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:104
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:105
 msgid "Always"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:108
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:115
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:116
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:137
 msgid "Search Options"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:165
+#: src/Widgets/SearchBar.vala:169
 msgid "Replace With"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:172
 msgid "Replace"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:175
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:566
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:571
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr ""
 
