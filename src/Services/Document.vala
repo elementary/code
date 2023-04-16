@@ -563,6 +563,7 @@ namespace Scratch.Services {
 
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
+            hide_info_bar ();
 
             debug ("File “%s” saved successfully", get_basename ());
 
@@ -608,9 +609,9 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
-                // Should not set "modified" state of the buffer to true - this is automatic
                 is_saved = yield save (true, true);
                 if (is_saved) {
+                    source_view.buffer.set_modified (false);
                     if (is_current_file_temporary) {
                         try {
                             // Delete temporary file
@@ -860,12 +861,15 @@ namespace Scratch.Services {
                 ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
             } else if (loaded) { // Check external changes after loading
                 if (!locked && !can_write () && source_view.buffer.get_modified ()) {
-                // The file has become unwritable while changes are pending
+                    // The file has become unwritable while changes are pending
                     locked = true;
                     var details = _("File “%s” was does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
                 } else {
-                // Check for external changes (can load even if locked or unwritable)
+                    // Detect external changes by comparing file content with buffer content.
+                    // Only done when no unsaved internal changes else  difference from saved
+                    // file are to be expected. If user selects to continue regardless then no further
+                    // check made for this document - external changes will be overwritten on next (auto) save
                     var new_buffer = new Gtk.SourceBuffer (null);
                     var source_file_loader = new Gtk.SourceFileLoader (
                         new_buffer,
@@ -884,36 +888,37 @@ namespace Scratch.Services {
                                 return;
                             }
 
-                            if (source_view.buffer.text == new_buffer.text) {
+                            if (last_save_content == new_buffer.text) {
                                 return;
                             }
 
-                            if (!source_view.buffer.get_modified ()) {
-                                //FIXME Should block editing until responded?
-                                if (Scratch.settings.get_boolean ("autosave")) {
-                                    source_view.set_text (new_buffer.text, false);
-                                } else {
-                                    string message = _(
-                                        "File “%s” was modified by an external application."
-                                    ).printf ("<b>%s</b>".printf (get_uri ()));
-
-                                    set_message (
-                                        Gtk.MessageType.WARNING,
-                                        message,
-                                         _("Reload"), () => {
-                                            this.source_view.set_text (
-                                                new_buffer.text, false
-                                            );
-                                            hide_info_bar ();
-                                        },
-                                        _("Continue"), () => {
-                                            hide_info_bar ();
-                                        })
-                                    ;
-                                }
+                            string message;
+                            if (source_view.buffer.get_modified ()) {
+                                    message = _(
+                "File \"%s\" was modified by an external application. \nThere are also unsaved changes. \nReload the document and lose the unsaved changes? \nOtherwise, overwrite the external changes or save with a different name."
+                                    ).printf ("<b>%s</b>".printf (get_basename ()));
                             } else {
-                                //TODO Handle conflicting changes (dialog?)
+                                    message = _(
+                "File \"%s\" was modified by an external application. \nReload the document? \nOtherwise, overwrite the external changes or save with a different name."
+                                    ).printf ("<b>%s</b>".printf (get_basename ()));
                             }
+
+                            locked = true;
+                            set_message (
+                                Gtk.MessageType.WARNING,
+                                message,
+                                _("Reload"), () => {
+                                    source_view.buffer.text = new_buffer.text;
+                                    source_view.buffer.set_modified (false);
+                                    last_save_content = source_view.buffer.text;
+                                    set_saved_status (true);
+                                    locked = false;
+                                    hide_info_bar ();
+                                },
+                                _("Continue"), () => {
+                                    hide_info_bar ();
+                                }
+                            );
                         }
                     );
                 }
