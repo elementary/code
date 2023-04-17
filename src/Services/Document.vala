@@ -194,7 +194,7 @@ namespace Scratch.Services {
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
-                    if (!Scratch.settings.get_boolean ("autosave")) {
+                    if (inhibit_autosave || !Scratch.settings.get_boolean ("autosave")) {
                         set_saved_status (false);
                     }
                 } else {
@@ -347,8 +347,10 @@ namespace Scratch.Services {
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
-                check_file_status ();
-                check_undoable_actions ();
+                if (!inhibit_autosave) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
 
                 return false;
             });
