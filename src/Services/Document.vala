@@ -439,6 +439,13 @@ namespace Scratch.Services {
             return ret_value;
         }
 
+        // Handle save action (only use for user interaction)
+        public void save_request () {
+            check_undoable_actions ();
+            check_file_status (); // Need to check for external changes before forcing save
+            save_with_hold.begin (true);
+        }
+
         private bool is_saving = false;
         public async bool save_with_hold (bool force = false, bool saving_as = false) {
             // Prevent reentry which could result in mismatched holds on Application
