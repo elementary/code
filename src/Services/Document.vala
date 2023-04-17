@@ -234,7 +234,8 @@ namespace Scratch.Services {
                                 timeout_saving = 0;
                             }
                             timeout_saving = Timeout.add (1000, () => {
-                                save.begin ();
+                                check_file_status ();
+                                save.begin (); // Not forced
                                 timeout_saving = 0;
                                 return false;
                             });
