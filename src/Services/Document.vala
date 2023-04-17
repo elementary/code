@@ -191,6 +191,16 @@ namespace Scratch.Services {
                 return false;
             });
 
+            // Focus in event for SourceView
+            this.source_view.focus_in_event.connect (() => {
+                if (!inhibit_autosave && !is_file_temporary) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
+
+                return false;
+            });
+
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
@@ -344,16 +354,6 @@ namespace Scratch.Services {
                     Source.remove (load_timout_id);
                 }
             }
-
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                if (!inhibit_autosave) {
-                    check_file_status ();
-                    check_undoable_actions ();
-                }
-
-                return false;
-            });
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
