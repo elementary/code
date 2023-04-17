@@ -850,7 +850,7 @@ namespace Scratch.Services {
             // Only done when no unsaved internal changes else  difference from saved
             // file are to be expected. If user selects to continue regardless then no further
             // check made for this document - external changes will be overwritten on next (auto) save
-            if (loaded) {
+            if (loaded && !is_saving) {
                 var new_buffer = new Gtk.SourceBuffer (null);
                 var source_file_loader = new Gtk.SourceFileLoader (new_buffer, source_file);
                 source_file_loader.load_async.begin (GLib.Priority.DEFAULT, null, null, (obj, res) => {
