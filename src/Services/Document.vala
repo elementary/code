@@ -203,6 +203,16 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
+            // Focus in event for SourceView
+            this.source_view.focus_in_event.connect (() => {
+                if (!locked && !is_file_temporary) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
+
+                return false;
+            });
+
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
                 if (!locked && Scratch.settings.get_boolean ("autosave")) {
@@ -367,16 +377,6 @@ namespace Scratch.Services {
                     Source.remove (load_timout_id);
                 }
             }
-
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                if (!locked) {
-                    check_file_status ();
-                    check_undoable_actions ();
-                }
-
-                return false;
-            });
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
