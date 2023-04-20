@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-04-08 16:59+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/extra/en_GB/>\n"
@@ -158,6 +158,7 @@ msgstr "Whole word search option added"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Whole word, case sensitive mode and use regex search settings now persist"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -167,43 +168,51 @@ msgstr "Minor updates:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
-msgstr ""
+msgstr "The search bar now updates properly after changing the active document"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Trying to save a document to an unwritable location is now handled better"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"The system style is now followed by the symbol outline and when launched "
+"without open documents"
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "Mixed case sensitive search now works as expected"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
 msgstr ""
+"The search results no longer change unexpectedly when focussing a document"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Now there is always an active project at startup if there are projects in "
+"the sidebar"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"If a development branch is running this shows in the window title and in the "
+"dock tooltip"
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180

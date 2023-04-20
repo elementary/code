@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-04-10 09:59+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -163,6 +163,8 @@ msgstr "S'ha afegit l'opció de cerca de paraules senceres"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"La paraula sencera, el mode sensible a majúscules i minúscules i la "
+"configuració de cerca d'expressió regular ara persisteixen."
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -173,42 +175,57 @@ msgstr "Actualitzacions menors:"
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"La barra de cerca ara s'actualitza correctament després de canviar el "
+"document actiu."
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Intentar desar un document en una ubicació que no es pot escriure ara es "
+"gestiona millor."
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"L'estil del sistema ara el segueix el contorn del símbol i quan es llança "
+"sense documents oberts."
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
 msgstr ""
+"La cerca mixta que distingeix entre majúscules i minúscules ara funciona com "
+"s'esperava."
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
 msgstr ""
+"Els resultats de la cerca ja no canvien de manera inesperada quan s'enfoca "
+"un document."
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Ara sempre hi ha un projecte actiu a l'inici si hi ha projectes a la barra "
+"lateral."
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Si s'està executant una branca de desenvolupament això es mostra al títol de "
+"la finestra i a la informació sobre eines de l'acoblador."
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr ""
+"Les dreceres Ctrl+Pàgina amunt i Ctrl+Pàgina avall ara canvien de pestanya."
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180
