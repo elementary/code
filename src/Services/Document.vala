@@ -545,7 +545,7 @@ namespace Scratch.Services {
                 // Allow save process to complete before showing dialog
                 Idle.add (() => {
                     ask_save_location (
-                        _("Saving to “%s” failed.").printf (get_uri ()),
+                        _("Saving to “%s” failed.").printf (file.get_path ()),
                         error
                     );
 
