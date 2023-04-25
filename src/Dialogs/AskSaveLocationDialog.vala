@@ -18,7 +18,8 @@ public class Scratch.Dialogs.AskSaveLocationDialog : Granite.MessageDialog {
     construct {
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
         transient_for = app_instance.active_window;
-        image_icon = new ThemedIcon ("dialog-warning");
+        image_icon = new ThemedIcon ("document-save");
+        badge_icon = new ThemedIcon ("dialog-question");
 
         add_button (_("Ignore"), Gtk.ResponseType.REJECT);
 
