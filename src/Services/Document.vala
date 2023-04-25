@@ -927,7 +927,7 @@ namespace Scratch.Services {
             locked = true;
             string primary_text;
             if (source_view.buffer.get_modified ()) {
-                primary_text = _("The document cannot be saved");
+                primary_text = _("“%s” can't be saved here. Save a duplicate somewhere else?");
             } else {
                 primary_text = _("The changes to the document cannot be saved");
             }
