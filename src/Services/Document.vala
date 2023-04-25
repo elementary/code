@@ -925,15 +925,8 @@ namespace Scratch.Services {
             string error_text = ""
         ) {
             locked = true;
-            string primary_text;
-            if (source_view.buffer.get_modified ()) {
-                primary_text = _("“%s” can't be saved here. Save a duplicate somewhere else?");
-            } else {
-                primary_text = _("The changes to the document cannot be saved");
-            }
-
             var dialog = new Scratch.Dialogs.AskSaveLocationDialog (
-                primary_text,
+                _("“%s” can't be saved here. Save a duplicate somewhere else?").printf (file.get_path ()),
                 details,
                 error_text
             );
