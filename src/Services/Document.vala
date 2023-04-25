@@ -155,7 +155,7 @@ namespace Scratch.Services {
         }
 
         construct {
-            locked_icon = new ThemedIcon ("locked");
+            locked_icon = new ThemedIcon ("emblem-readonly-symbolic");
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
