@@ -22,7 +22,7 @@ public class Scratch.Dialogs.AskSaveLocationDialog : Granite.MessageDialog {
 
         add_button (_("Ignore"), Gtk.ResponseType.REJECT);
 
-        var saveas_button = (Gtk.Button) add_button (_("Save Document elsewhere"), Gtk.ResponseType.ACCEPT);
+        var saveas_button = (Gtk.Button) add_button (_("Save Duplicate…"), Gtk.ResponseType.ACCEPT);
         saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
     }
 }
