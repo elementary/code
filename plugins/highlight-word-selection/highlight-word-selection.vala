@@ -53,34 +53,62 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         current_search_context.settings.search_text = "";
         current_search_context.set_highlight (false);
 
+        var original_start = start.copy ();
+
+        // Ignore leading space
         start.forward_find_char (
             (uc) => {
                 return !uc.isspace ();
             },
             end
         );
+
+        // Extend backwards to start of word
         start.backward_find_char (
             (uc) => {
-                return uc.isspace ();
+                var break_type = uc.break_type ();
+                if (break_type == UnicodeBreakType.ALPHABETIC ||
+                    break_type == UnicodeBreakType.WORD_JOINER) {
+
+                    return false;
+                } else {
+                    return true;
+                }
             },
             null
         );
-        start.forward_char ();
 
+        // Do not include leading punctuation unless originally selected by user
+        if (start.compare (original_start) < 0) {
+            start.forward_char ();
+        }
+
+        // Ignore trailing spaces
         end.backward_find_char (
             (uc) => {
                 return !uc.isspace ();
             },
             start
         );
+
+        // Extend forward to end of word
         end.forward_find_char (
             (uc) => {
-                return uc.isspace ();
+                var break_type = uc.break_type ();
+                if (break_type == UnicodeBreakType.ALPHABETIC ||
+                    break_type == UnicodeBreakType.WORD_JOINER) {
+
+                    return false;
+                } else {
+                    return true;
+                }
             },
             null
         );
 
-        var selected_text = start.get_text (end);
+        // Ensure no leading or trailing space
+        var selected_text = start.get_text (end).strip ();
+
         if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
             return;
         }
