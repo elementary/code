@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-28 14:59+0000\n"
+"PO-Revision-Date: 2023-04-25 08:59+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -167,6 +167,8 @@ msgstr "Ajout d'une option de recherche de mots entiers"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Les paramètres de recherche de mots entiers, de mode sensible à la casse et "
+"d'utilisation d'expressions rationnelles persistent désormais"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -177,11 +179,15 @@ msgstr "Mises à jour mineures :"
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"La barre de recherche se met désormais à jour correctement après avoir "
+"changé de document actif"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"La tentative d'enregistrement d'un document à un emplacement non "
+"inscriptible est désormais mieux gérée"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
