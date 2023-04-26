@@ -37,9 +37,13 @@ namespace Scratch.Services {
 
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (
-                    ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
-                );
+                if (file != null) {
+                    return file.get_path ().has_prefix (
+                        ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
+                    );
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -687,10 +691,12 @@ namespace Scratch.Services {
         public string get_tab_tooltip () {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
-            } else if (locked) {
+            } else if (file != null && locked) {
                 return _("Cannot save this document to %s").printf (Scratch.Utils.replace_home_with_tilde (file.get_path ()));
-            } else {
+            } else if (file != null) {
                 return Scratch.Utils.replace_home_with_tilde (file.get_path ());
+            } else {
+                return "";
             }
         }
 
