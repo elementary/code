@@ -925,11 +925,25 @@ namespace Scratch.Services {
             string error_text = ""
         ) {
             locked = true;
-            var dialog = new Scratch.Dialogs.AskSaveLocationDialog (
-                _("“%s” can't be saved here. Save a duplicate somewhere else?").printf (file.get_path ()),
+            var app_instance = (Gtk.Application) GLib.Application.get_default ();
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("“%s” can't be saved here. Save a duplicate somewhere else?").printf (file.get_basename ()),
                 details,
-                error_text
-            );
+                "document-save",
+                Gtk.ButtonsType.NONE
+            ) {
+                badge_icon = new ThemedIcon ("dialog-question"),
+                transient_for = app_instance.active_window
+            };
+
+            dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
+
+            var saveas_button = (Gtk.Button) dialog.add_button (_("Save Duplicate…"), Gtk.ResponseType.ACCEPT);
+            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            if (error_text != "") {
+                dialog.show_error_details (error_text);
+            }
 
             dialog.response.connect ((id) => {
                 dialog.destroy ();
@@ -945,7 +959,7 @@ namespace Scratch.Services {
                         case Gtk.ResponseType.REJECT:
                             break;
                         default:
-                            assert_not_reached ();
+                            break;
                     }
 
                     return false;
