@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-26 21:31+0000\n"
-"PO-Revision-Date: 2023-03-27 00:59+0000\n"
+"PO-Revision-Date: 2023-04-27 10:05+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.4\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:39
@@ -410,10 +410,9 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: src/Services/Document.vala:552
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Сохранить изменения в «%s» перед закрытием?"
+msgstr "Не удалось сохранить «%s»."
 
 #: src/Services/Document.vala:591
 msgid "Save File"
@@ -427,7 +426,7 @@ msgstr "Новый документ"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Невозможно сохранить документ в %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -450,43 +449,30 @@ msgid "Show Anyway"
 msgstr "Всё равно открыть"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"Источник, содержащий файл «%s», был извлечён. Сохранить в другом месте?"
+msgstr "Источник, содержащий файл «%s», был извлечён."
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "Файл %s удалён."
+msgstr "Файл «%s» удалён."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” was does not have write permission."
-msgstr "Файл «%s» был удалён. Всё равно сохранить?"
+msgstr "Файл «%s» не имеет прав на запись."
 
 #: src/Services/Document.vala:903
-#, fuzzy, c-format
-#| msgid ""
-#| "File “%s” was modified by an external application. Do you want to load it "
-#| "again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"Файл «%s» был изменён другим приложением. Загрузить его снова или продолжить "
-"редактирование?"
+msgstr "Файл «%s» был изменён другим приложением."
 
 #: src/Services/Document.vala:909
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Загрузить"
+msgstr "Перезагрузить"
 
 #: src/Services/Document.vala:915
 msgid "Continue"
@@ -495,15 +481,15 @@ msgstr "Продолжить"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "«%s» не может быть сохранён здесь. Сохранить копию в другом месте?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "Игнорировать"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Сохранить копию…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
