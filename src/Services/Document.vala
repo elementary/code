@@ -868,7 +868,7 @@ namespace Scratch.Services {
                 if (!locked && !can_write () && source_view.buffer.get_modified ()) {
                 // The file has become unwritable while changes are pending
                     locked = true;
-                    var details = _("File “%s” was does not have write permission.");
+                    var details = _("File “%s” does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
                 } else {
                 // Check for external changes (can load even if locked or unwritable)
