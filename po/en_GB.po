@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-26 21:31+0000\n"
-"PO-Revision-Date: 2023-03-27 00:59+0000\n"
+"PO-Revision-Date: 2023-04-27 10:05+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:39
@@ -406,10 +406,9 @@ msgid "Save"
 msgstr "Save"
 
 #: src/Services/Document.vala:552
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Save changes to “%s” before closing?"
+msgstr "Saving to “%s” failed."
 
 #: src/Services/Document.vala:591
 msgid "Save File"
@@ -423,7 +422,7 @@ msgstr "New Document"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Cannot save this document to %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -446,44 +445,30 @@ msgid "Show Anyway"
 msgstr "Show Anyway"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
+msgstr "The location containing the file “%s” was unmounted."
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "The file %s was deleted."
+msgstr "File “%s” was deleted."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” was does not have write permission."
-msgstr "File “%s” was deleted. Do you want to save it anyway?"
+msgstr "File “%s” does not have write permission."
 
 #: src/Services/Document.vala:903
-#, fuzzy, c-format
-#| msgid ""
-#| "File “%s” was modified by an external application. Do you want to load it "
-#| "again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+msgstr "File “%s” was modified by an external application."
 
 #: src/Services/Document.vala:909
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Upload"
+msgstr "Reload"
 
 #: src/Services/Document.vala:915
 msgid "Continue"
@@ -492,15 +477,15 @@ msgstr "Continue"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "“%s” can't be saved here. Save a duplicate somewhere else?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "Ignore"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Save Duplicate…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
