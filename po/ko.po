@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-26 21:31+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -479,7 +479,7 @@ msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?
 #: src/Services/Document.vala:871
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was does not have write permission."
+msgid "File “%s” does not have write permission."
 msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
 
 #: src/Services/Document.vala:903

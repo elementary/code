@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-26 21:31+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Saúl Núñez <saul.nunez99@gmail.com>\n"
 "Language-Team: Igbo <https://l10n.elementary.io/projects/code/code/ig/>\n"
@@ -446,9 +446,10 @@ msgstr ""
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, c-format
-msgid "File “%s” was does not have write permission."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Maybe you do not have the necessary permissions."
+msgid "File “%s” does not have write permission."
+msgstr "Probablemente no tienes los permisos necesarios."
 
 #: src/Services/Document.vala:903
 #, c-format
@@ -806,9 +807,6 @@ msgstr ""
 
 #~ msgid "File \"%s\" Cannot Be Created"
 #~ msgstr "El archivo \"%s\" no pudo ser creado"
-
-#~ msgid "Maybe you do not have the necessary permissions."
-#~ msgstr "Probablemente no tienes los permisos necesarios."
 
 #~ msgid "Maybe the file path provided is not valid."
 #~ msgstr "Tal vez la ruta del archivo proporcionada no es valida."

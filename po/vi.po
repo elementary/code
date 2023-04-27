@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-26 21:31+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -474,9 +474,10 @@ msgstr "Tập tin %s đã bị xóa."
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, c-format
-msgid "File “%s” was does not have write permission."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Maybe you do not have the necessary permissions."
+msgid "File “%s” does not have write permission."
+msgstr "Có thể bạn không có quyền truy cập cần thiết."
 
 #: src/Services/Document.vala:903
 #, c-format
@@ -888,9 +889,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Tệp \"%s\" không thể khởi tạo.\n"
 #~ "%s"
-
-#~ msgid "Maybe you do not have the necessary permissions."
-#~ msgstr "Có thể bạn không có quyền truy cập cần thiết."
 
 #~ msgid "Maybe the file path provided is not valid."
 #~ msgstr "Có thể đường dẫn không tồn tại."

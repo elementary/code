@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-26 21:31+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-03-28 14:59+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -469,7 +469,7 @@ msgstr "El fitxer %s ha estat suprimit."
 #: src/Services/Document.vala:871
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgid "File “%s” was does not have write permission."
+msgid "File “%s” does not have write permission."
 msgstr "S'ha suprimit el fitxer %s. Voleu desar-lo tanmateix?"
 
 #: src/Services/Document.vala:903
