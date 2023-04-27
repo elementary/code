@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-03-27 00:59+0000\n"
+"PO-Revision-Date: 2023-04-28 20:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:39
@@ -402,10 +402,9 @@ msgid "Save"
 msgstr "保存"
 
 #: src/Services/Document.vala:552
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "閉じる前に “%s” への変更を保存しますか？"
+msgstr "“%s” に保存できませんでした。"
 
 #: src/Services/Document.vala:591
 msgid "Save File"
@@ -419,7 +418,7 @@ msgstr "新しいドキュメント"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "%s にこのドキュメントを保存できません"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -442,43 +441,30 @@ msgid "Show Anyway"
 msgstr "強制的に表示"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"ファイル “%s” を含む場所はアンマウントされています。別の場所に保存しますか？"
+msgstr "ファイル “%s” を含む場所はアンマウントされています。"
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "ファイル %s は消去されました。"
+msgstr "ファイル “%s” は削除されました。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "“%s” は削除されています。それでも保存しますか？"
+msgstr "“%s” への書き込み権限がありません。"
 
 #: src/Services/Document.vala:903
-#, fuzzy, c-format
-#| msgid ""
-#| "File “%s” was modified by an external application. Do you want to load it "
-#| "again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"ファイル “%s” は外部のアプリケーションによって変更されました。ファイルを再読"
-"み込みしますか？　または編集を続行しますか？"
+msgstr "ファイル “%s” は外部のアプリケーションによって変更されました。"
 
 #: src/Services/Document.vala:909
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "アップロード"
+msgstr "再読み込み"
 
 #: src/Services/Document.vala:915
 msgid "Continue"
@@ -487,15 +473,15 @@ msgstr "編集を続行"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "“%s” はここには保存できません。複製をほかの場所に保存しますか？"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "無視"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "複製を保存…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
