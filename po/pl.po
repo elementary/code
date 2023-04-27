@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-03-27 00:59+0000\n"
+"PO-Revision-Date: 2023-04-28 20:06+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -412,10 +412,9 @@ msgid "Save"
 msgstr "Zapisz"
 
 #: src/Services/Document.vala:552
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Zachować zmiany w pliku „%s” przed zamknięciem?"
+msgstr "Zapisywanie do pliku „%s” nie powiodło się."
 
 #: src/Services/Document.vala:591
 msgid "Save File"
@@ -429,7 +428,7 @@ msgstr "Nowy dokument"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Nie można zapisać dokumentu do %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -452,44 +451,30 @@ msgid "Show Anyway"
 msgstr "Pokaż mimo to"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"Położenie zawierające plik „%s” jest niedostępne. Czy chcesz zapisać plik w "
-"innym miejscu?"
+msgstr "Położenie zawierające plik „%s” jest niedostępne."
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "Plik %s został usunięty"
+msgstr "Plik „%s” został usunięty."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "Plik „%s” został usunięty. Czy mimo to chcesz go zapisać?"
+msgstr "Plik „%s” nie ma uprawnień do zapisywania."
 
 #: src/Services/Document.vala:903
-#, fuzzy, c-format
-#| msgid ""
-#| "File “%s” was modified by an external application. Do you want to load it "
-#| "again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"Plik „%s” został zmieniony przez zewnętrzną aplikację. Chcesz wczytać go "
-"ponownie, czy kontynuować edycję?"
+msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację."
 
 #: src/Services/Document.vala:909
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Wyślij"
+msgstr "Przeładuj"
 
 #: src/Services/Document.vala:915
 msgid "Continue"
@@ -498,15 +483,15 @@ msgstr "Kontynuuj"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "„%s” nie może być tutaj zapisany. Zapisać kopię w innym miejscu?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "Zignoruj"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Zapisz kopię…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
