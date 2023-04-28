@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"PO-Revision-Date: 2023-04-30 00:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -496,7 +496,7 @@ msgstr "シンボル"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
-msgstr "プロジェクトが選択されていません"
+msgstr "プロジェクト未選択"
 
 #: src/Widgets/ChooseProjectButton.vala:38
 #: src/Widgets/ChooseProjectButton.vala:112
@@ -512,7 +512,7 @@ msgstr "プロジェクトをフィルター"
 #: src/Widgets/DocumentView.vala:159
 #, c-format
 msgid "Text file from %s:%d"
-msgstr "%s:%d のテキストファイル"
+msgstr "テキストファイル %s:%d"
 
 #: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
@@ -656,7 +656,7 @@ msgstr "なし"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Mixed Case"
-msgstr "検索用語に大文字・小文字が含まれる場合"
+msgstr "検索用語に大文字も小文字も含まれる場合"
 
 #: src/Widgets/SearchBar.vala:105
 msgid "Always"
