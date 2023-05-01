@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-01 21:16+0000\n"
-"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
+"PO-Revision-Date: 2023-05-01 21:17+0000\n"
+"Last-Translator: Benjamin <morantbenjamin@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -450,20 +450,14 @@ msgid "Show Anyway"
 msgstr "Afficher quand-même"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"L'emplacement contenant le fichier « %s » a été démonté. Voulez-vous "
-"l'enregistrer ailleurs ?"
+msgstr "L'emplacement contenant le fichier « %s » a été démonté."
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "Ce fichier %s a été supprimé."
+msgstr "Le fichier %s a été supprimé."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
