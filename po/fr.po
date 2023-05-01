@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-05-01 21:17+0000\n"
-"Last-Translator: Benjamin <morantbenjamin@gmail.com>\n"
+"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -427,7 +427,7 @@ msgstr "Nouveau document"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr "Impossible de sauvegarder ce document vers %s"
+msgstr "Impossible d'enregistrer ce document vers %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
