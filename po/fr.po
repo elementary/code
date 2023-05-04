@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-05-05 09:06+0000\n"
-"Last-Translator: Benjamin <morantbenjamin@gmail.com>\n"
+"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -462,11 +462,9 @@ msgstr "Le fichier « %s » a été supprimé."
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr ""
-"Le fichier « %s » a été supprimé. Voulez-vous tout de même l'enregistrer ?"
+msgstr "Le fichier « %s » n'est pas accessible en écriture."
 
 #: src/Services/Document.vala:903
 #, c-format
