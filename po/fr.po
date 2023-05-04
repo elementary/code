@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-04 08:33+0000\n"
-"Last-Translator: Benjamin <morantbenjamin@gmail.com>\n"
+"PO-Revision-Date: 2023-05-04 08:35+0000\n"
+"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -484,7 +484,8 @@ msgstr "Continuer"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "«%s» ne peut pas être enregistré ici. Enregistrer un doublon ailleurs ?"
+msgstr ""
+"« %s » ne peut pas être enregistré ici. Enregistrer un doublon ailleurs ?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
@@ -523,7 +524,7 @@ msgstr "Filtrer les projets"
 #: src/Widgets/DocumentView.vala:159
 #, c-format
 msgid "Text file from %s:%d"
-msgstr "Fichier texte à partir de %s:%d"
+msgstr "Fichier texte du %s:%d"
 
 #: src/Widgets/FormatBar.vala:46
 msgid "Syntax Highlighting"
