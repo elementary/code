@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-04-10 09:59+0000\n"
+"PO-Revision-Date: 2023-05-07 01:06+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -407,10 +407,9 @@ msgid "Save"
 msgstr "Opslaan"
 
 #: src/Services/Document.vala:552
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Veranderingen in document “%s” opslaan alvorens het te sluiten?"
+msgstr "Opslaan naar “%s” mislukt."
 
 #: src/Services/Document.vala:591
 msgid "Save File"
@@ -424,7 +423,7 @@ msgstr "Nieuw Document"
 #: src/Services/Document.vala:695
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Kan dit document niet opslaan naar %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -447,28 +446,21 @@ msgid "Show Anyway"
 msgstr "Toch tonen"
 
 #: src/Services/Document.vala:861
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file “%s” was unmounted. Do you want to save "
-#| "somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"De locatie met het bestand “%s” werd ontkoppeld. Wilt u het bestand ergens "
-"anders opslaan?"
+msgstr "De locatie met het bestand “%s” werd ontkoppeld."
 
 #: src/Services/Document.vala:863
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "Bestand %s is verwijderd"
+msgstr "Bestand “%s” is verwijderd."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:871
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "Het bestand “%s” is verwijderd. Wilt u het alsnog opslaan?"
+msgstr "Het bestand “%s” bezit geen schrijfrechten."
 
 #: src/Services/Document.vala:903
 #, fuzzy, c-format
