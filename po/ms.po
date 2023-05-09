@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -93,11 +93,11 @@ msgstr "Simbol"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
 msgstr "Semua fail"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:587
 msgid "Text files"
 msgstr "Fail teks"
 
@@ -110,8 +110,8 @@ msgid "Open"
 msgstr "Buka"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
+#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Batal"
@@ -388,151 +388,152 @@ msgstr "Ubah tetapan Kasar"
 msgid "Branch"
 msgstr "Ubah tetapan Kasar"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:305
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s bukan sebuah Fail Teks"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:306
 msgid "Code will not load this type of file."
 msgstr "Code tidak akan buka fail jenis ini."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:308
 msgid "Load Anyway"
 msgstr "Buka bagaimanapun"
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:329
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Pembukaan Fail \"%s\" Sedang Mengambil Masa Yang Lama"
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
 msgstr "Sila tunggu sementara Code membukakan fail."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:332
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Batalkan Pembukaan"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:429
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Simpan perubahan ke dokumen %s sebelum menutup?"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:430
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jika anda tidak  simpan, perubahan dari 4 saat terakhir akan hilang."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:436
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Tutup tanpa menyimpan"
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:440 src/Services/Document.vala:594
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:552
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "Simpan perubahan ke dokumen %s sebelum menutup?"
+
+#: src/Services/Document.vala:591
 msgid "Save File"
 msgstr "Simpan Fail"
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:675 src/Services/Document.vala:693
 msgid "New Document"
 msgstr "Dokumen Baru"
 
+#. No path for a new document
+#: src/Services/Document.vala:695
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
+#: src/Services/Document.vala:820
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:765
+#: src/Services/Document.vala:823
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr ""
 "Mungkin ia telah rosak atau anda tidak mempunyai keizinan untuk membacanya."
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:831
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Buka bagaimanapun"
 
-#: src/Services/Document.vala:802
+#: src/Services/Document.vala:861
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
-msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
+msgid "The location containing the file “%s” was unmounted."
 msgstr ""
 "Lokasi mengandungi fail \"%s\" telah dinyahlekap. Anda mahu simpan ditempat "
 "lain?"
 
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr "Simpan Sebagai..."
+#: src/Services/Document.vala:863
+#, fuzzy, c-format
+#| msgid "The file %s was deleted."
+msgid "File “%s” was deleted."
+msgstr "Fail %s telah dipadam."
 
-#: src/Services/Document.vala:811
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:871
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
 msgstr "Fail \"%s\" telah dipadam. Anda mahu simpan ia jua?"
 
-#: src/Services/Document.vala:855
+#: src/Services/Document.vala:903
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+msgid "File “%s” was modified by an external application."
 msgstr ""
 "Fail \"%s\" telah diubahsuai oleh aplikasi luar. Anda mahu muatkannya sekali "
 "lagi atau teruskan penyuntingan anda?"
 
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr "Muat"
+#: src/Services/Document.vala:909
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "Muat Naik"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:915
 msgid "Continue"
 msgstr "Teruskan"
 
-#: src/Services/Document.vala:888
-#, fuzzy, c-format
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
+#: src/Services/Document.vala:936
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
-"Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
-"perubahan pada fail ini dalam lokasi yang berlainan?"
 
-#: src/Services/Document.vala:892
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
+#: src/Services/Document.vala:945
+msgid "Ignore"
 msgstr ""
-"Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
-"perubahan pada fail ini dalam lokasi yang berlainan?"
 
-#: src/Services/Document.vala:899
-#, fuzzy
-#| msgid "Save the current file"
-msgid "Save the document elsewhere"
-msgstr "Simpan fail semasa"
+#: src/Services/Document.vala:947
+msgid "Save Duplicate…"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -881,6 +882,33 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Perkataan"
 
+#~ msgid "Save As…"
+#~ msgstr "Simpan Sebagai..."
+
+#~ msgid "Load"
+#~ msgstr "Muat"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
+#~ "perubahan pada fail ini dalam lokasi yang berlainan?"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
+#~ "perubahan pada fail ini dalam lokasi yang berlainan?"
+
+#, fuzzy
+#~| msgid "Save the current file"
+#~ msgid "Save the document elsewhere"
+#~ msgstr "Simpan fail semasa"
+
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
 #~ msgstr "Fail \"%s\" tidak dapat dibaca"
@@ -988,9 +1016,6 @@ msgstr "%s - Pelengkapan Perkataan"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "Lain-lain..."
-
-#~ msgid "Upload"
-#~ msgstr "Muat Naik"
 
 #~ msgid "Other formats"
 #~ msgstr "Format lain"
@@ -1374,9 +1399,6 @@ msgstr "%s - Pelengkapan Perkataan"
 
 #~ msgid "The file %s was modified."
 #~ msgstr "Fail %s telah diubahsuai."
-
-#~ msgid "The file %s was deleted."
-#~ msgstr "Fail %s telah dipadam."
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Terdapat perubahan tidak disimpan!"
