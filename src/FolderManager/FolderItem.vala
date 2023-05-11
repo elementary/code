@@ -222,7 +222,7 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        private new void add (Granite.Widgets.SourceList.Item item) {
+        public new void add (Granite.Widgets.SourceList.Item item) {
             if (has_dummy && n_children == 1) {
                 ((Granite.Widgets.SourceList.ExpandableItem)this).remove (dummy);
                 has_dummy = false;
@@ -231,7 +231,7 @@ namespace Scratch.FolderManager {
             ((Granite.Widgets.SourceList.ExpandableItem)this).add (item);
         }
 
-        private new void remove (Granite.Widgets.SourceList.Item item) {
+        public new void remove (Granite.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 var folder = (FolderItem)item;
                 foreach (var child in folder.children) {
