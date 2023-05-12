@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -93,11 +93,11 @@ msgstr "Σύμβολα"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
 msgstr "Όλα τα αρχεία"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:587
 msgid "Text files"
 msgstr "Αρχεία κειμένου"
 
@@ -110,8 +110,8 @@ msgid "Open"
 msgstr "Άνοιγμα"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
+#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ακύρωση"
@@ -391,152 +391,153 @@ msgstr "Αλλαγή ρυθμίσεων του Scratch"
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:305
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "Το %s δεν είναι αρχείο κειμένου"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:306
 msgid "Code will not load this type of file."
 msgstr "Ο κώδικας δεν μπορεί να φορτώσει αυτόν τον τύπο αρχείου."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:308
 msgid "Load Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:329
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
 msgstr "Παρακαλώ περιμένετε όσο ο κώδικας φορτώνει το αρχείο."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:332
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ακύρωση"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:429
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:430
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
 "μόνιμα."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:436
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Κλείσιμο χωρίς αποθήκευση"
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:440 src/Services/Document.vala:594
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:552
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
+
+#: src/Services/Document.vala:591
 msgid "Save File"
 msgstr "Αποθήκευση Αρχείου"
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:675 src/Services/Document.vala:693
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
+#. No path for a new document
+#: src/Services/Document.vala:695
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
+#: src/Services/Document.vala:820
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:765
+#: src/Services/Document.vala:823
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματα."
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:831
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:802
+#: src/Services/Document.vala:861
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
-msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
+msgid "The location containing the file “%s” was unmounted."
 msgstr ""
 "Η τοποθεσία που περιέχει το αρχείο \"%s\" δεν μπορεί να βρεθεί. Θέλετε να "
 "αποθηκεύσετε σε κάποια άλλη τοποθεσία;"
 
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr "Αποθήκευση Ως…"
+#: src/Services/Document.vala:863
+#, fuzzy, c-format
+#| msgid "The file %s was deleted."
+msgid "File “%s” was deleted."
+msgstr "Το αρχείο %s διεγράφη."
 
-#: src/Services/Document.vala:811
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:871
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
 msgstr ""
 "Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
 
-#: src/Services/Document.vala:855
+#: src/Services/Document.vala:903
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+msgid "File “%s” was modified by an external application."
 msgstr ""
 "Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
 "φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
 
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr "Φόρτωση"
+#: src/Services/Document.vala:909
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "Μεταφόρτωση"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:915
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/Services/Document.vala:888
-#, fuzzy, c-format
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
+#: src/Services/Document.vala:936
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
-"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
-"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
 
-#: src/Services/Document.vala:892
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
+#: src/Services/Document.vala:945
+msgid "Ignore"
 msgstr ""
-"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
-"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
 
-#: src/Services/Document.vala:899
-#, fuzzy
-#| msgid "Save the current file"
-msgid "Save the document elsewhere"
-msgstr "Αποθήκευση τρέχοντος αρχείου"
+#: src/Services/Document.vala:947
+msgid "Save Duplicate…"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -888,6 +889,33 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Συμπλήρωση Λέξεων"
 
+#~ msgid "Save As…"
+#~ msgstr "Αποθήκευση Ως…"
+
+#~ msgid "Load"
+#~ msgstr "Φόρτωση"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+#~ "αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+#~ "αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+
+#, fuzzy
+#~| msgid "Save the current file"
+#~ msgid "Save the document elsewhere"
+#~ msgstr "Αποθήκευση τρέχοντος αρχείου"
+
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
 #~ msgstr "Το αρχείο \"%s\" δεν μπορεί να διαβαστεί"
@@ -959,9 +987,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "Άλλοι..."
-
-#~ msgid "Upload"
-#~ msgstr "Μεταφόρτωση"
 
 #~ msgid "Other formats"
 #~ msgstr "Άλλες μορφές"
@@ -1283,9 +1308,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 
 #~ msgid "The file %s was modified."
 #~ msgstr "Το αρχείο %s τροποποιήθηκε."
-
-#~ msgid "The file %s was deleted."
-#~ msgstr "Το αρχείο %s διεγράφη."
 
 #~ msgid "Draw spaces:"
 #~ msgstr "Σχεδίαση κενών:"

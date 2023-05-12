@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"PO-Revision-Date: 2023-04-30 00:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -157,7 +157,8 @@ msgstr "完全一致検索オプションを追加"
 #: data/code.metainfo.xml.in:71
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
-msgstr ""
+msgstr "“完全一致”、“大文字と小文字を区別”、“正規表現を使う”の検索設定が保持されるよ"
+"うに修正"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -167,43 +168,47 @@ msgstr "そのほかのアップデート:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
-msgstr ""
+msgstr "表示するドキュメントを変更すると、検索バーも適切に更新されるように修正"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
-msgstr ""
+msgstr "書き込み不可の場所にドキュメントを保存しようとした際の挙動を改善"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
-msgstr ""
+msgstr "シンボルアウトラインとドキュメントなしで起動した場合も“システムのスタイルに従"
+"う”が機能するように修正"
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "検索用語に大文字も小文字も含まれる場合の検索機能が、期待通りの挙動になるよう"
+"に修正"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
-msgstr ""
+msgstr "ドキュメントにフォーカスすると意図せず検索結果が変わってしまう不具合を修正"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
-msgstr ""
+msgstr "複数のプロジェクトがサイドバーに存在する場合、うち1つが起動時にアクティブなプ"
+"ロジェクトになるように修正"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
-msgstr ""
+msgstr "開発ブランチ版を実行中の場合、ウィンドウタイトルとドックのツールチップにブラ"
+"ンチ名を表示するように変更"
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Ctrl+PageUp と Ctrl+PageDown でタブを切り替えできるように変更"
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180
