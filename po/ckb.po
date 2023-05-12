@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 23:26+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2022-07-31 11:42+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -39,43 +39,43 @@ msgstr "پێوەکراو"
 msgid "[FILE…]"
 msgstr "[پەڕگە...]"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "دۆزینەوە لە پرۆژەدا…"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:337
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:342
 #, fuzzy
 #| msgid "No Project Selected"
 msgid "Show Projects Sidebar"
 msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
 
-#: src/MainWindow.vala:349
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:354
+#: src/MainWindow.vala:356
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
@@ -83,39 +83,39 @@ msgstr "هیچ سمبولێک نەدۆزرایەوە"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
 msgstr "هەموو پەڕگەکان"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:587
 msgid "Text files"
 msgstr "پەڕگە دەقییەکان"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:840
 msgid "Open some files"
 msgstr "کردنەوەی چەند پەڕگەیەک"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:843
 msgid "Open"
 msgstr "كردنەوە"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
+#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:869
 msgid "_Open"
 msgstr "_کردنەوە"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:870
 msgid "_Cancel"
 msgstr "_هەڵوەشاندنەوە"
 
@@ -370,156 +370,150 @@ msgstr "برانچی نوێ…"
 msgid "Branch"
 msgstr "برانچ"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:305
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s پەڕگەیەکی دەقی نییە"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:306
 msgid "Code will not load this type of file."
 msgstr "کۆد ئەم جۆری پەڕگەیە ناکاتەوە."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:308
 msgid "Load Anyway"
 msgstr "هەرچۆنێک بێت بیکەوە"
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:329
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "کردنەوەی پەڕگەی \"%s\" کاتێکی زۆری دەوێت"
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
 msgstr "تکایە چاوەڕێ بکە کاتێک کۆد خەریکی کردنەوەی پەڕگەکەیە."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:332
 msgid "Cancel Loading"
 msgstr "هەڵوەشاندنەوەی کردنەوە"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:429
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "دەتەوێت گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکرێن؟"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:430
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ئەگەر پاشەکەوتی نەکەیت، گۆڕانکارییەکان بۆ هەمیشە لە دەست دەدەیت."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:436
 msgid "Close Without Saving"
 msgstr "داخستن بەبێ پاشەکەوت کردن"
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:440 src/Services/Document.vala:594
 msgid "Save"
 msgstr "پاشه‌كه‌وت كردن"
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:552
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Saving to “%s” failed."
+msgstr "دەتەوێت گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکرێن؟"
+
+#: src/Services/Document.vala:591
 msgid "Save File"
 msgstr "پاشەکەوتکردنی پەڕگە"
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:675 src/Services/Document.vala:693
 msgid "New Document"
 msgstr "پەڕگەیەکی نوێ"
 
+#. No path for a new document
+#: src/Services/Document.vala:695
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
+#: src/Services/Document.vala:820
 #, fuzzy, c-format
 #| msgid "Search for text in “%s”"
 msgid "Cannot read text in file “%s”"
 msgstr "گەڕان بۆ دەق لە \"%s\""
 
-#: src/Services/Document.vala:765
+#: src/Services/Document.vala:823
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "لەوانەیە تێکچوو بێت یاخود مۆڵەتی کردنەوەیت نەبێت."
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:831
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "هەرچۆنێک بێت بیکەوە"
 
-#: src/Services/Document.vala:802
+#: src/Services/Document.vala:861
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
-msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
+msgid "The location containing the file “%s” was unmounted."
 msgstr ""
 "شوێنی هەڵگری پەڕگەی \"%s\" ناجێگیر کرا. ئایا دەتەوێت لە شوێنێکی تر پاشەکەوتی "
 "بکەیت؟"
 
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr "پاشەکەوتکردن وەکو…"
-
-#: src/Services/Document.vala:811
+#: src/Services/Document.vala:863
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted."
 msgstr "پەڕگەی \"%s\" سڕدرایەوە. دەتەوێت هێشتا پاشەکەوتی بکەیت؟"
 
-#: src/Services/Document.vala:855
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:871
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "پەڕگەی \"%s\" سڕدرایەوە. دەتەوێت هێشتا پاشەکەوتی بکەیت؟"
+
+#: src/Services/Document.vala:903
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+msgid "File “%s” was modified by an external application."
 msgstr ""
 "پەڕگەی \"%s\" لەلایەن نەرمەکاڵایەکی دەرەکییەوە گۆڕدراوە. ئایا دەتەوێت "
 "دووبارە بیکەیتەوە یاخود دەتەوێت بەردەوامبیت لە دەستکاریکردنی پەڕەی دیاریکراو؟"
 
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr "بارکردن"
+#: src/Services/Document.vala:909
+msgid "Reload"
+msgstr ""
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:915
 msgid "Continue"
 msgstr "به‌رده‌وام به‌"
 
-#: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
+#: src/Services/Document.vala:936
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
-"ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
-"گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
 
-#: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
+#: src/Services/Document.vala:945
+msgid "Ignore"
 msgstr ""
-"ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
-"گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
 
-#: src/Services/Document.vala:899
-#, fuzzy
-#| msgid "Save changes elsewhere"
-msgid "Save the document elsewhere"
-msgstr "پاشەکەوتکردنی گۆڕانکارییەکان لەشوێنێکی دی"
+#: src/Services/Document.vala:947
+msgid "Save Duplicate…"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -682,74 +676,74 @@ msgstr "بەڕێوەبردنی بوخچەکانی پڕۆژە"
 msgid "Find"
 msgstr "دۆزینه‌وه‌"
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:75
 #, fuzzy
 #| msgid "no results"
 msgid "No Results"
 msgstr "هیچ ئەنجامێک نییە"
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:87
 msgid "Search next"
 msgstr "گەڕان بۆ دواتر"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:97
 msgid "Search previous"
 msgstr "گەڕان بۆ پێشتر"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:100
 msgid "Cyclic Search"
 msgstr "گەڕانی خولی"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "هەرگیز"
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:104
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:105
 msgid "Always"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:108
 msgid "Case Sensitive"
 msgstr "هەستیارە کەیس"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:115
 #, fuzzy
 #| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "بەکارهێنانی دەستەواژەی ئاسایی"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:116
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:137
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "گەڕان بۆ پێشتر"
 
-#: src/Widgets/SearchBar.vala:165
+#: src/Widgets/SearchBar.vala:169
 msgid "Replace With"
 msgstr "جێ گۆڕینەوە لەگەڵ"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:172
 msgid "Replace"
 msgstr "جێ گۆڕینەوە"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:175
 msgid "Replace all"
 msgstr "جێ گۆڕینەوەی هەموویان"
 
-#: src/Widgets/SearchBar.vala:566
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d ی %d"
 
-#: src/Widgets/SearchBar.vala:571
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "هیچ ئەنجامێک نییە"
 
@@ -862,6 +856,39 @@ msgstr "تکایە لانیەکم یەک فەرهەنگی [aspell] دابمەز�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - تەواوکاری وشە"
+
+#~ msgid "Save As…"
+#~ msgstr "پاشەکەوتکردن وەکو…"
+
+#~ msgid "Load"
+#~ msgstr "بارکردن"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
+#~ "گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
+#~ "گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
+
+#, fuzzy
+#~| msgid "Save changes elsewhere"
+#~ msgid "Save the document elsewhere"
+#~ msgstr "پاشەکەوتکردنی گۆڕانکارییەکان لەشوێنێکی دی"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
