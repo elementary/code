@@ -372,7 +372,7 @@ namespace Scratch.Services {
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
-                if (!locked) {
+                if (!working && !locked) {
                     check_file_status ();
                     check_undoable_actions ();
                 }
@@ -503,12 +503,15 @@ namespace Scratch.Services {
             var old_uri = file.get_uri ();
             var old_locked = locked;
             locked = false;  // Can always try to save as a different file
+            working = true; // Prevent premature status check when focus in after dialog closes
             var result = yield save_with_hold (true, true);
             if (!result) {
                 file = File.new_for_uri (old_uri);
                 locked = old_locked;
             }
 
+            working = false;
+            check_file_status ();
             return result;
         }
 
