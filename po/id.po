@@ -8,8 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
-"io>\n"
+"Last-Translator: Rtr0ID <Albertong27@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/>"
 "\n"
 "Language: id\n"
@@ -130,19 +129,16 @@ msgstr "Abjad kapital sensitif:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Gunakan ekspresi reguler:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Cari kemunculan selanjutnya"
+msgstr "Cari"
 
 #: src/Dialogs/NewBranchDialog.vala:43
-#, fuzzy, c-format
-#| msgid "Create a new instance"
+#, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "Buat contoh baru"
+msgstr "Buat cabang baru untuk “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
