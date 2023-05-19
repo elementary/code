@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
-"Last-Translator: Rtr0ID <Albertong27@gmail.com>\n"
+"Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/>"
 "\n"
 "Language: id\n"
@@ -143,12 +143,11 @@ msgstr "Buat cabang baru untuk “%s/%s”"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "Nama cabang harus unik dan mengikuti aturan penamaan Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "Ubah pengaturan Scratch"
+msgstr "Buat Cabang"
 
 #: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
@@ -159,6 +158,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Memotong atau menyalin tanpa seleksi aktif akan memotong atau menyalin "
+"seluruh baris saat ini"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -170,7 +171,7 @@ msgstr "Simpan berkas ketika berubah:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Potong/salin pintar baris:"
 
 #: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
