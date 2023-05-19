@@ -8,7 +8,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "PO-Revision-Date: 2023-05-19 15:20+0000\n"
-"Last-Translator: Rtr0ID <Albertong27@gmail.com>\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/>"
 "\n"
 "Language: id\n"
@@ -45,10 +46,9 @@ msgid "[FILE…]"
 msgstr "[BERKAS...]"
 
 #: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Code"
+msgstr "Kode (%s)"
 
 #: src/MainWindow.vala:209
 msgid "Code"
@@ -56,42 +56,34 @@ msgstr "Kode"
 
 #: src/MainWindow.vala:321
 msgid "Hide search bar"
-msgstr "Sembunyikan bilah cari"
+msgstr "Sembunyikan bilah pencarian"
 
 #: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find on Page…"
-msgstr "Buka Folder"
+msgstr "Temukan pada Halaman…"
 
 #: src/MainWindow.vala:337
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Sembunyikan bilah cari"
+msgstr "Sembunyikan Bilah Sisi Proyek"
 
 #: src/MainWindow.vala:342
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Tampilkan Pratinjau"
+msgstr "Tampilkan Bilah Sisi Proyek"
 
 #: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
-msgstr ""
+msgstr "Sembunyikan Simbol Garis Tepi Luar"
 
 #: src/MainWindow.vala:356
-#, fuzzy
-#| msgid "Symbols"
 msgid "Show Symbol Outline"
-msgstr "Simbol"
+msgstr "Tampikan Simbol Garis Tepi Luar"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
 #: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
@@ -103,7 +95,7 @@ msgstr "Berkas teks"
 
 #: src/MainWindow.vala:840
 msgid "Open some files"
-msgstr "Buka beberapa file"
+msgstr "Buka beberapa berkas"
 
 #: src/MainWindow.vala:843
 msgid "Open"
