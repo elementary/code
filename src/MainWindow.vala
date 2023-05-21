@@ -518,8 +518,8 @@ namespace Scratch {
             document_view.tab_removed.connect ((tab) => {
                 update_find_actions ();
                 var doc = (Scratch.Services.Document)tab;
-                var selected_item = (Scratch.FolderManager.Item)(folder_manager_view.selected);
-                if (selected_item.file.file.equal (doc.file)) {
+                var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
+                if (selected_item != null && selected_item.file.file.equal (doc.file)) {
                     // Do not leave removed tab selected
                     folder_manager_view.selected = null;
                 }
