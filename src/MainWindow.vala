@@ -523,7 +523,6 @@ namespace Scratch {
                     // Do not leave removed tab selected
                     folder_manager_view.selected = null;
                 }
-
             });
 
             document_view.document_change.connect ((doc) => {
