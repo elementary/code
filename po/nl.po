@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-07 01:06+0000\n"
+"PO-Revision-Date: 2023-05-26 17:36+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -463,20 +463,13 @@ msgid "File “%s” does not have write permission."
 msgstr "Het bestand “%s” bezit geen schrijfrechten."
 
 #: src/Services/Document.vala:903
-#, fuzzy, c-format
-#| msgid ""
-#| "File “%s” was modified by an external application. Do you want to load it "
-#| "again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"Het bestand “%s” is aangepast in een externe applicatie. Wilt u het bestand "
-"opnieuw laden of doorgaan met bewerken?"
+msgstr "Het bestand “%s” is aangepast door een externe applicatie."
 
 #: src/Services/Document.vala:909
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Upload"
+msgstr "Herladen"
 
 #: src/Services/Document.vala:915
 msgid "Continue"
@@ -485,15 +478,15 @@ msgstr "Doorgaan"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "“%s” kan hier niet worden opgeslagen. Het bestand elders opslagen?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "Negeren"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Duplicaat opslaan…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
