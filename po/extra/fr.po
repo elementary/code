@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
-"PO-Revision-Date: 2023-03-28 14:59+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"PO-Revision-Date: 2023-05-05 09:06+0000\n"
+"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -167,6 +167,8 @@ msgstr "Ajout d'une option de recherche de mots entiers"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Les paramètres de recherche de mots entiers, de mode sensible à la casse et "
+"d'utilisation d'expressions rationnelles persistent désormais"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -177,11 +179,15 @@ msgstr "Mises à jour mineures :"
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"La barre de recherche se met désormais à jour correctement après avoir "
+"changé de document actif"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"La tentative d'enregistrement d'un document à un emplacement non "
+"inscriptible est désormais mieux gérée"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
@@ -191,28 +197,36 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "La recherche sensible à la casse fonctionne désormais comme attendu"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
 msgstr ""
+"Les résultats de la recherche ne changent plus inopinément lors de la "
+"focalisation sur un document"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Désormais, il y a toujours un projet actif au démarrage lorsqu'il y a des "
+"projets dans la barre latérale"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Si une branche de développement est en cours d'exécution, cela apparaît dans "
+"le titre de la fenêtre et dans l'infobulle du dock"
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr ""
+"Les raccourcis Ctrl+PageHaut et Ctrl+PageBas permettent désormais de changer "
+"d'onglet"
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180

@@ -37,9 +37,13 @@ namespace Scratch.Services {
 
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (
-                    ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
-                );
+                if (file != null) {
+                    return file.get_path ().has_prefix (
+                        ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved
+                    );
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -155,7 +159,7 @@ namespace Scratch.Services {
         }
 
         construct {
-            locked_icon = new ThemedIcon ("locked");
+            locked_icon = new ThemedIcon ("emblem-readonly-symbolic");
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
@@ -202,16 +206,6 @@ namespace Scratch.Services {
             main_stack.add_named (doc_grid, "content");
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                if (!locked && !is_file_temporary) {
-                    check_file_status ();
-                    check_undoable_actions ();
-                }
-
-                return false;
-            });
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
@@ -378,6 +372,16 @@ namespace Scratch.Services {
                 }
             }
 
+            // Focus in event for SourceView
+            this.source_view.focus_in_event.connect (() => {
+                if (!working && !locked) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
+
+                return false;
+            });
+
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -481,7 +485,7 @@ namespace Scratch.Services {
         private bool is_saving = false;
         public async bool save_with_hold (bool force = false, bool saving_as = false) {
             // Prevent reentry which could result in mismatched holds on Application
-            if (is_saving || (locked && !force)) {
+            if (is_saving || locked) {
                 return true;
             } else {
                 is_saving = true;
@@ -508,16 +512,19 @@ namespace Scratch.Services {
             var old_uri = file.get_uri ();
             var old_locked = locked;
             locked = false;  // Can always try to save as a different file
+            working = true; // Prevent premature status check when focus in after dialog closes
             var result = yield save_with_hold (true, true);
             if (!result) {
                 file = File.new_for_uri (old_uri);
                 locked = old_locked;
             }
 
+            working = false;
+            check_file_status ();
             return result;
         }
 
-        private async bool save (bool force = false, bool saving_as = false) {
+        private async bool save (bool force = false, bool saving_as = false) requires (!locked) {
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -554,7 +561,7 @@ namespace Scratch.Services {
                 // Allow save process to complete before showing dialog
                 Idle.add (() => {
                     ask_save_location (
-                        _("Saving to “%s” failed.").printf (get_uri ()),
+                        _("Saving to “%s” failed.").printf (file.get_path ()),
                         error
                     );
 
@@ -618,6 +625,7 @@ namespace Scratch.Services {
 
             var is_saved = false;
             if (success) {
+                // Should not set "modified" state of the buffer to true - this is automatic
                 is_saved = yield save (true, true);
                 if (is_saved) {
                     source_view.buffer.set_modified (false);
@@ -697,10 +705,12 @@ namespace Scratch.Services {
         public string get_tab_tooltip () {
             if (is_file_temporary) {
                 return _("New Document"); //No path for a new document
-            } else if (locked) {
+            } else if (file != null && locked) {
                 return _("Cannot save this document to %s").printf (Scratch.Utils.replace_home_with_tilde (file.get_path ()));
-            } else {
+            } else if (file != null) {
                 return Scratch.Utils.replace_home_with_tilde (file.get_path ());
+            } else {
+                return "";
             }
         }
 
@@ -870,11 +880,11 @@ namespace Scratch.Services {
                 ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
             } else if (loaded && !is_saving) { // Check external changes after loading
                 if (!locked && !can_write () && source_view.buffer.get_modified ()) {
-                    // The file has become unwritable while changes are pending
+                // The file has become unwritable while changes are pending
                     locked = true;
-                    var details = _("File “%s” was does not have write permission.");
+                    var details = _("File “%s” does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
-                } else {
+                } else if (!source_view.buffer.get_modified ()) {
                     // Detect external changes by comparing file content with buffer content.
                     // Only done when no unsaved internal changes else difference from saved
                     // file are to be expected.
@@ -930,18 +940,25 @@ namespace Scratch.Services {
             string error_text = ""
         ) {
             locked = true;
-            string primary_text;
-            if (source_view.buffer.get_modified ()) {
-                primary_text = _("The document cannot be saved");
-            } else {
-                primary_text = _("The changes to the document cannot be saved");
-            }
-
-            var dialog = new Scratch.Dialogs.AskSaveLocationDialog (
-                primary_text,
+            var app_instance = (Gtk.Application) GLib.Application.get_default ();
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("“%s” can't be saved here. Save a duplicate somewhere else?").printf (file.get_basename ()),
                 details,
-                error_text
-            );
+                "document-save",
+                Gtk.ButtonsType.NONE
+            ) {
+                badge_icon = new ThemedIcon ("dialog-question"),
+                transient_for = app_instance.active_window
+            };
+
+            dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
+
+            var saveas_button = (Gtk.Button) dialog.add_button (_("Save Duplicate…"), Gtk.ResponseType.ACCEPT);
+            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            if (error_text != "") {
+                dialog.show_error_details (error_text);
+            }
 
             dialog.response.connect ((id) => {
                 dialog.destroy ();
@@ -957,7 +974,7 @@ namespace Scratch.Services {
                         case Gtk.ResponseType.REJECT:
                             break;
                         default:
-                            assert_not_reached ();
+                            break;
                     }
 
                     return false;

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -70,11 +70,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:587
 msgid "Text files"
 msgstr ""
 
@@ -87,8 +87,8 @@ msgid "Open"
 msgstr ""
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
+#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr ""
@@ -346,125 +346,129 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:305
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:306
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:308
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:329
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:332
 msgid "Cancel Loading"
 msgstr ""
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:429
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr ""
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:430
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:436
 msgid "Close Without Saving"
 msgstr ""
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:440 src/Services/Document.vala:594
 msgid "Save"
 msgstr ""
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:552
+#, c-format
+msgid "Saving to “%s” failed."
+msgstr ""
+
+#: src/Services/Document.vala:591
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:675 src/Services/Document.vala:693
 msgid "New Document"
 msgstr ""
 
+#. No path for a new document
+#: src/Services/Document.vala:695
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
+#: src/Services/Document.vala:820
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:765
+#: src/Services/Document.vala:823
 msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:831
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:802
-#, c-format
-msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr ""
-
-#: src/Services/Document.vala:811
-#, c-format
-msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgstr ""
-
-#: src/Services/Document.vala:855
-#, c-format
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr ""
-
 #: src/Services/Document.vala:861
+#, c-format
+msgid "The location containing the file “%s” was unmounted."
+msgstr ""
+
+#: src/Services/Document.vala:863
+#, c-format
+msgid "File “%s” was deleted."
+msgstr ""
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:871
+#, c-format
+msgid "File “%s” does not have write permission."
+msgstr ""
+
+#: src/Services/Document.vala:903
+#, c-format
+msgid "File “%s” was modified by an external application."
+msgstr ""
+
+#: src/Services/Document.vala:909
+msgid "Reload"
+msgstr ""
+
+#: src/Services/Document.vala:915
 msgid "Continue"
 msgstr ""
 
-#: src/Services/Document.vala:888
+#: src/Services/Document.vala:936
 #, c-format
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:892
-#, c-format
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
+#: src/Services/Document.vala:945
+msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:899
-msgid "Save the document elsewhere"
+#: src/Services/Document.vala:947
+msgid "Save Duplicate…"
 msgstr ""
 
 #: src/Services/TemplateManager.vala:198
