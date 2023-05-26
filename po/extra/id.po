@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-27 18:06+0000\n"
-"Last-Translator: Rtr0ID <Albertong27@gmail.com>\n"
+"PO-Revision-Date: 2023-05-27 18:07+0000\n"
+"Last-Translator: Muhammad Dholifun Nafsi <muhammad_dholifun@protonmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/extra/id/"
 ">\n"
 "Language: id\n"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Bilah samping yang dapat dialihkan agar sesuai dengan alur kerja anda"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
@@ -122,13 +122,11 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Peta mini opsional untuk memudahkan navigasi file besar"
 
 #: data/code.metainfo.xml.in:60
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "PT elementary."
+msgstr "elementary, Inc."
 
 #: data/code.metainfo.xml.in:67 data/code.metainfo.xml.in:108
 #: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:164
@@ -153,7 +151,7 @@ msgstr ""
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
 #: data/code.metainfo.xml.in:196
 msgid "Minor updates:"
-msgstr ""
+msgstr "Pembaruan kecil:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
@@ -285,7 +283,7 @@ msgstr ""
 #: data/code.metainfo.xml.in:147 data/code.metainfo.xml.in:171
 #: data/code.metainfo.xml.in:187
 msgid "Fixes:"
-msgstr ""
+msgstr "Perbaikan:"
 
 #: data/code.metainfo.xml.in:149
 msgid ""
@@ -316,29 +314,34 @@ msgstr ""
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
+"Proyek dengan nama yang sama sekarang menyertakan nama folder induknya juga"
 
 #: data/code.metainfo.xml.in:167
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
+"Saat menggulir ke hasil pencarian, sedikit terlampaui untuk visibilitas yang "
+"lebih baik"
 
 #: data/code.metainfo.xml.in:168
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr ""
+msgstr "Gunakan portal FileChooser daripada GTK"
 
 #: data/code.metainfo.xml.in:169
 msgid "Center the global search dialog over the main Code window"
-msgstr ""
+msgstr "Pusatkan dialog pencarian global di atas jendela Code utama"
 
 #: data/code.metainfo.xml.in:173
 msgid "Fix visibility of Terminal button on Welcome page"
-msgstr ""
+msgstr "Perbaiki visibilitas tombol Terminal di halaman Selamat Datang"
 
 #: data/code.metainfo.xml.in:174
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
+"Perbaiki beberapa pintasan papan ketik yang memengaruhi Dokumen yang tidak "
+"fokus alih-alih Terminal yang terfokus"
 
 #: data/code.metainfo.xml.in:175
 msgid ""
@@ -356,15 +359,15 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:190
 msgid "Ensure files created from the sidebar are automatically opened"
-msgstr ""
+msgstr "Pastikan file yang dibuat dari bilah sisi dibuka secara otomatis"
 
 #: data/code.metainfo.xml.in:194
 msgid "Hide project chooser button when hiding sidebar"
-msgstr ""
+msgstr "Sembunyikan tombol pemilih proyek saat menyembunyikan bilah sisi"
 
 #: data/code.metainfo.xml.in:198
 msgid "Ensure all copy is translatable"
-msgstr ""
+msgstr "Pastikan semua salinan dapat diterjemahkan"
 
 #: data/io.elementary.code.desktop.in.in:4
 msgid "@NAME@"
@@ -393,11 +396,11 @@ msgstr "Jendela Baru"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Jalankan Code sebagai Administrator"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "Otentikasi diperlukan untuk menjalankan Code sebagai Administrator"
 
 #, fuzzy
 #~| msgid "syntax highlighting with gtksourceview-3"
