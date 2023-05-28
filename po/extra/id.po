@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-27 18:07+0000\n"
+"PO-Revision-Date: 2023-05-29 18:06+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/extra/id/"
@@ -36,10 +36,10 @@ msgid ""
 "never lose your spot—even between sessions."
 msgstr ""
 "Baik Anda menulis dalam Markdown atau mengelola basis kode aplikasi yang "
-"kompleks, Code adalah editor ringan namun berfitur lengkap untuk Anda. "
-"Editor ini otomatis menyimpan file Anda untuk memastikan mereka selalu up-to-"
-"date, dan mengingat tab Anda sehingga Anda tidak pernah kehilangan tempat "
-"Anda—bahkan di antara sesi."
+"kompleks, Kode adalah penyunting ringan namun berfitur lengkap untuk Anda. "
+"Penyunting ini otomatis menyimpan berkas Anda untuk memastikan mereka selalu "
+"mutakhir, dan mengingat tab Anda sehingga Anda tidak pernah kehilangan "
+"tempat Anda—bahkan di antara sesi."
 
 #: data/code.metainfo.xml.in:13
 msgid ""
@@ -47,9 +47,9 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
-"Dirancang di sekitar alur kerja berbasis proyek, Code mengetahui tentang "
-"basis kode Anda yang terpisah. Code hadir dengan integrasi Git yang membantu "
-"untuk membuat dan beralih antar cabang dan menampilkan file dan baris yang "
+"Dirancang di sekitar alur kerja berbasis proyek, Kode mengetahui tentang "
+"basis kode Anda yang terpisah. Kode hadir dengan integrasi Git yang membantu "
+"untuk membuat dan beralih antar cabang dan menampilkan berkas dan baris yang "
 "diubah dalam proyek Anda."
 
 #: data/code.metainfo.xml.in:14
@@ -60,17 +60,17 @@ msgid ""
 "languages."
 msgstr ""
 "Bekerja dengan bahasa yang Anda gunakan: Apakah Anda menyusun kode di Vala, "
-"membuat skrip dengan PHP, atau menandai semuanya di HTML, Code mencakup "
+"membuat skrip dengan PHP, atau menandai semuanya di HTML, Kode mencakup "
 "semuanya. Rasakan penyorotan sintaks penuh dengan hampir semua bahasa "
-"pemrograman, skrip, dan markup."
+"pemrograman, skrip, dan markah."
 
 #: data/code.metainfo.xml.in:15
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
-"Cari apa saja yang ada di file saat ini, spesifik folder, atau seluruh "
-"projek anda dengan opsi untuk abjad sensitif dan ekspresi reguler."
+"Cari apa saja yang ada di berkas saat ini, folder spesifik, atau seluruh "
+"proyek anda dengan opsi untuk sensitifitas abjad dan ekspresi reguler."
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -79,6 +79,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Fitur cerdas menyeluruh: indentasi otomatis, perilaku potong/salin cerdas, "
+"spasi kosong yang terlihat untuk teks yang dipilih dan di akhir baris secara "
+"bawaan, dan ekstensi opsional untuk tindakan Markdown, pemeriksaan ejaan, "
+"pemangkasan spasi kosong, pelengkapan kata, dan banyak lagi."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -86,16 +90,21 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Adaptasikan Kode dengan alur kerja Anda: ubah perilaku dan antarmuka sesuai "
+"kebutuhan dengan beberapa ekstensi dan preferensi yang berguna dan "
+"dipertimbangkan dengan baik."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "Ada banyak lagi:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Skema warna Solarized Terang, Solarized Gelap, dan Kontras Tinggi yang "
+"memengaruhi seluruh antarmuka"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
@@ -103,27 +112,31 @@ msgstr "Bilah samping yang dapat dialihkan agar sesuai dengan alur kerja anda"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Indentasi pintar dan dukungan .editorconfig"
 
 #: data/code.metainfo.xml.in:23
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Tab kelas peramban dengan seret dan lepas, duplikasi, batalkan penutupan, "
+"dan riwayat tab"
 
 #: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Menampilkan garis dan karakter saat ini—dan lompat cepat ke baris baru"
 
 #: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Gulir melewati akhir berkas sehingga Anda dapat mempertahankan baris saat "
+"ini di tempat yang nyaman"
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
-msgstr "Peta mini opsional untuk memudahkan navigasi file besar"
+msgstr "Peta mini opsional untuk memudahkan navigasi berkas besar"
 
 #: data/code.metainfo.xml.in:60
 msgid "elementary, Inc."
@@ -137,16 +150,18 @@ msgstr "Peningkatan:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Search options transferred to searchbar menu"
-msgstr ""
+msgstr "Opsi pencarian dipindahkan ke menu bilah pencarian"
 
 #: data/code.metainfo.xml.in:70
 msgid "Whole word search option added"
-msgstr ""
+msgstr "Penambahan opsi pencarian seluruh kata"
 
 #: data/code.metainfo.xml.in:71
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Seluruh kata, mode sensitif abjad dan menggunakan pengaturan pencarian regex "
+"sekarang tetap ada"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
@@ -157,42 +172,53 @@ msgstr "Pembaruan kecil:"
 #: data/code.metainfo.xml.in:75
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"Bilah pencarian sekarang diperbarui dengan benar setelah mengubah dokumen "
+"aktif"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Mencoba menyimpan dokumen ke lokasi yang tidak dapat ditulis sekarang "
+"ditangani dengan lebih baik"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"Gaya sistem sekarang diikuti oleh garis tepi simbol dan ketika diluncurkan "
+"tanpa dokumen terbuka"
 
 #: data/code.metainfo.xml.in:78
 msgid "Mixed case sensitive search now works as expected"
 msgstr ""
+"Pencarian sensitif abjad campuran sekarang berfungsi seperti yang diharapkan"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The search results no longer change unexpectedly when focussing a document"
-msgstr ""
+msgstr "Hasil pencarian tidak lagi berubah tiba-tiba ketika memfokuskan dokumen"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Sekarang selalu ada proyek aktif saat startup jika ada proyek di bilah "
+"samping"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Jika cabang pengembangan berjalan, ini akan ditampilkan di judul jendela dan "
+"di tooltip dok"
 
 #: data/code.metainfo.xml.in:82
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Pintasan Ctrl+PageUp dan Ctrl+PageDown sekarang beralih tab"
 
 #: data/code.metainfo.xml.in:83 data/code.metainfo.xml.in:125
 #: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:180
@@ -202,53 +228,66 @@ msgstr "Pembaruan terjemahan"
 
 #: data/code.metainfo.xml.in:110
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Ikon aplikasi yang didesain ulang"
 
 #: data/code.metainfo.xml.in:111
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Gaya baru kustom elementary gelap dan terang untuk tampilan sumber"
 
 #: data/code.metainfo.xml.in:112
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "Opsi untuk mengikuti preferensi gaya gelap sistem"
 
 #: data/code.metainfo.xml.in:113
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Kemampuan untuk setengah ubin pada tampilan notebook kecil"
 
 #: data/code.metainfo.xml.in:117
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Temukan di Halaman dan Temukan di Project kini tersedia dari menu aplikasi, "
+"bukan di bilah kepala"
 
 #: data/code.metainfo.xml.in:118
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Opsi untuk menyembunyikan dan menampilkan panel sekarang semuanya hadir "
+"dalam satu set tombol tertaut yang ringkas di menu aplikasi"
 
 #: data/code.metainfo.xml.in:119
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"Bar samping sekarang berisi tombol pemilih proyek dan mengisi ketinggian "
+"jendela"
 
 #: data/code.metainfo.xml.in:120
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
+"Memulai pencarian global dengan teks yang dipilih sekarang akan mengisi teks "
+"tersebut sebelumnya"
 
 #: data/code.metainfo.xml.in:121
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"Simbol garis tepi panel sekarang ditampilkan di sebelah kanan tampilan "
+"sumber dan dapat ditampilkan dan disembunyikan dengan pintasan keyboard \"Alt"
+" + \\\""
 
 #: data/code.metainfo.xml.in:122
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Terminal, Simbol garis tepi dan pengaya Strip Trailing Whitespace sekarang "
+"menjadi bagian dari basis kode utama"
 
 #: data/code.metainfo.xml.in:123
 msgid ""
