@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-26 17:36+0000\n"
+"PO-Revision-Date: 2023-05-29 18:06+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -283,15 +283,15 @@ msgstr "Naar de prullenbak verplaatsen"
 
 #: src/FolderManager/FileView.vala:42
 msgid "Folders"
-msgstr "Folders"
+msgstr "Mappen"
 
 #: src/FolderManager/FolderItem.vala:106
 msgid "Find in Folder…"
-msgstr "Vind in folder…"
+msgstr "Vind in map…"
 
 #: src/FolderManager/FolderItem.vala:173
 msgid "Folder"
-msgstr "Folder"
+msgstr "Map"
 
 #: src/FolderManager/FolderItem.vala:176
 msgid "Empty File"
@@ -307,7 +307,7 @@ msgstr "Nieuw"
 
 #: src/FolderManager/FolderItem.vala:366
 msgid "untitled folder"
-msgstr "naamloze folder"
+msgstr "naamloze map"
 
 #: src/FolderManager/FolderItem.vala:366
 msgid "new file"
@@ -315,11 +315,11 @@ msgstr "nieuw bestand"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
-msgstr "Sluit folder"
+msgstr "Map sluiten"
 
 #: src/FolderManager/ProjectFolderItem.vala:116
 msgid "Close Other Folders"
-msgstr "Sluit andere folders"
+msgstr "Andere mappen sluiten"
 
 #: src/FolderManager/ProjectFolderItem.vala:121
 #, c-format
@@ -623,7 +623,7 @@ msgstr "Terminal verbergen"
 
 #: src/Widgets/Sidebar.vala:57
 msgid "Open Folder…"
-msgstr "Folder openen…"
+msgstr "Map openen…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -635,7 +635,7 @@ msgstr "Alfabetiseer"
 
 #: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
-msgstr "Beheer projectfolders"
+msgstr "Projectmappen beheren"
 
 #: src/Widgets/SearchBar.vala:72
 msgid "Find"
@@ -748,11 +748,11 @@ msgstr "Een opgeslagen bestand openen."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Folder openen"
+msgstr "Map openen"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr "Voeg een projectfolder toe aan de zijbalk."
+msgstr "Voeg een projectmap toe aan de zijbalk."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
