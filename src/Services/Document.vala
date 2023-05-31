@@ -992,10 +992,27 @@ namespace Scratch.Services {
         ) {
             locked = true;
 
-            var dialog = new Scratch.Dialogs.AskExternalChangesDialog (
-                primary_text,
-                secondary_text
-            );
+            var app_instance = (Gtk.Application) GLib.Application.get_default ();
+            var dialog = new Granite.MessageDialog (
+                    primary_text,
+                    secondary_text,
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.NONE
+                ) {
+                transient_for = app_instance.active_window
+
+            };
+
+            dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
+
+            var reload_button = (Gtk.Button) (dialog.add_button (_("Reload"), 0));
+            reload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            var overwrite_button = (Gtk.Button) (dialog.add_button (_("Overwrite"), 1));
+            overwrite_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            var saveas_button = (Gtk.Button) (dialog.add_button (_("Save Document elsewhere"), Gtk.ResponseType.ACCEPT));
+            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             dialog.response.connect ((id) => {
                 dialog.destroy ();
