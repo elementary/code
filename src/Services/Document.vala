@@ -92,6 +92,7 @@ namespace Scratch.Services {
 
         // Locked documents can be edited but cannot be (auto)saved to the current file.
         // Locked documents can be saved to a different file (when they will be unlocked)
+        // Create as locked so focus events ingb=nored. Unlock when content is loaded
         private bool _locked = true;
         public bool locked {
             get {
@@ -115,8 +116,8 @@ namespace Scratch.Services {
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
-        public string original_content;
-        private string last_save_content;
+        public string original_content = "";
+        private string last_save_content = "";
         public bool saved = true;
         private bool completion_shown = false;
 
@@ -207,6 +208,17 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
+            // Focus in event for SourceView
+            // Check if file changed externally or permissions changed
+            this.source_view.focus_in_event.connect (() => {
+                if (!locked && !is_file_temporary) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
+
+                return false;
+            });
+
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
                 if (!locked && Scratch.settings.get_boolean ("autosave")) {
@@ -236,9 +248,7 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
-            // /* Create as loaded and unlocked - could be new document */
             loaded = file == null;
-            locked = false;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
@@ -372,22 +382,13 @@ namespace Scratch.Services {
                 }
             }
 
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                if (!working && !locked) {
-                    check_file_status ();
-                    check_undoable_actions ();
-                }
-
-                return false;
-            });
+            source_view.buffer.set_modified (false);
+            original_content = source_view.buffer.text;
+            last_save_content = source_view.buffer.text;
 
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-            source_view.buffer.set_modified (false);
-            original_content = source_view.buffer.text;
-            last_save_content = source_view.buffer.text;
             set_saved_status (true);
             doc_opened ();
             source_view.sensitive = true;
@@ -915,7 +916,7 @@ namespace Scratch.Services {
                                 return;
                             }
 
-                            var primary_text = _("File “%s” was modified by an external application");
+                            var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
                             string secondary_text;
 
                             if (source_view.buffer.get_modified ()) {
@@ -1020,11 +1021,11 @@ namespace Scratch.Services {
                             locked = false;
                             break;
                         case 1: // Overwrite
-                            // Force save
-                            // locked = false;
+                            // Force save, unlock to allow saving to same location
+                            locked = false;
                             save_with_hold.begin (true, false, (obj, res) => {
-                                if (save_with_hold.end (res)) {
-                                    locked = false;
+                                if (!save_with_hold.end (res)) {
+                                    locked = true;
                                 }
                             });
                             break;
