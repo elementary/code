@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-05-29 18:06+0000\n"
+"PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/extra/id/"
@@ -294,31 +294,37 @@ msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Memperlihatkan bilah info saat pengaturan lebar tab ditimpa oleh berkas "
+"EditorConfig"
 
 #: data/code.metainfo.xml.in:124
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"Pintasan untuk membangun kembali daftar pelengkapan kata sekarang adalah "
+"\"Ctrl + |\""
 
 #: data/code.metainfo.xml.in:142
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
+"Sekarang nama berkas dokumen saat ini ditampilkan sebagai judul jendela "
+"dalam tampilan multitugas"
 
 #: data/code.metainfo.xml.in:143
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "Folder tersembunyi sekarang ditampilkan di bilah samping proyek"
 
 #: data/code.metainfo.xml.in:144
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
-msgstr ""
+msgstr "Hasil yang saat ini dipilih dan jumlah hasil ditampilkan saat mencari"
 
 #: data/code.metainfo.xml.in:145
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "Bilah pencarian sekarang memiliki mode ekspresi reguler"
 
 #: data/code.metainfo.xml.in:147 data/code.metainfo.xml.in:171
 #: data/code.metainfo.xml.in:187
@@ -330,25 +336,33 @@ msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
+"Sekarang dimungkinkan untuk mengubah cabang Git dengan berkas yang tidak "
+"terlacak yang ada dalam sebuah proyek"
 
 #: data/code.metainfo.xml.in:150
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "Kemogokan dicegah saat mencari di proyek besar"
 
 #: data/code.metainfo.xml.in:151
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
+"Dokumen yang benar sekarang difokuskan setelah membuka Kode dari program "
+"eksternal"
 
 #: data/code.metainfo.xml.in:152
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
+"Duplikasi baris sekarang ditindaklanjuti dengan benar jika tidak ada "
+"pemilihan"
 
 #: data/code.metainfo.xml.in:153
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
+"Kode tidak lagi mogok saat diminta untuk membuka format URI yang tidak "
+"diketahui"
 
 #: data/code.metainfo.xml.in:166
 msgid ""
@@ -388,14 +402,16 @@ msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"Menutup Terminal jika shell keluar dan membuat Terminal baru jika dibuka "
+"kembali tanpa shell"
 
 #: data/code.metainfo.xml.in:179
 msgid "\"Visible whitespace\" combobox is now a switch"
-msgstr ""
+msgstr "Kotak kombo \"Spasi kosong yang terlihat\" sekarang menjadi saklar"
 
 #: data/code.metainfo.xml.in:189
 msgid "Fix crash when creating new window from tab drop"
-msgstr ""
+msgstr "Perbaikan kemogokan saat membuat jendela baru dari tab drop"
 
 #: data/code.metainfo.xml.in:190
 msgid "Ensure files created from the sidebar are automatically opened"
@@ -422,9 +438,8 @@ msgid "Code Editor"
 msgstr "Penyunting Kode"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "text;IDE;scratch;code;"
-msgstr "IDE;scratch;"
+msgstr "teks;IDE;scratch;kode;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
