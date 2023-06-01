@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 23:26+0000\n"
-"PO-Revision-Date: 2023-03-12 03:21+0000\n"
+"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"PO-Revision-Date: 2023-05-14 05:06+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/code/code/ka/>\n"
 "Language: ka\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:39
@@ -38,74 +38,74 @@ msgstr "გაფართოება"
 msgid "[FILE…]"
 msgstr "[ფაილი...]"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:207
 #, c-format
 msgid "Code (%s)"
 msgstr "კოდი (%s)"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "კოდი"
 
-#: src/MainWindow.vala:319
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "ძებნის პანელის დამალვა"
 
-#: src/MainWindow.vala:324 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "გვერდზე ძებნა…"
 
-#: src/MainWindow.vala:335
+#: src/MainWindow.vala:337
 msgid "Hide Projects Sidebar"
 msgstr "პროექტების პანელის დამალვა"
 
-#: src/MainWindow.vala:340
+#: src/MainWindow.vala:342
 msgid "Show Projects Sidebar"
 msgstr "პროექტების პანელის ჩვენება"
 
-#: src/MainWindow.vala:349
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr "სიმბოლოების მონახაზის დამალვა"
 
-#: src/MainWindow.vala:354
+#: src/MainWindow.vala:356
 msgid "Show Symbol Outline"
 msgstr "სიმბოლოების მონახაზის ჩვენება"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:830 src/Services/Document.vala:526
+#: src/MainWindow.vala:832 src/Services/Document.vala:583
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MainWindow.vala:834 src/Services/Document.vala:530
+#: src/MainWindow.vala:836 src/Services/Document.vala:587
 msgid "Text files"
 msgstr "ტექსტური ფაილები"
 
-#: src/MainWindow.vala:838
+#: src/MainWindow.vala:840
 msgid "Open some files"
 msgstr "გახსენით რამდენიმე ფაილი"
 
-#: src/MainWindow.vala:841
+#: src/MainWindow.vala:843
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/MainWindow.vala:842 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
+#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/MainWindow.vala:867
+#: src/MainWindow.vala:869
 msgid "_Open"
 msgstr "გახ_სნა"
 
-#: src/MainWindow.vala:868
+#: src/MainWindow.vala:870
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
@@ -357,156 +357,131 @@ msgstr "ახალი ბრენჩი…"
 msgid "Branch"
 msgstr "ბრენჩი"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:305
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ტექსტურ ფაილი არაა"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:306
 msgid "Code will not load this type of file."
 msgstr "Code-ი ამ ტიპის ფაილს არ ჩატვირთავს."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:308
 msgid "Load Anyway"
 msgstr "მაინც ჩატვირთვა"
 
-#: src/Services/Document.vala:300
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#: src/Services/Document.vala:329
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "\"%s\" ფაილის ჩატვირთვას საკმაო დრო დასჭირდება"
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
 msgstr "მოითმინეთ, სანამ Code ფაილს ჩატვირთავს."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:332
 msgid "Cancel Loading"
 msgstr "ჩატვირთვის გაუქმება"
 
-#: src/Services/Document.vala:393
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:429
+#, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "შევინახო \"%s\"-ის ცვლილებები დახურვამდე?"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:430
 msgid "If you don't save, changes will be permanently lost."
 msgstr "თუ არ შეინახავთ, ცვლილებები სამუდამოდ დაიკარგება."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:436
 msgid "Close Without Saving"
 msgstr "დახურვა შენახვის გარეშე"
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:440 src/Services/Document.vala:594
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:552
+#, c-format
+msgid "Saving to “%s” failed."
+msgstr "\"%s\"-ში შენახვის შეცდომა."
+
+#: src/Services/Document.vala:591
 msgid "Save File"
 msgstr "ფაილის შენახვა"
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:675 src/Services/Document.vala:693
 msgid "New Document"
 msgstr "ახალი დოკუმენტი"
 
+#. No path for a new document
+#: src/Services/Document.vala:695
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr "ამ დოკუმენტის %s-ში შენახვა შეუძლებელია"
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#: src/Services/Document.vala:820
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "ტექსტის მოძებნა \"%s\"-ში"
+msgstr "ფაილში \"%s\" ტექსტის წაკითხვა შეუძლებელია"
 
-#: src/Services/Document.vala:765
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
+#: src/Services/Document.vala:823
 msgid "You may not have permission to read the file."
-msgstr "ის შეიძლება დაზიანებულია, ან თქვენ მისი წაკითხვის უფლება არ გაქვთ."
+msgstr "შეიძლებ ფაილის წაკითხვის უფლება არ გაქვთ."
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "ფაილი შეიძლება დაზიანებულია, ან ტექსტურ ფაილს არ წარმოადგენს"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
-#, fuzzy
-#| msgid "Load Anyway"
+#: src/Services/Document.vala:831
 msgid "Show Anyway"
-msgstr "მაინც ჩატვირთვა"
-
-#: src/Services/Document.vala:802
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
-msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"მდებარეობა, რომელიც ფაილს \"%s\" შეიცავდა, მოხსნილია. გნებავთ, ის სადმე "
-"სხვაგან შეინახოთ?"
-
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr "შენახვა, როგორც…"
-
-#: src/Services/Document.vala:811
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgstr "ფაილი \"%s\" წაშლილია. გნებავთ, ის მაინც შეინახოთ?"
-
-#: src/Services/Document.vala:855
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-"ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა . გსურთ, თავიდან ჩატვირთოთ ის, თუ "
-"გააგრძელებთ ჩასწორებას?"
-
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr "ჩატვირთვა"
+msgstr "მაინც ჩვენება"
 
 #: src/Services/Document.vala:861
+#, c-format
+msgid "The location containing the file “%s” was unmounted."
+msgstr "მდებარეობა, რომელიც ფაილს \"%s\" შეიცავდა, მოხსნილია."
+
+#: src/Services/Document.vala:863
+#, c-format
+msgid "File “%s” was deleted."
+msgstr "ფაილი \"%s\" წაშლილია."
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:871
+#, c-format
+msgid "File “%s” does not have write permission."
+msgstr "ფაილს \"%s\" შენახვის წვდომა არ გააჩნია."
+
+#: src/Services/Document.vala:903
+#, c-format
+msgid "File “%s” was modified by an external application."
+msgstr "ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა."
+
+#: src/Services/Document.vala:909
+msgid "Reload"
+msgstr "თავიდან ჩატვირთვა"
+
+#: src/Services/Document.vala:915
 msgid "Continue"
 msgstr "გაგრძელება"
 
-#: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
+#: src/Services/Document.vala:936
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
-"ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
-"სხვაგან შეინახოთ?"
+"\"%s\"-ს აქ ვერ შეინახავთ. გნებავთ მისი დუბლიკატის შენახვა სადმე სხვაგან?"
 
-#: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
-"სხვაგან შეინახოთ?"
+#: src/Services/Document.vala:945
+msgid "Ignore"
+msgstr "იგნორირება"
 
-#: src/Services/Document.vala:899
-#, fuzzy
-#| msgid "Save changes elsewhere"
-msgid "Save the document elsewhere"
-msgstr "ცვლილებების სხვაგან შენახვა"
+#: src/Services/Document.vala:947
+msgid "Save Duplicate…"
+msgstr "დუბლიკატის შენახვა.…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -661,74 +636,68 @@ msgstr "პროექტის საქაღალდეების მა�
 msgid "Find"
 msgstr "მოძებნა"
 
-#: src/Widgets/SearchBar.vala:74
-#, fuzzy
-#| msgid "no results"
+#: src/Widgets/SearchBar.vala:75
 msgid "No Results"
 msgstr "შედეგების გარეშე"
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:87
 msgid "Search next"
 msgstr "შემდეგის პოვნა"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:97
 msgid "Search previous"
 msgstr "წინას პოვნა"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:100
 msgid "Cyclic Search"
 msgstr "ციკლური ძებნა"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "არასდროს"
 
-#: src/Widgets/SearchBar.vala:103
-msgid "Mixed Case"
-msgstr ""
-
 #: src/Widgets/SearchBar.vala:104
-msgid "Always"
-msgstr ""
+msgid "Mixed Case"
+msgstr "შერეული რეგისტრი"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:105
+msgid "Always"
+msgstr "ყოველთვის"
+
+#: src/Widgets/SearchBar.vala:108
 msgid "Case Sensitive"
 msgstr "დიდი ასოს გმრძნობიარე"
 
-#: src/Widgets/SearchBar.vala:114
-#, fuzzy
-#| msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:115
 msgid "Use Regular Expressions"
 msgstr "რეგულარული გამოსახულებების გამოყენება"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:116
 msgid "Match Whole Words"
-msgstr ""
+msgstr "მთლიანი სიტყვების დამთხვევა"
 
-#: src/Widgets/SearchBar.vala:136
-#, fuzzy
-#| msgid "Search previous"
+#: src/Widgets/SearchBar.vala:137
 msgid "Search Options"
-msgstr "წინას პოვნა"
+msgstr "ძებნის მორგება"
 
-#: src/Widgets/SearchBar.vala:165
+#: src/Widgets/SearchBar.vala:169
 msgid "Replace With"
 msgstr "ჩანაცვლება"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:172
 msgid "Replace"
 msgstr "ჩანაცვლება"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:175
 msgid "Replace all"
 msgstr "ყველას ჩანაცვლება"
 
-#: src/Widgets/SearchBar.vala:566
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d-დან %d"
 
-#: src/Widgets/SearchBar.vala:571
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "შედეგების გარეშე"
 
@@ -842,6 +811,39 @@ msgstr "გთხოვთ, დააყენოთ სულ ცოტა ე�
 msgid "%s - Word Completion"
 msgstr "%s - სიტყვის დაბოლოება"
 
+#~ msgid "Save As…"
+#~ msgstr "შენახვა, როგორც…"
+
+#~ msgid "Load"
+#~ msgstr "ჩატვირთვა"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
+#~ "სხვაგან შეინახოთ?"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
+#~ "სხვაგან შეინახოთ?"
+
+#, fuzzy
+#~| msgid "Save changes elsewhere"
+#~ msgid "Save the document elsewhere"
+#~ msgstr "ცვლილებების სხვაგან შენახვა"
+
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
 #~ msgstr "ფაილის \"%s\" წაკითხვა შეუძლებელია"
@@ -882,9 +884,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "სხვები..."
-
-#~ msgid "Upload"
-#~ msgstr "ატვირთვა"
 
 #~ msgid "Other formats"
 #~ msgstr "სხვა ფორმატები"
