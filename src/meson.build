@@ -20,7 +20,6 @@ code_files = files(
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
     'Dialogs/RestoreConfirmationDialog.vala',
-    'Dialogs/AskSaveLocationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
     'Dialogs/NewBranchDialog.vala',
     'FolderManager/ContractMenuItem.vala',
