@@ -382,13 +382,12 @@ namespace Scratch.Services {
                 }
             }
 
-            source_view.buffer.set_modified (false);
-            original_content = source_view.buffer.text;
-            last_save_content = source_view.buffer.text;
-
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
+            source_view.buffer.set_modified (false);
+            original_content = source_view.buffer.text;
+            last_save_content = source_view.buffer.text;
             set_saved_status (true);
             doc_opened ();
             source_view.sensitive = true;
