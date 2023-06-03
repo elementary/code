@@ -919,6 +919,7 @@ namespace Scratch.Services {
                                 // There are no unsaved internal edits so just load the external changes
                                 //TODO Indicate to the user external changes loaded?
                                 source_view.buffer.text = new_buffer.text;
+                                last_save_content = source_view.buffer.text;
                                 // We know the content and file are now in sync so set unmodified
                                 source_view.buffer.set_modified (false);
                                 return;
