@@ -916,6 +916,15 @@ namespace Scratch.Services {
                                 return;
                             }
 
+                            if (last_save_content == source_view.buffer.text) {
+                                // There are no unsaved internal edits so just load the external changes
+                                //TODO Indicate to the user external changes loaded?
+                                source_view.buffer.text = new_buffer.text;
+                                // We know the content and file are now in sync so set unmodified
+                                source_view.buffer.set_modified (false);
+                                return;
+                            }
+
                             var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
                             string secondary_text;
 
