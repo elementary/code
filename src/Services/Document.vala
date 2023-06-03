@@ -884,7 +884,7 @@ namespace Scratch.Services {
                     locked = true;
                     var details = _("File “%s” does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
-                } else if (!source_view.buffer.get_modified ()) {
+                } else {
                     // Detect external changes by comparing file content with buffer content.
                     // Only done when no unsaved internal changes else difference from saved
                     // file are to be expected.
