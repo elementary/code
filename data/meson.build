@@ -83,3 +83,7 @@ if get_option ('have_pkexec')
         install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions'),
     )
 endif
+
+install_man(
+    'io.elementary.code.1'
+)
