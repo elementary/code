@@ -298,7 +298,6 @@ namespace Scratch.Widgets {
                 critical (e.message);
             }
 
-            var gtk_settings = Gtk.Settings.get_default ();
             if (settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
                 if (system_prefers_dark) {
