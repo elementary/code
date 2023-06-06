@@ -869,18 +869,25 @@ namespace Scratch.Services {
         private void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
-                locked = true;
-                string details;
-                if (mounted == false) {
-                    details = _("The location containing the file “%s” was unmounted.");
-                } else {
-                    details = _("File “%s” was deleted.");
-                }
+                if (source_view.buffer.get_modified ()) {
+                    locked = true;
+                    string details;
+                    if (mounted == false) {
+                        details = _("The location containing the file “%s” was unmounted and there are unsaved changes.");
+                    } else {
+                        details = _("File “%s” was deleted and there are unsaved changes.");
+                    }
 
-                ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
+                    ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
+                } else {
+                    var close_tab_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TAB, actions);
+                    close_tab_action.set_enabled (true);
+                    this.saved = true; //Do not try to save
+                    close_tab_action.activate (new Variant ("s", file.get_path ()));
+                }
             } else if (loaded && !is_saving) { // Check external changes after loading
                 if (!locked && !can_write () && source_view.buffer.get_modified ()) {
-                // The file has become unwritable while changes are pending
+                    // The file has become unwritable while changes are pending
                     locked = true;
                     var details = _("File “%s” does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
