@@ -38,8 +38,6 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            selectable = false;
-
             dummy = new Granite.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
             ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
