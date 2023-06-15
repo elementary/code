@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-03-01 16:25+0000\n"
+"PO-Revision-Date: 2023-06-16 11:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "extra/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -165,16 +165,18 @@ msgstr "Forbedringer:"
 
 #: data/code.metainfo.xml.in:69
 msgid "Search options transferred to searchbar menu"
-msgstr ""
+msgstr "Søkealternativer overført til søkefeltsmeny"
 
 #: data/code.metainfo.xml.in:70
 msgid "Whole word search option added"
-msgstr ""
+msgstr "Mulighet for å søke etter hele ord lagt til"
 
 #: data/code.metainfo.xml.in:71
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Hele ord, forskjell på små og store bokstaver, og søk med regulære uttrykk "
+"vedvarer nå"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:177
