@@ -62,6 +62,7 @@ namespace Scratch {
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
         public const string ACTION_FIND_GLOBAL = "action_find_global";
+        public const string ACTION_FIND_CLEAR = "action_find_clear";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
@@ -108,6 +109,7 @@ namespace Scratch {
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
+            { ACTION_FIND_CLEAR, action_find_clear },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
@@ -160,6 +162,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
+            action_accelerators.set (ACTION_FIND_CLEAR, "<Alt>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -1052,6 +1055,11 @@ namespace Scratch {
             }
 
             folder_manager_view.search_global (get_target_path_for_actions (param), term);
+        }
+
+        private void action_find_clear () {
+            search_bar.search_entry.text = "";
+            current_search_term = "";
         }
 
         private void update_find_actions () {
