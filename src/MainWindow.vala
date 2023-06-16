@@ -1093,7 +1093,6 @@ namespace Scratch {
                     var selected_text = current_doc.get_selected_text (false);
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                         current_search_term = selected_text.split ("\n", 2)[0];
-                        warning ("current search term now %s", current_search_term);
                         search_bar.search_entry.text = current_search_term;
                     }
 
