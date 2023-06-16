@@ -1006,6 +1006,7 @@ namespace Scratch {
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
+
             current_search_term = param.get_string ();
             if (!search_revealer.child_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
@@ -1073,6 +1074,10 @@ namespace Scratch {
                 search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
+            } else if (search_bar.search_entry.text != "") {
+                // Always search on what is showing in search entry
+                current_search_term = search_bar.search_entry.text;
+                search_bar.search_entry.grab_focus ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.
@@ -1080,6 +1085,7 @@ namespace Scratch {
                     var selected_text = current_doc.get_selected_text (false);
                     if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                         current_search_term = selected_text.split ("\n", 2)[0];
+                        warning ("current search term now %s", current_search_term);
                         search_bar.search_entry.text = current_search_term;
                     }
 
