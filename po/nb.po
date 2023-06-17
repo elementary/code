@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-03-24 23:26+0000\n"
+"PO-Revision-Date: 2023-06-14 14:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:39
@@ -430,9 +430,9 @@ msgstr "Nytt dokument"
 
 #. No path for a new document
 #: src/Services/Document.vala:695
-#, c-format
+#, c-format, fuzzy
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Kan ikke lagre dette dokumentet i %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:820
@@ -449,7 +449,7 @@ msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den.
 
 #: src/Services/Document.vala:825
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "Tekstfilen kan være skadet eller være en annen type fil"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
@@ -506,15 +506,15 @@ msgstr "Fortsett"
 #: src/Services/Document.vala:936
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "«%s» kan ikke lagres her. Lagre en kopi et annet sted?"
 
 #: src/Services/Document.vala:945
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorer"
 
 #: src/Services/Document.vala:947
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Lagre duplikat …"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
