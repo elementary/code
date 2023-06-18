@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"POT-Creation-Date: 2023-06-18 08:10+0000\n"
 "PO-Revision-Date: 2023-05-29 18:06+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -19,27 +19,19 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Nieuwe tab"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nieuw venster"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Toon versie-informatie en verlaat applicatie"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Pluginset"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "plugin"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[BESTAND…]"
 
@@ -83,11 +75,11 @@ msgstr "Toon symbooloverzicht"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:586
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:590
 msgid "Text files"
 msgstr "Tekstbestanden"
 
@@ -101,7 +93,7 @@ msgstr "Openen"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuleer"
@@ -260,23 +252,23 @@ msgstr "Niet herstellen"
 msgid "Restore Anyway"
 msgstr "Toch herstellen"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Andere applicatie…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Openen met"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Andere acties"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Hernoem"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Naar de prullenbak verplaatsen"
@@ -285,31 +277,31 @@ msgstr "Naar de prullenbak verplaatsen"
 msgid "Folders"
 msgstr "Mappen"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Vind in map…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Map"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Leeg bestand"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "naamloze map"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "nieuw bestand"
 
@@ -402,89 +394,89 @@ msgstr "Als je niet opslaat, zullen de wijzigingen voor altijd verloren gaan."
 msgid "Close Without Saving"
 msgstr "Sluiten zonder opslaan"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:440 src/Services/Document.vala:597
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:555
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Opslaan naar “%s” mislukt."
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:594
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:678 src/Services/Document.vala:696
 msgid "New Document"
 msgstr "Nieuw Document"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:698
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Kan dit document niet opslaan naar %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:823
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Kan tekst in bestand niet lezen “%s”"
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:826
 msgid "You may not have permission to read the file."
 msgstr "Mogelijk heeft u de rechten niet om dit bestand te lezen."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:828
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Dit bestand is mogelijk corrupt of het is geen tekstbestand"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:834
 msgid "Show Anyway"
 msgstr "Toch tonen"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:864
 #, c-format
 msgid "The location containing the file “%s” was unmounted."
 msgstr "De locatie met het bestand “%s” werd ontkoppeld."
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:866
 #, c-format
 msgid "File “%s” was deleted."
 msgstr "Bestand “%s” is verwijderd."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:874
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Het bestand “%s” bezit geen schrijfrechten."
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:906
 #, c-format
 msgid "File “%s” was modified by an external application."
 msgstr "Het bestand “%s” is aangepast door een externe applicatie."
 
-#: src/Services/Document.vala:909
+#: src/Services/Document.vala:912
 msgid "Reload"
 msgstr "Herladen"
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” kan hier niet worden opgeslagen. Het bestand elders opslagen?"
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:948
 msgid "Ignore"
 msgstr "Negeren"
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Save Duplicate…"
 msgstr "Duplicaat opslaan…"
 
@@ -706,11 +698,11 @@ msgstr "%d van %d"
 msgid "no results"
 msgstr "geen resultaten"
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr "Sorteer geselecteerde lijnen"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
@@ -815,6 +807,12 @@ msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Woorden aanvullen"
+
+#~ msgid "Set of plugins"
+#~ msgstr "Pluginset"
+
+#~ msgid "plugin"
+#~ msgstr "plugin"
 
 #~ msgid "Save As…"
 #~ msgstr "Opslaan als…"
