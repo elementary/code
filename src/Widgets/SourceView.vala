@@ -35,6 +35,7 @@ namespace Scratch.Widgets {
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
+        private string selected_text = "";
         private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
@@ -42,6 +43,7 @@ namespace Scratch.Widgets {
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
+        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
         public signal void deselected ();
 
@@ -563,12 +565,12 @@ namespace Scratch.Widgets {
             buffer.get_selection_bounds (out start, out end);
 
             if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
+                // warning ("selection unchanged");
                 return;
             }
 
             last_select_start_iter.assign (start);
             last_select_end_iter.assign (end);
-
             update_draw_spaces ();
 
             if (selection_changed_timer != 0) {
@@ -590,7 +592,11 @@ namespace Scratch.Widgets {
             Gtk.TextIter start, end;
             bool selected = buffer.get_selection_bounds (out start, out end);
             if (selected) {
-                selection_changed (start, end);
+                var prev_selected_text = selected_text;
+                selected_text = buffer.get_text (start, end, true);
+                if (selected_text != prev_selected_text) {
+                    selection_changed (start, end);
+                }
             } else {
                 deselected ();
             }
