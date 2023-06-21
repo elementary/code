@@ -18,7 +18,6 @@
  */
 
 public class Code.Sidebar : Gtk.Grid {
-public class Code.Sidebar : Gtk.Box {
     public enum TargetType {
         URI_LIST
     }
