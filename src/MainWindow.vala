@@ -252,7 +252,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+            plugins = new Scratch.Services.PluginsManager (this);
 
             key_press_event.connect (on_key_pressed);
 
