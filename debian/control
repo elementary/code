@@ -22,6 +22,7 @@ Build-Depends: appstream,
                libxml2-utils,
                meson (>= 0.44.0),
                policykit-1,
+               polkitd,
                valac
 Standards-Version: 3.9.5
 Homepage: https://github.com/elementary/code
