@@ -210,8 +210,8 @@ public class Code.FormatBar : Gtk.Box {
         buffer.get_iter_at_offset (out iter, position);
         var line = iter.get_line () + 1;
 
-        line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset ());
-        goto_entry.text = "%d.%d".printf (line, iter.get_line_offset ());
+        line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
+        goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
     private void create_line_popover () {
@@ -235,12 +235,12 @@ public class Code.FormatBar : Gtk.Box {
 
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_entry.activate.connect_after (() => {
-            int line, offset;
+            int line, column;
 
             goto_entry.text = goto_entry.text.replace (":", ".");
 
-            goto_entry.text.scanf ("%i.%i", out line, out offset);
-            doc.source_view.go_to_line (line, offset);
+            goto_entry.text.scanf ("%i.%i", out line, out column);
+            doc.source_view.go_to_line (line, column - 1);
             // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
             doc.source_view.grab_focus ();
         });
