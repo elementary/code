@@ -466,6 +466,7 @@ namespace Scratch.Services {
 
             if (ret_value) {
                 // Delete backup copy file
+                loaded = false; // Stops recreating backup when trailing space stripped
                 delete_backup ();
                 doc_closed ();
             }
@@ -1005,7 +1006,7 @@ namespace Scratch.Services {
 
         // Backup functions
         private void create_backup () {
-            if (!can_write ()) {
+            if (!can_write () || !loaded) {
                 return;
             }
 
