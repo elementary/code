@@ -27,10 +27,8 @@ namespace Scratch {
     public GLib.Settings privacy_settings;
 
     public class Application : Gtk.Application {
-        public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
-        private static string _app_cmd_name;
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
@@ -39,14 +37,11 @@ namespace Scratch {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
-            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
 
         static construct {
-            _app_cmd_name = "Code";
-
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Path.build_filename (
                                             Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
