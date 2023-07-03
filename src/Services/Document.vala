@@ -92,7 +92,7 @@ namespace Scratch.Services {
 
         // Locked documents can be edited but cannot be (auto)saved to the current file.
         // Locked documents can be saved to a different file (when they will be unlocked)
-        // Create as locked so focus events ingb=nored. Unlock when content is loaded
+        // Create as locked so focus events ignored. Unlock when content is loaded
         private bool _locked = true;
         public bool locked {
             get {
