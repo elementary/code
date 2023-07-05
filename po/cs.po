@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-18 08:10+0000\n"
-"PO-Revision-Date: 2022-03-02 13:56+0000\n"
-"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"PO-Revision-Date: 2023-07-06 14:07+0000\n"
+"Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:37
@@ -36,10 +36,9 @@ msgid "[FILE…]"
 msgstr "[SOUBOR…]"
 
 #: src/MainWindow.vala:207
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Code"
+msgstr "Code (%s)"
 
 #: src/MainWindow.vala:209
 msgid "Code"
@@ -50,39 +49,31 @@ msgid "Hide search bar"
 msgstr "Skrýt vyhledávací panel"
 
 #: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find on Page…"
-msgstr "Vyhledat projekt…"
+msgstr "Najít na stránce…"
 
 #: src/MainWindow.vala:337
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Skrýt vyhledávací panel"
+msgstr "Skrýt panel projektů"
 
 #: src/MainWindow.vala:342
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Zobrazit náhled"
+msgstr "Zobrazit panel projektů"
 
 #: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
-msgstr ""
+msgstr "Skrýt přehled symbolů"
 
 #: src/MainWindow.vala:356
-#, fuzzy
-#| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
-msgstr "Nenalezeny žádné symboly"
+msgstr "Zobrazit přehled symbolů"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
 #: src/MainWindow.vala:527
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:832 src/Services/Document.vala:586
 msgid "All files"
@@ -188,10 +179,8 @@ msgid "Insert spaces instead of tabs:"
 msgstr "Vkládat mezery místo tabulátorů:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
-msgstr "Odstraňovat koncové mezery při uložení"
+msgstr "Odstraňovat koncové mezery:"
 
 #: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
@@ -327,26 +316,25 @@ msgstr "Zavřít ostatní složky"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Zavřít %u otevřený dokument"
+msgstr[1] "Zavřít %u otevřené dokumenty"
+msgstr[2] "Zavřít %u otevřených dokumentů"
 
 #: src/FolderManager/ProjectFolderItem.vala:135
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Nový dokument"
-msgstr[1] "Nový dokument"
-msgstr[2] "Nový dokument"
+msgstr[0] "Skrýt %u otevřený dokument"
+msgstr[1] "Skrýt %u otevřené dokumenty"
+msgstr[2] "Skrýt %u otevřených dokumentů"
 
 #: src/FolderManager/ProjectFolderItem.vala:150
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Obnovit %u skrytý dokument"
+msgstr[1] "Obnovit %u skryté dokumenty"
+msgstr[2] "Obnovit %u skrytých dokumentů"
 
 #: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
@@ -383,10 +371,9 @@ msgid "Load Anyway"
 msgstr "Přesto načíst"
 
 #: src/Services/Document.vala:329
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "Načítání souboru \"%s\" trvá hodně dlouho"
+msgstr "Načítání souboru „%s“ trvá hodně dlouho"
 
 #: src/Services/Document.vala:330
 msgid "Please wait while Code is loading the file."
@@ -397,8 +384,7 @@ msgid "Cancel Loading"
 msgstr "Zrušit načítání"
 
 #: src/Services/Document.vala:429
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Uložit před ukončením změny do „%s“?"
 
@@ -415,10 +401,9 @@ msgid "Save"
 msgstr "Uložit"
 
 #: src/Services/Document.vala:555
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Uložit před ukončením změny do „%s“?"
+msgstr "Ukládání do „%s“ selhalo."
 
 #: src/Services/Document.vala:594
 msgid "Save File"
@@ -432,71 +417,53 @@ msgstr "Nový dokument"
 #: src/Services/Document.vala:698
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "Nelze uložit tento dokument do %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:823
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Vyhledat text v „%s“"
+msgstr "Nelze načíst text ze souboru „%s“"
 
 #: src/Services/Document.vala:826
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
-msgstr "Může být poškozený, nebo nemáte oprávnění k jeho čtení."
+msgstr "Možná nemáte oprávnění k přečtění tohoto souboru."
 
 #: src/Services/Document.vala:828
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "Soubor může být poškozený nebo se nemusí jednat o textový soubor"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
 #: src/Services/Document.vala:834
-#, fuzzy
-#| msgid "Load Anyway"
 msgid "Show Anyway"
-msgstr "Přesto načíst"
+msgstr "Přesto zobrazit"
 
 #: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
+#, c-format
 msgid "The location containing the file “%s” was unmounted."
-msgstr ""
-"Úložiště obsahující soubor „%s“ bylo odpojeno. Přejete si ho uložit jinam?"
+msgstr "Úložiště obsahující soubor „%s“ bylo odpojeno."
 
 #: src/Services/Document.vala:866
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
+#, c-format
 msgid "File “%s” was deleted."
-msgstr "Soubor %s byl smazán."
+msgstr "Soubor „%s“ byl smazán."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:874
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "Soubor „%s“ byl smazán. Přejete si ho přesto uložit?"
+msgstr "Soubor „%s“ je chráněn proti zápisu."
 
 #: src/Services/Document.vala:906
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application."
-msgstr ""
-"Soubor „%s“ byl mezitím pozměněn jinou aplikací. Přejete si ho otevřít znovu "
-"nebo chcete pokračovat v úpravách?"
+msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací."
 
 #: src/Services/Document.vala:912
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Nahrát"
+msgstr "Znovu načíst"
 
 #: src/Services/Document.vala:918
 msgid "Continue"
@@ -505,15 +472,15 @@ msgstr "Pokračovat"
 #: src/Services/Document.vala:939
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+msgstr "Soubor „%s“ nemůže být uložen zde. Chcete jeho kopii uložit jinam?"
 
 #: src/Services/Document.vala:948
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorovat"
 
 #: src/Services/Document.vala:950
 msgid "Save Duplicate…"
-msgstr ""
+msgstr "Uložit kopii…"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -564,25 +531,19 @@ msgstr "Prostý text"
 
 #: src/Widgets/FormatBar.vala:145
 msgid "Some settings set by EditorConfig file"
-msgstr ""
+msgstr "Nějaká nastavení jsou nastavena souborem EditorConfig"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
-msgstr "Automatické odsazování:"
+msgstr "Automatické odsazování"
 
 #: src/Widgets/FormatBar.vala:150
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Vkládat mezery místo tabulátorů:"
+msgstr "Vkládat mezery místo tabulátorů"
 
 #: src/Widgets/FormatBar.vala:152
-#, fuzzy
-#| msgid "Tab width:"
 msgid "Tab width"
-msgstr "Šířka tabulátoru:"
+msgstr "Šířka tabulátoru"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -657,10 +618,8 @@ msgid "Hide Terminal"
 msgstr "Skrýt terminál"
 
 #: src/Widgets/Sidebar.vala:57
-#, fuzzy
-#| msgid "Open Folder"
 msgid "Open Folder…"
-msgstr "Otevřít složku"
+msgstr "Otevřít složku…"
 
 #: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
@@ -679,10 +638,8 @@ msgid "Find"
 msgstr "Najít"
 
 #: src/Widgets/SearchBar.vala:75
-#, fuzzy
-#| msgid "no results"
 msgid "No Results"
-msgstr "nic nenalezeno"
+msgstr "Žádné výsledky"
 
 #: src/Widgets/SearchBar.vala:87
 msgid "Search next"
@@ -713,20 +670,16 @@ msgid "Case Sensitive"
 msgstr "Rozlišovat malá/VELKÁ písmena"
 
 #: src/Widgets/SearchBar.vala:115
-#, fuzzy
-#| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Použít regulární výrazy"
 
 #: src/Widgets/SearchBar.vala:116
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Hledat pouze celá slova"
 
 #: src/Widgets/SearchBar.vala:137
-#, fuzzy
-#| msgid "Search previous"
 msgid "Search Options"
-msgstr "Najít předchozí"
+msgstr "Nastavení hledání"
 
 #: src/Widgets/SearchBar.vala:169
 msgid "Replace With"
