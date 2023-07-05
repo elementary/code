@@ -180,10 +180,11 @@ namespace Scratch.Services {
             source_map.set_view (source_view);
 
             hide_info_bar ();
+            set_minimap ();
+            set_strip_trailing_whitespace ();
+            settings.changed["show-mini-map"].connect (set_minimap);
+            settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
-            restore_settings ();
-
-            settings.changed.connect (restore_settings);
             /* Block user editing while working */
             notify["working"].connect (() => {
                 source_view.sensitive = !working;
@@ -647,7 +648,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        private void restore_settings () {
+        private void set_minimap () {
             if (Scratch.settings.get_boolean ("show-mini-map")) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
@@ -656,7 +657,9 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
+        }
 
+        private void set_strip_trailing_whitespace () {
             if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
                 strip_trailing_spaces ();
             }
