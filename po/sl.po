@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"POT-Creation-Date: 2023-06-18 08:10+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -21,27 +21,19 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Nabor vtičnikov"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "vtičnik"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
@@ -94,11 +86,11 @@ msgstr "Simboli"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:586
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:590
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
@@ -112,7 +104,7 @@ msgstr "Odpri"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
@@ -279,23 +271,23 @@ msgstr "Ne obnovi"
 msgid "Restore Anyway"
 msgstr "Vseeno obnovi"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Druga dejanja"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
@@ -304,33 +296,33 @@ msgstr "Premakni v smeti"
 msgid "Folders"
 msgstr "Mape"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Folder…"
 msgstr "Dodaj projektno mapo…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Mapa"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "nova datoteka"
 
@@ -436,55 +428,55 @@ msgstr "Če ne boste shranili, bodo spremembe trajno izgubljene."
 msgid "Close Without Saving"
 msgstr "Zapri brez shranjevanja"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:440 src/Services/Document.vala:597
 msgid "Save"
 msgstr "Shrani"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:555
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Ali želite pred zaprtjem shraniti spremembe v \"%s\"?"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:594
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:678 src/Services/Document.vala:696
 msgid "New Document"
 msgstr "Nov dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:698
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:823
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:826
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "Morda je poškodovana ali pa nimate dovoljenja za branje."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:828
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:834
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Vseeno naloži"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:864
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -494,7 +486,7 @@ msgstr ""
 "Imenik z datoteko \"%s\" je bil odklopljen. Ali želite datoteko shraniti kam "
 "drugam?"
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:866
 #, fuzzy, c-format
 #| msgid "The file %s was deleted."
 msgid "File “%s” was deleted."
@@ -502,13 +494,13 @@ msgstr "Datoteka %s je bila izbrisana."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Datoteka \"%s\" je bila izbrisana. Ali jo želite vseeno shraniti?"
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:906
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -518,26 +510,26 @@ msgstr ""
 "Datoteko \"%s\" je spremenila druga apliakcija. Ali jo želite ponovno "
 "naložiti?"
 
-#: src/Services/Document.vala:909
+#: src/Services/Document.vala:912
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Naloži"
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:948
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Save Duplicate…"
 msgstr ""
 
@@ -775,11 +767,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr "Sortiraj izbrane vrstice"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr "Preklopi komentar"
 
@@ -888,6 +880,12 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#~ msgid "Set of plugins"
+#~ msgstr "Nabor vtičnikov"
+
+#~ msgid "plugin"
+#~ msgstr "vtičnik"
 
 #~ msgid "Save As…"
 #~ msgstr "Shrani kot …"

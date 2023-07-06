@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"POT-Creation-Date: 2023-06-18 08:10+0000\n"
 "PO-Revision-Date: 2018-05-04 00:03+0000\n"
 "Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
 "Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
@@ -19,28 +19,19 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "แท็บใหม่"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "หน้าต่างใหม่"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้วออกจากโปรแกรม"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "ชุดปลั๊กอิน"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "ชุดปลั๊กอิน"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
@@ -92,11 +83,11 @@ msgstr "สัญลักษณ์"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:586
 msgid "All files"
 msgstr "ไฟล์ทั้งหมด"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:590
 msgid "Text files"
 msgstr "ไฟล์ข้อความ"
 
@@ -110,7 +101,7 @@ msgstr "เปิด"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ยกเลิก"
@@ -273,25 +264,25 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 #, fuzzy
 msgid "Open In"
 msgstr "เปิด"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 #, fuzzy
 msgid "Other Actions"
 msgstr "รูปแบบอื่นๆ"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr ""
@@ -300,35 +291,35 @@ msgstr ""
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "เปิดโฟลเดอร์"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 #, fuzzy
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "แท็บใหม่"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 #, fuzzy
 msgid "new file"
 msgstr "สร้างไฟล์"
@@ -429,53 +420,53 @@ msgstr "หากไม่ทำการบันทึก การเปล�
 msgid "Close Without Saving"
 msgstr "ปิดโดยไม่ต้องบันทึก"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:440 src/Services/Document.vala:597
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:555
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "ต้องการบันทึกการเปลี่ยนแปลงไปยัง %s ก่อนปิดโปรแกรมหรือไม่?"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:594
 msgid "Save File"
 msgstr "บันทึกไฟล์"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:678 src/Services/Document.vala:696
 msgid "New Document"
 msgstr "เอกสารใหม่"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:698
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:823
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:826
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr ""
 "ไม่สามารถอ่านไฟล์ \"%s\" อาจสูญหาย\n"
 "หรือคุณไม่มีสิทธิ์เข้าถึงการอ่านไฟล์"
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:828
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:834
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:864
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -483,7 +474,7 @@ msgstr ""
 msgid "The location containing the file “%s” was unmounted."
 msgstr "ตำแหน่งไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกที่อื่นหรือไม่?"
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:866
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” was deleted."
@@ -491,13 +482,13 @@ msgstr "ไฟล์ \"%s\" ถูกลบ คุณต้องการบั
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "ไฟล์ \"%s\" ถูกลบ คุณต้องการบันทึกอยู่หรือไม่?"
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:906
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -507,26 +498,26 @@ msgstr ""
 "ไฟล์ \"%s\" ถูกแก้ไขโดยแอพพลิเคชั่นจากภายนอก "
 "คุณต้องการโหลดซ้ำอีกครั้งหรือทำการแก้ไขของคุณต่อไป?"
 
-#: src/Services/Document.vala:909
+#: src/Services/Document.vala:912
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "อัพโหลด"
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 msgid "Continue"
 msgstr "ทำต่อไป"
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:948
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Save Duplicate…"
 msgstr ""
 
@@ -762,11 +753,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr ""
 
@@ -880,6 +871,13 @@ msgstr "ไม่พบพจนานุกรมที่เหมาะสม
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - เติมคำอัตโนมัติ"
+
+#~ msgid "Set of plugins"
+#~ msgstr "ชุดปลั๊กอิน"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "ชุดปลั๊กอิน"
 
 #~ msgid "Save As…"
 #~ msgstr "บันทึกเป็น…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"POT-Creation-Date: 2023-06-18 08:10+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -19,28 +19,19 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "تب جدید"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "پنجره جدید"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "چاپ اطلاعات نسخه و خارج شدن"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "مجموعه افزونه‌ها"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "مجموعه افزونه‌ها"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
@@ -90,11 +81,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:586
 msgid "All files"
 msgstr "همه  ی فایل‌ها"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:590
 msgid "Text files"
 msgstr "پرونده‌های متنی"
 
@@ -108,7 +99,7 @@ msgstr "باز کردن"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "انصراف"
@@ -267,25 +258,25 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 #, fuzzy
 msgid "Open In"
 msgstr "باز کردن"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 #, fuzzy
 msgid "Other Actions"
 msgstr "قالب‌های دیگر"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr ""
@@ -294,33 +285,33 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "تب جدید"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 #, fuzzy
 msgid "new file"
 msgstr "پرونده جدید"
@@ -423,51 +414,51 @@ msgstr ""
 msgid "Close Without Saving"
 msgstr "بستن بدون ذخیره کردن"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:440 src/Services/Document.vala:597
 msgid "Save"
 msgstr "ذخیره کردن"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:555
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "آیا تغییرات سند %s پیش از بسته شدن ذخیره شوند؟"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:594
 msgid "Save File"
 msgstr "ذخیره پرونده"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:678 src/Services/Document.vala:696
 msgid "New Document"
 msgstr "سند جدید"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:698
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:823
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:826
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr "%s قابل خواندن نیست.شاید خراب شده است."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:828
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:834
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:864
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -476,7 +467,7 @@ msgid "The location containing the file “%s” was unmounted."
 msgstr ""
 "مکان فایل %s از دستگاه جدا شده است.مایلید در جایی دیگر آنرا ذخیره نمایید؟"
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:866
 #, fuzzy, c-format
 #| msgid "The file %s was deleted."
 msgid "File “%s” was deleted."
@@ -484,37 +475,37 @@ msgstr "پرونده %s حذف شده است."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "%s پاک شده است. مایلید جایی دیگر آنرا ذخیره کنید؟"
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:906
 #, c-format
 msgid "File “%s” was modified by an external application."
 msgstr ""
 
-#: src/Services/Document.vala:909
+#: src/Services/Document.vala:912
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "ارسال"
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 msgid "Continue"
 msgstr ""
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:948
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Save Duplicate…"
 msgstr ""
 
@@ -748,11 +739,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr "نمایش دیدگاه"
 
@@ -865,6 +856,13 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#~ msgid "Set of plugins"
+#~ msgstr "مجموعه افزونه‌ها"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "مجموعه افزونه‌ها"
 
 #~ msgid "Save As…"
 #~ msgstr "ذخیره به عنوان …"

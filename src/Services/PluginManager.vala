@@ -53,8 +53,6 @@ namespace Scratch.Services {
     public class PluginsManager : GLib.Object {
         Peas.Engine engine;
         Peas.ExtensionSet exts;
-        Peas.Engine engine_core;
-        Peas.ExtensionSet exts_core;
 
         string settings_field;
 
@@ -72,7 +70,7 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
 
-        public PluginsManager (MainWindow window, string? set_name = null) {
+        public PluginsManager (MainWindow window) {
             this.window = window;
 
             settings_field = "plugins-enabled";
@@ -97,26 +95,6 @@ namespace Scratch.Services {
                 extension_removed (info);
             });
             exts.foreach (on_extension_foreach);
-
-            if (set_name != null) {
-                /* The core now */
-                engine_core = new Peas.Engine ();
-                engine_core.enable_loader ("python");
-                engine_core.add_search_path (Constants.PLUGINDIR + "/" + set_name + "/", null);
-
-                var core_list = engine_core.get_plugin_list ().copy ();
-                string[] core_plugins = new string[core_list.length ()];
-                for (int i = 0; i < core_list.length (); i++) {
-                    core_plugins[i] = core_list.nth_data (i).get_module_name ();
-
-                }
-                engine_core.loaded_plugins = core_plugins;
-
-                /* Our extension set */
-                exts_core = new Peas.ExtensionSet (engine_core, typeof (Peas.Activatable), "object", plugin_iface, null);
-
-                exts_core.foreach (on_extension_foreach);
-            }
 
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
