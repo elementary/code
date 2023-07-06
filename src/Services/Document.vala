@@ -928,8 +928,8 @@ namespace Scratch.Services {
                             if (last_save_content == source_view.buffer.text) {
                                 // There are no unsaved internal edits so just load the external changes
                                 //TODO Indicate to the user external changes loaded?
-                                source_view.buffer.text = new_buffer.text;
-                                last_save_content = source_view.buffer.text;
+                                replace_text_from_buffer (new_buffer); // TODO This is async, block further editing until complete
+                                last_save_content = new_buffer.text; // Now in sync with file
                                 // We know the content and file are now in sync so set unmodified
                                 source_view.buffer.set_modified (false);
                                 return;
@@ -953,6 +953,20 @@ namespace Scratch.Services {
                     );
                 }
             }
+        }
+
+        private void replace_text_from_buffer (Gtk.TextBuffer new_buffer) {
+            // Use copy-paste so undoable in one step
+            Gtk.TextIter new_start, old_start, new_end, old_end;
+            var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
+            new_buffer.get_start_iter (out new_start);
+            new_buffer.get_end_iter (out new_end);
+            source_view.buffer.get_start_iter (out old_start);
+            source_view.buffer.get_end_iter (out old_end);
+            new_buffer.select_range (new_start, new_end);
+            new_buffer.copy_clipboard (clipboard);
+            source_view.buffer.select_range (old_start, old_end);
+            source_view.buffer.paste_clipboard (clipboard, null, true);
         }
 
         private void ask_save_location (
