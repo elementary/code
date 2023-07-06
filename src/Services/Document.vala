@@ -229,7 +229,15 @@ namespace Scratch.Services {
                 return false;
             });
 
+            source_view.buffer.paste_done.connect (() => {
+                loaded = true;
+            });
+
             source_view.buffer.changed.connect (() => {
+                if (!loaded) {
+                    return;
+                }
+
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
                     // Autosave does not work on locked document
@@ -928,9 +936,11 @@ namespace Scratch.Services {
                             if (last_save_content == source_view.buffer.text) {
                                 // There are no unsaved internal edits so just load the external changes
                                 //TODO Indicate to the user external changes loaded?
-                                replace_text_from_buffer (new_buffer); // TODO This is async, block further editing until complete
+                                loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
+                                replace_text_from_buffer (new_buffer);  // Asynchronous
                                 last_save_content = new_buffer.text; // Now in sync with file
-                                // We know the content and file are now in sync so set unmodified
+                                // We know the content and file will be in sync after paste so set unmodified
+                                set_saved_status (true);
                                 source_view.buffer.set_modified (false);
                                 return;
                             }
