@@ -208,11 +208,11 @@ public class Code.FormatBar : Gtk.Box {
         });
     }
 
-
     private void format_tab_header_from_global_settings () {
         if (!tab_style_set_by_editor_config) {
             set_insert_spaces_instead_of_tabs (Scratch.settings.get_boolean ("spaces-instead-of-tabs"));
         }
+
         if (!tab_width_set_by_editor_config) {
             set_tab_width (Scratch.settings.get_int ("indent-width"));
         }
@@ -228,7 +228,6 @@ public class Code.FormatBar : Gtk.Box {
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
         var line = iter.get_line () + 1;
-
         line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
@@ -255,9 +254,7 @@ public class Code.FormatBar : Gtk.Box {
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_entry.activate.connect_after (() => {
             int line, column;
-
             goto_entry.text = goto_entry.text.replace (":", ".");
-
             goto_entry.text.scanf ("%i.%i", out line, out column);
             doc.source_view.go_to_line (line, column - 1);
             // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
@@ -269,6 +266,7 @@ public class Code.FormatBar : Gtk.Box {
         if (this.doc != null) {
             this.doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
         }
+
         this.doc = doc;
         update_current_lang ();
         format_tab_header_from_global_settings ();
@@ -277,7 +275,6 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
-
         space_tab_modelbutton.active = use_spaces;
         if (doc != null) {
             doc.source_view.insert_spaces_instead_of_tabs = use_spaces;
