@@ -117,8 +117,6 @@ namespace Scratch.Widgets {
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
 
-            restore_settings ();
-
             Gtk.drag_dest_add_uri_targets (this);
 
             restore_settings ();
@@ -252,6 +250,7 @@ namespace Scratch.Widgets {
                     );
                     break;
                 case ScratchDrawSpacesState.FOR_SELECTION:
+                case ScratchDrawSpacesState.CURRENT:
                     space_drawer.set_types_for_locations (
                         Gtk.SourceSpaceLocationFlags.ALL,
                         Gtk.SourceSpaceTypeFlags.NONE
@@ -504,9 +503,10 @@ namespace Scratch.Widgets {
             var draw_spaces_state = (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces");
             /* Draw spaces in selection the same way if drawn at all */
             if (selection &&
-                draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+                draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.CURRENT | ScratchDrawSpacesState.ALWAYS)) {
 
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
+                    return;
             }
 
             if (draw_spaces_state == ScratchDrawSpacesState.CURRENT &&

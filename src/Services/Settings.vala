@@ -31,6 +31,6 @@ namespace Scratch {
         NEVER = 0,
         FOR_SELECTION = 1,
         ALWAYS = 2,
-        CURRENT = 3
+        CURRENT = 4
     }
 }
