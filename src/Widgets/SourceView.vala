@@ -244,6 +244,7 @@ namespace Scratch.Widgets {
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
+            space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
                     space_drawer.set_types_for_locations (
@@ -269,6 +270,7 @@ namespace Scratch.Widgets {
                     break;
             }
 
+            space_drawer.enable_matrix = true;
             update_draw_spaces ();
 
 
