@@ -122,7 +122,6 @@ namespace Scratch.Services {
         private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
-        private Gtk.InfoBar info_bar;
         private Gtk.SourceMap source_map;
         private Gtk.Paned outline_widget_pane;
 
@@ -168,7 +167,6 @@ namespace Scratch.Services {
                 expand = true
             };
             scroll.add (source_view);
-            info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -180,7 +178,6 @@ namespace Scratch.Services {
 
             source_map.set_view (source_view);
 
-            hide_info_bar ();
             set_minimap ();
             set_strip_trailing_whitespace ();
             settings.changed["show-mini-map"].connect (set_minimap);
@@ -201,7 +198,6 @@ namespace Scratch.Services {
 
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
-            doc_grid.add (info_bar);
             doc_grid.add (outline_widget_pane);
             doc_grid.show_all ();
 
@@ -584,7 +580,6 @@ namespace Scratch.Services {
 
             this.set_saved_status (true);
             last_save_content = source_view.buffer.text;
-            hide_info_bar ();
 
             debug ("File “%s” saved successfully", get_basename ());
 
@@ -719,65 +714,6 @@ namespace Scratch.Services {
             } else {
                 return "";
             }
-        }
-
-        // Set InfoBars message
-        private void set_message (Gtk.MessageType type, string label,
-                                  string? button1 = null, owned VoidFunc? callback1 = null,
-                                  string? button2 = null, owned VoidFunc? callback2 = null) {
-
-            // Show InfoBar
-            info_bar.no_show_all = false;
-            info_bar.visible = true;
-
-            // Clear from useless widgets
-            info_bar.get_content_area ().get_children ().foreach ((widget) => {
-                if (widget != null) {
-                    widget.destroy ();
-                }
-            });
-
-            ((Gtk.Container) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
-                if (widget != null) {
-                    widget.destroy ();
-                }
-            });
-
-            // Type
-            info_bar.message_type = type;
-
-            // Layout
-            var l = new Gtk.Label (label);
-            l.ellipsize = Pango.EllipsizeMode.END;
-            l.use_markup = true;
-            l.set_markup (label);
-            ((Gtk.Box) info_bar.get_action_area ()).orientation = Gtk.Orientation.HORIZONTAL;
-            var main = info_bar.get_content_area () as Gtk.Box;
-            main.orientation = Gtk.Orientation.HORIZONTAL;
-            main.pack_start (l, false, false, 0);
-            if (button1 != null) {
-                info_bar.add_button (button1, 0);
-            } if (button2 != null) {
-                info_bar.add_button (button2, 1);
-            }
-
-            // Response
-            info_bar.response.connect ((id) => {
-                if (id == 0) {
-                    callback1 ();
-                } else if (id == 1) {
-                    callback2 ();
-                }
-            });
-
-            // Show everything
-            info_bar.show_all ();
-        }
-
-        // Hide InfoBar when not needed
-        public void hide_info_bar () {
-            info_bar.no_show_all = true;
-            info_bar.visible = false;
         }
 
         // SourceView related functions
