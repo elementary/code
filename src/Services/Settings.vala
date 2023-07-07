@@ -30,6 +30,7 @@ namespace Scratch {
     public enum ScratchDrawSpacesState {
         NEVER = 0,
         FOR_SELECTION = 1,
-        ALWAYS = 2
+        ALWAYS = 2,
+        CURRENT = 3
     }
 }
