@@ -18,8 +18,12 @@
  */
 
 public class Code.FormatBar : Gtk.Box {
-    public bool tab_set_by_editor_config { get; set; default = false; }
+    public bool tab_style_set_by_editor_config { get; set; default = false; }
+    public bool tab_width_set_by_editor_config { get; set; default = false; }
     public FormatButton line_menubutton { get; private set;}
+    public Gtk.InfoBar editorconfig_infobar { get; set construct; }
+    public Gtk.Box tab_box { get; set construct; }
+    public Gtk.SpinButton width_spinbutton { get; set construct; }
 
     private FormatButton lang_menubutton;
     private FormatButton tab_menubutton;
@@ -137,7 +141,7 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     private void create_tabulation_popover () {
-        var editorconfig_infobar = new Gtk.InfoBar () {
+        editorconfig_infobar = new Gtk.InfoBar () {
             margin_top = 9,
             margin_end = 9,
             margin_start = 9
@@ -154,15 +158,15 @@ public class Code.FormatBar : Gtk.Box {
             hexpand = true
         };
 
-        var tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
+        width_spinbutton = new Gtk.SpinButton.with_range (1, 24, 1);
 
-        var tab_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+        tab_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
             margin_top = 6,
             margin_end = 12,
             margin_start = 12,
         };
         tab_box.add (width_label);
-        tab_box.add (tab_width);
+        tab_box.add (width_spinbutton);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             margin_bottom = 12
@@ -180,27 +184,38 @@ public class Code.FormatBar : Gtk.Box {
 
         tab_menubutton.popover = tab_popover;
 
-        Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
-        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.GET);
-        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_modelbutton, "active", SettingsBindFlags.GET);
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
+        Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
 
-        bind_property ("tab-set-by-editor-config", editorconfig_infobar, "revealed", BindingFlags.SYNC_CREATE);
-        bind_property ("tab-set-by-editor-config", space_tab_modelbutton, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
-        bind_property ("tab-set-by-editor-config", tab_box, "sensitive", BindingFlags.INVERT_BOOLEAN | BindingFlags.SYNC_CREATE);
+        format_tab_header_from_global_settings ();
+        width_spinbutton.value_changed.connect (() => {
+            Scratch.settings.set_int (
+                "indent-width",
+                ((int)width_spinbutton.@value).clamp (2, 16)
+            );
+        });
+
+        space_tab_modelbutton.clicked.connect (() => {
+            Scratch.settings.set_boolean (
+                "spaces-instead-of-tabs",
+                space_tab_modelbutton.active
+            );
+        });
     }
 
+
     private void format_tab_header_from_global_settings () {
-        if (tab_set_by_editor_config) {
-            return;
+        if (!tab_style_set_by_editor_config) {
+            set_insert_spaces_instead_of_tabs (Scratch.settings.get_boolean ("spaces-instead-of-tabs"));
+        }
+        if (!tab_width_set_by_editor_config) {
+            set_tab_width (Scratch.settings.get_int ("indent-width"));
         }
 
-        var indent_width = Scratch.settings.get_int ("indent-width");
-        var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-
-        set_tab_width (indent_width);
-        set_insert_spaces_instead_of_tabs (spaces_instead_of_tabs);
+        editorconfig_infobar.revealed = tab_style_set_by_editor_config || tab_width_set_by_editor_config;
+        space_tab_modelbutton.sensitive = !tab_style_set_by_editor_config;
+        tab_box.sensitive = !tab_width_set_by_editor_config;
     }
 
     private void format_line_header () {
@@ -258,6 +273,7 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
+
         space_tab_modelbutton.active = use_spaces;
         if (doc != null) {
             doc.source_view.insert_spaces_instead_of_tabs = use_spaces;
@@ -265,6 +281,7 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     public void set_tab_width (int indent_width) {
+        width_spinbutton.@value = indent_width;
         if (space_tab_modelbutton.active) {
             tab_menubutton.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
