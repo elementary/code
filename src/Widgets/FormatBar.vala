@@ -190,17 +190,21 @@ public class Code.FormatBar : Gtk.Box {
 
         format_tab_header_from_global_settings ();
         width_spinbutton.value_changed.connect (() => {
-            Scratch.settings.set_int (
-                "indent-width",
-                ((int)width_spinbutton.@value).clamp (2, 16)
-            );
+            if (!tab_width_set_by_editor_config) {
+                Scratch.settings.set_int (
+                    "indent-width",
+                    ((int)width_spinbutton.@value).clamp (2, 16)
+                );
+            }
         });
 
         space_tab_modelbutton.clicked.connect (() => {
-            Scratch.settings.set_boolean (
-                "spaces-instead-of-tabs",
-                space_tab_modelbutton.active
-            );
+            if (!tab_style_set_by_editor_config) {
+                Scratch.settings.set_boolean (
+                    "spaces-instead-of-tabs",
+                    space_tab_modelbutton.active
+                );
+            }
         });
     }
 

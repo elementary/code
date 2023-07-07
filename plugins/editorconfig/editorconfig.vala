@@ -32,8 +32,11 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
         });
 
         plugins.hook_document.connect ((d) => {
+            // Ensure use global settings by default
             format_bar.tab_style_set_by_editor_config = false;
             format_bar.tab_width_set_by_editor_config = false;
+            format_bar.set_document (d);
+
             Scratch.Widgets.SourceView view = d.source_view;
             File file = d.file;
 
@@ -73,6 +76,9 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
                         break;
                     case "max_line_length":
                         view.right_margin_position = int.parse (val);
+                        break;
+                    default:
+                        warning ("unrecognised name/value %s/%s", name, val);
                         break;
                 }
             }
