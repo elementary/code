@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 08:10+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
 "PO-Revision-Date: 2023-04-28 20:06+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -75,11 +75,11 @@ msgstr "Mostra el contorn del símbol"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:586
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:590
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "Fitxers de text"
 
@@ -92,8 +92,8 @@ msgid "Open"
 msgstr "Obre"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -357,131 +357,156 @@ msgstr "Branca nova…"
 msgid "Branch"
 msgstr "Branca"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s no és un fitxer de text"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr "El Codi no carregarà aquest tipus de fitxer."
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr "Carrega'l tanmateix"
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "La càrrega del fitxer %s està trigant molt."
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr "Si us plau, espereu mentre el Codi carrega el fitxer."
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 msgid "Cancel Loading"
 msgstr "Cancel·la la càrrega"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no deseu el document, els canvis es perdran permanentment."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 msgid "Close Without Saving"
 msgstr "Tanca'l sense desar-lo"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:597
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "Desa"
 
-#: src/Services/Document.vala:555
+#: src/Services/Document.vala:565
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "No s'ha pogut desar a %s."
 
-#: src/Services/Document.vala:594
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr "Desa el fitxer"
 
-#: src/Services/Document.vala:678 src/Services/Document.vala:696
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "Document nou"
 
 #. No path for a new document
-#: src/Services/Document.vala:698
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "No es pot desar aquest document a %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "No es pot llegir el text del fitxer %s"
 
-#: src/Services/Document.vala:826
+#: src/Services/Document.vala:780
 msgid "You may not have permission to read the file."
 msgstr "És possible que no tingueu permís per llegir el fitxer."
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr "El fitxer pot estar malmès o pot no ser un fitxer de text."
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr "Mostra'l tanmateix"
 
-#: src/Services/Document.vala:864
-#, c-format
-msgid "The location containing the file “%s” was unmounted."
+#: src/Services/Document.vala:819
+#, fuzzy, c-format
+#| msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr "La ubicació que conté el fitxer %s s'ha desmuntat."
 
-#: src/Services/Document.vala:866
-#, c-format
-msgid "File “%s” was deleted."
-msgstr "S'ha suprimit el fitxer %s."
+#: src/Services/Document.vala:821
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "El fitxer %s ha estat modificat per una aplicació externa."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:835
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "El fitxer %s no té permís d'escriptura."
 
-#: src/Services/Document.vala:906
-#, c-format
-msgid "File “%s” was modified by an external application."
+#: src/Services/Document.vala:881
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr "El fitxer %s ha estat modificat per una aplicació externa."
 
-#: src/Services/Document.vala:912
-msgid "Reload"
-msgstr "Torna a carregar"
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
 
-#: src/Services/Document.vala:918
-msgid "Continue"
-msgstr "Continua"
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
 
-#: src/Services/Document.vala:939
+#: src/Services/Document.vala:908
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 "“%s” no es pot desar aquí. En voleu deseu un duplicat en un altre lloc?"
 
-#: src/Services/Document.vala:948
+#: src/Services/Document.vala:917
 msgid "Ignore"
 msgstr "Ignora-ho"
 
-#: src/Services/Document.vala:950
+#: src/Services/Document.vala:919
 msgid "Save Duplicate…"
 msgstr "Desa'n un duplicat…"
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr "Continua"
+
+#: src/Services/Document.vala:970
+msgid "Reload"
+msgstr "Torna a carregar"
+
+#: src/Services/Document.vala:973
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:976
+#, fuzzy
+#| msgid "Save the document elsewhere"
+msgid "Save Document elsewhere"
+msgstr "Desa el document en un altre lloc"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -811,6 +836,10 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "S'ha suprimit el fitxer %s."
+
 #~ msgid "Set of plugins"
 #~ msgstr "Conjunt de connectors"
 
@@ -837,9 +866,6 @@ msgstr "%s - Compleció de paraules"
 #~ msgstr ""
 #~ "No podeu desar els canvis al fitxer %s. Voleu desar els canvis en un "
 #~ "altre lloc?"
-
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Desa el document en un altre lloc"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
