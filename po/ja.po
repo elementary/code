@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-04-30 00:06+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -433,18 +433,16 @@ msgid "Show Anyway"
 msgstr "強制的に表示"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "ファイル “%s” を含む場所はアンマウントされています。"
+msgstr "ファイル “%s” を含む場所はアンマウントされていて、未保存の変更があります。"
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "ファイル “%s” は外部のアプリケーションによって変更されました。"
+msgstr "ファイル “%s” は削除されていて、未保存の変更があります。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -454,20 +452,20 @@ msgid "File “%s” does not have write permission."
 msgstr "“%s” への書き込み権限がありません。"
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "ファイル “%s” は外部のアプリケーションによって変更されました。"
+msgstr "ファイル “%s” は外部のアプリケーションによって変更されました"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
-msgstr ""
+msgstr "未保存の変更も存在します。ドキュメントを最読み込みすると、未保存の変更は上書"
+"きされます。"
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
-msgstr ""
+msgstr "ドキュメントは、最後の保存以降に外部で変更されました。"
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -492,11 +490,9 @@ msgstr "再読み込み"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "上書きする"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
 msgstr "ドキュメントをほかの場所に保存"
 
