@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 08:10+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
 "PO-Revision-Date: 2023-04-28 20:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -75,11 +75,11 @@ msgstr "הצגת קווי מתאר של סמלים"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:586
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:590
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "קבצי טקסט"
 
@@ -92,8 +92,8 @@ msgid "Open"
 msgstr "פתיחה"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ביטול"
@@ -352,130 +352,155 @@ msgstr "ענף חדש…"
 msgid "Branch"
 msgstr "ענף"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s אינו קובץ טקסט"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr "קוד לא ידע לטעון סוג כזה של קובץ."
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr "לטעון בכל זאת"
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "טעינת הקובץ „%s” אורכת זמן רב"
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr "נא להמתין בזמן שקוד טוען את הקובץ."
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 msgid "Cancel Loading"
 msgstr "ביטול הטעינה"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "לשמור את השינויים אל „%s” לפני הסגירה?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 msgid "If you don't save, changes will be permanently lost."
 msgstr "בחירה שלא לשמור תוביל לאבדן השינויים לעד."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 msgid "Close Without Saving"
 msgstr "סגירה ללא שמירה"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:597
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "שמירה"
 
-#: src/Services/Document.vala:555
+#: src/Services/Document.vala:565
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "השמירה אל „%s” נכשלה."
 
-#: src/Services/Document.vala:594
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr "שמירת קובץ"
 
-#: src/Services/Document.vala:678 src/Services/Document.vala:696
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "מסמך חדש"
 
 #. No path for a new document
-#: src/Services/Document.vala:698
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "לא ניתן לשמור את המסמך הזה אל %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "לא ניתן לקרוא טקסט בקובץ „%s”"
 
-#: src/Services/Document.vala:826
+#: src/Services/Document.vala:780
 msgid "You may not have permission to read the file."
 msgstr "כנראה שאין לך הרשאות לקרוא את הקובץ."
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr "כנראה שהקובץ פגום או שאינו קובץ טקסט"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr "להציג בכל זאת"
 
-#: src/Services/Document.vala:864
-#, c-format
-msgid "The location containing the file “%s” was unmounted."
+#: src/Services/Document.vala:819
+#, fuzzy, c-format
+#| msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr "בוטלה העגינה של המקום המכיל את הקובץ „%s”."
 
-#: src/Services/Document.vala:866
-#, c-format
-msgid "File “%s” was deleted."
-msgstr "הקובץ „%s” נמחק."
+#: src/Services/Document.vala:821
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "הקובץ „%s” נערך ביישום חיצוני."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:835
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "לקובץ „%s” אין הרשאות כתיבה."
 
-#: src/Services/Document.vala:906
-#, c-format
-msgid "File “%s” was modified by an external application."
+#: src/Services/Document.vala:881
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr "הקובץ „%s” נערך ביישום חיצוני."
 
-#: src/Services/Document.vala:912
-msgid "Reload"
-msgstr "רענון"
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
 
-#: src/Services/Document.vala:918
-msgid "Continue"
-msgstr "המשך"
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
 
-#: src/Services/Document.vala:939
+#: src/Services/Document.vala:908
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "אי אפשר לשמור לכאן את „%s”. לשמור שכפול במקום אחר?"
 
-#: src/Services/Document.vala:948
+#: src/Services/Document.vala:917
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: src/Services/Document.vala:950
+#: src/Services/Document.vala:919
 msgid "Save Duplicate…"
 msgstr "שמירת שכפול…"
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr "המשך"
+
+#: src/Services/Document.vala:970
+msgid "Reload"
+msgstr "רענון"
+
+#: src/Services/Document.vala:973
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:976
+#, fuzzy
+#| msgid "Save the document elsewhere"
+msgid "Save Document elsewhere"
+msgstr "לשמור את המסמך במקום אחר"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -805,6 +830,10 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "הקובץ „%s” נמחק."
+
 #~ msgid "Set of plugins"
 #~ msgstr "ערכת תוספים"
 
@@ -828,9 +857,6 @@ msgstr "%s - השלמת מילים"
 #~ "You cannot save changes to the file “%s”. Do you want to save the changes "
 #~ "somewhere else?"
 #~ msgstr "לא ניתן לשמור שינויים לקובץ „%s”. לשמור את השינויים לקובץ אחר?"
-
-#~ msgid "Save the document elsewhere"
-#~ msgstr "לשמור את המסמך במקום אחר"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"

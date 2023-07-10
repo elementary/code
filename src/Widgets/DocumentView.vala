@@ -187,12 +187,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-
-            insert_document (doc, -1);
-            current_document = doc;
-
-            doc.focus ();
-            save_opened_files ();
+            // Must open document in order to unlock it.
+            open_document (doc);
         } catch (Error e) {
             critical (e.message);
         }
