@@ -158,7 +158,7 @@ public class Code.FormatBar : Gtk.Box {
             hexpand = true
         };
 
-        width_spinbutton = new Gtk.SpinButton.with_range (1, 24, 1);
+        width_spinbutton = new Gtk.SpinButton.with_range (2, 16, 1);
 
         tab_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
             margin_top = 6,
@@ -193,7 +193,7 @@ public class Code.FormatBar : Gtk.Box {
             if (!tab_width_set_by_editor_config) {
                 Scratch.settings.set_int (
                     "indent-width",
-                    ((int)width_spinbutton.@value).clamp (2, 16)
+                    (int)width_spinbutton.@value
                 );
             }
         });
