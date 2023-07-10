@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 08:10+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -81,11 +81,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:586
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:590
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
@@ -98,8 +98,8 @@ msgid "Open"
 msgstr "Mở"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Bỏ qua"
@@ -366,137 +366,159 @@ msgstr "Thay đổi tùy chỉnh của Scratch"
 msgid "Branch"
 msgstr "Thay đổi tùy chỉnh của Scratch"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Bỏ qua"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Nếu bạn không lưu, thay đổi trong 4 giây trước sẽ bị mất mãi mãi"
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Đóng không lưu"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:597
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "Lưu"
 
-#: src/Services/Document.vala:555
+#: src/Services/Document.vala:565
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
-#: src/Services/Document.vala:594
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:678 src/Services/Document.vala:696
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "Tạo tài liệu mới"
 
 #. No path for a new document
-#: src/Services/Document.vala:698
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:826
+#: src/Services/Document.vala:780
 msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:819
 #, c-format
-msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 
-#: src/Services/Document.vala:866
+#: src/Services/Document.vala:821
 #, fuzzy, c-format
 #| msgid "The file %s was deleted."
-msgid "File “%s” was deleted."
+msgid "File “%s” was deleted and there are unsaved changes."
 msgstr "Tập tin %s đã bị xóa."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:835
 #, fuzzy, c-format
 #| msgid "Maybe you do not have the necessary permissions."
 msgid "File “%s” does not have write permission."
 msgstr "Có thể bạn không có quyền truy cập cần thiết."
 
-#: src/Services/Document.vala:906
+#: src/Services/Document.vala:881
 #, c-format
-msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr ""
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:908
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:917
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:919
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr ""
+
+#: src/Services/Document.vala:970
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Tải lên"
 
-#: src/Services/Document.vala:918
-msgid "Continue"
+#: src/Services/Document.vala:973
+msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:939
-#, c-format
-msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
-
-#: src/Services/Document.vala:948
-msgid "Ignore"
-msgstr ""
-
-#: src/Services/Document.vala:950
-msgid "Save Duplicate…"
-msgstr ""
+#: src/Services/Document.vala:976
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save Document elsewhere"
+msgstr "Lưu tập tin hiện tại"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -852,11 +874,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "plugin"
 #~ msgstr "Tập hợp plugin"
-
-#, fuzzy
-#~| msgid "Save the current file"
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Lưu tập tin hiện tại"
 
 #~ msgid "Save changes elsewhere"
 #~ msgstr "Lưu thay đổi vào nơi khác"
