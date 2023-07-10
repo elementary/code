@@ -565,7 +565,6 @@ namespace Scratch.Widgets {
             buffer.get_selection_bounds (out start, out end);
 
             if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
-                // warning ("selection unchanged");
                 return;
             }
 
