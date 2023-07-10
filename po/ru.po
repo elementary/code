@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
@@ -441,18 +441,17 @@ msgid "Show Anyway"
 msgstr "Всё равно открыть"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "Источник, содержащий файл «%s», был извлечён."
+msgstr ""
+"Источник, содержащий файл «%s» с несохранёнными изменениями, был извлечён."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Файл «%s» был изменён другим приложением."
+msgstr "Файл «%s» с несохранёнными изменениями был изменён другим приложением."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -462,20 +461,21 @@ msgid "File “%s” does not have write permission."
 msgstr "Файл «%s» не имеет прав на запись."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Файл «%s» был изменён другим приложением."
+msgstr "Файл «%s» был изменён другим приложением"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Имеются несохранённые изменения. При перезагрузке документа они будут "
+"перезаписаны."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
-msgstr ""
+msgstr "Документ был изменён извне с момента его последнего сохранения."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -500,11 +500,9 @@ msgstr "Перезагрузить"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Перезаписать"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
 msgstr "Сохранить в другом месте"
 
