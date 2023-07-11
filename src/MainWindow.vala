@@ -1073,6 +1073,10 @@ namespace Scratch {
                 search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
+            } else if (search_bar.search_entry.text != "") {
+                // Always search on what is showing in search entry
+                current_search_term = search_bar.search_entry.text;
+                search_bar.search_entry.grab_focus ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.
