@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -443,18 +443,18 @@ msgid "Show Anyway"
 msgstr "Pokaż mimo to"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "Położenie zawierające plik „%s” jest niedostępne."
+msgstr ""
+"Położenie zawierające plik „%s” zostało odłączone i istnieją niezapisane "
+"zmiany."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację."
+msgstr "Plik „%s” został usunięty i istnieją niezapisane zmiany."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -464,10 +464,9 @@ msgid "File “%s” does not have write permission."
 msgstr "Plik „%s” nie ma uprawnień do zapisywania."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację."
+msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację"
 
 #: src/Services/Document.vala:886
 msgid ""
