@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-06-13 12:07+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
+"PO-Revision-Date: 2023-07-03 13:07+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -19,27 +19,19 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Uusi välilehti"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Laajennusjoukko"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "liitännäinen"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[TIEDOSTO…]"
 
@@ -85,11 +77,11 @@ msgstr "Symboleja ei löytynyt"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
@@ -102,8 +94,8 @@ msgid "Open"
 msgstr "Avaa"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Peru"
@@ -264,23 +256,23 @@ msgstr "Älä palauta"
 msgid "Restore Anyway"
 msgstr "Palauta silti"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Muu sovellus…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Muut toiminnot"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
@@ -289,31 +281,31 @@ msgstr "Siirrä roskakoriin"
 msgid "Folders"
 msgstr "Kansiot"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Etsi kansiosta…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Kansio"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Tyhjä tiedosto"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Uusi"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "nimetön kansio"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "uusi tiedosto"
 
@@ -367,137 +359,161 @@ msgstr "Uusi haara…"
 msgid "Branch"
 msgstr "Haara"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ei ole tekstitiedosto"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr "Koodi ei voi ladata tämäntyyppistä tiedostoa."
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr "Lataa silti"
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Tiedoston “%s” lataaminen kestää kauan"
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr "Koodi lataa tiedostoa. Ole hyvä ja odota."
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 msgid "Cancel Loading"
 msgstr "Peru lataaminen"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Tallennetaanko tiedostoon “%s” tehdyt muutokset ennen sulkemista?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jos et tallenna, muutokset katoavat pysyvästi."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 msgid "Close Without Saving"
 msgstr "Sulje tallentamatta"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:565
 #, fuzzy, c-format
 #| msgid "Save changes to “%s” before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Tallennetaanko tiedostoon “%s” tehdyt muutokset ennen sulkemista?"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr "Tallenna tiedosto"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "Uusi asiakirja"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Tiedoston “%s” tekstiä ei voi lukea"
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:780
 msgid "You may not have permission to read the file."
 msgstr "Tarvittava käyttöoikeus sen lukemiseen saattaa puuttua."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Tiedosto saattaa olla rikkoutunut tai se ei ole tekstitiedosto"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr "Näytä silti"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:819
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file “%s” was unmounted. Do you want to save "
 #| "somewhere else?"
-msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "Liitos, jossa tiedosto “%s” sijaitsee, irrotettiin. Haluatko tallentaa "
 "tiedoston jonnekin muualle?"
 
-#: src/Services/Document.vala:863
-#, c-format
-msgid "File “%s” was deleted."
-msgstr "Tiedosto “%s” poistettiin."
+#: src/Services/Document.vala:821
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "Tiedostoa “%s” muokattiin toisella sovelluksella."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:835
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Tiedosto “%s” poistettiin. Haluatko tallentaa sen silti?"
 
-#: src/Services/Document.vala:903
-#, c-format
-msgid "File “%s” was modified by an external application."
+#: src/Services/Document.vala:881
+#, fuzzy, c-format
+#| msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr "Tiedostoa “%s” muokattiin toisella sovelluksella."
 
-#: src/Services/Document.vala:909
-msgid "Reload"
-msgstr "Lataa uudelleen"
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
 
-#: src/Services/Document.vala:915
-msgid "Continue"
-msgstr "Jatka"
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:908
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:917
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:919
 msgid "Save Duplicate…"
+msgstr "Tallenna kaksoiskappale…"
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr "Jatka"
+
+#: src/Services/Document.vala:970
+msgid "Reload"
+msgstr "Lataa uudelleen"
+
+#: src/Services/Document.vala:973
+msgid "Overwrite"
 msgstr ""
+
+#: src/Services/Document.vala:976
+#, fuzzy
+#| msgid "Save the document elsewhere"
+msgid "Save Document elsewhere"
+msgstr "Tallenna asiakirja muualle"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -717,11 +733,11 @@ msgstr "%d/%d"
 msgid "no results"
 msgstr "ei tuloksia"
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr "Järjestä valitut rivit"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr "Kytke kommentti"
 
@@ -827,6 +843,16 @@ msgstr "Asenna vähintään yksi [aspell]-sanakirja."
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "Tiedosto “%s” poistettiin."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Laajennusjoukko"
+
+#~ msgid "plugin"
+#~ msgstr "liitännäinen"
+
 #~ msgid "Save As…"
 #~ msgstr "Tallenna nimellä…"
 
@@ -854,9 +880,6 @@ msgstr "%s - Sanojen täydennys"
 #~ msgstr ""
 #~ "Et voi tallentaa muutoksia tiedostoon \"%s\". Haluatko tallentaa tehdyt "
 #~ "muutokset toiseen sijaintiin?"
-
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Tallenna asiakirja muualle"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"

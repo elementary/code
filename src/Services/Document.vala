@@ -92,6 +92,7 @@ namespace Scratch.Services {
 
         // Locked documents can be edited but cannot be (auto)saved to the current file.
         // Locked documents can be saved to a different file (when they will be unlocked)
+        // Create as locked so focus events ignored. Unlock when content is loaded
         private bool _locked = true;
         public bool locked {
             get {
@@ -115,13 +116,12 @@ namespace Scratch.Services {
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
-        public string original_content;
-        private string last_save_content;
+        public string original_content = "";
+        private string last_save_content = "";
         public bool saved = true;
         private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
-        private Gtk.InfoBar info_bar;
         private Gtk.SourceMap source_map;
         private Gtk.Paned outline_widget_pane;
 
@@ -167,7 +167,6 @@ namespace Scratch.Services {
                 expand = true
             };
             scroll.add (source_view);
-            info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -179,11 +178,11 @@ namespace Scratch.Services {
 
             source_map.set_view (source_view);
 
-            hide_info_bar ();
+            set_minimap ();
+            set_strip_trailing_whitespace ();
+            settings.changed["show-mini-map"].connect (set_minimap);
+            settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
-            restore_settings ();
-
-            settings.changed.connect (restore_settings);
             /* Block user editing while working */
             notify["working"].connect (() => {
                 source_view.sensitive = !working;
@@ -199,13 +198,23 @@ namespace Scratch.Services {
 
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
-            doc_grid.add (info_bar);
             doc_grid.add (outline_widget_pane);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
+
+            // Focus in event for SourceView
+            // Check if file changed externally or permissions changed
+            this.source_view.focus_in_event.connect (() => {
+                if (!locked && !is_file_temporary) {
+                    check_file_status ();
+                    check_undoable_actions ();
+                }
+
+                return false;
+            });
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
@@ -217,6 +226,10 @@ namespace Scratch.Services {
             });
 
             source_view.buffer.changed.connect (() => {
+                if (!loaded) {
+                    return;
+                }
+
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
                     // Autosave does not work on locked document
@@ -236,9 +249,7 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
-            // /* Create as loaded and unlocked - could be new document */
             loaded = file == null;
-            locked = false;
             ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
         }
 
@@ -260,8 +271,10 @@ namespace Scratch.Services {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
                             }
+
                             timeout_saving = Timeout.add (1000, () => {
-                                save.begin ();
+                                check_file_status ();
+                                save.begin (); // Not forced
                                 timeout_saving = 0;
                                 return false;
                             });
@@ -370,16 +383,6 @@ namespace Scratch.Services {
                 }
             }
 
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                if (!working && !locked) {
-                    check_file_status ();
-                    check_undoable_actions ();
-                }
-
-                return false;
-            });
-
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -471,6 +474,13 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        // Handle save action (only use for user interaction)
+        public void save_request () {
+            check_undoable_actions ();
+            check_file_status (); // Need to check for external changes before forcing save
+            save_with_hold.begin (true);
         }
 
         private bool is_saving = false;
@@ -618,6 +628,7 @@ namespace Scratch.Services {
                 // Should not set "modified" state of the buffer to true - this is automatic
                 is_saved = yield save (true, true);
                 if (is_saved) {
+                    source_view.buffer.set_modified (false);
                     if (is_current_file_temporary) {
                         try {
                             // Delete temporary file
@@ -647,7 +658,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        private void restore_settings () {
+        private void set_minimap () {
             if (Scratch.settings.get_boolean ("show-mini-map")) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
@@ -656,7 +667,9 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
+        }
 
+        private void set_strip_trailing_whitespace () {
             if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
                 strip_trailing_spaces ();
             }
@@ -701,65 +714,6 @@ namespace Scratch.Services {
             } else {
                 return "";
             }
-        }
-
-        // Set InfoBars message
-        private void set_message (Gtk.MessageType type, string label,
-                                  string? button1 = null, owned VoidFunc? callback1 = null,
-                                  string? button2 = null, owned VoidFunc? callback2 = null) {
-
-            // Show InfoBar
-            info_bar.no_show_all = false;
-            info_bar.visible = true;
-
-            // Clear from useless widgets
-            info_bar.get_content_area ().get_children ().foreach ((widget) => {
-                if (widget != null) {
-                    widget.destroy ();
-                }
-            });
-
-            ((Gtk.Container) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
-                if (widget != null) {
-                    widget.destroy ();
-                }
-            });
-
-            // Type
-            info_bar.message_type = type;
-
-            // Layout
-            var l = new Gtk.Label (label);
-            l.ellipsize = Pango.EllipsizeMode.END;
-            l.use_markup = true;
-            l.set_markup (label);
-            ((Gtk.Box) info_bar.get_action_area ()).orientation = Gtk.Orientation.HORIZONTAL;
-            var main = info_bar.get_content_area () as Gtk.Box;
-            main.orientation = Gtk.Orientation.HORIZONTAL;
-            main.pack_start (l, false, false, 0);
-            if (button1 != null) {
-                info_bar.add_button (button1, 0);
-            } if (button2 != null) {
-                info_bar.add_button (button2, 1);
-            }
-
-            // Response
-            info_bar.response.connect ((id) => {
-                if (id == 0) {
-                    callback1 ();
-                } else if (id == 1) {
-                    callback2 ();
-                }
-            });
-
-            // Show everything
-            info_bar.show_all ();
-        }
-
-        // Hide InfoBar when not needed
-        public void hide_info_bar () {
-            info_bar.no_show_all = true;
-            info_bar.visible = false;
         }
 
         // SourceView related functions
@@ -858,23 +812,37 @@ namespace Scratch.Services {
         private void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
-                locked = true;
-                string details;
-                if (mounted == false) {
-                    details = _("The location containing the file “%s” was unmounted.");
-                } else {
-                    details = _("File “%s” was deleted.");
-                }
+                if (source_view.buffer.get_modified ()) {
+                    locked = true;
+                    string details;
+                    if (mounted == false) {
+                        details = _("The location containing the file “%s” was unmounted and there are unsaved changes.");
+                    } else {
+                        details = _("File “%s” was deleted and there are unsaved changes.");
+                    }
 
-                ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
-            } else if (loaded) { // Check external changes after loading
+                    ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
+                } else {
+                    var close_tab_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TAB, actions);
+                    close_tab_action.set_enabled (true);
+                    this.saved = true; //Do not try to save
+                    close_tab_action.activate (new Variant ("s", file.get_path ()));
+                }
+            } else if (loaded && !is_saving) { // Check external changes after loading
                 if (!locked && !can_write () && source_view.buffer.get_modified ()) {
-                // The file has become unwritable while changes are pending
+                    // The file has become unwritable while changes are pending
                     locked = true;
                     var details = _("File “%s” does not have write permission.");
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
                 } else {
-                // Check for external changes (can load even if locked or unwritable)
+                    // Detect external changes by comparing file content with buffer content.
+                    // Only done when no unsaved internal changes else difference from saved
+                    // file are to be expected.
+
+                    //TODO Check required behaviour on continue
+                    // If user selects to continue regardless then no further
+                    // check made for this document
+                    // External changes will be overwritten on next (auto) save
                     var new_buffer = new Gtk.SourceBuffer (null);
                     var source_file_loader = new Gtk.SourceFileLoader (
                         new_buffer,
@@ -893,36 +861,37 @@ namespace Scratch.Services {
                                 return;
                             }
 
-                            if (source_view.buffer.text == new_buffer.text) {
+                            if (last_save_content == new_buffer.text) {
                                 return;
                             }
 
-                            if (!source_view.buffer.get_modified ()) {
-                                //FIXME Should block editing until responded?
-                                if (Scratch.settings.get_boolean ("autosave")) {
-                                    source_view.set_text (new_buffer.text, false);
-                                } else {
-                                    string message = _(
-                                        "File “%s” was modified by an external application."
-                                    ).printf ("<b>%s</b>".printf (get_uri ()));
-
-                                    set_message (
-                                        Gtk.MessageType.WARNING,
-                                        message,
-                                         _("Reload"), () => {
-                                            this.source_view.set_text (
-                                                new_buffer.text, false
-                                            );
-                                            hide_info_bar ();
-                                        },
-                                        _("Continue"), () => {
-                                            hide_info_bar ();
-                                        })
-                                    ;
-                                }
-                            } else {
-                                //TODO Handle conflicting changes (dialog?)
+                            if (last_save_content == source_view.buffer.text) {
+                                // There are no unsaved internal edits so just load the external changes
+                                //TODO Indicate to the user external changes loaded?
+                                loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
+                                source_view.set_text (new_buffer.text);
+                                last_save_content = new_buffer.text; // Now in sync with file
+                                // We know the content and file will be in sync after paste so set unmodified
+                                set_saved_status (true);
+                                source_view.buffer.set_modified (false);
+                                loaded = true;
+                                return;
                             }
+
+                            var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
+                            string secondary_text;
+
+                            if (source_view.buffer.get_modified ()) {
+                                secondary_text = _(
+                "There are also unsaved changes. Reloading the document will overwrite the unsaved changes."
+                                    );
+                            } else {
+                                secondary_text = _(
+                "The document changed externally since you last saved it."
+                                    );
+                            }
+
+                            ask_external_changes (primary_text, secondary_text, new_buffer.text);
                         }
                     );
                 }
@@ -978,6 +947,77 @@ namespace Scratch.Services {
             dialog.present ();
         }
 
+        private void ask_external_changes (
+            string primary_text,
+            string secondary_text,
+            string external_content
+        ) {
+            locked = true;
+
+            var app_instance = (Gtk.Application) GLib.Application.get_default ();
+            var dialog = new Granite.MessageDialog (
+                    primary_text,
+                    secondary_text,
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.NONE
+                ) {
+                transient_for = app_instance.active_window
+
+            };
+
+            dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
+
+            var reload_button = (Gtk.Button) (dialog.add_button (_("Reload"), 0));
+            reload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            var overwrite_button = (Gtk.Button) (dialog.add_button (_("Overwrite"), 1));
+            overwrite_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            var saveas_button = (Gtk.Button) (dialog.add_button (_("Save Document elsewhere"), Gtk.ResponseType.ACCEPT));
+            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            dialog.response.connect ((id) => {
+                dialog.destroy ();
+                Idle.add (() => {
+                    switch (id) {
+                        case Gtk.ResponseType.ACCEPT: // Save as
+                            save_as_with_hold.begin ((obj, res) => {
+                                if (save_as_with_hold.end (res)) {
+                                    locked = false;
+                                }
+                            });
+                            break;
+                        case Gtk.ResponseType.REJECT: // Ignore
+                            // Document remains locked while conflicts exist
+                            // The user must resolve some other way.  To overwrite
+                            // external changes use "Save As" with same name
+                            break;
+                        case 0: // Reload
+                            source_view.buffer.text = external_content;
+                            source_view.buffer.set_modified (false);
+                            last_save_content = source_view.buffer.text;
+                            set_saved_status (true);
+                            locked = false;
+                            break;
+                        case 1: // Overwrite
+                            // Force save, unlock to allow saving to same location
+                            locked = false;
+                            save_with_hold.begin (true, false, (obj, res) => {
+                                if (!save_with_hold.end (res)) {
+                                    locked = true;
+                                }
+                            });
+                            break;
+                        default:
+                            assert_not_reached ();
+                    }
+
+                    return Source.REMOVE;
+                });
+            });
+
+            dialog.present ();
+        }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
