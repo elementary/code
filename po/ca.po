@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -440,18 +440,17 @@ msgid "Show Anyway"
 msgstr "Mostra'l tanmateix"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "La ubicació que conté el fitxer %s s'ha desmuntat."
+msgstr ""
+"La ubicació que conté el fitxer %s s'ha desmuntat i hi ha canvis no desats."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "El fitxer %s ha estat modificat per una aplicació externa."
+msgstr "S'ha suprimit el fitxer %s i hi ha canvis no desats."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -461,8 +460,7 @@ msgid "File “%s” does not have write permission."
 msgstr "El fitxer %s no té permís d'escriptura."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "El fitxer %s ha estat modificat per una aplicació externa."
 
@@ -471,10 +469,13 @@ msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"També hi ha canvis no desats. Si torneu a carregar el document, se "
+"sobreescriuran els canvis no desats."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
 msgstr ""
+"El document ha canviat externament des de l'última vegada que el vau desar."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -500,11 +501,9 @@ msgstr "Torna a carregar"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Sobreescriu"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
 msgstr "Desa el document en un altre lloc"
 
