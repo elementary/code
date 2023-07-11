@@ -91,8 +91,10 @@
       <issues>
         <issue url="https://github.com/elementary/code/issues/739">No expander on folders that contain no text files</issue>
         <issue url="https://github.com/elementary/code/issues/933">Add whole word search</issue>
+        <issue url="https://github.com/elementary/code/issues/965">Undo-ing sometimes deletes the entire contents of a file</issue>
         <issue url="https://github.com/elementary/code/issues/1175">Search occurence label does not update when active document changed</issue>
         <issue url="https://github.com/elementary/code/issues/1183">Autosave of unsaved buffers not reliable</issue>
+        <issue url="https://github.com/elementary/code/issues/1208">Slow to close multiple documents</issue>
         <issue url="https://github.com/elementary/code/issues/1210">Unexpected closing on pressing Global Search accelerator with no open documents</issue>
         <issue url="https://github.com/elementary/code/issues/1248">Clicking "Find in Project…" in the welcome screen causes the app crashing</issue>
         <issue url="https://github.com/elementary/code/issues/1256">Cancelling saving does not work as expected when closing project folder resulting in data loss</issue>
@@ -104,6 +106,9 @@
         <issue url="https://github.com/elementary/code/issues/1275">Case sensitive/insensitive search does not work as expected with mixed case search term</issue>
         <issue url="https://github.com/elementary/code/issues/1282">Cannot open files with unknown characters</issue>
         <issue url="https://github.com/elementary/code/issues/1293">Search results change when document focused in</issue>
+        <issue url="https://github.com/elementary/code/issues/1327">Git branch change can result in unwanted warnings</issue>
+        <issue url="https://github.com/elementary/code/issues/1340">Tab width menu does not work</issue>
+        <issue url="https://github.com/elementary/code/issues/1341">Line numbers should start from one not zero</issue>
       </issues>
     </release>
 
