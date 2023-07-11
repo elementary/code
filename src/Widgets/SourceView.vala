@@ -243,9 +243,10 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.get_boolean ("auto-indent");
             show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
             right_margin_position = Scratch.settings.get_int ("right-margin-position");
+            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
-
+            space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
                     space_drawer.set_types_for_locations (
@@ -271,9 +272,10 @@ namespace Scratch.Widgets {
                     break;
             }
 
+            space_drawer.enable_matrix = true;
             update_draw_spaces ();
 
-            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
+
             tab_width = (uint) Scratch.settings.get_int ("indent-width");
             if (Scratch.settings.get_boolean ("line-wrap")) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
