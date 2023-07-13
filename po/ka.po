@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-05-14 05:06+0000\n"
+"PO-Revision-Date: 2023-07-14 18:07+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/code/code/ka/>\n"
 "Language: ka\n"
@@ -432,18 +432,18 @@ msgid "Show Anyway"
 msgstr "მაინც ჩვენება"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "მდებარეობა, რომელიც ფაილს \"%s\" შეიცავდა, მოხსნილია."
+msgstr ""
+"მდებარეობა, რომელიც ფაილს \"%s\" შეიცავდა, მოხსნილია და მას შეუნახავი "
+"ცვლილებები გააჩნია."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა."
+msgstr "ფაილი \"%s\" წაშლილია და მას შეუნახავი ცვლილებები გააჩნია."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -453,20 +453,21 @@ msgid "File “%s” does not have write permission."
 msgstr "ფაილს \"%s\" შენახვის წვდომა არ გააჩნია."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა."
+msgstr "ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"აღმოჩენილია შეუნახავი ცვლილებები. დოკუმენტის თავიდან ჩატვირთვა ყველა "
+"შეუნახავ ცვლილებას თავზე გადააწერს."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
-msgstr ""
+msgstr "ბოლოს შენახვის შემდეგ დოკუმენტი გარედან შეიცვალა."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -492,13 +493,11 @@ msgstr "თავიდან ჩატვირთვა"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "თავზე გადაწერა"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
-msgstr "ცვლილებების სხვაგან შენახვა"
+msgstr "დოკუმენტის სხვაგან შენახვა"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
