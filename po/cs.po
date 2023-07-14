@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-07-06 14:07+0000\n"
-"Last-Translator: hnklp <hynek.puta@seznam.cz>\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
+"Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -440,18 +440,17 @@ msgid "Show Anyway"
 msgstr "Přesto zobrazit"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "Úložiště obsahující soubor „%s“ bylo odpojeno."
+msgstr ""
+"Úložiště obsahující soubor „%s“ bylo odpojeno a existují neuložené změny."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací."
+msgstr "Soubor „%s“ byl mezitím smazán a existují neuložené změny."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -461,20 +460,21 @@ msgid "File “%s” does not have write permission."
 msgstr "Soubor „%s“ je chráněn proti zápisu."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací."
+msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Existují neuložené změny. Opětovné načtení dokumentu přepíše tyto neuložené "
+"změny."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
-msgstr ""
+msgstr "Tento dokument byl od posledního uložení pozměněn jinou aplikací."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -499,13 +499,11 @@ msgstr "Znovu načíst"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Přepsat"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the current file"
 msgid "Save Document elsewhere"
-msgstr "Uložit současný soubor"
+msgstr "Uložit dokument jinam"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"

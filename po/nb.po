@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-06-14 14:07+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -492,14 +492,16 @@ msgstr ""
 "eller fortsette redigeringen?"
 
 #: src/Services/Document.vala:886
+#, fuzzy
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Det er også ulagrede endringer. Å gjeninnlaste dokumentet vil overskrive dem."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
-msgstr ""
+msgstr "Dokumentet endret seg eksternt siden sist gang du lagret det."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -526,7 +528,7 @@ msgstr "Last Opp"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Overskriv"
 
 #: src/Services/Document.vala:976
 #, fuzzy
