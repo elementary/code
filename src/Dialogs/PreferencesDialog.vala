@@ -111,6 +111,7 @@ namespace Scratch.Dialogs {
             content.row_spacing = 6;
             content.column_spacing = 12;
 
+            // Editor settings
             var editor_header = new Granite.HeaderLabel (_("Editor"));
 
             var highlight_matching_brackets_label = new SettingsLabel (_("Highlight matching brackets:"));
@@ -136,6 +137,13 @@ namespace Scratch.Dialogs {
             Scratch.settings.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
+            // Terminal settings
+            var terminal_header = new Granite.HeaderLabel (_("Terminal"));
+
+            var follow_project_label = new SettingsLabel (_("Follow active project path:"));
+            var follow_project_switch = new SettingsSwitch ("terminal-follows-project");
+
+            // Font settings
             var font_header = new Granite.HeaderLabel (_("Font"));
 
             var use_custom_font_label = new SettingsLabel (_("Custom font:"));
@@ -160,11 +168,16 @@ namespace Scratch.Dialogs {
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
-            content.attach (right_margin_position, 2, 7, 1, 1);
-            content.attach (font_header, 0, 7, 3, 1);
-            content.attach (use_custom_font_label , 0, 9, 1, 1);
-            content.attach (use_custom_font, 1, 9, 1, 1);
-            content.attach (select_font, 2, 9, 1, 1);
+            content.attach (right_margin_position, 2, 6, 1, 1);
+
+            content.attach (terminal_header, 0, 7, 3, 1);
+            content.attach (follow_project_label, 0, 8, 1, 1);
+            content.attach (follow_project_switch, 1, 8, 1, 1);
+
+            content.attach (font_header, 0, 9, 3, 1);
+            content.attach (use_custom_font_label , 0, 10, 1, 1);
+            content.attach (use_custom_font, 1, 10, 1, 1);
+            content.attach (select_font, 2, 10, 1, 1);
 
             return content;
         }
