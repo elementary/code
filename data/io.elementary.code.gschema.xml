@@ -47,6 +47,16 @@
       <summary>Sidebar visibility</summary>
       <description>Whether or not the sidebar is open</description>
     </key>
+    <key name="terminal-visible" type="b">
+      <default>false</default>
+      <summary>Terminal visibility</summary>
+      <description>Whether or not the terminal is shown</description>
+    </key>
+    <key name="terminal-follows-project" type="b">
+      <default>true</default>
+      <summary>Terminal path changes according to active project</summary>
+      <description>Whether or not the terminal changes the working directory when the active project changes</description>
+    </key>
     <key name="outline-visible" type="b">
       <default>false</default>
       <summary>Symbol outline visibility</summary>
