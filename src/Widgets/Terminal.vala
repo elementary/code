@@ -59,9 +59,11 @@ public class Code.Terminal : Gtk.Box {
             return false;
         });
 
-        var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
+        var saved_state = new Settings (Constants.PROJECT_NAME + ".saved-state");
+        var settings = new Settings (Constants.PROJECT_NAME + ".settings");
+
         try {
-            var last_path_setting = settings.get_string ("last-opened-path");
+            var last_path_setting = saved_state.get_string ("last-opened-path");
             //FIXME Replace with the async method once the .vapi is fixed upstream.
             terminal.spawn_sync (
                 Vte.PtyFlags.DEFAULT,
@@ -82,12 +84,17 @@ public class Code.Terminal : Gtk.Box {
         add (scrolled_window);
 
         destroy.connect (() => {
-            settings.set_string ("last-opened-path", get_shell_location ());
+            saved_state.set_string ("last-opened-path", get_shell_location ());
         });
 
-        Scratch.Services.GitManager.get_instance ().notify["active-project-path"].connect (() => {
-            var cmd = "cd '" + Scratch.Services.GitManager.get_instance ().active_project_path + "'\n";
-            terminal.feed_child (cmd.data);
+        var git_manager = Scratch.Services.GitManager.get_instance ();
+        git_manager.notify["active-project-path"].connect (() => {
+            if (settings.get_boolean ("terminal-follows-project")) {
+                var cmd = "cd '" + git_manager.active_project_path + "'\n";
+                // Assume no foreground process has been started in the terminal for simplicity
+                // Also assume the path is valid for now
+                terminal.feed_child (cmd.data);
+            }
         });
     }
 
