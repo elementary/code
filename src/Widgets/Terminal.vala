@@ -84,6 +84,11 @@ public class Code.Terminal : Gtk.Box {
         destroy.connect (() => {
             settings.set_string ("last-opened-path", get_shell_location ());
         });
+
+        Scratch.Services.GitManager.get_instance ().notify["active-project-path"].connect (() => {
+            var cmd = "cd '" + Scratch.Services.GitManager.get_instance ().active_project_path + "'\n";
+            terminal.feed_child (cmd.data);
+        });
     }
 
     private string get_shell_location () {
