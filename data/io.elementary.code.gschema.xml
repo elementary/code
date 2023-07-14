@@ -191,6 +191,11 @@
       <summary>Terminal path changes according to active project</summary>
       <description>Whether or not the terminal changes the working directory when the active project changes</description>
     </key>
+    <key name="terminal-enters-build" type="b">
+      <default>false</default>
+      <summary>Terminal path changes to build subdirectory of active project</summary>
+      <description>Whether or not the terminal changes the working directory to the root or build directory of active project</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">

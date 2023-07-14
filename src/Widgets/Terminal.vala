@@ -90,7 +90,8 @@ public class Code.Terminal : Gtk.Box {
         var git_manager = Scratch.Services.GitManager.get_instance ();
         git_manager.notify["active-project-path"].connect (() => {
             if (settings.get_boolean ("terminal-follows-project")) {
-                var cmd = "cd '" + git_manager.active_project_path + "'\n";
+                var subdir = settings.get_boolean ("terminal-enters-build") ? "/build" : "";
+                var cmd = "cd '" + git_manager.active_project_path + subdir + "'\n";
                 // Assume no foreground process has been started in the terminal for simplicity
                 // Also assume the path is valid for now
                 terminal.feed_child (cmd.data);

@@ -143,6 +143,11 @@ namespace Scratch.Dialogs {
             var follow_project_label = new SettingsLabel (_("Follow active project path:"));
             var follow_project_switch = new SettingsSwitch ("terminal-follows-project");
 
+            var enters_build_label = new SettingsLabel (_("Enter build subdirectory:"));
+            var enters_build_switch = new SettingsSwitch ("terminal-enters-build");
+            follow_project_switch.bind_property ("active", enters_build_label, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+            follow_project_switch.bind_property ("active", enters_build_switch, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+
             // Font settings
             var font_header = new Granite.HeaderLabel (_("Font"));
 
@@ -173,11 +178,13 @@ namespace Scratch.Dialogs {
             content.attach (terminal_header, 0, 7, 3, 1);
             content.attach (follow_project_label, 0, 8, 1, 1);
             content.attach (follow_project_switch, 1, 8, 1, 1);
+            content.attach (enters_build_label, 0, 9, 1, 1);
+            content.attach (enters_build_switch, 1, 9, 1, 1);
 
-            content.attach (font_header, 0, 9, 3, 1);
-            content.attach (use_custom_font_label , 0, 10, 1, 1);
-            content.attach (use_custom_font, 1, 10, 1, 1);
-            content.attach (select_font, 2, 10, 1, 1);
+            content.attach (font_header, 0, 10, 3, 1);
+            content.attach (use_custom_font_label , 0, 11, 1, 1);
+            content.attach (use_custom_font, 1, 11, 1, 1);
+            content.attach (select_font, 2, 11, 1, 1);
 
             return content;
         }
