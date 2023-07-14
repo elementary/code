@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-07-12 15:07+0000\n"
+"PO-Revision-Date: 2023-07-14 18:07+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -473,10 +473,14 @@ msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Istnieją również niezapisane zmiany. Przeładowanie dokumentu nadpisze "
+"niezapisane zmiany."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
 msgstr ""
+"Dokument został zmieniony przez aplikację zewnętrzną od czasu ostatniego "
+"zapisu."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -501,13 +505,11 @@ msgstr "Przeładuj"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Nadpisz"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
-msgstr "Zapisuje dokument gdzie indziej"
+msgstr "Zapisz dokument gdzie indziej"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
