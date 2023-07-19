@@ -209,8 +209,8 @@ namespace Scratch.Services {
             // Check if file changed externally or permissions changed
             this.source_view.focus_in_event.connect (() => {
                 if (!locked && !is_file_temporary) {
-                    check_file_status ();
                     check_undoable_actions ();
+                    check_file_status.begin ();
                 }
 
                 return false;
@@ -219,7 +219,7 @@ namespace Scratch.Services {
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
                 if (!locked && Scratch.settings.get_boolean ("autosave")) {
-                    save.begin ();
+                    save_with_hold.begin ();
                 }
 
                 return false;
@@ -273,8 +273,7 @@ namespace Scratch.Services {
                             }
 
                             timeout_saving = Timeout.add (1000, () => {
-                                check_file_status ();
-                                save.begin (); // Not forced
+                                save_with_hold.begin (); // Not forced
                                 timeout_saving = 0;
                                 return false;
                             });
@@ -400,7 +399,7 @@ namespace Scratch.Services {
                 working = false;
                 loaded = true;
                 locked = false; // Assume writable until status checked
-                check_file_status ();
+                check_file_status.begin ();
                 return false;
             });
 
@@ -479,7 +478,6 @@ namespace Scratch.Services {
         // Handle save action (only use for user interaction)
         public void save_request () {
             check_undoable_actions ();
-            check_file_status (); // Need to check for external changes before forcing save
             save_with_hold.begin (true);
         }
 
@@ -491,6 +489,8 @@ namespace Scratch.Services {
             } else {
                 is_saving = true;
             }
+
+            yield check_file_status ();
 
             bool result;
             lock (is_saving) {
@@ -521,11 +521,11 @@ namespace Scratch.Services {
             }
 
             working = false;
-            check_file_status ();
+            yield check_file_status ();
             return result;
         }
 
-        private async bool save (bool force = false, bool saving_as = false) requires (!locked) {
+        private async bool save (bool force = false, bool saving_as = false) requires (!locked && is_saving) {
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -546,6 +546,8 @@ namespace Scratch.Services {
                 success = yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
                 // Only create backup once save successful
                 if (success) {
+                    this.set_saved_status (true);
+                    last_save_content = source_view.buffer.text;
                     create_backup ();
                 }
             } catch (Error e) {
@@ -578,15 +580,14 @@ namespace Scratch.Services {
                 outline.parse_symbols ();
             }
 
-            this.set_saved_status (true);
-            last_save_content = source_view.buffer.text;
+
 
             debug ("File “%s” saved successfully", get_basename ());
 
             return true;
         }
 
-        private async bool save_as () requires (!locked) {
+        private async bool save_as () requires (!locked && is_saving)  {
             // New file
             if (!loaded) {
                 return false;
@@ -809,7 +810,7 @@ namespace Scratch.Services {
         }
 
         // Check if the file was deleted/changed by an external source
-        private void check_file_status () {
+        private async void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (source_view.buffer.get_modified ()) {
@@ -848,52 +849,50 @@ namespace Scratch.Services {
                         new_buffer,
                         source_file
                     );
-                    source_file_loader.load_async.begin (
-                        GLib.Priority.DEFAULT,
-                        null,
-                        null,
-                        (obj, res) => {
-                            try {
-                                source_file_loader.load_async.end (res);
-                            } catch (Error e) {
-                                critical (e.message);
-                                show_default_load_error_view ();
-                                return;
-                            }
 
-                            if (last_save_content == new_buffer.text) {
-                                return;
-                            }
+                    try {
+                        yield source_file_loader.load_async (
+                            GLib.Priority.DEFAULT,
+                            null,
+                            null
+                        );
+                    } catch (Error e) {
+                        critical (e.message);
+                        show_default_load_error_view ();
+                        return;
+                    }
 
-                            if (last_save_content == source_view.buffer.text) {
-                                // There are no unsaved internal edits so just load the external changes
-                                //TODO Indicate to the user external changes loaded?
-                                loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
-                                source_view.set_text (new_buffer.text);
-                                last_save_content = new_buffer.text; // Now in sync with file
-                                // We know the content and file will be in sync after paste so set unmodified
-                                set_saved_status (true);
-                                source_view.buffer.set_modified (false);
-                                loaded = true;
-                                return;
-                            }
+                    if (last_save_content == new_buffer.text) {
+                        return;
+                    }
 
-                            var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
-                            string secondary_text;
+                    if (last_save_content == source_view.buffer.text) {
+                        // There are no unsaved internal edits so just load the external changes
+                        //TODO Indicate to the user external changes loaded?
+                        loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
+                        source_view.set_text (new_buffer.text);
+                        last_save_content = new_buffer.text; // Now in sync with file
+                        // We know the content and file will be in sync after paste so set unmodified
+                        set_saved_status (true);
+                        source_view.buffer.set_modified (false);
+                        loaded = true;
+                        return;
+                    }
 
-                            if (source_view.buffer.get_modified ()) {
-                                secondary_text = _(
-                "There are also unsaved changes. Reloading the document will overwrite the unsaved changes."
-                                    );
-                            } else {
-                                secondary_text = _(
-                "The document changed externally since you last saved it."
-                                    );
-                            }
+                    var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
+                    string secondary_text;
 
-                            ask_external_changes (primary_text, secondary_text, new_buffer.text);
-                        }
-                    );
+                    if (source_view.buffer.get_modified ()) {
+                        secondary_text = _(
+        "There are also unsaved changes. Reloading the document will overwrite the unsaved changes."
+                            );
+                    } else {
+                        secondary_text = _(
+        "The document changed externally since you last saved it."
+                            );
+                    }
+
+                    ask_external_changes (primary_text, secondary_text, new_buffer.text);
                 }
             }
         }
