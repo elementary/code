@@ -587,7 +587,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        private async bool save_as () requires (!locked && is_saving)  {
+        private async bool save_as () requires (!locked && is_saving) {
             // New file
             if (!loaded) {
                 return false;
