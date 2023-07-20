@@ -301,6 +301,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         doc.do_close.begin (false, (obj, res) => {
             if (doc.do_close.end (res)) {
                 remove_tab (doc);
+                doc.destroy ();
             }
         });
     }

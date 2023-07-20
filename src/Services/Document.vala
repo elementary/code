@@ -143,6 +143,10 @@ namespace Scratch.Services {
             page = main_stack;
         }
 
+        ~Document () {
+            debug ("Destruct Document");
+        }
+
         static construct {
             var fontpath = Path.build_filename (
                 Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf"
@@ -470,6 +474,9 @@ namespace Scratch.Services {
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
+                // Need to destoy outline for Document to destruct
+                outline_widget_pane.get_child2 ().destroy ();
+                outline = null;
                 doc_closed ();
             }
 
