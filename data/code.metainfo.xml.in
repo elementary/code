@@ -80,7 +80,7 @@
           <li>Trying to save a document to an unwritable location is now handled better</li>
           <li>The system style is now followed by the symbol outline and when launched without open documents</li>
           <li>Mixed case sensitive search now works as expected</li>
-          <li>The search results no longer change unexpectedly when focussing a document</li>
+          <li>The search results no longer change unexpectedly when focusing a document</li>
           <li>Now there is always an active project at startup if there are projects in the sidebar</li>
           <li>If a development branch is running this shows in the window title and in the dock tooltip</li>
           <li>Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs</li>
@@ -104,6 +104,7 @@
         <issue url="https://github.com/elementary/code/pull/1256">Cancelling saving does not work as expected when closing project folder resulting in data loss</issue>
         <issue url="https://github.com/elementary/code/pull/1183">Autosave of unsaved buffers not reliable</issue>
         <issue url="https://github.com/elementary/code/pull/1282">Cannot open files with unknown characters</issue>
+        <issue url="https://github.com/elementary/code/pull/1252">No expander on folders that contain no text files</issue>
       </issues>
     </release>
 

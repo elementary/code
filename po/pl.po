@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
+"PO-Revision-Date: 2023-07-14 18:07+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -20,27 +20,19 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Nowa karta"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nowe okno"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Wyświetl informację o wersji i zamknij"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Zestaw wtyczek"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "wtyczka"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[PLIK…]"
 
@@ -84,11 +76,11 @@ msgstr "Pokaż przegląd symboli"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
@@ -101,8 +93,8 @@ msgid "Open"
 msgstr "Otwórz"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anuluj"
@@ -262,23 +254,23 @@ msgstr "Nie przywracaj"
 msgid "Restore Anyway"
 msgstr "Przywróć mimo wszystko"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Inny program…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Otwórz w"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Inne działania"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Zmień nazwę"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
@@ -287,31 +279,31 @@ msgstr "Przenieś do kosza"
 msgid "Folders"
 msgstr "Foldery"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Znajdź w folderze…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Katalog"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Pusty plik"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Nowy"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "Katalog bez nazwy"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "Nowy plik"
 
@@ -368,130 +360,156 @@ msgstr "Nowy branch…"
 msgid "Branch"
 msgstr "Gałąź"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nie jest plikiem tekstowym"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr "Kod nie wczyta tego rodzaju plików."
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr "Wczytaj mimo wszystko"
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Wczytywanie pliku „%s” trwa długi czas"
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr "Prosimy oczekiwać podczas wczytywania pliku przez Kod."
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 msgid "Cancel Loading"
 msgstr "Anuluj wczytywanie"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Zachować zmiany w pliku „%s” przed zamknięciem?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jeśli plik nie zostanie zapisany, zmiany zostaną bezzwrotnie utracone."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 msgid "Close Without Saving"
 msgstr "Zamknij bez zapisywania"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:565
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Zapisywanie do pliku „%s” nie powiodło się."
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr "Zapisz plik"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "Nowy dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Nie można zapisać dokumentu do %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Nie udało się przeczytać tekstu w „%s”"
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:780
 msgid "You may not have permission to read the file."
 msgstr "Możesz nie posiadać wystarczających uprawnień do odczytania pliku."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Plik może być uszkodzony lub może nie być plikiem tekstowym"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr "Pokaż mimo to"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:819
 #, c-format
-msgid "The location containing the file “%s” was unmounted."
-msgstr "Położenie zawierające plik „%s” jest niedostępne."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+"Położenie zawierające plik „%s” zostało odłączone i istnieją niezapisane "
+"zmiany."
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:821
 #, c-format
-msgid "File “%s” was deleted."
-msgstr "Plik „%s” został usunięty."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "Plik „%s” został usunięty i istnieją niezapisane zmiany."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:835
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Plik „%s” nie ma uprawnień do zapisywania."
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:881
 #, c-format
-msgid "File “%s” was modified by an external application."
-msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację."
+msgid "File “%s” was modified by an external application"
+msgstr "Plik „%s” został zmieniony przez zewnętrzną aplikację"
 
-#: src/Services/Document.vala:909
-msgid "Reload"
-msgstr "Przeładuj"
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+"Istnieją również niezapisane zmiany. Przeładowanie dokumentu nadpisze "
+"niezapisane zmiany."
 
-#: src/Services/Document.vala:915
-msgid "Continue"
-msgstr "Kontynuuj"
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
+"Dokument został zmieniony przez aplikację zewnętrzną od czasu ostatniego "
+"zapisu."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:908
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "„%s” nie może być tutaj zapisany. Zapisać kopię w innym miejscu?"
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:917
 msgid "Ignore"
 msgstr "Zignoruj"
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:919
 msgid "Save Duplicate…"
 msgstr "Zapisz kopię…"
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: src/Services/Document.vala:970
+msgid "Reload"
+msgstr "Przeładuj"
+
+#: src/Services/Document.vala:973
+msgid "Overwrite"
+msgstr "Nadpisz"
+
+#: src/Services/Document.vala:976
+msgid "Save Document elsewhere"
+msgstr "Zapisz dokument gdzie indziej"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -713,11 +731,11 @@ msgstr "%d z %d"
 msgid "no results"
 msgstr "brak wyników"
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr "Sortuj wybrane wiersze"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr "Przełącz komentarze"
 
@@ -823,6 +841,16 @@ msgstr "Proszę zainstalować chociaż jeden słownik [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - uzupełnienie słowa"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "Plik „%s” został usunięty."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Zestaw wtyczek"
+
+#~ msgid "plugin"
+#~ msgstr "wtyczka"
+
 #~ msgid "Save As…"
 #~ msgstr "Zapisz jako…"
 
@@ -844,9 +872,6 @@ msgstr "%s - uzupełnienie słowa"
 #~ msgstr ""
 #~ "Nie można zapisać zmian w pliku „%s”. Czy chcesz zapisać zmiany w innym "
 #~ "miejscu?"
-
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Zapisuje dokument gdzie indziej"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"

@@ -249,7 +249,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+            plugins = new Scratch.Services.PluginsManager (this);
 
             key_press_event.connect (on_key_pressed);
 
@@ -902,7 +902,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save_with_hold.begin (true);
+                    doc.save_request ();
                 }
             }
         }
@@ -1079,6 +1079,10 @@ namespace Scratch {
                 search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
+            } else if (search_bar.search_entry.text != "") {
+                // Always search on what is showing in search entry
+                current_search_term = search_bar.search_entry.text;
+                search_bar.search_entry.grab_focus ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.

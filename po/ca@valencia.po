@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
+"POT-Creation-Date: 2023-07-09 17:18+0000\n"
 "PO-Revision-Date: 2017-05-15 08:22+0000\n"
 "Last-Translator: Guillem Servera <guillem@gservera.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/scratch/scratch/"
@@ -20,29 +20,19 @@ msgstr ""
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Nova pestanya"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova finestra"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr ""
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Conjunt de connectors"
-
-#: src/Application.vala:42
-#, fuzzy
-#| msgid "Set of plugins"
-msgid "plugin"
-msgstr "Conjunt de connectors"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
@@ -92,11 +82,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:832 src/Services/Document.vala:596
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:836 src/Services/Document.vala:600
 msgid "Text files"
 msgstr "Fitxers de text"
 
@@ -109,8 +99,8 @@ msgid "Open"
 msgstr "Obrir"
 
 #: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:442
+#: src/Services/Document.vala:608 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·lar"
@@ -268,27 +258,27 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 #, fuzzy
 #| msgid "Open"
 msgid "Open In"
 msgstr "Obrir"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 #, fuzzy
 #| msgid "Other formats"
 msgid "Other Actions"
 msgstr "Altres formats"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr ""
@@ -297,23 +287,23 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open file"
 msgid "Find in Folder…"
 msgstr "Obri un fitxer"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
@@ -321,11 +311,11 @@ msgstr ""
 msgid "New"
 msgstr "Nova pestanya"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 #, fuzzy
 #| msgid "New file"
 msgid "new file"
@@ -386,41 +376,41 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:318
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:319
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:321
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:342
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:343
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:345
 #, fuzzy
 #| msgid "Cancel"
 msgid "Cancel Loading"
 msgstr "Cancel·lar"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:432
 #, fuzzy, c-format
 #| msgid "Save changes to document %s before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Guardar els canvia al document %s abans de tancar?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:433
 #, fuzzy
 #| msgid ""
 #| "If you don't save, changes from the last 4 seconds will be permanently "
@@ -428,43 +418,43 @@ msgstr "Guardar els canvia al document %s abans de tancar?"
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no deseu, els canvis dels últims 4 segons es perdran."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:439
 #, fuzzy
 #| msgid "Close without saving"
 msgid "Close Without Saving"
 msgstr "Tanca sense alçar"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:443 src/Services/Document.vala:607
 msgid "Save"
 msgstr "Alça"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:565
 #, fuzzy, c-format
 #| msgid "Save changes to document %s before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Guardar els canvia al document %s abans de tancar?"
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:604
 msgid "Save File"
 msgstr "Alça el fitxer"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:691 src/Services/Document.vala:709
 msgid "New Document"
 msgstr "Document nou"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:711
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:777
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:780
 #, fuzzy
 #| msgid ""
 #| "File \"%s\" cannot be read. Maybe it is corrupt\n"
@@ -474,72 +464,98 @@ msgstr ""
 "L'arxiu \"%s\" no es pot llegir. Potser està malmès\n"
 "o no disposeu dels permisos necessaris per llegir-lo."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:782
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:788
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:819
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
-msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "El lloc que conté l'arxiu \"%s\" no va ser muntat. Vols alçar-lo en algun "
 "lloc?"
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:821
 #, fuzzy, c-format
-#| msgid "The file %s was deleted."
-msgid "File “%s” was deleted."
-msgstr "L'arxiu %s ha estat esborrat"
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr ""
+"L'arxiu \"%s\" ha estat modificat per una altra aplicació. Voleu tornar-lo a "
+"carregar o preferiu continuar amb la vostra edició?"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:835
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "L'arxiu \"%s\" es va esborrar. Vols alçar-lo en algun lloc?"
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:881
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr ""
 "L'arxiu \"%s\" ha estat modificat per una altra aplicació. Voleu tornar-lo a "
 "carregar o preferiu continuar amb la vostra edició?"
 
-#: src/Services/Document.vala:909
+#: src/Services/Document.vala:886
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:890
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:908
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:917
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:919
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:968
+msgid "Continue"
+msgstr "Continua"
+
+#: src/Services/Document.vala:970
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Puja"
 
-#: src/Services/Document.vala:915
-msgid "Continue"
-msgstr "Continua"
-
-#: src/Services/Document.vala:936
-#, c-format
-msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+#: src/Services/Document.vala:973
+msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:945
-msgid "Ignore"
-msgstr ""
-
-#: src/Services/Document.vala:947
-msgid "Save Duplicate…"
-msgstr ""
+#: src/Services/Document.vala:976
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save Document elsewhere"
+msgstr "Alça el fitxer actual"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -773,11 +789,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:518
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:531
 msgid "Toggle Comment"
 msgstr ""
 
@@ -889,6 +905,19 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
+#, fuzzy, c-format
+#~| msgid "The file %s was deleted."
+#~ msgid "File “%s” was deleted."
+#~ msgstr "L'arxiu %s ha estat esborrat"
+
+#~ msgid "Set of plugins"
+#~ msgstr "Conjunt de connectors"
+
+#, fuzzy
+#~| msgid "Set of plugins"
+#~ msgid "plugin"
+#~ msgstr "Conjunt de connectors"
+
 #~ msgid "Save As…"
 #~ msgstr "Anomena i alça…"
 
@@ -916,11 +945,6 @@ msgstr ""
 #~ msgstr ""
 #~ "No pots arçar els canvis en l'arxiu \"%s\". Vols alçar els canvis del "
 #~ "fitxer en un lloc diferent?"
-
-#, fuzzy
-#~| msgid "Save the current file"
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Alça el fitxer actual"
 
 #, fuzzy, c-format
 #~| msgid ""
