@@ -253,8 +253,16 @@ namespace Scratch.Widgets {
         }
 
         private void on_selection_changed () {
+
             var selected_text = text_view.get_selected_text ();
-            if (selected_text != search_entry.text) {
+            bool clear_required;
+            if (search_context.settings.case_sensitive) {
+                clear_required = selected_text != search_entry.text;
+            } else {
+                clear_required = selected_text.down () != search_entry.text.down ();
+            }
+
+            if (clear_required) {
                 search_entry.text = "";
             }
         }
