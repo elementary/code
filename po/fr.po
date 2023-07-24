@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-05-05 09:06+0000\n"
-"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
+"PO-Revision-Date: 2023-07-21 09:07+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -442,18 +442,20 @@ msgid "Show Anyway"
 msgstr "Afficher quand-même"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "L'emplacement contenant le fichier « %s » a été démonté."
+msgstr ""
+"L'emplacement contenant le fichier « %s » a été démonté et certaines "
+"modifications n'ont pas été enregistrées."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Le fichier « %s » a été modifié par une application externe."
+msgstr ""
+"Le fichier « %s » a été supprimé et certaines modifications n'ont pas été "
+"enregistrées."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -463,20 +465,23 @@ msgid "File “%s” does not have write permission."
 msgstr "Le fichier « %s » n'est pas accessible en écriture."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Le fichier « %s » a été modifié par une application externe."
+msgstr "Le fichier « %s » a été modifié par une application externe"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Certaines modifications n'ont pas été enregistrées. Recharger le document "
+"écrasera ces modifications."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
 msgstr ""
+"Le document a été modifié depuis que vous l'avez enregistré pour la première "
+"fois."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -502,13 +507,11 @@ msgstr "Recharger"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Écraser"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
-msgstr "Enregistrer le fichier ailleurs"
+msgstr "Enregistrer le document ailleurs"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
