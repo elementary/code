@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-09 17:18+0000\n"
-"PO-Revision-Date: 2023-05-01 21:16+0000\n"
+"PO-Revision-Date: 2023-07-14 18:07+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -442,18 +442,19 @@ msgid "Show Anyway"
 msgstr "Trotzdem anzeigen"
 
 #: src/Services/Document.vala:819
-#, fuzzy, c-format
-#| msgid "The location containing the file “%s” was unmounted."
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr "Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt."
+msgstr ""
+"Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt; es sind "
+"ungespeicherte Änderungen vorhanden."
 
 #: src/Services/Document.vala:821
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Die Datei »%s« wurde von einer anderen Anwendung bearbeitet."
+msgstr ""
+"Die Datei »%s« wurde gelöscht; es sind ungespeicherte Änderungen vorhanden."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -463,20 +464,23 @@ msgid "File “%s” does not have write permission."
 msgstr "Datei »%s« ist schreibgeschützt."
 
 #: src/Services/Document.vala:881
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Die Datei »%s« wurde von einer anderen Anwendung bearbeitet."
+msgstr "Die Datei »%s« wurde von einer anderen Anwendung bearbeitet"
 
 #: src/Services/Document.vala:886
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
+"Es sind außerdem ungespeicherte Ändeungen vorhanden. Ein erneutes Laden des "
+"Dokuments wird diese Änderungen überschreiben."
 
 #: src/Services/Document.vala:890
 msgid "The document changed externally since you last saved it."
 msgstr ""
+"Das Dokument wurde von einem anderen Programm geändert, nachdem Sie es "
+"zuletzt gespeichert haben."
 
 #: src/Services/Document.vala:908
 #, c-format
@@ -503,11 +507,9 @@ msgstr "Neu laden"
 
 #: src/Services/Document.vala:973
 msgid "Overwrite"
-msgstr ""
+msgstr "Überschreiben"
 
 #: src/Services/Document.vala:976
-#, fuzzy
-#| msgid "Save the document elsewhere"
 msgid "Save Document elsewhere"
 msgstr "Dokument an anderem Ort speichern"
 
