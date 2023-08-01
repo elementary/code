@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-09 17:18+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2022-01-28 13:22+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -128,9 +128,9 @@ msgstr "可选的缩略图，使浏览大文件更容易"
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/code.metainfo.xml.in:71 data/code.metainfo.xml.in:113
-#: data/code.metainfo.xml.in:145 data/code.metainfo.xml.in:169
-#: data/code.metainfo.xml.in:197
+#: data/code.metainfo.xml.in:71 data/code.metainfo.xml.in:119
+#: data/code.metainfo.xml.in:151 data/code.metainfo.xml.in:175
+#: data/code.metainfo.xml.in:203
 msgid "Improvements:"
 msgstr "改进："
 
@@ -147,9 +147,9 @@ msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
 
-#: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:120
-#: data/code.metainfo.xml.in:160 data/code.metainfo.xml.in:182
-#: data/code.metainfo.xml.in:201
+#: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:166 data/code.metainfo.xml.in:188
+#: data/code.metainfo.xml.in:207
 msgid "Minor updates:"
 msgstr "小幅更新："
 
@@ -193,175 +193,179 @@ msgstr ""
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr ""
 
-#: data/code.metainfo.xml.in:87 data/code.metainfo.xml.in:130
-#: data/code.metainfo.xml.in:162 data/code.metainfo.xml.in:185
-#: data/code.metainfo.xml.in:204
+#: data/code.metainfo.xml.in:87
+msgid "Ensure active project at startup (include non-git folders)"
+msgstr ""
+
+#: data/code.metainfo.xml.in:88 data/code.metainfo.xml.in:136
+#: data/code.metainfo.xml.in:168 data/code.metainfo.xml.in:191
+#: data/code.metainfo.xml.in:210
 msgid "Updated translations"
 msgstr "翻译更新"
 
-#: data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:121
 msgid "Redesigned app icon"
 msgstr ""
 
-#: data/code.metainfo.xml.in:116
+#: data/code.metainfo.xml.in:122
 msgid "New custom dark and light elementary styles for the source view"
 msgstr ""
 
-#: data/code.metainfo.xml.in:117
+#: data/code.metainfo.xml.in:123
 msgid "Option to follow the system dark style preference"
 msgstr ""
 
-#: data/code.metainfo.xml.in:118
+#: data/code.metainfo.xml.in:124
 msgid "Ability to half tile on small notebook displays"
 msgstr ""
 
-#: data/code.metainfo.xml.in:122
+#: data/code.metainfo.xml.in:128
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:123
+#: data/code.metainfo.xml.in:129
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
 
-#: data/code.metainfo.xml.in:124
+#: data/code.metainfo.xml.in:130
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:131
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:132
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:133
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:134
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
 
-#: data/code.metainfo.xml.in:129
+#: data/code.metainfo.xml.in:135
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 
-#: data/code.metainfo.xml.in:147
+#: data/code.metainfo.xml.in:153
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
 msgstr ""
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:154
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr ""
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:155
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr ""
 
-#: data/code.metainfo.xml.in:150
+#: data/code.metainfo.xml.in:156
 msgid "The search bar now has a regular expression mode"
 msgstr ""
 
-#: data/code.metainfo.xml.in:152 data/code.metainfo.xml.in:176
-#: data/code.metainfo.xml.in:192
+#: data/code.metainfo.xml.in:158 data/code.metainfo.xml.in:182
+#: data/code.metainfo.xml.in:198
 msgid "Fixes:"
 msgstr "修复："
 
-#: data/code.metainfo.xml.in:154
+#: data/code.metainfo.xml.in:160
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
 msgstr ""
 
-#: data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:161
 msgid "Crashes are prevented while searching in large projects"
 msgstr ""
 
-#: data/code.metainfo.xml.in:156
+#: data/code.metainfo.xml.in:162
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:163
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 
-#: data/code.metainfo.xml.in:158
+#: data/code.metainfo.xml.in:164
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 
-#: data/code.metainfo.xml.in:171
+#: data/code.metainfo.xml.in:177
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr "具有相同名称的项目现在也包括其父文件夹名称"
 
-#: data/code.metainfo.xml.in:172
+#: data/code.metainfo.xml.in:178
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr "滚动到搜索结果时，稍微过冲以获得更好的可见性"
 
-#: data/code.metainfo.xml.in:173
+#: data/code.metainfo.xml.in:179
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr "使用 FileChooser 门户而不是来自 GTK"
 
-#: data/code.metainfo.xml.in:174
+#: data/code.metainfo.xml.in:180
 msgid "Center the global search dialog over the main Code window"
 msgstr "将全局搜索对话框在主代码窗口居中显示"
 
-#: data/code.metainfo.xml.in:178
+#: data/code.metainfo.xml.in:184
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr "修复欢迎页面上终端按钮的可见性"
 
-#: data/code.metainfo.xml.in:179
+#: data/code.metainfo.xml.in:185
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr "修复一些键盘快捷键影响未聚焦的文档而不是聚焦的终端"
 
-#: data/code.metainfo.xml.in:180
+#: data/code.metainfo.xml.in:186
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
 "如果 shell 退出，请关闭终端，如果在没有 shell 的情况下重新打开，则创建新终端"
 
-#: data/code.metainfo.xml.in:184
+#: data/code.metainfo.xml.in:190
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "“可见空白”组合框现在是一个开关"
 
-#: data/code.metainfo.xml.in:194
+#: data/code.metainfo.xml.in:200
 msgid "Fix crash when creating new window from tab drop"
 msgstr "修复从选项卡下拉创建新窗口时崩溃"
 
-#: data/code.metainfo.xml.in:195
+#: data/code.metainfo.xml.in:201
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr "确保从侧边栏创建的文件自动打开"
 
-#: data/code.metainfo.xml.in:199
+#: data/code.metainfo.xml.in:205
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "隐藏侧边栏时不显示项目选择器按钮"
 
-#: data/code.metainfo.xml.in:203
+#: data/code.metainfo.xml.in:209
 msgid "Ensure all copy is translatable"
 msgstr "确保所有副本都是可翻译的"
 
