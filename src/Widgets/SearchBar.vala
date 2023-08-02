@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext search_context = null;
+        public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
 
         public signal void search_empty ();
 
@@ -227,7 +227,6 @@ namespace Scratch.Widgets {
 
             cancel_update_search_widgets ();
             this.text_view = text_view;
-
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
                 search_context = null;
