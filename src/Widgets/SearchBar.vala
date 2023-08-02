@@ -26,7 +26,6 @@ namespace Scratch.Widgets {
             MIXED,
             ALWAYS
         }
-
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -234,8 +233,11 @@ namespace Scratch.Widgets {
                 return;
             } else if (this.text_buffer != null) {
                 this.text_buffer.changed.disconnect (on_text_buffer_changed);
+                this.text_view.selection_changed.disconnect (on_selection_changed);
             }
 
+            this.text_view = text_view;
+            this.text_view.selection_changed.connect (on_selection_changed);
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
@@ -247,6 +249,21 @@ namespace Scratch.Widgets {
 
         private void on_text_buffer_changed () {
             update_search_widgets ();
+        }
+
+        private void on_selection_changed () {
+
+            var selected_text = text_view.get_selected_text ();
+            bool clear_required;
+            if (search_context.settings.case_sensitive) {
+                clear_required = selected_text != search_entry.text;
+            } else {
+                clear_required = selected_text.down () != search_entry.text.down ();
+            }
+
+            if (clear_required) {
+                search_entry.text = "";
+            }
         }
 
         private void on_replace_entry_activate () {
