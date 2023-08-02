@@ -79,8 +79,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
-            save_focused_document_uri (new_tab as Services.Document);
+            var doc = (Services.Document)new_tab;
+            /* The 'document_change' signal may not be emitted if this already has focus so signal here*/
+            document_change (doc, this);
+            save_focused_document_uri (doc);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -186,12 +188,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-
-            insert_document (doc, -1);
-            current_document = doc;
-
-            doc.focus ();
-            save_opened_files ();
+            // Must open document in order to unlock it.
+            open_document (doc);
         } catch (Error e) {
             critical (e.message);
         }

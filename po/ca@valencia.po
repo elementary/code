@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 08:10+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2017-05-15 08:22+0000\n"
 "Last-Translator: Guillem Servera <guillem@gservera.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/scratch/scratch/"
@@ -77,39 +77,39 @@ msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:527
+#: src/MainWindow.vala:533
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:586
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:590
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Obrir"
 
-#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: src/MainWindow.vala:869
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:870
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr ""
 
@@ -376,41 +376,41 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:341
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:344
 #, fuzzy
 #| msgid "Cancel"
 msgid "Cancel Loading"
 msgstr "Cancel·lar"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:431
 #, fuzzy, c-format
 #| msgid "Save changes to document %s before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Guardar els canvia al document %s abans de tancar?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:432
 #, fuzzy
 #| msgid ""
 #| "If you don't save, changes from the last 4 seconds will be permanently "
@@ -418,43 +418,43 @@ msgstr "Guardar els canvia al document %s abans de tancar?"
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no deseu, els canvis dels últims 4 segons es perdran."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:438
 #, fuzzy
 #| msgid "Close without saving"
 msgid "Close Without Saving"
 msgstr "Tanca sense alçar"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:597
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Alça"
 
-#: src/Services/Document.vala:555
+#: src/Services/Document.vala:567
 #, fuzzy, c-format
 #| msgid "Save changes to document %s before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Guardar els canvia al document %s abans de tancar?"
 
-#: src/Services/Document.vala:594
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Alça el fitxer"
 
-#: src/Services/Document.vala:678 src/Services/Document.vala:696
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Document nou"
 
 #. No path for a new document
-#: src/Services/Document.vala:698
+#: src/Services/Document.vala:712
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:778
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:826
+#: src/Services/Document.vala:781
 #, fuzzy
 #| msgid ""
 #| "File \"%s\" cannot be read. Maybe it is corrupt\n"
@@ -464,72 +464,98 @@ msgstr ""
 "L'arxiu \"%s\" no es pot llegir. Potser està malmès\n"
 "o no disposeu dels permisos necessaris per llegir-lo."
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:783
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:834
+#: src/Services/Document.vala:789
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:864
+#: src/Services/Document.vala:820
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
-msgid "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "El lloc que conté l'arxiu \"%s\" no va ser muntat. Vols alçar-lo en algun "
 "lloc?"
 
-#: src/Services/Document.vala:866
+#: src/Services/Document.vala:822
 #, fuzzy, c-format
-#| msgid "The file %s was deleted."
-msgid "File “%s” was deleted."
-msgstr "L'arxiu %s ha estat esborrat"
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr ""
+"L'arxiu \"%s\" ha estat modificat per una altra aplicació. Voleu tornar-lo a "
+"carregar o preferiu continuar amb la vostra edició?"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:836
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "L'arxiu \"%s\" es va esborrar. Vols alçar-lo en algun lloc?"
 
-#: src/Services/Document.vala:906
+#: src/Services/Document.vala:882
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
 msgstr ""
 "L'arxiu \"%s\" ha estat modificat per una altra aplicació. Voleu tornar-lo a "
 "carregar o preferiu continuar amb la vostra edició?"
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:967
+msgid "Continue"
+msgstr "Continua"
+
+#: src/Services/Document.vala:969
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Puja"
 
-#: src/Services/Document.vala:918
-msgid "Continue"
-msgstr "Continua"
-
-#: src/Services/Document.vala:939
-#, c-format
-msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+#: src/Services/Document.vala:972
+msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:948
-msgid "Ignore"
-msgstr ""
-
-#: src/Services/Document.vala:950
-msgid "Save Duplicate…"
-msgstr ""
+#: src/Services/Document.vala:975
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save Document elsewhere"
+msgstr "Alça el fitxer actual"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -559,58 +585,58 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:159
+#: src/Widgets/DocumentView.vala:161
 #, fuzzy, c-format
 #| msgid "Text files"
 msgid "Text file from %s:%d"
 msgstr "Fitxers de text"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Ressaltat de sintaxi"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 msgid "Automatic Indentation"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Insereix espais en lloc de tabuladors:"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "Vés a la línia:"
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, fuzzy, c-format
 #| msgid "New Tab"
 msgid "%d Tab"
@@ -692,82 +718,82 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Cerca"
 
-#: src/Widgets/SearchBar.vala:75
+#: src/Widgets/SearchBar.vala:74
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Cerca el següent"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Cerca l'anterior"
 
-#: src/Widgets/SearchBar.vala:100
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Cerca cíclica"
 
-#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Mai"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:105
+#: src/Widgets/SearchBar.vala:104
 msgid "Always"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:108
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:116
+#: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:137
+#: src/Widgets/SearchBar.vala:136
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "Cerca l'anterior"
 
-#: src/Widgets/SearchBar.vala:169
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Substitueix amb"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Reemplaçar"
 
-#: src/Widgets/SearchBar.vala:175
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Substitueix-los tots"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:576
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:581
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:518
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:531
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr ""
 
@@ -879,6 +905,11 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
+#, fuzzy, c-format
+#~| msgid "The file %s was deleted."
+#~ msgid "File “%s” was deleted."
+#~ msgstr "L'arxiu %s ha estat esborrat"
+
 #~ msgid "Set of plugins"
 #~ msgstr "Conjunt de connectors"
 
@@ -914,11 +945,6 @@ msgstr ""
 #~ msgstr ""
 #~ "No pots arçar els canvis en l'arxiu \"%s\". Vols alçar els canvis del "
 #~ "fitxer en un lloc diferent?"
-
-#, fuzzy
-#~| msgid "Save the current file"
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Alça el fitxer actual"
 
 #, fuzzy, c-format
 #~| msgid ""
