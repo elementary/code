@@ -20,7 +20,8 @@
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
     Scratch.Widgets.SourceView current_source;
-    Gtk.SourceSearchContext current_search_context;
+    Scratch.MainWindow? main_window = null;
+    Gtk.SourceSearchContext? current_search_context = null;
 
     // Consts
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
@@ -43,33 +44,50 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             current_source.deselected.connect (on_deselection);
             current_source.selection_changed.connect (on_selection_changed);
         });
+
+        plugins.hook_window.connect ((w) => {
+            main_window = w;
+        });
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
-        if (!start.equal (end)) {
-            // Expand highlight to current word
-            if (!start.starts_word ()) {
-                start.backward_word_start ();
-            }
+        var window_search_context = main_window != null ? main_window.search_bar.search_context : null;
+        if (window_search_context == null ||
+            window_search_context.settings.search_text == "" ||
+            window_search_context.get_occurrences_count () == 0) {
 
-            if (!end.ends_word ()) {
-                end.forward_word_end ();
-            }
+            if (!start.equal (end)) {
+                // Expand highlight to current word
+                if (!start.starts_word ()) {
+                    start.backward_word_start ();
+                }
 
-            string selected_text = start.get_buffer ().get_text (start, end, false);
-            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
-                return;
-            }
+                if (!end.ends_word ()) {
+                    end.forward_word_end ();
+                }
 
-            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
-            current_search_context.settings.search_text = selected_text;
-            current_search_context.set_highlight (true);
+                string selected_text = start.get_buffer ().get_text (start, end, false);
+                if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
+                    return;
+                }
+
+                current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
+                current_search_context.settings.search_text = selected_text;
+                // Honor current search settings (to be confirmed)
+                if (window_search_context != null ) {
+                    current_search_context.settings.case_sensitive = window_search_context.settings.case_sensitive;
+                }
+            }
+        } else if (current_search_context != null) {
+            current_search_context.set_highlight (false);
+            current_search_context = null;
         }
     }
 
     public void on_deselection () {
         if (current_search_context != null) {
-            current_search_context.settings.search_text = null;
+            current_search_context.set_highlight (false);
+            current_search_context = null;
         }
     }
 
