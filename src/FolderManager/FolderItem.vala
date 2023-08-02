@@ -26,6 +26,7 @@ namespace Scratch.FolderManager {
     public class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
+        private bool has_dummy;
         private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
@@ -40,28 +41,49 @@ namespace Scratch.FolderManager {
             selectable = false;
 
             dummy = new Granite.Widgets.SourceList.Item ("");
-            add (dummy);
+            // Must add dummy on unexpanded folders else expander will not show
+            ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            has_dummy = true;
 
-            toggled.connect (() => {
-                var root = get_root_folder ();
-                if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
-                    clear ();
-                    add_children ();
-                    if (root != null) {
-                        root.child_folder_loaded (this);
-                    }
-
-                    children_loaded = true;
-                } else if (!expanded && root != null) {
-                    root.update_item_status (this); //When toggled closed, update status to reflect hidden contents
-                }
-            });
+            toggled.connect (on_toggled);
 
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
                 monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
+            }
+        }
+
+        private void on_toggled () {
+            var root = get_root_folder ();
+            if (!children_loaded &&
+                 expanded &&
+                 n_children <= 1 &&
+                 file.children.size > 0) {
+
+                foreach (var child in file.children) {
+                    Granite.Widgets.SourceList.Item item = null;
+                    if (child.is_valid_directory ()) {
+                        item = new FolderItem (child, view);
+                    } else if (child.is_valid_textfile) {
+                        item = new FileItem (child, view);
+                    }
+
+                    if (item != null) {
+                        add (item);
+                    }
+                }
+
+                children_loaded = true;
+                if (root != null) {
+                    root.child_folder_loaded (this);
+                }
+            } else if (!expanded &&
+                       root != null &&
+                       root.monitored_repo != null) {
+                //When toggled closed, update status to reflect hidden contents
+                root.update_item_status (this);
             }
         }
 
@@ -186,35 +208,6 @@ namespace Scratch.FolderManager {
             return new_item;
         }
 
-        private void add_children () {
-            foreach (var child in file.children) {
-                Granite.Widgets.SourceList.Item item = null;
-                if (child.is_valid_directory ()) {
-                    item = new FolderItem (child, view);
-                } else if (child.is_valid_textfile) {
-                    item = new FileItem (child, view);
-                }
-
-                if (item != null) {
-                    add (item);
-                }
-            }
-        }
-
-        private void remove_all_children () {
-            foreach (var child in children) {
-                remove (child);
-            }
-        }
-
-        private new void remove (Granite.Widgets.SourceList.Item item) {
-            if (item is FolderItem) {
-                ((FolderItem) item).remove_all_children ();
-            }
-
-            base.remove (item);
-        }
-
         public void remove_all_badges () {
             foreach (var child in children) {
                 remove_badge (child);
@@ -229,60 +222,78 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
+        public new void add (Granite.Widgets.SourceList.Item item) {
+            if (has_dummy && n_children == 1) {
+                ((Granite.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+                has_dummy = false;
+            }
+
+            ((Granite.Widgets.SourceList.ExpandableItem)this).add (item);
+        }
+
+        public new void remove (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                var folder = (FolderItem)item;
+                foreach (var child in folder.children) {
+                    folder.remove (child);
+                }
+            }
+
+            view.ignore_next_select = true;
+            ((Granite.Widgets.SourceList.ExpandableItem)this).remove (item);
+            // Add back dummy if empty unless we are removing a rename item
+            if (!(item is RenameItem || has_dummy || n_children > 0)) {
+                ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+                has_dummy = true;
+            }
+        }
+
+        public new void clear () {
+            ((Granite.Widgets.SourceList.ExpandableItem)this).clear ();
+            has_dummy = false;
+        }
+
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-            if (!children_loaded) {
+            if (source.get_basename ().has_prefix (".goutputstream")) {
+                return; // Ignore changes due to temp files and streams
+            }
+
+            if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
-                        // This is a pretty intensive operation. For each file deleted, the cache will be
-                        // invalidated and recreated again, from disk. If it turns out users are seeing
-                        // slugishness or slowness when deleting a lot of files, then it might be worth
-                        // storing file.children.size in a variable and subtracting from it with every
-                        // delete
-                        file.invalidate_cache ();
-
-                        if (file.children.size == 0) {
-                            clear ();
+                        file.invalidate_cache (); //TODO Throttle if required
+                        if (expanded) {
+                            toggled ();
                         }
-
                         break;
                     case GLib.FileMonitorEvent.CREATED:
-                        if (source.query_exists () == false) {
-                            return;
+                        file.invalidate_cache ();  //TODO Throttle if required
+                        if (expanded) {
+                            toggled ();
                         }
-
-                        /* Fix adding new file to expanded empty folder */
-                        if (expanded && file.children.size == 0) {
-                            file.invalidate_cache ();
-                            clear ();
-                            add_children ();
-                            children_loaded = true;
-                        }
+                        break;
+                    case FileMonitorEvent.RENAMED:
+                    case FileMonitorEvent.PRE_UNMOUNT:
+                    case FileMonitorEvent.UNMOUNTED:
+                    case FileMonitorEvent.CHANGED:
+                    case FileMonitorEvent.CHANGES_DONE_HINT:
+                    case FileMonitorEvent.MOVED:
+                    case FileMonitorEvent.MOVED_IN:
+                    case FileMonitorEvent.MOVED_OUT:
+                    case FileMonitorEvent.ATTRIBUTE_CHANGED:
 
                         break;
                 }
-            } else {
+            } else { // Child has been expanded ( but could be closed now) and items loaded (or dummy)
                 // No cache invalidation is needed here because the entire state is kept in the tree
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
-                        var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
-                        children_tmp.add_all (children);
-                        foreach (var item in children_tmp) {
-                            if (((Item) item).path == source.get_path ()) {
-                                // This is a workaround for SourceList silliness: you cannot remove an item
-                                // without it automatically selecting another one.
-
-                                view.ignore_next_select = true;
-                                remove (item);
-                                if (file.children.size == 0) {
-                                    clear ();
-                                    add (dummy);
-                                    expanded = false;
-                                    children_loaded = false;
-                                }
-
-                                view.selected = null;
-                            }
+                        // Find item corresponding to deleted file
+                        // Note may not be found if deleted file is not valid for display
+                        var path_item = find_item_for_path (source.get_path ());
+                        if (path_item != null) {
+                            remove (path_item);
                         }
 
                         break;
@@ -291,34 +302,28 @@ namespace Scratch.FolderManager {
                             return;
                         }
 
-                        // Temporary files from GLib that are present when saving a file
-                        if (source.get_basename ().has_prefix (".goutputstream")) {
-                            return;
-                        }
-
-                        var file = new File (source.get_path ());
-                        var exists = false;
-                        foreach (var item in children) {
-                            if (((Item) item).path == file.path) {
-                                exists = true;
-                                break;
-                            }
-                        }
-
-                        Item? item = null;
-
-                        if (!exists) {
+                        var path_item = find_item_for_path (source.get_path ());
+                        if (path_item == null) {
+                            var file = new File (source.get_path ());
                             if (file.is_valid_directory ()) {
-                                item = new FolderItem (file, view);
+                                path_item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
-                                item = new FileItem (file, view);
+                                path_item = new FileItem (file, view);
                             }
+
+                            add (path_item);
                         }
 
-                        if (item != null) {
-                            add (item);
-                        }
-
+                        break;
+                    case FileMonitorEvent.RENAMED:
+                    case FileMonitorEvent.PRE_UNMOUNT:
+                    case FileMonitorEvent.UNMOUNTED:
+                    case FileMonitorEvent.CHANGED:
+                    case FileMonitorEvent.CHANGES_DONE_HINT:
+                    case FileMonitorEvent.MOVED:
+                    case FileMonitorEvent.MOVED_IN:
+                    case FileMonitorEvent.MOVED_OUT:
+                    case FileMonitorEvent.ATTRIBUTE_CHANGED:
                         break;
                 }
             }
@@ -332,6 +337,17 @@ namespace Scratch.FolderManager {
                     root.child_folder_changed (this);
                 }
             }
+        }
+
+        private FolderManager.Item? find_item_for_path (string path) {
+            foreach (var item in children) {
+                // Item could be dummy
+                if ((item is FolderManager.Item) && ((FolderManager.Item) item).path == path) {
+                    return (FolderManager.Item)item;
+                }
+            }
+
+            return null;
         }
 
         private void on_add_new (bool is_folder) {
@@ -349,19 +365,12 @@ namespace Scratch.FolderManager {
                 new_file = file.file.get_child (("%s %d").printf (name, n));
                 n++;
             }
-
             expanded = true;
             var rename_item = new RenameItem (new_file.get_basename (), is_folder);
-            if (file.children.size == 0) {
-                clear ();  /* Remove dummy item */
-            }
-
             add (rename_item);
-
             /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
                 view.start_editing_item (rename_item);
-
                 /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
                 Timeout.add (200, () => {
                     if (view.editing) {
@@ -369,7 +378,6 @@ namespace Scratch.FolderManager {
                     } else {
                         var new_name = rename_item.name;
                         view.ignore_next_select = true;
-                        remove (rename_item);
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
@@ -380,10 +388,8 @@ namespace Scratch.FolderManager {
                             }
                         } catch (Error e) {
                             warning (e.message);
-                            /* Replace dummy if file creation fails */
-                            if (file.children.size == 0) {
-                                add (dummy);
-                            }
+                        } finally {
+                            remove (rename_item);
                         }
                     }
 

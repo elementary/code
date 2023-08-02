@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-11-01 14:01+0000\n"
 "Last-Translator: Guochengjie <i@guoch.xyz>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -59,14 +59,6 @@ msgstr "Markdown 操作"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "新增快速编辑Markdown文件的快捷键"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "描边"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "对当前文件中的 Vala 符号描边"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin 服务"
@@ -91,22 +83,6 @@ msgstr "拼写检查"
 msgid "Checks the spelling of your documents"
 msgstr "检查文件中的拼写错误"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "去除末尾空格"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "保存时去除末尾的空格"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "终端"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "编辑器内置终端"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim 模拟"
@@ -122,6 +98,24 @@ msgstr "词语统计"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "显示一个对话框统计文件中使用较多的词汇"
+
+#~ msgid "Terminal"
+#~ msgstr "终端"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "编辑器内置终端"
+
+#~ msgid "Outline"
+#~ msgstr "描边"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "对当前文件中的 Vala 符号描边"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "去除末尾空格"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "保存时去除末尾的空格"
 
 #~ msgid "Browser Preview"
 #~ msgstr "浏览器预览"

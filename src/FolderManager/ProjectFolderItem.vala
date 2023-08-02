@@ -33,7 +33,7 @@ namespace Scratch.FolderManager {
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
-        public string top_level_path { get; construct; }
+
         public bool is_git_repo {
             get {
                 return monitored_repo != null;
@@ -108,14 +108,57 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_item.activate.connect (() => {
+            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
+            close_folder_item.activate.connect (() => {
                 closed ();
             });
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
             close_all_except_item.sensitive = view.root.children.size > 1;
+
+            var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
+            var open_text = ngettext ("Close %u Open Document",
+                                      "Close %u Open Documents",
+                                      n_open).printf (n_open);
+
+            var close_accellabel = new Granite.AccelLabel.from_action_name (
+                open_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS + "::"
+            );
+            var close_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            close_item.add (close_accellabel);
+
+            var hide_text = ngettext ("Hide %u Open Document",
+                                      "Hide %u Open Documents",
+                                      n_open).printf (n_open);
+
+            var hide_accellabel = new Granite.AccelLabel.from_action_name (
+                hide_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS + "::"
+            );
+            var hide_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            hide_item.add (hide_accellabel);
+
+            var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
+            var restore_text = ngettext ("Restore %u Hidden Document",
+                                         "Restore %u Hidden Documents",
+                                         n_restorable).printf (n_restorable);
+            var restore_accellabel = new Granite.AccelLabel.from_action_name (
+                restore_text,
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS + "::"
+            );
+            var restore_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+            restore_item.add (restore_accellabel);
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
@@ -129,7 +172,7 @@ namespace Scratch.FolderManager {
             );
 
             var search_item = new Gtk.MenuItem () {
-                action_name = "win.action_find_global",
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
                 action_target = new Variant.string (file.file.get_path ())
             };
             search_item.add (search_accellabel);
@@ -157,8 +200,22 @@ namespace Scratch.FolderManager {
             }
 
             menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (close_item);
+            menu.append (close_folder_item);
             menu.append (close_all_except_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
+            if (n_restorable > 0) {
+                menu.append (restore_item);
+            }
+
+            if (n_open > 0) {
+                menu.append (hide_item);
+                menu.append (close_item);
+            }
+
+            if (n_restorable + n_open > 1) {
+                menu.append (new Gtk.SeparatorMenuItem ());
+            }
+
             menu.append (delete_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (search_item);
@@ -167,7 +224,11 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        public void update_item_status (FolderItem? start_folder) requires (monitored_repo != null) {
+        public void update_item_status (FolderItem? start_folder) {
+            if (monitored_repo == null) {
+                debug ("Ignore non-git folders");
+                return;
+            }
             bool is_new = false;
             string start_path = start_folder != null ? start_folder.path : "";
             visible_item_list.@foreach ((visible_item) => {
@@ -262,10 +323,10 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
         }
 
-        public void global_search (GLib.File start_folder = this.file.file) {
+        public void global_search (GLib.File start_folder = this.file.file, string? term = null) {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
-            string? term = null;
+            string? search_term = null;
             bool use_regex = false;
             bool search_tracked_only = false;
             bool recurse_subfolders = true;
@@ -285,13 +346,14 @@ namespace Scratch.FolderManager {
                 monitored_repo != null && monitored_repo.git_repo != null
             ) {
                 case_sensitive = case_sensitive,
-                use_regex = use_regex
+                use_regex = use_regex,
+                search_term = term
             };
 
             dialog.response.connect ((response) => {
                 switch (response) {
                     case Gtk.ResponseType.ACCEPT:
-                        term = dialog.search_term;
+                        search_term = dialog.search_term;
                         use_regex = dialog.use_regex;
                         case_sensitive = dialog.case_sensitive;
                         break;
@@ -306,15 +368,15 @@ namespace Scratch.FolderManager {
 
             dialog.run ();
 
-            if (term != null) {
+            if (search_term != null) {
                 /* Put search term in search bar to help user locate the position of the matches in each doc */
-                var search_variant = new Variant.string (term);
+                var search_variant = new Variant.string (search_term);
                 var app = (Gtk.Application)GLib.Application.get_default ();
                 var win = (Scratch.MainWindow)(app.get_active_window ());
                 win.actions.lookup_action ("action_find").activate (search_variant);
 
                 if (!use_regex) {
-                    term = Regex.escape_string (term);
+                    search_term = Regex.escape_string (search_term);
                 }
 
                 try {
@@ -323,9 +385,9 @@ namespace Scratch.FolderManager {
                         flags |= RegexCompileFlags.CASELESS;
                     }
 
-                    pattern = new Regex (term, flags);
+                    pattern = new Regex (search_term, flags);
                 } catch (Error e) {
-                    critical ("Error creating regex from '%s': %s", term, e.message);
+                    critical ("Error creating regex from '%s': %s", search_term, e.message);
                     return;
                 }
             } else {

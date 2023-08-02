@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-08-15 15:02+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -61,14 +61,6 @@ msgstr "Markdown-handlinger"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Legger til tastatursnarveier for hurtigredigering av Markdown-filer"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Omriss"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Disposisjoner symboler i gjeldende fil for Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Tekstutklippslagringstjeneste"
@@ -93,23 +85,6 @@ msgstr "Stavekontroll"
 msgid "Checks the spelling of your documents"
 msgstr "Sjekker stavingen i dokumentene dine"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Fjern påfølgende hvit"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Fjern etterfølgende mellomrom ved lagring"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "En terminal i din tekstbehandler"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-emulering"
@@ -125,6 +100,25 @@ msgstr "Ordfullføring"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Vis en fullføringsdialog med de mest brukte ordene fra filene dine"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "En terminal i din tekstbehandler"
+
+#~ msgid "Outline"
+#~ msgstr "Omriss"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Disposisjoner symboler i gjeldende fil for Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Fjern påfølgende hvit"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Fjern etterfølgende mellomrom ved lagring"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Nettleserforhåndsvisning"

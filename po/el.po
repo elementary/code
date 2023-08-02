@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -19,92 +19,120 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Νέα Καρτέλα"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Νέο Παράθυρο"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Εκτύπωση πληροφοριών έκδοσης και έξοδος"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Σετ προσθέτων"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "Σετ προσθέτων"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:207
+#, fuzzy, c-format
+#| msgid "Code"
+msgid "Code (%s)"
+msgstr "Κώδικας"
+
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "Κώδικας"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Εύρεση…"
-
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "Απόκρυψη γραμμής αναζήτησης"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find on Page…"
+msgstr "Άνοιγμα ενός φακέλου"
+
+#: src/MainWindow.vala:337
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "Απόκρυψη γραμμής αναζήτησης"
+
+#: src/MainWindow.vala:342
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "Εμφάνιση προεπισκόπησης"
+
+#: src/MainWindow.vala:351
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:356
+#, fuzzy
+#| msgid "Symbols"
+msgid "Show Symbol Outline"
+msgstr "Σύμβολα"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:533
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Όλα τα αρχεία"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Αρχεία κειμένου"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Άνοιγμα μερικών αρχείων"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Ακύρωση"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:74
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
+#: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
+#: src/Dialogs/GlobalSearchDialog.vala:111
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
@@ -126,7 +154,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
@@ -148,70 +176,76 @@ msgstr "Αποθήκευση αρχείων όταν μεταβάλλονται:
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "Καρτέλες"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Αυτόματη εσοχή:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Εισαγωγή κενών αντί για καρτέλες:"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:66
+#, fuzzy
+#| msgid "Strip trailing whitespace on save"
+msgid "Strip trailing whitespace:"
+msgstr "Αφαίρεση κενών από το τέλος των γραμμών κατά την αποθήκευση"
+
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Πλάτος καρτέλας:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Συμπεριφορά"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Περιβάλλον Χρήστη"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:91
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: src/Dialogs/PreferencesDialog.vala:102
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Extensions"
 msgstr "Επεκτάσεις"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Editor"
 msgstr "Συντάκτης"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets:"
 msgstr "Επισήμανση ζεύγων αγκυλών:"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Line wrap:"
 msgstr "Αναδίπλωση γραμμών:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:122
 #, fuzzy
 #| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
 msgstr "Αφαίρεση κενών από το τέλος των γραμμών"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Show Mini Map:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
 msgstr "Οδηγός πλάτους γραμμής:"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font"
 msgstr "Γραμματοσειρά"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Custom font:"
 msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
@@ -231,62 +265,62 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Άλλη εφαρμογή…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 #, fuzzy
 msgid "Open In"
 msgstr "Άνοιγμα"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 #, fuzzy
 msgid "Other Actions"
 msgstr "Άλλες μορφές"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Μετονομασία"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Μετακίνηση στον κάδο"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Άνοιγμα ενός φακέλου"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 #, fuzzy
 msgid "Folder"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Άδειο αρχείο"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/FolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "Νέα Καρτέλα"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "φάκελος χωρίς τίτλο"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 #, fuzzy
 msgid "new file"
 msgstr "Νέο αρχείο"
@@ -301,151 +335,237 @@ msgstr "Κλείσιμο φακέλου"
 msgid "Close Other Folders"
 msgstr "Κλείσιμο φακέλου"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:121
+#, c-format
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:135
+#, fuzzy, c-format
+#| msgid "New Document"
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "Νέο έγγραφο"
+msgstr[1] "Νέο έγγραφο"
+
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Άνοιγμα ενός φακέλου"
 
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:234
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:577
 #, fuzzy
 msgid "New Branch…"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:590
 #, fuzzy
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "Το %s δεν είναι αρχείο κειμένου"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "Ο κώδικας δεν μπορεί να φορτώσει αυτόν τον τύπο αρχείου."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "Παρακαλώ περιμένετε όσο ο κώδικας φορτώνει το αρχείο."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:344
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ακύρωση"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:431
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:432
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
 "μόνιμα."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:438
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Κλείσιμο χωρίς αποθήκευση"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:567
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Αποθήκευση Αρχείου"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
-#. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#. No path for a new document
+#: src/Services/Document.vala:712
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "Το αρχείο \"%s\" δεν μπορεί να διαβαστεί"
+msgid "Cannot save this document to %s"
+msgstr ""
 
-#: src/Services/Document.vala:705
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:778
+#, c-format
+msgid "Cannot read text in file “%s”"
+msgstr ""
+
+#: src/Services/Document.vala:781
 #, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματα."
 
-#: src/Services/Document.vala:718
-#, c-format
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "Φόρτωσέ το"
+
+#: src/Services/Document.vala:820
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "Η τοποθεσία που περιέχει το αρχείο \"%s\" δεν μπορεί να βρεθεί. Θέλετε να "
 "αποθηκεύσετε σε κάποια άλλη τοποθεσία;"
 
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "Αποθήκευση Ως…"
-
-#: src/Services/Document.vala:727
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
-"Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
-
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:822
 #, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
-"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "Αποθήκευση των αλλαγών αλλού"
-
-#: src/Services/Document.vala:781
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted and there are unsaved changes."
 msgstr ""
 "Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
 "φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
 
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "Φόρτωση"
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr ""
+"Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:882
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was modified by an external application"
+msgstr ""
+"Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
+"φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/Document.vala:969
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "Μεταφόρτωση"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:975
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save Document elsewhere"
+msgstr "Αποθήκευση τρέχοντος αρχείου"
+
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Πρότυπα"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
+#: src/SymbolPane/SymbolOutline.vala:30
+msgid "Symbols"
+msgstr "Σύμβολα"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 #, fuzzy
@@ -454,8 +574,8 @@ msgid "No Project Selected"
 msgstr "Πρότυπα έργων"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -464,156 +584,225 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:161
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Αρχείο κειμένου από "
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Επισήμανση σύνταξης"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 #, fuzzy
 msgid "Line number"
 msgstr "Εμφάνιση αριθμών γραμμών:"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "Φιλτράρετε τις γλώσσες"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "Απλό κείμενο"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:152
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "Αυτόματη εσοχή:"
+
+#: src/Widgets/FormatBar.vala:154
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Εισαγωγή κενών αντί για καρτέλες:"
+
+#: src/Widgets/FormatBar.vala:156
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "Πλάτος καρτέλας:"
+
+#: src/Widgets/FormatBar.vala:236
+msgid "Go To Line:"
+msgstr "Μετάβαση Στη Γραμμή:"
+
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Κενό"
 msgstr[1] "%d Κενά"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:289
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Νέα Καρτέλα"
 msgstr[1] "Νέα Καρτέλα"
 
-#: src/Widgets/FormatBar.vala:207
-msgid "Go To Line:"
-msgstr "Μετάβαση Στη Γραμμή:"
-
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Άνοιγμα αρχείου"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Πρότυπα έργων"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Αποθήκευση αυτού του αρχείου"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Αποθήκευση αυτού του αρχείου με διαφορετικό όνομα"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Επαναφορά αυτού του αρχείου"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Κοινή χρήση"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:83
 #, fuzzy
 msgid "Zoom Out"
 msgstr "Μεγέθυνση"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Μεγέθυνση 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:99
 #, fuzzy
 msgid "Zoom In"
 msgstr "Μεγέθυνση"
 
-#: src/Widgets/HeaderBar.vala:151
-#, fuzzy
-msgid "Toggle Sidebar"
-msgstr "Πλευρική Στήλη"
+#: src/Widgets/HeaderBar.vala:144
+msgid "Follow System Style"
+msgstr ""
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
+msgid "Show Terminal"
+msgstr "Προβολή τερματικού"
+
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Μενού"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/HeaderBar.vala:260
+msgid "Hide Terminal"
+msgstr "Απόκρυψη τερματικού"
+
+#: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
+msgid "Open Folder…"
 msgstr "Άνοιγμα ενός φακέλου"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Εύρεση"
 
 #: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Αναζήτηση επόμενου"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Αναζήτηση προηγούμενου"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr ""
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Ποτέ"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Πάντα"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Αναζήτηση προηγούμενου"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Αντικατάσταση Με"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Αντικατάσταση"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Αντικατάσταση Όλων"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SearchBar.vala:576
+#, c-format
+msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr ""
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Επικόλληση"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -688,10 +877,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "Επιλέξτε γραμματοσειρά:"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Ποτέ"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Δέκα λεπτά"
@@ -708,44 +893,6 @@ msgstr "Μία ημέρα"
 msgid "One month"
 msgstr "Ένας μήνας"
 
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr "Σύμβολα"
-
-#: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
-msgid "No Symbols Found"
-msgstr "Σύμβολα"
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Προβολή τερματικού"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Απόκρυψη τερματικού"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Τερματικό"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr "Αντιγραφή"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr "Επικόλληση"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -754,16 +901,69 @@ msgstr ""
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Συμπλήρωση Λέξεων"
 
+#, fuzzy, c-format
+#~| msgid "The file %s was deleted."
+#~ msgid "File “%s” was deleted."
+#~ msgstr "Το αρχείο %s διεγράφη."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Σετ προσθέτων"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "Σετ προσθέτων"
+
+#~ msgid "Save As…"
+#~ msgstr "Αποθήκευση Ως…"
+
+#~ msgid "Load"
+#~ msgstr "Φόρτωση"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+#~ "αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+#~ "αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "Το αρχείο \"%s\" δεν μπορεί να διαβαστεί"
+
+#~ msgid "Save changes elsewhere"
+#~ msgstr "Αποθήκευση των αλλαγών αλλού"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "Άνοιγμα ενός φακέλου"
+
+#~ msgid "Terminal"
+#~ msgstr "Τερματικό"
+
+#, fuzzy
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Πλευρική Στήλη"
+
+#~ msgid "Find…"
+#~ msgstr "Εύρεση…"
+
 #~ msgid "For selected text"
 #~ msgstr "Για το επιλεγμένο κείμενο"
-
-#~ msgid "Always"
-#~ msgstr "Πάντα"
 
 #~ msgid "High Contrast"
 #~ msgstr "Υψηλό Contrast"
@@ -801,9 +1001,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #~ msgid "Web Preview"
 #~ msgstr "Προεπισκόπηση στο διαδίκτυο"
 
-#~ msgid "Show Preview"
-#~ msgstr "Εμφάνιση προεπισκόπησης"
-
 #~ msgid "Hide Preview"
 #~ msgstr "Απόκρυψη προεπισκόπησης"
 
@@ -814,9 +1011,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "Άλλοι..."
-
-#~ msgid "Upload"
-#~ msgstr "Μεταφόρτωση"
 
 #~ msgid "Other formats"
 #~ msgstr "Άλλες μορφές"
@@ -975,9 +1169,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Ένα τερματικό στον επεξεργαστή κειμένου"
-
-#~ msgid "Strip trailing whitespace on save"
-#~ msgstr "Αφαίρεση κενών από το τέλος των γραμμών κατά την αποθήκευση"
 
 #~ msgid "Highlight Selected Words"
 #~ msgstr "Επισήμανση των επιλεγμένων λέξεων"
@@ -1142,9 +1333,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #~ msgid "The file %s was modified."
 #~ msgstr "Το αρχείο %s τροποποιήθηκε."
 
-#~ msgid "The file %s was deleted."
-#~ msgstr "Το αρχείο %s διεγράφη."
-
 #~ msgid "Draw spaces:"
 #~ msgstr "Σχεδίαση κενών:"
 
@@ -1189,9 +1377,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 
 #~ msgid "Context View"
 #~ msgstr "Προβολή Με Πλαίσιο"
-
-#~ msgid "Save the current file"
-#~ msgstr "Αποθήκευση τρέχοντος αρχείου"
 
 #~ msgid ""
 #~ "Do you want to save the changes to this file in a different location?"

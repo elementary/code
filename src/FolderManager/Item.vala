@@ -68,6 +68,8 @@ namespace Scratch.FolderManager {
                 return 1;
             }
 
+            assert (a is Item && b is Item); //Ensure more informative error message
+
             return File.compare (((Item)a).file, ((Item)b).file);
         }
 

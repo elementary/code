@@ -7,29 +7,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
-"PO-Revision-Date: 2021-11-15 23:44+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"PO-Revision-Date: 2023-06-19 18:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
-"\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: data/io.elementary.code.appdata.xml.in:8
-#: data/io.elementary.code.desktop.in.in:4
+#: data/code.metainfo.xml.in:9
 msgid "Code"
 msgstr "コード"
 
-#: data/io.elementary.code.appdata.xml.in:9
+#: data/code.metainfo.xml.in:10
 msgid "The editor that works for you"
 msgstr "便利なエディター"
 
-#: data/io.elementary.code.appdata.xml.in:11
+#: data/code.metainfo.xml.in:12
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
@@ -41,458 +40,392 @@ msgstr ""
 "状態を維持します。また、タブを保存し次回起動時に復元するので、時間が経っても"
 "最後に編集した箇所を見失うことはありません。"
 
-#: data/io.elementary.code.appdata.xml.in:12
+#: data/code.metainfo.xml.in:13
 msgid ""
 "Designed around a project-based workflow, Code knows about your separate "
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"“コード”はプロジェクト単位のワークフロー向けにデザインされているので、コード"
+"ベースごとに認識されるようになっています。便利な Git との統合機能が搭載されて"
+"おり、ブランチを作成したり変更したり、プロジェクト内のファイルや行の差分を表"
+"示したりできます。"
 
-#: data/io.elementary.code.appdata.xml.in:13
+#: data/code.metainfo.xml.in:14
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコーディングしていても、PHP でスクリプティン"
-"グしていても、HTML でマークアップしていても、“コード”はあなたをサポートしま"
-"す。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で"
-"完全なシンタックスハイライトを利用可能です。"
+"あの言語にも、この言語にも、対応。Vala でコーディングしていても、PHP でスクリ"
+"プティングしていても、HTML でマークアップしていても、“コード”はあなたをサポー"
+"トします。完璧なシンタックスハイライトが、ほぼすべてのプログラミング言語・ス"
+"クリプティング言語・マークアップ言語で利用可能です。"
 
-#: data/io.elementary.code.appdata.xml.in:14
+#: data/code.metainfo.xml.in:15
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
-msgstr "表示中のファイルや特定のフォルダー、プロジェクト全体を対象に自由自在に検索できます。大文字・小文字の区別や正規表現を使った検索も可能です。"
+msgstr ""
+"表示中のファイルや特定のフォルダー、プロジェクト全体を対象に自由自在に検索で"
+"きます。大文字・小文字の区別や正規表現を使った検索も可能です。"
 
-#: data/io.elementary.code.appdata.xml.in:15
+#: data/code.metainfo.xml.in:16
 msgid ""
 "Smart features throughout: automatic indentation, smart cut/copy behavior, "
 "visible whitespace for selected text and at the end of lines by default, and "
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
-"便利な機能がこんなにも。自動インデント、“便利な行の切り取り／コピー”機能、デフォルトで選択中のテキストと行末の空白を表示する機能、オプションで "
-"Markdown アクション・スペルチェック・余分な空白の削除・単語補完などの機能も。"
+"便利な機能がこんなにも。自動インデント、“便利な行の切り取り／コピー”機能、デ"
+"フォルトで選択中のテキストと行末の空白を表示する機能、オプションで Markdown "
+"アクション・スペルチェック・余分な空白の削除・単語補完などの機能も。"
 
-#: data/io.elementary.code.appdata.xml.in:16
+#: data/code.metainfo.xml.in:17
 msgid ""
 "Adapt Code to your workflow: you can tweak the behavior and interface as "
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
-msgstr "“コード”を自身のワークフローに導入しましょう。厳選された便利な拡張機能と設定を使って、挙動とインターフェースを必要に応じて調整できます。"
+msgstr ""
+"“コード”を自身のワークフローに導入しましょう。厳選された便利な拡張機能と設定"
+"を使って、挙動とインターフェースを必要に応じて調整できます。"
 
-#: data/io.elementary.code.appdata.xml.in:17
+#: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
 msgstr "そのほかの機能:"
 
-#: data/io.elementary.code.appdata.xml.in:19
+#: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
-msgstr "UI 全体に反映される、Solarized Light、Solarized Dark、ハイコントラストカラースキーム"
+msgstr ""
+"UI 全体に反映される、Solarized Light、Solarized Dark、ハイコントラストカラー"
+"スキーム"
 
-#: data/io.elementary.code.appdata.xml.in:20
+#: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
 msgstr "ワークフローに応じて表示・非表示が可能なサイドバー"
 
-#: data/io.elementary.code.appdata.xml.in:21
+#: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
 msgstr "便利なインデント機能と .editorconfig への対応"
 
-#: data/io.elementary.code.appdata.xml.in:22
+#: data/code.metainfo.xml.in:23
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
-msgstr "ドラッグアンドドロップ、タブの複製、閉じたタブの復元、タブ履歴など、ブラウザー並みの機能を持つタブ"
+msgstr ""
+"ドラッグアンドドロップ、タブの複製、閉じたタブの復元、タブ履歴など、ブラウ"
+"ザー並みの機能を持つタブ"
 
-#: data/io.elementary.code.appdata.xml.in:23
+#: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr "現在カーソルのある行と列を表示します。そして、別の行にすばやく移動できます"
+msgstr ""
+"現在カーソルのある行と列を表示します。そして、別の行に瞬時に移動できます"
 
-#: data/io.elementary.code.appdata.xml.in:24
+#: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"ファイルの最終行より先にもスクロールできるので、編集中の行をお好きな位置に表"
+"示できます"
 
-#: data/io.elementary.code.appdata.xml.in:25
+#: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "行数の多いファイルでも移動が簡単になるミニマップ機能もオプションで用意"
 
-#: data/io.elementary.code.appdata.xml.in:31
-#: data/io.elementary.code.appdata.xml.in:45
-#: data/io.elementary.code.appdata.xml.in:99
+#: data/code.metainfo.xml.in:64
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/code.metainfo.xml.in:71 data/code.metainfo.xml.in:119
+#: data/code.metainfo.xml.in:151 data/code.metainfo.xml.in:175
+#: data/code.metainfo.xml.in:203
+msgid "Improvements:"
+msgstr "改善点:"
+
+#: data/code.metainfo.xml.in:73
+msgid "Search options transferred to searchbar menu"
+msgstr "検索オプションを検索バーのメニューに移動"
+
+#: data/code.metainfo.xml.in:74
+msgid "Whole word search option added"
+msgstr "完全一致検索オプションを追加"
+
+#: data/code.metainfo.xml.in:75
+msgid ""
+"Whole word, case sensitive mode and use regex search settings now persist"
+msgstr ""
+"“完全一致”、“大文字と小文字を区別”、“正規表現を使う”の検索設定が保持されるよ"
+"うに修正"
+
+#: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:166 data/code.metainfo.xml.in:188
+#: data/code.metainfo.xml.in:207
+msgid "Minor updates:"
+msgstr "そのほかのアップデート:"
+
+#: data/code.metainfo.xml.in:79
+msgid "The search bar now updates properly after changing the active document"
+msgstr "表示するドキュメントを変更すると、検索バーも適切に更新されるように修正"
+
+#: data/code.metainfo.xml.in:80
+msgid ""
+"Trying to save a document to an unwritable location is now handled better"
+msgstr "書き込み不可の場所にドキュメントを保存しようとした際の挙動を改善"
+
+#: data/code.metainfo.xml.in:81
+msgid ""
+"The system style is now followed by the symbol outline and when launched "
+"without open documents"
+msgstr ""
+"シンボルアウトラインとドキュメントなしで起動した場合も“システムのスタイルに従"
+"う”が機能するように修正"
+
+#: data/code.metainfo.xml.in:82
+msgid "Mixed case sensitive search now works as expected"
+msgstr ""
+"検索用語に大文字も小文字も含まれる場合の検索機能が、期待通りの挙動になるよう"
+"に修正"
+
+#: data/code.metainfo.xml.in:83
+msgid ""
+"The search results no longer change unexpectedly when focusing a document"
+msgstr ""
+"ドキュメントにフォーカスすると意図せず検索結果が変わってしまう不具合を修正"
+
+#: data/code.metainfo.xml.in:84
+msgid ""
+"Now there is always an active project at startup if there are projects in "
+"the sidebar"
+msgstr ""
+"複数のプロジェクトがサイドバーに存在する場合、うち1つが起動時にアクティブなプ"
+"ロジェクトになるように修正"
+
+#: data/code.metainfo.xml.in:85
+msgid ""
+"If a development branch is running this shows in the window title and in the "
+"dock tooltip"
+msgstr ""
+"開発ブランチ版を実行中の場合、ウィンドウタイトルとドックのツールチップにブラ"
+"ンチ名を表示するように変更"
+
+#: data/code.metainfo.xml.in:86
+msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
+msgstr "Ctrl+PageUp と Ctrl+PageDown でタブを切り替えできるように変更"
+
+#: data/code.metainfo.xml.in:87
+msgid "Ensure active project at startup (include non-git folders)"
+msgstr ""
+
+#: data/code.metainfo.xml.in:88 data/code.metainfo.xml.in:136
+#: data/code.metainfo.xml.in:168 data/code.metainfo.xml.in:191
+#: data/code.metainfo.xml.in:210
+msgid "Updated translations"
+msgstr "翻訳の更新"
+
+#: data/code.metainfo.xml.in:121
+msgid "Redesigned app icon"
+msgstr "アプリアイコンのデザインを変更"
+
+#: data/code.metainfo.xml.in:122
+msgid "New custom dark and light elementary styles for the source view"
+msgstr "編集画面に新しいダークスタイル／elementary ライトスタイルを追加"
+
+#: data/code.metainfo.xml.in:123
+msgid "Option to follow the system dark style preference"
+msgstr "システムのダークスタイル設定に従うオプションを追加"
+
+#: data/code.metainfo.xml.in:124
+msgid "Ability to half tile on small notebook displays"
+msgstr "画面幅の小さなノートパソコンでもウィンドウをタイル表示できるように修正"
+
+#: data/code.metainfo.xml.in:128
+msgid ""
+"Both Find on Page and Find in Project are now available from the app's menu "
+"instead of in the headerbar"
+msgstr ""
+"“ページ内を検索”および“プロジェクト内を検索”の両機能を、ヘッダーバーからアプ"
+"リメニューに移動"
+
+#: data/code.metainfo.xml.in:129
+msgid ""
+"Options for hiding and showing panels are now all present in a compact set "
+"of linked buttons in the app's menu"
+msgstr ""
+"各パネルを表示／非表示にするオプションを、アプリメニュー内のリンクボタンとし"
+"て表示するように修正"
+
+#: data/code.metainfo.xml.in:130
+msgid ""
+"The sidebar now contains the project chooser button and fills the height of "
+"the window"
+msgstr ""
+"サイドバー: プロジェクト選択ボタンを追加し、表示領域をウィンドウの高さいっぱ"
+"いに拡大"
+
+#: data/code.metainfo.xml.in:131
+msgid "Starting a global search with text selected now pre-fills that text"
+msgstr ""
+"テキストを選択した状態でプロジェクト内検索を開始すると、そのテキストを検索用"
+"語にした状態で検索ダイアログが開くように修正"
+
+#: data/code.metainfo.xml.in:132
+msgid ""
+"The symbol outline pane is now shown to the right of the source view and can "
+"be shown and hidden with the keyboard shortcut \"Alt + \\\""
+msgstr ""
+"シンボルアウトラインペインの表示位置をソース画面の右に移動させ、キーボード"
+"ショートカット \"Alt + \\\" で表示／非表示できるように修正"
+
+#: data/code.metainfo.xml.in:133
+msgid ""
+"Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
+"part of the main codebase"
+msgstr ""
+"ターミナル／シンボルアウトライン／ファイル末尾の空白を削除 プラグインをメイン"
+"のコードに組み込み"
+
+#: data/code.metainfo.xml.in:134
+msgid ""
+"Show an infobar when tab width settings are being overwritten by an "
+"EditorConfig file"
+msgstr ""
+"タブ幅の設定が EditorConfig ファイルで上書きされている場合は、情報バーを表示"
+"するように修正"
+
+#: data/code.metainfo.xml.in:135
+msgid ""
+"The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
+msgstr "単語補完の単語一覧を更新するショートカットキーを \"Ctrl + |\" に変更"
+
+#: data/code.metainfo.xml.in:153
+msgid ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
+msgstr ""
+"マルチタスク画面でのウィンドウタイトルとして、現在編集中のファイル名を使用す"
+"るように変更"
+
+#: data/code.metainfo.xml.in:154
+msgid "Hidden folders are now shown in the project sidebar"
+msgstr "隠しフォルダーもプロジェクトサイドバーで表示されるように修正"
+
+#: data/code.metainfo.xml.in:155
+msgid ""
+"The currently selected result and the number of results is displayed while "
+"searching"
+msgstr "現在選択している検索結果と検索数を、文字検索中も表示するように修正"
+
+#: data/code.metainfo.xml.in:156
+msgid "The search bar now has a regular expression mode"
+msgstr "検索バーに正規表現モードを搭載"
+
+#: data/code.metainfo.xml.in:158 data/code.metainfo.xml.in:182
+#: data/code.metainfo.xml.in:198
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/io.elementary.code.appdata.xml.in:33
-msgid "Fix visibility of Terminal button on Welcome page"
+#: data/code.metainfo.xml.in:160
+msgid ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
 msgstr ""
+"プロジェクトに追跡されていないファイルがある場合でも、ブランチを切り替えでき"
+"るように修正"
 
-#: data/io.elementary.code.appdata.xml.in:34
+#: data/code.metainfo.xml.in:161
+msgid "Crashes are prevented while searching in large projects"
+msgstr "大規模なプロジェクト内で検索するとクラッシュする不具合を修正"
+
+#: data/code.metainfo.xml.in:162
+msgid ""
+"The correct document is now focused after opening Code from an external "
+"program"
+msgstr ""
+"外部プログラムから“コード”を開いた際に、開いたドキュメントがフォーカスされる"
+"ように修正"
+
+#: data/code.metainfo.xml.in:163
+msgid ""
+"Line duplication is now actioned correctly if there is no selection present"
+msgstr "選択中の行がなくても、行の複製が正しく実行されるように修正"
+
+#: data/code.metainfo.xml.in:164
+msgid "Code no longer crashes when asked to open an unknown URI format"
+msgstr "不明な URI 形式を開くように指示されてもクラッシュしないように修正"
+
+#: data/code.metainfo.xml.in:177
+msgid ""
+"Projects with the same name now include their parent folder name as well"
+msgstr "プロジェクト名が同じ場合は親フォルダーの名前も表示するように修正"
+
+#: data/code.metainfo.xml.in:178
+msgid ""
+"When scrolling to search results, overshoot slightly for better visibility"
+msgstr ""
+"検索結果にスクロールする際に、見やすくなるように余分にスクロールするように変"
+"更"
+
+#: data/code.metainfo.xml.in:179
+msgid "Use the FileChooser portal instead of the one from GTK"
+msgstr ""
+"GTK が提供するファイル選択ダイアログではなく、ファイル選択ポータルを使用する"
+"ように修正"
+
+#: data/code.metainfo.xml.in:180
+msgid "Center the global search dialog over the main Code window"
+msgstr ""
+"プロジェクト全体の検索ダイアログを“コード”の主ウィンドウに対して中央に表示す"
+"るように修正"
+
+#: data/code.metainfo.xml.in:184
+msgid "Fix visibility of Terminal button on Welcome page"
+msgstr "ようこそ画面の“ターミナル”ボタンが消える不具合を修正"
+
+#: data/code.metainfo.xml.in:185
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
 msgstr ""
+"キーボードショートカットがフォーカス状態のターミナルではなく、フォーカスされ"
+"ていないテキストビューに適用される不具合を修正"
 
-#: data/io.elementary.code.appdata.xml.in:35
+#: data/code.metainfo.xml.in:186
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
 msgstr ""
+"シェルが終了した場合はターミナルを閉じ、シェルなしでターミナルが開かれた場合"
+"は新しいターミナルを作成するように修正"
 
-#: data/io.elementary.code.appdata.xml.in:37
-#: data/io.elementary.code.appdata.xml.in:54
-#: data/io.elementary.code.appdata.xml.in:74
-#: data/io.elementary.code.appdata.xml.in:103
-msgid "Minor updates:"
-msgstr "軽微なアップデート:"
+#: data/code.metainfo.xml.in:190
+msgid "\"Visible whitespace\" combobox is now a switch"
+msgstr "“空白を表示”コンボボックスをスイッチに変更"
 
-#: data/io.elementary.code.appdata.xml.in:39
-#: data/io.elementary.code.appdata.xml.in:57
-#: data/io.elementary.code.appdata.xml.in:93
-#: data/io.elementary.code.appdata.xml.in:107
-#: data/io.elementary.code.appdata.xml.in:122
-#: data/io.elementary.code.appdata.xml.in:138
-#: data/io.elementary.code.appdata.xml.in:164
-#: data/io.elementary.code.appdata.xml.in:185
-#: data/io.elementary.code.appdata.xml.in:195
-#: data/io.elementary.code.appdata.xml.in:206
-msgid "Updated translations"
-msgstr "翻訳の更新"
-
-#: data/io.elementary.code.appdata.xml.in:47
+#: data/code.metainfo.xml.in:200
 msgid "Fix crash when creating new window from tab drop"
 msgstr ""
+"タブをドロップして新しいウィンドウを開こうとするとクラッシュする不具合を修正"
 
-#: data/io.elementary.code.appdata.xml.in:48
+#: data/code.metainfo.xml.in:201
 msgid "Ensure files created from the sidebar are automatically opened"
-msgstr ""
+msgstr "サイドバーで作成したファイルを自動的に開くように修正"
 
-#: data/io.elementary.code.appdata.xml.in:50
-msgid "Improvements:"
-msgstr "改善点:"
-
-#: data/io.elementary.code.appdata.xml.in:52
+#: data/code.metainfo.xml.in:205
 msgid "Hide project chooser button when hiding sidebar"
-msgstr "サイドバーを表示していない場合はプロジェクト選択ボタンも表示しないように修正"
+msgstr ""
+"サイドバーを表示していない場合はプロジェクト選択ボタンも表示しないように修正"
 
-#: data/io.elementary.code.appdata.xml.in:56
+#: data/code.metainfo.xml.in:209
 msgid "Ensure all copy is translatable"
 msgstr "すべてのテキストが翻訳できるように修正"
 
-#: data/io.elementary.code.appdata.xml.in:63
-#: data/io.elementary.code.appdata.xml.in:113
-#: data/io.elementary.code.appdata.xml.in:128
-#: data/io.elementary.code.appdata.xml.in:144
-msgid "New features:"
-msgstr "新機能:"
-
-#: data/io.elementary.code.appdata.xml.in:65
-msgid "New Markdown plugin for WYSIWYG-like editing."
-msgstr "WYSIWYG 風に編集できる Markdown プラグインを追加しました。"
-
-#: data/io.elementary.code.appdata.xml.in:66
-msgid "Switch Git branches or create new ones in project folder context menus"
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
 msgstr ""
-"プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えたり"
-"新しいブランチを作成したりできる機能を追加"
-
-#: data/io.elementary.code.appdata.xml.in:67
-msgid "Show Git diff status in source view gutters"
-msgstr "ソースビューの左端に Git の差分を表示する機能を追加"
-
-#: data/io.elementary.code.appdata.xml.in:68
-msgid "Full text search within project folder."
-msgstr "プロジェクトフォルダー内でのテキスト検索に対応しました。"
-
-#: data/io.elementary.code.appdata.xml.in:69
-msgid "Save and restore cursor position between sessions"
-msgstr "セッションの最後のカーソル位置を保存し復元する機能を追加"
-
-#: data/io.elementary.code.appdata.xml.in:70
-msgid "Close files from a project when that project is closed"
-msgstr ""
-"プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
-
-#: data/io.elementary.code.appdata.xml.in:71
-msgid "Show full file path in tab tooltips"
-msgstr "タブのツールチップにファイルのフルパスを表示するように変更"
-
-#: data/io.elementary.code.appdata.xml.in:72
-msgid "Clear lines with Ctrl + K"
-msgstr "Ctrl + K で行の文字を消去する機能を追加"
-
-#: data/io.elementary.code.appdata.xml.in:76
-msgid "Allow Spell Checker extension in Markdown files"
-msgstr "Markdown ファイルでスペルチェッカー拡張機能を利用できるように変更"
-
-#: data/io.elementary.code.appdata.xml.in:77
-msgid "Improve multi-line duplication"
-msgstr "複数行の複製を改善"
-
-#: data/io.elementary.code.appdata.xml.in:78
-msgid "Remember whether the sidebar is open"
-msgstr "サイドバーの表示／非表示の状態を保存するように変更"
-
-#: data/io.elementary.code.appdata.xml.in:79
-msgid "Set window title to the focused file"
-msgstr "現在表示中のファイル名をウィンドウのタイトルとして設定するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:80
-msgid "Add keyboard shortcuts for next and previous documents"
-msgstr "タブを切り替えるキーボードショートカットを追加"
-
-#: data/io.elementary.code.appdata.xml.in:81
-msgid "Show full document path in tab tooltip"
-msgstr "タブのツールチップにドキュメントのフルパスを表示するように変更"
-
-#: data/io.elementary.code.appdata.xml.in:82
-msgid "Update Pastebin plugin"
-msgstr "Pastebin プラグインをアップデート"
-
-#: data/io.elementary.code.appdata.xml.in:83
-msgid "Correctly indent last line when using the preserve whitespace plugin"
-msgstr ""
-"“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントするよ"
-"うに修正"
-
-#: data/io.elementary.code.appdata.xml.in:84
-msgid "Keep syntax highlighting when duplicating a file"
-msgstr ""
-"複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:85
-msgid "Expand a collapsed folder if you attempt to open it twice"
-msgstr ""
-"折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するように"
-"変更"
-
-#: data/io.elementary.code.appdata.xml.in:86
-msgid "Fix an issue where searches are lost when Code loses focus"
-msgstr ""
-"“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされてし"
-"まう不具合を修正"
-
-#: data/io.elementary.code.appdata.xml.in:87
-msgid "Start Vim plugin in command mode"
-msgstr "Vim プラグインをコマンドラインモードで開始するように変更"
-
-#: data/io.elementary.code.appdata.xml.in:88
-msgid "Fix and add new Vim commands"
-msgstr "Vim コマンドを修正し、新しい コマンドを追加"
-
-#: data/io.elementary.code.appdata.xml.in:89
-msgid "Show project folders with a hidden root folder"
-msgstr ""
-"ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示す"
-"るように修正"
-
-#: data/io.elementary.code.appdata.xml.in:90
-msgid "Allow launching with pkexec and disallow launching with sudo"
-msgstr "pkexec での起動を可能にし、sudo での起動ができないように修正"
-
-#: data/io.elementary.code.appdata.xml.in:91
-msgid "Remove split view"
-msgstr "分割ビューを削除"
-
-#: data/io.elementary.code.appdata.xml.in:92
-msgid "Remove browser preview"
-msgstr "ブラウザープレビューを削除"
-
-#: data/io.elementary.code.appdata.xml.in:101
-msgid "Fix empty sidebar layout, ensuring folders can always be added"
-msgstr ""
-"フォルダーが常に追加されるようにすることで、サイドバーのレイアウトに何も表示"
-"されない不具合を修正"
-
-#: data/io.elementary.code.appdata.xml.in:105
-msgid "Scroll past the end of a file"
-msgstr "ファイルの最終行よりもさらにスクロールできるように変更"
-
-#: data/io.elementary.code.appdata.xml.in:106
-msgid "More efficiently save and restore window position"
-msgstr "ウィンドウの位置を、より効率的に保存・復元するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:115
-msgid "Include Git status in file tooltips"
-msgstr "ファイルのツールチップに Git の状態を表示"
-
-#: data/io.elementary.code.appdata.xml.in:116
-msgid "Option for explicit case-sensitive Find"
-msgstr "大文字と小文字を区別する検索オプションを追加"
-
-#: data/io.elementary.code.appdata.xml.in:118
-#: data/io.elementary.code.appdata.xml.in:133
-#: data/io.elementary.code.appdata.xml.in:155
-msgid "Other updates:"
-msgstr "そのほかのアップデート:"
-
-#: data/io.elementary.code.appdata.xml.in:120
-msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
-"テキストが選択されていない場合にも、メニュー項目\"コメントを切り替え\"を適切"
-"に表示するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:121
-msgid "Fixed font switch alignment"
-msgstr "\"カスタムフォント\"スイッチの配置を修正"
-
-#: data/io.elementary.code.appdata.xml.in:130
-msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
-"サイドバーを整理できるように、新しいメニュー項目\"ほかのフォルダーを閉じる"
-"\"を追加"
-
-#: data/io.elementary.code.appdata.xml.in:131
-msgid "Save and restore cyclic search setting"
-msgstr "循環検索の設定を保存し復元するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:135
-msgid "Add keyboard shortcuts to menu items"
-msgstr "メニュー項目にキーボードショートカットを表示するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:136
-msgid "Make sidebar folder items not selectable"
-msgstr "サイドバーのフォルダー項目を選択できないように修正"
-
-#: data/io.elementary.code.appdata.xml.in:137
-msgid "Center new windows"
-msgstr "新しいウィンドウを画面の中央に表示するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:146
-msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
-".gitignore ファイルに記述されたファイルの名前をプロジェクトサイドバーに薄く表"
-"示するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:147
-msgid "Smart cut/copy lines with no active selection"
-msgstr "行を選択していなくても切り取り／コピーできるように修正"
-
-#: data/io.elementary.code.appdata.xml.in:148
-msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr "\"復元\"アクションの実行時に確認ダイアログを表示するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:149
-msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
-"フォルダーマネージャーで最上位のフォルダーに\"指定した方法で開く\"メニューを"
-"追加"
-
-#: data/io.elementary.code.appdata.xml.in:150
-msgid "Don't show temporary files in the folder manager"
-msgstr "フォルダーマネージャーで一時ファイルを表示しないように修正"
-
-#: data/io.elementary.code.appdata.xml.in:151
-msgid "Add brackets completion and auto-indent by default"
-msgstr "閉じカッコの補完と自動インデント機能をデフォルトで有効化"
-
-#: data/io.elementary.code.appdata.xml.in:152
-msgid "Zoom terminal plugin with keyboard"
-msgstr "ターミナルプラグインをキーボードで拡大・縮小できるように修正"
-
-#: data/io.elementary.code.appdata.xml.in:153
-msgid "Honor global privacy setting when saving and restoring"
-msgstr "保存・復元時にシステムのプライバシー設定を反映するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:157
-msgid "Simplify \"Draw spaces\" preference"
-msgstr "\"空白を表示\"設定を簡易化"
-
-#: data/io.elementary.code.appdata.xml.in:158
-msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr "前の検索結果を表示するキーボードショートカットを修正"
-
-#: data/io.elementary.code.appdata.xml.in:159
-msgid "Fix opening files from relative paths in Terminal"
-msgstr "ターミナルから相対パスを使用してファイルを開く際の不具合を修正"
-
-#: data/io.elementary.code.appdata.xml.in:160
-msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
-"ドックのコンテキストメニューから新しいウィンドウを開いた際に「ファイル "
-"(null) を開けません」というダイアログが表示される不具合を修正"
-
-#: data/io.elementary.code.appdata.xml.in:161
-msgid "Add \"=\" as a zoom key"
-msgstr "拡大に使用するキーボードショートカットに \"=\" を追加"
-
-#: data/io.elementary.code.appdata.xml.in:162
-msgid "Change search entry icon when results aren't found"
-msgstr "検索結果が見つからなかった場合に検索欄のアイコンを変更するように修正"
-
-#: data/io.elementary.code.appdata.xml.in:163
-msgid "Enter name of new file before creating it"
-msgstr "新しいファイルの名前をファイルの作成前に入力できるように修正"
-
-#: data/io.elementary.code.appdata.xml.in:171
-msgid "Use Granite.MessageDialog throughout"
-msgstr "一貫的な Granite.MessageDialog の利用"
-
-#: data/io.elementary.code.appdata.xml.in:172
-msgid "Include non-text files in sidebar"
-msgstr "サイドバーにテキストファイル以外のファイルも表示するように変更"
-
-#: data/io.elementary.code.appdata.xml.in:173
-msgid "Fix Remove Current View"
-msgstr "\"現在のビューを削除\"の機能を修正"
-
-#: data/io.elementary.code.appdata.xml.in:180
-msgid "Fix New Window desktop action behavior"
-msgstr "デスクトップアクションの“新しいウィンドウ”の挙動を修正"
-
-#: data/io.elementary.code.appdata.xml.in:181
-msgid ""
-"Properly synchronize Ctrl+N key presses with number of new documents spawned"
-msgstr "Ctrl+N キーの押下を新規作成されたドキュメントの数と適切に同期"
-
-#: data/io.elementary.code.appdata.xml.in:182
-msgid "Build system fix for editorconfig dependency"
-msgstr "EditorConfig の依存関係に対するビルドシステムの修正"
-
-#: data/io.elementary.code.appdata.xml.in:183
-msgid "Add Change Branch context menu item"
-msgstr "コンテキストメニューの項目に“ブランチを変更”を追加"
-
-#: data/io.elementary.code.appdata.xml.in:184
-msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
-"プラグインの読み込み方法に関連して起こる可能性のある起動時のクラッシュを防止"
-
-#: data/io.elementary.code.appdata.xml.in:192
-msgid "Smarter file saving behavior"
-msgstr "ファイル保存の挙動を改善"
-
-#: data/io.elementary.code.appdata.xml.in:193
-msgid "File saving fixes"
-msgstr "ファイルの保存に関する修正"
-
-#: data/io.elementary.code.appdata.xml.in:194
-msgid "Don't add temporary files to tab restore"
-msgstr "タブの復元に一時ファイルを追加しないように修正"
-
-#: data/io.elementary.code.appdata.xml.in:202
-msgid "Don't recreate deleted files when restoring session"
-msgstr "セッションの復元時に削除したファイルを再作成しないように修正"
-
-#: data/io.elementary.code.appdata.xml.in:203
-msgid "Restore line wrap preference"
-msgstr "行の折り返しの設定を復活"
-
-#: data/io.elementary.code.appdata.xml.in:204
-msgid "Add accel tooltips"
-msgstr "アクセラレーターツールチップの追加"
-
-#: data/io.elementary.code.appdata.xml.in:205
-msgid "Minor bug fixes"
-msgstr "軽微なバグの修正"
-
-#: data/io.elementary.code.appdata.xml.in:245
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -502,13 +435,9 @@ msgstr "コードファイルを編集します"
 msgid "Code Editor"
 msgstr "コードエディター"
 
-#: data/io.elementary.code.desktop.in.in:8
-msgid "io.elementary.code"
-msgstr "io.elementary.code"
-
 #: data/io.elementary.code.desktop.in.in:11
-msgid "text;IDE;scratch;"
-msgstr "text;IDE;scratch;テキスト;統合開発環境;"
+msgid "text;IDE;scratch;code;"
+msgstr "text;IDE;scratch;code;テキスト;統合開発環境;コード;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
@@ -525,6 +454,258 @@ msgstr "“コード”を管理者として実行"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "“コード”を管理者として実行するには認証が必要です"
+
+#~ msgid "Show when running a development branch of Code"
+#~ msgstr "開発ブランチ版の Code を実行していることを表示する機能を追加"
+
+#~ msgid "New features:"
+#~ msgstr "新機能:"
+
+#~ msgid "New Markdown plugin for WYSIWYG-like editing."
+#~ msgstr "WYSIWYG 風に編集できる Markdown プラグインを追加しました。"
+
+#~ msgid ""
+#~ "Switch Git branches or create new ones in project folder context menus"
+#~ msgstr ""
+#~ "プロジェクトフォルダーのコンテキストメニューから、Git ブランチを切り替えた"
+#~ "り新しいブランチを作成したりできる機能を追加"
+
+#~ msgid "Show Git diff status in source view gutters"
+#~ msgstr "ソースビューの左端に Git の差分を表示する機能を追加"
+
+#~ msgid "Full text search within project folder."
+#~ msgstr "プロジェクトフォルダー内での全文検索に対応しました。"
+
+#~ msgid "Save and restore cursor position between sessions"
+#~ msgstr "セッションの最後のカーソル位置を保存し復元する機能を追加"
+
+#~ msgid "Close files from a project when that project is closed"
+#~ msgstr ""
+#~ "プロジェクトが閉じた場合にそのプロジェクト内のファイルも閉じるように修正"
+
+#~ msgid "Show full file path in tab tooltips"
+#~ msgstr "タブのツールチップにファイルのフルパスを表示するように変更"
+
+#~ msgid "Clear lines with Ctrl + K"
+#~ msgstr "Ctrl + K で行の文字を消去する機能を追加"
+
+#~ msgid "Allow Spell Checker extension in Markdown files"
+#~ msgstr "Markdown ファイルでスペルチェッカー拡張機能を利用できるように変更"
+
+#~ msgid "Improve multi-line duplication"
+#~ msgstr "複数行の複製を改善"
+
+#~ msgid "Remember whether the sidebar is open"
+#~ msgstr "サイドバーの表示／非表示の状態を保存するように変更"
+
+#~ msgid "Set window title to the focused file"
+#~ msgstr ""
+#~ "現在表示中のファイル名をウィンドウのタイトルとして設定するように修正"
+
+#~ msgid "Add keyboard shortcuts for next and previous documents"
+#~ msgstr "タブを切り替えるキーボードショートカットを追加"
+
+#~ msgid "Show full document path in tab tooltip"
+#~ msgstr "タブのツールチップにドキュメントのフルパスを表示するように変更"
+
+#~ msgid "Update Pastebin plugin"
+#~ msgstr "Pastebin プラグインをアップデート"
+
+#~ msgid "Correctly indent last line when using the preserve whitespace plugin"
+#~ msgstr ""
+#~ "“ファイル末尾の空白を削除”プラグインを使用時、最終行が適切にインデントする"
+#~ "ように修正"
+
+#~ msgid "Keep syntax highlighting when duplicating a file"
+#~ msgstr ""
+#~ "複製したファイルに複製元と同じシンタックスハイライトを適用するように修正"
+
+#~ msgid "Expand a collapsed folder if you attempt to open it twice"
+#~ msgstr ""
+#~ "折りたたまれたフォルダーを2回開いてしまった場合に、フォルダーを展開するよ"
+#~ "うに変更"
+
+#~ msgid "Fix an issue where searches are lost when Code loses focus"
+#~ msgstr ""
+#~ "“コード”のウィンドウが非アクティブになった場合に検索文字列がリセットされて"
+#~ "しまう不具合を修正"
+
+#~ msgid "Start Vim plugin in command mode"
+#~ msgstr "Vim プラグインをコマンドラインモードで開始するように変更"
+
+#~ msgid "Fix and add new Vim commands"
+#~ msgstr "Vim コマンドの修正と追加"
+
+#~ msgid "Show project folders with a hidden root folder"
+#~ msgstr ""
+#~ "ルートフォルダーが隠しフォルダーになっているプロジェクトのフォルダーを表示"
+#~ "するように修正"
+
+#~ msgid "Allow launching with pkexec and disallow launching with sudo"
+#~ msgstr "pkexec での起動を可能にし、sudo での起動ができないように修正"
+
+#~ msgid "Remove split view"
+#~ msgstr "分割ビューを削除"
+
+#~ msgid "Remove browser preview"
+#~ msgstr "ブラウザープレビューを削除"
+
+#~ msgid "io.elementary.code"
+#~ msgstr "io.elementary.code"
+
+#~ msgid "Drag and drop with text containing accented characters"
+#~ msgstr "アクセント記号を含むテキストのドラッグアンドドロップに対応"
+
+#~ msgid "Text duplication issues when dragging text between multiple windows"
+#~ msgstr ""
+#~ "複数のウィンドウ間でテキストをドラッグすると、2回分貼り付けされてしまう不"
+#~ "具合を修正"
+
+#~ msgid "Fix empty sidebar layout, ensuring folders can always be added"
+#~ msgstr ""
+#~ "フォルダーが常に追加されるようにすることで、サイドバーのレイアウトに何も表"
+#~ "示されない不具合を修正"
+
+#~ msgid "Scroll past the end of a file"
+#~ msgstr "ファイルの最終行よりもさらにスクロールできるように変更"
+
+#~ msgid "More efficiently save and restore window position"
+#~ msgstr "ウィンドウの位置を、より効率的に保存・復元するように修正"
+
+#~ msgid "Include Git status in file tooltips"
+#~ msgstr "ファイルのツールチップに Git の状態を表示"
+
+#~ msgid "Option for explicit case-sensitive Find"
+#~ msgstr "大文字と小文字を区別する検索オプションを追加"
+
+#~ msgid "Other updates:"
+#~ msgstr "そのほかのアップデート:"
+
+#~ msgid "Correctly show Toggle Comment menu item when no text is selected"
+#~ msgstr ""
+#~ "テキストが選択されていない場合にも、メニュー項目\"コメントアウト／コメント"
+#~ "イン\"を適切に表示するように修正"
+
+#~ msgid "Fixed font switch alignment"
+#~ msgstr "\"カスタムフォント\"スイッチの配置を修正"
+
+#~ msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
+#~ msgstr ""
+#~ "サイドバーを整理できるように、新しいメニュー項目\"ほかのフォルダーを閉じる"
+#~ "\"を追加"
+
+#~ msgid "Save and restore cyclic search setting"
+#~ msgstr "循環検索の設定を保存し復元するように修正"
+
+#~ msgid "Add keyboard shortcuts to menu items"
+#~ msgstr "メニュー項目にキーボードショートカットを表示するように修正"
+
+#~ msgid "Make sidebar folder items not selectable"
+#~ msgstr "サイドバーのフォルダー項目を選択できないように修正"
+
+#~ msgid "Center new windows"
+#~ msgstr "新しいウィンドウを画面の中央に表示するように修正"
+
+#~ msgid "Visually deprioritize .gitignored files in project sidebar"
+#~ msgstr ""
+#~ ".gitignore ファイルに記述されたファイルの名前をプロジェクトサイドバーに薄"
+#~ "く表示するように修正"
+
+#~ msgid "Smart cut/copy lines with no active selection"
+#~ msgstr "行を選択していなくても切り取り／コピーできるように修正"
+
+#~ msgid "Add a confirmation dialog to the \"Restore\" action"
+#~ msgstr "\"復元\"アクションの実行時に確認ダイアログを表示するように修正"
+
+#~ msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
+#~ msgstr ""
+#~ "フォルダーマネージャーで最上位のフォルダーに\"指定した方法で開く\"メニュー"
+#~ "を追加"
+
+#~ msgid "Don't show temporary files in the folder manager"
+#~ msgstr "フォルダーマネージャーで一時ファイルを表示しないように修正"
+
+#~ msgid "Add brackets completion and auto-indent by default"
+#~ msgstr "閉じカッコの補完と自動インデント機能をデフォルトで有効化"
+
+#~ msgid "Zoom terminal plugin with keyboard"
+#~ msgstr "ターミナルプラグインをキーボードで拡大・縮小できるように修正"
+
+#~ msgid "Honor global privacy setting when saving and restoring"
+#~ msgstr "保存・復元時にシステムのプライバシー設定を反映するように修正"
+
+#~ msgid "Simplify \"Draw spaces\" preference"
+#~ msgstr "\"空白を表示\"設定を簡易化"
+
+#~ msgid "Fix the keyboard shortcut for going backwards in search results"
+#~ msgstr "前の検索結果を表示するキーボードショートカットを修正"
+
+#~ msgid "Fix opening files from relative paths in Terminal"
+#~ msgstr "ターミナルから相対パスを使用してファイルを開く際の不具合を修正"
+
+#~ msgid "Fix null file dialog when opening a new window via the dock"
+#~ msgstr ""
+#~ "ドックのコンテキストメニューから新しいウィンドウを開いた際に「ファイル "
+#~ "(null) を開けません」というダイアログが表示される不具合を修正"
+
+#~ msgid "Add \"=\" as a zoom key"
+#~ msgstr "拡大に使用するキーボードショートカットに \"=\" を追加"
+
+#~ msgid "Change search entry icon when results aren't found"
+#~ msgstr ""
+#~ "検索結果が見つからなかった場合に検索欄のアイコンを変更するように修正"
+
+#~ msgid "Enter name of new file before creating it"
+#~ msgstr "新しいファイルの名前をファイルの作成前に入力できるように修正"
+
+#~ msgid "Use Granite.MessageDialog throughout"
+#~ msgstr "一貫的な Granite.MessageDialog の利用"
+
+#~ msgid "Include non-text files in sidebar"
+#~ msgstr "サイドバーにテキストファイル以外のファイルも表示するように変更"
+
+#~ msgid "Fix Remove Current View"
+#~ msgstr "\"現在のビューを削除\"の機能を修正"
+
+#~ msgid "Fix New Window desktop action behavior"
+#~ msgstr "デスクトップアクションの“新しいウィンドウ”の挙動を修正"
+
+#~ msgid ""
+#~ "Properly synchronize Ctrl+N key presses with number of new documents "
+#~ "spawned"
+#~ msgstr "Ctrl+N キーの押下を新規作成されたドキュメントの数と適切に同期"
+
+#~ msgid "Build system fix for editorconfig dependency"
+#~ msgstr "EditorConfig の依存関係に対するビルドシステムの修正"
+
+#~ msgid "Add Change Branch context menu item"
+#~ msgstr "コンテキストメニューの項目に“ブランチを変更”を追加"
+
+#~ msgid "Avoid possible startup crash related to how plugins load"
+#~ msgstr ""
+#~ "プラグインの読み込み方法に関連して起こる可能性のある起動時のクラッシュを防"
+#~ "止"
+
+#~ msgid "Smarter file saving behavior"
+#~ msgstr "ファイル保存の挙動を改善"
+
+#~ msgid "File saving fixes"
+#~ msgstr "ファイルの保存に関する修正"
+
+#~ msgid "Don't add temporary files to tab restore"
+#~ msgstr "タブの復元に一時ファイルを追加しないように修正"
+
+#~ msgid "Don't recreate deleted files when restoring session"
+#~ msgstr "セッションの復元時に削除したファイルを再作成しないように修正"
+
+#~ msgid "Restore line wrap preference"
+#~ msgstr "行の折り返しの設定を復活"
+
+#~ msgid "Add accel tooltips"
+#~ msgstr "アクセラレーターツールチップの追加"
+
+#~ msgid "Minor bug fixes"
+#~ msgstr "軽微なバグの修正"
 
 #~ msgid ""
 #~ "Make it yours. Code is written from the ground up to be extensible. Keep "

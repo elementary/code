@@ -10,6 +10,11 @@
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
+  <enum id="io.elementary.code.case-sensitive-mode">
+    <value nick="never" value="0" />
+    <value nick="mixed" value="1" />
+    <value nick="always" value="2" />
+  </enum>
 
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
     <key name="window-state" enum="io.elementary.code.window-states">
@@ -42,11 +47,21 @@
       <summary>Sidebar visibility</summary>
       <description>Whether or not the sidebar is open</description>
     </key>
+    <key name="outline-visible" type="b">
+      <default>false</default>
+      <summary>Symbol outline visibility</summary>
+      <description>Whether or not the symbol outline is visible</description>
+    </key>
+    <key name="last-opened-path" type="s">
+      <default>''</default>
+      <summary>Last opened path</summary>
+      <description>Last opened path in the terminal</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
     <key type="as" name="plugins-enabled">
-      <default>['brackets-completion', 'detect-indent', 'editorconfig', 'outline']</default>
+      <default>['brackets-completion', 'detect-indent', 'editorconfig']</default>
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
@@ -72,13 +87,13 @@
     </key>
     <key name="show-right-margin" type="b">
       <default>false</default>
-      <summary>Show the right margin</summary>
-      <description>Specifies if the Source view should show the right margin or not.</description>
+      <summary>Show the line width guide</summary>
+      <description>Specifies if the Source view should show the line width guide or not.</description>
     </key>
     <key name="right-margin-position" type="i">
       <default>80</default>
-      <summary>Right margin position</summary>
-      <description>Specifies the right margin position.</description>
+      <summary>Line width guide position</summary>
+      <description>Specifies the line width guide position.</description>
     </key>
     <key name="highlight-matching-brackets" type="b">
       <default>true</default>
@@ -106,6 +121,7 @@
       <description>Whether Code should use auto indentation</description>
     </key>
     <key name="indent-width" type="i">
+      <range min="2" max="16"/>
       <default>4</default>
       <summary>Tab Size</summary>
       <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
@@ -121,7 +137,7 @@
       <description>Set the preferred font.</description>
     </key>
     <key name="style-scheme" type="s">
-      <default>'solarized-light'</default>
+      <default>'elementary-light'</default>
       <summary>Preferred Style Scheme</summary>
       <description>Set the preferred style scheme.</description>
     </key>
@@ -135,10 +151,35 @@
       <summary>Request dark Gtk stylesheet variant</summary>
       <description>Switches between dark and light style</description>
     </key>
+    <key name="follow-system-style" type="b">
+      <default>true</default>
+      <summary>Follow the FreeDesktop.org dark style preference</summary>
+      <description>Use the Dark style if the system prefers a dark style, or elementary Light otherwise. Overrides control of prefer-dark-style.</description>
+    </key>
     <key name="cyclic-search" type="b">
       <default>false</default>
       <summary>Whether search is cyclic</summary>
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
+    </key>
+    <key name="wholeword-search" type="b">
+      <default>false</default>
+      <summary>Whether search is for whole words</summary>
+      <description>Whether the search should only match whole words.</description>
+    </key>
+    <key name="regex-search" type="b">
+      <default>false</default>
+      <summary>Whether search term is a regex expression</summary>
+      <description>Whether the search should use the search term as a regex expression for matching.</description>
+    </key>
+    <key name="case-sensitive-search" enum="io.elementary.code.case-sensitive-mode">
+      <default>'mixed'</default>
+      <summary>When text search is case sensitive</summary>
+      <description>Whether the text search is case sensitive never, always or only when search term is mixed case</description>
+    </key>
+    <key name="strip-trailing-on-save" type="b">
+      <default>false</default>
+      <summary>Whether to automatically remove trailing whitespace on saving</summary>
+      <description>Whether trailing whitespace should be removed from a document whenever it is saved, including on autosave.</description>
     </key>
   </schema>
 

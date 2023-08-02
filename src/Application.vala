@@ -27,10 +27,8 @@ namespace Scratch {
     public GLib.Settings privacy_settings;
 
     public class Application : Gtk.Application {
-        public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
-        private static string _app_cmd_name;
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
@@ -39,14 +37,11 @@ namespace Scratch {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
-            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
 
         static construct {
-            _app_cmd_name = "Code";
-
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Path.build_filename (
                                             Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
@@ -58,6 +53,9 @@ namespace Scratch {
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
             application_id = Constants.PROJECT_NAME;
+            if (Constants.BRANCH != "") {
+                application_id += "." + Constants.BRANCH.replace ("/", ".").replace ("-", "_");
+            }
 
             add_main_option_entries (ENTRIES);
 
@@ -127,21 +125,19 @@ namespace Scratch {
         }
 
         protected override void activate () {
-            var window = get_last_window ();
-            if (window != null && create_new_window) {
+            if (active_window == null) {
+                add_window (new MainWindow (true)); // Will restore documents if required
+            } else if (create_new_window) {
                 create_new_window = false;
-                this.new_window ();
-            } else if (window == null) {
-                window = this.new_window (); // Will restore documents if required
-                window.show ();
-            } else {
-                window.present ();
+                add_window (new MainWindow (false)); // Will NOT restore documents in additional windows
             }
+
+            active_window.present ();
 
             // Create a new document if requested
             if (create_new_tab) {
                 create_new_tab = false;
-                Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
+                activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB, null);
             }
         }
 
@@ -149,12 +145,14 @@ namespace Scratch {
             var window = get_last_window ();
 
             foreach (var file in files) {
-                var type = file.query_file_type (FileQueryInfoFlags.NONE);
-                if (type == FileType.DIRECTORY) {
-                    window.open_folder (file);
-                } else {
-                    var doc = new Scratch.Services.Document (window.actions, file);
-                    window.open_document (doc);
+                bool is_folder;
+                if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
+                    if (is_folder) {
+                        window.open_folder (file);
+                    } else {
+                        var doc = new Scratch.Services.Document (window.actions, file);
+                        window.open_document (doc);
+                    }
                 }
             }
         }
@@ -162,10 +160,6 @@ namespace Scratch {
         public MainWindow? get_last_window () {
             unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
-        }
-
-        public MainWindow new_window () {
-            return new MainWindow (this);
         }
 
         public static int main (string[] args) {

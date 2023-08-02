@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-07-27 21:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/plugins/"
@@ -60,14 +60,6 @@ msgstr "Дії markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Додає комбінації клавіш для швидкого редагування файлів Markdown"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Контур"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Окреслює символи у вашому поточному файлі для Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -92,22 +84,6 @@ msgstr "Перевірка правопису"
 msgid "Checks the spelling of your documents"
 msgstr "Перевіряє правопис ваших документів"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Видалення пробілів у кінці рядка"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Прибирає пробіли в кінці рядка під час збереження"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Термінал"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Термінал у вашому редакторі коду"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Емуляція Vim"
@@ -124,3 +100,21 @@ msgstr "Завершення слів"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Показ діалогового вікна завершення з найвживанішими словами з ваших файлів"
+
+#~ msgid "Terminal"
+#~ msgstr "Термінал"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Термінал у вашому редакторі коду"
+
+#~ msgid "Outline"
+#~ msgstr "Контур"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Окреслює символи у вашому поточному файлі для Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Видалення пробілів у кінці рядка"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Прибирає пробіли в кінці рядка під час збереження"

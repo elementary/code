@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -21,91 +21,120 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Nauja kortelė"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Naujas langas"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Rodyti versijos informaciją ir išeiti"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Įskiepių rinkinys"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "įskiepis"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:207
+#, fuzzy, c-format
+#| msgid "Code"
+msgid "Code (%s)"
+msgstr "Kodas"
+
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Rasti…"
-
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find on Page…"
+msgstr "Atverti aplanką"
+
+#: src/MainWindow.vala:337
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "Slėpti paieškos juostą"
+
+#: src/MainWindow.vala:342
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "Rodyti peržiūrą"
+
+#: src/MainWindow.vala:351
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:356
+#, fuzzy
+#| msgid "Symbols"
+msgid "Show Symbol Outline"
+msgstr "Simboliai"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:533
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Atverti failus"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "At_verti"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:74
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
+#: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
+#: src/Dialogs/GlobalSearchDialog.vala:111
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
@@ -127,7 +156,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Šaka"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Nuostatos"
 
@@ -149,70 +178,76 @@ msgstr "Esant pakeitimams, įrašyti failus:"
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "Kortelės"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Automatinė įtrauka:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Įterpti tarpus vietoj tabuliavimo žymių:"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:66
+#, fuzzy
+#| msgid "Strip trailing whitespace on save"
+msgid "Strip trailing whitespace:"
+msgstr "Įrašant, šalinti eilučių pabaigoje esančius tarpus"
+
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Tabuliavimo plotis:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Elgsena"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Sąsaja"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:91
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Užverti"
 
-#: src/Dialogs/PreferencesDialog.vala:102
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Extensions"
 msgstr "Plėtiniai"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Editor"
 msgstr "Redaktorius"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets:"
 msgstr "Paryškinti atitinkančius skliaustus:"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Line wrap:"
 msgstr "Eilutės skaidymas:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:122
 #, fuzzy
 #| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
 msgstr "Šalinti tarpus eilučių pabaigoje"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Show Mini Map:"
 msgstr "Rodyti mini planą:"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
 msgstr "Eilutės pločio orientyras:"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font"
 msgstr "Šriftas"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Custom font:"
 msgstr "Tinkintas šriftas:"
 
@@ -232,58 +267,58 @@ msgstr "Neatkurti"
 msgid "Restore Anyway"
 msgstr "Vis tiek atkurti"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Kitoje programoje…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Kur atverti"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Kiti veiksmai"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Pervadinti"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Perkelti į Šiukšlinę"
 
-#: src/FolderManager/FileView.vala:40
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Aplankai"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Atverti aplanką"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Aplankas"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Tuščias failas"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/FolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Naujas"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "bevardis aplankas"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "naujas failas"
 
@@ -297,145 +332,242 @@ msgstr "Užverti aplanką"
 msgid "Close Other Folders"
 msgstr "Užverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:121
+#, c-format
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:135
+#, fuzzy, c-format
+#| msgid "New Document"
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "Naujas dokumentas"
+msgstr[1] "Naujas dokumentas"
+msgstr[2] "Naujas dokumentas"
+msgstr[3] "Naujas dokumentas"
+
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Atverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:234
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:516
+#: src/FolderManager/ProjectFolderItem.vala:577
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Šaka"
 
-#: src/FolderManager/ProjectFolderItem.vala:529
+#: src/FolderManager/ProjectFolderItem.vala:590
 msgid "Branch"
 msgstr "Šaka"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nėra tekstinis failas"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "Kodas neįkels šio failo tipo."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "Vis tiek įkelti"
 
-#: src/Services/Document.vala:288
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+#: src/Services/Document.vala:341
+#, fuzzy, c-format
+#| msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Failo \"%s\" įkėlimas užima daug laiko"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "Palaukite, kol Kodas įkelia failą."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
 msgstr "Atsisakyti įkėlimo"
 
-#: src/Services/Document.vala:384
-#, c-format
-msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:431
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jeigu neįrašysite, pakeitimai bus negrįžtamai prarasti."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "Užverti neįrašant"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:567
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Saving to “%s” failed."
+msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Naujas dokumentas"
 
-#. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#. No path for a new document
+#: src/Services/Document.vala:712
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "Failas \"%s\" negali būti perskaitytas"
+msgid "Cannot save this document to %s"
+msgstr ""
 
-#: src/Services/Document.vala:705
-msgid "It may be corrupt or you don't have permission to read it."
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:778
+#, c-format
+msgid "Cannot read text in file “%s”"
+msgstr ""
+
+#: src/Services/Document.vala:781
+#, fuzzy
+#| msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr ""
 "Galbūt, jis yra pažeistas arba jūs neturite reikiamų leidimų jo skaityti."
 
-#: src/Services/Document.vala:718
-#, c-format
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "Vis tiek įkelti"
+
+#: src/Services/Document.vala:820
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "Vieta, kurioje buvo failas \"%s\", buvo atjungta. Ar norite įrašyti kur nors "
 "kitur?"
 
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "Įrašyti kaip…"
-
-#: src/Services/Document.vala:727
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
-
-#: src/Services/Document.vala:744
-#, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Jūs negalite įrašyti pakeitimus į failą \"%s\". Ar norite įrašyti pakeitimus "
-"kitoje vietoje?"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "Įrašyti pakeitimus kitur"
-
-#: src/Services/Document.vala:781
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: src/Services/Document.vala:822
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted and there are unsaved changes."
 msgstr ""
 "Failas \"%s\" buvo pakeistas išorinės programos. Ar norite vėl jį įkelti, ar "
 "tęsti redagavimą?"
 
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "Įkelti"
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:882
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was modified by an external application"
+msgstr ""
+"Failas \"%s\" buvo pakeistas išorinės programos. Ar norite vėl jį įkelti, ar "
+"tęsti redagavimą?"
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "Tęsti"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/Document.vala:969
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "Išsiųsti"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:975
+#, fuzzy
+#| msgid "Save changes elsewhere"
+msgid "Save Document elsewhere"
+msgstr "Įrašyti pakeitimus kitur"
+
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Šablonai"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
+#: src/SymbolPane/SymbolOutline.vala:30
+msgid "Symbols"
+msgstr "Simboliai"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 #, fuzzy
@@ -444,8 +576,8 @@ msgid "No Project Selected"
 msgstr "Projekto šablonai"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
@@ -454,28 +586,54 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstinis failas iš %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Sintaksės paryškinimas"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "Eilutės numeris"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "Filtruoti kalbas"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "Grynasis tekstas"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:152
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "Automatinė įtrauka:"
+
+#: src/Widgets/FormatBar.vala:154
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Įterpti tarpus vietoj tabuliavimo žymių:"
+
+#: src/Widgets/FormatBar.vala:156
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "Tabuliavimo plotis:"
+
+#: src/Widgets/FormatBar.vala:236
+msgid "Go To Line:"
+msgstr "Pereiti į eilutę:"
+
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -484,7 +642,7 @@ msgstr[1] "%d tarpai"
 msgstr[2] "%d tarpų"
 msgstr[3] "%d tarpas"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -493,117 +651,162 @@ msgstr[1] "%d Tab žymės"
 msgstr[2] "%d Tab žymių"
 msgstr[3] "%d Tab žymė"
 
-#: src/Widgets/FormatBar.vala:207
-msgid "Go To Line:"
-msgstr "Pereiti į eilutę:"
-
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Atverti failą"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Projekto šablonai"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Įrašyti šį failą"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Įrašyti šį failą kitu pavadinimu"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Atkurti šį failą"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Bendrinti"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "Mažinti"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Mastelis 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "Didinti"
 
-#: src/Widgets/HeaderBar.vala:151
-msgid "Toggle Sidebar"
-msgstr "Perjungti šoninę juostą"
+#: src/Widgets/HeaderBar.vala:144
+msgid "Follow System Style"
+msgstr ""
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
+msgid "Show Terminal"
+msgstr "Rodyti terminalą"
+
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meniu"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/HeaderBar.vala:260
+msgid "Hide Terminal"
+msgstr "Slėpti terminalą"
+
+#: src/Widgets/Sidebar.vala:57
 #, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
+#| msgid "Open Folder"
+msgid "Open Folder…"
 msgstr "Atverti aplanką"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Rasti"
 
 #: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Ieškoti kito"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Ieškoti ankstesnio"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Ciklinė paieška"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Niekada"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Visada"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "Ieškoti ankstesnio"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Pakeisti į"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Pakeisti"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Pakeisti visus"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SearchBar.vala:576
+#, c-format
+msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Rikiuoti pažymėtas eilutes"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Perjungti komentarą"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Kopijuoti"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Įdėti"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -674,10 +877,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "Formatas:"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Niekada"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Dešimt minučių"
@@ -694,44 +893,6 @@ msgstr "Viena diena"
 msgid "One month"
 msgstr "Vienas mėnuo"
 
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr "Simboliai"
-
-#: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
-msgid "No Symbols Found"
-msgstr "Simboliai"
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Rodyti terminalą"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Slėpti terminalą"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Terminalas"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr "Kopijuoti"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr "Įdėti"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nerasta jokių tinkamų žodynų"
@@ -740,19 +901,73 @@ msgstr "Nerasta jokių tinkamų žodynų"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Įdiekite bent vieną [aspell] žodyną."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Žodžių užbaigimas"
+
+#, fuzzy, c-format
+#~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#~ msgid "File “%s” was deleted."
+#~ msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
+
+#~ msgid "Set of plugins"
+#~ msgstr "Įskiepių rinkinys"
+
+#~ msgid "plugin"
+#~ msgstr "įskiepis"
+
+#~ msgid "Save As…"
+#~ msgstr "Įrašyti kaip…"
+
+#~ msgid "Load"
+#~ msgstr "Įkelti"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Jūs negalite įrašyti pakeitimus į failą \"%s\". Ar norite įrašyti "
+#~ "pakeitimus kitoje vietoje?"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Jūs negalite įrašyti pakeitimus į failą \"%s\". Ar norite įrašyti "
+#~ "pakeitimus kitoje vietoje?"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "Failas \"%s\" negali būti perskaitytas"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "Atverti aplanką"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminalas"
+
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Perjungti šoninę juostą"
+
+#~ msgid "Find…"
+#~ msgstr "Rasti…"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Rodyti tarpus:"
 
 #~ msgid "For selected text"
 #~ msgstr "Pažymėtam tekstui"
-
-#~ msgid "Always"
-#~ msgstr "Visada"
 
 #~ msgid "High Contrast"
 #~ msgstr "Didelis kontrastas"
@@ -817,9 +1032,6 @@ msgstr "%s - Žodžių užbaigimas"
 #~ msgid "Web Preview"
 #~ msgstr "Saityno peržiūra"
 
-#~ msgid "Show Preview"
-#~ msgstr "Rodyti peržiūrą"
-
 #~ msgid "Hide Preview"
 #~ msgstr "Slėpti peržiūrą"
 
@@ -828,9 +1040,6 @@ msgstr "%s - Žodžių užbaigimas"
 
 #~ msgid "Others…"
 #~ msgstr "Kiti…"
-
-#~ msgid "Upload"
-#~ msgstr "Išsiųsti"
 
 #~ msgid "Other formats"
 #~ msgstr "Kiti formatai"
@@ -993,9 +1202,6 @@ msgstr "%s - Žodžių užbaigimas"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Terminalas jūsų tekstų redaktoriuje"
-
-#~ msgid "Strip trailing whitespace on save"
-#~ msgstr "Įrašant, šalinti eilučių pabaigoje esančius tarpus"
 
 #~ msgid "Highlight Selected Words"
 #~ msgstr "Paryškinti pažymėtus žodžius"

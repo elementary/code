@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 21:43+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-08-26 13:23+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/plugins/"
@@ -59,14 +59,6 @@ msgstr "Markdown műveletek"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Billentyűparancsok markdown-fájlok gyors szerkesztéséhez"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Kiemelés"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Kiemeli a szimbólumokat az aktuális Vala fájlban"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,22 +83,6 @@ msgstr "Helyesírás-ellenőrző"
 msgid "Checks the spelling of your documents"
 msgstr "Ellenőrzi a helyesírást a dokumentumaiban"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Whitespace karakterek levágása"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Levágja a sorok végén lévő whitespace karaktereket mentéskor"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminál"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Egy terminál a szövegszerkesztőben"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emuláció"
@@ -124,6 +100,24 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Egy kiegészítő párbeszédablak megjelenítése a fájljaiban legtöbbet használt "
 "szavakkal"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminál"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Egy terminál a szövegszerkesztőben"
+
+#~ msgid "Outline"
+#~ msgstr "Kiemelés"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Kiemeli a szimbólumokat az aktuális Vala fájlban"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Whitespace karakterek levágása"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Levágja a sorok végén lévő whitespace karaktereket mentéskor"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Böngésző előnézet"

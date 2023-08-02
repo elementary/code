@@ -4,8 +4,10 @@ conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
-conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
-conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
+conf_data.set_quoted('DATADIR', get_option('prefix') / get_option('datadir'))
+conf_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
+conf_data.set_quoted('BRANCH', branch)
+
 config_header = configure_file(
     input : 'config.vala.in',
     output : 'config.vala',
@@ -29,6 +31,7 @@ code_files = files(
     'FolderManager/ProjectFolderItem.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
+    'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
     'Services/MonitoredRepository.vala',
@@ -44,7 +47,17 @@ code_files = files(
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
+    'Widgets/Terminal.vala',
     'Widgets/WelcomeView.vala',
+    'SymbolPane/SymbolOutline.vala',
+    'SymbolPane/Vala/ValaComparisonHelper.vala',
+    'SymbolPane/Vala/ValaSymbolItem.vala',
+    'SymbolPane/Vala/ValaSymbolOutline.vala',
+    'SymbolPane/Vala/ValaSymbolResolver.vala',
+    'SymbolPane/C/CtagsSymbol.vala',
+    'SymbolPane/C/CtagsSymbolIter.vala',
+    'SymbolPane/C/CtagsSymbolOutline.vala',
+
 )
 
 executable(
@@ -76,7 +89,7 @@ pkg.generate(
     filebase: 'codecore'
 )
 
-install_data ('codecore.deps', install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'vala', 'vapi'))
+install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
 
 codecore_dep = declare_dependency(
     link_with: codecore,

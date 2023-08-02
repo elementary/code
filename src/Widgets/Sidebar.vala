@@ -19,10 +19,25 @@
 
 public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
+    public Code.ChooseProjectButton choose_project_button { get; private set; }
+    public Hdy.HeaderBar headerbar { get; private set; }
+
     private Gtk.StackSwitcher stack_switcher;
+
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
+        choose_project_button = new Code.ChooseProjectButton () {
+            hexpand = true,
+            valign = Gtk.Align.CENTER
+        };
+
+        headerbar = new Hdy.HeaderBar () {
+            custom_title = choose_project_button,
+            show_close_button = true
+        };
+        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -39,7 +54,7 @@ public class Code.Sidebar : Gtk.Grid {
         var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
             always_show_image = true,
-            label = _("Open Project Folder…")
+            label = _("Open Folder…")
         };
 
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
@@ -63,6 +78,7 @@ public class Code.Sidebar : Gtk.Grid {
         actionbar.add (add_folder_button);
         actionbar.pack_end (project_more_button);
 
+        add (headerbar);
         add (stack_switcher);
         add (stack);
         add (actionbar);
