@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext search_context = null;
+        public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
 
         public signal void search_empty ();
 
@@ -227,7 +227,6 @@ namespace Scratch.Widgets {
 
             cancel_update_search_widgets ();
             this.text_view = text_view;
-
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
                 search_context = null;
@@ -253,8 +252,16 @@ namespace Scratch.Widgets {
         }
 
         private void on_selection_changed () {
+
             var selected_text = text_view.get_selected_text ();
-            if (selected_text != search_entry.text) {
+            bool clear_required;
+            if (search_context.settings.case_sensitive) {
+                clear_required = selected_text != search_entry.text;
+            } else {
+                clear_required = selected_text.down () != search_entry.text.down ();
+            }
+
+            if (clear_required) {
                 search_entry.text = "";
             }
         }
