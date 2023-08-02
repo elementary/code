@@ -4,8 +4,8 @@ conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
-conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
-conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
+conf_data.set_quoted('DATADIR', get_option('prefix') / get_option('datadir'))
+conf_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 conf_data.set_quoted('BRANCH', branch)
 
 config_header = configure_file(
@@ -89,7 +89,7 @@ pkg.generate(
     filebase: 'codecore'
 )
 
-install_data ('codecore.deps', install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'vala', 'vapi'))
+install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
 
 codecore_dep = declare_dependency(
     link_with: codecore,

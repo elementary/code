@@ -122,6 +122,7 @@
       <description>Whether Code should use auto indentation</description>
     </key>
     <key name="indent-width" type="i">
+      <range min="2" max="16"/>
       <default>4</default>
       <summary>Tab Size</summary>
       <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
