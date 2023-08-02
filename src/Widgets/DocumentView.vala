@@ -74,12 +74,15 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 tab.restore_data = document.get_uri ();
             }
 
-            return document.do_close ();
+            close_document (document); // Will remove tab if possible
+            return false;
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
-            save_focused_document_uri (new_tab as Services.Document);
+            var doc = (Services.Document)new_tab;
+            /* The 'document_change' signal may not be emitted if this already has focus so signal here*/
+            document_change (doc, this);
+            save_focused_document_uri (doc);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -175,7 +178,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     private void insert_document (Scratch.Services.Document doc, int pos) {
         insert_tab (doc, pos);
         if (Scratch.saved_state.get_boolean ("outline-visible")) {
-            warning ("setting outline visible");
+            debug ("setting outline visible");
             doc.show_outline (true);
         }
     }
@@ -186,12 +189,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-
-            insert_document (doc, -1);
-            current_document = doc;
-
-            doc.focus ();
-            save_opened_files ();
+            // Must open document in order to unlock it.
+            open_document (doc);
         } catch (Error e) {
             critical (e.message);
         }
@@ -207,11 +206,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var doc = new Services.Document (window.actions, file);
 
-            insert_document (doc, -1);
-            current_document = doc;
+            open_document (doc);
 
-            doc.focus ();
-            save_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -266,7 +262,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             doc.source_view.set_text (original.get_text ());
             doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
-                doc.save.begin (true);
+                doc.save_with_hold.begin (true);
             }
 
             insert_document (doc, -1);
@@ -304,17 +300,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     public void close_document (Services.Document doc) {
-        remove_tab (doc);
-        doc.do_close ();
-    }
-
-    public void close_current_document () {
-        var doc = current_document;
-        if (doc != null) {
-            if (close_tab_requested (doc)) {
+        doc.do_close.begin (false, (obj, res) => {
+            if (doc.do_close.end (res)) {
                 remove_tab (doc);
             }
-        }
+        });
     }
 
     public void request_placeholder_if_empty () {
@@ -386,7 +376,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
         var doc = tab as Services.Document;
-
         var other_window = new MainWindow (false);
         other_window.move (x, y);
 

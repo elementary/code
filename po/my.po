@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,99 +13,90 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "စာမျက်နှာအသစ်"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "ဝင်းဒိုးအသစ်"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "ဗာရှင်းအချက်အလက်များကို ပြသပါ။ ထို့နောက် ပိတ်ပါ။"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "ပလဂ်အင်များအစု"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "ပလဂ်အင်များအစု"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr ""
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:337
 msgid "Hide Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:342
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:356
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:533
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:514
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:518
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
-#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "မလုပ်တော့ပါ"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr ""
 
@@ -251,23 +242,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr ""
@@ -276,32 +267,32 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 #, fuzzy
 msgid "New"
 msgstr "စာမျက်နှာအသစ်"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr ""
 
@@ -356,116 +347,162 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:344
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "မလုပ်တော့ပါ"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:431
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "ယခုစာတမ်း %s ၏ ပြောင်းလဲမှုများကို မပိတ်မီ သိမ်းပါမည်လား။"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:432
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "သင် မသိမ်းဆည်းလျှင် နောက်ဆုံး ၄ စက္ကန့်မှ ပြင်ဆင်မှုများသည် လုံးဝအပြီး ဆုံးရှုံးသွားပါလိမ့်မည်။"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:438
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "သိမ်းဆည်းခြင်း မပြုပဲ ပိတ်လိုက်ပါ"
 
-#: src/Services/Document.vala:407 src/Services/Document.vala:525
-#: src/Services/Document.vala:763
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "သိမ်းမည်"
 
-#: src/Services/Document.vala:522
+#: src/Services/Document.vala:567
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "ယခုစာတမ်း %s ၏ ပြောင်းလဲမှုများကို မပိတ်မီ သိမ်းပါမည်လား။"
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "ဖိုင်ကို သိမ်းမည်"
 
-#: src/Services/Document.vala:605 src/Services/Document.vala:614
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "စာတမ်းအသစ်ယူ"
 
-#. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:737
+#. No path for a new document
+#: src/Services/Document.vala:712
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
+msgid "Cannot save this document to %s"
 msgstr ""
 
-#: src/Services/Document.vala:738
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:778
+#, c-format
+msgid "Cannot read text in file “%s”"
+msgstr ""
+
+#: src/Services/Document.vala:781
 #, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr "ဖိုင် \"%s\" ကို မဖတ်နိုင်ပါ။ ၄င်းသည် ဖိုင်ပျက်နေခြင်း ဖြစ်နိုင်ပါသည်။"
 
-#: src/Services/Document.vala:751
-#, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"ဖိုင် \"%s\" ရှိရာ တည်နေရာကို တပ်ဆင်ထားခြင်း မရှိပါ။ သင်သည် အခြားတစ်နေရာရာတွင် သိမ်းပါမည်လား။"
-
-#: src/Services/Document.vala:754
-msgid "Save As…"
-msgstr "အခြားပုံစံဖြင့် သိမ်းမည်"
-
-#: src/Services/Document.vala:760
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "ဖိုင် \"%s\"ကို ဖျက်ထားသည်။ ဘယ်လိုပဲဖြစ်ဖြစ် သင် ထိုဖိုင်ကို သိမ်းပါမည်လား။"
-
-#: src/Services/Document.vala:777
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"သင်သည် ဖိုင် \"%s\" တွင် ပြုလုပ်ထားသည့် ပြောင်းလဲမှုများကို မသိမ်းနိုင်ပါ။ ထိုဖိုင်၏ ပြောင်းလဲမှုများကို သင် "
-"အခြား နေရာတွင် သိမ်းပါမည်လား။"
-
-#: src/Services/Document.vala:780
-msgid "Save changes elsewhere"
-msgstr "ပြောင်းလဲမှုများကို အခြားတနေရာတွင် သိမ်းမည်"
-
-#: src/Services/Document.vala:814
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
-#: src/Services/Document.vala:817
-msgid "Load"
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+msgid "Show Anyway"
 msgstr ""
 
 #: src/Services/Document.vala:820
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+"ဖိုင် \"%s\" ရှိရာ တည်နေရာကို တပ်ဆင်ထားခြင်း မရှိပါ။ သင်သည် အခြားတစ်နေရာရာတွင် သိမ်းပါမည်လား။"
+
+#: src/Services/Document.vala:822
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "ဖိုင် \"%s\"ကို ဖျက်ထားသည်။ ဘယ်လိုပဲဖြစ်ဖြစ် သင် ထိုဖိုင်ကို သိမ်းပါမည်လား။"
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "ဖိုင် \"%s\"ကို ဖျက်ထားသည်။ ဘယ်လိုပဲဖြစ်ဖြစ် သင် ထိုဖိုင်ကို သိမ်းပါမည်လား။"
+
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr ""
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr ""
+
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr ""
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:975
+#, fuzzy
+#| msgid "Save changes elsewhere"
+msgid "Save Document elsewhere"
+msgstr "ပြောင်းလဲမှုများကို အခြားတနေရာတွင် သိမ်းမည်"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -493,55 +530,55 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:158
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 msgid "Automatic Indentation"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 msgid "Insert Spaces Instead Of Tabs"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -617,64 +654,80 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr ""
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr ""
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:136
+msgid "Search Options"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:576
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr ""
 
@@ -753,10 +806,6 @@ msgstr ""
 msgid "Select Format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr ""
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr ""
@@ -785,6 +834,32 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#~ msgid "Set of plugins"
+#~ msgstr "ပလဂ်အင်များအစု"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "ပလဂ်အင်များအစု"
+
+#~ msgid "Save As…"
+#~ msgstr "အခြားပုံစံဖြင့် သိမ်းမည်"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "သင်သည် ဖိုင် \"%s\" တွင် ပြုလုပ်ထားသည့် ပြောင်းလဲမှုများကို မသိမ်းနိုင်ပါ။ ထိုဖိုင်၏ ပြောင်းလဲမှုများကို သင် "
+#~ "အခြား နေရာတွင် သိမ်းပါမည်လား။"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "သင်သည် ဖိုင် \"%s\" တွင် ပြုလုပ်ထားသည့် ပြောင်းလဲမှုများကို မသိမ်းနိုင်ပါ။ ထိုဖိုင်၏ ပြောင်းလဲမှုများကို သင် "
+#~ "အခြား နေရာတွင် သိမ်းပါမည်လား။"
 
 #~ msgid "Current working directory"
 #~ msgstr "လက်ရှိအလုပ်လုပ်နေသည့်လမ်းကြောင်း"

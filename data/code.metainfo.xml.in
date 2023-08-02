@@ -29,12 +29,16 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/7.0.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.1.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/7.0.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.1.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
+
+  <branding>
+    <color type="primary">#cfa25e</color>
+  </branding>
 
   <content_rating type="oars-1.1" />
 
@@ -62,19 +66,51 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="7.0.1" date="2023-02-22" urgency="medium">
+    <release version="7.1.0" date="2023-07-28" urgency="medium">
       <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Search options transferred to searchbar menu</li>
+          <li>Whole word search option added</li>
+          <li>Whole word, case sensitive mode and use regex search settings now persist</li>
+        </ul>
         <p>Minor updates:</p>
         <ul>
-          <li>Show when running a development branch of Code</li>
+          <li>The search bar now updates properly after changing the active document</li>
+          <li>Trying to save a document to an unwritable location is now handled better</li>
+          <li>The system style is now followed by the symbol outline and when launched without open documents</li>
+          <li>Mixed case sensitive search now works as expected</li>
+          <li>The search results no longer change unexpectedly when focusing a document</li>
+          <li>Now there is always an active project at startup if there are projects in the sidebar</li>
+          <li>If a development branch is running this shows in the window title and in the dock tooltip</li>
+          <li>Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs</li>
+          <li>Ensure active project at startup (include non-git folders)</li>
           <li>Updated translations</li>
         </ul>
       </description>
       <issues>
-        <issue url="https://github.com/elementary/code/issues/1261">Handle saving to unwritable location better to avoid data loss</issue>
+        <issue url="https://github.com/elementary/code/issues/739">No expander on folders that contain no text files</issue>
+        <issue url="https://github.com/elementary/code/issues/933">Add whole word search</issue>
+        <issue url="https://github.com/elementary/code/issues/965">Undo-ing sometimes deletes the entire contents of a file</issue>
+        <issue url="https://github.com/elementary/code/issues/1175">Search occurence label does not update when active document changed</issue>
+        <issue url="https://github.com/elementary/code/issues/1183">Autosave of unsaved buffers not reliable</issue>
+        <issue url="https://github.com/elementary/code/issues/1208">Slow to close multiple documents</issue>
+        <issue url="https://github.com/elementary/code/issues/1210">Unexpected closing on pressing Global Search accelerator with no open documents</issue>
+        <issue url="https://github.com/elementary/code/issues/1248">Clicking "Find in Project…" in the welcome screen causes the app crashing</issue>
+        <issue url="https://github.com/elementary/code/issues/1256">Cancelling saving does not work as expected when closing project folder resulting in data loss</issue>
+        <issue url="https://github.com/elementary/code/issues/1261">Saving new document to an unwritable location gives unexpected behaviour and possible data loss</issue>
         <issue url="https://github.com/elementary/code/issues/1263">Symbol outline does not respect system style</issue>
+        <issue url="https://github.com/elementary/code/issues/1266">"Replace All" should not disable the "Replace" and "Replace All" buttons</issue>
         <issue url="https://github.com/elementary/code/issues/1270">Does not follow system color scheme when launching with no files open</issue>
-        <issue url="https://github.com/elementary/code/pull/1254">Ensure active project at startup (include non-git folders)</issue>
+        <issue url="https://github.com/elementary/code/issues/1272">Secure WebDav files opened from Files cannot save</issue>
+        <issue url="https://github.com/elementary/code/issues/1275">Case sensitive/insensitive search does not work as expected with mixed case search term</issue>
+        <issue url="https://github.com/elementary/code/issues/1282">Cannot open files with unknown characters</issue>
+        <issue url="https://github.com/elementary/code/issues/1293">Search results change when document focused in</issue>
+        <issue url="https://github.com/elementary/code/issues/1319">Document does not open when sidebar entry clicked if it is already focused</issue>
+        <issue url="https://github.com/elementary/code/issues/1327">Git branch change can result in unwanted warnings</issue>
+        <issue url="https://github.com/elementary/code/issues/1335">Search entry reverts to previous term after editing and pressing Control+f</issue>
+        <issue url="https://github.com/elementary/code/issues/1340">Tab width menu does not work</issue>
+        <issue url="https://github.com/elementary/code/issues/1341">Line numbers should start from one not zero</issue>
       </issues>
     </release>
 

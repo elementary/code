@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -20,104 +20,95 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Bảng mới"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Cửa sổ mới"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Hiển thị phiên bản và thoát"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Tập hợp plugin"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "Tập hợp plugin"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Mã nguồn"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "Mã nguồn"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Mở tập tin"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:337
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:342
 #, fuzzy
 msgid "Show Projects Sidebar"
 msgstr "Dành cho từ đã chọn"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:356
 msgid "Show Symbol Outline"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:533
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:514
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:518
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Mở vài tệp"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Mở"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
-#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Bỏ qua"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "_Mở"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Bỏ qua"
 
@@ -267,24 +258,24 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Mở tại"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 #, fuzzy
 msgid "Other Actions"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Đổi tên"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Xóa vào Thùng rác"
@@ -293,32 +284,32 @@ msgstr "Xóa vào Thùng rác"
 msgid "Folders"
 msgstr "Các thư mục"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "Mở tập tin"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Thư mục"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Tệp rỗng"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 #, fuzzy
 msgid "new file"
 msgstr "Tập tin mới"
@@ -375,112 +366,159 @@ msgstr "Thay đổi tùy chỉnh của Scratch"
 msgid "Branch"
 msgstr "Thay đổi tùy chỉnh của Scratch"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:344
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Bỏ qua"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:431
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:432
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Nếu bạn không lưu, thay đổi trong 4 giây trước sẽ bị mất mãi mãi"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:438
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Đóng không lưu"
 
-#: src/Services/Document.vala:407 src/Services/Document.vala:525
-#: src/Services/Document.vala:763
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Lưu"
 
-#: src/Services/Document.vala:522
+#: src/Services/Document.vala:567
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:605 src/Services/Document.vala:614
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Tạo tài liệu mới"
 
+#. No path for a new document
+#: src/Services/Document.vala:712
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:778
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
+msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:738
-msgid "It may be corrupt or you don't have permission to read it."
+#: src/Services/Document.vala:781
+msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:751
-#, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
-#: src/Services/Document.vala:754
-msgid "Save As…"
-msgstr ""
-
-#: src/Services/Document.vala:760
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
-
-#: src/Services/Document.vala:777
-#, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-
-#: src/Services/Document.vala:780
-msgid "Save changes elsewhere"
-msgstr "Lưu thay đổi vào nơi khác"
-
-#: src/Services/Document.vala:814
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-
-#: src/Services/Document.vala:817
-msgid "Load"
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+msgid "Show Anyway"
 msgstr ""
 
 #: src/Services/Document.vala:820
+#, c-format
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+
+#: src/Services/Document.vala:822
+#, fuzzy, c-format
+#| msgid "The file %s was deleted."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "Tập tin %s đã bị xóa."
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, fuzzy, c-format
+#| msgid "Maybe you do not have the necessary permissions."
+msgid "File “%s” does not have write permission."
+msgstr "Có thể bạn không có quyền truy cập cần thiết."
+
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr ""
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr ""
+
+#: src/Services/Document.vala:969
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "Tải lên"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:975
+#, fuzzy
+#| msgid "Save the current file"
+msgid "Save Document elsewhere"
+msgstr "Lưu tập tin hiện tại"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -509,62 +547,62 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:158
+#: src/Widgets/DocumentView.vala:161
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Tập tin văn bản"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Làm nổi bật cú pháp"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 #, fuzzy
 msgid "Line number"
 msgstr "Hiện số thứ tự dòng:"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "Tự động thụt dòng:"
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Chèn khoảng trống thay vì tab"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "Độ rộng Tab:"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "Đi tới dòng:"
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -640,65 +678,83 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Tìm kiếm"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
-msgid "no results"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr ""
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Không bao giờ"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Luôn luôn"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Next Search"
+msgid "Search Options"
+msgstr "Tìm kiếm tiếp"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Thay thế bằng"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Thay thế"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:576
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:522
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Dành cho từ đã chọn"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr ""
 
@@ -783,10 +839,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "Chọn kiểu chữ:"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Không bao giờ"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Mười phút"
@@ -816,6 +868,16 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
+#~ msgid "Set of plugins"
+#~ msgstr "Tập hợp plugin"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "Tập hợp plugin"
+
+#~ msgid "Save changes elsewhere"
+#~ msgstr "Lưu thay đổi vào nơi khác"
+
 #, fuzzy
 #~ msgid "Open Project Folder…"
 #~ msgstr "Mở tập tin"
@@ -833,9 +895,6 @@ msgstr ""
 #~ msgid "For selected text"
 #~ msgstr "Dành cho từ đã chọn"
 
-#~ msgid "Always"
-#~ msgstr "Luôn luôn"
-
 #, fuzzy
 #~ msgid "Zeitgeist Datasource for Code"
 #~ msgstr "Nguồn dữ liệu Zeitgeist cho Scratch"
@@ -845,9 +904,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Tệp \"%s\" không thể khởi tạo.\n"
 #~ "%s"
-
-#~ msgid "Maybe you do not have the necessary permissions."
-#~ msgstr "Có thể bạn không có quyền truy cập cần thiết."
 
 #~ msgid "Maybe the file path provided is not valid."
 #~ msgstr "Có thể đường dẫn không tồn tại."
@@ -885,9 +941,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "Khác..."
-
-#~ msgid "Upload"
-#~ msgstr "Tải lên"
 
 #~ msgid "Other formats"
 #~ msgstr "Định dạng khác"
@@ -996,9 +1049,6 @@ msgstr ""
 #~ msgid "Save as"
 #~ msgstr "Lưu là"
 
-#~ msgid "Save the current file"
-#~ msgstr "Lưu tập tin hiện tại"
-
 #~ msgid "Save the current file with a different name"
 #~ msgstr "Lưu tập tin hiện tại với tên khác"
 
@@ -1080,6 +1130,3 @@ msgstr ""
 
 #~ msgid "The file %s was modified."
 #~ msgstr "Tập tin %s đã thay đổi"
-
-#~ msgid "The file %s was deleted."
-#~ msgstr "Tập tin %s đã bị xóa."

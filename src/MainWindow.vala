@@ -95,6 +95,7 @@ namespace Scratch {
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
+        public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
@@ -141,6 +142,7 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_CLOSE_TAB, action_close_tab, "s"},
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
@@ -187,7 +189,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
@@ -245,7 +249,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+            plugins = new Scratch.Services.PluginsManager (this);
 
             key_press_event.connect (on_key_pressed);
 
@@ -376,8 +380,6 @@ namespace Scratch {
             search_bar.search_empty.connect (() => {
                 folder_manager_view.clear_badges ();
             });
-
-            Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
@@ -513,8 +515,14 @@ namespace Scratch {
                 update_find_actions ();
             });
 
-            document_view.tab_removed.connect (() => {
+            document_view.tab_removed.connect ((tab) => {
                 update_find_actions ();
+                var doc = (Scratch.Services.Document)tab;
+                var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
+                if (selected_item != null && selected_item.file.file.equal (doc.file)) {
+                    // Do not leave removed tab selected
+                    folder_manager_view.selected = null;
+                }
             });
 
             document_view.document_change.connect ((doc) => {
@@ -614,8 +622,8 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            handle_quit ();
-            return !check_unsaved_changes ();
+            action_quit ();
+            return true;
         }
 
         // Set sensitive property for 'delicate' Widgets/GtkActions while
@@ -663,11 +671,11 @@ namespace Scratch {
             document_view.close_document (doc);
         }
 
-        // Check if there no unsaved changes
-        private bool check_unsaved_changes () {
+        // Check that there no unsaved changes and all saves are successful
+        private async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!doc.do_close (true)) {
+                if (!yield (doc.do_close (true))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -818,9 +826,11 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            if (check_unsaved_changes ()) {
-                destroy ();
-            }
+            check_unsaved_changes.begin ((obj, res) => {
+                if (check_unsaved_changes.end (res)) {
+                    destroy ();
+                }
+            });
         }
 
         private void action_open () {
@@ -892,7 +902,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save.begin (true);
+                    doc.save_request ();
                 }
             }
         }
@@ -900,7 +910,7 @@ namespace Scratch {
         private void action_save_as () {
             var doc = get_current_document ();
             if (doc != null) {
-                doc.save_as.begin ();
+                doc.save_as_with_hold.begin ();
             }
         }
 
@@ -951,6 +961,16 @@ namespace Scratch {
             } else {
                 fullscreen ();
             }
+        }
+
+        private void action_close_tab (SimpleAction action, Variant? param) {
+            var close_path = get_target_path_for_actions (param);
+            unowned var docs = document_view.docs;
+            docs.foreach ((doc) => {
+                if (doc.file.get_path () == close_path) {
+                    document_view.close_document (doc);
+                }
+            });
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {
@@ -1059,6 +1079,10 @@ namespace Scratch {
                 search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
+            } else if (search_bar.search_entry.text != "") {
+                // Always search on what is showing in search entry
+                current_search_term = search_bar.search_entry.text;
+                search_bar.search_entry.grab_focus ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.

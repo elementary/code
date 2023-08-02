@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 18:35+0000\n"
-"PO-Revision-Date: 2023-02-10 22:38+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -17,101 +17,93 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Новая вкладка"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Новое окно"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Распечатать информацию о версии и выйти"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Набор расширений"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "расширение"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:207
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:317
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:322 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "Найти на странице…"
 
-#: src/MainWindow.vala:333
+#: src/MainWindow.vala:337
 msgid "Hide Projects Sidebar"
 msgstr "Скрыть панель проекта"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:342
 msgid "Show Projects Sidebar"
 msgstr "Показать панель проекта"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:351
 msgid "Hide Symbol Outline"
 msgstr "Скрыть обводку символов"
 
-#: src/MainWindow.vala:352
+#: src/MainWindow.vala:356
 msgid "Show Symbol Outline"
 msgstr "Показать обводку символов"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:533
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:828 src/Services/Document.vala:514
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:518
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:836
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:839
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:840 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:406
-#: src/Services/Document.vala:526 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:865
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:866
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -260,23 +252,23 @@ msgstr "Не восстанавливать"
 msgid "Restore Anyway"
 msgstr "Всё равно восстановить"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Другое приложение…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Открыть в"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Другие действия"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Переименовать"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
@@ -285,31 +277,31 @@ msgstr "Переместить в корзину"
 msgid "Folders"
 msgstr "Папки"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Поиск в папке…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Папку"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Пустой файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Создать"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "безымянная папка"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "новый файл"
 
@@ -366,114 +358,153 @@ msgstr "Новая ветка…"
 msgid "Branch"
 msgstr "Ветка"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s не является текстовым файлом"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "Код не открывает файлы этого типа."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "Всё равно открыть"
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Загрузка файла «%s» занимает много времени"
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "Пожалуйста, подождите, пока Код открывает файл."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
 msgstr "Отменить загрузку"
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:431
 #, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Сохранить изменения в «%s» перед закрытием?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Если вы не сохраните, то изменения будут безвозвратно потеряны."
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "Закрыть без сохранения"
 
-#: src/Services/Document.vala:407 src/Services/Document.vala:525
-#: src/Services/Document.vala:763
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/Services/Document.vala:522
+#: src/Services/Document.vala:567
+#, c-format
+msgid "Saving to “%s” failed."
+msgstr "Не удалось сохранить «%s»."
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: src/Services/Document.vala:605 src/Services/Document.vala:614
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Новый документ"
 
+#. No path for a new document
+#: src/Services/Document.vala:712
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr "Невозможно сохранить документ в %s"
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:778
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "Файл «%s» не может быть прочитан"
+msgid "Cannot read text in file “%s”"
+msgstr "Невозможно прочитать текст в файле «%s»"
 
-#: src/Services/Document.vala:738
-msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Возможно, он повреждён или у вас нет разрешения на его чтение."
+#: src/Services/Document.vala:781
+msgid "You may not have permission to read the file."
+msgstr "Возможно, у вас нет разрешения на чтение этого файла."
 
-#: src/Services/Document.vala:751
-#, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"Источник, содержащий файл «%s», был извлечён. Сохранить в другом месте?"
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
+msgstr "Файл может быть повреждён или быть не текстовым"
 
-#: src/Services/Document.vala:754
-msgid "Save As…"
-msgstr "Сохранить как…"
-
-#: src/Services/Document.vala:760
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Файл «%s» был удалён. Всё равно сохранить?"
-
-#: src/Services/Document.vala:777
-#, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Вы не можете сохранять изменения в файле «%s». Хотите сохранить изменения в "
-"другом месте?"
-
-#: src/Services/Document.vala:780
-msgid "Save changes elsewhere"
-msgstr "Сохранить изменения в другом месте"
-
-#: src/Services/Document.vala:814
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-"Файл «%s» был изменён другим приложением. Загрузить его снова или продолжить "
-"редактирование?"
-
-#: src/Services/Document.vala:817
-msgid "Load"
-msgstr "Загрузить"
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+msgid "Show Anyway"
+msgstr "Всё равно открыть"
 
 #: src/Services/Document.vala:820
+#, c-format
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+"Источник, содержащий файл «%s» с несохранёнными изменениями, был извлечён."
+
+#: src/Services/Document.vala:822
+#, c-format
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "Файл «%s» с несохранёнными изменениями был изменён другим приложением."
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, c-format
+msgid "File “%s” does not have write permission."
+msgstr "Файл «%s» не имеет прав на запись."
+
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr "Файл «%s» был изменён другим приложением"
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+"Имеются несохранённые изменения. При перезагрузке документа они будут "
+"перезаписаны."
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr "Документ был изменён извне с момента его последнего сохранения."
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr "«%s» не может быть сохранён здесь. Сохранить копию в другом месте?"
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr "Игнорировать"
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr "Сохранить копию…"
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "Продолжить"
+
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr "Перезагрузить"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr "Перезаписать"
+
+#: src/Services/Document.vala:975
+msgid "Save Document elsewhere"
+msgstr "Сохранить в другом месте"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -501,48 +532,48 @@ msgstr "Активный Git-проект: %s"
 msgid "Filter projects"
 msgstr "Отфильтровать проекты"
 
-#: src/Widgets/DocumentView.vala:158
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Текстовый файл от %s:%d"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Подсветка синтаксиса"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "Номера строк"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "Фильтр языков"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "Простой текст"
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr "Некоторые настройки установлены файлом EditorConfig"
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 msgid "Automatic Indentation"
 msgstr "Автоматическая расстановка отступов"
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Вставлять пробелы вместо табуляций"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
 msgstr "Ширина табуляции"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "Перейти к строке:"
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -550,7 +581,7 @@ msgstr[0] "%d пробел"
 msgstr[1] "%d пробела"
 msgstr[2] "%d пробелов"
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -626,64 +657,80 @@ msgstr "По алфавиту"
 msgid "Manage project folders"
 msgstr "Управление папками проекта"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Найти"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:585
-#: src/Widgets/SearchBar.vala:588
-msgid "no results"
-msgstr "ничего не найдено"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr "Ничего не найдено"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Найти далее"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Найти предыдущее"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Цикличный поиск"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:111
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Никогда"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr "Смешанный регистр"
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Всегда"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "С учётом регистра"
 
-#: src/Widgets/SearchBar.vala:111
-msgid "Case Insensitive"
-msgstr "Без учёта регистра"
-
-#: src/Widgets/SearchBar.vala:119
-msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr "Использовать регулярные выражения"
 
-#: src/Widgets/SearchBar.vala:140
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr "Искать целые слова"
+
+#: src/Widgets/SearchBar.vala:136
+msgid "Search Options"
+msgstr "Параметры поиска"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Заменить на"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Заменить"
 
-#: src/Widgets/SearchBar.vala:146
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Заменить всё"
 
-#: src/Widgets/SearchBar.vala:584
+#: src/Widgets/SearchBar.vala:576
 #, c-format
 msgid "%d of %d"
 msgstr "%d из %d"
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr "ничего не найдено"
+
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Сортировать выделенные строки"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Закомментировать/Раскомментировать"
 
@@ -760,10 +807,6 @@ msgstr "Доступные форматы"
 msgid "Select Format"
 msgstr "Выбрать формат"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Никогда"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Десять минут"
@@ -793,6 +836,48 @@ msgstr "Пожалуйста, установите хотя бы один [aspel
 msgid "%s - Word Completion"
 msgstr "%s — Автозавершение слов"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "Файл «%s» удалён."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Набор расширений"
+
+#~ msgid "plugin"
+#~ msgstr "расширение"
+
+#~ msgid "Save As…"
+#~ msgstr "Сохранить как…"
+
+#~ msgid "Load"
+#~ msgstr "Загрузить"
+
+#, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Вы не можете сохранить этот файл в «%s». Хотите сохранить его в другом "
+#~ "месте?"
+
+#, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Вы не можете сохранять изменения в файле «%s». Хотите сохранить изменения "
+#~ "в другом месте?"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "Файл «%s» не может быть прочитан"
+
+#~ msgid "Case Insensitive"
+#~ msgstr "Без учёта регистра"
+
+#~ msgid "Save changes elsewhere"
+#~ msgstr "Сохранить изменения в другом месте"
+
 #~ msgid "Open Project Folder…"
 #~ msgstr "Открыть папку проекта…"
 
@@ -813,9 +898,6 @@ msgstr "%s — Автозавершение слов"
 
 #~ msgid "For selected text"
 #~ msgstr "Для выделенного текста"
-
-#~ msgid "Always"
-#~ msgstr "Всегда"
 
 #~ msgid "High Contrast"
 #~ msgstr "Высокий контраст"
@@ -889,9 +971,6 @@ msgstr "%s — Автозавершение слов"
 
 #~ msgid "Others…"
 #~ msgstr "Другие…"
-
-#~ msgid "Upload"
-#~ msgstr "Загрузить"
 
 #~ msgid "Other formats"
 #~ msgstr "Другие форматы"
@@ -1248,9 +1327,6 @@ msgstr "%s — Автозавершение слов"
 #~ msgid "Save as"
 #~ msgstr "Сохранить как"
 
-#~ msgid "Save the current file"
-#~ msgstr "Сохранить текущий файл"
-
 #~ msgid "Save the current file with a different name"
 #~ msgstr "Сохранить текущий файл под другим именем"
 
@@ -1308,9 +1384,6 @@ msgstr "%s — Автозавершение слов"
 
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Сохранить изменения в файле %s перед закрытием?"
-
-#~ msgid "The file %s was deleted."
-#~ msgstr "Файл %s удалён."
 
 #~ msgid "The file %s was modified."
 #~ msgstr "Файл %s был изменён."

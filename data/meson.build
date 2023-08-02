@@ -16,16 +16,16 @@ endforeach
 install_data([
   'styles/elementary-dark.xml',
   'styles/elementary-light.xml',
-], install_dir: join_paths(get_option('datadir'), 'gtksourceview-4', 'styles'))
+], install_dir: get_option('datadir') / 'gtksourceview-4' / 'styles')
 
 install_data([
   'fonts/BuilderBlocks.ttf',
-], install_dir: join_paths(get_option('datadir'), meson.project_name(), 'fonts'))
+], install_dir: get_option('datadir') / meson.project_name() / 'fonts')
 
 install_data(
     'io.elementary.code.gschema.xml',
     'io.elementary.code.plugins.spell.gschema.xml',
-    install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'glib-2.0', 'schemas')
+    install_dir: get_option('prefix') / get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
 config_data = configuration_data()
@@ -47,16 +47,16 @@ desktop_in_file = configure_file(
 desktop_file = i18n.merge_file(
     input: desktop_in_file,
     output: 'io.elementary.code.desktop',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+    po_dir: meson.project_source_root () / 'po' / 'extra',
     type: 'desktop',
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    install_dir: get_option('datadir') / 'applications',
     install: true
 )
 
 i18n.merge_file(
     input: 'code.metainfo.xml.in',
     output: meson.project_name() + '.metainfo.xml',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'xml',
     install: true,
     install_dir: get_option('datadir') / 'metainfo',
@@ -78,8 +78,12 @@ if get_option ('have_pkexec')
     i18n.merge_file(
         input: policy_in,
         output: meson.project_name() + '.policy',
-        po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+        po_dir: meson.project_source_root () / 'po' / 'extra',
         install: true,
-        install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions'),
+        install_dir: get_option('datadir') / 'polkit-1' / 'actions',
     )
 endif
+
+install_man(
+    'io.elementary.code.1'
+)
