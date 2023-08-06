@@ -20,7 +20,9 @@
 public class Code.FormatBar : Gtk.Box {
     public bool tab_style_set_by_editor_config { get; set; default = false; }
     public bool tab_width_set_by_editor_config { get; set; default = false; }
+    public bool right_margin_set_by_editor_config { get; set; default = false; }
     public FormatButton line_menubutton { get; private set;}
+    public FormatButton right_margin_menubutton { get; private set;}
     public Gtk.InfoBar editorconfig_infobar { get; set construct; }
     public Gtk.Box tab_box { get; set construct; }
     public Gtk.SpinButton width_spinbutton { get; set construct; }
@@ -60,10 +62,16 @@ public class Code.FormatBar : Gtk.Box {
             _("Line number")
         );
 
+        right_margin_menubutton = new FormatButton () {
+            icon = new ThemedIcon ("align-horizontal-right-symbolic"),
+            tooltip_text = _("Right Margin Position")
+        };
+
         homogeneous = true;
         add (tab_menubutton);
         add (lang_menubutton);
         add (line_menubutton);
+        add (right_margin_menubutton);
 
         create_tabulation_popover ();
         create_language_popover ();
@@ -187,6 +195,8 @@ public class Code.FormatBar : Gtk.Box {
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
         Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
         Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.changed["right-margin-position"].connect (() => format_right_margin_header ());
+        Scratch.settings.changed["show-right-margin"].connect (() => format_right_margin_header ());
 
         format_tab_header_from_global_settings ();
         width_spinbutton.value_changed.connect (() => {
@@ -232,6 +242,19 @@ public class Code.FormatBar : Gtk.Box {
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
+    private void format_right_margin_header () {
+        int right_margin_position;
+        if (right_margin_set_by_editor_config && doc != null) {
+            right_margin_position = (int)doc.source_view.right_margin_position;
+        } else {
+            right_margin_position = Scratch.settings.get_int ("right-margin-position");
+        }
+
+        var show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
+        right_margin_menubutton.text = right_margin_position.to_string ();
+        right_margin_menubutton.sensitive = !right_margin_set_by_editor_config && show_right_margin;
+    }
+
     private void create_line_popover () {
         var goto_label = new Gtk.Label (_("Go To Line:"));
         goto_label.xalign = 1;
@@ -271,6 +294,7 @@ public class Code.FormatBar : Gtk.Box {
         update_current_lang ();
         format_tab_header_from_global_settings ();
         format_line_header ();
+        format_right_margin_header ();
         this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
     }
 
@@ -293,6 +317,14 @@ public class Code.FormatBar : Gtk.Box {
             doc.source_view.indent_width = indent_width;
             doc.source_view.tab_width = indent_width;
         }
+    }
+
+    public void set_right_margin (uint position) {
+        if (doc != null) {
+            doc.source_view.update_right_margin (position);
+        }
+
+        format_right_margin_header ();
     }
 
     private void update_current_lang () {
