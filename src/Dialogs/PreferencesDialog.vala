@@ -160,7 +160,7 @@ namespace Scratch.Dialogs {
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
-            content.attach (right_margin_position, 2, 7, 1, 1);
+            content.attach (right_margin_position, 2, 6, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
