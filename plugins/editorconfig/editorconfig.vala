@@ -35,6 +35,7 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
             // Ensure use global settings by default
             format_bar.tab_style_set_by_editor_config = false;
             format_bar.tab_width_set_by_editor_config = false;
+            format_bar.right_margin_set_by_editor_config = false;
             format_bar.set_document (d);
 
             Scratch.Widgets.SourceView view = d.source_view;
@@ -75,7 +76,8 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
                     case "insert_final_newline":
                         break;
                     case "max_line_length":
-                        view.right_margin_position = int.parse (val);
+                        format_bar.right_margin_set_by_editor_config = true;
+                        format_bar.set_right_margin (int.parse (val));
                         break;
                     default:
                         warning ("unrecognised name/value %s/%s", name, val);
@@ -85,7 +87,11 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
         });
     }
 
-    public void deactivate () { }
+    public void deactivate () {
+        format_bar.tab_style_set_by_editor_config = false;
+        format_bar.tab_width_set_by_editor_config = false;
+        format_bar.right_margin_set_by_editor_config = false;
+    }
 }
 
 [ModuleInit]
