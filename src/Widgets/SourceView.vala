@@ -119,15 +119,58 @@ namespace Scratch.Widgets {
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
 
-            restore_settings ();
-
             Gtk.drag_dest_add_uri_targets (this);
 
-            restore_settings ();
-            settings.changed.connect (restore_settings);
+            Scratch.settings.bind (
+                "auto-indent",
+                this, "auto-indent",
+                SettingsBindFlags.GET
+            );
+            Scratch.settings.bind (
+                "spaces-instead-of-tabs",
+                this, "insert-spaces-instead-of-tabs",
+                SettingsBindFlags.GET
+            );
+            Scratch.settings.bind (
+                "highlight-matching-brackets",
+                (Gtk.SourceBuffer) buffer, "highlight-matching-brackets",
+                SettingsBindFlags.GET
+            );
+            update_space_drawer ();
+            settings.changed["draw-spaces"].connect (() => {
+                update_space_drawer ();
+            });
+            tab_width = (uint) Scratch.settings.get_int ("indent-width");
+            settings.changed["indent-width"].connect (() => {
+                tab_width = (uint) Scratch.settings.get_int ("indent-width");
+            });
+            update_line_wrap ();
+            settings.changed["line-wrap"].connect (() => {
+                update_line_wrap ();
+            });
+            update_font ();
+            settings.changed["use-system-font"].connect (() => {
+                update_font ();
+            });
+            settings.changed["font"].connect (() => {
+                update_font ();
+            });
+            update_style_scheme ();
+            settings.changed["follow-system-style"].connect (() => {
+                update_style_scheme ();
+            });
+            settings.changed["style-scheme"].connect (() => {
+                update_style_scheme ();
+            });
+            update_right_margin (Scratch.settings.get_int ("right-margin-position"));
+            settings.changed["right-margin-position"].connect (() => {
+                update_right_margin (Scratch.settings.get_int ("right-margin-position"));
+            });
 
             var granite_settings = Granite.Settings.get_default ();
-            granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+                update_style_scheme ();
+            });
 
             scroll_event.connect ((key_event) => {
                 var handled = false;
@@ -236,16 +279,56 @@ namespace Scratch.Widgets {
             if (file.get_basename () == "CMakeLists.txt") {
                 language = manager.get_language ("cmake");
             }
-
         }
 
-        private void restore_settings () {
-            auto_indent = Scratch.settings.get_boolean ("auto-indent");
-            show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
-            right_margin_position = Scratch.settings.get_int ("right-margin-position");
-            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
+        private void update_style_scheme () {
             var source_buffer = (Gtk.SourceBuffer) buffer;
-            source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
+            if (settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                if (system_prefers_dark) {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
+                } else {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
+                }
+            } else {
+                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            }
+
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
+            style_changed (source_buffer.style_scheme);
+        }
+
+        private void update_font () {
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+            } else {
+                font = Scratch.settings.get_string ("font");
+            }
+
+            /* Convert font description to css equivalent and apply to the .view node */
+            var font_css = string.join (" ",
+                ".view {",
+                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
+                "}"
+            );
+
+            try {
+                font_css_provider.load_from_data (font_css);
+            } catch (Error e) {
+                critical (e.message);
+            }
+        }
+
+        private void update_line_wrap () {
+            if (Scratch.settings.get_boolean ("line-wrap")) {
+                set_wrap_mode (Gtk.WrapMode.WORD);
+            } else {
+                set_wrap_mode (Gtk.WrapMode.NONE);
+            }
+        }
+
+        private void update_space_drawer () {
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
@@ -274,48 +357,11 @@ namespace Scratch.Widgets {
 
             space_drawer.enable_matrix = true;
             update_draw_spaces ();
-
-
-            tab_width = (uint) Scratch.settings.get_int ("indent-width");
-            if (Scratch.settings.get_boolean ("line-wrap")) {
-                set_wrap_mode (Gtk.WrapMode.WORD);
-            } else {
-                set_wrap_mode (Gtk.WrapMode.NONE);
-            }
-
-            if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
-            } else {
-                font = Scratch.settings.get_string ("font");
-            }
-
-            /* Convert font description to css equivalent and apply to the .view node */
-            var font_css = string.join (" ",
-                ".view {",
-                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
-                "}"
-            );
-
-            try {
-                font_css_provider.load_from_data (font_css);
-            } catch (Error e) {
-                critical (e.message);
-            }
-
-            if (settings.get_boolean ("follow-system-style")) {
-                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-                if (system_prefers_dark) {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
-                } else {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
-                }
-            } else {
-                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
-            }
-
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
+        }
+        public void update_right_margin (uint position) {
+            show_right_margin = false; // Ensures position updates on screen
+            right_margin_position = position;
+            show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
         }
 
         public void go_to_line (int line, int offset = 0) {
