@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-01 20:46+0000\n"
-"PO-Revision-Date: 2023-07-12 15:07+0000\n"
+"PO-Revision-Date: 2023-08-03 05:28+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -118,7 +118,7 @@ msgstr "A keresési kifejezés legalább 3 karakter hosszú kell legyen."
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
-msgstr "Kis-nagybetű érzékeny:"
+msgstr "Kis-nagybetű érzékenység:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
@@ -690,7 +690,7 @@ msgstr "Mindig"
 
 #: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
-msgstr "Kis-nagybetű érzékeny"
+msgstr "Kis-nagybetű érzékenység"
 
 #: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
