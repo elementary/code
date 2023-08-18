@@ -95,16 +95,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 row.destroy ();
             }
 
-            Idle.add (() => {
-                for (int index = (int)pos; index < pos + n_added; index++) {
-                    var item = model.get_object (index);
-                    if (item is Scratch.FolderManager.ProjectFolderItem) {
-                        var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                        project_listbox.insert (row, index);
-                    }
+            for (int index = (int)pos; index < pos + n_added; index++) {
+                var item = model.get_object (index);
+                if (item is Scratch.FolderManager.ProjectFolderItem) {
+                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+                    project_listbox.insert (row, index);
                 }
-                return Source.REMOVE;
-            });
+            }
         });
 
         project_listbox.remove.connect ((row) => {
