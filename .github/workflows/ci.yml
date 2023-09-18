@@ -50,7 +50,7 @@ jobs:
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
         with:
           platforms: arm64
 
