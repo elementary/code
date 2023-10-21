@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2021-12-13 23:23+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"PO-Revision-Date: 2023-08-03 05:28+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
 "\n"
@@ -17,94 +17,114 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "Új lap"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Új ablak"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Verzióinformáció kiírása és kilépés"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Bővítménykészlet"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "bővítmények"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
+#: src/MainWindow.vala:207
+#, c-format
+msgid "Code (%s)"
+msgstr "Kód (%s)"
+
+#: src/MainWindow.vala:209
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "Keresés…"
-
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:321
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+msgid "Find on Page…"
+msgstr "Keresés az oldalon…"
+
+#: src/MainWindow.vala:337
+msgid "Hide Projects Sidebar"
+msgstr "A Projektek oldalsáv elrejtése"
+
+#: src/MainWindow.vala:342
+msgid "Show Projects Sidebar"
+msgstr "A Projektek oldalsáv megjelenítése"
+
+#: src/MainWindow.vala:351
+msgid "Hide Symbol Outline"
+msgstr "Szimbólumkiemelés elrejtése"
+
+#: src/MainWindow.vala:356
+msgid "Show Symbol Outline"
+msgstr "Szimbólumkiemelés megjelenítése"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:533
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Szöveg keresése itt: \"%s\""
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr "A keresési kifejezés legalább 3 karakter hosszú kell legyen."
 
-#: src/Dialogs/GlobalSearchDialog.vala:74
-msgid "Case sensitive:"
-msgstr "Kis-nagybetű érzékeny:"
-
 #: src/Dialogs/GlobalSearchDialog.vala:83
+msgid "Case sensitive:"
+msgstr "Kis-nagybetű érzékenység:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
 msgstr "Reguláris kifejezések használata:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
+#: src/Dialogs/GlobalSearchDialog.vala:111
 msgid "Search"
 msgstr "Keresés"
 
@@ -123,7 +143,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ág létrehozása"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -147,68 +167,72 @@ msgstr "Fájlok mentése változtatáskor:"
 msgid "Smart cut/copy lines:"
 msgstr "Sorok okos vágása/másolása:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "Lapok"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
 msgstr "Automatikus behúzás:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
 msgstr "Szóközök beillesztése tabulátorok helyett:"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:66
+msgid "Strip trailing whitespace:"
+msgstr "Sorvégi szóközök eltávolítása:"
+
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "Tabulátor szélessége:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Viselkedés"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Felület"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:91
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Bezárás"
 
-#: src/Dialogs/PreferencesDialog.vala:102
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Extensions"
 msgstr "Bővítmények"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Editor"
 msgstr "Szerkesztő"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets:"
 msgstr "Zárójelpárok kiemelése:"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Line wrap:"
 msgstr "Sortörés:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Visible whitespace:"
 msgstr "Látható szóközök:"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Show Mini Map:"
 msgstr "Minitérkép megjelenítése:"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
 msgstr "Sorhosszúság-mutató:"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font"
 msgstr "Betűtípus"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Custom font:"
 msgstr "Egyéni betűtípus:"
 
@@ -229,56 +253,56 @@ msgstr "Ne állítsa vissza"
 msgid "Restore Anyway"
 msgstr "Visszaállítás mindenképp"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Egyéb műveletek"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "Mappák"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Keresés a mappában…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Üres fájl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/FolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "új fájl"
 
@@ -290,150 +314,217 @@ msgstr "Mappa bezárása"
 msgid "Close Other Folders"
 msgstr "Többi mappa bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:121
+#, c-format
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
+msgstr[0] "%u dokumentum bezárása"
+msgstr[1] "%u dokumentum bezárása"
+
+#: src/FolderManager/ProjectFolderItem.vala:135
+#, c-format
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "%u megnyitott dokumentum elrejtése"
+msgstr[1] "%u megnyitott dokumentum elrejtése"
+
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] "%u elrejtett dokumentum visszaállítása"
+msgstr[1] "%u elrejtett dokumentum visszaállítása"
+
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
 msgstr "Keresés a projektben…"
 
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
 msgstr "Módosítva"
 
-#: src/FolderManager/ProjectFolderItem.vala:234
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Hiba az ág létrehozása közben: \"%s\""
 
-#: src/FolderManager/ProjectFolderItem.vala:515
+#: src/FolderManager/ProjectFolderItem.vala:577
 msgid "New Branch…"
 msgstr "Új ág…"
 
-#: src/FolderManager/ProjectFolderItem.vala:528
+#: src/FolderManager/ProjectFolderItem.vala:590
 msgid "Branch"
 msgstr "Ág"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "A(z) %s nem szövegfájl"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "A Kód nem tölt be ilyen típusú fájlt."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "Betöltés mindenképp"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "Várjon, amíg a Kód betölti a fájlt."
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
 msgstr "Betöltés megszakítása"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:431
 #, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "Menti a(z) %s módosításait bezárás előtt?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ha nem menti, akkor a módosítások véglegesen elvesznek."
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "Bezárás mentés nélkül"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Mentés"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:567
+#, c-format
+msgid "Saving to “%s” failed."
+msgstr "Mentés a(z) %s fájlba sikertelen."
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Fájl mentése"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "Új dokumentum"
 
+#. No path for a new document
+#: src/Services/Document.vala:712
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr "A dokumentumot nem lehet menteni ide: %s"
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:778
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr "A(z) \"%s\" fájl nem olvasható"
-
-#: src/Services/Document.vala:705
-msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Lehet, hogy sérült, vagy nem rendelkezik a szükséges engedélyekkel ahhoz, "
-"hogy elolvashassa."
-
-#: src/Services/Document.vala:718
-#, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került. Szeretné "
-"máshová menteni?"
-
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "Mentés másként…"
-
-#: src/Services/Document.vala:727
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "A(z) \"%s\" fájl törölve lett. Szeretné mégis menteni?"
-
-#: src/Services/Document.vala:744
-#, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
-"módosításait egy másik helyre menteni?"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "Változtatások mentése máshova"
+msgid "Cannot read text in file “%s”"
+msgstr "A szöveg beolvasása sikertelen a(z) \"%s\" fájlban"
 
 #: src/Services/Document.vala:781
+msgid "You may not have permission to read the file."
+msgstr ""
+"Lehet, hogy nem rendelkezik a szükséges engedélyekkel ahhoz, hogy olvashassa "
+"a fájlt."
+
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
+msgstr "A fál sérült lehet, vagy pedig nem szövegfájl"
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+msgid "Show Anyway"
+msgstr "Megnyitás mindenképp"
+
+#: src/Services/Document.vala:820
 #, c-format
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
-"A(z) \"%s\" fájlt egy külső alkalmazás módosította. Szeretné újratölteni, "
-"vagy folytatja a szerkesztést?"
+"A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került és nem "
+"mentett módosítások vannak."
 
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "Betöltés"
+#: src/Services/Document.vala:822
+#, c-format
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "A(z) \"%s\" fájl törōlve és nem mentett módosítások vannak."
 
-#: src/Services/Document.vala:787
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, c-format
+msgid "File “%s” does not have write permission."
+msgstr "A(z) \"%s\" fájlhoz nincs írási engedélye."
+
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr "A(z) \"%s\" fájlt egy külső alkalmazás módosította"
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+"Nem mentett módosítások is vannak. A dokumentum újratöltése felülírja a nem "
+"mentett módosításokat."
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr "A dokumentum külső forrásból módosult a legutóbbi mentés óta."
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr "A(z) “%s” nem menthető ide. Készít egy másolatot máshova?"
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr "Mellőzés"
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr "Másolat mentése…"
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "Folytatás"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr "Újratöltés"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr "Felülírás"
+
+#: src/Services/Document.vala:975
+msgid "Save Document elsewhere"
+msgstr "A dokumentum mentése máshova"
+
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Sablonok"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
+#: src/SymbolPane/SymbolOutline.vala:30
+msgid "Symbols"
+msgstr "Szimbólumok"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
 msgstr "Nincs kiválasztott projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Aktív Git projekt: %s"
@@ -442,156 +533,213 @@ msgstr "Aktív Git projekt: %s"
 msgid "Filter projects"
 msgstr "Projektek szűrése"
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Szöveges fájl innen: %s:%d"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Szintaxiskiemelés"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "Sorszám"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "Nyelvek szűrése"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "Egyszerű szöveg"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr "Néhány beállítás az EditorConfig fájl által lett beállítva"
+
+#: src/Widgets/FormatBar.vala:152
+msgid "Automatic Indentation"
+msgstr "Automatikus behúzás"
+
+#: src/Widgets/FormatBar.vala:154
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "Szóközök beillesztése tabulátorok helyett"
+
+#: src/Widgets/FormatBar.vala:156
+msgid "Tab width"
+msgstr "Tabulátorok szélessége"
+
+#: src/Widgets/FormatBar.vala:236
+msgid "Go To Line:"
+msgstr "Ugrás erre a sorra:"
+
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d szóköz"
 msgstr[1] "%d szóköz"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d tabulatúra"
 msgstr[1] "%d tabulatúra"
 
-#: src/Widgets/FormatBar.vala:207
-msgid "Go To Line:"
-msgstr "Ugrás erre a sorra:"
-
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Fájl megnyitása"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
 msgstr "Projektsablonok"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "Fájl mentése"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "Fájl mentése más néven"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "Fájl visszaállítása"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
 msgstr "Kicsinyítés"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "Eredeti méret"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "Nagyítás"
 
-#: src/Widgets/HeaderBar.vala:151
-msgid "Toggle Sidebar"
-msgstr "Oldalsáv"
+#: src/Widgets/HeaderBar.vala:144
+msgid "Follow System Style"
+msgstr "Rendszertéma követése"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
+msgid "Show Terminal"
+msgstr "Terminál megjelenítése"
+
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:42
-msgid "Open Project Folder…"
-msgstr "Projektmappa megnyitása…"
+#: src/Widgets/HeaderBar.vala:260
+msgid "Hide Terminal"
+msgstr "Terminál elrejtése"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:57
+msgid "Open Folder…"
+msgstr "Mappa megnyitása…"
+
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
 msgstr "Összes becsukása"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
 msgstr "Betűrendbe"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
 msgstr "Projekt mappáinak kezelése"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Keresés"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
-msgid "no results"
-msgstr "nincs találat"
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr "Nincs találat"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Következő keresése"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Előző keresése"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Ciklikus keresés"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Soha"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr "Kevert"
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "Mindig"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
-msgstr "Kis-nagybetű érzékeny"
+msgstr "Kis-nagybetű érzékenység"
 
-#: src/Widgets/SearchBar.vala:110
-msgid "Case Insensitive"
-msgstr "Nem kis-nagybetű érzékeny"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
+msgstr "Reguláris kifejezések használata"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr "Teljes szavak illesztése"
+
+#: src/Widgets/SearchBar.vala:136
+msgid "Search Options"
+msgstr "Keresési beállítások"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Csere ezzel"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Csere"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Összes cseréje"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SearchBar.vala:576
+#, c-format
+msgid "%d of %d"
+msgstr "%d/%d"
+
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr "nincs találat"
+
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "A kiválasztott sorok sorrendbe rakása"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Megjegyzés megjelenítése/elrejtése"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "Másolás"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "Beillesztés"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -658,10 +806,6 @@ msgstr "Elérhető formátumok"
 msgid "Select Format"
 msgstr "Formátum kiválasztása"
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "Soha"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Tíz perc"
@@ -678,42 +822,6 @@ msgstr "Egy nap"
 msgid "One month"
 msgstr "Egy hónap"
 
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr "Szimbólumok"
-
-#: plugins/outline/OutlinePlugin.vala:34
-msgid "No Symbols Found"
-msgstr "Nincsenek szimbólumok"
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "Terminál mutatása"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "Terminál elrejtése"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "Terminál"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr "Másolás"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr "Beillesztés"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nem találhatóak megfelelő szótárak"
@@ -722,19 +830,73 @@ msgstr "Nem találhatóak megfelelő szótárak"
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Telepítsen legalább egy [aspell] szótárt."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "A(z) “%s” fájl törölve."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Bővítménykészlet"
+
+#~ msgid "plugin"
+#~ msgstr "bővítmények"
+
+#~ msgid "Save As…"
+#~ msgstr "Mentés másként…"
+
+#~ msgid "Load"
+#~ msgstr "Betöltés"
+
+#, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Nem menthető a dokumentum a(z) \"%s\" helyre. Szeretné a fájlt egy másik "
+#~ "helyre menteni?"
+
+#, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
+#~ "módosításait egy másik helyre menteni?"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "A(z) \"%s\" fájl nem olvasható"
+
+#~ msgid "Case Insensitive"
+#~ msgstr "Nem kis-nagybetű érzékeny"
+
+#~ msgid "Save changes elsewhere"
+#~ msgstr "Változtatások mentése máshova"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "Projektmappa megnyitása…"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminál"
+
+#~ msgid "Toggle Sidebar"
+#~ msgstr "Oldalsáv"
+
+#~ msgid "Find…"
+#~ msgstr "Keresés…"
+
+#~ msgid "No Symbols Found"
+#~ msgstr "Nincsenek szimbólumok"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Szóközök megjelenítése:"
 
 #~ msgid "For selected text"
 #~ msgstr "A kiválasztott szöveghez"
-
-#~ msgid "Always"
-#~ msgstr "Mindig"
 
 #~ msgid "High Contrast"
 #~ msgstr "Magas kontraszt"
@@ -803,9 +965,6 @@ msgstr "%s - szókiegészítés"
 #~ msgid "Web Preview"
 #~ msgstr "Web előnézet"
 
-#~ msgid "Show Preview"
-#~ msgstr "Előnézet megjelenítése"
-
 #~ msgid "Hide Preview"
 #~ msgstr "Előnézet elrejtése"
 
@@ -816,9 +975,6 @@ msgstr "%s - szókiegészítés"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "Egyéb..."
-
-#~ msgid "Upload"
-#~ msgstr "Feltöltés"
 
 #~ msgid "Other formats"
 #~ msgstr "Egyéb formátumok"
@@ -995,9 +1151,6 @@ msgstr "%s - szókiegészítés"
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Terminál a szövegszerkesztőben"
 
-#~ msgid "Strip trailing whitespace on save"
-#~ msgstr "Sorvégi szóközök eltávolítása mentéskor"
-
 #~ msgid "Highlight Selected Words"
 #~ msgstr "Kiválasztott szavak kijelölése"
 
@@ -1142,9 +1295,6 @@ msgstr "%s - szókiegészítés"
 #~ msgid "Save as"
 #~ msgstr "Mentés másként"
 
-#~ msgid "Save the current file"
-#~ msgstr "A jelenlegi fájl mentése"
-
 #~ msgid "Save the current file with a different name"
 #~ msgstr "A jelenlegi fájl mentése más néven"
 
@@ -1217,9 +1367,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Mentetlen módosítások vannak!"
-
-#~ msgid "The file %s was deleted."
-#~ msgstr "A(z) %s fájl törölve."
 
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Menti a mentetlen változtatásokat a(z) %s fájlba bezárás előtt?"

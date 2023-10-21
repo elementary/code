@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-07-27 12:28+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/plugins/pa/"
@@ -59,14 +59,6 @@ msgstr "ਮਾਰਕਡਾਊਨ ਦੀਆਂ ਕਾਰਵਾਈਆਂ"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "ਮਾਰਕਡਾਊਨ ਫ਼ਾਇਲਾਂ ਦੀ ਫੁਰਤੀਲੀ ਐਡਿਟਿੰਗ ਲਈ ਕੀਬੋਰਡ ਦੇ ਸ਼ਾਰਟਕੱਟ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "ਆਊਟਲਾਈਨ"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "ਵਾਲਾ ਲਈ ਚਲੰਤ ਫ਼ਾਇਲ ਵਿੱਚ ਨਿਸ਼ਾਨਾਂ/ ਚਿੰਨ੍ਹਾਂ ਨੂੰ ਆਊਟਲਾਈਨ ਕਰੋ"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "ਪੇਸਟ-ਟੋਕਰੀ"
@@ -91,22 +83,6 @@ msgstr "ਹਿੱਜੇ/ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚਕ"
 msgid "Checks the spelling of your documents"
 msgstr "ਆਪਣੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੇ ਹਿੱਜੇ ਜਾਂਚੋ"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "ਆਖ਼ਰ ਦੀਆਂ ਵਾਧੂ ਸਪੇਸਾਂ ਮਿਟਾਓ"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "ਸਾਂਭਣ 'ਤੇ ਆਖ਼ਰ ਦੀਆਂ ਵਾਧੂ ਸਪੇਸਾਂ ਮਿਟਾਓ"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "ਟਰਮੀਨਲ"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "ਤੁਹਾਡੇ ਕੋਡ ਐਡੀਟਰ ਵਿੱਚ ਹੀ ਟਰਮੀਨਲ ਲਿਆਓ"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "ਵਿਮ ਐਮੁਲੇਸ਼ਨ"
@@ -122,3 +98,21 @@ msgstr "ਲਫ਼ਜ਼ ਦਾ ਮੁਕੰਮਲ ਹੋਣ"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "ਤੁਹਾਡੀਆਂ ਫ਼ਾਇਲਾਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ ਗਏ ਲਫ਼ਜ਼ਾਂ ਨਾਲ਼ ਲਫਜ਼-ਮੁਕੰਮਲ ਡਾਇਲਾਗ ਵਿਖਾਓ"
+
+#~ msgid "Terminal"
+#~ msgstr "ਟਰਮੀਨਲ"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "ਤੁਹਾਡੇ ਕੋਡ ਐਡੀਟਰ ਵਿੱਚ ਹੀ ਟਰਮੀਨਲ ਲਿਆਓ"
+
+#~ msgid "Outline"
+#~ msgstr "ਆਊਟਲਾਈਨ"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "ਵਾਲਾ ਲਈ ਚਲੰਤ ਫ਼ਾਇਲ ਵਿੱਚ ਨਿਸ਼ਾਨਾਂ/ ਚਿੰਨ੍ਹਾਂ ਨੂੰ ਆਊਟਲਾਈਨ ਕਰੋ"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "ਆਖ਼ਰ ਦੀਆਂ ਵਾਧੂ ਸਪੇਸਾਂ ਮਿਟਾਓ"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "ਸਾਂਭਣ 'ਤੇ ਆਖ਼ਰ ਦੀਆਂ ਵਾਧੂ ਸਪੇਸਾਂ ਮਿਟਾਓ"

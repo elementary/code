@@ -1,7 +1,8 @@
 project(
     'io.elementary.code',
     'vala', 'c',
-    version: '6.1.0'
+    meson_version: '>= 0.58.0',
+    version: '7.1.0'
 )
 
 add_project_arguments([
@@ -11,7 +12,7 @@ add_project_arguments([
 )
 
 add_project_arguments(
-    ['--vapidir', join_paths(meson.current_source_dir(), 'vapi')],
+    ['--vapidir', meson.project_source_root() / 'vapi'],
     language: 'vala'
 )
 
@@ -19,8 +20,8 @@ if get_option('have_pkexec')
     add_project_arguments('--define=HAVE_PKEXEC', language: 'vala')
 endif
 
-libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
-pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
+libexecdir = get_option('prefix') / get_option('libexecdir') / meson.project_name()
+pluginsdir = get_option('prefix') / get_option('libdir') / meson.project_name() / 'plugins'
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -38,11 +39,16 @@ git_dep = dependency('libgit2-glib-1.0')
 fontconfig_dep = dependency('fontconfig')
 pangofc_dep = dependency('pangoft2')
 posix_dep = meson.get_compiler('vala').find_library('posix')
+vte_dep = dependency('vte-2.91')
 
 code_resources = gnome.compile_resources(
     'code-resources', 'data/' + meson.project_name() + '.gresource.xml',
     source_dir: 'data'
 )
+
+# We need libvala-X.XX library, but it changes depending on the version that is installed
+vala_version = run_command (meson.get_compiler('vala'), '--api-version', check: true).stdout().strip()
+vala_dep = dependency('libvala-@0@'.format(vala_version))
 
 dependencies = [
     glib_dep,
@@ -58,7 +64,16 @@ dependencies = [
     fontconfig_dep,
     pangofc_dep,
     posix_dep,
+    vala_dep,
+    vte_dep
 ]
+
+git = find_program('git', required: false)
+branch = ''
+if get_option('development') and git.found ()
+    output = run_command('git','branch','--show-current', check: false)
+    branch = output.stdout().strip()
+endif
 
 subdir('data')
 subdir('src')
@@ -67,4 +82,4 @@ if get_option('plugins')
 endif
 subdir('po')
 
-meson.add_install_script('meson/post_install.py')
+gnome.post_install(glib_compile_schemas: true)

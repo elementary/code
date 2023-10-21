@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=Code
+Name=@NAME@
 Comment=Edit code files
 GenericName=Code Editor
 Exec=@EXEC_NAME@ %U
 Icon=io.elementary.code
 Terminal=false
 Categories=Development;GTK;IDE;WebDevelopment;
-Keywords=text;IDE;scratch;
+Keywords=text;IDE;scratch;code;
 MimeType=text/plain;inode/directory;
 StartupNotify=true
 Actions=NewWindow;NewFile;

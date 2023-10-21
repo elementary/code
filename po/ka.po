@@ -2,132 +2,152 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
-"PO-Revision-Date: 2016-09-10 18:45+0000\n"
-"Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"PO-Revision-Date: 2023-07-14 18:07+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://l10n.elementary.io/projects/code/code/ka/>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "ახალი ჩანართი"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "ახალი ფანჯარა"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
-msgstr "ვერსიის ინფორმაციის გამოტანა და გამოსვლა"
+msgstr "ვერსიის ინფორმაციის გამოტანა და გასვლა"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "გაფართოებების კომპლექტი"
-
-#: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "გაფართოებების კომპლექტი"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
-msgstr ""
-
-#: src/MainWindow.vala:140 src/MainWindow.vala:416
-msgid "Code"
-msgstr ""
-
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "პოვნა..."
+msgstr "[ფაილი...]"
 
 #: src/MainWindow.vala:207
-msgid "Hide search bar"
-msgstr "პოვნის ზოლის დამლავა"
+#, c-format
+msgid "Code (%s)"
+msgstr "კოდი (%s)"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:209
+msgid "Code"
+msgstr "კოდი"
+
+#: src/MainWindow.vala:321
+msgid "Hide search bar"
+msgstr "ძებნის პანელის დამალვა"
+
+#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+msgid "Find on Page…"
+msgstr "გვერდზე ძებნა…"
+
+#: src/MainWindow.vala:337
+msgid "Hide Projects Sidebar"
+msgstr "პროექტების პანელის დამალვა"
+
+#: src/MainWindow.vala:342
+msgid "Show Projects Sidebar"
+msgstr "პროექტების პანელის ჩვენება"
+
+#: src/MainWindow.vala:351
+msgid "Hide Symbol Outline"
+msgstr "სიმბოლოების მონახაზის დამალვა"
+
+#: src/MainWindow.vala:356
+msgid "Show Symbol Outline"
+msgstr "სიმბოლოების მონახაზის ჩვენება"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:533
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
-msgstr "ტექსტ ფაილები"
+msgstr "ტექსტური ფაილები"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:846
 msgid "Open some files"
-msgstr "ზოგიერთი ფაილის გახსნა"
+msgstr "გახსენით რამდენიმე ფაილი"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "გახ_სნა"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "ტექსტის მოძებნა \"%s\"-ში"
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:74
-msgid "Case sensitive:"
-msgstr ""
+msgstr "მოსაძებნი სტრიქონი 3 სიმბოლოს მაინც უნდა შეიცავდეს."
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Use regular expressions:"
-msgstr ""
+msgid "Case sensitive:"
+msgstr "რეგისტრზე-დამოკიდებული:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
+#: src/Dialogs/GlobalSearchDialog.vala:92
+msgid "Use regular expressions:"
+msgstr "რეგულარული გამოსახულებების გამოყენება:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
 msgid "Search"
-msgstr "შემდეგის პოვნა"
+msgstr "ძებნა"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr ""
+msgstr "“%s/%s”-ის ახალი ბრენჩის შექმნა"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
 msgstr ""
+"ბრენჩის სახელი უნიკალური უნდა იყოს და Git-ის სახელის წესებს უნდა იცავდეს."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "Scratch-ის პარამეტრების შეცვლა"
+msgstr "ბრენჩის შექმნა"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
-msgstr "პარამეტრები"
+msgstr "გამართვა"
 
 #: src/Dialogs/PreferencesDialog.vala:47
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"ამოჭრა ან კოპირება მონიშვნის გარეშე მთელ მიმდინარე ხაზს ამოჭრის ან "
+"დააკოპირებს"
 
 #: src/Dialogs/PreferencesDialog.vala:55
 msgid "General"
@@ -139,148 +159,143 @@ msgstr "ფაილების შენახვა ცვლილები�
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "ხაზების ჭკვიანი ამოჭრა/კოპირება:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Tabs"
 msgstr "ჩანართები"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Automatic indentation:"
-msgstr "ავტომატური აბზაცი:"
+msgstr "ავტომატური სწორება:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Insert spaces instead of tabs:"
-msgstr "ტაბის ნაცვლად გამოტოვებების ჩასმა:"
+msgstr "ტაბულაციის მაგიერ გამოტოვებების ჩასმა:"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:66
+msgid "Strip trailing whitespace:"
+msgstr "ბოლო ცარიელი ადგილის მოჭრა:"
+
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Tab width:"
 msgstr "ტაბულაციის სიგანე:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "ქცევა"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "ინტერფეისი"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:91
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "დახურვა"
 
-#: src/Dialogs/PreferencesDialog.vala:102
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Editor"
 msgstr "რედაქტორი"
 
-#: src/Dialogs/PreferencesDialog.vala:113
-msgid "Highlight matching brackets:"
-msgstr "შესაფერისი ფრჩხილების შეფერადება:"
-
 #: src/Dialogs/PreferencesDialog.vala:116
-msgid "Line wrap:"
-msgstr "ხაზის გახვევა:"
+msgid "Highlight matching brackets:"
+msgstr "შესაბამისი ბრჭყალების გამოკვეთა:"
 
 #: src/Dialogs/PreferencesDialog.vala:119
-#, fuzzy
-#| msgid "Strip trailing whitespace"
-msgid "Visible whitespace:"
-msgstr "მცოცავი თეთრი სივრცის შემოცლა"
+msgid "Line wrap:"
+msgstr "ხაზების გადატანა:"
 
-#: src/Dialogs/PreferencesDialog.vala:125
-msgid "Show Mini Map:"
-msgstr ""
+#: src/Dialogs/PreferencesDialog.vala:122
+msgid "Visible whitespace:"
+msgstr "ხილული გამოტოვებები:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
+msgid "Show Mini Map:"
+msgstr "მინი რუკის ჩვენება:"
+
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
-msgstr "ხაზის სიგანის მეგზური:"
+msgstr "ხაზის სიგანის გიდი:"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font"
-msgstr ""
+msgstr "ფონტი"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Custom font:"
-msgstr "შრიფტი ხელით:"
+msgstr "ფონტის ხელით მითითება:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, აღადგინოთ ეს ფაილი?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "ფაილის აღდგენა მისი გახსნის შემდეგ შეტანილ ყველა ცვლილებას გააუქმებს"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "არ აღადგინო"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr ""
+msgstr "მაინც აღადგინე"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
-msgstr ""
+msgstr "სხვა პროგრამა…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
-#, fuzzy
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
-msgstr "გახსნა"
+msgstr "გახსნა, როგორც"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
-#, fuzzy
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
-msgstr "სხვა ფორმატები"
+msgstr "სხვა ქმედებები"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
-msgstr ""
+msgstr "გადარქმევა"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
+#: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
-msgstr ""
+msgstr "ფაილის ნაგავში გადატანა"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileView.vala:42
 msgid "Folders"
 msgstr "საქაღალდეები"
 
-#: src/FolderManager/FolderItem.vala:106
-#, fuzzy
-#| msgid "Open a folder"
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
-msgstr "საქაღალდის გახსნა"
+msgstr "საქაღალდეში ძებნა…"
 
-#: src/FolderManager/FolderItem.vala:173
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
-msgstr "საქაღალდეები"
+msgstr "საქაღალდე"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
-msgstr ""
+msgstr "ცარიელი ფაილი"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:205
+#: src/FolderManager/ProjectFolderItem.vala:251
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
-msgstr "ახალი ჩანართი"
+msgstr "ახალი"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
-msgstr ""
+msgstr "ახალი დასტა"
 
-#: src/FolderManager/FolderItem.vala:344
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "ახალი ფაილი"
 
@@ -289,363 +304,466 @@ msgid "Close Folder"
 msgstr "საქაღალდის დახურვა"
 
 #: src/FolderManager/ProjectFolderItem.vala:116
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "საქაღალდის დახურვა"
+msgstr "სხვა საქაღალდეების დახურვა"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-#| msgid "Open a folder"
+#: src/FolderManager/ProjectFolderItem.vala:121
+#, c-format
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
+msgstr[0] "%u ღია დოკუმენტის დახურვა"
+msgstr[1] "%u ღია დოკუმენტის დახურვა"
+
+#: src/FolderManager/ProjectFolderItem.vala:135
+#, c-format
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "%u ღია დოკუმენტის დამალვა"
+msgstr[1] "%u ღია დოკუმენტის დამალვა"
+
+#: src/FolderManager/ProjectFolderItem.vala:150
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] "%u დამალული დოკუმენტის აღდგენა"
+msgstr[1] "%u დამალული დოკუმენტის აღდგენა"
+
+#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
 msgid "Find in Project…"
-msgstr "საქაღალდის გახსნა"
+msgstr "პროექტში ძებნა…"
 
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/ProjectFolderItem.vala:257
 msgid "Modified"
-msgstr ""
+msgstr "შეიცვალა"
 
-#: src/FolderManager/ProjectFolderItem.vala:234
+#: src/FolderManager/ProjectFolderItem.vala:295
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "შეცდომა ახალი ბრენჩის შექმნისას: \"%s\""
 
-#: src/FolderManager/ProjectFolderItem.vala:515
-#, fuzzy
+#: src/FolderManager/ProjectFolderItem.vala:577
 msgid "New Branch…"
-msgstr "Scratch-ის პარამეტრების შეცვლა"
+msgstr "ახალი ბრენჩი…"
 
-#: src/FolderManager/ProjectFolderItem.vala:528
-#, fuzzy
+#: src/FolderManager/ProjectFolderItem.vala:590
 msgid "Branch"
-msgstr "Scratch-ის პარამეტრების შეცვლა"
+msgstr "ბრენჩი"
 
-#: src/Services/Document.vala:264
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s ტექსტურ ფაილი არაა"
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code-ი ამ ტიპის ფაილს არ ჩატვირთავს."
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
-msgstr ""
+msgstr "მაინც ჩატვირთვა"
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:341
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgid "Loading File “%s” Is Taking a Long Time"
+msgstr "\"%s\" ფაილის ჩატვირთვას საკმაო დრო დასჭირდება"
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "მოითმინეთ, სანამ Code ფაილს ჩატვირთავს."
 
-#: src/Services/Document.vala:291
-#, fuzzy
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
-msgstr "გაუქმება"
+msgstr "ჩატვირთვის გაუქმება"
 
-#: src/Services/Document.vala:384
-#, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
-msgstr "შეინახოს დოკუმენტ %s-ის ცვლილებები დახურვამდე?"
+#: src/Services/Document.vala:431
+#, c-format
+msgid "Save changes to “%s” before closing?"
+msgstr "შევინახო \"%s\"-ის ცვლილებები დახურვამდე?"
 
-#: src/Services/Document.vala:385
-#, fuzzy
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"თუ არ დიამახსოვრებთ, ბოლო 4 წამის განმავლობაში განცხორცილებული ცვლილებები "
-"სამუდამო დაიკარგება."
+msgstr "თუ არ შეინახავთ, ცვლილებები სამუდამოდ დაიკარგება."
 
-#: src/Services/Document.vala:391
-#, fuzzy
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "დახურვა შენახვის გარეშე"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:567
+#, c-format
+msgid "Saving to “%s” failed."
+msgstr "\"%s\"-ში შენახვის შეცდომა."
+
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "ფაილის შენახვა"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "ახალი დოკუმენტი"
 
+#. No path for a new document
+#: src/Services/Document.vala:712
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr "ამ დოკუმენტის %s-ში შენახვა შეუძლებელია"
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
+#: src/Services/Document.vala:778
 #, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-
-#: src/Services/Document.vala:705
-#, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"ფაილ \"%s\"-ის წაკითხვა ვერ მოხერხდა. შესაძლოა ის დაზიანებულია\n"
-"ან თქვენ არ გაქვთ მისი ნახვისთვის საჭირო უფლებები."
-
-#: src/Services/Document.vala:718
-#, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr "ფაილ \"%s\"-ის შემცველი მდებარეობა მოიხსნა. გსურთ სხვაგან შენახვა?"
-
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "შენახვა როგორც ..."
-
-#: src/Services/Document.vala:727
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "ფაილი \"%s\" წაიშალა. მაინც გსურთ შენახვა?"
-
-#: src/Services/Document.vala:744
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"თქვენ არ შეგიძლიათ ფაილ \"%s\"-ზე ცვლილებების შენახვა. გსურთ განხორციელებული "
-"ცვლილებების სხვა მდებარეობაში შენახვა?"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "ცვლილებების სხვაგან შენახვა"
+msgid "Cannot read text in file “%s”"
+msgstr "ფაილში \"%s\" ტექსტის წაკითხვა შეუძლებელია"
 
 #: src/Services/Document.vala:781
+msgid "You may not have permission to read the file."
+msgstr "შეიძლებ ფაილის წაკითხვის უფლება არ გაქვთ."
+
+#: src/Services/Document.vala:783
+msgid "The file may be corrupt or may not be a text file"
+msgstr "ფაილი შეიძლება დაზიანებულია, ან ტექსტურ ფაილს არ წარმოადგენს"
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:789
+msgid "Show Anyway"
+msgstr "მაინც ჩვენება"
+
+#: src/Services/Document.vala:820
 #, c-format
 msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
-"ფაილი \"%s\" შეიცვალა გარე პროგრამის მიერ. მისი ხელახლა ჩატვირთვა გსურთ თუ "
-"რედაქტირების გაგრძელება?"
+"მდებარეობა, რომელიც ფაილს \"%s\" შეიცავდა, მოხსნილია და მას შეუნახავი "
+"ცვლილებები გააჩნია."
 
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "ჩატვირთვა"
+#: src/Services/Document.vala:822
+#, c-format
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "ფაილი \"%s\" წაშლილია და მას შეუნახავი ცვლილებები გააჩნია."
 
-#: src/Services/Document.vala:787
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:836
+#, c-format
+msgid "File “%s” does not have write permission."
+msgstr "ფაილს \"%s\" შენახვის წვდომა არ გააჩნია."
+
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr "ფაილი \"%s\" გარე პროგრამის მიერ შეიცვალა"
+
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+"აღმოჩენილია შეუნახავი ცვლილებები. დოკუმენტის თავიდან ჩატვირთვა ყველა "
+"შეუნახავ ცვლილებას თავზე გადააწერს."
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr "ბოლოს შენახვის შემდეგ დოკუმენტი გარედან შეიცვალა."
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+"\"%s\"-ს აქ ვერ შეინახავთ. გნებავთ მისი დუბლიკატის შენახვა სადმე სხვაგან?"
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr "იგნორირება"
+
+#: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr "დუბლიკატის შენახვა.…"
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "გაგრძელება"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr "თავიდან ჩატვირთვა"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr "თავზე გადაწერა"
+
+#: src/Services/Document.vala:975
+msgid "Save Document elsewhere"
+msgstr "დოკუმენტის სხვაგან შენახვა"
+
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
-msgstr "შაბლონები"
+msgstr "ნიმუშები"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
+#: src/SymbolPane/SymbolOutline.vala:30
+msgid "Symbols"
+msgstr "სიმბოლოები"
 
 #: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
 msgid "No Project Selected"
-msgstr "პროექტის შაბლონები"
+msgstr "პროექტი არჩეული არაა"
 
 #: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:112
+#: src/Widgets/ChooseProjectButton.vala:162
 #, c-format
 msgid "Active Git project: %s"
-msgstr ""
+msgstr "აქტიური Git პროექტი: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:53
 msgid "Filter projects"
-msgstr ""
+msgstr "პროექტების გაფილტვრა"
 
-#: src/Widgets/DocumentView.vala:126
-#, fuzzy, c-format
+#: src/Widgets/DocumentView.vala:161
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "ტექსტ-ფაილი "
+msgstr "ტექსტური ფაილი %s:%d-დან"
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
-msgstr "სინტაქსის შეფერადება"
+msgstr "სინტაქსის გამოკვეთა"
 
-#: src/Widgets/FormatBar.vala:56
-#, fuzzy
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
-msgstr "ხაზის ციფრების ჩვენება:"
+msgstr "ხაზის ნომერი"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
-msgstr ""
+msgstr "ენების გაფილტვრა"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
-msgstr ""
+msgstr "უბრალო ტექსტი"
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr "ზოგიერთი პარამეტრი EditorConfig ფაილის მიერაა დაყენებული"
+
+#: src/Widgets/FormatBar.vala:152
+msgid "Automatic Indentation"
+msgstr "ავტომატური სწორება"
+
+#: src/Widgets/FormatBar.vala:154
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "ტაბულაციის მაგიერ გამოტოვებების ჩასმა"
+
+#: src/Widgets/FormatBar.vala:156
+msgid "Tab width"
+msgstr "ტაბულაციის სიგანე"
+
+#: src/Widgets/FormatBar.vala:236
+msgid "Go To Line:"
+msgstr "ხაზზე გადასვლა:"
+
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ადგილი"
+msgstr[1] "%d ადგილი"
 
-#: src/Widgets/FormatBar.vala:191
-#, fuzzy, c-format
+#: src/Widgets/FormatBar.vala:289
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "ახალი ჩანართი"
-msgstr[1] "ახალი ჩანართი"
+msgstr[0] "%d ჩანართი"
+msgstr[1] "%d ჩანართი"
 
-#: src/Widgets/FormatBar.vala:207
-msgid "Go To Line:"
-msgstr "გადასვლა ხაზზე:"
-
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "ფაილის გახსნა"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:43
 msgid "Project templates"
-msgstr "პროექტის შაბლონები"
+msgstr "პროექტის ნიმუშები"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:50
 msgid "Save this file"
 msgstr "ამ ფაილის შენახვა"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file with a different name"
 msgstr "ამ ფაილის სხვა სახელით შენახვა"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:66
 msgid "Restore this file"
 msgstr "ამ ფაილის აღდგენა"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:75
 msgid "Share"
 msgstr "გაზიარება"
 
-#: src/Widgets/HeaderBar.vala:106
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:83
 msgid "Zoom Out"
-msgstr "გადიდება"
+msgstr "დაპატარავება"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:91
 msgid "Zoom 1:1"
 msgstr "გადიდება 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom In"
 msgstr "გადიდება"
 
-#: src/Widgets/HeaderBar.vala:151
-msgid "Toggle Sidebar"
-msgstr ""
+#: src/Widgets/HeaderBar.vala:144
+msgid "Follow System Style"
+msgstr "სისტემის სტილის მიყოლა"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
+msgid "Show Terminal"
+msgstr "ტერმინალის ჩვენება"
+
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
-msgstr ""
+msgstr "მენიუ"
 
-#: src/Widgets/Sidebar.vala:42
-#, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
-msgstr "საქაღალდის გახსნა"
+#: src/Widgets/HeaderBar.vala:260
+msgid "Hide Terminal"
+msgstr "ტერმინალის დამალვა"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:57
+msgid "Open Folder…"
+msgstr "საქაღალდის გახსნა…"
+
+#: src/Widgets/Sidebar.vala:60
 msgid "Collapse All"
-msgstr ""
+msgstr "ყველას ჩაკეცვა"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:64
 msgid "Alphabetize"
-msgstr ""
+msgstr "ანბანიზაცია"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:76
 msgid "Manage project folders"
-msgstr ""
+msgstr "პროექტის საქაღალდეების მართვა"
 
-#: src/Widgets/SearchBar.vala:67
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
-msgstr "პოვნა"
+msgstr "მოძებნა"
 
-#. We don't want to flicker back to no results while we're still searching but we have previous results
-#: src/Widgets/SearchBar.vala:69 src/Widgets/SearchBar.vala:545
-#: src/Widgets/SearchBar.vala:548
-msgid "no results"
-msgstr ""
+#: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr "შედეგების გარეშე"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "შემდეგის პოვნა"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "წინას პოვნა"
 
-#: src/Widgets/SearchBar.vala:98
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
-msgstr "ციკლური პოვნა"
+msgstr "ციკლური ძებნა"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:110
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "არასდროს"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr "შერეული რეგისტრი"
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr "ყოველთვის"
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
-msgstr ""
+msgstr "დიდი ასოს გმრძნობიარე"
 
-#: src/Widgets/SearchBar.vala:110
-msgid "Case Insensitive"
-msgstr ""
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
+msgstr "რეგულარული გამოსახულებების გამოყენება"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr "მთლიანი სიტყვების დამთხვევა"
+
+#: src/Widgets/SearchBar.vala:136
+msgid "Search Options"
+msgstr "ძებნის მორგება"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "ჩანაცვლება"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "ჩანაცვლება"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "ყველას ჩანაცვლება"
 
-#: src/Widgets/SourceView.vala:512
-msgid "Sort Selected Lines"
-msgstr ""
+#: src/Widgets/SearchBar.vala:576
+#, c-format
+msgid "%d of %d"
+msgstr "%d-დან %d"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SearchBar.vala:581
+msgid "no results"
+msgstr "შედეგების გარეშე"
+
+#: src/Widgets/SourceView.vala:522
+msgid "Sort Selected Lines"
+msgstr "მონიშნული ხაზების დალაგება"
+
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
-msgstr ""
+msgstr "კომენტარის გადართვა"
+
+#: src/Widgets/Terminal.vala:39
+msgid "Copy"
+msgstr "კოპირება"
+
+#: src/Widgets/Terminal.vala:44
+msgid "Paste"
+msgstr "ჩასმა"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr "ფაილები არაა გახსნილი"
+msgstr "ფაილების გახსნა არ არის"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
-msgstr "რედაქტირების დასაწყებად გახსენით ფაილი"
+msgstr "ჩასწორების დასაწყებად გახსენით ფაილი."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/ახალი ფაილი"
+msgstr "ახალი ფაილი"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "ახალი ცარიელი ფაილის შექმნა"
+msgstr "ახალი ცარიელი ფაილის შექმნა."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr "შენახული ფაილის გახსნა"
+msgstr "შენახული ფაილის გახსნა."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "საქაღალდის გახსნა"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "პროექტის საქაღალდის დამატება გვერდით პანელზე."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
@@ -657,19 +775,16 @@ msgid "Name:"
 msgstr "სახელი:"
 
 #: plugins/pastebin/pastebin_dialog.vala:261
-#, fuzzy
 msgid "Format:"
-msgstr "ფორმატი: "
+msgstr "ფორმატი:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "აირჩიეთ სხვა ფორმატი"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "ვადის ამოწურვის დრო:"
+msgstr "ვადა:"
 
 #: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
@@ -677,17 +792,11 @@ msgstr "გახდეს ეს ჩასმა პირადული"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "ხელმისაწვდომი ფორმატები"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "შრიფტის არჩევა:"
-
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "არასოდეს"
+msgstr "აირჩიეთ ფორმატი"
 
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
@@ -705,56 +814,74 @@ msgstr "ერთი დღე"
 msgid "One month"
 msgstr "ერთი თვე"
 
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr "სიმბოლოები"
-
-#: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
-msgid "No Symbols Found"
-msgstr "სიმბოლოები"
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "ტერმინალის ჩვენება"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "ტერმინალის დამალვა"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "ტერმინალი"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr "კოპირება"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr "ჩასმა"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "შესაბამისი ლექსიკონები აღმოჩენილი არაა"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
+msgstr "გთხოვთ, დააყენოთ სულ ცოტა ერთი [aspell] ლექსიკონი."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - სიტყვის დაბოლოება"
+
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "ფაილი \"%s\" წაშლილია."
+
+#~ msgid "Set of plugins"
+#~ msgstr "გაფართოებების სეტი"
+
+#~ msgid "plugin"
+#~ msgstr "გაფართოება"
+
+#~ msgid "Save As…"
+#~ msgstr "შენახვა, როგორც…"
+
+#~ msgid "Load"
+#~ msgstr "ჩატვირთვა"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
+#~ "სხვაგან შეინახოთ?"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ცვლილებების შენახვა ფაილში \"%s\" შეუძლებელია. გნებავთ ცვლილებები სადმე "
+#~ "სხვაგან შეინახოთ?"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "ფაილის \"%s\" წაკითხვა შეუძლებელია"
+
+#~ msgid "Case Insensitive"
+#~ msgstr "დიდი და პატარა ასოების იგნორი"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "საქაღალდის გახსნა"
+
+#~ msgid "Terminal"
+#~ msgstr "ტერმინალი"
+
+#~ msgid "Find…"
+#~ msgstr "პოვნა..."
 
 #, fuzzy
 #~| msgid "Search next"
@@ -768,9 +895,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 #~ msgid "Web Preview"
 #~ msgstr "ვებ-პრევიუ"
 
-#~ msgid "Show Preview"
-#~ msgstr "პრევიუს ჩვენება"
-
 #~ msgid "Hide Preview"
 #~ msgstr "პრევიუს დამალვა"
 
@@ -781,9 +905,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 #, fuzzy
 #~ msgid "Others…"
 #~ msgstr "სხვები..."
-
-#~ msgid "Upload"
-#~ msgstr "ატვირთვა"
 
 #~ msgid "Other formats"
 #~ msgstr "სხვა ფორმატები"
@@ -920,9 +1041,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "ტერმინალი თქვენს ტექსტის რედაქტორში"
-
-#~ msgid "Strip trailing whitespace on save"
-#~ msgstr "დამახსოვრებისას მცოცავი თეთრი სივრცის შემოცლა"
 
 #~ msgid "Highlight Selected Words"
 #~ msgstr "მონიშნული სიტყვების შეფერადება"

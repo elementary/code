@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2020-12-19 14:16+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/code/plugins/sr/"
@@ -60,14 +60,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Контура"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Симболи контуре у вашој текућој датотеци за Вала"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Пастебин"
@@ -92,22 +84,6 @@ msgstr "Провера писања"
 msgid "Checks the spelling of your documents"
 msgstr "Проверите писање у вашим документима"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Уклоните пратећу празнину"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Уклоните пратећу празнину приликом чувања"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Терминал"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Терминнал у вашем уређивачу кода"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Опонашање Вима"
@@ -124,6 +100,24 @@ msgstr "Довршавање речи"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Приказује прозорче довршавања са најкоришћенијим речима из ваших датотека"
+
+#~ msgid "Terminal"
+#~ msgstr "Терминал"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Терминнал у вашем уређивачу кода"
+
+#~ msgid "Outline"
+#~ msgstr "Контура"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Симболи контуре у вашој текућој датотеци за Вала"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Уклоните пратећу празнину"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Уклоните пратећу празнину приликом чувања"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Преглед у претраживачу"

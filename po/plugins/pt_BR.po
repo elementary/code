@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2019-11-22 03:25+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
@@ -59,14 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorno"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Delinear Símbolos no seu arquivo atual para Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,22 +83,6 @@ msgstr "Corretor Ortográfico"
 msgid "Checks the spelling of your documents"
 msgstr "Verifica a ortografia dos seus documentos"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Eliminar espaços no final das linhas"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espaços no final das linhas ao salvar"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Um terminal no seu editor de código"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulação do Vim"
@@ -123,6 +99,24 @@ msgstr "Completar Palavras"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Exibir diálogo de conclusão com as palavras mais usadas nos seus arquivos"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Um terminal no seu editor de código"
+
+#~ msgid "Outline"
+#~ msgstr "Contorno"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Delinear Símbolos no seu arquivo atual para Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Eliminar espaços no final das linhas"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Eliminar espaços no final das linhas ao salvar"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Pré-visualizar no navegador"

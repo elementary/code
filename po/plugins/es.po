@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2021-08-27 10:19+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/plugins/es/"
@@ -59,14 +59,6 @@ msgstr "Acciones de Markdown"
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Añade atajos de teclado para editar archivos Markdown rápidamente"
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorno"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Vista previa de símbolos en su archivo actual de Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
 msgstr "Pastebin"
@@ -91,22 +83,6 @@ msgstr "Corrector ortográfico"
 msgid "Checks the spelling of your documents"
 msgstr "Verifica la ortografía de sus documentos"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Eliminar espacios al final de las líneas"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espacios al final de la línea para guardar"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Una terminal en su editor de código"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulación de Vim"
@@ -123,6 +99,24 @@ msgstr "Compleción de palabras"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostrar un diálogo de terminación con las palabras más usadas de sus archivos"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Una terminal en su editor de código"
+
+#~ msgid "Outline"
+#~ msgstr "Contorno"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Vista previa de símbolos en su archivo actual de Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Eliminar espacios al final de las líneas"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Eliminar espacios al final de la línea para guardar"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Previsualización en navegador"

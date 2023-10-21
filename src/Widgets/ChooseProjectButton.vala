@@ -22,6 +22,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
 
+    public signal void project_chosen ();
+
     construct {
         var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
@@ -29,9 +31,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         };
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
-            width_chars = 24,
             ellipsize = Pango.EllipsizeMode.MIDDLE,
-            max_width_chars = 24,
             xalign = 0.0f
         };
 
@@ -87,10 +87,22 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         popover = project_popover;
 
-        project_listbox.bind_model (
-            Scratch.Services.GitManager.get_instance ().project_liststore,
-            create_project_row
-        );
+        var model = Scratch.Services.GitManager.get_instance ().project_liststore;
+
+        model.items_changed.connect ((pos, n_removed, n_added) => {
+            // This model is put in sort order by the GitManager so model pos the same as listbox index
+            var project_folder = (Scratch.FolderManager.ProjectFolderItem)(model.get_item (pos));
+            if (n_added > 0) {
+                var row = create_project_row (project_folder);
+                project_listbox.insert (row, (int)pos);
+            } else {
+                // Double check we are removing correct row (do not rely on pos)
+                var row = find_row_for_path (project_folder.file.file.get_path ());
+                if (row != null) {
+                    project_listbox.remove (row);
+                }
+            }
+        });
 
         project_listbox.remove.connect ((row) => {
             var project_row = row as ProjectRow;
@@ -105,12 +117,11 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             select_project (project_entry);
+            project_chosen ();
         });
     }
 
-    private Gtk.Widget create_project_row (GLib.Object object) {
-        unowned var project_folder = (Scratch.FolderManager.ProjectFolderItem) object;
-
+    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
         var project_row = new ProjectRow (project_folder.file.file.get_path ());
         project_folder.bind_property ("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
@@ -131,10 +142,24 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         return project_row;
     }
 
+    private ProjectRow? find_row_for_path (string project_path) {
+        foreach (var child in project_listbox.get_children ()) {
+            if (child is ProjectRow) {
+                var row = (ProjectRow)child;
+                if (row.project_path == project_path) {
+                    return row;
+                }
+            }
+        }
+
+        return null;
+    }
+
     private void select_project (ProjectRow project_entry) {
         project_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
-        label_widget.tooltip_text = _("Active Git project: %s").printf (project_entry.project_path);
+        var tooltip_text = Scratch.Utils.replace_home_with_tilde (project_entry.project_path);
+        label_widget.tooltip_text = _("Active Git project: %s").printf (tooltip_text);
         project_entry.active = true;
         Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
     }

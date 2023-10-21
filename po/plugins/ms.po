@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 14:01+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/plugins/ms/"
@@ -59,15 +59,6 @@ msgstr ""
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Garis Besar"
-
-#: plugins/outline/outline.plugin:7
-#, fuzzy
-msgid "Outline symbols in your current file for Vala"
-msgstr "Garis besarkan simbol-simbol dalam fail semasa untuk Vala"
-
 #: plugins/pastebin/pastebin.plugin:6
 #, fuzzy
 msgid "Pastebin"
@@ -93,22 +84,6 @@ msgstr ""
 msgid "Checks the spelling of your documents"
 msgstr ""
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr ""
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr ""
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr ""
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr ""
@@ -124,6 +99,13 @@ msgstr ""
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+
+#~ msgid "Outline"
+#~ msgstr "Garis Besar"
+
+#, fuzzy
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Garis besarkan simbol-simbol dalam fail semasa untuk Vala"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Pratonton Pelayar"
