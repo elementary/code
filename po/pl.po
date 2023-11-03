@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-01 20:46+0000\n"
-"PO-Revision-Date: 2023-07-14 18:07+0000\n"
+"PO-Revision-Date: 2023-11-04 23:10+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:37
@@ -305,7 +305,7 @@ msgstr "Katalog bez nazwy"
 
 #: src/FolderManager/FolderItem.vala:360
 msgid "new file"
-msgstr "Nowy plik"
+msgstr "nowy plik"
 
 #: src/FolderManager/ProjectFolderItem.vala:111
 msgid "Close Folder"
@@ -664,7 +664,7 @@ msgstr "Zarządzaj folderami projektu"
 
 #: src/Widgets/SearchBar.vala:71
 msgid "Find"
-msgstr "Szukaj"
+msgstr "Znajdź"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "No Results"
