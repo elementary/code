@@ -265,10 +265,6 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
-                    Scratch.saved_state.get ("window-position", "(ii)", out rect.x, out rect.y);
-                    if (rect.x != -1 && rect.y != -1) {
-                        move (rect.x, rect.y);
-                    }
                     break;
             }
 
@@ -717,11 +713,6 @@ namespace Scratch {
                 get_size (out width, out height);
                 Scratch.saved_state.set ("window-size", "(ii)", width, height);
             }
-
-            // Save window position
-            int x, y;
-            get_position (out x, out y);
-            Scratch.saved_state.set ("window-position", "(ii)", x, y);
 
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
