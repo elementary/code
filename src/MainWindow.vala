@@ -327,7 +327,7 @@ namespace Scratch {
         private void disconnect_color_scheme_preference_listener () {
             if (color_scheme_listener_handler_id != 0) {
                 var granite_settings = Granite.Settings.get_default ();
-                granite_settings.disconnect (colorSchemeListenerHandlerId);
+                granite_settings.disconnect (color_scheme_listener_handler_id);
                 color_scheme_listener_handler_id = 0;
             }
         }
