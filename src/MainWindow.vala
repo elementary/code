@@ -103,6 +103,9 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
 
+        private ulong color_scheme_listener_handler_id = 0;
+
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
@@ -303,8 +306,29 @@ namespace Scratch {
             if (Scratch.settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
                 gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
+                connect_color_scheme_preference_listener ();
             } else {
+                disconnect_color_scheme_preference_listener ();
                 gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            }
+        }
+
+        private void connect_color_scheme_preference_listener () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            var granite_settings = Granite.Settings.get_default ();
+
+            color_scheme_listener_handler_id = granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = (
+                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK
+                );
+            });
+        }
+
+        private void disconnect_color_scheme_preference_listener () {
+            if (color_scheme_listener_handler_id != 0) {
+                var granite_settings = Granite.Settings.get_default ();
+                granite_settings.disconnect (colorSchemeListenerHandlerId);
+                color_scheme_listener_handler_id = 0;
             }
         }
 
