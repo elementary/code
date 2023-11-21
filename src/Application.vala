@@ -99,7 +99,7 @@ namespace Scratch {
                 create_new_tab = true;
             }
 
-            if (options.contains ("new-window")) {
+            if (options.contains ("new-window") || has_no_command_line_args (options)) {
                 create_new_window = true;
             }
 
@@ -164,6 +164,11 @@ namespace Scratch {
 
         public static int main (string[] args) {
             return new Application ().run (args);
+        }
+
+        private bool has_no_command_line_args (GLib.VariantDict options) {
+            return options.contains ("new-tab") == false
+                && options.contains (GLib.OPTION_REMAINING) == false;
         }
     }
 }
