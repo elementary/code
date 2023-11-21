@@ -137,7 +137,8 @@ namespace Scratch {
             // Create a new document if requested
             if (create_new_tab) {
                 create_new_tab = false;
-                activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB, null);
+                var active_window_action_group = active_window.get_action_group (MainWindow.ACTION_GROUP);
+                active_window_action_group.activate_action (MainWindow.ACTION_NEW_TAB, null);
             }
         }
 
