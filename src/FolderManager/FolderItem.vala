@@ -309,6 +309,8 @@ namespace Scratch.FolderManager {
                                 path_item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
                                 path_item = new FileItem (file, view);
+                            } else {
+                                break;
                             }
 
                             add (path_item);

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 10:05+0000\n"
-"PO-Revision-Date: 2023-04-28 20:06+0000\n"
+"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -20,27 +20,19 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:37
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:41
+#: src/Application.vala:39
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "Set of plug-ins"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "plugin"
-
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
@@ -79,39 +71,39 @@ msgstr "Show Symbol Outline"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:527
+#: src/MainWindow.vala:533
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:583
+#: src/MainWindow.vala:838 src/Services/Document.vala:597
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:587
+#: src/MainWindow.vala:842 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:846
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:849
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:595 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:869
+#: src/MainWindow.vala:875
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:870
+#: src/MainWindow.vala:876
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -259,23 +251,23 @@ msgstr "Don't Restore"
 msgid "Restore Anyway"
 msgstr "Restore Anyway"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
 msgid "Other Application…"
 msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
 msgid "Open In"
 msgstr "Open In"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
 msgid "Other Actions"
 msgstr "Other Actions"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
 msgid "Rename"
 msgstr "Rename"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
 #: src/FolderManager/ProjectFolderItem.vala:163
 msgid "Move to Trash"
 msgstr "Move to Rubbish Bin"
@@ -284,31 +276,31 @@ msgstr "Move to Rubbish Bin"
 msgid "Folders"
 msgstr "Folders"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Find in Folder…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:195
 msgid "Folder"
 msgstr "Folder"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:198
 msgid "Empty File"
 msgstr "Empty File"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
+#: src/FolderManager/FolderItem.vala:205
 #: src/FolderManager/ProjectFolderItem.vala:251
 #: src/FolderManager/ProjectFolderItem.vala:257
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "new file"
 
@@ -362,130 +354,154 @@ msgstr "New Branch…"
 msgid "Branch"
 msgstr "Branch"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Is Not a Text File"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "Code will not load this type of file."
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "Load Anyway"
 
-#: src/Services/Document.vala:329
+#: src/Services/Document.vala:341
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Loading File “%s” Is Taking a Long Time"
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "Please wait while Code is loading the file."
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
 msgstr "Cancel Loading"
 
-#: src/Services/Document.vala:429
+#: src/Services/Document.vala:431
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Save changes to “%s” before closing?"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
 msgstr "If you don't save, changes will be permanently lost."
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "Close Without Saving"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:594
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "Save"
 
-#: src/Services/Document.vala:552
+#: src/Services/Document.vala:567
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Saving to “%s” failed."
 
-#: src/Services/Document.vala:591
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "Save File"
 
-#: src/Services/Document.vala:675 src/Services/Document.vala:693
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "New Document"
 
 #. No path for a new document
-#: src/Services/Document.vala:695
+#: src/Services/Document.vala:712
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Cannot save this document to %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:778
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Cannot read text in file “%s”"
 
-#: src/Services/Document.vala:823
+#: src/Services/Document.vala:781
 msgid "You may not have permission to read the file."
 msgstr "You may not have permission to read the file."
 
-#: src/Services/Document.vala:825
+#: src/Services/Document.vala:783
 msgid "The file may be corrupt or may not be a text file"
 msgstr "The file may be corrupt or may not be a text file"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:789
 msgid "Show Anyway"
 msgstr "Show Anyway"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:820
 #, c-format
-msgid "The location containing the file “%s” was unmounted."
-msgstr "The location containing the file “%s” was unmounted."
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 
-#: src/Services/Document.vala:863
+#: src/Services/Document.vala:822
 #, c-format
-msgid "File “%s” was deleted."
-msgstr "File “%s” was deleted."
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "File “%s” was deleted and there are unsaved changes."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:871
+#: src/Services/Document.vala:836
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "File “%s” does not have write permission."
 
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:882
 #, c-format
-msgid "File “%s” was modified by an external application."
-msgstr "File “%s” was modified by an external application."
+msgid "File “%s” was modified by an external application"
+msgstr "File “%s” was modified by an external application"
 
-#: src/Services/Document.vala:909
-msgid "Reload"
-msgstr "Reload"
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
 
-#: src/Services/Document.vala:915
-msgid "Continue"
-msgstr "Continue"
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr "The document changed externally since you last saved it."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:907
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” can't be saved here. Save a duplicate somewhere else?"
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:916
 msgid "Ignore"
 msgstr "Ignore"
 
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:918
 msgid "Save Duplicate…"
 msgstr "Save Duplicate…"
+
+#: src/Services/Document.vala:967
+msgid "Continue"
+msgstr "Continue"
+
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr "Reload"
+
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr "Overwrite"
+
+#: src/Services/Document.vala:975
+msgid "Save Document elsewhere"
+msgstr "Save Document elsewhere"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -513,55 +529,55 @@ msgstr "Active Git project: %s"
 msgid "Filter projects"
 msgstr "Filter projects"
 
-#: src/Widgets/DocumentView.vala:159
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Text file from %s:%d"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "Syntax Highlighting"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "Line number"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "Filter languages"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr "Some settings set by EditorConfig file"
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 msgid "Automatic Indentation"
 msgstr "Automatic Indentation"
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Insert Spaces Instead Of Tabs"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
 msgstr "Tab width"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "Go To Line:"
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Space"
 msgstr[1] "%d Spaces"
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -636,80 +652,80 @@ msgstr "Alphabetise"
 msgid "Manage project folders"
 msgstr "Manage project folders"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "Find"
 
-#: src/Widgets/SearchBar.vala:75
+#: src/Widgets/SearchBar.vala:74
 msgid "No Results"
 msgstr "No Results"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "Search next"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "Search previous"
 
-#: src/Widgets/SearchBar.vala:100
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "Cyclic Search"
 
-#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Never"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
 msgstr "Mixed Case"
 
-#: src/Widgets/SearchBar.vala:105
+#: src/Widgets/SearchBar.vala:104
 msgid "Always"
 msgstr "Always"
 
-#: src/Widgets/SearchBar.vala:108
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "Case Sensitive"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
 msgstr "Use Regular Expressions"
 
-#: src/Widgets/SearchBar.vala:116
+#: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
 msgstr "Match Whole Words"
 
-#: src/Widgets/SearchBar.vala:137
+#: src/Widgets/SearchBar.vala:136
 msgid "Search Options"
 msgstr "Search Options"
 
-#: src/Widgets/SearchBar.vala:169
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "Replace With"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "Replace"
 
-#: src/Widgets/SearchBar.vala:175
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "Replace all"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:576
 #, c-format
 msgid "%d of %d"
 msgstr "%d of %d"
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:581
 msgid "no results"
 msgstr "no results"
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:522
 msgid "Sort Selected Lines"
 msgstr "Sort Selected Lines"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:535
 msgid "Toggle Comment"
 msgstr "Toggle Comment"
 
@@ -815,6 +831,16 @@ msgstr "Please install at least one [aspell] dictionary."
 msgid "%s - Word Completion"
 msgstr "%s - Word Completion"
 
+#, c-format
+#~ msgid "File “%s” was deleted."
+#~ msgstr "File “%s” was deleted."
+
+#~ msgid "Set of plugins"
+#~ msgstr "Set of plug-ins"
+
+#~ msgid "plugin"
+#~ msgstr "plugin"
+
 #~ msgid "Save As…"
 #~ msgstr "Save As…"
 
@@ -836,9 +862,6 @@ msgstr "%s - Word Completion"
 #~ msgstr ""
 #~ "You cannot save changes to the file “%s”. Do you want to save the changes "
 #~ "somewhere else?"
-
-#~ msgid "Save the document elsewhere"
-#~ msgstr "Save the document elsewhere"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"

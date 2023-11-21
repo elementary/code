@@ -18,11 +18,11 @@ jobs:
       image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgit2-glib-1.0-dev libgranite-dev libgtk-3-dev libgtksourceview-4-dev libgtkspell3-3-dev libhandy-1-dev libpeas-dev libsoup2.4-dev libvala-dev libvte-2.91-dev meson valac
+        apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgit2-glib-1.0-dev libgranite-dev libgtk-3-dev libgtksourceview-4-dev libgtkspell3-3-dev libhandy-1-dev libpeas-dev libsoup2.4-dev libvala-dev libvte-2.91-dev meson valac polkitd libpolkit-gobject-1-dev
     - name: Build
       env:
         DESTDIR: out
@@ -46,11 +46,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up QEMU for aarch64 emulation
         if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
         with:
           platforms: arm64
 
@@ -73,7 +73,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Lint
         run: io.elementary.vala-lint -d .
