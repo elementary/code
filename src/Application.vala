@@ -32,11 +32,13 @@ namespace Scratch {
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
+        private static string? go_to_range = null;
 
         const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
+            { "go-to", 'g', 0, OptionArg.STRING, ref go_to_range, "Open file at specified selection range", "<line[:column][-line[:column]]>" },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
