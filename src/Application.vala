@@ -26,26 +26,20 @@ namespace Scratch {
     public GLib.Settings service_settings;
     public GLib.Settings privacy_settings;
 
-    struct GoToRange {
-        public int start_line;
-        public int end_line;
-        public int start_column;
-        public int end_column;
-    }
-
     public class Application : Gtk.Application {
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
-        private static string? go_to_range_string = null;
+        private static string? selection_range_string = null;
+        private static SelectionRange selection_range = SelectionRange.empty;
 
         const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
-            { "go-to", 'g', 0, OptionArg.STRING, ref go_to_range_string, "Open file at specified selection range", "<start_line[.start_column][-end_line[.end_column]]>" },
+            { "go-to", 'g', 0, OptionArg.STRING, null, "Open file at specified selection range", "<start_line[.start_column][-end_line[.end_column]]>" },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
@@ -112,16 +106,24 @@ namespace Scratch {
                 create_new_window = true;
             }
 
-            if (go_to_range_string != null) {
-                
-                Regex go_to_line_regex = /^(?<start_line>[0-9]+)+(?:.(?<start_column>[0-9]+)+)?(?:-(?:(?<end_line>[0-9]+)+(?:.(?<end_column>[0-9]+)+)?))?$/;
+            if (options.contains ("go-to")) {
+                var go_to_string_variant =  options.lookup_value ("go-to", GLib.VariantType.STRING);
+                selection_range_string = (string) go_to_string_variant.get_string ();
+            } else {
+                selection_range_string = null;
+            }
+
+            debug ("Go to string %s:", selection_range_string);
+
+            if (selection_range_string != null) {
+                Regex go_to_line_regex = /^(?<start_line>[0-9]+)+(?:\.(?<start_column>[0-9]+)+)?(?:-(?:(?<end_line>[0-9]+)+(?:\.(?<end_column>[0-9]+)+)?))?$/;  // vala-lint=space-before-paren, line-length
                 MatchInfo match_info;
-                if (go_to_line_regex.match (go_to_range_string, 0, out match_info)) {
-                    GoToRange go_to_range = parse_go_to_range_from_match_info (match_info);
-                    debug ("Goto - start_line: %d", go_to_range.start_line);
-                    debug ("Goto - start_column: %d", go_to_range.start_column);
-                    debug ("Goto - end_line: %d", go_to_range.end_line);
-                    debug ("Goto - end_column: %d", go_to_range.end_column);
+                if (go_to_line_regex.match (selection_range_string, 0, out match_info)) {
+                    selection_range = parse_go_to_range_from_match_info (match_info);
+                    debug ("Selection Range - start_line: %d", selection_range.start_line);
+                    debug ("Selection Range - start_column: %d", selection_range.start_column);
+                    debug ("Selection Range - end_line: %d", selection_range.end_line);
+                    debug ("Selection Range - end_column: %d", selection_range.end_column);
                 }
             }
 
@@ -165,15 +167,21 @@ namespace Scratch {
 
         protected override void open (File[] files, string hint) {
             var window = get_last_window ();
-
+            debug ("Files length: %d\n", files.length);
             foreach (var file in files) {
                 bool is_folder;
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
                     if (is_folder) {
                         window.open_folder (file);
                     } else {
+                        debug ("Files length: %d\n", files.length);
                         var doc = new Scratch.Services.Document (window.actions, file);
-                        window.open_document (doc);
+                        if (selection_range_string != null && files.length == 1) {
+                            window.open_document_at_selected_range (doc, true, selection_range);
+                        } else {
+                            window.open_document (doc);
+                        }
+
                     }
                 }
             }
@@ -188,8 +196,8 @@ namespace Scratch {
             return new Application ().run (args);
         }
 
-        private GoToRange parse_go_to_range_from_match_info (GLib.MatchInfo match_info) {
-            return GoToRange () {
+        private SelectionRange parse_go_to_range_from_match_info (GLib.MatchInfo match_info) {
+            return SelectionRange () {
                 start_line = parse_num_from_match_info (match_info, "start_line"),
                 end_line = parse_num_from_match_info (match_info, "end_line"),
                 start_column = parse_num_from_match_info (match_info, "start_column"),
@@ -205,7 +213,7 @@ namespace Scratch {
                 return num;
             }
 
-            return -1;
+            return 0;
         }
     }
 }

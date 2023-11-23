@@ -57,6 +57,7 @@ code_files = files(
     'SymbolPane/C/CtagsSymbol.vala',
     'SymbolPane/C/CtagsSymbolIter.vala',
     'SymbolPane/C/CtagsSymbolOutline.vala',
+    'Structs/SelectionRange.vala'
 
 )
 

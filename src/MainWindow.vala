@@ -686,6 +686,12 @@ namespace Scratch {
             document_view.open_document (doc, focus, cursor_position);
         }
 
+        public void open_document_at_selected_range (Scratch.Services.Document doc, bool focus = true, SelectionRange range = SelectionRange.empty) {
+            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
+            document_view.open_document_at_selected_range (doc, focus, range);
+        }
+
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
             document_view.close_document (doc);
