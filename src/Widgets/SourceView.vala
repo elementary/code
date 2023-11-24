@@ -483,7 +483,7 @@ namespace Scratch.Widgets {
             Gtk.TextIter start_iter;
             buffer.get_start_iter (out start_iter);
             start_iter.set_line (range.start_line - 1);
-            
+
             if (range.start_column > 0) {
                 start_iter.set_visible_line_offset (range.start_column - 1);
             }

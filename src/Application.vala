@@ -109,7 +109,7 @@ namespace Scratch {
             }
 
             if (options.contains ("go-to")) {
-                var go_to_string_variant =  options.lookup_value ("go-to", GLib.VariantType.STRING);
+                var go_to_string_variant = options.lookup_value ("go-to", GLib.VariantType.STRING);
                 string selection_range_string = (string) go_to_string_variant.get_string ();
                 location_jump_manager.parse_selection_range_string (selection_range_string);
                 debug ("go-to arg value: %s", selection_range_string);

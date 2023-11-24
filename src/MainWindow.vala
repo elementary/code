@@ -603,7 +603,7 @@ namespace Scratch {
                 string focused_document = settings.get_string ("focused-document");
                 string uri;
                 int pos;
-                bool was_restore_overriden = false; 
+                bool was_restore_overriden = false;
                 while (doc_info_iter.next ("(si)", out uri, out pos)) {
                    if (uri != "") {
                         GLib.File file;
@@ -702,12 +702,10 @@ namespace Scratch {
             document_view.open_document (doc, focus, cursor_position);
         }
 
-        public void open_document_at_selected_range (
-            Scratch.Services.Document doc,
-            bool focus = true,
-            SelectionRange range = SelectionRange.EMPTY,
-            bool is_override = false)
-        {
+        public void open_document_at_selected_range (Scratch.Services.Document doc,
+                                                     bool focus = true,
+                                                     SelectionRange range = SelectionRange.EMPTY,
+                                                     bool is_override = false) {
             if (restore_override != null && is_override == false) {
                 return;
             }
