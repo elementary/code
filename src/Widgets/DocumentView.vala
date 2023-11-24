@@ -265,6 +265,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 }
 
                 debug ("This Document was already opened! Not opening a duplicate!");
+                if (range != SelectionRange.empty) {
+                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+                        doc.source_view.select_range (range);
+                        return false;
+                    });
+                }
+
                 return;
             }
         }
