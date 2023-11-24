@@ -603,7 +603,7 @@ namespace Scratch {
                 string focused_document = settings.get_string ("focused-document");
                 string uri;
                 int pos;
-                bool restore_overriden = false; 
+                bool was_restore_overriden = false; 
                 while (doc_info_iter.next ("(si)", out uri, out pos)) {
                    if (uri != "") {
                         GLib.File file;
@@ -622,9 +622,9 @@ namespace Scratch {
                             if (doc.exists () || !doc.is_file_temporary) {
                                 if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
                                     open_document_at_selected_range (doc, true, restore_override.range, true);
-                                    restore_overriden = true;
+                                    was_restore_overriden = true;
                                 } else {
-                                    open_document (doc, restore_overriden ? false : is_focused, pos);
+                                    open_document (doc, was_restore_overriden ? false : is_focused, pos);
                                 }
                             }
 

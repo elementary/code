@@ -34,6 +34,7 @@ code_files = files(
     'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
+    'Services/LocationJumpManager.vala',
     'Services/MonitoredRepository.vala',
     'Services/PluginManager.vala',
     'Services/RestoreOverride.vala',

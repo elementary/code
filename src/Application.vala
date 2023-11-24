@@ -32,9 +32,7 @@ namespace Scratch {
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
-        private static string selection_range_string = null;
-        private static SelectionRange selection_range = SelectionRange.empty;
-        private static GLib.File selection_range_file;
+        private LocationJumpManager location_jump_manager;
 
         const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
@@ -50,6 +48,7 @@ namespace Scratch {
             _data_home_folder_unsaved = Path.build_filename (
                                             Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
                                         );
+
         }
 
         construct {
@@ -70,6 +69,7 @@ namespace Scratch {
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
 
+            location_jump_manager = new LocationJumpManager ();
             Environment.set_variable ("GTK_USE_PORTAL", "1", true);
 
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
@@ -98,6 +98,7 @@ namespace Scratch {
             };
 
             var options = command_line.get_options_dict ();
+            location_jump_manager.clear ();
 
             if (options.contains ("new-tab")) {
                 create_new_tab = true;
@@ -109,30 +110,12 @@ namespace Scratch {
 
             if (options.contains ("go-to")) {
                 var go_to_string_variant =  options.lookup_value ("go-to", GLib.VariantType.STRING);
-                selection_range_string = (string) go_to_string_variant.get_string ();
-            } else {
-                selection_range_string = null;
+                string selection_range_string = (string) go_to_string_variant.get_string ();
+                location_jump_manager.parse_selection_range_string (selection_range_string);
+                debug ("go-to arg value: %s", selection_range_string);
             }
 
-            debug ("Go to string %s:", selection_range_string);
-
-            bool matched_selection_range = false;
-            if (selection_range_string != null) {
-                Regex go_to_line_regex = /^(?<start_line>[0-9]+)+(?:\.(?<start_column>[0-9]+)+)?(?:-(?:(?<end_line>[0-9]+)+(?:\.(?<end_column>[0-9]+)+)?))?$/;  // vala-lint=space-before-paren, line-length
-                MatchInfo match_info;
-                matched_selection_range = go_to_line_regex.match (selection_range_string, 0, out match_info);
-                if (matched_selection_range) {
-                    selection_range = parse_go_to_range_from_match_info (match_info);
-                    debug ("Selection Range - start_line: %d", selection_range.start_line);
-                    debug ("Selection Range - start_column: %d", selection_range.start_column);
-                    debug ("Selection Range - end_line: %d", selection_range.end_line);
-                    debug ("Selection Range - end_column: %d", selection_range.end_column);
-                }
-            } else {
-                selection_range = SelectionRange.empty;
-            }
-
-            if (matched_selection_range && options.contains (GLib.OPTION_REMAINING)) {
+            if (location_jump_manager.has_selection_range () && options.contains (GLib.OPTION_REMAINING)) {
                 (unowned string)[] file_list = options.lookup_value (
                     GLib.OPTION_REMAINING,
                     VariantType.BYTESTRING_ARRAY
@@ -140,8 +123,7 @@ namespace Scratch {
 
                 if (file_list.length == 1) {
                     unowned string selection_range_file_path = file_list[0];
-                    //  selection_range_file = command_line.create_file_for_arg (selection_range_file_path);
-                    selection_range_file = command_line.create_file_for_arg (selection_range_file_path);
+                    location_jump_manager.file = command_line.create_file_for_arg (selection_range_file_path);
                 }
             }
 
@@ -163,18 +145,14 @@ namespace Scratch {
                 open (files, "");
             }
 
-
-
             return Posix.EXIT_SUCCESS;
         }
 
         protected override void activate () {
             if (active_window == null) {
-                if (selection_range != SelectionRange.empty
-                    && selection_range_file != null
-                    && is_file_to_restore (selection_range_file))
-                {
-                    add_window (new MainWindow.with_restore_override (true, new RestoreOverride (selection_range_file, selection_range)));
+                if (location_jump_manager.has_selection_range () && location_jump_manager.has_override_target ()) {
+                    RestoreOverride restore_override = location_jump_manager.create_restore_override ();
+                    add_window (new MainWindow.with_restore_override (true, restore_override));
                 } else {
                     add_window (new MainWindow (true)); // Will restore documents if required
                 }
@@ -202,8 +180,8 @@ namespace Scratch {
                     } else {
                         debug ("Files length: %d\n", files.length);
                         var doc = new Scratch.Services.Document (window.actions, file);
-                        if (selection_range_string != null && files.length == 1) {
-                            window.open_document_at_selected_range (doc, true, selection_range);
+                        if (location_jump_manager.has_selection_range != null && files.length == 1) {
+                            window.open_document_at_selected_range (doc, true, location_jump_manager.range);
                         } else {
                             window.open_document (doc);
                         }
@@ -220,54 +198,6 @@ namespace Scratch {
 
         public static int main (string[] args) {
             return new Application ().run (args);
-        }
-
-        private SelectionRange parse_go_to_range_from_match_info (GLib.MatchInfo match_info) {
-            return SelectionRange () {
-                start_line = parse_num_from_match_info (match_info, "start_line"),
-                end_line = parse_num_from_match_info (match_info, "end_line"),
-                start_column = parse_num_from_match_info (match_info, "start_column"),
-                end_column = parse_num_from_match_info (match_info, "end_column"),
-            };
-        }
-
-        private int parse_num_from_match_info (MatchInfo match_info, string match_name) {
-            string str = match_info.fetch_named (match_name);
-            int num;
-
-            if (int.try_parse (str, out num)) {
-                return num;
-            }
-
-            return 0;
-        }
-
-        private bool is_file_to_restore (File file_to_check) {
-            bool will_restore = false;
-            if (privacy_settings.get_boolean ("remember-recent-files")) {
-                var doc_infos = settings.get_value ("opened-files");
-                var doc_info_iter = new VariantIter (doc_infos);
-                
-                string uri;
-                int pos;
-                while (doc_info_iter.next ("(si)", out uri, out pos)) {
-                   if (uri != "") {
-                        GLib.File file;
-                        if (Uri.parse_scheme (uri) != null) {
-                            file = File.new_for_uri (uri);
-                        } else {
-                            file = File.new_for_commandline_arg (uri);
-                        }
-
-                        if (file.query_exists () && file.get_path () == file_to_check.get_path ()) {
-                            will_restore = true;
-                            return will_restore;
-                        }
-                    }
-                }
-            }
-
-            return will_restore;
         }
     }
 }
