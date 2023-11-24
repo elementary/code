@@ -41,12 +41,12 @@ namespace Scratch {
         }
 
         public void clear () {
-            range = SelectionRange.empty;
+            range = SelectionRange.EMPTY;
             file = null;
         }
 
         public bool has_selection_range () {
-            return range != SelectionRange.empty;
+            return range != SelectionRange.EMPTY;
         }
 
         public bool parse_selection_range_string (string selection_range_string) {

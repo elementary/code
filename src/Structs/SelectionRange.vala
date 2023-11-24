@@ -4,5 +4,5 @@ public struct SelectionRange {
     public int end_line;
     public int end_column;
 
-    public static SelectionRange empty = {0, 0, 0, 0};
+    public const SelectionRange EMPTY = {0, 0, 0, 0};
 }

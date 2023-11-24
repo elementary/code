@@ -705,7 +705,7 @@ namespace Scratch {
         public void open_document_at_selected_range (
             Scratch.Services.Document doc,
             bool focus = true,
-            SelectionRange range = SelectionRange.empty,
+            SelectionRange range = SelectionRange.EMPTY,
             bool is_override = false)
         {
             if (restore_override != null && is_override == false) {

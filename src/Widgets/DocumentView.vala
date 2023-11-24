@@ -252,7 +252,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
     }
 
-    public void open_document_at_selected_range (Services.Document doc, bool focus = true, SelectionRange range = SelectionRange.empty) {
+    public void open_document_at_selected_range (Services.Document doc, bool focus = true, SelectionRange range = SelectionRange.EMPTY) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -265,7 +265,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 }
 
                 debug ("This Document was already opened! Not opening a duplicate!");
-                if (range != SelectionRange.empty) {
+                if (range != SelectionRange.EMPTY) {
                     Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
                         current_document.source_view.select_range (range);
                         save_opened_files ();
@@ -290,7 +290,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                     doc.focus ();
                 }
 
-                if (range != SelectionRange.empty) {
+                if (range != SelectionRange.EMPTY) {
                     doc.source_view.select_range (range);
                 }
                 save_opened_files ();
