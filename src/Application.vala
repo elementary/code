@@ -170,8 +170,10 @@ namespace Scratch {
 
         protected override void activate () {
             if (active_window == null) {
-                bool will_override_restore = is_file_to_restore (selection_range_file);
-                if (selection_range != SelectionRange.empty && selection_range_file != null && will_override_restore) {
+                if (selection_range != SelectionRange.empty
+                    && selection_range_file != null
+                    && is_file_to_restore (selection_range_file))
+                {
                     add_window (new MainWindow.with_restore_override (true, new RestoreOverride (selection_range_file, selection_range)));
                 } else {
                     add_window (new MainWindow (true)); // Will restore documents if required
@@ -192,7 +194,6 @@ namespace Scratch {
 
         protected override void open (File[] files, string hint) {
             var window = get_last_window ();
-            debug ("Files length: %d\n", files.length);
             foreach (var file in files) {
                 bool is_folder;
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
