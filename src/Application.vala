@@ -32,8 +32,9 @@ namespace Scratch {
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
-        private static string? selection_range_string = null;
+        private static string selection_range_string = null;
         private static SelectionRange selection_range = SelectionRange.empty;
+        private static GLib.File selection_range_file;
 
         const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
@@ -115,15 +116,32 @@ namespace Scratch {
 
             debug ("Go to string %s:", selection_range_string);
 
+            bool matched_selection_range = false;
             if (selection_range_string != null) {
                 Regex go_to_line_regex = /^(?<start_line>[0-9]+)+(?:\.(?<start_column>[0-9]+)+)?(?:-(?:(?<end_line>[0-9]+)+(?:\.(?<end_column>[0-9]+)+)?))?$/;  // vala-lint=space-before-paren, line-length
                 MatchInfo match_info;
-                if (go_to_line_regex.match (selection_range_string, 0, out match_info)) {
+                matched_selection_range = go_to_line_regex.match (selection_range_string, 0, out match_info);
+                if (matched_selection_range) {
                     selection_range = parse_go_to_range_from_match_info (match_info);
                     debug ("Selection Range - start_line: %d", selection_range.start_line);
                     debug ("Selection Range - start_column: %d", selection_range.start_column);
                     debug ("Selection Range - end_line: %d", selection_range.end_line);
                     debug ("Selection Range - end_column: %d", selection_range.end_column);
+                }
+            } else {
+                selection_range = SelectionRange.empty;
+            }
+
+            if (matched_selection_range && options.contains (GLib.OPTION_REMAINING)) {
+                (unowned string)[] file_list = options.lookup_value (
+                    GLib.OPTION_REMAINING,
+                    VariantType.BYTESTRING_ARRAY
+                ).get_bytestring_array ();
+
+                if (file_list.length == 1) {
+                    unowned string selection_range_file_path = file_list[0];
+                    //  selection_range_file = command_line.create_file_for_arg (selection_range_file_path);
+                    selection_range_file = command_line.create_file_for_arg (selection_range_file_path);
                 }
             }
 
@@ -145,12 +163,19 @@ namespace Scratch {
                 open (files, "");
             }
 
+
+
             return Posix.EXIT_SUCCESS;
         }
 
         protected override void activate () {
             if (active_window == null) {
-                add_window (new MainWindow (true)); // Will restore documents if required
+                bool will_override_restore = is_file_to_restore (selection_range_file);
+                if (selection_range != SelectionRange.empty && selection_range_file != null && will_override_restore) {
+                    add_window (new MainWindow.with_restore_override (true, new RestoreOverride (selection_range_file, selection_range)));
+                } else {
+                    add_window (new MainWindow (true)); // Will restore documents if required
+                }
             } else if (create_new_window) {
                 create_new_window = false;
                 add_window (new MainWindow (false)); // Will NOT restore documents in additional windows
@@ -214,6 +239,34 @@ namespace Scratch {
             }
 
             return 0;
+        }
+
+        private bool is_file_to_restore (File file_to_check) {
+            bool will_restore = false;
+            if (privacy_settings.get_boolean ("remember-recent-files")) {
+                var doc_infos = settings.get_value ("opened-files");
+                var doc_info_iter = new VariantIter (doc_infos);
+                
+                string uri;
+                int pos;
+                while (doc_info_iter.next ("(si)", out uri, out pos)) {
+                   if (uri != "") {
+                        GLib.File file;
+                        if (Uri.parse_scheme (uri) != null) {
+                            file = File.new_for_uri (uri);
+                        } else {
+                            file = File.new_for_commandline_arg (uri);
+                        }
+
+                        if (file.query_exists () && file.get_path () == file_to_check.get_path ()) {
+                            will_restore = true;
+                            return will_restore;
+                        }
+                    }
+                }
+            }
+
+            return will_restore;
         }
     }
 }

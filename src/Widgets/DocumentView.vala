@@ -268,6 +268,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 if (range != SelectionRange.empty) {
                     Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
                         doc.source_view.select_range (range);
+                        save_opened_files ();
+
                         return false;
                     });
                 }
