@@ -712,7 +712,7 @@ namespace Scratch {
 
             FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             doc.source_view.project = project;
-            document_view.open_document_at_selected_range (doc, focus, range);
+            document_view.open_document (doc, focus, 0, range);
         }
 
         // Close a document

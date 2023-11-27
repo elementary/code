@@ -213,46 +213,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0) {
-        for (int n = 0; n <= docs.length (); n++) {
-            var nth_doc = docs.nth_data (n);
-            if (nth_doc == null) {
-                continue;
-            }
-
-            if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                if (focus) {
-                    current_document = nth_doc;
-                }
-
-                debug ("This Document was already opened! Not opening a duplicate!");
-                return;
-            }
-        }
-
-        insert_document (doc, -1);
-        if (focus) {
-            current_document = doc;
-        }
-
-        Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
-            doc.open.begin (false, (obj, res) => {
-                doc.open.end (res);
-                if (focus && doc == current_document) {
-                    doc.focus ();
-                }
-
-                if (cursor_position > 0) {
-                    doc.source_view.cursor_position = cursor_position;
-                }
-                save_opened_files ();
-            });
-
-            return false;
-        });
-    }
-
-    public void open_document_at_selected_range (Services.Document doc, bool focus = true, SelectionRange range = SelectionRange.EMPTY) {
+    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -292,7 +253,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
                 if (range != SelectionRange.EMPTY) {
                     doc.source_view.select_range (range);
+                } else if (cursor_position > 0) {
+                    doc.source_view.cursor_position = cursor_position;
                 }
+
                 save_opened_files ();
             });
 
