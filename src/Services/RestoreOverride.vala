@@ -1,3 +1,11 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ * SPDX-FileContributor: Colin Kiama <colinkiama@gmail.com>
+ *
+ * Authored by: Colin Kiama <colinkiama@gmail.com>
+ */
+
 public class RestoreOverride : GLib.Object {
     public GLib.File file { get; construct; }
     public SelectionRange range { get; construct; }

@@ -1,3 +1,11 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ * SPDX-FileContributor: Colin Kiama <colinkiama@gmail.com>
+ *
+ * Authored by: Colin Kiama <colinkiama@gmail.com>
+ */
+
 namespace Scratch {
     public class LocationJumpManager : GLib.Object {
         public GLib.File file { get; set; }
