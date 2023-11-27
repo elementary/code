@@ -1,3 +1,10 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ *
+ * Authored by: Colin Kiama <colinkiama@gmail.com>
+ */
+
 public struct SelectionRange {
     public int start_line;
     public int start_column;
