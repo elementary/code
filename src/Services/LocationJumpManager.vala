@@ -81,14 +81,14 @@ namespace Scratch {
         }
 
         private static int parse_num_from_match_info (MatchInfo match_info, string match_name) {
-            string str = match_info.fetch_named (match_name);
-            int num;
+            var str = match_info.fetch_named (match_name);
+            int num = 0;
 
-            if (int.try_parse (str, out num)) {
+            if (str != null && int.try_parse (str, out num)) {
                 return num;
             }
 
-            return 0;
+            return num;
         }
     }
 }
