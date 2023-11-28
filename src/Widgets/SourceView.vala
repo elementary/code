@@ -476,6 +476,35 @@ namespace Scratch.Widgets {
             buffer.end_user_action ();
         }
 
+        public void select_range (SelectionRange range) {
+            if (range.start_line < 0) {
+                return;
+            }
+
+            Gtk.TextIter start_iter;
+            buffer.get_start_iter (out start_iter);
+            start_iter.set_line (range.start_line - 1);
+
+            if (range.start_column > 0) {
+                start_iter.set_visible_line_offset (range.start_column - 1);
+            }
+
+            Gtk.TextIter end_iter = start_iter.copy ();
+            if (range.end_line > 0) {
+                end_iter.set_line (range.end_line - 1);
+
+                if (range.end_column > 0) {
+                    end_iter.set_visible_line_offset (range.end_column - 1);
+                }
+            }
+
+            buffer.select_range (start_iter, end_iter);
+            Idle.add (() => {
+                scroll_to_iter (end_iter, 0.25, false, 0, 0);
+                return Source.REMOVE;
+            });
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {

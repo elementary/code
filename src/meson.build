@@ -34,8 +34,10 @@ code_files = files(
     'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
+    'Services/LocationJumpManager.vala',
     'Services/MonitoredRepository.vala',
     'Services/PluginManager.vala',
+    'Services/RestoreOverride.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
     'Widgets/ChooseProjectButton.vala',
@@ -57,7 +59,7 @@ code_files = files(
     'SymbolPane/C/CtagsSymbol.vala',
     'SymbolPane/C/CtagsSymbolIter.vala',
     'SymbolPane/C/CtagsSymbolOutline.vala',
-
+    'Structs/SelectionRange.vala'
 )
 
 executable(
