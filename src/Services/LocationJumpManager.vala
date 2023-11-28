@@ -83,8 +83,8 @@ namespace Scratch {
             var str = match_info.fetch_named (match_name);
             int num = 0;
 
-            if (str != null && int.try_parse (str, out num)) {
-                return num;
+            if (str != null) {
+                int.try_parse (str, out num);
             }
 
             return num;
