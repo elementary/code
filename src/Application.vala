@@ -185,7 +185,6 @@ namespace Scratch {
                         } else {
                             window.open_document (doc);
                         }
-
                     }
                 }
             }

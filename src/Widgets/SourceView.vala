@@ -480,6 +480,7 @@ namespace Scratch.Widgets {
             if (range.start_line < 0) {
                 return;
             }
+
             Gtk.TextIter start_iter;
             buffer.get_start_iter (out start_iter);
             start_iter.set_line (range.start_line - 1);
