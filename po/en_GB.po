@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"POT-Creation-Date: 2023-11-29 17:14+0000\n"
 "PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -20,90 +20,90 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:40
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:219
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:221
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:350
 msgid "Hide search bar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "Find on Page…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:366
 msgid "Hide Projects Sidebar"
 msgstr "Hide Projects Sidebar"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:371
 msgid "Show Projects Sidebar"
 msgstr "Show Projects Sidebar"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:380
 msgid "Hide Symbol Outline"
 msgstr "Hide Symbol Outline"
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:385
 msgid "Show Symbol Outline"
 msgstr "Show Symbol Outline"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:562
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:882 src/Services/Document.vala:597
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:886 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:890
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:893
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
 #: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:919
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:920
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -296,11 +296,11 @@ msgstr "Empty File"
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "new file"
 
@@ -346,11 +346,11 @@ msgstr "Modified"
 msgid "Error while creating new branch: “%s”"
 msgstr "Error while creating new branch: “%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:581
 msgid "New Branch…"
 msgstr "New Branch…"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:594
 msgid "Branch"
 msgstr "Branch"
 
@@ -712,20 +712,20 @@ msgstr "Replace"
 msgid "Replace all"
 msgstr "Replace all"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:575
 #, c-format
 msgid "%d of %d"
 msgstr "%d of %d"
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:580
 msgid "no results"
 msgstr "no results"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "Sort Selected Lines"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "Toggle Comment"
 

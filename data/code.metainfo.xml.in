@@ -66,6 +66,28 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="7.2.0" date="2023-11-28" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>When opening a file in Code from the commandline or another app, a line/char position or selection range may be specified</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>"Find in Folder" now works for all folders and text files, not only ".vala" files</li>
+          <li>"Follow System Style" is now fully respected</li>
+          <li>The "--new-tab" commandline option now works</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/415">Expose "Go To Line" feature externally</issue>
+        <issue url="https://github.com/elementary/code/issues/1198">Searching within a folder should ignore global filters</issue>
+        <issue url="https://github.com/elementary/code/issues/1364">System theme change not fully respected if Code already running</issue>
+        <issue url="https://github.com/elementary/code/issues/1380">"new-tab" command line option not working</issue>
+      </issues>
+    </release>
+
     <release version="7.1.0" date="2023-07-28" urgency="medium">
       <description>
         <p>Improvements:</p>

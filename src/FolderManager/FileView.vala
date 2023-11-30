@@ -193,7 +193,12 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
-                search_root.global_search (search_root.file.file, term);
+                GLib.File start_folder = (item_for_path is FolderItem)
+                    ? item_for_path.file.file
+                    : search_root.file.file;
+
+                bool is_explicit = !(item_for_path is ProjectFolderItem);
+                search_root.global_search (start_folder, term, is_explicit);
             }
         }
     }
