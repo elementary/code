@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"POT-Creation-Date: 2023-11-29 17:14+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -21,59 +21,59 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: src/Application.vala:40
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:219
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Koda"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:221
 msgid "Code"
 msgstr "Koda"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:350
 msgid "Hide search bar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find on Page…"
 msgstr "Dodaj projektno mapo…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:366
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:371
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Pokaži predogled"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:380
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:385
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
@@ -81,39 +81,39 @@ msgstr "Simboli"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:562
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:882 src/Services/Document.vala:597
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:886 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:890
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:893
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
 #: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:919
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:920
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -318,11 +318,11 @@ msgstr "Prazna datoteka"
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "nova datoteka"
 
@@ -377,13 +377,13 @@ msgstr ""
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:581
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Veja"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:594
 msgid "Branch"
 msgstr "Veja"
 
@@ -784,20 +784,20 @@ msgstr "Zamenjaj"
 msgid "Replace all"
 msgstr "Zamenjaj vse"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:575
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:580
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "Sortiraj izbrane vrstice"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "Preklopi komentar"
 

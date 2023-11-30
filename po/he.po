@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
-"PO-Revision-Date: 2023-07-12 15:07+0000\n"
+"POT-Creation-Date: 2023-11-29 17:14+0000\n"
+"PO-Revision-Date: 2023-11-11 06:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,93 +16,93 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:40
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:219
 #, c-format
 msgid "Code (%s)"
 msgstr "קוד (%s)"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:221
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:350
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "איתור בעמוד…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:366
 msgid "Hide Projects Sidebar"
 msgstr "הסתרת סרגל המיזמים"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:371
 msgid "Show Projects Sidebar"
 msgstr "הצגת סרגל המיזמים"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:380
 msgid "Hide Symbol Outline"
 msgstr "הסתרת קווי מתאר של סמלים"
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:385
 msgid "Show Symbol Outline"
 msgstr "הצגת קווי מתאר של סמלים"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:562
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:882 src/Services/Document.vala:597
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:886 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:890
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:893
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
 #: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:919
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:920
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -294,11 +294,11 @@ msgstr "קובץ ריק"
 msgid "New"
 msgstr "חדש"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "תיקייה ללא שם"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "קובץ חדש"
 
@@ -344,11 +344,11 @@ msgstr "נערכה"
 msgid "Error while creating new branch: “%s”"
 msgstr "שגיאה ביצירת ענף חדש: „%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:581
 msgid "New Branch…"
 msgstr "ענף חדש…"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:594
 msgid "Branch"
 msgstr "ענף"
 
@@ -648,7 +648,7 @@ msgstr "ניהול תיקיות המיזם"
 
 #: src/Widgets/SearchBar.vala:71
 msgid "Find"
-msgstr "חיפוש"
+msgstr "איתור"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "No Results"
@@ -706,20 +706,20 @@ msgstr "החלפה"
 msgid "Replace all"
 msgstr "החלפת הכול"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:575
 #, c-format
 msgid "%d of %d"
 msgstr "%d מתוך %d"
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:580
 msgid "no results"
 msgstr "אין תוצאות"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "סידור השורות הנבחרות"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "החלפת מצב הערה"
 

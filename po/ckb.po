@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"POT-Creation-Date: 2023-11-29 17:14+0000\n"
 "PO-Revision-Date: 2022-07-31 11:42+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -15,59 +15,59 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "تابی نوێ"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "پەنجەرەی نوێ"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "پرێنت کردنی زانیاری وەشان و داخستن"
 
-#: src/Application.vala:40
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr "[پەڕگە...]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:219
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:221
 msgid "Code"
 msgstr "كۆد"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:350
 msgid "Hide search bar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "دۆزینەوە لە پرۆژەدا…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:366
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:371
 #, fuzzy
 #| msgid "No Project Selected"
 msgid "Show Projects Sidebar"
 msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:380
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:385
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
@@ -75,39 +75,39 @@ msgstr "هیچ سمبولێک نەدۆزرایەوە"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:562
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:882 src/Services/Document.vala:597
 msgid "All files"
 msgstr "هەموو پەڕگەکان"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:886 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "پەڕگە دەقییەکان"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:890
 msgid "Open some files"
 msgstr "کردنەوەی چەند پەڕگەیەک"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:893
 msgid "Open"
 msgstr "كردنەوە"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
 #: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:919
 msgid "_Open"
 msgstr "_کردنەوە"
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:920
 msgid "_Cancel"
 msgstr "_هەڵوەشاندنەوە"
 
@@ -303,11 +303,11 @@ msgstr "پەڕگەی بەتاڵ"
 msgid "New"
 msgstr "نوێ"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "بوخچەی بێ ناو"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "پەڕگەیەکی نوێ"
 
@@ -354,11 +354,11 @@ msgstr "دەستکاریکراو"
 msgid "Error while creating new branch: “%s”"
 msgstr "هەڵەیەک ڕوویدا لە کاتی دروستکردنی برانچێکی نوێ: \"%s\""
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:581
 msgid "New Branch…"
 msgstr "برانچی نوێ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:594
 msgid "Branch"
 msgstr "برانچ"
 
@@ -756,20 +756,20 @@ msgstr "جێ گۆڕینەوە"
 msgid "Replace all"
 msgstr "جێ گۆڕینەوەی هەموویان"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:575
 #, c-format
 msgid "%d of %d"
 msgstr "%d ی %d"
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:580
 msgid "no results"
 msgstr "هیچ ئەنجامێک نییە"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "ڕیزکردنی هێڵە دیاریکراوەکان"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "کردنەوەی/داخستنی کۆمێنت"
 
