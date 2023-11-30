@@ -79,8 +79,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
-            save_focused_document_uri (new_tab as Services.Document);
+            var doc = (Services.Document)new_tab;
+            /* The 'document_change' signal may not be emitted if this already has focus so signal here*/
+            document_change (doc, this);
+            save_focused_document_uri (doc);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -187,12 +189,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-
-            insert_document (doc, -1);
-            current_document = doc;
-
-            doc.focus ();
-            save_opened_files ();
+            // Must open document in order to unlock it.
+            open_document (doc);
         } catch (Error e) {
             critical (e.message);
         }
@@ -215,7 +213,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0) {
+    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -228,6 +226,15 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 }
 
                 debug ("This Document was already opened! Not opening a duplicate!");
+                if (range != SelectionRange.EMPTY) {
+                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+                        current_document.source_view.select_range (range);
+                        save_opened_files ();
+
+                        return false;
+                    });
+                }
+
                 return;
             }
         }
@@ -244,9 +251,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                     doc.focus ();
                 }
 
-                if (cursor_position > 0) {
+                if (range != SelectionRange.EMPTY) {
+                    doc.source_view.select_range (range);
+                } else if (cursor_position > 0) {
                     doc.source_view.cursor_position = cursor_position;
                 }
+
                 save_opened_files ();
             });
 

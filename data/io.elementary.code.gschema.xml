@@ -22,11 +22,6 @@
       <summary>The saved state of the window.</summary>
       <description>The saved state of the window.</description>
     </key>
-    <key name="window-position" type="(ii)">
-      <default>(-1, -1)</default>
-      <summary>Window position</summary>
-      <description>Most recent window position (x, y)</description>
-    </key>
     <key name="window-size" type="(ii)">
       <default>(850, 550)</default>
       <summary>Most recent window size</summary>
@@ -121,6 +116,7 @@
       <description>Whether Code should use auto indentation</description>
     </key>
     <key name="indent-width" type="i">
+      <range min="2" max="16"/>
       <default>4</default>
       <summary>Tab Size</summary>
       <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>

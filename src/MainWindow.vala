@@ -26,6 +26,7 @@ namespace Scratch {
 
         public Scratch.Application app { get; private set; }
         public bool restore_docs { get; construct; }
+        public RestoreOverride restore_override { get; construct set; }
 
         public Scratch.Widgets.DocumentView document_view;
 
@@ -103,6 +104,9 @@ namespace Scratch {
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
 
+        private ulong color_scheme_listener_handler_id = 0;
+
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
             { ACTION_FIND_NEXT, action_find_next },
@@ -152,6 +156,14 @@ namespace Scratch {
             Object (
                 icon_name: Constants.PROJECT_NAME,
                 restore_docs: restore_docs
+            );
+        }
+
+        public MainWindow.with_restore_override (bool restore_docs, RestoreOverride restore_override) {
+            Object (
+                icon_name: Constants.PROJECT_NAME,
+                restore_docs: restore_docs,
+                restore_override: restore_override
             );
         }
 
@@ -265,10 +277,6 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
-                    Scratch.saved_state.get ("window-position", "(ii)", out rect.x, out rect.y);
-                    if (rect.x != -1 && rect.y != -1) {
-                        move (rect.x, rect.y);
-                    }
                     break;
             }
 
@@ -307,8 +315,29 @@ namespace Scratch {
             if (Scratch.settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
                 gtk_settings.gtk_application_prefer_dark_theme = system_prefers_dark;
+                connect_color_scheme_preference_listener ();
             } else {
+                disconnect_color_scheme_preference_listener ();
                 gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
+            }
+        }
+
+        private void connect_color_scheme_preference_listener () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            var granite_settings = Granite.Settings.get_default ();
+
+            color_scheme_listener_handler_id = granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = (
+                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK
+                );
+            });
+        }
+
+        private void disconnect_color_scheme_preference_listener () {
+            if (color_scheme_listener_handler_id != 0) {
+                var granite_settings = Granite.Settings.get_default ();
+                granite_settings.disconnect (color_scheme_listener_handler_id);
+                color_scheme_listener_handler_id = 0;
             }
         }
 
@@ -515,8 +544,14 @@ namespace Scratch {
                 update_find_actions ();
             });
 
-            document_view.tab_removed.connect (() => {
+            document_view.tab_removed.connect ((tab) => {
                 update_find_actions ();
+                var doc = (Scratch.Services.Document)tab;
+                var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
+                if (selected_item != null && selected_item.file.file.equal (doc.file)) {
+                    // Do not leave removed tab selected
+                    folder_manager_view.selected = null;
+                }
             });
 
             document_view.document_change.connect ((doc) => {
@@ -568,6 +603,7 @@ namespace Scratch {
                 string focused_document = settings.get_string ("focused-document");
                 string uri;
                 int pos;
+                bool was_restore_overriden = false;
                 while (doc_info_iter.next ("(si)", out uri, out pos)) {
                    if (uri != "") {
                         GLib.File file;
@@ -584,7 +620,12 @@ namespace Scratch {
                             var doc = new Scratch.Services.Document (actions, file);
                             bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
-                                open_document (doc, is_focused, pos);
+                                if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
+                                    open_document_at_selected_range (doc, true, restore_override.range, true);
+                                    was_restore_overriden = true;
+                                } else {
+                                    open_document (doc, was_restore_overriden ? false : is_focused, pos);
+                                }
                             }
 
                             if (is_focused) { //Maybe expand to show all opened documents?
@@ -597,6 +638,7 @@ namespace Scratch {
 
             Idle.add (() => {
                 document_view.request_placeholder_if_empty ();
+                restore_override = null;
                 return Source.REMOVE;
             });
         }
@@ -660,6 +702,19 @@ namespace Scratch {
             document_view.open_document (doc, focus, cursor_position);
         }
 
+        public void open_document_at_selected_range (Scratch.Services.Document doc,
+                                                     bool focus = true,
+                                                     SelectionRange range = SelectionRange.EMPTY,
+                                                     bool is_override = false) {
+            if (restore_override != null && is_override == false) {
+                return;
+            }
+
+            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
+            document_view.open_document (doc, focus, 0, range);
+        }
+
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
             document_view.close_document (doc);
@@ -711,11 +766,6 @@ namespace Scratch {
                 get_size (out width, out height);
                 Scratch.saved_state.set ("window-size", "(ii)", width, height);
             }
-
-            // Save window position
-            int x, y;
-            get_position (out x, out y);
-            Scratch.saved_state.set ("window-position", "(ii)", x, y);
 
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
@@ -896,7 +946,7 @@ namespace Scratch {
                 if (doc.is_file_temporary == true) {
                     action_save_as ();
                 } else {
-                    doc.save_with_hold.begin (true);
+                    doc.save_request ();
                 }
             }
         }
@@ -1073,6 +1123,10 @@ namespace Scratch {
                 search_bar.search_entry.text = current_search_term;
                 search_bar.search_entry.grab_focus ();
                 search_bar.search_next ();
+            } else if (search_bar.search_entry.text != "") {
+                // Always search on what is showing in search entry
+                current_search_term = search_bar.search_entry.text;
+                search_bar.search_entry.grab_focus ();
             } else {
                 var current_doc = get_current_document ();
                 // This is also called when all documents are closed.

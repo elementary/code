@@ -35,6 +35,7 @@ namespace Scratch.Widgets {
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
+        private string selected_text = "";
         private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
@@ -42,6 +43,7 @@ namespace Scratch.Widgets {
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
+        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
         public signal void deselected ();
 
@@ -241,9 +243,10 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.get_boolean ("auto-indent");
             show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
             right_margin_position = Scratch.settings.get_int ("right-margin-position");
+            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
-
+            space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
                     space_drawer.set_types_for_locations (
@@ -269,9 +272,10 @@ namespace Scratch.Widgets {
                     break;
             }
 
+            space_drawer.enable_matrix = true;
             update_draw_spaces ();
 
-            insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
+
             tab_width = (uint) Scratch.settings.get_int ("indent-width");
             if (Scratch.settings.get_boolean ("line-wrap")) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
@@ -472,6 +476,35 @@ namespace Scratch.Widgets {
             buffer.end_user_action ();
         }
 
+        public void select_range (SelectionRange range) {
+            if (range.start_line < 0) {
+                return;
+            }
+
+            Gtk.TextIter start_iter;
+            buffer.get_start_iter (out start_iter);
+            start_iter.set_line (range.start_line - 1);
+
+            if (range.start_column > 0) {
+                start_iter.set_visible_line_offset (range.start_column - 1);
+            }
+
+            Gtk.TextIter end_iter = start_iter.copy ();
+            if (range.end_line > 0) {
+                end_iter.set_line (range.end_line - 1);
+
+                if (range.end_column > 0) {
+                    end_iter.set_visible_line_offset (range.end_column - 1);
+                }
+            }
+
+            buffer.select_range (start_iter, end_iter);
+            Idle.add (() => {
+                scroll_to_iter (end_iter, 0.25, false, 0, 0);
+                return Source.REMOVE;
+            });
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
@@ -568,7 +601,6 @@ namespace Scratch.Widgets {
 
             last_select_start_iter.assign (start);
             last_select_end_iter.assign (end);
-
             update_draw_spaces ();
 
             if (selection_changed_timer != 0) {
@@ -590,7 +622,11 @@ namespace Scratch.Widgets {
             Gtk.TextIter start, end;
             bool selected = buffer.get_selection_bounds (out start, out end);
             if (selected) {
-                selection_changed (start, end);
+                var prev_selected_text = selected_text;
+                selected_text = buffer.get_text (start, end, true);
+                if (selected_text != prev_selected_text) {
+                    selection_changed (start, end);
+                }
             } else {
                 deselected ();
             }

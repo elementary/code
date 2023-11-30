@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 08:10+0000\n"
-"PO-Revision-Date: 2023-03-01 16:25+0000\n"
+"POT-Creation-Date: 2023-11-29 17:14+0000\n"
+"PO-Revision-Date: 2023-08-08 09:08+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -17,97 +17,93 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "新标签页"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新窗口"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "打印版本信息并退出"
 
-#: src/Application.vala:40
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr "[文件…]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:219
 #, c-format
 msgid "Code (%s)"
 msgstr "代码 (%s)"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:221
 msgid "Code"
 msgstr "代码"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:350
 msgid "Hide search bar"
 msgstr "隐藏搜索栏"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
 msgid "Find on Page…"
 msgstr "在页面内查找…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:366
 msgid "Hide Projects Sidebar"
 msgstr "隐藏项目侧边栏"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:371
 msgid "Show Projects Sidebar"
 msgstr "显示项目侧边栏"
 
-#: src/MainWindow.vala:351
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
+#: src/MainWindow.vala:380
 msgid "Hide Symbol Outline"
 msgstr "隐藏符号大纲"
 
-#: src/MainWindow.vala:356
-#, fuzzy
-#| msgid "Toggle Symbol Outline"
+#: src/MainWindow.vala:385
 msgid "Show Symbol Outline"
 msgstr "显示符号大纲"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:527
+#: src/MainWindow.vala:562
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:586
+#: src/MainWindow.vala:882 src/Services/Document.vala:597
 msgid "All files"
 msgstr "所有文件"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:590
+#: src/MainWindow.vala:886 src/Services/Document.vala:601
 msgid "Text files"
 msgstr "文本文件"
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:890
 msgid "Open some files"
 msgstr "打开一些文件"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:893
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:439
-#: src/Services/Document.vala:598 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
+#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:869
+#: src/MainWindow.vala:919
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: src/MainWindow.vala:870
+#: src/MainWindow.vala:920
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -298,11 +294,11 @@ msgstr "空白文件"
 msgid "New"
 msgstr "新建"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "未命名文件夹"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "新文件"
 
@@ -345,156 +341,158 @@ msgstr "已修改"
 msgid "Error while creating new branch: “%s”"
 msgstr "创建新分支： “%s” 时发生错误"
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:581
 msgid "New Branch…"
 msgstr "新分支…"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:594
 msgid "Branch"
 msgstr "分支"
 
-#: src/Services/Document.vala:305
+#: src/Services/Document.vala:317
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文本文件"
 
-#: src/Services/Document.vala:306
+#: src/Services/Document.vala:318
 msgid "Code will not load this type of file."
 msgstr "无法打开此类型文件。"
 
-#: src/Services/Document.vala:308
+#: src/Services/Document.vala:320
 msgid "Load Anyway"
 msgstr "仍然载入"
 
-#: src/Services/Document.vala:329
-#, fuzzy, c-format
-#| msgid "Loading File \"%s\" Is Taking a Long Time"
+#: src/Services/Document.vala:341
+#, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "载入 \"%s\" 花费的时间较长"
+msgstr "载入文件 “%s” 花费的时间较长"
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:342
 msgid "Please wait while Code is loading the file."
 msgstr "请耐心等待文件载入。"
 
-#: src/Services/Document.vala:332
+#: src/Services/Document.vala:344
 msgid "Cancel Loading"
 msgstr "取消载入"
 
-#: src/Services/Document.vala:429
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:431
+#, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "关闭前保存数据到 “%s” 吗？"
 
-#: src/Services/Document.vala:430
+#: src/Services/Document.vala:432
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若不保存，变更的内容将永久丢失。"
 
-#: src/Services/Document.vala:436
+#: src/Services/Document.vala:438
 msgid "Close Without Saving"
 msgstr "关闭且不保存"
 
-#: src/Services/Document.vala:440 src/Services/Document.vala:597
+#: src/Services/Document.vala:442 src/Services/Document.vala:608
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:555
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#: src/Services/Document.vala:567
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "关闭前保存数据到 “%s” 吗？"
+msgstr "保存数据到 “%s” 失败。"
 
-#: src/Services/Document.vala:594
+#: src/Services/Document.vala:605
 msgid "Save File"
 msgstr "保存文件"
 
-#: src/Services/Document.vala:678 src/Services/Document.vala:696
+#: src/Services/Document.vala:692 src/Services/Document.vala:710
 msgid "New Document"
 msgstr "新文件"
 
 #. No path for a new document
-#: src/Services/Document.vala:698
+#: src/Services/Document.vala:712
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "无法将该文档保存至 %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:823
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#: src/Services/Document.vala:778
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "在“%s”中查找文本"
+msgstr "无法读取文件“%s”中的文本"
 
-#: src/Services/Document.vala:826
-#, fuzzy
-#| msgid "It may be corrupt or you don't have permission to read it."
+#: src/Services/Document.vala:781
 msgid "You may not have permission to read the file."
-msgstr "可能文件已损坏或您没有读取它的权限。"
+msgstr "您可能没有读取该文件的权限。"
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:783
 msgid "The file may be corrupt or may not be a text file"
-msgstr ""
+msgstr "该文件可能已经损坏，或者不是文本文件"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:834
-#, fuzzy
-#| msgid "Load Anyway"
+#: src/Services/Document.vala:789
 msgid "Show Anyway"
-msgstr "仍然载入"
+msgstr "仍然显示"
 
-#: src/Services/Document.vala:864
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
-msgid "The location containing the file “%s” was unmounted."
-msgstr "文件 \"%s\" 所在位置不可写， 您想将它保存至其他位置吗？"
+#: src/Services/Document.vala:820
+#, c-format
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr "文件 “%s” 所在位置已被取消挂载，且仍有未保存更改。"
 
-#: src/Services/Document.vala:866
-#, fuzzy, c-format
-#| msgid "The file %s was deleted."
-msgid "File “%s” was deleted."
-msgstr "文件 %s 已删除。"
+#: src/Services/Document.vala:822
+#, c-format
+msgid "File “%s” was deleted and there are unsaved changes."
+msgstr "文件 “%s” 已被删除，且仍有未保存更改。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:874
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:836
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "文件 \"%s\" 已被删除。 您想储存此文件的副本吗？"
+msgstr "文件 “%s” 没有写入权限。"
 
-#: src/Services/Document.vala:906
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
-msgid "File “%s” was modified by an external application."
-msgstr "文件 \"%s\" 的内容已被其他程序更改。 您想要重新载入还是继续编辑？"
+#: src/Services/Document.vala:882
+#, c-format
+msgid "File “%s” was modified by an external application"
+msgstr "文件 “%s” 的内容已被其他外部程序更改"
 
-#: src/Services/Document.vala:912
-#, fuzzy
-#| msgid "Upload"
-msgid "Reload"
-msgstr "上传"
+#: src/Services/Document.vala:887
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr "您仍有未保存的更改。重新载入本文档会覆盖未保存的更改。"
+
+#: src/Services/Document.vala:891
+msgid "The document changed externally since you last saved it."
+msgstr "在你上次保存后，该文档已被外部程序更改。"
+
+#: src/Services/Document.vala:907
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr "“%s” 无法在此处保存。是否将该文件的副本保存到其他地方？"
+
+#: src/Services/Document.vala:916
+msgid "Ignore"
+msgstr "忽略"
 
 #: src/Services/Document.vala:918
+msgid "Save Duplicate…"
+msgstr "保存副本…"
+
+#: src/Services/Document.vala:967
 msgid "Continue"
 msgstr "继续"
 
-#: src/Services/Document.vala:939
-#, c-format
-msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr ""
+#: src/Services/Document.vala:969
+msgid "Reload"
+msgstr "重新载入"
 
-#: src/Services/Document.vala:948
-msgid "Ignore"
-msgstr ""
+#: src/Services/Document.vala:972
+msgid "Overwrite"
+msgstr "覆写"
 
-#: src/Services/Document.vala:950
-msgid "Save Duplicate…"
-msgstr ""
+#: src/Services/Document.vala:975
+msgid "Save Document elsewhere"
+msgstr "保存当前文件到其他文件夹"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -522,54 +520,54 @@ msgstr "活跃的 Git 项目：%s"
 msgid "Filter projects"
 msgstr "筛选项目"
 
-#: src/Widgets/DocumentView.vala:159
+#: src/Widgets/DocumentView.vala:161
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "来自 %s:%d 的文本文档"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "语法高亮"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "行号"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "过滤器语言"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "纯文本"
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr "部分设置已由 EditorConfig 文件配置"
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 msgid "Automatic Indentation"
 msgstr "自动缩进"
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "空格代替制表符"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
 msgstr "制表符宽度"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "跳转至："
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d 空格"
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -643,86 +641,80 @@ msgstr "字母顺序"
 msgid "Manage project folders"
 msgstr "管理项目文件夹"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "查找"
 
-#: src/Widgets/SearchBar.vala:75
-#, fuzzy
-#| msgid "no results"
+#: src/Widgets/SearchBar.vala:74
 msgid "No Results"
 msgstr "无结果"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "下一个"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "上一个"
 
-#: src/Widgets/SearchBar.vala:100
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "循环搜索"
 
-#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "从不"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
-msgstr ""
+msgstr "混合大小写"
 
-#: src/Widgets/SearchBar.vala:105
+#: src/Widgets/SearchBar.vala:104
 msgid "Always"
 msgstr "总是如此"
 
-#: src/Widgets/SearchBar.vala:108
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "区分大小写"
 
-#: src/Widgets/SearchBar.vala:115
-#, fuzzy
-#| msgid "Use regular expressions"
+#: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
 msgstr "使用正则表达式"
 
-#: src/Widgets/SearchBar.vala:116
+#: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
-msgstr ""
+msgstr "匹配整词"
 
-#: src/Widgets/SearchBar.vala:137
-#, fuzzy
-#| msgid "Search previous"
+#: src/Widgets/SearchBar.vala:136
 msgid "Search Options"
-msgstr "上一个"
+msgstr "搜索选项"
 
-#: src/Widgets/SearchBar.vala:169
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "替换为"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "替换"
 
-#: src/Widgets/SearchBar.vala:175
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "全部替换"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:575
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:580
 msgid "no results"
 msgstr "无结果"
 
-#: src/Widgets/SourceView.vala:518
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "整理选中文本"
 
-#: src/Widgets/SourceView.vala:531
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "激活备注"
 
@@ -828,6 +820,11 @@ msgstr "请安装至少一个 [aspell] 词典。"
 msgid "%s - Word Completion"
 msgstr "%s - 词语补全"
 
+#, fuzzy, c-format
+#~| msgid "The file %s was deleted."
+#~ msgid "File “%s” was deleted."
+#~ msgstr "文件 %s 已删除。"
+
 #~ msgid "Set of plugins"
 #~ msgstr "插件集"
 
@@ -857,11 +854,6 @@ msgstr "%s - 词语补全"
 #~ "You cannot save changes to the file “%s”. Do you want to save the changes "
 #~ "somewhere else?"
 #~ msgstr "无法保存对文件 \"%s\" 的更改。您想将更改的内容保存至其他位置吗？"
-
-#, fuzzy
-#~| msgid "Save the current file"
-#~ msgid "Save the document elsewhere"
-#~ msgstr "保存当前文件"
 
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
