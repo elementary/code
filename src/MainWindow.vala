@@ -129,7 +129,7 @@ namespace Scratch {
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
-            { ACTION_SHOW_REPLACE, action_fetch },
+            { ACTION_SHOW_REPLACE, action_show_replace },
             { ACTION_TO_LOWER_CASE, action_to_lower_case },
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
@@ -1056,7 +1056,7 @@ namespace Scratch {
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
-            current_search_term = param.get_string ();
+            current_search_term = param != null ? param.get_string () : "";
             if (!search_revealer.child_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
@@ -1067,6 +1067,20 @@ namespace Scratch {
                 }
             } else {
                 set_search_text ();
+            }
+        }
+
+        private void action_show_replace (SimpleAction action) {
+            action_fetch (action, null);
+            // May have to wait for the search bar to be revealed before we can grab focus
+            if (search_revealer.child_revealed) {
+                search_bar.replace_entry.grab_focus ();
+            } else {
+                ulong map_handler = 0;
+                map_handler = search_bar.map.connect_after (() => {
+                    search_bar.replace_entry.grab_focus ();
+                    search_bar.disconnect (map_handler);
+                });
             }
         }
 
