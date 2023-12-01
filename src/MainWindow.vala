@@ -113,7 +113,7 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder },
+            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -913,23 +913,28 @@ namespace Scratch {
             }
         }
 
-        private void action_open_folder () {
-            var chooser = new Gtk.FileChooserNative (
-                "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Open"),
-                _("_Cancel")
-            );
+        private void action_open_folder (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                var chooser = new Gtk.FileChooserNative (
+                    "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
+                    _("_Open"),
+                    _("_Cancel")
+                );
 
-            chooser.select_multiple = true;
+                chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
+                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                    chooser.get_files ().foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+
+                chooser.destroy ();
+            } else {
+                folder_manager_view.open_folder (new FolderManager.File (path));
             }
-
-            chooser.destroy ();
         }
 
         private void action_collapse_all_folders () {
