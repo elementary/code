@@ -456,14 +456,19 @@ namespace Scratch {
             folder_manager_view.restore_saved_state ();
 
             folder_manager_view.rename_request.connect ((file) => {
-                foreach (var doc in document_view.docs) {
-                    if (doc.file.equal (file.file)) {
-                        // Only allow sidebar to rename docs that are in sync with their file
-                        return !doc.locked && doc.saved;
+                var allow = true;
+                foreach (var window in app.get_windows ()) {
+                    var win = (MainWindow)window;
+                    foreach (var doc in win.document_view.docs) {
+                        if (doc.file.equal (file.file)) {
+                            // Only allow sidebar to rename docs that are in sync with their file in
+                            // all windows
+                            allow = allow && !doc.locked && doc.saved;
+                        }
                     }
                 }
 
-                return true;
+                return allow;
             });
 
             terminal = new Code.Terminal () {
