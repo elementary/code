@@ -132,7 +132,7 @@ namespace Scratch.FolderManager {
                         return Source.REMOVE;
                     });
                 } else {
-                    warning ("could not edit");
+                    debug ("Could not rename %s", file.path);
                     selectable = false;
                 }
             });
