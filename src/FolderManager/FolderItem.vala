@@ -390,14 +390,12 @@ namespace Scratch.FolderManager {
             add (rename_item);
             /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
-                view.start_editing_item (rename_item);
-                /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
-                Timeout.add (200, () => {
-                    if (view.editing) {
-                        return Source.CONTINUE;
-                    } else {
+                if (view.start_editing_item (rename_item)) {
+                    ulong once = 0;
+                    once = rename_item.edited.connect (() => {
+                        rename_item.disconnect (once);
+                        // A name was accepted so create the corresponding file
                         var new_name = rename_item.name;
-                        view.ignore_next_select = true;
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
@@ -408,13 +406,23 @@ namespace Scratch.FolderManager {
                             }
                         } catch (Error e) {
                             warning (e.message);
-                        } finally {
+                        }
+                    });
+
+                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
                             remove (rename_item);
                         }
-                    }
 
-                    return Source.REMOVE;
-                });
+                        return Source.REMOVE;
+                    });
+                } else {
+                    remove (rename_item);
+                }
+
 
                 return Source.REMOVE;
             });
