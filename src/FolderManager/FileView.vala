@@ -115,6 +115,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         item_selected.connect (on_item_selected);
     }
 
+    public void unselect_all () {
+        selected = null;
+    }
+
     public void collapse_other_projects (string? keep_open_path = null) {
         unowned string path;
         if (keep_open_path == null) {
