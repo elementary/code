@@ -24,7 +24,7 @@
 public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
-    private ActionGroup? toplevel_action_group = null;
+    public ActionGroup toplevel_action_group { get; private set; }
 
     public signal void select (string file);
 
