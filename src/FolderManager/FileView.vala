@@ -27,6 +27,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     public ActionGroup toplevel_action_group { get; private set; }
 
     public signal void select (string file);
+    public signal bool rename_request (File file);
 
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }

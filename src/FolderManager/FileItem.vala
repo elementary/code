@@ -132,6 +132,7 @@ namespace Scratch.FolderManager {
                 view.start_editing_item (this);
             });
 
+            rename_item.sensitive = view.rename_request (file);
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
