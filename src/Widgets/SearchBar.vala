@@ -497,9 +497,6 @@ namespace Scratch.Widgets {
                 case "Down":
                     search_next ();
                     return true;
-                case "Escape":
-                    text_view.grab_focus ();
-                    return true;
                 case "Tab":
                     if (search_entry.is_focus) {
                         replace_entry.grab_focus ();
@@ -523,9 +520,6 @@ namespace Scratch.Widgets {
                     return true;
                 case "Down":
                     search_next ();
-                    return true;
-                case "Escape":
-                    text_view.grab_focus ();
                     return true;
                 case "Tab":
                     if (replace_entry.is_focus) {

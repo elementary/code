@@ -653,7 +653,9 @@ namespace Scratch {
                     if (search_revealer.get_child_revealed ()) {
                         var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                         fetch_action.set_state (false);
+                        document_view.current_document.source_view.grab_focus ();
                     }
+
                     break;
             }
 
