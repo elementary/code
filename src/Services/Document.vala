@@ -116,6 +116,12 @@ namespace Scratch.Services {
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
+        private Scratch.Widgets.DocumentView doc_view {
+            get {
+                return ((MainWindow) get_toplevel ()).document_view;
+            }
+        }
+
         public string original_content = "";
         private string last_save_content = "";
         public bool saved = true;
@@ -1148,13 +1154,31 @@ namespace Scratch.Services {
 
                 if (outline != null) {
                     outline_widget_pane.pack2 (outline.get_widget (), false, false);
-                    var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
-                    outline_widget_pane.set_position (position);
-                    outline.parse_symbols ();
+                    Idle.add (() => {
+                        set_outline_width (doc_view.outline_width);
+                        outline_widget_pane.notify["position"].connect (sync_outline_width);
+                        outline.parse_symbols ();
+                        return Source.REMOVE;
+                    });
                 }
             } else if (!show && outline != null) {
+                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
                 outline_widget_pane.get_child2 ().destroy ();
                 outline = null;
+            }
+        }
+
+        private void sync_outline_width () {
+            var width = outline_widget_pane.get_allocated_width () - outline_widget_pane.position;
+            if (width != doc_view.outline_width) {
+                doc_view.outline_width = width;
+            }
+        }
+
+        public void set_outline_width (int width) {
+            if (outline != null) {
+                var aw = outline_widget_pane.get_allocated_width ();
+                outline_widget_pane.position = (aw - width);
             }
         }
 
