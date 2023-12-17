@@ -113,7 +113,7 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder },
+            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -129,7 +129,7 @@ namespace Scratch {
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
-            { ACTION_SHOW_REPLACE, action_fetch },
+            { ACTION_SHOW_REPLACE, action_show_replace },
             { ACTION_TO_LOWER_CASE, action_to_lower_case },
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
@@ -913,23 +913,28 @@ namespace Scratch {
             }
         }
 
-        private void action_open_folder () {
-            var chooser = new Gtk.FileChooserNative (
-                "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Open"),
-                _("_Cancel")
-            );
+        private void action_open_folder (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                var chooser = new Gtk.FileChooserNative (
+                    "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
+                    _("_Open"),
+                    _("_Cancel")
+                );
 
-            chooser.select_multiple = true;
+                chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
+                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                    chooser.get_files ().foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+
+                chooser.destroy ();
+            } else {
+                folder_manager_view.open_folder (new FolderManager.File (path));
             }
-
-            chooser.destroy ();
         }
 
         private void action_collapse_all_folders () {
@@ -1056,7 +1061,7 @@ namespace Scratch {
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private string current_search_term = "";
         private void action_fetch (SimpleAction action, Variant? param) {
-            current_search_term = param.get_string ();
+            current_search_term = param != null ? param.get_string () : "";
             if (!search_revealer.child_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
@@ -1067,6 +1072,20 @@ namespace Scratch {
                 }
             } else {
                 set_search_text ();
+            }
+        }
+
+        private void action_show_replace (SimpleAction action) {
+            action_fetch (action, null);
+            // May have to wait for the search bar to be revealed before we can grab focus
+            if (search_revealer.child_revealed) {
+                search_bar.replace_entry.grab_focus ();
+            } else {
+                ulong map_handler = 0;
+                map_handler = search_bar.map.connect_after (() => {
+                    search_bar.replace_entry.grab_focus ();
+                    search_bar.disconnect (map_handler);
+                });
             }
         }
 
