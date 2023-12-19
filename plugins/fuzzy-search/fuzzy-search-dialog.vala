@@ -155,8 +155,6 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                             return;
                         }
 
-                        print ("Results Size: %d\n", results.size);
-
                         bool first = true;
 
                         // If the entry is empty or the text has changed

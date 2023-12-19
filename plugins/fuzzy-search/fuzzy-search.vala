@@ -35,7 +35,7 @@ public class Scratch.Services.SearchProject {
             var dir = Dir.open (path);
             var name = dir.read_name ();
             while (name != null) {
-                print ("Parsed name: %s\n", name);
+                debug ("Fuzzy Search - Parsed fuzzy search path: %s\n", name);
                 var new_search_path = "";
                 if (path.has_suffix ("/")) {
                     new_search_path = path.substring (0, path.length - 1);
