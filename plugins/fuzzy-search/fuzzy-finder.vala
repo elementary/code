@@ -220,8 +220,9 @@ public class Scratch.Services.FuzzyFinder {
                 // This helps to search for specific files only in one project, e.g.
                 // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
                 // even if their is a "fuzzy_finder" file in another project
+                string project_name = "";
                 if (project_paths.size > 1) {
-                    var project_name = Path.get_basename (project.root_path);
+                    project_name = Path.get_basename (project.root_path);
                     search_result = fuzzy_match (search_str, @"$project_name/$path", cancellable);
                 } else {
                     search_result = fuzzy_match (search_str, path, cancellable);
@@ -231,6 +232,7 @@ public class Scratch.Services.FuzzyFinder {
                     var root_path = project.root_path;
                     search_result.relative_path = path;
                     search_result.full_path = @"$root_path/$path";
+                    search_result.project = project_name;
                     results.add (search_result);
                 }
             }

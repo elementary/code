@@ -6,7 +6,7 @@ public class FileItem : Gtk.Button {
             return result.full_path;
         }
     }
-    public FileItem (SearchResult res) {
+    public FileItem (SearchResult res, bool should_distinguish_project = false) {
         this.get_style_context ().add_class ("fuzzy-item");
         this.get_style_context ().add_class ("flat");
 
@@ -15,7 +15,10 @@ public class FileItem : Gtk.Button {
         var path_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
         path_box.valign = Gtk.Align.CENTER;
 
-        var path_label = new Gtk.Label (result.relative_path);
+        var path_label = new Gtk.Label (
+            @"$(should_distinguish_project ? result.project + " • " : "")$(result.relative_path)"
+        );
+
         path_label.halign = Gtk.Align.START;
 
         var filename_label = new Gtk.Label (Path.get_basename (result.relative_path));

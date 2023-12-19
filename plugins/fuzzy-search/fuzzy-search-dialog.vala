@@ -9,6 +9,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
+    private bool should_distinguish_projects;
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -27,6 +28,8 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
         project_paths = pps;
         items = new Gee.ArrayList<FileItem> ();
         cancellables = new Gee.LinkedList<GLib.Cancellable> ();
+
+        should_distinguish_projects = project_paths.size > 1;
 
         // Limit the shown results if the window height is too small
         if (window_height > 400) {
@@ -168,7 +171,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                         items.clear ();
 
                         foreach (var result in results) {
-                            var file_item = new FileItem (result);
+                            var file_item = new FileItem (result, should_distinguish_projects);
 
                             if (first) {
                                 first = false;
