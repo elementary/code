@@ -170,12 +170,12 @@ public class Scratch.Services.FuzzyFinder {
       project_paths = pps;
     }
 
-    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str) {
+    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str, GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
         new Thread<void>("fuzzy-find", () =>  {
-            results = fuzzy_find(search_str);
+            results = fuzzy_find(search_str, cancellable);
             Idle.add((owned) callback);
         });
 
@@ -183,11 +183,27 @@ public class Scratch.Services.FuzzyFinder {
         return results;
     }
 
-    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str) {
+    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str, GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
+        var projects = project_paths.values.to_array ();
 
-        foreach (var project in project_paths.values) {
-            foreach (var path in project.relative_file_paths) {
+        for (int i = 0; i < projects.length; i++) {
+            if (cancellable.is_cancelled ()) {
+                if (results.size <= 20) {
+                    return results;
+                }
+
+                return (Gee.ArrayList<SearchResult>) results.slice (0, 20);
+            }
+
+            var project = projects[i];
+
+            for (int j = 0; j < project.relative_file_paths.size; j++) {
+                if (cancellable.is_cancelled ()) {
+                    return results;
+                }
+                
+                var path = project.relative_file_paths[j];
                 SearchResult search_result;
 
                 // If there is more than one project prepend the project name
@@ -226,4 +242,4 @@ public class Scratch.Services.FuzzyFinder {
         var finder = new RecursiveFinder (recursion_limit, max_matches);
         return finder.fuzzy_match_recursive (pattern,str);
     }
-  }
+}

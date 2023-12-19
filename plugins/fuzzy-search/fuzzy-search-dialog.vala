@@ -8,6 +8,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     Gee.ArrayList<FileItem> items;
     private int window_height;
     private int max_items;
+    private Gee.LinkedList<GLib.Cancellable> cancellables;
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -25,6 +26,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
         fuzzy_finder = new Services.FuzzyFinder (pps);
         project_paths = pps;
         items = new Gee.ArrayList<FileItem> ();
+        cancellables = new Gee.LinkedList<GLib.Cancellable> ();
 
         // Limit the shown results if the window height is too small
         if (window_height > 400) {
@@ -132,42 +134,63 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
         search_term_entry.changed.connect ((e) => {
             if (search_term_entry.text.length >= 1) {
                 var previous_text = search_term_entry.text;
-                fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text, (obj, res)  =>{
-                    var results = fuzzy_finder.fuzzy_find_async.end(res);
-                    bool first = true;
+                if (cancellables.size > 0) {
+                    var last_cancellable = cancellables.last ();
+                    last_cancellable.cancel ();
+                }
 
-                    // If the entry is empty or the text has changed
-                    // since searching, do nothing
-                    if (previous_text.length == 0 || previous_text != search_term_entry.text) {
-                        return;
-                    }
-
-
-                    foreach (var c in search_result_container.get_children ()) {
-                        search_result_container.remove (c);
-                    }
-                    items.clear ();
-
-                    foreach (var result in results) {
-                        var file_item = new FileItem (result);
-
-                        if (first) {
-                            first = false;
-                            file_item.get_style_context ().add_class ("preselect-fuzzy");
-                            preselected_index = 0;
+                Timeout.add (100, () => {
+                        var next_cancellable = new GLib.Cancellable ();
+                        cancellables.add (next_cancellable);
+                        fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text, next_cancellable, (obj, res) =>{
+                        if (next_cancellable.is_cancelled ()) {
+                            cancellables.remove (next_cancellable);
+                            return;
                         }
 
-                        file_item.get_style_context ().add_class ("fuzzy-item");
+                        var results = fuzzy_finder.fuzzy_find_async.end (res);
+                        if (results == null) {
+                            return;
+                        }
 
-                        search_result_container.add (file_item);
-                        items.add (file_item);
-                    }
+                        print ("Results Size: %d\n", results.size);
+
+                        bool first = true;
+
+                        // If the entry is empty or the text has changed
+                        // since searching, do nothing
+                        if (previous_text.length == 0 || previous_text != search_term_entry.text) {
+                            return;
+                        }
+
+                        foreach (var c in search_result_container.get_children ()) {
+                            search_result_container.remove (c);
+                        }
+                        items.clear ();
+
+                        foreach (var result in results) {
+                            var file_item = new FileItem (result);
+
+                            if (first) {
+                                first = false;
+                                file_item.get_style_context ().add_class ("preselect-fuzzy");
+                                preselected_index = 0;
+                            }
+
+                            file_item.get_style_context ().add_class ("fuzzy-item");
+
+                            search_result_container.add (file_item);
+                            items.add (file_item);
+                        }
 
 
-                    scrolled.hide ();
-                    scrolled.show_all ();
-                    // Reset scrolling
-                    scrolled.vadjustment.value = 0;
+                        scrolled.hide ();
+                        scrolled.show_all ();
+                        // Reset scrolling
+                        scrolled.vadjustment.value = 0;
+                    });
+
+                    return Source.REMOVE;
                 });
             } else {
                 foreach (var c in search_result_container.get_children ()) {
