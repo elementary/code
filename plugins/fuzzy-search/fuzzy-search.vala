@@ -99,6 +99,13 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         /* <Control>p shows fuzzy search dialog */
         if (event.keyval == Gdk.Key.p
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
+                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+
+                string[] opened_folders = settings.get_strv ("opened-folders");
+                if (opened_folders == null || opened_folders.length < 1) {
+                    return false;
+                }
+
                 int diag_x;
                 int diag_y;
                 int window_x;
