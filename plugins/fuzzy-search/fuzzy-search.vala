@@ -7,11 +7,21 @@ public class Scratch.Services.SearchProject {
         root_path = root;
         monitored_repo = repo;
         relative_file_paths = new Gee.ArrayList<string> ();
-
-        parse (root_path);
     }
 
-    private void parse (string path) {
+    public async void parse_async (string path) {
+        new Thread<void> (null, () => {
+            parse_async_internal.begin (path, (obj, res) => {
+                parse_async_internal.end (res);
+            });
+
+            Idle.add (parse_async.callback);
+        });
+
+        yield;
+    }
+
+    private async void parse_async_internal (string path) {
         try {
             try {
                 // Don't use paths which are ignored from .gitignore
@@ -25,20 +35,25 @@ public class Scratch.Services.SearchProject {
             var dir = Dir.open (path);
             var name = dir.read_name ();
             while (name != null) {
+                print ("Parsed name: %s\n", name);
                 var new_search_path = "";
                 if (path.has_suffix ("/")) {
                     new_search_path = path.substring (0, path.length - 1);
                 } else {
                     new_search_path = path;
                 }
-                parse (new_search_path + "/" + name);
+
+                parse_async_internal.begin (new_search_path + "/" + name, (obj, res) => {
+                    parse_async_internal.end (res);
+                });
+
                 name = dir.read_name ();
             }
         } catch (FileError e) {
             // This adds branch is reached when a non-directory was reached, i.e. is a file
             // If a file was reached, add it's relative path (starting after the project root path)
             // to the list.
-            // Relativ paths are used because the longer the path is the less accurate are the results
+            // Relative paths are used because the longer the path is the less accurate are the results
             var subpath = path.replace (root_path, "");
             relative_file_paths.add (subpath.substring (1, subpath.length-1));
         }
@@ -46,6 +61,8 @@ public class Scratch.Services.SearchProject {
 }
 
 public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
+    Gee.HashMap<string, Services.SearchProject> project_paths;
+
     MainWindow window = null;
 
     Scratch.Services.Interface plugins;
@@ -61,8 +78,20 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             if (window != null)
                 return;
 
+            project_paths = new Gee.HashMap<string, Services.SearchProject> ();
+
+            var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+            foreach (unowned string path in settings.get_strv ("opened-folders")) {
+                var monitor = Services.GitManager.get_monitored_repository (path);
+                var project_path = new Services.SearchProject (path, monitor);
+                project_path.parse_async.begin (path, (obj, res) => {});
+
+                project_paths[path] = project_path;
+            }
+
             window = w;
             window.key_press_event.connect (on_window_key_press_event);
+
         });
     }
 
@@ -70,7 +99,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         /* <Control>p shows fuzzy search dialog */
         if (event.keyval == Gdk.Key.p
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
-                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
                 int diag_x;
                 int diag_y;
                 int window_x;
@@ -80,12 +108,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 window.get_position (out window_x, out window_y);
                 window.get_size (out window_width, out window_height);
 
-                var project_paths = new Gee.HashMap<string, Services.SearchProject> ();
-
-                foreach (unowned string path in settings.get_strv ("opened-folders")) {
-                    var monitor = Services.GitManager.get_monitored_repository (path);
-                    project_paths[path] = new Services.SearchProject(path, monitor);
-                }
                 var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
                 dialog.get_position(out diag_x, out diag_y);
 

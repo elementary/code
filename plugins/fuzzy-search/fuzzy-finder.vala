@@ -183,9 +183,9 @@ public class Scratch.Services.FuzzyFinder {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
-        new Thread<void>("fuzzy-find", () =>  {
+        new Thread<void>("fuzzy-find", () => {
             results = fuzzy_find(search_str, cancellable);
-            Idle.add((owned) callback);
+            Idle.add ((owned) callback);
         });
 
         yield;
