@@ -25,7 +25,7 @@ public class Scratch.Services.FuzzyFinder {
 
         public SearchResult fuzzy_match_recursive (string pattern, string str, GLib.Cancellable cancellable) {
             var matches = new Gee.ArrayList<int> ();
-            return fuzzy_match_recursive_internal (pattern,str, 0, 0, 0, cancellable, matches);
+            return fuzzy_match_recursive_internal (pattern, str, 0, 0, 0, cancellable, matches);
         }
 
         private SearchResult fuzzy_match_recursive_internal (string pattern, string str, int pattern_current_index, int str_current_index, int next_match,
@@ -36,36 +36,36 @@ public class Scratch.Services.FuzzyFinder {
             var best_recursive_matches = new Gee.ArrayList<int> ();
             var best_recursive_score = 0;
             // Loop through pattern and str looking for a match.
-            bool firstMatch = true;
+            bool first_match = true;
 
             recursion_count++;
             if (cancellable.is_cancelled () || limit_reached ()) {
-                return new SearchResult(false, out_score);
+                return new SearchResult (false, out_score);
             }
 
             // Return if we reached ends of strings.
             if (pattern_current_index == pattern.length || str_current_index == str.length) {
-                return new SearchResult(false, out_score);
+                return new SearchResult (false, out_score);
             }
 
             while (pattern_current_index < pattern.length && str_current_index < str.length) {
                 if (cancellable.is_cancelled ()) {
-                    return new SearchResult(false, out_score);
+                    return new SearchResult (false, out_score);
                 }
 
-                var lowerCaseChar = pattern.get_char (pattern_current_index).tolower ();
-                var lowerCaseStrChar = str.get_char (str_current_index).tolower ();
+                var lower_case_char = pattern.get_char (pattern_current_index).tolower ();
+                var lower_case_str_char = str.get_char (str_current_index).tolower ();
 
                 // Match found.
-                if (lowerCaseChar == lowerCaseStrChar) {
+                if (lower_case_char == lower_case_str_char) {
                     if (next_match >= max_matches) {
                         return new SearchResult (false, out_score);
                     }
 
-                    if (firstMatch && src_matches != null) {
+                    if (first_match && src_matches != null) {
                         matches.clear ();
                         matches.insert_all (0, src_matches);
-                        firstMatch = false;
+                        first_match = false;
                     }
 
                     var recursive_matches = new Gee.ArrayList<int> ();
@@ -173,7 +173,7 @@ public class Scratch.Services.FuzzyFinder {
     int max_matches;
     Gee.HashMap<string, SearchProject> project_paths;
 
-    public FuzzyFinder(Gee.HashMap<string, SearchProject> pps, int limit = 10, int mx_mtchs = 256) {
+    public FuzzyFinder (Gee.HashMap<string, SearchProject> pps, int limit = 10, int mx_mtchs = 256) {
       max_matches = mx_mtchs;
       recursion_limit = limit;
       project_paths = pps;
@@ -183,8 +183,8 @@ public class Scratch.Services.FuzzyFinder {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
-        new Thread<void>("fuzzy-find", () => {
-            results = fuzzy_find(search_str, cancellable);
+        new Thread<void> ("fuzzy-find", () => {
+            results = fuzzy_find (search_str, cancellable);
             Idle.add ((owned) callback);
         });
 
@@ -211,7 +211,7 @@ public class Scratch.Services.FuzzyFinder {
                 if (cancellable.is_cancelled ()) {
                     return results;
                 }
-                
+
                 var path = project.relative_file_paths[j];
                 SearchResult search_result;
 
@@ -221,7 +221,7 @@ public class Scratch.Services.FuzzyFinder {
                 // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
                 // even if their is a "fuzzy_finder" file in another project
                 if (project_paths.size > 1) {
-                    var project_name=  Path.get_basename (project.root_path);
+                    var project_name = Path.get_basename (project.root_path);
                     search_result = fuzzy_match (search_str, @"$project_name/$path", cancellable);
                 } else {
                     search_result = fuzzy_match (search_str, path, cancellable);
@@ -249,6 +249,6 @@ public class Scratch.Services.FuzzyFinder {
 
     private SearchResult fuzzy_match (string pattern, string str, GLib.Cancellable cancellable) {
         var finder = new RecursiveFinder (recursion_limit, max_matches);
-        return finder.fuzzy_match_recursive (pattern,str, cancellable);
+        return finder.fuzzy_match_recursive (pattern, str, cancellable);
     }
 }

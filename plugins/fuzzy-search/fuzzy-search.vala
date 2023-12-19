@@ -55,7 +55,7 @@ public class Scratch.Services.SearchProject {
             // to the list.
             // Relative paths are used because the longer the path is the less accurate are the results
             var subpath = path.replace (root_path, "");
-            relative_file_paths.add (subpath.substring (1, subpath.length-1));
+            relative_file_paths.add (subpath.substring (1, subpath.length - 1));
         }
     }
 }
@@ -109,7 +109,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 window.get_size (out window_width, out window_height);
 
                 var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
-                dialog.get_position(out diag_x, out diag_y);
+                dialog.get_position (out diag_x, out diag_y);
 
                 dialog.open_file.connect ((filepath) => {
                     var file = new Scratch.FolderManager.File (filepath);
@@ -121,7 +121,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
                 dialog.close_search.connect (() => dialog.destroy ());
                 // Move the dialog a bit under the top of the application window
-                dialog.move(diag_x, window_y + 50);
+                dialog.move (diag_x, window_y + 50);
 
                 dialog.run ();
 

@@ -18,7 +18,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
             transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
             deletable: false,
             modal: true,
-            title:  _("Search project files…"),
+            title: _("Search project files…"),
             resizable: false,
             width_request: 600
         );
@@ -108,7 +108,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                     var old_index = preselected_index;
                     var item = items.get (preselected_index--);
                     if (preselected_index < 0) {
-                        preselected_index = items.size -1;
+                        preselected_index = items.size - 1;
                     }
                     var next_item = items.get (preselected_index);
                     preselect_new_item (item, next_item);
