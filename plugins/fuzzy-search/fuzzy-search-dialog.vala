@@ -126,8 +126,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
 
         search_term_entry.activate.connect (() => {
             if (items.size > 0) {
-                var item = items.get (preselected_index);
-                open_file (item.filepath.strip ());
+                handle_item_selection (preselected_index);
             }
         });
 
@@ -177,10 +176,9 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                                 preselected_index = 0;
                             }
 
-                            file_item.get_style_context ().add_class ("fuzzy-item");
-
                             search_result_container.add (file_item);
                             items.add (file_item);
+                            file_item.clicked.connect ((e) => handle_item_selection (items.index_of (file_item)));
                         }
 
 
@@ -205,6 +203,11 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
 
         box.add (layout);
         box.add (scrolled);
+    }
+
+    private void handle_item_selection (int index) {
+        var item = items.get (index);
+        open_file (item.filepath.strip ());
     }
 
     private void preselect_new_item (FileItem old_item, FileItem new_item) {

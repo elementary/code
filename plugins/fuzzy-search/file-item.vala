@@ -1,4 +1,4 @@
-public class FileItem : Gtk.Box {
+public class FileItem : Gtk.Button {
     private SearchResult result;
 
     public string filepath {
@@ -7,6 +7,9 @@ public class FileItem : Gtk.Box {
         }
     }
     public FileItem (SearchResult res) {
+        this.get_style_context ().add_class ("fuzzy-item");
+        this.get_style_context ().add_class ("flat");
+
         result = res;
         Icon icon;
         var path_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
@@ -35,12 +38,13 @@ public class FileItem : Gtk.Box {
         path_box.add (filename_label);
         path_box.add (path_label);
 
-        add (image);
-        add (path_box);
-    }
+        var container_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 1) {
+            valign = Gtk.Align.CENTER
+        };
 
-    construct {
-        orientation = Gtk.Orientation.HORIZONTAL;
-        valign = Gtk.Align.CENTER;
+        container_box.add (image);
+        container_box.add (path_box);
+
+        this.child = container_box;
     }
 }
