@@ -139,7 +139,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                     last_cancellable.cancel ();
                 }
 
-                Timeout.add (100, () => {
+                Timeout.add (1, () => {
                         var next_cancellable = new GLib.Cancellable ();
                         cancellables.add (next_cancellable);
                         fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text, next_cancellable, (obj, res) =>{
