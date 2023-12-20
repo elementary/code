@@ -23,6 +23,12 @@ public class Scratch.Services.SearchProject {
 
     private async void parse_async_internal (string path) {
         try {
+            // Ignore dot-prefixed directories
+            string path_basename = Path.get_basename (path);
+            if (FileUtils.test (path, GLib.FileTest.IS_DIR) && path_basename.has_prefix (".")) {
+                return;
+            }
+
             try {
                 // Don't use paths which are ignored from .gitignore
                 if (monitored_repo != null && monitored_repo.path_is_ignored (path)) {
@@ -34,6 +40,7 @@ public class Scratch.Services.SearchProject {
 
             var dir = Dir.open (path);
             var name = dir.read_name ();
+
             while (name != null) {
                 debug ("Fuzzy Search - Parsed fuzzy search path: %s\n", name);
                 var new_search_path = "";
