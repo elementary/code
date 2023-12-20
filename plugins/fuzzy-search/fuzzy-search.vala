@@ -122,7 +122,9 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 foreach (unowned string path in settings.get_strv ("opened-folders")) {
                     var monitor = Services.GitManager.get_monitored_repository (path);
                     var project_path = new Services.SearchProject (path, monitor);
-                    project_path.parse_async.begin (path, (obj, res) => {});
+                    project_path.parse_async.begin (path, (obj, res) => {
+                        project_path.parse_async.end (res);
+                    });
 
                     project_paths[path] = project_path;
                 }
