@@ -5,7 +5,7 @@
  * Authored by: Marvin Ahlgrimm 
  *              Colin Kiama <colinkiama@gmail.com>
  */
- 
+
 const int SEQUENTIAL_BONUS = 15; // bonus for adjacent matches
 const int SEPARATOR_BONUS = 30; // bonus if match occurs after a separator
 const int CAMEL_BONUS = 30; // bonus if match is uppercase and prev is lower
