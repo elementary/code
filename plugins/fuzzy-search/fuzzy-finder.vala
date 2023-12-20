@@ -6,7 +6,6 @@ const int LEADING_LETTER_PENALTY = -5; // penalty applied for every letter in st
 const int MAX_LEADING_LETTER_PENALTY = -15; // maximum penalty for leading letters
 const int UNMATCHED_LETTER_PENALTY = -1;
 
-
 public class Scratch.Services.FuzzyFinder {
     private class RecursiveFinder {
         int recursion_limit;
@@ -140,7 +139,7 @@ public class Scratch.Services.FuzzyFinder {
                         if (neighbor != neighbor.toupper () && curr != curr.tolower ()) {
                             out_score += CAMEL_BONUS;
                         }
-                        var is_neighbour_separator = neighbor == '_' || neighbor == ' ';
+                        var is_neighbour_separator = neighbor == '_' || neighbor == ' ' || neighbor == GLib.Path.DIR_SEPARATOR;
                         if (is_neighbour_separator) {
                             out_score += SEPARATOR_BONUS;
                         }
@@ -213,7 +212,8 @@ public class Scratch.Services.FuzzyFinder {
                 }
 
                 var path = project.relative_file_paths[j];
-                SearchResult search_result;
+                SearchResult path_search_result;
+                SearchResult filename_search_result;
 
                 // If there is more than one project prepend the project name
                 // to the front of the path
@@ -221,19 +221,33 @@ public class Scratch.Services.FuzzyFinder {
                 // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
                 // even if their is a "fuzzy_finder" file in another project
                 string project_name = "";
+
                 if (project_paths.size > 1) {
                     project_name = Path.get_basename (project.root_path);
-                    search_result = fuzzy_match (search_str, @"$project_name/$path", cancellable);
+                    path_search_result = fuzzy_match (search_str, @"$project_name/$path", cancellable);
                 } else {
-                    search_result = fuzzy_match (search_str, path, cancellable);
+                    path_search_result = fuzzy_match (search_str, path, cancellable);
                 }
 
-                if (search_result.found) {
-                    var root_path = project.root_path;
-                    search_result.relative_path = path;
-                    search_result.full_path = @"$root_path/$path";
-                    search_result.project = project_name;
-                    results.add (search_result);
+                string filename = Path.get_basename (path);
+                filename_search_result = fuzzy_match (search_str, filename, cancellable);
+
+                var root_path = project.root_path;
+                if (filename_search_result.found && path_search_result.found) {
+                    int combined_score = path_search_result.score + filename_search_result.score;
+                    filename_search_result.score = combined_score;
+                }
+
+                if (filename_search_result.found) {
+                    filename_search_result.relative_path = path;
+                    filename_search_result.full_path = @"$root_path/$path";
+                    filename_search_result.project = project_name;
+                    results.add (filename_search_result);
+                } else if (path_search_result.found) {
+                    path_search_result.relative_path = path;
+                    path_search_result.full_path = @"$root_path/$path";
+                    path_search_result.project = project_name;
+                    results.add (path_search_result);
                 }
             }
         }

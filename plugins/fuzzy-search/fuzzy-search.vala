@@ -37,13 +37,13 @@ public class Scratch.Services.SearchProject {
             while (name != null) {
                 debug ("Fuzzy Search - Parsed fuzzy search path: %s\n", name);
                 var new_search_path = "";
-                if (path.has_suffix ("/")) {
+                if (path.has_suffix (GLib.Path.DIR_SEPARATOR_S)) {
                     new_search_path = path.substring (0, path.length - 1);
                 } else {
                     new_search_path = path;
                 }
 
-                parse_async_internal.begin (new_search_path + "/" + name, (obj, res) => {
+                parse_async_internal.begin (new_search_path + GLib.Path.DIR_SEPARATOR_S + name, (obj, res) => {
                     parse_async_internal.end (res);
                 });
 
