@@ -38,7 +38,7 @@ namespace Scratch {
         private Code.Terminal terminal;
         private FolderManager.FileView folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
-
+        private Gtk.EventControllerKey key_controller;
         // Plugins
         private Scratch.Services.PluginsManager plugins;
 
@@ -263,7 +263,10 @@ namespace Scratch {
 
             plugins = new Scratch.Services.PluginsManager (this);
 
-            key_press_event.connect (on_key_pressed);
+            key_controller = new Gtk.EventControllerKey (this) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect (on_key_pressed);
 
             // Set up layout
             init_layout ();
@@ -643,13 +646,16 @@ namespace Scratch {
             });
         }
 
-        private bool on_key_pressed (Gdk.EventKey event) {
-            switch (Gdk.keyval_name (event.keyval)) {
+        // private bool on_key_pressed (Gdk.EventKey event) {
+        private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+            switch (Gdk.keyval_name (keyval)) {
                 case "Escape":
                     if (search_revealer.get_child_revealed ()) {
                         var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                         fetch_action.set_state (false);
+                        document_view.current_document.source_view.grab_focus ();
                     }
+
                     break;
             }
 
