@@ -82,6 +82,14 @@ namespace Scratch.FolderManager {
             }
         }
 
+        protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+            if (source.equal (file.file) && event == DELETED) {
+                closed ();
+            } else {
+                base.on_changed (source, dest, event);
+            }
+        }
+
         public void child_folder_changed (FolderItem folder) {
             if (monitored_repo != null) {
                 monitored_repo.update_status_map ();

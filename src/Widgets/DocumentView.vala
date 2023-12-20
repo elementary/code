@@ -337,8 +337,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
 
     private void rename_tabs_with_same_title (Services.Document doc) {
+        if (doc.is_file_temporary) {
+            return;
+        }
+
         string doc_tab_name = doc.file.get_basename ();
         foreach (var d in docs) {
+            if (d.is_file_temporary) {
+                continue;
+            }
+
             string new_tabname_doc, new_tabname_d;
 
             if (Utils.find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {

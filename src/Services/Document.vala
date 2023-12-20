@@ -136,6 +136,7 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
+        private bool closing = false;
         private Mount mount;
         private Icon locked_icon;
 
@@ -474,6 +475,7 @@ namespace Scratch.Services {
 
             if (ret_value) {
                 // Delete backup copy file
+                closing = true; // Stops recreating backup when trailing space stripped
                 delete_backup ();
                 doc_closed ();
             }
@@ -1050,7 +1052,7 @@ namespace Scratch.Services {
 
         // Backup functions
         private void create_backup () {
-            if (!can_write ()) {
+            if (!can_write () || closing) {
                 return;
             }
 
