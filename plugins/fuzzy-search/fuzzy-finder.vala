@@ -27,8 +27,14 @@ public class Scratch.Services.FuzzyFinder {
             return fuzzy_match_recursive_internal (pattern, str, 0, 0, 0, cancellable, matches);
         }
 
-        private SearchResult fuzzy_match_recursive_internal (string pattern, string str, int pattern_current_index, int str_current_index, int next_match,
-            GLib.Cancellable cancellable, Gee.ArrayList<int> matches, Gee.ArrayList<int>? src_matches = null) {
+        private SearchResult fuzzy_match_recursive_internal (string pattern,
+                                                             string str,
+                                                             int pattern_current_index,
+                                                             int str_current_index,
+                                                             int next_match,
+                                                             GLib.Cancellable cancellable,
+                                                             Gee.ArrayList<int> matches,
+                                                             Gee.ArrayList<int>? src_matches = null) {
             var out_score = 0;
             // Recursion params
             bool recursive_match = false;
@@ -139,7 +145,10 @@ public class Scratch.Services.FuzzyFinder {
                         if (neighbor != neighbor.toupper () && curr != curr.tolower ()) {
                             out_score += CAMEL_BONUS;
                         }
-                        var is_neighbour_separator = neighbor == '_' || neighbor == ' ' || neighbor == GLib.Path.DIR_SEPARATOR;
+
+                        bool is_neighbour_separator = neighbor == '_' || neighbor == ' '
+                            || neighbor == GLib.Path.DIR_SEPARATOR;
+
                         if (is_neighbour_separator) {
                             out_score += SEPARATOR_BONUS;
                         }
