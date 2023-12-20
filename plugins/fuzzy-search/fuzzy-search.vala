@@ -1,3 +1,9 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ *
+ * Authored by: Marvin Ahlgrimm 
+ */
 public class Scratch.Services.SearchProject {
     public string root_path { get; private set; }
     public Gee.ArrayList<string> relative_file_paths { get; private set; }

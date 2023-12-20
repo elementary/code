@@ -1,3 +1,10 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ *
+ * Authored by: Marvin Ahlgrimm 
+ *              Colin Kiama <colinkiama@gmail.com>
+ */
 public class FileItem : Gtk.Button {
     private SearchResult result;
 

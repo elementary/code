@@ -1,3 +1,9 @@
+/*  
+ * SPDX-License-Identifier: GPL-3.0-or-later  
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+ *
+ * Authored by: Marvin Ahlgrimm 
+ */
 public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     private Gtk.Entry search_term_entry;
     private Services.FuzzyFinder fuzzy_finder;
