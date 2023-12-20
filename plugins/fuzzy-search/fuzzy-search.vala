@@ -38,11 +38,12 @@ public class Scratch.Services.SearchProject {
                 warning ("An error occurred while checking if item '%s' is git-ignored: %s", path, e.message);
             }
 
+            debug ("Fuzzy Search - Indexing from directory: %s\n", path);
+
             var dir = Dir.open (path);
             var name = dir.read_name ();
 
             while (name != null) {
-                debug ("Fuzzy Search - Parsed fuzzy search path: %s\n", name);
                 var new_search_path = "";
                 if (path.has_suffix (GLib.Path.DIR_SEPARATOR_S)) {
                     new_search_path = path.substring (0, path.length - 1);
@@ -85,20 +86,8 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             if (window != null)
                 return;
 
-            project_paths = new Gee.HashMap<string, Services.SearchProject> ();
-
-            var settings = new GLib.Settings ("io.elementary.code.folder-manager");
-            foreach (unowned string path in settings.get_strv ("opened-folders")) {
-                var monitor = Services.GitManager.get_monitored_repository (path);
-                var project_path = new Services.SearchProject (path, monitor);
-                project_path.parse_async.begin (path, (obj, res) => {});
-
-                project_paths[path] = project_path;
-            }
-
             window = w;
             window.key_press_event.connect (on_window_key_press_event);
-
         });
     }
 
@@ -121,6 +110,16 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 int window_width;
                 window.get_position (out window_x, out window_y);
                 window.get_size (out window_width, out window_height);
+
+                project_paths = new Gee.HashMap<string, Services.SearchProject> ();
+
+                foreach (unowned string path in settings.get_strv ("opened-folders")) {
+                    var monitor = Services.GitManager.get_monitored_repository (path);
+                    var project_path = new Services.SearchProject (path, monitor);
+                    project_path.parse_async.begin (path, (obj, res) => {});
+
+                    project_paths[path] = project_path;
+                }
 
                 var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
                 dialog.get_position (out diag_x, out diag_y);
