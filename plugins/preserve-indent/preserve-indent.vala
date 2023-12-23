@@ -55,30 +55,6 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
     public void update_state () {
     }
 
-    // determine how many characters precede a given iterator position
-    private int measure_indent_at_iter (Widgets.SourceView view, Gtk.TextIter iter) {
-        Gtk.TextIter line_begin, pos;
-
-        view.buffer.get_iter_at_line (out line_begin, iter.get_line ());
-
-        pos = line_begin;
-        int indent = 0;
-        int tabwidth = Scratch.settings.get_int ("indent-width");
-
-        unichar ch = pos.get_char ();
-        while (pos.get_offset () < iter.get_offset () && ch != '\n' && ch.isspace ()) {
-            if (ch == '\t') {
-                indent += tabwidth;
-            } else {
-                ++indent;
-            }
-
-            pos.forward_char ();
-            ch = pos.get_char ();
-        }
-        return indent;
-    }
-
     private void on_cut_or_copy_clipboard () {
         Widgets.SourceView view = this.active_document.source_view;
         if (!view.auto_indent) {
@@ -90,7 +66,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         var buffer = view.buffer;
 
         if (buffer.get_selection_bounds (out select_begin, out select_end)) {
-            int indent = this.measure_indent_at_iter (view, select_begin);
+            int indent = Scratch.Utils.measure_indent_at_iter (view, select_begin);
             this.last_clipboard_indent_level = indent;
         } else {
             this.last_clipboard_indent_level = 0;
@@ -135,109 +111,20 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         view.buffer.get_iter_at_mark (out paste_begin, view.buffer.get_mark ("paste_start"));
         view.buffer.get_iter_at_mark (out paste_end, view.buffer.get_insert ());
 
-        int indent_level = this.measure_indent_at_iter (view, paste_begin);
+        int indent_level = Scratch.Utils.measure_indent_at_iter (view, paste_begin);
         int indent_diff = indent_level - this.last_clipboard_indent_level;
 
         paste_begin.forward_line ();
 
         if (indent_diff > 0) {
-            this.increase_indent_in_region (view, paste_begin, paste_end, indent_diff);
+            Scratch.Utils.increase_indent_in_region (view, paste_begin, paste_end, indent_diff);
         } else if (indent_diff < 0) {
-            this.decrease_indent_in_region (view, paste_begin, paste_end, indent_diff.abs ());
+            Scratch.Utils.decrease_indent_in_region (view, paste_begin, paste_end, indent_diff.abs ());
         }
 
         view.buffer.delete_mark_by_name ("paste_start");
         view.buffer.end_user_action ();
         this.waiting_for_clipboard_text = false;
-    }
-
-    private void increase_indent_in_region (
-        Widgets.SourceView view,
-        Gtk.TextIter region_begin,
-        Gtk.TextIter region_end,
-        int nchars
-    ) {
-        int first_line = region_begin.get_line ();
-        int last_line = region_end.get_line ();
-        int buf_last_line = view.buffer.get_line_count () - 1;
-
-        int nlines = (first_line - last_line).abs () + 1;
-        if (nlines < 1 || nchars < 1 || last_line < first_line || !view.editable
-            || first_line == buf_last_line
-        ) {
-            return;
-        }
-
-        // add a string of whitespace to each line after the first pasted line
-        string indent_str;
-
-        if (view.insert_spaces_instead_of_tabs) {
-            indent_str = string.nfill (nchars, ' ');
-        } else {
-            int tabwidth = Scratch.settings.get_int ("indent-width");
-            int tabs = nchars / tabwidth;
-            int spaces = nchars % tabwidth;
-
-            indent_str = string.nfill (tabs, '\t');
-            if (spaces > 0) {
-                indent_str += string.nfill (spaces, ' ');
-            }
-        }
-
-        Gtk.TextIter itr;
-        for (var i = first_line; i <= last_line; ++i) {
-            view.buffer.get_iter_at_line (out itr, i);
-            view.buffer.insert (ref itr, indent_str, indent_str.length);
-        }
-    }
-
-    private void decrease_indent_in_region (
-        Widgets.SourceView view,
-        Gtk.TextIter region_begin,
-        Gtk.TextIter region_end,
-        int nchars
-    ) {
-        int first_line = region_begin.get_line ();
-        int last_line = region_end.get_line ();
-
-        int nlines = (first_line - last_line).abs () + 1;
-        if (nlines < 1 || nchars < 1 || last_line < first_line || !view.editable) {
-            return;
-        }
-
-        Gtk.TextBuffer buffer = view.buffer;
-        int tabwidth = Scratch.settings.get_int ("indent-width");
-        Gtk.TextIter del_begin, del_end, itr;
-
-        for (var line = first_line; line <= last_line; ++line) {
-            buffer.get_iter_at_line (out itr, line);
-            // crawl along the line and tally indentation as we go,
-            // when requested number of chars is hit, or if we run out of whitespace (eg. find glyphs or newline),
-            // delete the segment from line start to where we are now
-            int chars_to_delete = 0;
-            int indent_chars_found = 0;
-            unichar ch = itr.get_char ();
-            while (ch != '\n' && !ch.isgraph () && indent_chars_found < nchars) {
-                if (ch == ' ') {
-                    ++chars_to_delete;
-                    ++indent_chars_found;
-                } else if (ch == '\t') {
-                    ++chars_to_delete;
-                    indent_chars_found += tabwidth;
-                }
-                itr.forward_char ();
-                ch = itr.get_char ();
-            }
-
-            if (ch == '\n' || chars_to_delete < 1) {
-                continue;
-            }
-
-            buffer.get_iter_at_line (out del_begin, line);
-            buffer.get_iter_at_line_offset (out del_end, line, chars_to_delete);
-            buffer.delete (ref del_begin, ref del_end);
-        }
-
     }
 }
 

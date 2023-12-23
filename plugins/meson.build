@@ -8,5 +8,7 @@ subdir('markdown-actions')
 subdir('pastebin')
 subdir('preserve-indent')
 subdir('spell')
+subdir('snippets')
 subdir('vim-emulation')
 subdir('word-completion')
+
