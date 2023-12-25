@@ -105,11 +105,12 @@ public class Scratch.Services.FuzzyFinder {
 
                     if (matches.size <= next_match) {
                         matches.add (str_current_index);
-                    } else {
-                        matches[next_match++] = str_current_index;
                     }
+
+                    ++next_match;
                     ++pattern_current_index;
                 }
+
                 ++str_current_index;
             }
 
@@ -154,9 +155,7 @@ public class Scratch.Services.FuzzyFinder {
                             out_score += CAMEL_BONUS;
                         }
 
-                        bool is_neighbour_separator = neighbor == '_' || neighbor == ' '
-                            || neighbor == GLib.Path.DIR_SEPARATOR;
-
+                        bool is_neighbour_separator = neighbor == '_' || neighbor == ' ';
                         if (is_neighbour_separator) {
                             out_score += SEPARATOR_BONUS;
                         }
@@ -250,10 +249,6 @@ public class Scratch.Services.FuzzyFinder {
                 filename_search_result = fuzzy_match (search_str, filename, cancellable);
 
                 var root_path = project.root_path;
-                if (filename_search_result.found && path_search_result.found) {
-                    int combined_score = path_search_result.score + filename_search_result.score;
-                    filename_search_result.score = combined_score;
-                }
 
                 if (filename_search_result.found) {
                     filename_search_result.relative_path = path;
@@ -264,6 +259,7 @@ public class Scratch.Services.FuzzyFinder {
                     path_search_result.relative_path = path;
                     path_search_result.full_path = @"$root_path/$path";
                     path_search_result.project = project_name;
+                    path_search_result.score = (int) (path_search_result.score * 0.5);
                     results.add (path_search_result);
                 }
             }
