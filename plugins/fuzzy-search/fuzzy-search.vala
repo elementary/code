@@ -67,9 +67,22 @@ public class Scratch.Services.SearchProject {
             // This adds branch is reached when a non-directory was reached, i.e. is a file
             // If a file was reached, add it's relative path (starting after the project root path)
             // to the list.
+
             // Relative paths are used because the longer the path is the less accurate are the results
-            var subpath = path.replace (root_path, "");
-            relative_file_paths.add (subpath.substring (1, subpath.length - 1));
+            if (check_if_valid_path_to_add (path)) {
+                var subpath = path.replace (root_path, "");
+                relative_file_paths.add (subpath.substring (1, subpath.length - 1));
+            }
+        }
+    }
+
+    private bool check_if_valid_path_to_add (string path) {
+        try {
+            File file = File.new_for_path (path);
+            var file_info = file.query_info ("standard::*", 0);
+            return Utils.check_if_valid_text_file (path, file_info);
+        } catch (Error e) {
+            return false;
         }
     }
 }
