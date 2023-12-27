@@ -4,6 +4,7 @@
  *
  * Authored by: Marvin Ahlgrimm
  */
+
 public class Scratch.Services.SearchProject {
     public string root_path { get; private set; }
     public Gee.ArrayList<string> relative_file_paths { get; private set; }
@@ -43,8 +44,6 @@ public class Scratch.Services.SearchProject {
             } catch (Error e) {
                 warning ("An error occurred while checking if item '%s' is git-ignored: %s", path, e.message);
             }
-
-            // debug ("Fuzzy Search - Indexing from directory: %s\n", path);
 
             var dir = Dir.open (path);
             var name = dir.read_name ();
@@ -145,22 +144,17 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                         project_paths[path] = project_path;
                     }
 
-                    var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
-                    dialog.get_position (out diag_x, out diag_y);
-
-                    dialog.open_file.connect ((filepath) => {
+                    var popover = new Scratch.FuzzySearchPopover (project_paths, window.toolbar, window_height);
+                    popover.open_file.connect ((filepath) => {
                         var file = new Scratch.FolderManager.File (filepath);
                         var doc = new Scratch.Services.Document (window.actions, file.file);
 
                         window.open_document (doc);
-                        dialog.destroy ();
+                        popover.popdown ();
                     });
 
-                    dialog.close_search.connect (() => dialog.destroy ());
-                    // Move the dialog a bit under the top of the application window
-                    dialog.move (diag_x, window_y + 50);
-
-                    dialog.run ();
+                    popover.close_search.connect (() => popover.popdown ());
+                    popover.popup ();
 
                     return true;
                 }

@@ -3,8 +3,10 @@
  * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
+ *              Colin Kiama
  */
-public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
+
+public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private Gtk.Entry search_term_entry;
     private Services.FuzzyFinder fuzzy_finder;
     private Gtk.ListBox search_result_container;
@@ -21,15 +23,14 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     public signal void open_file (string filepath);
     public signal void close_search ();
 
-    public FuzzySearchDialog (Gee.HashMap<string, Services.SearchProject> pps, int height) {
+    public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Gtk.Widget? relative_to, int height) {
         Object (
-            transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
-            deletable: false,
             modal: true,
-            title: _("Search project files…"),
-            resizable: false,
-            width_request: 600
+            relative_to: relative_to,
+            constrain_to: Gtk.PopoverConstraint.WINDOW,
+            width_request: 500
         );
+
         window_height = height;
         fuzzy_finder = new Services.FuzzyFinder (pps);
         project_paths = pps;
@@ -45,7 +46,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
             max_items = 3;
         }
 
-        scrolled.set_max_content_height (43 /* height */ * max_items);
+        scrolled.set_max_content_height (45 /* height */ * max_items);
     }
 
     private void calculate_scroll_offset (int old_position, int new_position) {
@@ -77,20 +78,12 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     }
 
     construct {
+        this.get_style_context ().add_class ("fuzzy-popover");
+        this.get_style_context ().add_class ("flat");
+
         search_term_entry = new Gtk.Entry ();
-        search_term_entry.halign = Gtk.Align.CENTER;
-        search_term_entry.expand = true;
-        search_term_entry.width_request = 575;
-
-        var box = get_content_area ();
-        box.orientation = Gtk.Orientation.VERTICAL;
-
-        var layout = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 6
-        };
-        layout.attach (search_term_entry, 0, 0, 2);
-        layout.show_all ();
+        search_term_entry.halign = Gtk.Align.FILL;
+        search_term_entry.hexpand = true;
 
         search_result_container = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.NONE,
@@ -98,10 +91,6 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
         };
 
         search_result_container.get_style_context ().add_class ("fuzzy-list");
-
-        scrolled = new Gtk.ScrolledWindow (null, null);
-        scrolled.add (search_result_container);
-        scrolled.margin_top = 10;
 
         search_result_container.row_activated.connect ((row) => {
             var file_item = row as FileItem;
@@ -193,6 +182,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                         foreach (var c in search_result_container.get_children ()) {
                             search_result_container.remove (c);
                         }
+
                         items.clear ();
 
                         foreach (var result in results) {
@@ -210,6 +200,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
 
                         scrolled.hide ();
                         scrolled.show_all ();
+
                         // Reset scrolling
                         scrolled.vadjustment.value = 0;
                     });
@@ -226,10 +217,27 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
             }
         });
 
-        scrolled.propagate_natural_height = true;
 
-        box.add (layout);
-        box.add (scrolled);
+        var entry_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        entry_layout.valign = Gtk.Align.START;
+
+        entry_layout.add (search_term_entry);
+        search_term_entry.valign = Gtk.Align.START;
+
+        scrolled = new Gtk.ScrolledWindow (null, null) {
+            propagate_natural_height = true,
+            hexpand = true,
+        };
+
+        scrolled.add (search_result_container);
+
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        box.pack_start (entry_layout, false, false);
+        box.pack_end (scrolled, true, true);
+        box.show_all ();
+
+        scrolled.hide ();
+        this.add (box);
     }
 
     private void handle_item_selection (int index) {

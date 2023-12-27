@@ -5,6 +5,7 @@
  * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
  */
+
 public class FileItem : Gtk.ListBoxRow {
     private SearchResult result;
 

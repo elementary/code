@@ -20,12 +20,25 @@ textview.scrubber {
     border: 0;
 }
 
+.fuzzy-popover {
+   padding: 1rem 0;
+}
+
+.fuzzy-popover entry {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.fuzzy-popover scrolledwindow {
+    margin-top: 1rem;
+}
+
 .fuzzy-list {
     background-color: transparent;
 }
 
 .fuzzy-item {
-    padding: 5px;
+    padding: 0.5rem;
     margin-left: 10px;
     margin-right: 10px;
     background-color: transparent;
@@ -33,19 +46,19 @@ textview.scrubber {
 
 .fuzzy-item.preselect-fuzzy,
 .fuzzy-item:hover {
-    border-radius: 5px;
-}
-
-.fuzzy-item.preselect-fuzzy {
-    background-color: @selected_bg_color;
+    border-radius: 0.5rem;
 }
 
 .fuzzy-item:hover {
     background-color: @theme_unfocused_selected_bg_color;
 }
 
+.fuzzy-item.preselect-fuzzy {
+    background-color: @selected_bg_color;
+}
+
 .fuzzy-item .fuzzy-file-icon {
-    margin-right: 5px;
+    margin-right: 0.5rem;
 }
 
 .fuzzy-item label:nth-child(1) {

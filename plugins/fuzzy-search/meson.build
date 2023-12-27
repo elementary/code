@@ -4,7 +4,7 @@ module_files = [
     'fuzzy-search.vala',
     'fuzzy-finder.vala',
     'file-item.vala',
-    'fuzzy-search-dialog.vala',
+    'fuzzy-search-popover.vala',
     'search-result.vala',
 ]
 
