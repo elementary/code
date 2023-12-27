@@ -26,13 +26,26 @@ textview.scrubber {
     margin-right: 10px;
 }
 
-.fuzzy-item .fuzzy-file-icon {
-    margin-right: 5px;
+
+.fuzzy-item.preselect-fuzzy,
+.fuzzy-item:hover {
+    border-radius: 5px;
 }
 
 .fuzzy-item.preselect-fuzzy {
     background-color: @selected_bg_color;
-    border-radius: 5px;
+}
+
+.fuzzy-item:hover {
+    background-color: @theme_unfocused_selected_bg_color;
+}
+
+.fuzzy-item .fuzzy-file-icon {
+    margin-right: 5px;
+}
+
+.fuzzy-item label:nth-child(1) {
+    font-weight: 700;
 }
 
 .fuzzy-item.preselect-fuzzy label {
