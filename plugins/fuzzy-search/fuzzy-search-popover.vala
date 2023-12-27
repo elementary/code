@@ -91,7 +91,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         search_result_container = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.NONE,
-            activate_on_single_click = true
+            activate_on_single_click = true,
+            can_focus = false
         };
 
         search_result_container.get_style_context ().add_class ("fuzzy-list");
@@ -191,7 +192,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                         foreach (var result in results) {
                             var file_item = new FileItem (result, should_distinguish_projects);
-
+                            file_item.can_focus = false;
+1
                             if (first) {
                                 first = false;
                                 file_item.get_style_context ().add_class ("preselect-fuzzy");
