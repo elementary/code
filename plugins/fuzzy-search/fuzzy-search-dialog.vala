@@ -10,12 +10,13 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     private Gtk.ListBox search_result_container;
     private int preselected_index;
     private Gtk.ScrolledWindow scrolled;
-    Gee.HashMap<string, Services.SearchProject> project_paths;
-    Gee.ArrayList<FileItem> items;
+    private Gee.HashMap<string, Services.SearchProject> project_paths;
+    private Gee.ArrayList<FileItem> items;
     private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
     private bool should_distinguish_projects;
+    private Gtk.EventControllerKey search_term_entry_key_controller;
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -96,6 +97,8 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
             activate_on_single_click = true
         };
 
+        search_result_container.get_style_context ().add_class ("fuzzy-list");
+
         scrolled = new Gtk.ScrolledWindow (null, null);
         scrolled.add (search_result_container);
         scrolled.margin_top = 10;
@@ -109,39 +112,43 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
             handle_item_selection (items.index_of (file_item));
         });
 
-        search_term_entry.key_press_event.connect ((e) => {
+        search_term_entry_key_controller = new Gtk.EventControllerKey (search_term_entry);
+        search_term_entry_key_controller.key_pressed.connect ((keyval, keycode, state) => {
             // Handle key up/down to select other files found by fuzzy search
-            if (e.keyval == Gdk.Key.Down) {
-                if (items.size > 0) {
-                    var old_index = preselected_index;
-                    var item = items.get (preselected_index++);
-                    if (preselected_index >= items.size) {
-                        preselected_index = 0;
+            switch (keyval) {
+                case Gdk.Key.Down:
+                    if (items.size > 0) {
+                        var old_index = preselected_index;
+                        var item = items.get (preselected_index++);
+                        if (preselected_index >= items.size) {
+                            preselected_index = 0;
+                        }
+
+                        var next_item = items.get (preselected_index);
+                        preselect_new_item (item, next_item);
+                        calculate_scroll_offset (old_index, preselected_index);
                     }
 
-                    var next_item = items.get (preselected_index);
-                    preselect_new_item (item, next_item);
-                    calculate_scroll_offset (old_index, preselected_index);
-                }
+                    return true;
+                case Gdk.Key.Up:
+                    if (items.size > 0) {
+                        var old_index = preselected_index;
+                        var item = items.get (preselected_index--);
+                        if (preselected_index < 0) {
+                            preselected_index = items.size - 1;
+                        }
 
-                return true;
-            } else if (e.keyval == Gdk.Key.Up) {
-                if (items.size > 0) {
-                    var old_index = preselected_index;
-                    var item = items.get (preselected_index--);
-                    if (preselected_index < 0) {
-                        preselected_index = items.size - 1;
+                        var next_item = items.get (preselected_index);
+                        preselect_new_item (item, next_item);
+                        calculate_scroll_offset (old_index, preselected_index);
                     }
-
-                    var next_item = items.get (preselected_index);
-                    preselect_new_item (item, next_item);
-                    calculate_scroll_offset (old_index, preselected_index);
-                }
-                return true;
-            } else if (e.keyval == Gdk.Key.Escape) {
-                // Handle seperatly, otherwise it takes 2 escape hits to close the modal
-                close_search ();
-                return true;
+                    return true;
+                case Gdk.Key.Escape:
+                    // Handle seperately, otherwise it takes 2 escape hits to close the modal
+                    close_search ();
+                    return true;
+                default:
+                    break;
             }
 
             return false;

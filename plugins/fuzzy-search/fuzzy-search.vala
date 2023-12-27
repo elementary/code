@@ -44,7 +44,7 @@ public class Scratch.Services.SearchProject {
                 warning ("An error occurred while checking if item '%s' is git-ignored: %s", path, e.message);
             }
 
-            debug ("Fuzzy Search - Indexing from directory: %s\n", path);
+            // debug ("Fuzzy Search - Indexing from directory: %s\n", path);
 
             var dir = Dir.open (path);
             var name = dir.read_name ();
@@ -88,14 +88,15 @@ public class Scratch.Services.SearchProject {
 }
 
 public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
-    Gee.HashMap<string, Services.SearchProject> project_paths;
+    public Object object { owned get; construct; }
 
-    MainWindow window = null;
-
-    Scratch.Services.Interface plugins;
-    public Object object {owned get; construct;}
+    private Gee.HashMap<string, Services.SearchProject> project_paths;
+    private MainWindow window = null;
+    private Scratch.Services.Interface plugins;
+    private Gtk.EventControllerKey key_controller;
 
     public void update_state () {
+
     }
 
     public void activate () {
@@ -106,66 +107,75 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                 return;
 
             window = w;
-            window.key_press_event.connect (on_window_key_press_event);
+            key_controller = new Gtk.EventControllerKey (window);
+            key_controller.key_pressed.connect (on_window_key_press_event);
         });
     }
 
-    bool on_window_key_press_event (Gdk.EventKey event) {
-        /* <Control>p shows fuzzy search dialog */
-        if (event.keyval == Gdk.Key.f
-            && Gdk.ModifierType.MOD1_MASK in event.state) {
-                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+    bool on_window_key_press_event (uint keyval, uint keycode, Gdk.ModifierType state) {
+        /* <Alt>f shows fuzzy search dialog */
+        switch (Gdk.keyval_to_upper (keyval)) {
+            case Gdk.Key.F:
+                if (state == Gdk.ModifierType.MOD1_MASK) {
+                    var settings = new GLib.Settings ("io.elementary.code.folder-manager");
 
-                string[] opened_folders = settings.get_strv ("opened-folders");
-                if (opened_folders == null || opened_folders.length < 1) {
-                    return false;
-                }
+                    string[] opened_folders = settings.get_strv ("opened-folders");
+                    if (opened_folders == null || opened_folders.length < 1) {
+                        return false;
+                    }
 
-                int diag_x;
-                int diag_y;
-                int window_x;
-                int window_y;
-                int window_height;
-                int window_width;
-                window.get_position (out window_x, out window_y);
-                window.get_size (out window_width, out window_height);
+                    int diag_x;
+                    int diag_y;
+                    int window_x;
+                    int window_y;
+                    int window_height;
+                    int window_width;
+                    window.get_position (out window_x, out window_y);
+                    window.get_size (out window_width, out window_height);
 
-                project_paths = new Gee.HashMap<string, Services.SearchProject> ();
+                    project_paths = new Gee.HashMap<string, Services.SearchProject> ();
 
-                foreach (unowned string path in settings.get_strv ("opened-folders")) {
-                    var monitor = Services.GitManager.get_monitored_repository (path);
-                    var project_path = new Services.SearchProject (path, monitor);
-                    project_path.parse_async.begin (path, (obj, res) => {
-                        project_path.parse_async.end (res);
+                    foreach (unowned string path in settings.get_strv ("opened-folders")) {
+                        var monitor = Services.GitManager.get_monitored_repository (path);
+                        var project_path = new Services.SearchProject (path, monitor);
+                        project_path.parse_async.begin (path, (obj, res) => {
+                            project_path.parse_async.end (res);
+                        });
+
+                        project_paths[path] = project_path;
+                    }
+
+                    var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
+                    dialog.get_position (out diag_x, out diag_y);
+
+                    dialog.open_file.connect ((filepath) => {
+                        var file = new Scratch.FolderManager.File (filepath);
+                        var doc = new Scratch.Services.Document (window.actions, file.file);
+
+                        window.open_document (doc);
+                        dialog.destroy ();
                     });
 
-                    project_paths[path] = project_path;
+                    dialog.close_search.connect (() => dialog.destroy ());
+                    // Move the dialog a bit under the top of the application window
+                    dialog.move (diag_x, window_y + 50);
+
+                    dialog.run ();
+
+                    return true;
                 }
 
-                var dialog = new Scratch.Dialogs.FuzzySearchDialog (project_paths, window_height);
-                dialog.get_position (out diag_x, out diag_y);
-
-                dialog.open_file.connect ((filepath) => {
-                    var file = new Scratch.FolderManager.File (filepath);
-                    var doc = new Scratch.Services.Document (window.actions, file.file);
-
-                    window.open_document (doc);
-                    dialog.destroy ();
-                });
-
-                dialog.close_search.connect (() => dialog.destroy ());
-                // Move the dialog a bit under the top of the application window
-                dialog.move (diag_x, window_y + 50);
-
-                dialog.run ();
-
-                return true;
+                break;
+            default:
+                return false;
         }
 
         return false;
     }
 
-    public void deactivate () {}
+    public void deactivate () {
+        key_controller.key_pressed.disconnect (on_window_key_press_event);
+    }
 }
 
 [ModuleInit]

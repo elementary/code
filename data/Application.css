@@ -20,12 +20,16 @@ textview.scrubber {
     border: 0;
 }
 
+.fuzzy-list {
+    background-color: transparent;
+}
+
 .fuzzy-item {
     padding: 5px;
     margin-left: 10px;
     margin-right: 10px;
+    background-color: transparent;
 }
-
 
 .fuzzy-item.preselect-fuzzy,
 .fuzzy-item:hover {
