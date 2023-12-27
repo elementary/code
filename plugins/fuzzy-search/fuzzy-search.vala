@@ -123,15 +123,10 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                         return false;
                     }
 
-                    int diag_x;
-                    int diag_y;
-                    int window_x;
-                    int window_y;
                     int window_height;
                     int window_width;
-                    window.get_position (out window_x, out window_y);
-                    window.get_size (out window_width, out window_height);
 
+                    window.get_size (out window_width, out window_height);
                     project_paths = new Gee.HashMap<string, Services.SearchProject> ();
 
                     foreach (unowned string path in settings.get_strv ("opened-folders")) {
