@@ -7,7 +7,7 @@
  */
 
 public class Scratch.FuzzySearchPopover : Gtk.Popover {
-    private Gtk.Entry search_term_entry;
+    private Gtk.SearchEntry search_term_entry;
     private Services.FuzzyFinder fuzzy_finder;
     private Gtk.ListBox search_result_container;
     private int preselected_index;
@@ -19,6 +19,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private Gee.LinkedList<GLib.Cancellable> cancellables;
     private bool should_distinguish_projects;
     private Gtk.EventControllerKey search_term_entry_key_controller;
+    private Gtk.Label title_label;
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -79,9 +80,12 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
     construct {
         this.get_style_context ().add_class ("fuzzy-popover");
-        this.get_style_context ().add_class ("flat");
 
-        search_term_entry = new Gtk.Entry ();
+        title_label = new Gtk.Label (_("Search for project files"));
+        title_label.halign = Gtk.Align.START;
+        title_label.get_style_context ().add_class ("h4");
+
+        search_term_entry = new Gtk.SearchEntry ();
         search_term_entry.halign = Gtk.Align.FILL;
         search_term_entry.hexpand = true;
 
@@ -218,9 +222,10 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         });
 
 
-        var entry_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        var entry_layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         entry_layout.valign = Gtk.Align.START;
 
+        entry_layout.add (title_label);
         entry_layout.add (search_term_entry);
         search_term_entry.valign = Gtk.Align.START;
 
