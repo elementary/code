@@ -1,8 +1,8 @@
-/*  
- * SPDX-License-Identifier: GPL-3.0-or-later  
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
- * Authored by: Marvin Ahlgrimm 
+ * Authored by: Marvin Ahlgrimm
  */
 public class Scratch.Services.SearchProject {
     public string root_path { get; private set; }
@@ -99,8 +99,8 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
     bool on_window_key_press_event (Gdk.EventKey event) {
         /* <Control>p shows fuzzy search dialog */
-        if (event.keyval == Gdk.Key.p
-            && Gdk.ModifierType.CONTROL_MASK in event.state) {
+        if (event.keyval == Gdk.Key.f
+            && Gdk.ModifierType.MOD1_MASK in event.state) {
                 var settings = new GLib.Settings ("io.elementary.code.folder-manager");
 
                 string[] opened_folders = settings.get_strv ("opened-folders");
