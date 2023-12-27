@@ -23,9 +23,6 @@ namespace Scratch.Services {
         public ListStore project_liststore { get; private set; }
         public string active_project_path { get; set; default = "";}
 
-        public signal void opened_project (string root_path);
-        public signal void removed_project (string root_path);
-
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
 
@@ -60,7 +57,6 @@ namespace Scratch.Services {
                 if (!project_gitrepo_map.has_key (root_path)) {
                     monitored_repo = new MonitoredRepository (git_repo);
                     project_gitrepo_map.@set (root_path, monitored_repo);
-                    opened_project (root_path);
                     return project_gitrepo_map.@get (root_path);
                 }
             } catch (Error e) {
@@ -94,7 +90,6 @@ namespace Scratch.Services {
             uint position;
             if (project_liststore.find (root_folder, out position)) {
                 project_liststore.remove (position);
-                removed_project (root_path);
             } else {
                 critical ("Can't remove: %s", root_path);
             }
