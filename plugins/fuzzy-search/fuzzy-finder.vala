@@ -1,8 +1,8 @@
-/*  
- * SPDX-License-Identifier: GPL-3.0-or-later  
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
- * Authored by: Marvin Ahlgrimm 
+ * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
  */
 
@@ -10,6 +10,7 @@ const int SEQUENTIAL_BONUS = 15; // bonus for adjacent matches
 const int SEPARATOR_BONUS = 30; // bonus if match occurs after a separator
 const int CAMEL_BONUS = 30; // bonus if match is uppercase and prev is lower
 const int FIRST_LETTER_BONUS = 15; // bonus if the first letter is matched
+const int CURRENT_PROJECT_PRIORITY_BONUS = 20; // Bonus if search result is for current project
 const int LEADING_LETTER_PENALTY = -5; // penalty applied for every letter in str before the first match
 const int MAX_LEADING_LETTER_PENALTY = -15; // maximum penalty for leading letters
 const int UNMATCHED_LETTER_PENALTY = -1;
@@ -194,12 +195,14 @@ public class Scratch.Services.FuzzyFinder {
       project_paths = pps;
     }
 
-    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str, GLib.Cancellable cancellable) {
+    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str,
+                                                               string current_project,
+                                                               GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
         new Thread<void> ("fuzzy-find", () => {
-            results = fuzzy_find (search_str, cancellable);
+            results = fuzzy_find (search_str, current_project, cancellable);
             Idle.add ((owned) callback);
         });
 
@@ -207,7 +210,9 @@ public class Scratch.Services.FuzzyFinder {
         return results;
     }
 
-    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str, GLib.Cancellable cancellable) {
+    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str,
+                                                   string current_project,
+                                                   GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
         var projects = project_paths.values.to_array ();
 
@@ -254,12 +259,20 @@ public class Scratch.Services.FuzzyFinder {
                     filename_search_result.relative_path = path;
                     filename_search_result.full_path = @"$root_path/$path";
                     filename_search_result.project = project_name;
+                    filename_search_result.score += project.root_path == current_project
+                        ? CURRENT_PROJECT_PRIORITY_BONUS
+                        : 0;
+
                     results.add (filename_search_result);
                 } else if (path_search_result.found) {
                     path_search_result.relative_path = path;
                     path_search_result.full_path = @"$root_path/$path";
                     path_search_result.project = project_name;
-                    path_search_result.score = (int) (path_search_result.score * 0.5);
+                    path_search_result.score = (int) (path_search_result.score * 0.5) +
+                        (project.root_path == current_project
+                            ? CURRENT_PROJECT_PRIORITY_BONUS
+                            : 0);
+
                     results.add (path_search_result);
                 }
             }

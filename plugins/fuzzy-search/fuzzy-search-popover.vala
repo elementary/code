@@ -20,19 +20,25 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private bool should_distinguish_projects;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
+    private Scratch.MainWindow current_window;
 
     public signal void open_file (string filepath);
     public signal void close_search ();
 
-    public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Gtk.Widget? relative_to, int height) {
+    public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Scratch.MainWindow window) {
         Object (
             modal: true,
-            relative_to: relative_to,
+            relative_to: window.toolbar,
             constrain_to: Gtk.PopoverConstraint.WINDOW,
             width_request: 500
         );
 
+        current_window = window;
+
+        int height;
+        current_window.get_size (null, out height);
         window_height = height;
+
         fuzzy_finder = new Services.FuzzyFinder (pps);
         project_paths = pps;
         items = new Gee.ArrayList<FileItem> ();
@@ -165,7 +171,10 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                 Timeout.add (1, () => {
                         var next_cancellable = new GLib.Cancellable ();
                         cancellables.add (next_cancellable);
-                        fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text, next_cancellable, (obj, res) =>{
+                        fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text,
+                                                             get_current_project (),
+                                                             next_cancellable,
+                                                             (obj, res) => {
                         if (next_cancellable.is_cancelled ()) {
                             cancellables.remove (next_cancellable);
                             return;
@@ -193,7 +202,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         foreach (var result in results) {
                             var file_item = new FileItem (result, should_distinguish_projects);
                             file_item.can_focus = false;
-1
+
                             if (first) {
                                 first = false;
                                 file_item.get_style_context ().add_class ("preselect-fuzzy");
@@ -222,7 +231,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                 scrolled.hide ();
             }
         });
-
 
         var entry_layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         entry_layout.valign = Gtk.Align.START;
@@ -256,5 +264,28 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         var class_name = "preselect-fuzzy";
         old_item.get_style_context ().remove_class (class_name);
         new_item.get_style_context ().add_class (class_name);
+    }
+
+    private string get_current_project () {
+        Scratch.Services.Document current_document = current_window.document_view.current_document;
+        if (current_document == null) {
+            return "";
+        }
+
+        if (current_document.is_file_temporary) {
+            return "";
+        }
+
+        string file_path = current_document.file.get_path ();
+
+        var iter = project_paths.keys.iterator ();
+        while (iter.next ()) {
+            string project_path = iter.get ();
+            if (file_path.has_prefix (project_path)) {
+                return project_path;
+            }
+        }
+
+        return "";
     }
  }

@@ -123,10 +123,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                         return false;
                     }
 
-                    int window_height;
-                    int window_width;
-
-                    window.get_size (out window_width, out window_height);
                     project_paths = new Gee.HashMap<string, Services.SearchProject> ();
 
                     foreach (unowned string path in settings.get_strv ("opened-folders")) {
@@ -139,7 +135,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
                         project_paths[path] = project_path;
                     }
 
-                    var popover = new Scratch.FuzzySearchPopover (project_paths, window.toolbar, window_height);
+                    var popover = new Scratch.FuzzySearchPopover (project_paths, window);
                     popover.open_file.connect ((filepath) => {
                         var file = new Scratch.FolderManager.File (filepath);
                         var doc = new Scratch.Services.Document (window.actions, file.file);
