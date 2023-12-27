@@ -1,13 +1,13 @@
-/*  
- * SPDX-License-Identifier: GPL-3.0-or-later  
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
- * Authored by: Marvin Ahlgrimm 
+ * Authored by: Marvin Ahlgrimm
  */
 public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
     private Gtk.Entry search_term_entry;
     private Services.FuzzyFinder fuzzy_finder;
-    private Gtk.Box search_result_container;
+    private Gtk.ListBox search_result_container;
     private int preselected_index;
     private Gtk.ScrolledWindow scrolled;
     Gee.HashMap<string, Services.SearchProject> project_paths;
@@ -91,10 +91,23 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
         layout.attach (search_term_entry, 0, 0, 2);
         layout.show_all ();
 
-        search_result_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
+        search_result_container = new Gtk.ListBox () {
+            selection_mode = Gtk.SelectionMode.NONE,
+            activate_on_single_click = true
+        };
+
         scrolled = new Gtk.ScrolledWindow (null, null);
         scrolled.add (search_result_container);
         scrolled.margin_top = 10;
+
+        search_result_container.row_activated.connect ((row) => {
+            var file_item = row as FileItem;
+            if (file_item == null) {
+                return;
+            }
+
+            handle_item_selection (items.index_of (file_item));
+        });
 
         search_term_entry.key_press_event.connect ((e) => {
             // Handle key up/down to select other files found by fuzzy search
@@ -105,9 +118,9 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                     if (preselected_index >= items.size) {
                         preselected_index = 0;
                     }
+
                     var next_item = items.get (preselected_index);
                     preselect_new_item (item, next_item);
-
                     calculate_scroll_offset (old_index, preselected_index);
                 }
 
@@ -119,9 +132,9 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                     if (preselected_index < 0) {
                         preselected_index = items.size - 1;
                     }
+
                     var next_item = items.get (preselected_index);
                     preselect_new_item (item, next_item);
-
                     calculate_scroll_offset (old_index, preselected_index);
                 }
                 return true;
@@ -130,6 +143,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                 close_search ();
                 return true;
             }
+
             return false;
         });
 
@@ -185,9 +199,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
 
                             search_result_container.add (file_item);
                             items.add (file_item);
-                            file_item.clicked.connect ((e) => handle_item_selection (items.index_of (file_item)));
                         }
-
 
                         scrolled.hide ();
                         scrolled.show_all ();
@@ -201,6 +213,7 @@ public class Scratch.Dialogs.FuzzySearchDialog : Gtk.Dialog {
                 foreach (var c in search_result_container.get_children ()) {
                     search_result_container.remove (c);
                 }
+
                 items.clear ();
                 scrolled.hide ();
             }

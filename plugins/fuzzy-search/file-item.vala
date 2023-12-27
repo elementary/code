@@ -1,11 +1,11 @@
-/*  
- * SPDX-License-Identifier: GPL-3.0-or-later  
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>  
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
- * Authored by: Marvin Ahlgrimm 
+ * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
  */
-public class FileItem : Gtk.Button {
+public class FileItem : Gtk.ListBoxRow {
     private SearchResult result;
 
     public string filepath {
@@ -30,9 +30,6 @@ public class FileItem : Gtk.Button {
 
         var filename_label = new Gtk.Label (Path.get_basename (result.relative_path));
         filename_label.halign = Gtk.Align.START;
-        var attrs = new Pango.AttrList ();
-        attrs.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
-        filename_label.attributes = attrs;
 
         try {
             var fi = File.new_for_path (result.full_path);
