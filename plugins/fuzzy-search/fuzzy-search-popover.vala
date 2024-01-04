@@ -20,7 +20,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private bool should_distinguish_projects;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
-    private Scratch.MainWindow current_window;
+    public Scratch.MainWindow current_window { get; construct; }
+    public bool sidebar_is_visible { get; set; }
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -28,12 +29,11 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Scratch.MainWindow window) {
         Object (
             modal: true,
-            relative_to: window.toolbar,
+            relative_to: window.sidebar,
             constrain_to: Gtk.PopoverConstraint.WINDOW,
-            width_request: 500
+            width_request: 500,
+            current_window: window
         );
-
-        current_window = window;
 
         int height;
         current_window.get_size (null, out height);
@@ -253,6 +253,20 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         scrolled.hide ();
         this.add (box);
+
+        closed.connect (() => {
+            current_window.sidebar.visible = sidebar_is_visible;
+        });
+    }
+
+    // Ensure popover has something to point to
+    public new void popup () {
+        sidebar_is_visible = current_window.sidebar.visible;
+        if (!sidebar_is_visible) {
+            current_window.sidebar.show ();
+        }
+
+        base.popup ();
     }
 
     private void handle_item_selection (int index) {
