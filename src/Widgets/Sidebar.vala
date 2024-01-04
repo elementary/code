@@ -25,6 +25,7 @@ public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
+    public Gtk.Menu project_menu { get; construct; }
 
     private Gtk.StackSwitcher stack_switcher;
 
@@ -70,7 +71,7 @@ public class Code.Sidebar : Gtk.Grid {
         order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX +
                                                Scratch.MainWindow.ACTION_ORDER_FOLDERS;
 
-        var project_menu = new Gtk.Menu ();
+        project_menu = new Gtk.Menu ();
         project_menu.append (collapse_all_menu_item);
         project_menu.append (order_projects_menu_item);
         project_menu.show_all ();
