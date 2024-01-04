@@ -100,6 +100,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
     public void deactivate () {
         key_controller.key_pressed.disconnect (on_window_key_press_event);
+        window.sidebar.project_menu.remove (fuzzy_menuitem);
     }
 }
 
