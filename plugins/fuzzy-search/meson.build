@@ -6,6 +6,7 @@ module_files = [
     'file-item.vala',
     'fuzzy-search-popover.vala',
     'search-result.vala',
+    'fuzzy-search-project.vala'
 ]
 
 module_deps = [
