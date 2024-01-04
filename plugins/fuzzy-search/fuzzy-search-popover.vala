@@ -87,7 +87,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     construct {
         this.get_style_context ().add_class ("fuzzy-popover");
 
-        title_label = new Gtk.Label (_("Search for project files"));
+        title_label = new Gtk.Label (_("Find project files"));
         title_label.halign = Gtk.Align.START;
         title_label.get_style_context ().add_class ("h4");
 
