@@ -29,8 +29,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Scratch.MainWindow window) {
         Object (
             modal: true,
-            relative_to: window.sidebar,
-            constrain_to: Gtk.PopoverConstraint.WINDOW,
+            relative_to: window.document_view,
             width_request: 500,
             current_window: window
         );
@@ -85,6 +84,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     }
 
     construct {
+        pointing_to = { 0, 32, 1, 1 };
         this.get_style_context ().add_class ("fuzzy-popover");
 
         title_label = new Gtk.Label (_("Find project files"));
@@ -253,20 +253,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         scrolled.hide ();
         this.add (box);
-
-        closed.connect (() => {
-            current_window.sidebar.visible = sidebar_is_visible;
-        });
-    }
-
-    // Ensure popover has something to point to
-    public new void popup () {
-        sidebar_is_visible = current_window.sidebar.visible;
-        if (!sidebar_is_visible) {
-            current_window.sidebar.show ();
-        }
-
-        base.popup ();
     }
 
     private void handle_item_selection (int index) {
