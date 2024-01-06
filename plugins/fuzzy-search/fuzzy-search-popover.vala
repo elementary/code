@@ -20,7 +20,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private bool should_distinguish_projects;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
-    private Scratch.MainWindow current_window;
+    public Scratch.MainWindow current_window { get; construct; }
+    public bool sidebar_is_visible { get; set; }
 
     public signal void open_file (string filepath);
     public signal void close_search ();
@@ -28,12 +29,10 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Scratch.MainWindow window) {
         Object (
             modal: true,
-            relative_to: window.toolbar,
-            constrain_to: Gtk.PopoverConstraint.WINDOW,
-            width_request: 500
+            relative_to: window.document_view,
+            width_request: 500,
+            current_window: window
         );
-
-        current_window = window;
 
         int height;
         current_window.get_size (null, out height);
@@ -85,6 +84,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     }
 
     construct {
+        pointing_to = { 0, 32, 1, 1 };
         this.get_style_context ().add_class ("fuzzy-popover");
 
         title_label = new Gtk.Label (_("Find project files"));
