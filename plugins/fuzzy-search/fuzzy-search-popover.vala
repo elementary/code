@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
- *              Colin Kiama
+ *              Colin Kiama <colinkiama@gmail.com>
  */
 
 public class Scratch.FuzzySearchPopover : Gtk.Popover {
@@ -12,12 +12,11 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private Gtk.ListBox search_result_container;
     private int preselected_index;
     private Gtk.ScrolledWindow scrolled;
-    private Gee.HashMap<string, Services.SearchProject> project_paths;
     private Gee.ArrayList<FileItem> items;
+    private Scratch.Services.FuzzySearchIndexer indexer;
     private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
-    private bool should_distinguish_projects;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
     public Scratch.MainWindow current_window { get; construct; }
@@ -26,7 +25,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public signal void open_file (string filepath);
     public signal void close_search ();
 
-    public FuzzySearchPopover (Gee.HashMap<string, Services.SearchProject> pps, Scratch.MainWindow window) {
+    public FuzzySearchPopover (Scratch.Services.FuzzySearchIndexer search_indexer, Scratch.MainWindow window) {
         Object (
             modal: true,
             relative_to: window.document_view,
@@ -38,12 +37,10 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         current_window.get_size (null, out height);
         window_height = height;
 
-        fuzzy_finder = new Services.FuzzyFinder (pps);
-        project_paths = pps;
+        fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
+        indexer = search_indexer;
         items = new Gee.ArrayList<FileItem> ();
         cancellables = new Gee.LinkedList<GLib.Cancellable> ();
-
-        should_distinguish_projects = project_paths.size > 1;
 
         // Limit the shown results if the window height is too small
         if (window_height > 400) {
@@ -200,7 +197,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         items.clear ();
 
                         foreach (var result in results) {
-                            var file_item = new FileItem (result, should_distinguish_projects);
+                            var file_item = new FileItem (result, indexer.project_paths.size > 1);
                             file_item.can_focus = false;
 
                             if (first) {
@@ -278,7 +275,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         string file_path = current_document.file.get_path ();
 
-        var iter = project_paths.keys.iterator ();
+        var iter = indexer.project_paths.keys.iterator ();
         while (iter.next ()) {
             string project_path = iter.get ();
             if (file_path.has_prefix (project_path)) {

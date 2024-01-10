@@ -11,7 +11,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 
-    private Gee.HashMap<string, Services.SearchProject> project_paths;
+    private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
     private Scratch.Services.Interface plugins;
     private Gtk.EventControllerKey key_controller;
@@ -31,11 +31,17 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             }
 
             cancellable = new GLib.Cancellable ();
+            indexer = new Scratch.Services.FuzzySearchIndexer (cancellable);
+
+            indexer.start_async.begin ((obj, res) => {
+                indexer.start_async.end (res);
+            });
 
             window = w;
             key_controller = new Gtk.EventControllerKey (window) {
                 propagation_phase = BUBBLE
             };
+
             key_controller.key_pressed.connect (on_window_key_press_event);
 
             fuzzy_menuitem = new Gtk.MenuItem.with_label (_("Find Project Files"));
@@ -47,6 +53,14 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             fuzzy_menuitem.activate.connect (fuzzy_find);
             fuzzy_menuitem.show ();
             window.sidebar.project_menu.append (fuzzy_menuitem);
+        });
+
+        plugins.hook_folder_item_change.connect ((src, dest, event) => {
+            if (indexer == null) {
+                return;
+            }
+
+            indexer.handle_folder_item_change (src, dest, event);
         });
     }
 
@@ -75,19 +89,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             return;
         }
 
-        project_paths = new Gee.HashMap<string, Services.SearchProject> ();
-
-        foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            var monitor = Services.GitManager.get_monitored_repository (path);
-            var project_path = new Services.SearchProject (path, monitor);
-            project_path.parse_async.begin (path, cancellable, (obj, res) => {
-                project_path.parse_async.end (res);
-            });
-
-            project_paths[path] = project_path;
-        }
-
-        var popover = new Scratch.FuzzySearchPopover (project_paths, window);
+        var popover = new Scratch.FuzzySearchPopover (indexer, window);
         popover.open_file.connect ((filepath) => {
             var file = new Scratch.FolderManager.File (filepath);
             var doc = new Scratch.Services.Document (window.actions, file.file);
