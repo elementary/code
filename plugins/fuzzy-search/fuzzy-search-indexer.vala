@@ -80,14 +80,6 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
     }
 
     public void handle_folder_item_change (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-        debug ("Find Project Files: Folder Item Change:\nSource File: %s\ndDestination File: %s\nEvent Type: %s",
-            source.get_path (),
-            dest != null
-                ? dest.get_path ()
-                : "(None)",
-            FuzzySearchIndexer.enum_to_nick (event, typeof (GLib.FileMonitorEvent))
-        );
-
         switch (event) {
             case GLib.FileMonitorEvent.CREATED:
                 string path = source.get_path ();
@@ -319,21 +311,5 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
         }
 
         return null;
-    }
-
-    private static string enum_to_nick (int @value, Type enum_type) {
-        var enum_class = (EnumClass) enum_type.class_ref ();
-
-        if (enum_class == null) {
-            return "%i".printf (@value);
-        }
-
-        unowned var enum_value = enum_class.get_value (@value);
-
-        if (enum_value == null) {
-            return "%i".printf (@value);
-        }
-
-        return enum_value.value_nick;
     }
 }
