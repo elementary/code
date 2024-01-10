@@ -166,9 +166,23 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                 }
 
                 Timeout.add (1, () => {
+                        // If the entry is empty or the text has changed
+                        // since searching, do nothing
+                        if (previous_text.length == 0 || previous_text != search_term_entry.text) {
+                            return Source.REMOVE;
+                        }
+
                         var next_cancellable = new GLib.Cancellable ();
                         cancellables.add (next_cancellable);
-                        fuzzy_finder.fuzzy_find_async.begin (search_term_entry.text,
+
+                        var dir_length = 0, term = search_term_entry.text;
+                        var parts = term.split (Path.DIR_SEPARATOR_S, 0);
+                        var rev_parts = term.reverse ().split (Path.DIR_SEPARATOR_S, 2);
+                        if (rev_parts.length == 2) {
+                            dir_length = rev_parts[0].length + 1;
+                        }
+
+                        fuzzy_finder.fuzzy_find_async.begin (term, dir_length,
                                                              get_current_project (),
                                                              next_cancellable,
                                                              (obj, res) => {
@@ -184,11 +198,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                         bool first = true;
 
-                        // If the entry is empty or the text has changed
-                        // since searching, do nothing
-                        if (previous_text.length == 0 || previous_text != search_term_entry.text) {
-                            return;
-                        }
+
 
                         foreach (var c in search_result_container.get_children ()) {
                             search_result_container.remove (c);
