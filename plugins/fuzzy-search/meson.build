@@ -1,12 +1,13 @@
 module_name = 'fuzzy-search'
 
 module_files = [
+    'file-item.vala',
     'fuzzy-search.vala',
     'fuzzy-finder.vala',
-    'file-item.vala',
+    'fuzzy-search-indexer.vala',
     'fuzzy-search-popover.vala',
+    'fuzzy-search-project.vala',
     'search-result.vala',
-    'fuzzy-search-project.vala'
 ]
 
 module_deps = [

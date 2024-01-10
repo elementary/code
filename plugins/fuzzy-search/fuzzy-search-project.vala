@@ -28,6 +28,55 @@ public class Scratch.Services.SearchProject {
         yield;
     }
 
+    public void remove_file (string path, GLib.Cancellable cancellable) {
+        if (cancellable.is_cancelled ()) {
+            return;
+        }
+
+        string subpath = path.replace (root_path, "");
+        string deleted_path = subpath.substring (1, subpath.length - 1);
+
+        if (relative_file_paths.contains (deleted_path)) {
+            // path deleted is for a file
+            relative_file_paths.remove (deleted_path);
+            return;
+        }
+
+        // Path deleted is for a directory
+        int start_length = relative_file_paths.size;
+        for (int i = start_length - 1; i > -1; i--) {
+            string relative_path = relative_file_paths[i];
+            if (relative_path.has_prefix (deleted_path)) {
+                relative_file_paths.remove (relative_path);
+            }
+        }
+
+    }
+
+    public void add_file (string path, GLib.Cancellable cancellable) {
+        if (cancellable.is_cancelled ()) {
+            return;
+        }
+
+        try {
+            // Don't use paths which are ignored from .gitignore
+            if (monitored_repo != null && monitored_repo.path_is_ignored (path)) {
+                return;
+            }
+        } catch (Error e) {
+            warning ("An error occurred while checking if item '%s' is git-ignored: %s", path, e.message);
+        }
+
+        string subpath = path.replace (root_path, "");
+        relative_file_paths.add (subpath.substring (1, subpath.length - 1));
+    }
+
+    public async void add_directory_async (string path, GLib.Cancellable cancellable) {
+        parse_async_internal.begin (path, cancellable, (obj, res) => {
+           parse_async_internal.end (res);
+        });
+    }
+
     private async void parse_async_internal (string path, GLib.Cancellable cancellable) {
         if (cancellable.is_cancelled ()) {
             return;
