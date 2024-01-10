@@ -3,6 +3,7 @@
  * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
+ * Authored by: Colin Kiama <colinkiama@gmail.com>
  */
 
 public class Scratch.Services.SearchProject {
@@ -36,14 +37,14 @@ public class Scratch.Services.SearchProject {
         string subpath = path.replace (root_path, "");
         string deleted_path = subpath.substring (1, subpath.length - 1);
 
+        // Remove File
         if (relative_file_paths.contains (deleted_path)) {
-            // path deleted is for a file
             relative_file_paths.remove (deleted_path);
             return;
         }
 
-        // Path deleted is for a directory
         int start_length = relative_file_paths.size;
+        // Remove directory
         for (int i = start_length - 1; i > -1; i--) {
             string relative_path = relative_file_paths[i];
             if (relative_path.has_prefix (deleted_path)) {
