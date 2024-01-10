@@ -80,14 +80,13 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
     }
 
     public void handle_folder_item_change (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-        debug ("Folder Item Change:\nSource File: %s\ndDestination File: %s\nEvent Type: %s",
+        debug ("Find Project Files: Folder Item Change:\nSource File: %s\ndDestination File: %s\nEvent Type: %s",
             source.get_path (),
             dest != null
                 ? dest.get_path ()
                 : "(None)",
             FuzzySearchIndexer.enum_to_nick (event, typeof (GLib.FileMonitorEvent))
         );
-
 
         switch (event) {
             case GLib.FileMonitorEvent.CREATED:
@@ -126,19 +125,21 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
                     case IndexerStatus.INITIALISING:
                         if (initial_indexing_queue.size < 1 ) {
                             status = IndexerStatus.IDLE;
-                            debug ("Fuzzy Search - Indexer is now idle!\n");
+                            debug ("Find Project Files: Indexer is now idle!\n");
                             break;
                         }
 
                         if (initial_indexing_queue.size > 0) {
-                            process_initial_indexing_requests_async
-                                .begin (initial_indexing_queue,
-                                    project_paths, (obj, res) => {
-                                        process_initial_indexing_requests_async.end (res);
-                                        status = IndexerStatus.IDLE;
-                                    }
-                                );
+                            process_initial_indexing_requests_async.begin (
+                                initial_indexing_queue,
+                                project_paths,
+                                (obj, res) => {
+                                    process_initial_indexing_requests_async.end (res);
+                                    status = IndexerStatus.IDLE;
+                                });
+
                             status = IndexerStatus.INITIAL_PROCESSING;
+                            debug ("Find Project Files: Indexer is now doing initial processing!");
                         }
 
                         break;
@@ -150,11 +151,11 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
                                 process_next_message_async.end (res);
                                 processing_queue.remove (first_item);
                                 status = IndexerStatus.IDLE;
-                                debug ("Fuzzy Search - Indexer is now idle!");
+                                debug ("Find Project Files: Indexer is now idle!");
                             });
 
                             status = IndexerStatus.PROCESSING;
-                            debug ("Fuzzy Search - Indexer now processing!");
+                            debug ("Find Project Files: Indexer now processing!");
                         }
                         break;
                     case IndexerStatus.INITIAL_PROCESSING:
@@ -192,23 +193,29 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
             case ProjectUpdateType.ADDED:
                 add_project_async.begin (message, (obj, res) => {
                     add_project_async.end (res);
+                    debug ("Find Project Files: Added project: %s", message.source_path);
                 });
 
                 break;
             case ProjectUpdateType.REMOVED:
                 remove_project (message);
+                debug ("Find Project Files: Removed project: %s", message.source_path);
                 break;
             case ProjectUpdateType.FILE_CREATED:
                 add_file (message);
+                debug ("Find Project Files: Added file: %s", message.source_path);
+
                 break;
             case ProjectUpdateType.DIRECTORY_CREATED:
                 add_directory_async.begin (message, (obj, res) => {
                     add_directory_async.end (res);
+                    debug ("Find Project Files: Added directory: %s", message.source_path);
                 });
 
                 break;
             case ProjectUpdateType.FILE_DELETED:
                 remove_file (message);
+                debug ("Find Project Files: Deleted directory: %s", message.source_path);
                 break;
         }
     }
