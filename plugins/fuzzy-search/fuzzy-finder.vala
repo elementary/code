@@ -74,6 +74,13 @@ public class Scratch.Services.FuzzyFinder {
 
                 // Match found.
                 if (lower_case_char == lower_case_str_char) {
+                    // specified directory must match at start
+                    if (dir_length > 0 && pattern_current_index == 0) {
+                        if ( str_current_index > 0 && str.get_char (str_current_index - 1).tolower () != Path.DIR_SEPARATOR) {
+                            break;
+                        }
+                    }
+
                     allowed_separators = false;
                     if (next_match >= max_matches) {
                         return new SearchResult (false, out_score);
@@ -114,9 +121,9 @@ public class Scratch.Services.FuzzyFinder {
 
                     ++next_match;
                     ++pattern_current_index;
-                } else if (pattern_current_index <= dir_length) {
+                } else if (pattern_current_index <= dir_length) { // specified dir must match sequentially
                     break;
-                } else if (lower_case_str_char == Path.DIR_SEPARATOR && !allowed_separators) {
+                } else if (lower_case_str_char == Path.DIR_SEPARATOR && !allowed_separators) { // no splitting across directories
                     break;
                 }
 
