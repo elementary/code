@@ -177,10 +177,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                         var dir_length = 0, term = search_term_entry.text;
                         var parts = term.split (Path.DIR_SEPARATOR_S, 0);
-                        if (parts.length > 2) {
-                            return Source.REMOVE;
-                        } else if (parts.length == 2) {
-                            dir_length = parts[0].length + 1;
+                        var rev_parts = term.reverse ().split (Path.DIR_SEPARATOR_S, 2);
+                        if (rev_parts.length == 2) {
+                            dir_length = rev_parts[0].length + 1;
                         }
 
                         fuzzy_finder.fuzzy_find_async.begin (term, dir_length,
