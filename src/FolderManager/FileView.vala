@@ -25,6 +25,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
     private ActionGroup? toplevel_action_group = null;
+    private Scratch.Services.PluginsManager plugins;
 
     public signal void select (string file);
 
@@ -35,6 +36,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         get {
             return git_manager.active_project_path;
         }
+    }
+
+    public FileView (Scratch.Services.PluginsManager plugins_manager) {
+        plugins = plugins_manager;
     }
 
     construct {
@@ -231,6 +236,9 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
+    public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        plugins.hook_folder_item_change (source, dest, event);
+    }
 
     private void rename_items_with_same_name (Item item) {
         string item_name = item.file.name;
