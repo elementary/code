@@ -52,7 +52,7 @@ public class Scratch.Services.FuzzyFinder {
             var best_recursive_score = 0;
             // Loop through pattern and str looking for a match.
             bool first_match = true;
-
+            bool allowed_separators = true;
             recursion_count++;
             if (cancellable.is_cancelled () || limit_reached ()) {
                 return new SearchResult (false, out_score);
@@ -71,8 +71,10 @@ public class Scratch.Services.FuzzyFinder {
                 var lower_case_char = pattern.get_char (pattern_current_index).tolower ();
                 var lower_case_str_char = str.get_char (str_current_index).tolower ();
 
+
                 // Match found.
                 if (lower_case_char == lower_case_str_char) {
+                    allowed_separators = false;
                     if (next_match >= max_matches) {
                         return new SearchResult (false, out_score);
                     }
@@ -113,6 +115,8 @@ public class Scratch.Services.FuzzyFinder {
                     ++next_match;
                     ++pattern_current_index;
                 } else if (pattern_current_index <= dir_length) {
+                    break;
+                } else if (lower_case_str_char == Path.DIR_SEPARATOR && !allowed_separators) {
                     break;
                 }
 
