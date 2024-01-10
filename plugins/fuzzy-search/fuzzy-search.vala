@@ -8,7 +8,6 @@
 
 public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     public Object object { owned get; construct; }
-
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 
@@ -17,6 +16,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     private Scratch.Services.Interface plugins;
     private Gtk.EventControllerKey key_controller;
     private Gtk.MenuItem fuzzy_menuitem;
+    private GLib.Cancellable cancellable;
 
     public void update_state () {
 
@@ -29,6 +29,8 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             if (window != null) {
                 return;
             }
+
+            cancellable = new GLib.Cancellable ();
 
             window = w;
             key_controller = new Gtk.EventControllerKey (window) {
@@ -78,7 +80,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
             var monitor = Services.GitManager.get_monitored_repository (path);
             var project_path = new Services.SearchProject (path, monitor);
-            project_path.parse_async.begin (path, (obj, res) => {
+            project_path.parse_async.begin (path, cancellable, (obj, res) => {
                 project_path.parse_async.end (res);
             });
 
@@ -101,6 +103,9 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     public void deactivate () {
         key_controller.key_pressed.disconnect (on_window_key_press_event);
         window.sidebar.project_menu.remove (fuzzy_menuitem);
+        if (cancellable != null) {
+            cancellable.cancel ();
+        }
     }
 }
 

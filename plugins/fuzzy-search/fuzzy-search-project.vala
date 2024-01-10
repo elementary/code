@@ -16,9 +16,9 @@ public class Scratch.Services.SearchProject {
         relative_file_paths = new Gee.ArrayList<string> ();
     }
 
-    public async void parse_async (string path) {
+    public async void parse_async (string path, GLib.Cancellable cancellable) {
         new Thread<void> (null, () => {
-            parse_async_internal.begin (path, (obj, res) => {
+            parse_async_internal.begin (path, cancellable, (obj, res) => {
                 parse_async_internal.end (res);
             });
 
@@ -28,7 +28,11 @@ public class Scratch.Services.SearchProject {
         yield;
     }
 
-    private async void parse_async_internal (string path) {
+    private async void parse_async_internal (string path, GLib.Cancellable cancellable) {
+        if (cancellable.is_cancelled ()) {
+            return;
+        }
+
         try {
             // Ignore dot-prefixed directories
             string path_basename = Path.get_basename (path);
@@ -49,6 +53,10 @@ public class Scratch.Services.SearchProject {
             var name = dir.read_name ();
 
             while (name != null) {
+                if (cancellable.is_cancelled ()) {
+                    return;
+                }
+
                 var new_search_path = "";
                 if (path.has_suffix (GLib.Path.DIR_SEPARATOR_S)) {
                     new_search_path = path.substring (0, path.length - 1);
@@ -56,8 +64,11 @@ public class Scratch.Services.SearchProject {
                     new_search_path = path;
                 }
 
-                parse_async_internal.begin (new_search_path + GLib.Path.DIR_SEPARATOR_S + name, (obj, res) => {
-                    parse_async_internal.end (res);
+                parse_async_internal.begin (
+                    new_search_path + GLib.Path.DIR_SEPARATOR_S + name,
+                    cancellable,
+                    (obj, res) => {
+                        parse_async_internal.end (res);
                 });
 
                 name = dir.read_name ();
@@ -69,7 +80,7 @@ public class Scratch.Services.SearchProject {
 
             // Relative paths are used because the longer the path is the less accurate are the results
             if (check_if_valid_path_to_add (path)) {
-                var subpath = path.replace (root_path, "");
+                string subpath = path.replace (root_path, "");
                 relative_file_paths.add (subpath.substring (1, subpath.length - 1));
             }
         }
