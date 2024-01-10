@@ -31,12 +31,13 @@ public class Scratch.Services.FuzzyFinder {
             return recursion_count >= recursion_limit;
         }
 
-        public SearchResult fuzzy_match_recursive (string pattern, string str, GLib.Cancellable cancellable) {
+        public SearchResult fuzzy_match_recursive (string pattern, uint dir_length, string str, GLib.Cancellable cancellable) {
             var matches = new Gee.ArrayList<int> ();
-            return fuzzy_match_recursive_internal (pattern, str, 0, 0, 0, cancellable, matches);
+            return fuzzy_match_recursive_internal (pattern, dir_length, str, 0, 0, 0, cancellable, matches);
         }
 
         private SearchResult fuzzy_match_recursive_internal (string pattern,
+                                                             uint dir_length,
                                                              string str,
                                                              int pattern_current_index,
                                                              int str_current_index,
@@ -85,6 +86,7 @@ public class Scratch.Services.FuzzyFinder {
                     var recursive_matches = new Gee.ArrayList<int> ();
                     var recursive_result_search = fuzzy_match_recursive_internal (
                         pattern,
+                        dir_length,
                         str,
                         pattern_current_index,
                         str_current_index + 1,
@@ -110,6 +112,8 @@ public class Scratch.Services.FuzzyFinder {
 
                     ++next_match;
                     ++pattern_current_index;
+                } else if (pattern_current_index <= dir_length) {
+                    break;
                 }
 
                 ++str_current_index;
@@ -195,14 +199,14 @@ public class Scratch.Services.FuzzyFinder {
       project_paths = pps;
     }
 
-    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str, string dir,
+    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str, uint dir_length,
                                                                string current_project,
                                                                GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
         new Thread<void> ("fuzzy-find", () => {
-            results = fuzzy_find (search_str, dir, current_project, cancellable);
+            results = fuzzy_find (search_str, dir_length, current_project, cancellable);
             Idle.add ((owned) callback);
         });
 
@@ -210,7 +214,7 @@ public class Scratch.Services.FuzzyFinder {
         return results;
     }
 
-    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str, string dir,
+    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str, uint dir_length,
                                                    string current_project,
                                                    GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
@@ -243,15 +247,19 @@ public class Scratch.Services.FuzzyFinder {
                 // even if their is a "fuzzy_finder" file in another project
                 string project_name = "";
 
-                if (project_paths.size > 1) {
-                    project_name = Path.get_basename (project.root_path);
-                    path_search_result = fuzzy_match (search_str, @"$project_name/$path", cancellable);
+                project_name = project_paths.size > 1 ? Path.get_basename (project.root_path) : "";
+                if (dir_length > 0 || project_paths.size == 1) {
+                    path_search_result = fuzzy_match (search_str, dir_length, path, cancellable);
                 } else {
-                    path_search_result = fuzzy_match (search_str, path, cancellable);
+                    path_search_result = fuzzy_match (search_str, dir_length, @"$project_name/$path", cancellable);
                 }
 
-                string filename = Path.get_basename (path);
-                filename_search_result = fuzzy_match (search_str, filename, cancellable);
+                if (dir_length == 0) {
+                    string filename = Path.get_basename (path);
+                    filename_search_result = fuzzy_match (search_str, dir_length, filename, cancellable);
+                } else {
+                    filename_search_result = new SearchResult (false, 0);
+                }
 
                 var root_path = project.root_path;
 
@@ -289,8 +297,8 @@ public class Scratch.Services.FuzzyFinder {
         return (Gee.ArrayList<SearchResult>) results.slice (0, 20);
     }
 
-    private SearchResult fuzzy_match (string pattern, string str, GLib.Cancellable cancellable) {
+    private SearchResult fuzzy_match (string pattern, uint dir_length, string str, GLib.Cancellable cancellable) {
         var finder = new RecursiveFinder (recursion_limit, max_matches);
-        return finder.fuzzy_match_recursive (pattern, str, cancellable);
+        return finder.fuzzy_match_recursive (pattern, dir_length, str, cancellable);
     }
 }

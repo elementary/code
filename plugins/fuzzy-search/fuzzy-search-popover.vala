@@ -175,18 +175,15 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         var next_cancellable = new GLib.Cancellable ();
                         cancellables.add (next_cancellable);
 
-                        var dir = "", term = "";
-                        var parts = search_term_entry.text.split (Path.DIR_SEPARATOR_S, 0);
+                        var dir_length = 0, term = search_term_entry.text;
+                        var parts = term.split (Path.DIR_SEPARATOR_S, 0);
                         if (parts.length > 2) {
                             return Source.REMOVE;
                         } else if (parts.length == 2) {
-                            dir = parts[0];
-                            term = parts[1];
-                        } else {
-                            term = parts[0];
+                            dir_length = parts[0].length + 1;
                         }
 
-                        fuzzy_finder.fuzzy_find_async.begin (term, dir,
+                        fuzzy_finder.fuzzy_find_async.begin (term, dir_length,
                                                              get_current_project (),
                                                              next_cancellable,
                                                              (obj, res) => {
