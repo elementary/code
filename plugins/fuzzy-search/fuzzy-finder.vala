@@ -195,14 +195,14 @@ public class Scratch.Services.FuzzyFinder {
       project_paths = pps;
     }
 
-    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str,
+    public async Gee.ArrayList<SearchResult> fuzzy_find_async (string search_str, string dir,
                                                                string current_project,
                                                                GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
 
         SourceFunc callback = fuzzy_find_async.callback;
         new Thread<void> ("fuzzy-find", () => {
-            results = fuzzy_find (search_str, current_project, cancellable);
+            results = fuzzy_find (search_str, dir, current_project, cancellable);
             Idle.add ((owned) callback);
         });
 
@@ -210,7 +210,7 @@ public class Scratch.Services.FuzzyFinder {
         return results;
     }
 
-    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str,
+    public Gee.ArrayList<SearchResult> fuzzy_find (string search_str, string dir,
                                                    string current_project,
                                                    GLib.Cancellable cancellable) {
         var results = new Gee.ArrayList<SearchResult> ();
@@ -268,7 +268,7 @@ public class Scratch.Services.FuzzyFinder {
                     path_search_result.relative_path = path;
                     path_search_result.full_path = @"$root_path/$path";
                     path_search_result.project = project_name;
-                    path_search_result.score = (int) (path_search_result.score * 0.5) +
+                    path_search_result.score = (int) (path_search_result.score * 0.2) +
                         (project.root_path == current_project
                             ? CURRENT_PROJECT_PRIORITY_BONUS
                             : 0);
