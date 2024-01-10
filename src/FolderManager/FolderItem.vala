@@ -258,6 +258,8 @@ namespace Scratch.FolderManager {
                 return; // Ignore changes due to temp files and streams
             }
 
+            view.folder_item_update_hook (source, dest, event);
+
             if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */
                 switch (event) {
