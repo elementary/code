@@ -84,6 +84,8 @@ public class Code.Terminal : Gtk.Box {
         destroy.connect (() => {
             settings.set_string ("last-opened-path", get_shell_location ());
         });
+
+        show_all ();
     }
 
     private string get_shell_location () {
