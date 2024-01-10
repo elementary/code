@@ -6,11 +6,11 @@
  *              Colin Kiama <colinkiama@gmail.com>
  */
 
-const int SEQUENTIAL_BONUS = 15; // bonus for adjacent matches
 const int SEPARATOR_BONUS = 30; // bonus if match occurs after a separator
+const int SEQUENTIAL_BONUS = 40; // bonus for adjacent matches
+const int CURRENT_PROJECT_PRIORITY_BONUS = 40; // Bonus if search result is for current project
 const int CAMEL_BONUS = 30; // bonus if match is uppercase and prev is lower
 const int FIRST_LETTER_BONUS = 15; // bonus if the first letter is matched
-const int CURRENT_PROJECT_PRIORITY_BONUS = 20; // Bonus if search result is for current project
 const int LEADING_LETTER_PENALTY = -5; // penalty applied for every letter in str before the first match
 const int MAX_LEADING_LETTER_PENALTY = -15; // maximum penalty for leading letters
 const int UNMATCHED_LETTER_PENALTY = -1;
