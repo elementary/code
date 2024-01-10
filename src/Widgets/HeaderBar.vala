@@ -14,6 +14,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     public Gtk.ToggleButton find_button { get; private set; }
     public Gtk.ToggleButton outline_button { get; private set; }
     public Gtk.ToggleButton sidebar_button { get; private set; }
+    public Gtk.ToggleButton terminal_button { get; private set; }
 
     private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
@@ -186,7 +187,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
         };
 
-        var terminal_button = new Gtk.ToggleButton () {
+        terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
             image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
         };
