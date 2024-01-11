@@ -38,7 +38,7 @@ namespace Scratch {
         private Code.Terminal terminal;
         private FolderManager.FileView folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
-
+        private Gtk.EventControllerKey key_controller;
         // Plugins
         private Scratch.Services.PluginsManager plugins;
 
@@ -113,7 +113,7 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder },
+            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -263,7 +263,10 @@ namespace Scratch {
 
             plugins = new Scratch.Services.PluginsManager (this);
 
-            key_press_event.connect (on_key_pressed);
+            key_controller = new Gtk.EventControllerKey (this) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect (on_key_pressed);
 
             // Set up layout
             init_layout ();
@@ -436,7 +439,7 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            folder_manager_view = new FolderManager.FileView ();
+            folder_manager_view = new FolderManager.FileView (plugins);
 
             sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();
@@ -643,13 +646,16 @@ namespace Scratch {
             });
         }
 
-        private bool on_key_pressed (Gdk.EventKey event) {
-            switch (Gdk.keyval_name (event.keyval)) {
+        // private bool on_key_pressed (Gdk.EventKey event) {
+        private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+            switch (Gdk.keyval_name (keyval)) {
                 case "Escape":
                     if (search_revealer.get_child_revealed ()) {
                         var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                         fetch_action.set_state (false);
+                        document_view.current_document.source_view.grab_focus ();
                     }
+
                     break;
             }
 
@@ -913,23 +919,28 @@ namespace Scratch {
             }
         }
 
-        private void action_open_folder () {
-            var chooser = new Gtk.FileChooserNative (
-                "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Open"),
-                _("_Cancel")
-            );
+        private void action_open_folder (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                var chooser = new Gtk.FileChooserNative (
+                    "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
+                    _("_Open"),
+                    _("_Cancel")
+                );
 
-            chooser.select_multiple = true;
+                chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
+                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                    chooser.get_files ().foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+
+                chooser.destroy ();
+            } else {
+                folder_manager_view.open_folder (new FolderManager.File (path));
             }
-
-            chooser.destroy ();
         }
 
         private void action_collapse_all_folders () {
