@@ -268,10 +268,12 @@ namespace Scratch.FolderManager {
             has_dummy = false;
         }
 
-        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
                 return; // Ignore changes due to temp files and streams
             }
+
+            view.folder_item_update_hook (source, dest, event);
 
             if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */

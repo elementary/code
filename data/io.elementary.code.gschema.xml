@@ -47,6 +47,11 @@
       <summary>Symbol outline visibility</summary>
       <description>Whether or not the symbol outline is visible</description>
     </key>
+    <key name="outline-width" type="i">
+      <default>160</default>
+      <summary>Symbol outline width</summary>
+      <description>Width of the symbol outline sidebar</description>
+    </key>
     <key name="last-opened-path" type="s">
       <default>''</default>
       <summary>Last opened path</summary>
