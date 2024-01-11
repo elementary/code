@@ -32,6 +32,10 @@ namespace Scratch.Services {
             project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
         }
 
+        public static MonitoredRepository? get_monitored_repository (string root_path) {
+            return project_gitrepo_map[root_path];
+        }
+
         public static GitManager get_instance () {
             if (instance == null) {
                 instance = new GitManager ();
@@ -51,9 +55,9 @@ namespace Scratch.Services {
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (!project_gitrepo_map.has_key (root_path)) {
-
                     monitored_repo = new MonitoredRepository (git_repo);
                     project_gitrepo_map.@set (root_path, monitored_repo);
+                    return project_gitrepo_map.@get (root_path);
                 }
             } catch (Error e) {
                 debug (
