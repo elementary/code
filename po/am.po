@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-29 17:14+0000\n"
+"POT-Creation-Date: 2024-01-11 17:23+0000\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -43,33 +43,33 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:350
+#: src/MainWindow.vala:353
 msgid "Hide search bar"
 msgstr "የመፈለጊያ ባሩን መደበቂያ"
 
-#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/MainWindow.vala:366
+#: src/MainWindow.vala:369
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "የመፈለጊያ ባሩን መደበቂያ"
 
-#: src/MainWindow.vala:371
+#: src/MainWindow.vala:374
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "የ እቅድ ቴምፕሌቶች"
 
-#: src/MainWindow.vala:380
+#: src/MainWindow.vala:383
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:385
+#: src/MainWindow.vala:388
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
@@ -77,39 +77,39 @@ msgstr "ምልክቶች"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:562
+#: src/MainWindow.vala:565
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:882 src/Services/Document.vala:597
+#: src/MainWindow.vala:888 src/Services/Document.vala:605
 msgid "All files"
 msgstr "ሁሉንም ፋይሎች"
 
-#: src/MainWindow.vala:886 src/Services/Document.vala:601
+#: src/MainWindow.vala:892 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "የጽሁፍ ፋይሎች"
 
-#: src/MainWindow.vala:890
+#: src/MainWindow.vala:896
 msgid "Open some files"
 msgstr "አንዳንድ ፋይሎች መክፈቻ"
 
-#: src/MainWindow.vala:893
+#: src/MainWindow.vala:899
 msgid "Open"
 msgstr "መክፈቻ"
 
-#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
-#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
+#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "መሰረዣ"
 
-#: src/MainWindow.vala:919
+#: src/MainWindow.vala:927
 msgid "_Open"
 msgstr "_መክፈቻ"
 
-#: src/MainWindow.vala:920
+#: src/MainWindow.vala:928
 msgid "_Cancel"
 msgstr "_መሰረዣ"
 
@@ -277,11 +277,11 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
-#: src/FolderManager/ProjectFolderItem.vala:163
+#: src/FolderManager/ProjectFolderItem.vala:171
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:42
+#: src/FolderManager/FileView.vala:47
 msgid "Folders"
 msgstr "ፎልደሮች"
 
@@ -303,39 +303,39 @@ msgstr ""
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:205
-#: src/FolderManager/ProjectFolderItem.vala:251
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:259
+#: src/FolderManager/ProjectFolderItem.vala:265
 #, fuzzy
 msgid "New"
 msgstr "አዲስ ንዑስ መስኮት"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:364
 #, fuzzy
 msgid "new file"
 msgstr "አዲስ ፋይል"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Close Folder"
 msgstr "ፎልደር መዝጊያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:124
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "ፎልደር መዝጊያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:121
+#: src/FolderManager/ProjectFolderItem.vala:129
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:143
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -343,184 +343,184 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "አዲስ ሰነድ"
 msgstr[1] "አዲስ ሰነድ"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:158
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:265
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:295
+#: src/FolderManager/ProjectFolderItem.vala:303
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:581
+#: src/FolderManager/ProjectFolderItem.vala:589
 #, fuzzy
 msgid "New Branch…"
 msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:594
+#: src/FolderManager/ProjectFolderItem.vala:602
 #, fuzzy
 msgid "Branch"
 msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
 
-#: src/Services/Document.vala:317
+#: src/Services/Document.vala:324
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:318
+#: src/Services/Document.vala:325
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:320
+#: src/Services/Document.vala:327
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:341
+#: src/Services/Document.vala:348
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:342
+#: src/Services/Document.vala:349
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:344
+#: src/Services/Document.vala:351
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "መሰረዣ"
 
-#: src/Services/Document.vala:431
+#: src/Services/Document.vala:438
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr ""
 
-#: src/Services/Document.vala:432
+#: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:445
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "ሳያስቀምጡ መዝጊያ"
 
-#: src/Services/Document.vala:442 src/Services/Document.vala:608
+#: src/Services/Document.vala:449 src/Services/Document.vala:616
 msgid "Save"
 msgstr "ማስቀመጫ"
 
-#: src/Services/Document.vala:567
+#: src/Services/Document.vala:575
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr ""
 
-#: src/Services/Document.vala:605
+#: src/Services/Document.vala:613
 msgid "Save File"
 msgstr "ፋይል ማስቀመጫ"
 
-#: src/Services/Document.vala:692 src/Services/Document.vala:710
+#: src/Services/Document.vala:700 src/Services/Document.vala:718
 msgid "New Document"
 msgstr "አዲስ ሰነድ"
 
 #. No path for a new document
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:720
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:786
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:789
 msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:791
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:797
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:828
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr ""
 
-#: src/Services/Document.vala:822
+#: src/Services/Document.vala:830
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
 msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:836
+#: src/Services/Document.vala:844
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr ""
 
-#: src/Services/Document.vala:882
+#: src/Services/Document.vala:890
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr ""
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:895
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:899
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:907
+#: src/Services/Document.vala:915
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:916
+#: src/Services/Document.vala:924
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:926
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:967
+#: src/Services/Document.vala:975
 msgid "Continue"
 msgstr "ይቀጥሉ"
 
-#: src/Services/Document.vala:969
+#: src/Services/Document.vala:977
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "መጫኛ"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:980
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:983
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
@@ -554,7 +554,7 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:161
+#: src/Widgets/DocumentView.vala:167
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "የጽሁፍ ፋይሎች"
@@ -668,20 +668,20 @@ msgstr ""
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:57
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
 msgid "Open Folder…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/Widgets/Sidebar.vala:60
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:70
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:76
+#: src/Widgets/Sidebar.vala:82
 msgid "Manage project folders"
 msgstr ""
 
@@ -747,12 +747,12 @@ msgstr "መቀየሪያ"
 msgid "Replace all"
 msgstr "ኩሉንም መቀየሪያ"
 
-#: src/Widgets/SearchBar.vala:575
+#: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:580
+#: src/Widgets/SearchBar.vala:574
 msgid "no results"
 msgstr ""
 
