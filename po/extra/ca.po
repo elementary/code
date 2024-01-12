@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:23+0000\n"
-"PO-Revision-Date: 2023-11-30 16:58+0000\n"
+"PO-Revision-Date: 2024-01-12 20:51+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -163,6 +163,8 @@ msgstr ""
 #: data/code.metainfo.xml.in:74
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
+"Afegiu un connector de cerca difusa que trobi fitxers a tots els projectes "
+"oberts"
 
 #: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:111
 #: data/code.metainfo.xml.in:160 data/code.metainfo.xml.in:200
@@ -188,21 +190,25 @@ msgstr "L'opció de línia d'ordres \"--new-tab\" ara funciona."
 
 #: data/code.metainfo.xml.in:81
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "L'amplada del plafó de símbols està ara sincronitzada i desada."
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
 msgstr ""
+"Les carpetes del projecte es tanquen automàticament si es canvien de nom, es "
+"mouen o se suprimeixen externament."
 
 #: data/code.metainfo.xml.in:83
 msgid "Fixed temporary backup files persisting under some circumstances"
 msgstr ""
+"S'han corregit els fitxers de còpia de seguretat temporals que persistien en "
+"algunes circumstàncies."
 
 #: data/code.metainfo.xml.in:84
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "S'ha millorat l'acció Mostra-Reemplaça."
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:122
 #: data/code.metainfo.xml.in:170 data/code.metainfo.xml.in:202
