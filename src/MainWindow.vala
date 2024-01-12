@@ -1271,8 +1271,6 @@ namespace Scratch {
 
             if (terminal_action.get_state ().get_boolean ()) {
                 terminal.grab_focus ();
-            } else if (get_current_document () != null) {
-                get_current_document ().focus ();
             }
         }
 
