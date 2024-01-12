@@ -398,15 +398,14 @@ namespace Scratch {
                     if (new_state) {
                         toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
                             app.get_accels_for_action (ACTION_PREFIX + name),
-                            _("Hide Symbol Outline")
+                            _("Hide Terminal")
                         );
                     } else {
                         toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
                             app.get_accels_for_action (ACTION_PREFIX + name),
-                            _("Show Symbol Outline")
+                            _("Show Terminal")
                         );
                     }
-
                     break;
             };
         }
