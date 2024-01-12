@@ -11,7 +11,7 @@ public class Code.Terminal : Gtk.Box {
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
     private GLib.Pid child_pid;
-    private Vte.Terminal terminal;
+    public Vte.Terminal terminal { get; construct; }
 
     construct {
         terminal = new Vte.Terminal () {
@@ -84,6 +84,8 @@ public class Code.Terminal : Gtk.Box {
         destroy.connect (() => {
             settings.set_string ("last-opened-path", get_shell_location ());
         });
+
+        show_all ();
     }
 
     private string get_shell_location () {
