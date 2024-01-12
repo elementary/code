@@ -121,7 +121,7 @@ public class Scratch.Services.FuzzyFinder {
 
                     ++next_match;
                     ++pattern_current_index;
-                } else if (pattern_current_index <= dir_length) { // specified dir must match sequentially
+                } else if (pattern_current_index > 0 && pattern_current_index <= dir_length) { // specified dir must match sequentially
                     break;
                 } else if (lower_case_str_char == Path.DIR_SEPARATOR && !allowed_separators) { // no splitting across directories
                     break;
