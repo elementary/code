@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2023-08-03 05:28+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
@@ -45,65 +45,73 @@ msgstr "Kód (%s)"
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Keresés az oldalon…"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:373
 msgid "Hide Projects Sidebar"
 msgstr "A Projektek oldalsáv elrejtése"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:378
 msgid "Show Projects Sidebar"
 msgstr "A Projektek oldalsáv megjelenítése"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr "Szimbólumkiemelés elrejtése"
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:392
 msgid "Show Symbol Outline"
 msgstr "Szimbólumkiemelés megjelenítése"
 
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr "Terminál elrejtése"
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "Terminál megjelenítése"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -143,7 +151,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ág létrehozása"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -335,7 +343,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u elrejtett dokumentum visszaállítása"
 msgstr[1] "%u elrejtett dokumentum visszaállítása"
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Keresés a projektben…"
 
@@ -588,57 +596,49 @@ msgid_plural "%d Tabs"
 msgstr[0] "%d tabulatúra"
 msgstr[1] "%d tabulatúra"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "Fájl megnyitása"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "Projektsablonok"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "Fájl mentése"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "Fájl mentése más néven"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "Fájl visszaállítása"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "Kicsinyítés"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "Eredeti méret"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "Nagyítás"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr "Rendszertéma követése"
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "Terminál megjelenítése"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "Menü"
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "Terminál elrejtése"
 
 #: src/Widgets/Sidebar.vala:63
 msgid "Open Folder…"

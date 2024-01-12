@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2016-05-03 15:08+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Macedonian <mk@li.org>\n"
@@ -43,68 +43,76 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "Скриј поле за пребарување"
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Отвори датотека"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:373
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Скриј поле за пребарување"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:378
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:392
 msgid "Show Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr ""
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Сите датотеки"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Текстуални датотеки"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "Отвори неколку датотеки"
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "Отвори"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Откажи"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr ""
 
@@ -145,7 +153,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Преференци"
 
@@ -340,7 +348,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 msgid "Find in Project…"
 msgstr "Отвори датотека"
@@ -620,56 +628,48 @@ msgid_plural "%d Tabs"
 msgstr[0] "Ново ливче"
 msgstr[1] "Ново ливче"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "Зачувај ја датотеката"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Сподели"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
 msgstr ""
 
 #: src/Widgets/Sidebar.vala:63

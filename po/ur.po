@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,71 +38,79 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "تلاش بارچهپائيں"
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "فولڈركهوليں"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:373
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "تلاش بارچهپائيں"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:378
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "سانچے برائے منصوبجات"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:392
 msgid "Show Symbol Outline"
 msgstr ""
 
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr "ٹرمینل چهپائيں"
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "ٹرمینل ديكهيں"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "تمام فائلیں"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "متن فائلیں"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "کچھ فائلیں کھولیں"
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "کهولیں"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "منسوخ کریں"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr "_کھولیں"
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr "_مسترد"
 
@@ -145,7 +153,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "سكريچ كى ترتیبات تبديل كريں"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "ترجیحات"
 
@@ -344,7 +352,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
@@ -616,59 +624,51 @@ msgid_plural "%d Tabs"
 msgstr[0] "نیا ٹیب"
 msgstr[1] "نیا ٹیب"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "فائل کھولیں"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "سانچے برائے منصوبجات"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "اس فائل كومحفوظ كريں"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "اس فائل كو كسى اورنام سے محفوظ كريں"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "فائل بحال كريں"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "بانٹئیے"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 #, fuzzy
 msgid "Zoom Out"
 msgstr "بڑا کریں"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "بڑا کریں1:1"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 #, fuzzy
 msgid "Zoom In"
 msgstr "بڑا کریں"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "ٹرمینل ديكهيں"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr ""
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "ٹرمینل چهپائيں"
 
 #: src/Widgets/Sidebar.vala:63
 #, fuzzy

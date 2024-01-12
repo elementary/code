@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -47,73 +47,81 @@ msgstr "Kod"
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Otvori direktorij"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:373
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:378
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Prikaži pretpregled"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:392
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Simboli"
 
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr "Sakrij Terminal"
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "Prikaži Terminal"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Tekstualne datoteke"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "Otvori neke datoteke"
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -156,7 +164,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Postavke"
 
@@ -354,7 +362,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
@@ -642,57 +650,49 @@ msgstr[0] "%d tabulator"
 msgstr[1] "%d tabulatora"
 msgstr[2] "%d tabulatora"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "Otvori datoteku"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "Šabloni projekta"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "Sačuvaj ovu datoteku"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "Sačuvaj ovu datoteku sa drugačijim imenom"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "Vrati ovu datoteku"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Podijeli"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "Umanji"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "Normalna veličina prikaza (1:1)"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "Uvećaj"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "Prikaži Terminal"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "Izbornik"
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "Sakrij Terminal"
 
 #: src/Widgets/Sidebar.vala:63
 #, fuzzy

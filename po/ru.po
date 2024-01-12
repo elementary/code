@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2023-07-12 15:07+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -45,65 +45,73 @@ msgstr "Код (%s)"
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Найти на странице…"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:373
 msgid "Hide Projects Sidebar"
 msgstr "Скрыть панель проекта"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:378
 msgid "Show Projects Sidebar"
 msgstr "Показать панель проекта"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr "Скрыть обводку символов"
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:392
 msgid "Show Symbol Outline"
 msgstr "Показать обводку символов"
 
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr "Скрыть Терминал"
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "Показать Терминал"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -143,7 +151,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Создать ветку"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Настройки"
 
@@ -337,7 +345,7 @@ msgstr[0] "Восстановить %u скрытый документ"
 msgstr[1] "Восстановить %u скрытых документа"
 msgstr[2] "Восстановить %u скрытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Найти в проекте…"
 
@@ -589,57 +597,49 @@ msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "Открыть файл"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "Шаблоны проекта"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "Сохранить этот файл"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "Сохранить этот файл под другим именем"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "Вернуть файл в первоначальное состояние"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Опубликовать"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "Уменьшить масштаб"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "Увеличить масштаб"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr "Использовать стиль системы"
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "Показать Терминал"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "Меню"
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "Скрыть Терминал"
 
 #: src/Widgets/Sidebar.vala:63
 msgid "Open Folder…"
