@@ -1270,7 +1270,7 @@ namespace Scratch {
             terminal.visible = terminal_action.get_state ().get_boolean ();
 
             if (terminal_action.get_state ().get_boolean ()) {
-                terminal.grab_focus ();
+                terminal.terminal.grab_focus ();
             }
         }
 
