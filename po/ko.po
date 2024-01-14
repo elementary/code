@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-29 17:14+0000\n"
+"POT-Creation-Date: 2024-01-12 20:51+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -45,73 +45,81 @@ msgstr "코드"
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:350
+#: src/MainWindow.vala:357
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:355 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:362 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Find in Project…"
 msgid "Find on Page…"
 msgstr "프로젝트에서 찾기…"
 
-#: src/MainWindow.vala:366
+#: src/MainWindow.vala:373
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:371
+#: src/MainWindow.vala:378
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "미리 보기"
 
-#: src/MainWindow.vala:380
+#: src/MainWindow.vala:387
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:385
+#: src/MainWindow.vala:392
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "심볼이 없습니다"
 
+#: src/MainWindow.vala:401
+msgid "Hide Terminal"
+msgstr "터미널 숨기기"
+
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "터미널 보이기"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:562
+#: src/MainWindow.vala:583
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:882 src/Services/Document.vala:597
+#: src/MainWindow.vala:906 src/Services/Document.vala:605
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:886 src/Services/Document.vala:601
+#: src/MainWindow.vala:910 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "텍스트 파일"
 
-#: src/MainWindow.vala:890
+#: src/MainWindow.vala:914
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:893
+#: src/MainWindow.vala:917
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:894 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
-#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:918 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
+#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "취소"
 
-#: src/MainWindow.vala:919
+#: src/MainWindow.vala:945
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: src/MainWindow.vala:920
+#: src/MainWindow.vala:946
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -150,7 +158,7 @@ msgstr "브랜치 이름은 고유해야 하며 Git 명명 규칙을 따라야 �
 msgid "Create Branch"
 msgstr "브랜치 만들기"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -277,11 +285,11 @@ msgid "Rename"
 msgstr "이름 바꾸기"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
-#: src/FolderManager/ProjectFolderItem.vala:163
+#: src/FolderManager/ProjectFolderItem.vala:171
 msgid "Move to Trash"
 msgstr "휴지통에 버리기"
 
-#: src/FolderManager/FileView.vala:42
+#: src/FolderManager/FileView.vala:47
 msgid "Folders"
 msgstr "폴더"
 
@@ -300,158 +308,158 @@ msgstr "빈 파일"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:205
-#: src/FolderManager/ProjectFolderItem.vala:251
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:259
+#: src/FolderManager/ProjectFolderItem.vala:265
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "이름 없는 폴더"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "새 파일"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Close Folder"
 msgstr "폴더 닫기"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:124
 msgid "Close Other Folders"
 msgstr "다른 폴더 닫기"
 
-#: src/FolderManager/ProjectFolderItem.vala:121
+#: src/FolderManager/ProjectFolderItem.vala:129
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:143
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "새 문서"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:158
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "프로젝트에서 찾기…"
 
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:265
 msgid "Modified"
 msgstr "수정함"
 
-#: src/FolderManager/ProjectFolderItem.vala:295
+#: src/FolderManager/ProjectFolderItem.vala:303
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "새 브랜치를 만드는 동안 생긴 오류: \"%s\""
 
-#: src/FolderManager/ProjectFolderItem.vala:581
+#: src/FolderManager/ProjectFolderItem.vala:589
 msgid "New Branch…"
 msgstr "새 브랜치…"
 
-#: src/FolderManager/ProjectFolderItem.vala:594
+#: src/FolderManager/ProjectFolderItem.vala:602
 msgid "Branch"
 msgstr "브랜치"
 
-#: src/Services/Document.vala:317
+#: src/Services/Document.vala:324
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s는 텍스트 파일이 아닙니다"
 
-#: src/Services/Document.vala:318
+#: src/Services/Document.vala:325
 msgid "Code will not load this type of file."
 msgstr "코드에서는 이런 종류의 파일을 가져오지 않습니다."
 
-#: src/Services/Document.vala:320
+#: src/Services/Document.vala:327
 msgid "Load Anyway"
 msgstr "그래도 가져오기"
 
-#: src/Services/Document.vala:341
+#: src/Services/Document.vala:348
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "파일 \"%s\" 불러 오는데 시간이 오래 걸립니다"
 
-#: src/Services/Document.vala:342
+#: src/Services/Document.vala:349
 msgid "Please wait while Code is loading the file."
 msgstr "코드가 파일을 불러오는 동안 기다려주세요."
 
-#: src/Services/Document.vala:344
+#: src/Services/Document.vala:351
 msgid "Cancel Loading"
 msgstr "불러오기 취소"
 
-#: src/Services/Document.vala:431
+#: src/Services/Document.vala:438
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "닫기 전에 %s 문서의 변경 사항을 저장하시겠습니까?"
 
-#: src/Services/Document.vala:432
+#: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
 msgstr "저장하지 않으면, 변경한 내용은 사라집니다."
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:445
 msgid "Close Without Saving"
 msgstr "저장하지 않고 닫기"
 
-#: src/Services/Document.vala:442 src/Services/Document.vala:608
+#: src/Services/Document.vala:449 src/Services/Document.vala:616
 msgid "Save"
 msgstr "저장"
 
-#: src/Services/Document.vala:567
+#: src/Services/Document.vala:575
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "닫기 전에 %s 문서의 변경 사항을 저장하시겠습니까?"
 
-#: src/Services/Document.vala:605
+#: src/Services/Document.vala:613
 msgid "Save File"
 msgstr "파일 저장"
 
-#: src/Services/Document.vala:692 src/Services/Document.vala:710
+#: src/Services/Document.vala:700 src/Services/Document.vala:718
 msgid "New Document"
 msgstr "새 문서"
 
 #. No path for a new document
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:720
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:786
 #, fuzzy, c-format
 #| msgid "Search for text in “%s”"
 msgid "Cannot read text in file “%s”"
 msgstr "\"%s\"에서 텍스트 검색"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:789
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:791
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:797
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "그래도 가져오기"
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:828
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -462,7 +470,7 @@ msgid ""
 msgstr ""
 "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:822
+#: src/Services/Document.vala:830
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -474,13 +482,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:836
+#: src/Services/Document.vala:844
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
 
-#: src/Services/Document.vala:882
+#: src/Services/Document.vala:890
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -490,44 +498,44 @@ msgstr ""
 "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니"
 "면 편집을 계속하실건가요?"
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:895
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:899
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:907
+#: src/Services/Document.vala:915
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:916
+#: src/Services/Document.vala:924
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:926
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:967
+#: src/Services/Document.vala:975
 msgid "Continue"
 msgstr "계속"
 
-#: src/Services/Document.vala:969
+#: src/Services/Document.vala:977
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "업로드"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:980
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:983
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
@@ -559,7 +567,7 @@ msgstr "활성한 Git 프로젝트: %s"
 msgid "Filter projects"
 msgstr "필터 프로젝트"
 
-#: src/Widgets/DocumentView.vala:161
+#: src/Widgets/DocumentView.vala:167
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "%s의 텍스트 파일:%d개"
@@ -618,73 +626,65 @@ msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d개의 탭"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "파일 열기"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "프로젝트 템플릿"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "이 파일 저장하기"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "다른 이름으로 저장하기"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "원본으로 되돌리기"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "공유"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "축소"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "1:1 크기"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr "시스템 스타일 따르기"
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "터미널 보이기"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "메뉴"
 
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "터미널 숨기기"
-
-#: src/Widgets/Sidebar.vala:57
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Open Folder…"
 msgstr "폴더 열기"
 
-#: src/Widgets/Sidebar.vala:60
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr "모두 축소"
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:70
 msgid "Alphabetize"
 msgstr "알파벳순으로"
 
-#: src/Widgets/Sidebar.vala:76
+#: src/Widgets/Sidebar.vala:82
 msgid "Manage project folders"
 msgstr "프로젝트 폴더 관리"
 
@@ -754,12 +754,12 @@ msgstr "바꾸기"
 msgid "Replace all"
 msgstr "모두 바꾸기"
 
-#: src/Widgets/SearchBar.vala:575
+#: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d"
 
-#: src/Widgets/SearchBar.vala:580
+#: src/Widgets/SearchBar.vala:574
 msgid "no results"
 msgstr "결과 없음"
 

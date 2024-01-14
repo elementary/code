@@ -309,6 +309,10 @@ namespace Scratch {
             outline_action.set_state (saved_state.get_boolean ("outline-visible"));
             update_toolbar_button (ACTION_TOGGLE_OUTLINE, saved_state.get_boolean ("outline-visible"));
 
+            var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+            terminal_action.set_state (saved_state.get_boolean ("terminal-visible"));
+            update_toolbar_button (ACTION_TOGGLE_TERMINAL, saved_state.get_boolean ("terminal-visible"));
+
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
         }
@@ -389,6 +393,19 @@ namespace Scratch {
                         );
                     }
 
+                    break;
+                case ACTION_TOGGLE_TERMINAL:
+                    if (new_state) {
+                        toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Terminal")
+                        );
+                    } else {
+                        toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Terminal")
+                        );
+                    }
                     break;
             };
         }
@@ -510,6 +527,7 @@ namespace Scratch {
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -1252,8 +1270,6 @@ namespace Scratch {
             terminal.visible = terminal_action.get_state ().get_boolean ();
 
             if (terminal_action.get_state ().get_boolean ()) {
-                terminal.no_show_all = false;
-                terminal.show_all ();
                 terminal.grab_focus ();
             } else if (get_current_document () != null) {
                 get_current_document ().focus ();

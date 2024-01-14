@@ -14,6 +14,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     public Gtk.ToggleButton find_button { get; private set; }
     public Gtk.ToggleButton outline_button { get; private set; }
     public Gtk.ToggleButton sidebar_button { get; private set; }
+    public Gtk.ToggleButton terminal_button { get; private set; }
 
     private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
@@ -186,7 +187,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
         };
 
-        var terminal_button = new Gtk.ToggleButton () {
+        terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
             image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
         };
@@ -252,20 +253,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         pack_start (revert_button);
         pack_end (app_menu);
         pack_end (share_app_menu);
-
-        terminal_button.toggled.connect (() => {
-            if (terminal_button.active) {
-                terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
-                    app_instance.get_accels_for_action (terminal_button.action_name),
-                    _("Hide Terminal")
-                );
-            } else {
-                terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
-                    app_instance.get_accels_for_action (terminal_button.action_name),
-                    _("Show Terminal")
-                );
-            }
-        });
 
         share_menu.insert.connect (on_share_menu_changed);
         share_menu.remove.connect (on_share_menu_changed);

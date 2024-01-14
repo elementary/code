@@ -66,25 +66,37 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="7.2.0" date="2023-11-28" urgency="medium">
+    <release version="7.2.0" date="2024-01-11" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
           <li>When opening a file in Code from the commandline or another app, a line/char position or selection range may be specified</li>
+          <li>Add a fuzzy-find plugin which finds files in all open projects</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
           <li>"Find in Folder" now works for all folders and text files, not only ".vala" files</li>
           <li>"Follow System Style" is now fully respected</li>
           <li>The "--new-tab" commandline option now works</li>
+          <li>The symbol pane width is now synchronised and saved</li>
+          <li>Project folders are automatically closed if they are externally renamed, moved or deleted</li>
+          <li>Fixed temporary backup files persisting under some circumstances</li>
+          <li>The Show-Replace action has been improved</li>
           <li>Updated translations</li>
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/code/issues/134">Add fuzzy-finder-like way of opening documents within the active project </issue>
         <issue url="https://github.com/elementary/code/issues/415">Expose "Go To Line" feature externally</issue>
-        <issue url="https://github.com/elementary/code/issues/1198">Searching within a folder should ignore global filters</issue>
+        <issue url="https://github.com/elementary/code/issues/818">Sidebar may show incorrect project structure</issue>
+        <issue url="https://github.com/elementary/code/issues/1189">Searching within a folder should ignore global filters</issue>
+        <issue url="https://github.com/elementary/code/issues/1198">New Document tab label changes when another tab is closed </issue>
+        <issue url="https://github.com/elementary/code/issues/1329">Synchronise and save symbol outline width</issue>
+        <issue url="https://github.com/elementary/code/issues/1343">A backup file remains after closing a document that has trailing spaces</issue>
         <issue url="https://github.com/elementary/code/issues/1364">System theme change not fully respected if Code already running</issue>
+        <issue url="https://github.com/elementary/code/issues/1371">Highlighted text isn't used with Ctrl-R shortcut</issue>
         <issue url="https://github.com/elementary/code/issues/1380">"new-tab" command line option not working</issue>
+        <issue url="https://github.com/elementary/code/issues/1387">Text view not refocused after pressing Escape in Search bar</issue>
       </issues>
     </release>
 
