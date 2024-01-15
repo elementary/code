@@ -116,6 +116,11 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                action_target = new Variant.string (file.file.get_path ())
+            };
+
             var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_folder_item.activate.connect (() => {
                 closed ();
@@ -196,6 +201,7 @@ namespace Scratch.FolderManager {
             }
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_terminal_pane_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
