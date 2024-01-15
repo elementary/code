@@ -201,6 +201,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
+            action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
@@ -1284,7 +1285,10 @@ namespace Scratch {
                 terminal_action.activate (null);
             }
 
-            terminal.change_location (get_target_path_for_actions (param));
+            //If param is null or empty, the active project path is returned or failing that
+            //the active document path
+            var target_path = get_target_path_for_actions (param);
+            terminal.change_location (target_path);
             terminal.terminal.grab_focus ();
         }
 
