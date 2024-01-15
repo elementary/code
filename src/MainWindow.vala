@@ -1284,9 +1284,10 @@ namespace Scratch {
         }
 
         private void action_open_in_terminal (SimpleAction action, Variant? param) {
+            // Ensure terminal is visible
             if (terminal == null || !terminal.visible) {
-                var open_in_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
-                open_in_terminal_action.activate (null);
+                var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+                toggle_terminal_action.activate (null);
             }
 
             //If param is null or empty, the active project path is returned or failing that
