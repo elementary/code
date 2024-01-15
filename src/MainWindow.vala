@@ -603,6 +603,10 @@ namespace Scratch {
 
             sidebar.choose_project_button.project_chosen.connect (() => {
                 folder_manager_view.collapse_other_projects ();
+                if (terminal.visible) {
+                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
+                    open_in_terminal_action.activate (null);
+                }
             });
 
             set_widgets_sensitive (false);
@@ -1267,12 +1271,12 @@ namespace Scratch {
         }
 
         private void action_toggle_terminal () {
-            var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
-            terminal_action.set_state (!terminal_action.get_state ().get_boolean ());
+            var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+            toggle_terminal_action.set_state (!toggle_terminal_action.get_state ().get_boolean ());
 
-            terminal.visible = terminal_action.get_state ().get_boolean ();
+            terminal.visible = toggle_terminal_action.get_state ().get_boolean ();
 
-            if (terminal_action.get_state ().get_boolean ()) {
+            if (toggle_terminal_action.get_state ().get_boolean ()) {
                 terminal.grab_focus ();
             } else if (get_current_document () != null) {
                 get_current_document ().focus ();
@@ -1281,8 +1285,8 @@ namespace Scratch {
 
         private void action_open_in_terminal (SimpleAction action, Variant? param) {
             if (terminal == null || !terminal.visible) {
-                var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
-                terminal_action.activate (null);
+                var open_in_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+                open_in_terminal_action.activate (null);
             }
 
             //If param is null or empty, the active project path is returned or failing that
