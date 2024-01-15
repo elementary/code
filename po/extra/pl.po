@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 20:51+0000\n"
-"PO-Revision-Date: 2023-12-02 18:12+0000\n"
+"PO-Revision-Date: 2024-01-14 20:11+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
 "Language: pl\n"
@@ -160,6 +160,8 @@ msgstr ""
 #: data/code.metainfo.xml.in:74
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
+"Dodano plugin dla fuzzy-find przeszukującego pliki we wszystkich otwartych "
+"projektach"
 
 #: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:111
 #: data/code.metainfo.xml.in:160 data/code.metainfo.xml.in:200
@@ -185,21 +187,23 @@ msgstr "Opcja „--new-tab” z linii poleceń działa"
 
 #: data/code.metainfo.xml.in:81
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "Szerokość panelu symboli jest teraz synchronizowana i zapisywana"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
 msgstr ""
+"Foldery projektu są automatycznie zamykane jeśli ich nazwa jest zmieniania, "
+"są przenoszone lub usuwane przez zewnętrzne aplikacje"
 
 #: data/code.metainfo.xml.in:83
 msgid "Fixed temporary backup files persisting under some circumstances"
-msgstr ""
+msgstr "Naprawiono przypadek gdy pliki tymczasowe nie były usuwane"
 
 #: data/code.metainfo.xml.in:84
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "Akcja pokaż i zastąp została poprawiona"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:122
 #: data/code.metainfo.xml.in:170 data/code.metainfo.xml.in:202
