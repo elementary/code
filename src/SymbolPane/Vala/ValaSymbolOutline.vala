@@ -96,8 +96,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                             if (existing == null || existing.parent == new_root) {
                                 symbol_header.add (new_child);
                             }
-                        } else {
-                            store.root.add (new_child);
                         }
                     }
 
