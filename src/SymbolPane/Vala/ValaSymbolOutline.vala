@@ -91,7 +91,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
                         var new_child = new ValaSymbolItem (child.symbol);
                         if (child.parent.name == new_root.name && !(child.n_children > 0)) {
-                            var parent_symbol = new_child.symbol.parent_symbol;
                             var existing = find_existing (new_child.symbol, new_root, cancellable);
                             if (existing == null || existing.parent == new_root) {
                                 symbol_header.add (new_child);
