@@ -88,6 +88,11 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                action_target = new Variant.string (file.path)
+            };
+
             var contractor_menu = new Gtk.Menu ();
 
             GLib.FileInfo info = null;
@@ -131,6 +136,7 @@ namespace Scratch.FolderManager {
             };
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_terminal_pane_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -253,10 +259,12 @@ namespace Scratch.FolderManager {
             has_dummy = false;
         }
 
-        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
                 return; // Ignore changes due to temp files and streams
             }
+
+            view.folder_item_update_hook (source, dest, event);
 
             if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */
@@ -309,6 +317,8 @@ namespace Scratch.FolderManager {
                                 path_item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
                                 path_item = new FileItem (file, view);
+                            } else {
+                                break;
                             }
 
                             add (path_item);

@@ -41,6 +41,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public bool is_closing = false;
     public bool outline_visible { get; set; default = false; }
+    public int outline_width { get; set; }
 
     private Gtk.CssProvider style_provider;
 
@@ -108,7 +109,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         granite_settings.notify["prefers-color-scheme"].connect (update_inline_tab_colors);
 
         notify["outline-visible"].connect (update_outline_visible);
-
+        Scratch.saved_state.bind ("outline-width", this, "outline-width", DEFAULT);
+        this.notify["outline-width"].connect (() => {
+            foreach (var doc in docs) {
+                doc.set_outline_width (outline_width);
+            }
+        });
         // Handle Drag-and-drop of files onto add-tab button to create document
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
         Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
@@ -213,7 +219,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0) {
+    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -226,6 +232,15 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 }
 
                 debug ("This Document was already opened! Not opening a duplicate!");
+                if (range != SelectionRange.EMPTY) {
+                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+                        current_document.source_view.select_range (range);
+                        save_opened_files ();
+
+                        return false;
+                    });
+                }
+
                 return;
             }
         }
@@ -242,9 +257,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                     doc.focus ();
                 }
 
-                if (cursor_position > 0) {
+                if (range != SelectionRange.EMPTY) {
+                    doc.source_view.select_range (range);
+                } else if (cursor_position > 0) {
                     doc.source_view.cursor_position = cursor_position;
                 }
+
                 save_opened_files ();
             });
 
@@ -319,8 +337,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
 
     private void rename_tabs_with_same_title (Services.Document doc) {
+        if (doc.is_file_temporary) {
+            return;
+        }
+
         string doc_tab_name = doc.file.get_basename ();
         foreach (var d in docs) {
+            if (d.is_file_temporary) {
+                continue;
+            }
+
             string new_tabname_doc, new_tabname_d;
 
             if (Utils.find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {
