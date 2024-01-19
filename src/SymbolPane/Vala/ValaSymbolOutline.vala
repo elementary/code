@@ -73,6 +73,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             var new_root = construct_tree (cancellable);
             if (!cancellable.is_cancelled ()) {
                 Idle.add (() => {
+                    var symbol_header = new Granite.Widgets.SourceList.ExpandableItem (_("Other Symbols"));
                     double adjustment_value = store.vadjustment.value;
                     var root_children = store.root.children; // Keep reference to children for later destruction
                     store.root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
@@ -80,7 +81,30 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                         destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)child);
                     }
 
-                    store.root.add (new_root);
+
+                    store.root = new_root;
+                    foreach (var item in new_root.children) {
+                    var child = (ValaSymbolItem)item;
+                        if (child == null) {
+                            continue;
+                        }
+
+                        var new_child = new ValaSymbolItem (child.symbol);
+                        if (child.parent.name == new_root.name && !(child.n_children > 0)) {
+                            var parent_symbol = new_child.symbol.parent_symbol;
+                            var existing = find_existing (new_child.symbol, new_root, cancellable);
+                            if (existing == null || existing.parent == new_root) {
+                                symbol_header.add (new_child);
+                            }
+                        } else {
+                            store.root.add (new_child);
+                        }
+                    }
+
+                    if (symbol_header.n_children > 0) {
+                        store.root.add (symbol_header);
+                    }
+
                     store.root.expand_all ();
                     store.vadjustment.set_value (adjustment_value);
 
@@ -115,27 +139,32 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
         var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         foreach (var symbol in symbols) {
-            if (cancellable.is_cancelled ())
+            if (cancellable.is_cancelled ()) {
                 break;
+            }
 
             var exist = find_existing (symbol, new_root, cancellable);
-            if (exist != null)
+            if (exist != null) {
                 continue;
+            }
 
-            if (symbol.name == null)
+            if (symbol.name == null) {
                 continue;
+            }
 
             construct_child (symbol, new_root, cancellable);
         }
+
         return new_root;
     }
 
     private ValaSymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
         Granite.Widgets.SourceList.ExpandableItem parent;
-        if (symbol.scope.parent_scope.owner.name == null)
+        if (symbol.scope.parent_scope.owner.name == null) {
             parent = given_parent;
-        else
+        } else {
             parent = find_existing (symbol.scope.parent_scope.owner, given_parent, cancellable);
+        }
 
         if (parent == null) {
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
