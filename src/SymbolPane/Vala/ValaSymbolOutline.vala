@@ -17,9 +17,8 @@
  */
 
 public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline {
-    private Code.Plugins.ValaSymbolResolver resolver;
-    private Vala.Parser parser;
     private GLib.Cancellable cancellable;
+    private GLib.Thread<void*> current_thread;
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
         Object (
             doc: _doc
@@ -27,9 +26,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
     }
 
     construct {
-        parser = new Vala.Parser ();
-        resolver = new Code.Plugins.ValaSymbolResolver ();
-
         store.item_selected.connect ((selected) => {
             doc.goto (((ValaSymbolItem)selected).symbol.source_reference.begin.line);
         });
@@ -38,40 +34,56 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
     }
 
     ~ValaSymbolOutline () {
-        debug ("Destroy symbol out line");
+        debug ("Destruct ValaSymbolOutline");
     }
 
     void doc_closed (Scratch.Services.Document doc) {
         doc.doc_closed.disconnect (doc_closed);
-        if (cancellable != null) {
-            cancellable.cancel ();
-            cancellable = null;
-        }
+        cancel ();
     }
 
-    public override void parse_symbols () {
-        var context = new Vala.CodeContext ();
-#if VALA_0_50
-        context.set_target_profile (Vala.Profile.GOBJECT, false);
-#else
-        context.profile = Vala.Profile.GOBJECT;
-#endif
-        context.add_source_filename (doc.file.get_path ());
-        context.report = new Report ();
+    private void cancel () {
         if (cancellable != null && !cancellable.is_cancelled ()) {
             cancellable.cancel ();
         }
 
+        cancellable = null;
+    }
+
+    public override void parse_symbols () {
+        cancel ();
+        if (current_thread != null) {
+            warning ("THREAD NOT FINISHED");
+            // TODO Show something in symbol pane to indicate parser stalled
+            // TODO Provide a way of resetting parser
+            return;
+        }
+
         cancellable = new GLib.Cancellable ();
-        new Thread<void*> ("parse-symbols", () => {
+warning ("parse vala symbols in %s", doc.file.get_basename ());
+        current_thread = new Thread<void*> ("parse-symbols", () => {
+            var context = new Vala.CodeContext ();
+    #if VALA_0_50
+            context.set_target_profile (Vala.Profile.GOBJECT, false);
+    #else
+            context.profile = Vala.Profile.GOBJECT;
+    #endif
+            context.add_source_filename (doc.file.get_path ());
+            context.report = new Report ();
+
             Vala.CodeContext.push (context);
+
+            var parser = new Vala.Parser ();
+            var resolver = new Code.Plugins.ValaSymbolResolver ();
+
             parser.parse (context);
-            resolver.clear ();
+
             resolver.resolve (context);
             Vala.CodeContext.pop ();
 
-            var new_root = construct_tree (cancellable);
+            var new_root = construct_tree (resolver, cancellable);
             if (!cancellable.is_cancelled ()) {
+                cancellable = null;
                 Idle.add (() => {
                     double adjustment_value = store.vadjustment.value;
                     var root_children = store.root.children; // Keep reference to children for later destruction
@@ -89,6 +101,8 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             } else {
                 destroy_all_children (new_root);
             }
+
+            current_thread = null;
             return null;
         });
     }
@@ -107,7 +121,10 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         parent.remove (item);
     }
 
-    private Granite.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
+    private Granite.Widgets.SourceList.ExpandableItem construct_tree (
+        Code.Plugins.ValaSymbolResolver resolver,
+        GLib.Cancellable cancellable
+    ) {
         var fields = resolver.get_properties_fields ();
         var symbols = resolver.get_symbols ();
         // Remove fake fields created by the vala parser.
@@ -127,6 +144,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
             construct_child (symbol, new_root, cancellable);
         }
+
         return new_root;
     }
 
