@@ -16,21 +16,212 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public abstract class Scratch.Services.SymbolOutline : Object {
-    public Scratch.Services.Document doc { get; construct; }
+public enum Scratch.Services.SymbolType {
+    CLASS,
+    PROPERTY,
+    SIGNAL,
+    METHOD,
+    STRUCT,
+    ENUM,
+    CONSTANT,
+    CONSTRUCTOR,
+    INTERFACE,
+    NAMESPACE,
+    OTHER;
 
+    public unowned string to_string () {
+        switch (this) {
+            case SymbolType.CLASS:
+                return _("Class");
+            case SymbolType.PROPERTY:
+                return _("Property");
+            case SymbolType.SIGNAL:
+                return _("Signal");
+            case SymbolType.METHOD:
+                return _("Method");
+            case SymbolType.STRUCT:
+                return _("Struct");
+            case SymbolType.ENUM:
+                return _("Enum");
+            case SymbolType.CONSTANT:
+                return _("Constant");
+            case SymbolType.CONSTRUCTOR:
+                return _("Constructor");
+            case SymbolType.INTERFACE:
+                return _("Interface");
+            case SymbolType.NAMESPACE:
+                return _("Namespace");
+            case SymbolType.OTHER:
+                return _("Other");
+            default:
+                assert_not_reached ();
+        }
+    }
+}
+
+public interface Scratch.Services.SymbolItem : Granite.Widgets.SourceList.ExpandableItem {
+    public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
+}
+
+public abstract class Scratch.Services.SymbolOutline : Object {
+    protected static SymbolType[] filters;
+
+    public Scratch.Services.Document doc { get; construct; }
+    //TODO Should this be a class property or an instance property?
+
+    protected Gee.HashMap<SymbolType, Gtk.CheckButton> checks;
+    protected Gtk.Box symbol_pane;
+    protected Gtk.SearchEntry search_entry;
     protected Granite.Widgets.SourceList store;
     protected Granite.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
-    public Gtk.Widget get_widget () { return store; }
+    public Gtk.Widget get_widget () { return (Gtk.Widget)symbol_pane; }
     public abstract void parse_symbols ();
 
     construct {
         store = new Granite.Widgets.SourceList ();
+        checks = new Gee.HashMap<SymbolType, Gtk.CheckButton> ();
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
+        symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true
+        };
+        var tool_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) ;
+        search_entry = new Gtk.SearchEntry () {
+            placeholder_text = _("Find Symbol"),
+            hexpand = true
+        };
+
+        var filter_header = new Granite.HeaderLabel (_("Filter Symbols"));
+        var filter_items = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
+            margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12
+        };
+        //Always have OTHER category
+        filters.resize (filters.length + 1);
+        filters[filters.length - 1] = SymbolType.OTHER;
+        foreach (var filter in filters) {
+            var check = new Gtk.CheckButton.with_label (filter.to_string ()) {
+                active = true
+            };
+            filter_items.add (check);
+            checks[filter] = check;
+            check.toggled.connect (schedule_refilter);
+        }
+
+        var clear_button = new Gtk.Button.from_icon_name ("edit-clear-all") {
+            tooltip_text = _("Deselect All")
+        };
+        clear_button.clicked.connect (() => {
+            foreach (var chck in checks.values) {
+                chck.active = false;
+            }
+        });
+
+        var select_all_button = new Gtk.Button.from_icon_name ("edit-select-all") {
+            tooltip_text = _("Select All")
+        };
+
+        select_all_button.clicked.connect (() => {
+            foreach (var chck in checks.values) {
+                chck.active = true;
+            }
+        });
+
+        var button_bar = new Gtk.ActionBar ();
+        button_bar.pack_end (clear_button);
+        button_bar.pack_end (select_all_button);
+
+        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+        popover_content.add (filter_header);
+        popover_content.add (filter_items);
+        popover_content.add (button_bar);
+        popover_content.show_all ();
+        //TODO Provide "filter" icon?
+
+        var filter_popover = new Gtk.Popover (null);
+        filter_popover.add (popover_content);
+
+        var filter_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name (
+                "open-menu-symbolic",
+                Gtk.IconSize.SMALL_TOOLBAR
+            ),
+            popover = filter_popover,
+            tooltip_text = _("Filter symbol type"),
+        };
+
+        tool_box.add (search_entry);
+        tool_box.add (filter_button);
+
+        symbol_pane.add (tool_box);
+        symbol_pane.add (store);
         set_up_css ();
+        symbol_pane.show_all ();
+
+        symbol_pane.realize.connect (() => {
+            store.set_filter_func (filter_func, false);
+            search_entry.changed.connect (schedule_refilter);
+        });
+    }
+
+    protected bool filter_func (Object item) {
+        if (!(item is SymbolItem)) {
+            return true;
+        }
+
+        var symbol_type = ((SymbolItem)item).symbol_type;
+
+        if (symbol_type == SymbolType.NAMESPACE) {
+            return true;
+        }
+
+        if (checks[symbol_type] == null) {
+            symbol_type = SymbolType.OTHER;
+        }
+
+        if (!checks[symbol_type].active) {
+            return false;
+        }
+
+        // Do not exclude misses on Item with children as may
+        // hide hits on its children
+        if (item is Granite.Widgets.SourceList.ExpandableItem) {
+            var expandable = (Granite.Widgets.SourceList.ExpandableItem)item;
+            if (expandable.n_children > 0) {
+                return true;
+            }
+
+            return ((SymbolItem)item).name.contains (search_entry.text);
+        }
+
+        return true;
+    }
+
+    uint refilter_timeout_id = 0;
+    bool delay_refilter = false;
+    protected void schedule_refilter () {
+        // Ensure a refilter happens at least 500mS later if not already
+        // delayed.
+        if (refilter_timeout_id > 0) {
+            delay_refilter = true;
+            return;
+        }
+
+        refilter_timeout_id = Timeout.add (500, () => {
+            if (delay_refilter) {
+                delay_refilter = false;
+                return Source.CONTINUE;
+            } else {
+                refilter_timeout_id = 0;
+                store.refilter ();
+                // Ensure new visible items shown when filter removed
+                store.root.expand_all (true, true);
+                return Source.REMOVE;
+            }
+        });
     }
 
     protected void set_up_css () {

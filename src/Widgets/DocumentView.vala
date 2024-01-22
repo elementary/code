@@ -184,7 +184,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     private void insert_document (Scratch.Services.Document doc, int pos) {
         insert_tab (doc, pos);
         if (Scratch.saved_state.get_boolean ("outline-visible")) {
-            debug ("setting outline visible");
             doc.show_outline (true);
         }
     }

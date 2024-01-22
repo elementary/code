@@ -16,9 +16,12 @@
  *
  */
 
-public class Scratch.Services.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
-    public Vala.Symbol symbol { get; set; }
+public class Scratch.Services.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem,
+Granite.Widgets.SourceListSortable,
+Scratch.Services.SymbolItem {
 
+    public Vala.Symbol symbol { get; set; }
+    public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public ValaSymbolItem (Vala.Symbol symbol) {
         this.symbol = symbol;
         this.name = symbol.name;
