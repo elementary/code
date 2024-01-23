@@ -117,7 +117,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             int index = 0;
-            ProjectRow project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
+            var project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
             while (project_row != null) {
                 project_row.active = false;
                 project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
