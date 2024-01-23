@@ -21,7 +21,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
     private ProjectRow? last_entry = null;
-
     public signal void project_chosen ();
 
     construct {
@@ -90,16 +89,17 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         var model = Scratch.Services.GitManager.get_instance ().project_liststore;
 
         model.items_changed.connect ((pos, n_removed, n_added) => {
-            // This model is put in sort order by the GitManager so model pos the same as listbox index
-            var project_folder = (Scratch.FolderManager.ProjectFolderItem)(model.get_item (pos));
-            if (n_added > 0) {
-                var row = create_project_row (project_folder);
-                project_listbox.insert (row, (int)pos);
-            } else {
-                // Double check we are removing correct row (do not rely on pos)
-                var row = find_row_for_path (project_folder.file.file.get_path ());
-                if (row != null) {
-                    project_listbox.remove (row);
+            var rows = project_listbox.get_children ();
+            for (int index = (int)pos; index < pos + n_removed; index++) {
+                var row = rows.nth_data (index);
+                row.destroy ();
+            }
+
+            for (int index = (int)pos; index < pos + n_added; index++) {
+                var item = model.get_object (index);
+                if (item is Scratch.FolderManager.ProjectFolderItem) {
+                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+                    project_listbox.insert (row, index);
                 }
             }
         });
@@ -140,19 +140,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         last_entry = project_row;
 
         return project_row;
-    }
-
-    private ProjectRow? find_row_for_path (string project_path) {
-        foreach (var child in project_listbox.get_children ()) {
-            if (child is ProjectRow) {
-                var row = (ProjectRow)child;
-                if (row.project_path == project_path) {
-                    return row;
-                }
-            }
-        }
-
-        return null;
     }
 
     private void select_project (ProjectRow project_entry) {

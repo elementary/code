@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-17 18:03+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -142,9 +142,9 @@ msgstr "Peta mini opsional untuk memudahkan navigasi berkas besar"
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/code.metainfo.xml.in:71 data/code.metainfo.xml.in:105
-#: data/code.metainfo.xml.in:153 data/code.metainfo.xml.in:185
-#: data/code.metainfo.xml.in:209 data/code.metainfo.xml.in:237
+#: data/code.metainfo.xml.in:71 data/code.metainfo.xml.in:107
+#: data/code.metainfo.xml.in:155 data/code.metainfo.xml.in:187
+#: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:239
 msgid "Improvements:"
 msgstr "Peningkatan:"
 
@@ -158,79 +158,83 @@ msgstr ""
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
 
-#: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:111
-#: data/code.metainfo.xml.in:160 data/code.metainfo.xml.in:200
-#: data/code.metainfo.xml.in:222 data/code.metainfo.xml.in:241
+#: data/code.metainfo.xml.in:75
+msgid "Save and restore the state of the terminal pane"
+msgstr ""
+
+#: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:113
+#: data/code.metainfo.xml.in:162 data/code.metainfo.xml.in:202
+#: data/code.metainfo.xml.in:224 data/code.metainfo.xml.in:243
 msgid "Minor updates:"
 msgstr "Pembaruan kecil:"
 
-#: data/code.metainfo.xml.in:78
+#: data/code.metainfo.xml.in:79
 msgid ""
 "\"Find in Folder\" now works for all folders and text files, not only \".vala"
 "\" files"
 msgstr ""
 
-#: data/code.metainfo.xml.in:79
+#: data/code.metainfo.xml.in:80
 msgid "\"Follow System Style\" is now fully respected"
 msgstr ""
 
-#: data/code.metainfo.xml.in:80
+#: data/code.metainfo.xml.in:81
 msgid "The \"--new-tab\" commandline option now works"
 msgstr ""
 
-#: data/code.metainfo.xml.in:81
+#: data/code.metainfo.xml.in:82
 msgid "The symbol pane width is now synchronised and saved"
 msgstr ""
 
-#: data/code.metainfo.xml.in:82
+#: data/code.metainfo.xml.in:83
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
 msgstr ""
 
-#: data/code.metainfo.xml.in:83
+#: data/code.metainfo.xml.in:84
 msgid "Fixed temporary backup files persisting under some circumstances"
 msgstr ""
 
-#: data/code.metainfo.xml.in:84
+#: data/code.metainfo.xml.in:85
 msgid "The Show-Replace action has been improved"
 msgstr ""
 
-#: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:122
-#: data/code.metainfo.xml.in:170 data/code.metainfo.xml.in:202
-#: data/code.metainfo.xml.in:225 data/code.metainfo.xml.in:244
+#: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:124
+#: data/code.metainfo.xml.in:172 data/code.metainfo.xml.in:204
+#: data/code.metainfo.xml.in:227 data/code.metainfo.xml.in:246
 msgid "Updated translations"
 msgstr "Pembaruan terjemahan"
 
-#: data/code.metainfo.xml.in:107
+#: data/code.metainfo.xml.in:109
 msgid "Search options transferred to searchbar menu"
 msgstr "Opsi pencarian dipindahkan ke menu bilah pencarian"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:110
 msgid "Whole word search option added"
 msgstr "Penambahan opsi pencarian seluruh kata"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:111
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
 "Seluruh kata, mode sensitif abjad dan menggunakan pengaturan pencarian regex "
 "sekarang tetap ada"
 
-#: data/code.metainfo.xml.in:113
+#: data/code.metainfo.xml.in:115
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
 "Bilah pencarian sekarang diperbarui dengan benar setelah mengubah dokumen "
 "aktif"
 
-#: data/code.metainfo.xml.in:114
+#: data/code.metainfo.xml.in:116
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
 "Mencoba menyimpan dokumen ke lokasi yang tidak dapat ditulis sekarang "
 "ditangani dengan lebih baik"
 
-#: data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:117
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
@@ -238,12 +242,12 @@ msgstr ""
 "Gaya sistem sekarang diikuti oleh garis tepi simbol dan ketika diluncurkan "
 "tanpa dokumen terbuka"
 
-#: data/code.metainfo.xml.in:116
+#: data/code.metainfo.xml.in:118
 msgid "Mixed case sensitive search now works as expected"
 msgstr ""
 "Pencarian sensitif abjad campuran sekarang berfungsi seperti yang diharapkan"
 
-#: data/code.metainfo.xml.in:117
+#: data/code.metainfo.xml.in:119
 #, fuzzy
 #| msgid ""
 #| "The search results no longer change unexpectedly when focussing a document"
@@ -252,7 +256,7 @@ msgid ""
 msgstr ""
 "Hasil pencarian tidak lagi berubah tiba-tiba ketika memfokuskan dokumen"
 
-#: data/code.metainfo.xml.in:118
+#: data/code.metainfo.xml.in:120
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
@@ -260,7 +264,7 @@ msgstr ""
 "Sekarang selalu ada proyek aktif saat startup jika ada proyek di bilah "
 "samping"
 
-#: data/code.metainfo.xml.in:119
+#: data/code.metainfo.xml.in:121
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
@@ -268,31 +272,31 @@ msgstr ""
 "Jika cabang pengembangan berjalan, ini akan ditampilkan di judul jendela dan "
 "di tooltip dok"
 
-#: data/code.metainfo.xml.in:120
+#: data/code.metainfo.xml.in:122
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr "Pintasan Ctrl+PageUp dan Ctrl+PageDown sekarang beralih tab"
 
-#: data/code.metainfo.xml.in:121
+#: data/code.metainfo.xml.in:123
 msgid "Ensure active project at startup (include non-git folders)"
 msgstr ""
 
-#: data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:157
 msgid "Redesigned app icon"
 msgstr "Ikon aplikasi yang didesain ulang"
 
-#: data/code.metainfo.xml.in:156
+#: data/code.metainfo.xml.in:158
 msgid "New custom dark and light elementary styles for the source view"
 msgstr "Gaya baru kustom elementary gelap dan terang untuk tampilan sumber"
 
-#: data/code.metainfo.xml.in:157
+#: data/code.metainfo.xml.in:159
 msgid "Option to follow the system dark style preference"
 msgstr "Opsi untuk mengikuti preferensi gaya gelap sistem"
 
-#: data/code.metainfo.xml.in:158
+#: data/code.metainfo.xml.in:160
 msgid "Ability to half tile on small notebook displays"
 msgstr "Kemampuan untuk setengah ubin pada tampilan notebook kecil"
 
-#: data/code.metainfo.xml.in:162
+#: data/code.metainfo.xml.in:164
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
@@ -300,7 +304,7 @@ msgstr ""
 "Temukan di Halaman dan Temukan di Project kini tersedia dari menu aplikasi, "
 "bukan di bilah kepala"
 
-#: data/code.metainfo.xml.in:163
+#: data/code.metainfo.xml.in:165
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
@@ -308,7 +312,7 @@ msgstr ""
 "Opsi untuk menyembunyikan dan menampilkan panel sekarang semuanya hadir "
 "dalam satu set tombol tertaut yang ringkas di menu aplikasi"
 
-#: data/code.metainfo.xml.in:164
+#: data/code.metainfo.xml.in:166
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
@@ -316,13 +320,13 @@ msgstr ""
 "Bar samping sekarang berisi tombol pemilih proyek dan mengisi ketinggian "
 "jendela"
 
-#: data/code.metainfo.xml.in:165
+#: data/code.metainfo.xml.in:167
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 "Memulai pencarian global dengan teks yang dipilih sekarang akan mengisi teks "
 "tersebut sebelumnya"
 
-#: data/code.metainfo.xml.in:166
+#: data/code.metainfo.xml.in:168
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
@@ -331,7 +335,7 @@ msgstr ""
 "sumber dan dapat ditampilkan dan disembunyikan dengan pintasan keyboard "
 "\"Alt + \\\""
 
-#: data/code.metainfo.xml.in:167
+#: data/code.metainfo.xml.in:169
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
@@ -339,7 +343,7 @@ msgstr ""
 "Terminal, Simbol garis tepi dan pengaya Strip Trailing Whitespace sekarang "
 "menjadi bagian dari basis kode utama"
 
-#: data/code.metainfo.xml.in:168
+#: data/code.metainfo.xml.in:170
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
@@ -347,14 +351,14 @@ msgstr ""
 "Memperlihatkan bilah info saat pengaturan lebar tab ditimpa oleh berkas "
 "EditorConfig"
 
-#: data/code.metainfo.xml.in:169
+#: data/code.metainfo.xml.in:171
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 "Pintasan untuk membangun kembali daftar pelengkapan kata sekarang adalah "
 "\"Ctrl + |\""
 
-#: data/code.metainfo.xml.in:187
+#: data/code.metainfo.xml.in:189
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -362,26 +366,26 @@ msgstr ""
 "Sekarang nama berkas dokumen saat ini ditampilkan sebagai judul jendela "
 "dalam tampilan multitugas"
 
-#: data/code.metainfo.xml.in:188
+#: data/code.metainfo.xml.in:190
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "Folder tersembunyi sekarang ditampilkan di bilah samping proyek"
 
-#: data/code.metainfo.xml.in:189
+#: data/code.metainfo.xml.in:191
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr "Hasil yang saat ini dipilih dan jumlah hasil ditampilkan saat mencari"
 
-#: data/code.metainfo.xml.in:190
+#: data/code.metainfo.xml.in:192
 msgid "The search bar now has a regular expression mode"
 msgstr "Bilah pencarian sekarang memiliki mode ekspresi reguler"
 
-#: data/code.metainfo.xml.in:192 data/code.metainfo.xml.in:216
-#: data/code.metainfo.xml.in:232
+#: data/code.metainfo.xml.in:194 data/code.metainfo.xml.in:218
+#: data/code.metainfo.xml.in:234
 msgid "Fixes:"
 msgstr "Perbaikan:"
 
-#: data/code.metainfo.xml.in:194
+#: data/code.metainfo.xml.in:196
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -389,11 +393,11 @@ msgstr ""
 "Sekarang dimungkinkan untuk mengubah cabang Git dengan berkas yang tidak "
 "terlacak yang ada dalam sebuah proyek"
 
-#: data/code.metainfo.xml.in:195
+#: data/code.metainfo.xml.in:197
 msgid "Crashes are prevented while searching in large projects"
 msgstr "Kemogokan dicegah saat mencari di proyek besar"
 
-#: data/code.metainfo.xml.in:196
+#: data/code.metainfo.xml.in:198
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
@@ -401,45 +405,45 @@ msgstr ""
 "Dokumen yang benar sekarang difokuskan setelah membuka Kode dari program "
 "eksternal"
 
-#: data/code.metainfo.xml.in:197
+#: data/code.metainfo.xml.in:199
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 "Duplikasi baris sekarang ditindaklanjuti dengan benar jika tidak ada "
 "pemilihan"
 
-#: data/code.metainfo.xml.in:198
+#: data/code.metainfo.xml.in:200
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 "Kode tidak lagi mogok saat diminta untuk membuka format URI yang tidak "
 "diketahui"
 
-#: data/code.metainfo.xml.in:211
+#: data/code.metainfo.xml.in:213
 msgid ""
 "Projects with the same name now include their parent folder name as well"
 msgstr ""
 "Proyek dengan nama yang sama sekarang menyertakan nama folder induknya juga"
 
-#: data/code.metainfo.xml.in:212
+#: data/code.metainfo.xml.in:214
 msgid ""
 "When scrolling to search results, overshoot slightly for better visibility"
 msgstr ""
 "Saat menggulir ke hasil pencarian, sedikit terlampaui untuk visibilitas yang "
 "lebih baik"
 
-#: data/code.metainfo.xml.in:213
+#: data/code.metainfo.xml.in:215
 msgid "Use the FileChooser portal instead of the one from GTK"
 msgstr "Gunakan portal FileChooser daripada GTK"
 
-#: data/code.metainfo.xml.in:214
+#: data/code.metainfo.xml.in:216
 msgid "Center the global search dialog over the main Code window"
 msgstr "Pusatkan dialog pencarian global di atas jendela Code utama"
 
-#: data/code.metainfo.xml.in:218
+#: data/code.metainfo.xml.in:220
 msgid "Fix visibility of Terminal button on Welcome page"
 msgstr "Perbaiki visibilitas tombol Terminal di halaman Selamat Datang"
 
-#: data/code.metainfo.xml.in:219
+#: data/code.metainfo.xml.in:221
 msgid ""
 "Fix some keyboard shortcuts affecting unfocused Document instead of focused "
 "Terminal"
@@ -447,7 +451,7 @@ msgstr ""
 "Perbaiki beberapa pintasan papan ketik yang memengaruhi Dokumen yang tidak "
 "fokus alih-alih Terminal yang terfokus"
 
-#: data/code.metainfo.xml.in:220
+#: data/code.metainfo.xml.in:222
 msgid ""
 "Close Terminal if shell exited and create new Terminal if re-opened with no "
 "shell"
@@ -455,23 +459,23 @@ msgstr ""
 "Menutup Terminal jika shell keluar dan membuat Terminal baru jika dibuka "
 "kembali tanpa shell"
 
-#: data/code.metainfo.xml.in:224
+#: data/code.metainfo.xml.in:226
 msgid "\"Visible whitespace\" combobox is now a switch"
 msgstr "Kotak kombo \"Spasi kosong yang terlihat\" sekarang menjadi saklar"
 
-#: data/code.metainfo.xml.in:234
+#: data/code.metainfo.xml.in:236
 msgid "Fix crash when creating new window from tab drop"
 msgstr "Perbaikan kemogokan saat membuat jendela baru dari tab drop"
 
-#: data/code.metainfo.xml.in:235
+#: data/code.metainfo.xml.in:237
 msgid "Ensure files created from the sidebar are automatically opened"
 msgstr "Pastikan file yang dibuat dari bilah sisi dibuka secara otomatis"
 
-#: data/code.metainfo.xml.in:239
+#: data/code.metainfo.xml.in:241
 msgid "Hide project chooser button when hiding sidebar"
 msgstr "Sembunyikan tombol pemilih proyek saat menyembunyikan bilah sisi"
 
-#: data/code.metainfo.xml.in:243
+#: data/code.metainfo.xml.in:245
 msgid "Ensure all copy is translatable"
 msgstr "Pastikan semua salinan dapat diterjemahkan"
 

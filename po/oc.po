@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:23+0000\n"
+"POT-Creation-Date: 2024-01-17 18:03+0000\n"
 "PO-Revision-Date: 2020-09-22 14:14+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/code/code/oc/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Onglet _novèl"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
 msgid "New Window"
 msgstr "Novèla fenèstra"
 
@@ -35,79 +35,87 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:219
+#: src/MainWindow.vala:222
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Còdi"
 
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:224
 msgid "Code"
 msgstr "Còdi"
 
-#: src/MainWindow.vala:353
+#: src/MainWindow.vala:360
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:358 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:365 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "Dobrir un dossièr de projècte…"
 
-#: src/MainWindow.vala:369
+#: src/MainWindow.vala:376
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Hide Projects Sidebar"
 msgstr "Dobrir un dossièr de projècte…"
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:381
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:390
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:395
 msgid "Show Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:404
+msgid "Hide Terminal"
+msgstr ""
+
+#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:565
+#: src/MainWindow.vala:586
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:888 src/Services/Document.vala:605
+#: src/MainWindow.vala:913 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Totes los fichièrs"
 
-#: src/MainWindow.vala:892 src/Services/Document.vala:609
+#: src/MainWindow.vala:917 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Fichièrs tèxte"
 
-#: src/MainWindow.vala:896
+#: src/MainWindow.vala:921
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:899
+#: src/MainWindow.vala:924
 msgid "Open"
 msgstr "Dobrir"
 
-#: src/MainWindow.vala:900 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:925 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Anullar"
 
-#: src/MainWindow.vala:927
+#: src/MainWindow.vala:952
 msgid "_Open"
 msgstr "_Dobrir"
 
-#: src/MainWindow.vala:928
+#: src/MainWindow.vala:953
 msgid "_Cancel"
 msgstr "_Anullar"
 
@@ -150,7 +158,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Branca"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Preferéncias"
 
@@ -257,24 +265,29 @@ msgstr "Restablir pas"
 msgid "Restore Anyway"
 msgstr "Restablir malgrat tot"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:120
+msgid "Open in Terminal Pane"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:154
 msgid "Other Application…"
 msgstr "Autras aplicacions…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:194
 msgid "Open In"
 msgstr "Dobrir un fichièr"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
 msgid "Other Actions"
 msgstr "Autras accions"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
 msgid "Rename"
 msgstr "Renommar"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
-#: src/FolderManager/ProjectFolderItem.vala:171
+#: src/FolderManager/FileItem.vala:129 src/FolderManager/FolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Move to Trash"
 msgstr "Desplaçar a l’escobilhièr"
 
@@ -282,52 +295,52 @@ msgstr "Desplaçar a l’escobilhièr"
 msgid "Folders"
 msgstr "Repertòris"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:133
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Folder…"
 msgstr "Dobrir un dossièr de projècte…"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:201
 msgid "Folder"
 msgstr "Dossièr"
 
-#: src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FolderItem.vala:204
 msgid "Empty File"
 msgstr "Fichièr void"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:205
-#: src/FolderManager/ProjectFolderItem.vala:259
-#: src/FolderManager/ProjectFolderItem.vala:265
+#: src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:270
+#: src/FolderManager/ProjectFolderItem.vala:276
 msgid "New"
 msgstr "Novèla"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:370
 msgid "untitled folder"
 msgstr "repertòri sens nom"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "fichièr novèl"
 
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Tampar lo repertòri"
 
-#: src/FolderManager/ProjectFolderItem.vala:124
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "Tampar los autres dossièrs"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:139
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:143
+#: src/FolderManager/ProjectFolderItem.vala:153
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -335,35 +348,35 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "Document novèl"
 msgstr[1] "Document novèl"
 
-#: src/FolderManager/ProjectFolderItem.vala:158
+#: src/FolderManager/ProjectFolderItem.vala:168
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:178 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:188 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "Dobrir un dossièr de projècte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:265
+#: src/FolderManager/ProjectFolderItem.vala:276
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:303
+#: src/FolderManager/ProjectFolderItem.vala:314
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:589
+#: src/FolderManager/ProjectFolderItem.vala:600
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Branca"
 
-#: src/FolderManager/ProjectFolderItem.vala:602
+#: src/FolderManager/ProjectFolderItem.vala:613
 msgid "Branch"
 msgstr "Branca"
 
@@ -599,57 +612,49 @@ msgid_plural "%d Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "Dobrir un fichièr"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Partejar"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "Zoom arrièr"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "Agrandir"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "Menú"
-
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr ""
 
 #: src/Widgets/Sidebar.vala:63
 #, fuzzy

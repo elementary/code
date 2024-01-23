@@ -92,6 +92,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
         public const string ACTION_TOGGLE_OUTLINE = "action_toggle_outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
+        public const string ACTION_OPEN_IN_TERMINAL = "action-open_in_terminal";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
@@ -141,6 +142,7 @@ namespace Scratch {
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
+            { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
@@ -199,6 +201,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
+            action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
@@ -309,6 +312,10 @@ namespace Scratch {
             outline_action.set_state (saved_state.get_boolean ("outline-visible"));
             update_toolbar_button (ACTION_TOGGLE_OUTLINE, saved_state.get_boolean ("outline-visible"));
 
+            var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+            terminal_action.set_state (saved_state.get_boolean ("terminal-visible"));
+            update_toolbar_button (ACTION_TOGGLE_TERMINAL, saved_state.get_boolean ("terminal-visible"));
+
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
         }
@@ -389,6 +396,19 @@ namespace Scratch {
                         );
                     }
 
+                    break;
+                case ACTION_TOGGLE_TERMINAL:
+                    if (new_state) {
+                        toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Hide Terminal")
+                        );
+                    } else {
+                        toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + name),
+                            _("Show Terminal")
+                        );
+                    }
                     break;
             };
         }
@@ -526,6 +546,7 @@ namespace Scratch {
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -598,6 +619,10 @@ namespace Scratch {
 
             sidebar.choose_project_button.project_chosen.connect (() => {
                 folder_manager_view.collapse_other_projects ();
+                if (terminal.visible) {
+                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
+                    open_in_terminal_action.activate (null);
+                }
             });
 
             set_widgets_sensitive (false);
@@ -1262,18 +1287,30 @@ namespace Scratch {
         }
 
         private void action_toggle_terminal () {
-            var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
-            terminal_action.set_state (!terminal_action.get_state ().get_boolean ());
+            var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+            toggle_terminal_action.set_state (!toggle_terminal_action.get_state ().get_boolean ());
 
-            terminal.visible = terminal_action.get_state ().get_boolean ();
+            terminal.visible = toggle_terminal_action.get_state ().get_boolean ();
 
-            if (terminal_action.get_state ().get_boolean ()) {
-                terminal.no_show_all = false;
-                terminal.show_all ();
+            if (toggle_terminal_action.get_state ().get_boolean ()) {
                 terminal.grab_focus ();
             } else if (get_current_document () != null) {
                 get_current_document ().focus ();
             }
+        }
+
+        private void action_open_in_terminal (SimpleAction action, Variant? param) {
+            // Ensure terminal is visible
+            if (terminal == null || !terminal.visible) {
+                var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
+                toggle_terminal_action.activate (null);
+            }
+
+            //If param is null or empty, the active project path is returned or failing that
+            //the active document path
+            var target_path = get_target_path_for_actions (param);
+            terminal.change_location (target_path);
+            terminal.terminal.grab_focus ();
         }
 
         private void action_toggle_outline (SimpleAction action) {
