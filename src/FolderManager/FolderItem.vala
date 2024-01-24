@@ -131,8 +131,9 @@ namespace Scratch.FolderManager {
                         if (view.editing) {
                             return Source.CONTINUE;
                         } else {
-                            selectable = false;
                             view.unselect_all ();
+                            // Must do this *after* unselecting all else sourcelist breaks
+                            selectable = false;
                         }
 
                         return Source.REMOVE;
