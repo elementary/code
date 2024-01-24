@@ -132,6 +132,7 @@ namespace Scratch.FolderManager {
                             return Source.CONTINUE;
                         } else {
                             selectable = false;
+                            view.unselect_all ();
                         }
 
                         return Source.REMOVE;
