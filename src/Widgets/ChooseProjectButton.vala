@@ -20,7 +20,17 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
-    private ProjectRow? last_entry = null;
+    public unowned Gtk.RadioButton? group_source {
+        get {
+            var first_row = project_listbox.get_row_at_index (0);
+            if (first_row != null) {
+                return ((ProjectRow)first_row).project_radio;
+            } else {
+                return null;
+            }
+        }
+    }
+
     public signal void project_chosen ();
 
     construct {
@@ -86,9 +96,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         popover = project_popover;
 
-        var model = Scratch.Services.GitManager.get_instance ().project_liststore;
-
-        model.items_changed.connect ((pos, n_removed, n_added) => {
+        var git_manager = Scratch.Services.GitManager.get_instance ();
+        git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
             var rows = project_listbox.get_children ();
             for (int index = (int)pos; index < pos + n_removed; index++) {
                 var row = rows.nth_data (index);
@@ -96,12 +105,18 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
 
             for (int index = (int)pos; index < pos + n_added; index++) {
-                var item = model.get_object (index);
+                var item = src.get_object (index);
                 if (item is Scratch.FolderManager.ProjectFolderItem) {
                     var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
                     project_listbox.insert (row, index);
                 }
             }
+
+            set_active_path (git_manager.active_project_path);
+        });
+
+        git_manager.notify["active-project-path"].connect (() => {
+            set_active_path (git_manager.active_project_path);
         });
 
         project_listbox.remove.connect ((row) => {
@@ -114,23 +129,28 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.row_selected.connect ((row) => {
+        project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
-            int index = 0;
-            var project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
-            while (project_row != null) {
-                project_row.active = false;
-                project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
-            }
-
+            label_widget.label = project_entry.project_name;
+            var tooltip_text = Scratch.Utils.replace_home_with_tilde (project_entry.project_path);
+            label_widget.tooltip_text = _("Active Git project: %s").printf (tooltip_text);
+            Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
             project_entry.active = true;
-            select_project (project_entry);
             project_chosen ();
         });
     }
 
+    private void set_active_path (string active_path) {
+        project_listbox.get_children ().foreach ((child) => {
+            var project_entry = ((ProjectRow) child);
+            if (active_path.has_prefix (project_entry.project_path)) {
+                project_listbox.row_activated (project_entry);
+            }
+        });
+    }
+
     private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
-        var project_row = new ProjectRow (project_folder.file.file.get_path ());
+        var project_row = new ProjectRow (project_folder.file.file.get_path (), group_source);
         // Handle renaming of project;
         project_folder.bind_property ("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
@@ -144,37 +164,25 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         );
 
-        if (last_entry != null) {
-            project_row.project_radio.join_group (last_entry.project_radio);
-        }
-        last_entry = project_row;
-
         return project_row;
     }
 
     private void select_project (ProjectRow project_entry) {
-        label_widget.label = project_entry.project_name;
-        var tooltip_text = Scratch.Utils.replace_home_with_tilde (project_entry.project_path);
-        label_widget.tooltip_text = _("Active Git project: %s").printf (tooltip_text);
-        Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
-        project_listbox.select_row (project_entry);
-    }
-
-    public void set_document (Scratch.Services.Document doc) {
-        set_active_path (doc.file.get_path ());
-    }
-
-    public void set_active_path (string active_path) {
-        project_listbox.get_children ().foreach ((child) => {
-            var project_entry = ((ProjectRow) child);
-            if (active_path.has_prefix (project_entry.project_path)) {
-                select_project (project_entry);
-            }
-        });
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
-        public bool active { get; set; }
+        public bool active {
+            get {
+                return project_radio.active;
+            }
+
+            set {
+                if (value) {
+                    project_radio.active = true;
+                }
+            }
+        }
+
         public string project_path { get; construct; }
         public string project_name {
             get {
@@ -184,9 +192,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         public Gtk.RadioButton project_radio { get; construct; }
 
-        public ProjectRow (string project_path) {
+        public ProjectRow (string project_path, Gtk.RadioButton? group_source ) {
             Object (
-                project_path: project_path
+                project_path: project_path,
+                project_radio: new Gtk.RadioButton.with_label_from_widget (group_source, Path.get_basename (project_path))
             );
         }
 
@@ -195,16 +204,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
-            project_radio = new Gtk.RadioButton.with_label (null, Path.get_basename (project_path));
             add (project_radio);
-            show_all ();
-
-            bind_property ("active", project_radio, "active", BindingFlags.BIDIRECTIONAL);
-
             project_radio.button_release_event.connect (() => {
                 activate ();
                 return Gdk.EVENT_PROPAGATE;
             });
+
+            show_all ();
         }
     }
 }

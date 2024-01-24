@@ -107,6 +107,7 @@ namespace Scratch {
 
         private ulong color_scheme_listener_handler_id = 0;
 
+        private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
@@ -236,6 +237,7 @@ namespace Scratch {
             default_theme.add_resource_path ("/io/elementary/code");
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
+            git_manager = Services.GitManager.get_instance ();
 
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
@@ -586,7 +588,9 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
-                    sidebar.choose_project_button.set_document (doc);
+                    // sidebar.choose_project_button.set_document (doc);
+                    warning ("WINDOW: set active project _path %s", doc.source_view.project.path);
+                    git_manager.active_project_path = doc.source_view.project.path;
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
@@ -1162,7 +1166,7 @@ namespace Scratch {
                 Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
 
-                var is_active_project = Services.GitManager.get_instance ().active_project_path != "";
+                var is_active_project = git_manager.active_project_path != "";
                 Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_active_project);
                 return Source.REMOVE;
             });
@@ -1330,7 +1334,7 @@ namespace Scratch {
              }
 
              if (path == "") { // Happens when keyboard accelerator is used
-                 path = Services.GitManager.get_instance ().active_project_path;
+                 path = git_manager.active_project_path;
                  if (path == null) {
                      var current_doc = get_current_document ();
                      if (current_doc != null) {
