@@ -122,10 +122,31 @@ namespace Scratch.FolderManager {
 
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
+                // Ensure item selected else rename does not work
+                view.select_path (file.path);
+                if (view.start_editing_item (this)) {
+                    ulong once = 0;
+                    once = this.edited.connect ((new_name) => {
+                        this.disconnect (once);
+                        var new_path = Path.get_dirname (file.path) + Path.DIR_SEPARATOR_S + new_name;
+                        view.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (this.path));
+                        view.select (new_path);  // Select and open newly named file
+                    });
+
+                    // Handle cancelled rename (which does not produce signal)
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
+                            // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
+                            view.unselect_all ();
+                            return Source.REMOVE;
+                        }
+                    });
+                }
             });
 
+            rename_item.sensitive = view.rename_request (file);
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
