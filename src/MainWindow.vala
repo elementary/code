@@ -107,6 +107,7 @@ namespace Scratch {
 
         private ulong color_scheme_listener_handler_id = 0;
 
+        private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
@@ -236,6 +237,7 @@ namespace Scratch {
             default_theme.add_resource_path ("/io/elementary/code");
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
+            git_manager = Services.GitManager.get_instance ();
 
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
@@ -478,6 +480,22 @@ namespace Scratch {
 
             folder_manager_view.restore_saved_state ();
 
+            folder_manager_view.rename_request.connect ((file) => {
+                var allow = true;
+                foreach (var window in app.get_windows ()) {
+                    var win = (MainWindow)window;
+                    foreach (var doc in win.document_view.docs) {
+                        if (doc.file.equal (file.file)) {
+                            // Only allow sidebar to rename docs that are in sync with their file in
+                            // all windows
+                            allow = allow && !doc.locked && doc.saved;
+                        }
+                    }
+                }
+
+                return allow;
+            });
+
             terminal = new Code.Terminal () {
                 no_show_all = true,
                 visible = false
@@ -586,7 +604,7 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
-                    sidebar.choose_project_button.set_document (doc);
+                    git_manager.active_project_path = doc.source_view.project.path;
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
@@ -1163,7 +1181,7 @@ namespace Scratch {
                 Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
 
-                var is_active_project = Services.GitManager.get_instance ().active_project_path != "";
+                var is_active_project = git_manager.active_project_path != "";
                 Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_active_project);
                 return Source.REMOVE;
             });
@@ -1331,7 +1349,7 @@ namespace Scratch {
              }
 
              if (path == "") { // Happens when keyboard accelerator is used
-                 path = Services.GitManager.get_instance ().active_project_path;
+                 path = git_manager.active_project_path;
                  if (path == null) {
                      var current_doc = get_current_document ();
                      if (current_doc != null) {

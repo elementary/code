@@ -123,8 +123,25 @@ namespace Scratch.FolderManager {
 
             var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_menu_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
+                selectable = true;
+                if (view.start_editing_item (this)) {
+                    // Need to poll view as no signal emited when editing cancelled and need to set
+                    // selectable to false anyway.
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
+                            view.unselect_all ();
+                            // Must do this *after* unselecting all else sourcelist breaks
+                            selectable = false;
+                        }
+
+                        return Source.REMOVE;
+                    });
+                } else {
+                    debug ("Could not rename %s", file.path);
+                    selectable = false;
+                }
             });
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
@@ -380,14 +397,12 @@ namespace Scratch.FolderManager {
             add (rename_item);
             /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
-                view.start_editing_item (rename_item);
-                /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
-                Timeout.add (200, () => {
-                    if (view.editing) {
-                        return Source.CONTINUE;
-                    } else {
+                if (view.start_editing_item (rename_item)) {
+                    ulong once = 0;
+                    once = rename_item.edited.connect (() => {
+                        rename_item.disconnect (once);
+                        // A name was accepted so create the corresponding file
                         var new_name = rename_item.name;
-                        view.ignore_next_select = true;
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
@@ -398,13 +413,23 @@ namespace Scratch.FolderManager {
                             }
                         } catch (Error e) {
                             warning (e.message);
-                        } finally {
+                        }
+                    });
+
+                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
                             remove (rename_item);
                         }
-                    }
 
-                    return Source.REMOVE;
-                });
+                        return Source.REMOVE;
+                    });
+                } else {
+                    remove (rename_item);
+                }
+
 
                 return Source.REMOVE;
             });

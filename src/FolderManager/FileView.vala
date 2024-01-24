@@ -24,10 +24,12 @@
 public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
-    private ActionGroup? toplevel_action_group = null;
+
+    public ActionGroup toplevel_action_group { get; private set; }
     private Scratch.Services.PluginsManager plugins;
 
     public signal void select (string file);
+    public signal bool rename_request (File file);
 
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
@@ -117,6 +119,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         item_selected.disconnect (on_item_selected);
         selected = find_path (root, path);
         item_selected.connect (on_item_selected);
+    }
+
+    public void unselect_all () {
+        selected = null;
     }
 
     public void collapse_other_projects (string? keep_open_path = null) {
