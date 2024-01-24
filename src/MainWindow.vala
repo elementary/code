@@ -605,7 +605,8 @@ namespace Scratch {
                 folder_manager_view.collapse_other_projects ();
                 if (terminal.visible) {
                     var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
-                    open_in_terminal_action.activate (null);
+                    var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
+                    open_in_terminal_action.activate (param);
                 }
             });
 

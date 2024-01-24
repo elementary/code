@@ -99,12 +99,15 @@ namespace Scratch.Services {
             }
         }
 
-        public string get_default_build_dir (string project_path) {
-            var build_path = project_path;
+        // @project_path is the root of a project or null
+        public string get_default_build_dir (string? project_path) {
+            string build_path = project_path != null ? project_path : active_project_path;
             var default_build_dir = Scratch.settings.get_string ("default-build-directory");
-            var build_file = GLib.File.new_for_path (Path.build_filename (project_path, default_build_dir));
+            var build_file = GLib.File.new_for_path (Path.build_filename (build_path, default_build_dir));
             if (build_file.query_exists ()) {
                 build_path = build_file.get_path ();
+            } else {
+                warning ("build path not found %s", build_file.get_path ());
             }
 
             return build_path;
