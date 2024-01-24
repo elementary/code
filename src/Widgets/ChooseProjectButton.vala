@@ -114,7 +114,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.row_activated.connect ((row) => {
+        project_listbox.row_selected.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             int index = 0;
             var project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
@@ -123,6 +123,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 project_row = ((ProjectRow)(project_listbox.get_row_at_index (index++)));
             }
 
+            project_entry.active = true;
             select_project (project_entry);
             project_chosen ();
         });
@@ -130,6 +131,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
         var project_row = new ProjectRow (project_folder.file.file.get_path ());
+        // Handle renaming of project;
         project_folder.bind_property ("name", project_row.project_radio, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 var label = srcval.get_string ();
@@ -137,6 +139,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 if (project_row.active) {
                     label_widget.label = label;
                 }
+
                 return true;
             }
         );
@@ -150,12 +153,11 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     private void select_project (ProjectRow project_entry) {
-        project_listbox.select_row (project_entry);
         label_widget.label = project_entry.project_name;
         var tooltip_text = Scratch.Utils.replace_home_with_tilde (project_entry.project_path);
         label_widget.tooltip_text = _("Active Git project: %s").printf (tooltip_text);
-        project_entry.active = true;
         Scratch.Services.GitManager.get_instance ().active_project_path = project_entry.project_path;
+        project_listbox.select_row (project_entry);
     }
 
     public void set_document (Scratch.Services.Document doc) {
