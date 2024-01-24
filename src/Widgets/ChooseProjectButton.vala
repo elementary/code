@@ -167,9 +167,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         return project_row;
     }
 
-    private void select_project (ProjectRow project_entry) {
-    }
-
     public class ProjectRow : Gtk.ListBoxRow {
         public bool active {
             get {
