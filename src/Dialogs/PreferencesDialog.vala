@@ -56,6 +56,7 @@ namespace Scratch.Dialogs {
                 halign = START
             };
 
+            Scratch.settings.bind ("default-build-directory", build_dir_entry, "text", DEFAULT);
             var general_grid = new Gtk.Grid ();
 
             general_grid.column_spacing = 12;
