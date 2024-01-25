@@ -27,7 +27,7 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private bool has_dummy;
-        private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
+        private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -40,9 +40,9 @@ namespace Scratch.FolderManager {
         construct {
             selectable = false;
 
-            dummy = new Granite.Widgets.SourceList.Item ("");
+            dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
             toggled.connect (on_toggled);
@@ -63,7 +63,7 @@ namespace Scratch.FolderManager {
                  file.children.size > 0) {
 
                 foreach (var child in file.children) {
-                    Granite.Widgets.SourceList.Item item = null;
+                    Code.Widgets.SourceList.Item item = null;
                     if (child.is_valid_directory ()) {
                         item = new FolderItem (child, view);
                     } else if (child.is_valid_textfile) {
@@ -237,7 +237,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+        private void remove_badge (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 ((FolderItem) item).remove_all_badges ();
             }
@@ -245,16 +245,16 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        public new void add (Granite.Widgets.SourceList.Item item) {
+        public new void add (Code.Widgets.SourceList.Item item) {
             if (has_dummy && n_children == 1) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+                ((Code.Widgets.SourceList.ExpandableItem)this).remove (dummy);
                 has_dummy = false;
             }
 
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (item);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (item);
         }
 
-        public new void remove (Granite.Widgets.SourceList.Item item) {
+        public new void remove (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 var folder = (FolderItem)item;
                 foreach (var child in folder.children) {
@@ -263,16 +263,16 @@ namespace Scratch.FolderManager {
             }
 
             view.ignore_next_select = true;
-            ((Granite.Widgets.SourceList.ExpandableItem)this).remove (item);
+            ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
             // Add back dummy if empty unless we are removing a rename item
             if (!(item is RenameItem || has_dummy || n_children > 0)) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+                ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }
         }
 
         public new void clear () {
-            ((Granite.Widgets.SourceList.ExpandableItem)this).clear ();
+            ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
             has_dummy = false;
         }
 
@@ -436,7 +436,7 @@ namespace Scratch.FolderManager {
         }
     }
 
-    internal class RenameItem : Granite.Widgets.SourceList.Item {
+    internal class RenameItem : Code.Widgets.SourceList.Item {
         public bool is_folder { get; construct; }
 
         public RenameItem (string name, bool is_folder) {

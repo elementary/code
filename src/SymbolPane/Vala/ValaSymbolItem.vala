@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
     public Vala.Symbol symbol { get; set; }
 
     public ValaSymbolItem (Vala.Symbol symbol) {
@@ -34,7 +34,7 @@ public class Scratch.Services.ValaSymbolItem : Granite.Widgets.SourceList.Expand
         debug ("Destroy Vala symbol");
     }
 
-    public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+    public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
         return ValaComparison.sort_function (a, b);
     }
 

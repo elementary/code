@@ -21,7 +21,7 @@
 /**
  * SourceList that displays folders and their contents.
  */
-public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.PaneSwitcher {
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
 
@@ -60,7 +60,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         });
     }
 
-    private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+    private void on_item_selected (Code.Widgets.SourceList.Item? item) {
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         if (ignore_next_select) {
@@ -82,8 +82,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     public void open_folder (File folder) {
         if (is_open (folder)) {
             var existing = find_path (root, folder.path);
-            if (existing is Granite.Widgets.SourceList.ExpandableItem) {
-                ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+            if (existing is Code.Widgets.SourceList.ExpandableItem) {
+                ((Code.Widgets.SourceList.ExpandableItem)existing).expanded = true;
             }
 
             return;
@@ -146,7 +146,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
-    private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+    private unowned Code.Widgets.SourceList.Item? find_path (Code.Widgets.SourceList.ExpandableItem list,
                                                                 string path,
                                                                 bool expand = false) {
         foreach (var item in list.children) {
@@ -156,8 +156,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
                     return (!)item;
                 }
 
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                if (item is Code.Widgets.SourceList.ExpandableItem) {
+                    var expander = item as Code.Widgets.SourceList.ExpandableItem;
                     if (!path.has_prefix (code_item.path)) {
                         continue;
                     }
@@ -194,7 +194,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         return null;
     }
 
-    public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+    public unowned Code.Widgets.SourceList.Item? expand_to_path (string path) {
          return find_path (root, path, true);
     }
 

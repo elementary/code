@@ -19,15 +19,15 @@
 public abstract class Scratch.Services.SymbolOutline : Object {
     public Scratch.Services.Document doc { get; construct; }
 
-    protected Granite.Widgets.SourceList store;
-    protected Granite.Widgets.SourceList.ExpandableItem root;
+    protected Code.Widgets.SourceList store;
+    protected Code.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return store; }
     public abstract void parse_symbols ();
 
     construct {
-        store = new Granite.Widgets.SourceList ();
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        store = new Code.Widgets.SourceList ();
+        root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
         set_up_css ();
