@@ -1087,7 +1087,7 @@ namespace Scratch {
         private void close_project_docs (string project_path, bool make_restorable) {
             unowned var docs = document_view.docs;
             docs.foreach ((doc) => {
-                if (doc.file.get_path ().has_prefix (project_path)) {
+                if (doc.file.get_path ().has_prefix (project_path + Path.DIR_SEPARATOR_S)) {
                     document_view.close_document (doc);
                     if (make_restorable) {
                         document_manager.make_restorable (doc);
