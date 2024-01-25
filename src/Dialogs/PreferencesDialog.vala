@@ -49,7 +49,16 @@ namespace Scratch.Dialogs {
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
+            var buid_dir_label = new SettingsLabel (_("Default build directory"));
+            var build_dir_entry = new Gtk.Entry () {
+                placeholder_text = ".",
+                margin = 12,
+                halign = START
+            };
+
+            Scratch.settings.bind ("default-build-directory", build_dir_entry, "text", DEFAULT);
             var general_grid = new Gtk.Grid ();
+
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
             general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 3);
@@ -67,9 +76,13 @@ namespace Scratch.Dialogs {
             general_grid.attach (new SettingsSwitch ("strip-trailing-on-save"), 1, 6, 2);
             general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 7);
             general_grid.attach (indent_width, 1, 7, 2);
+            general_grid.attach (new Granite.HeaderLabel (_("Projects")), 0, 8);
+            general_grid.attach (buid_dir_label, 0, 9);
+            general_grid.attach (build_dir_entry, 1, 9, 2);
 
             main_stack = new Gtk.Stack () {
-                margin = 12
+                margin = 12,
+                vhomogeneous = true
             };
             main_stack.add_titled (general_grid, "behavior", _("Behavior"));
             main_stack.add_titled (get_editor_box (), "interface", _("Interface"));

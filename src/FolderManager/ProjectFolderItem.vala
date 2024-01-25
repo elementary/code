@@ -120,9 +120,10 @@ namespace Scratch.FolderManager {
                _("Open in Terminal Pane"),
                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL + "::"
             );
+
             var open_in_terminal_pane_item = new Gtk.MenuItem () {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                action_target = new Variant.string (file.file.get_path ())
+                action_target = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (path))
             };
             open_in_terminal_pane_item.add (open_in_terminal_pane_label);
 
