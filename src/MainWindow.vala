@@ -1309,9 +1309,9 @@ namespace Scratch {
                 toggle_terminal_action.activate (null);
             }
 
-            //If param is null or empty, the active project path is returned or failing that
+            //If param is null or empty, the active project path build dir is returned or failing that
             //the active document path
-            var target_path = get_target_path_for_actions (param);
+            var target_path = get_target_path_for_actions (param, true);
             terminal.change_location (target_path);
             terminal.terminal.grab_focus ();
         }
@@ -1342,7 +1342,7 @@ namespace Scratch {
             folder_manager_view.new_branch (get_target_path_for_actions (param));
         }
 
-        private string? get_target_path_for_actions (Variant? path_variant) {
+        private string? get_target_path_for_actions (Variant? path_variant, bool use_build_dir = false) {
              string? path = "";
              if (path_variant != null) {
                  path = path_variant.get_string ();
@@ -1350,6 +1350,10 @@ namespace Scratch {
 
              if (path == "") { // Happens when keyboard accelerator is used
                  path = git_manager.active_project_path;
+                 if (use_build_dir) {
+                     path = git_manager.get_default_build_dir (path);
+                 }
+
                  if (path == null) {
                      var current_doc = get_current_document ();
                      if (current_doc != null) {
