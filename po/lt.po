@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 18:03+0000\n"
+"POT-Creation-Date: 2024-01-25 13:56+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -37,91 +37,91 @@ msgstr "Rodyti versijos informaciją ir išeiti"
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:223
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:225
 msgid "Code"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:360
+#: src/MainWindow.vala:362
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:365 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:367 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Atverti aplanką"
 
-#: src/MainWindow.vala:376
+#: src/MainWindow.vala:378
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:381
+#: src/MainWindow.vala:383
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Rodyti peržiūrą"
 
-#: src/MainWindow.vala:390
+#: src/MainWindow.vala:392
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:395
+#: src/MainWindow.vala:397
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Simboliai"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:406
 msgid "Hide Terminal"
 msgstr "Slėpti terminalą"
 
-#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:411 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Rodyti terminalą"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:586
+#: src/MainWindow.vala:604
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:913 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:917 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
-#: src/MainWindow.vala:921
+#: src/MainWindow.vala:940
 msgid "Open some files"
 msgstr "Atverti failus"
 
-#: src/MainWindow.vala:924
+#: src/MainWindow.vala:943
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:925 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:952
+#: src/MainWindow.vala:971
 msgid "_Open"
 msgstr "At_verti"
 
-#: src/MainWindow.vala:953
+#: src/MainWindow.vala:972
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
@@ -174,88 +174,98 @@ msgid ""
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:55
+#: src/Dialogs/PreferencesDialog.vala:52
+msgid "Default build directory"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
 msgstr "Bendra"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:65
 msgid "Save files when changed:"
 msgstr "Esant pakeitimams, įrašyti failus:"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:61
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Tabs"
 msgstr "Kortelės"
 
-#: src/Dialogs/PreferencesDialog.vala:62
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Automatic indentation:"
 msgstr "Automatinė įtrauka:"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Insert spaces instead of tabs:"
 msgstr "Įterpti tarpus vietoj tabuliavimo žymių:"
 
-#: src/Dialogs/PreferencesDialog.vala:66
+#: src/Dialogs/PreferencesDialog.vala:75
 #, fuzzy
 #| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
 msgstr "Įrašant, šalinti eilučių pabaigoje esančius tarpus"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:77
 msgid "Tab width:"
 msgstr "Tabuliavimo plotis:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Project"
+msgid "Projects"
+msgstr "Projektas"
+
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
 msgstr "Elgsena"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:88
 msgid "Interface"
 msgstr "Sąsaja"
 
-#: src/Dialogs/PreferencesDialog.vala:91
+#: src/Dialogs/PreferencesDialog.vala:104
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Užverti"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Extensions"
 msgstr "Plėtiniai"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Editor"
 msgstr "Redaktorius"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Highlight matching brackets:"
 msgstr "Paryškinti atitinkančius skliaustus:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Line wrap:"
 msgstr "Eilutės skaidymas:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:135
 #, fuzzy
 #| msgid "Strip trailing whitespace"
 msgid "Visible whitespace:"
 msgstr "Šalinti tarpus eilučių pabaigoje"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Show Mini Map:"
 msgstr "Rodyti mini planą:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:144
 msgid "Line width guide:"
 msgstr "Eilutės pločio orientyras:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:152
 msgid "Font"
 msgstr "Šriftas"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:154
 msgid "Custom font:"
 msgstr "Tinkintas šriftas:"
 
@@ -280,11 +290,11 @@ msgstr "Vis tiek atkurti"
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"
 msgstr "Kitoje programoje…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:194
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
 msgid "Open In"
 msgstr "Kur atverti"
 
@@ -296,56 +306,56 @@ msgstr "Kiti veiksmai"
 msgid "Rename"
 msgstr "Pervadinti"
 
-#: src/FolderManager/FileItem.vala:129 src/FolderManager/FolderItem.vala:130
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:182
 msgid "Move to Trash"
 msgstr "Perkelti į Šiukšlinę"
 
-#: src/FolderManager/FileView.vala:47
+#: src/FolderManager/FileView.vala:49
 msgid "Folders"
 msgstr "Aplankai"
 
-#: src/FolderManager/FolderItem.vala:133
+#: src/FolderManager/FolderItem.vala:150
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Atverti aplanką"
 
-#: src/FolderManager/FolderItem.vala:201
+#: src/FolderManager/FolderItem.vala:218
 msgid "Folder"
 msgstr "Aplankas"
 
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 msgid "Empty File"
 msgstr "Tuščias failas"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:211
-#: src/FolderManager/ProjectFolderItem.vala:270
-#: src/FolderManager/ProjectFolderItem.vala:276
+#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/ProjectFolderItem.vala:271
+#: src/FolderManager/ProjectFolderItem.vala:277
 msgid "New"
 msgstr "Naujas"
 
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:387
 msgid "untitled folder"
 msgstr "bevardis aplankas"
 
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:387
 msgid "new file"
 msgstr "naujas failas"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:130
 msgid "Close Folder"
 msgstr "Užverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Užverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:139
+#: src/FolderManager/ProjectFolderItem.vala:140
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -354,7 +364,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:153
+#: src/FolderManager/ProjectFolderItem.vala:154
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -364,7 +374,7 @@ msgstr[1] "Naujas dokumentas"
 msgstr[2] "Naujas dokumentas"
 msgstr[3] "Naujas dokumentas"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:169
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -373,28 +383,28 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:188 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Atverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:276
+#: src/FolderManager/ProjectFolderItem.vala:277
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:314
+#: src/FolderManager/ProjectFolderItem.vala:315
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:600
+#: src/FolderManager/ProjectFolderItem.vala:601
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Šaka"
 
-#: src/FolderManager/ProjectFolderItem.vala:613
+#: src/FolderManager/ProjectFolderItem.vala:614
 msgid "Branch"
 msgstr "Šaka"
 
@@ -588,14 +598,14 @@ msgstr "Simboliai"
 msgid "No Project Selected"
 msgstr "Projekto šablonai"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:112
-#: src/Widgets/ChooseProjectButton.vala:162
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr ""
 
@@ -1234,9 +1244,6 @@ msgstr "%s - Žodžių užbaigimas"
 
 #~ msgid "Files"
 #~ msgstr "Failai"
-
-#~ msgid "Project"
-#~ msgstr "Projektas"
 
 #~ msgid "Bookmarks"
 #~ msgstr "Žymelės"

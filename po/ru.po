@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 18:03+0000\n"
+"POT-Creation-Date: 2024-01-25 13:56+0000\n"
 "PO-Revision-Date: 2024-01-20 08:11+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
@@ -36,82 +36,82 @@ msgstr "Распечатать информацию о версии и выйт�
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:223
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:225
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:360
+#: src/MainWindow.vala:362
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:365 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:367 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Найти на странице…"
 
-#: src/MainWindow.vala:376
+#: src/MainWindow.vala:378
 msgid "Hide Projects Sidebar"
 msgstr "Скрыть панель проекта"
 
-#: src/MainWindow.vala:381
+#: src/MainWindow.vala:383
 msgid "Show Projects Sidebar"
 msgstr "Показать панель проекта"
 
-#: src/MainWindow.vala:390
+#: src/MainWindow.vala:392
 msgid "Hide Symbol Outline"
 msgstr "Скрыть обводку символов"
 
-#: src/MainWindow.vala:395
+#: src/MainWindow.vala:397
 msgid "Show Symbol Outline"
 msgstr "Показать обводку символов"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:406
 msgid "Hide Terminal"
 msgstr "Скрыть Терминал"
 
-#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:411 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Показать Терминал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:586
+#: src/MainWindow.vala:604
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:913 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:605
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:917 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:921
+#: src/MainWindow.vala:940
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:924
+#: src/MainWindow.vala:943
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:925 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
 #: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:952
+#: src/MainWindow.vala:971
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:953
+#: src/MainWindow.vala:972
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -163,84 +163,94 @@ msgstr ""
 "Вырезание или копирование без активного выделения приведёт к вырезанию или "
 "копированию всей текущей строки"
 
-#: src/Dialogs/PreferencesDialog.vala:55
+#: src/Dialogs/PreferencesDialog.vala:52
+msgid "Default build directory"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
 msgstr "Общие"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:65
 msgid "Save files when changed:"
 msgstr "Сохранять файлы при изменении:"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Smart cut/copy lines:"
 msgstr "Умное вырезание/копирование строк:"
 
-#: src/Dialogs/PreferencesDialog.vala:61
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Tabs"
 msgstr "Вкладки"
 
-#: src/Dialogs/PreferencesDialog.vala:62
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Automatic indentation:"
 msgstr "Автоматическая расстановка отступов:"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Insert spaces instead of tabs:"
 msgstr "Вставлять пробелы вместо табуляций:"
 
-#: src/Dialogs/PreferencesDialog.vala:66
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Strip trailing whitespace:"
 msgstr "Удалять пробелы в конце:"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:77
 msgid "Tab width:"
 msgstr "Ширина табуляции:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Project"
+msgid "Projects"
+msgstr "Проект"
+
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
 msgstr "Поведение"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:88
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/Dialogs/PreferencesDialog.vala:91
+#: src/Dialogs/PreferencesDialog.vala:104
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Extensions"
 msgstr "Расширения"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Highlight matching brackets:"
 msgstr "Подсвечивать парные скобки:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Line wrap:"
 msgstr "Перенос строки:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:135
 msgid "Visible whitespace:"
 msgstr "Показ пробелов:"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Show Mini Map:"
 msgstr "Показывать мини-карту:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:144
 msgid "Line width guide:"
 msgstr "Настройка строки:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:152
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:154
 msgid "Custom font:"
 msgstr "Пользовательский шрифт:"
 
@@ -265,11 +275,11 @@ msgstr "Всё равно восстановить"
 msgid "Open in Terminal Pane"
 msgstr "Открыть в панели терминала"
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"
 msgstr "Другое приложение…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:194
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
 msgid "Open In"
 msgstr "Открыть в"
 
@@ -281,52 +291,52 @@ msgstr "Другие действия"
 msgid "Rename"
 msgstr "Переименовать"
 
-#: src/FolderManager/FileItem.vala:129 src/FolderManager/FolderItem.vala:130
-#: src/FolderManager/ProjectFolderItem.vala:181
+#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:182
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: src/FolderManager/FileView.vala:47
+#: src/FolderManager/FileView.vala:49
 msgid "Folders"
 msgstr "Папки"
 
-#: src/FolderManager/FolderItem.vala:133
+#: src/FolderManager/FolderItem.vala:150
 msgid "Find in Folder…"
 msgstr "Поиск в папке…"
 
-#: src/FolderManager/FolderItem.vala:201
+#: src/FolderManager/FolderItem.vala:218
 msgid "Folder"
 msgstr "Папку"
 
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 msgid "Empty File"
 msgstr "Пустой файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:211
-#: src/FolderManager/ProjectFolderItem.vala:270
-#: src/FolderManager/ProjectFolderItem.vala:276
+#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/ProjectFolderItem.vala:271
+#: src/FolderManager/ProjectFolderItem.vala:277
 msgid "New"
 msgstr "Создать"
 
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:387
 msgid "untitled folder"
 msgstr "безымянная папка"
 
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:387
 msgid "new file"
 msgstr "новый файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:130
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Close Other Folders"
 msgstr "Закрыть остальные папки"
 
-#: src/FolderManager/ProjectFolderItem.vala:139
+#: src/FolderManager/ProjectFolderItem.vala:140
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -334,7 +344,7 @@ msgstr[0] "Закрыть %u открытый документ"
 msgstr[1] "Закрыть %u открытых документа"
 msgstr[2] "Закрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:153
+#: src/FolderManager/ProjectFolderItem.vala:154
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
@@ -342,7 +352,7 @@ msgstr[0] "Скрыть %u открытый документ"
 msgstr[1] "Скрыть %u открытых документа"
 msgstr[2] "Скрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:168
+#: src/FolderManager/ProjectFolderItem.vala:169
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -350,24 +360,24 @@ msgstr[0] "Восстановить %u скрытый документ"
 msgstr[1] "Восстановить %u скрытых документа"
 msgstr[2] "Восстановить %u скрытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:188 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Найти в проекте…"
 
-#: src/FolderManager/ProjectFolderItem.vala:276
+#: src/FolderManager/ProjectFolderItem.vala:277
 msgid "Modified"
 msgstr "Изменено"
 
-#: src/FolderManager/ProjectFolderItem.vala:314
+#: src/FolderManager/ProjectFolderItem.vala:315
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Ошибка создания новой ветки: «%s»"
 
-#: src/FolderManager/ProjectFolderItem.vala:600
+#: src/FolderManager/ProjectFolderItem.vala:601
 msgid "New Branch…"
 msgstr "Новая ветка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:613
+#: src/FolderManager/ProjectFolderItem.vala:614
 msgid "Branch"
 msgstr "Ветка"
 
@@ -534,14 +544,14 @@ msgstr "Символы"
 msgid "No Project Selected"
 msgstr "Проект не выбран"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:112
-#: src/Widgets/ChooseProjectButton.vala:162
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Активный Git-проект: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr "Отфильтровать проекты"
 
@@ -1198,9 +1208,6 @@ msgstr "%s — Автозавершение слов"
 
 #~ msgid "Files"
 #~ msgstr "Файлы"
-
-#~ msgid "Project"
-#~ msgstr "Проект"
 
 #~ msgid "Bookmarks"
 #~ msgstr "Закладки"
