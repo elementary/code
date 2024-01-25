@@ -1627,7 +1627,7 @@ public class SourceList : Gtk.ScrolledWindow {
         construct {
             unowned Gtk.StyleContext style_context = get_style_context ();
             style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
-            style_context.add_class (Granite.STYLE_CLASS_SOURCE_LIST);
+            style_context.add_class ("source-list");
 
             var css_provider = new Gtk.CssProvider ();
             try {
