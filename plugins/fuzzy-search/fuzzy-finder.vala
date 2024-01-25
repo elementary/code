@@ -241,60 +241,61 @@ public class Scratch.Services.FuzzyFinder {
             }
 
             var project = projects[i];
+            Gee.Iterator<string> iter = project.relative_file_paths.iterator ();
 
-            for (int j = 0; j < project.relative_file_paths.size; j++) {
-                if (cancellable.is_cancelled ()) {
-                    return results;
-                }
+            while (iter.next () && !cancellable.is_cancelled ()) {
+              if (cancellable.is_cancelled ()) {
+                  return results;
+              }
 
-                var path = project.relative_file_paths[j];
-                SearchResult path_search_result;
-                SearchResult filename_search_result;
+              string path = iter.get ();
+              SearchResult path_search_result;
+              SearchResult filename_search_result;
 
-                // If there is more than one project prepend the project name
-                // to the front of the path
-                // This helps to search for specific files only in one project, e.g.
-                // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
-                // even if their is a "fuzzy_finder" file in another project
-                string project_name = "";
+              // If there is more than one project prepend the project name
+              // to the front of the path
+              // This helps to search for specific files only in one project, e.g.
+              // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
+              // even if their is a "fuzzy_finder" file in another project
+              string project_name = "";
 
-                project_name = project_paths.size > 1 ? Path.get_basename (project.root_path) : "";
-                if (dir_length > 0 || project_paths.size == 1) {
-                    path_search_result = fuzzy_match (search_str, dir_length, path, cancellable);
-                } else {
-                    path_search_result = fuzzy_match (search_str, dir_length, @"$project_name/$path", cancellable);
-                }
+              project_name = project_paths.size > 1 ? Path.get_basename (project.root_path) : "";
+              if (dir_length > 0 || project_paths.size == 1) {
+                  path_search_result = fuzzy_match (search_str, dir_length, path, cancellable);
+              } else {
+                  path_search_result = fuzzy_match (search_str, dir_length, @"$project_name/$path", cancellable);
+              }
 
-                if (dir_length == 0) {
-                    string filename = Path.get_basename (path);
-                    filename_search_result = fuzzy_match (search_str, dir_length, filename, cancellable);
-                } else {
-                    filename_search_result = new SearchResult (false, 0);
-                }
+              if (dir_length == 0) {
+                  string filename = Path.get_basename (path);
+                  filename_search_result = fuzzy_match (search_str, dir_length, filename, cancellable);
+              } else {
+                  filename_search_result = new SearchResult (false, 0);
+              }
 
-                var root_path = project.root_path;
+              var root_path = project.root_path;
 
-                if (filename_search_result.found) {
-                    filename_search_result.relative_path = path;
-                    filename_search_result.full_path = @"$root_path/$path";
-                    filename_search_result.project = project_name;
-                    filename_search_result.score += project.root_path == current_project
-                        ? CURRENT_PROJECT_PRIORITY_BONUS
-                        : 0;
+              if (filename_search_result.found) {
+                  filename_search_result.relative_path = path;
+                  filename_search_result.full_path = @"$root_path/$path";
+                  filename_search_result.project = project_name;
+                  filename_search_result.score += project.root_path == current_project
+                      ? CURRENT_PROJECT_PRIORITY_BONUS
+                      : 0;
 
-                    results.add (filename_search_result);
-                } else if (path_search_result.found) {
-                    path_search_result.relative_path = path;
-                    path_search_result.full_path = @"$root_path/$path";
-                    path_search_result.project = project_name;
-                    path_search_result.score = (int) (path_search_result.score * 0.2) +
-                        (project.root_path == current_project
-                            ? CURRENT_PROJECT_PRIORITY_BONUS
-                            : 0);
+                  results.add (filename_search_result);
+              } else if (path_search_result.found) {
+                  path_search_result.relative_path = path;
+                  path_search_result.full_path = @"$root_path/$path";
+                  path_search_result.project = project_name;
+                  path_search_result.score = (int) (path_search_result.score * 0.2) +
+                      (project.root_path == current_project
+                          ? CURRENT_PROJECT_PRIORITY_BONUS
+                          : 0);
 
-                    results.add (path_search_result);
-                }
-            }
+                  results.add (path_search_result);
+              }
+          }
         }
 
         results.sort ((a, b) => {

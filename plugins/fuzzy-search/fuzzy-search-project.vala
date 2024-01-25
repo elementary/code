@@ -8,13 +8,14 @@
 
 public class Scratch.Services.SearchProject {
     public string root_path { get; private set; }
-    public Gee.ArrayList<string> relative_file_paths { get; private set; }
+    public Gee.HashSet<string> relative_file_paths { get; private set; }
+
     private MonitoredRepository? monitored_repo;
 
     public SearchProject (string root, MonitoredRepository? repo) {
         root_path = root;
         monitored_repo = repo;
-        relative_file_paths = new Gee.ArrayList<string> ();
+        relative_file_paths = new Gee.HashSet<string> ();
     }
 
     public async void parse_async (string path, GLib.Cancellable cancellable) {
@@ -44,14 +45,15 @@ public class Scratch.Services.SearchProject {
         }
 
         int start_length = relative_file_paths.size;
-        // Remove directory
-        for (int i = start_length - 1; i > -1; i--) {
-            string relative_path = relative_file_paths[i];
-            if (relative_path.has_prefix (deleted_path)) {
-                relative_file_paths.remove (relative_path);
-            }
-        }
+        Gee.Iterator<string> iter = relative_file_paths.iterator ();
 
+        // Remove directory
+        while (iter.next ()) {
+          string relative_path = iter.get ();
+          if (relative_path.has_prefix (deleted_path)) {
+            iter.remove ();
+          }
+        }
     }
 
     public void add_file (string path, GLib.Cancellable cancellable) {
