@@ -68,7 +68,7 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
 
         // Add class before creating the pango layout and fetching paddings.
         // This is needed in order to fetch the proper style information.
-        ctx.add_class (Granite.StyleClass.BADGE);
+        ctx.add_class (Granite.STYLE_CLASS_BADGE);
 
         var state = ctx.get_state ();
 
@@ -107,7 +107,7 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         height -= margin.top + margin.bottom;
 
         var ctx = widget.get_style_context ();
-        ctx.add_class (Granite.StyleClass.BADGE);
+        ctx.add_class (Granite.STYLE_CLASS_BADGE);
 
         ctx.render_background (context, x, y, width, height);
         ctx.render_frame (context, x, y, width, height);

@@ -94,7 +94,7 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
         ctx.save ();
 
         if (is_category_expander)
-            ctx.add_class (Granite.StyleClass.CATEGORY_EXPANDER);
+            ctx.add_class (Granite.STYLE_CLASS_CATEGORY_EXPANDER);
         else
             ctx.add_class (Gtk.STYLE_CLASS_EXPANDER);
 
