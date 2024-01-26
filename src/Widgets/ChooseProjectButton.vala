@@ -141,12 +141,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     }
 
     private void set_active_path (string active_path) {
-        project_listbox.get_children ().foreach ((child) => {
+        foreach (var child in project_listbox.get_children ()) {
             var project_entry = ((ProjectRow) child);
-            if (active_path.has_prefix (project_entry.project_path)) {
+            if (active_path.has_prefix (project_entry.project_path + Path.DIR_SEPARATOR_S)) {
                 project_listbox.row_activated (project_entry);
+                break;
             }
-        });
+        }
     }
 
     private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
