@@ -27,8 +27,6 @@ public abstract class Scratch.Services.SymbolOutline : Object {
 
     construct {
         store = new Granite.Widgets.SourceList ();
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-        store.root.add (root);
 
         set_up_css ();
     }
