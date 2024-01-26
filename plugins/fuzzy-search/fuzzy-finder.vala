@@ -244,10 +244,6 @@ public class Scratch.Services.FuzzyFinder {
             Gee.Iterator<string> iter = project.relative_file_paths.iterator ();
 
             while (iter.next () && !cancellable.is_cancelled ()) {
-              if (cancellable.is_cancelled ()) {
-                  return results;
-              }
-
               string path = iter.get ();
               SearchResult path_search_result;
               SearchResult filename_search_result;
@@ -295,6 +291,10 @@ public class Scratch.Services.FuzzyFinder {
 
                   results.add (path_search_result);
               }
+          }
+
+          if (cancellable.is_cancelled ()) {
+            return results;
           }
         }
 
