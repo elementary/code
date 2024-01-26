@@ -49,7 +49,7 @@ public class Scratch.Services.SearchProject {
 
         // Remove directory
         while (iter.next ()) {
-          string relative_path = iter.get ();
+          var relative_path = iter.get ();
           if (relative_path.has_prefix (deleted_path)) {
             iter.remove ();
           }

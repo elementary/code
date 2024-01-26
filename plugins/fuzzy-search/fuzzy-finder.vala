@@ -241,10 +241,10 @@ public class Scratch.Services.FuzzyFinder {
             }
 
             var project = projects[i];
-            Gee.Iterator<string> iter = project.relative_file_paths.iterator ();
+            var iter = project.relative_file_paths.iterator ();
 
             while (iter.next () && !cancellable.is_cancelled ()) {
-              string path = iter.get ();
+              var path = iter.get ();
               SearchResult path_search_result;
               SearchResult filename_search_result;
 
@@ -253,7 +253,7 @@ public class Scratch.Services.FuzzyFinder {
               // This helps to search for specific files only in one project, e.g.
               // "code/fuzfind" will probably only return fuzzy_finder.vala from this project
               // even if their is a "fuzzy_finder" file in another project
-              string project_name = "";
+              var project_name = "";
 
               project_name = project_paths.size > 1 ? Path.get_basename (project.root_path) : "";
               if (dir_length > 0 || project_paths.size == 1) {
@@ -263,7 +263,7 @@ public class Scratch.Services.FuzzyFinder {
               }
 
               if (dir_length == 0) {
-                  string filename = Path.get_basename (path);
+                  var filename = Path.get_basename (path);
                   filename_search_result = fuzzy_match (search_str, dir_length, filename, cancellable);
               } else {
                   filename_search_result = new SearchResult (false, 0);
