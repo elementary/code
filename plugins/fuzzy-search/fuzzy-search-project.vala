@@ -44,7 +44,6 @@ public class Scratch.Services.SearchProject {
             return;
         }
 
-        int start_length = relative_file_paths.size;
         Gee.Iterator<string> iter = relative_file_paths.iterator ();
 
         // Remove directory
