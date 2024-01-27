@@ -77,7 +77,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                     var root_children = store.root.children; // Keep reference to children for later destruction
                     store.root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
                     foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
-                        destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)child);
+                        destroy_all_children ((Code.Widgets.SourceList.ExpandableItem)child);
                     }
 
                     store.root.add (new_root);
@@ -93,27 +93,27 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         });
     }
 
-    private void destroy_all_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+    private void destroy_all_children (Code.Widgets.SourceList.ExpandableItem parent) {
         foreach (var child in parent.children) {
             remove (child, parent);
         }
     }
 
-    private new void remove (Granite.Widgets.SourceList.Item item, Granite.Widgets.SourceList.ExpandableItem parent) {
-        if (item is Granite.Widgets.SourceList.ExpandableItem) {
-            destroy_all_children ((Granite.Widgets.SourceList.ExpandableItem)item);
+    private new void remove (Code.Widgets.SourceList.Item item, Code.Widgets.SourceList.ExpandableItem parent) {
+        if (item is Code.Widgets.SourceList.ExpandableItem) {
+            destroy_all_children ((Code.Widgets.SourceList.ExpandableItem)item);
         }
 
         parent.remove (item);
     }
 
-    private Granite.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
+    private Code.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
         var fields = resolver.get_properties_fields ();
         var symbols = resolver.get_symbols ();
         // Remove fake fields created by the vala parser.
         symbols.remove_all (fields);
 
-        var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
         foreach (var symbol in symbols) {
             if (cancellable.is_cancelled ())
                 break;
@@ -130,8 +130,8 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         return new_root;
     }
 
-    private ValaSymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
-        Granite.Widgets.SourceList.ExpandableItem parent;
+    private ValaSymbolItem construct_child (Vala.Symbol symbol, Code.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
+        Code.Widgets.SourceList.ExpandableItem parent;
         if (symbol.scope.parent_scope.owner.name == null)
             parent = given_parent;
         else
@@ -194,7 +194,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         return tree_child;
     }
 
-    ValaSymbolItem? find_existing (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem parent, GLib.Cancellable cancellable) {
+    ValaSymbolItem? find_existing (Vala.Symbol symbol, Code.Widgets.SourceList.ExpandableItem parent, GLib.Cancellable cancellable) {
         ValaSymbolItem match = null;
         foreach (var _child in parent.children) {
             if (cancellable.is_cancelled ())
