@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-01-20 08:11+0000\n"
+"PO-Revision-Date: 2024-01-27 13:11+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "Default build directory"
-msgstr ""
+msgstr "Directori de construcció per defecte"
 
 #: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
@@ -200,10 +200,8 @@ msgid "Tab width:"
 msgstr "Amplada del tabulador:"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "Projecte"
+msgstr "Projectes"
 
 #: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"

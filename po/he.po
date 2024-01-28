@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-01-21 21:11+0000\n"
+"PO-Revision-Date: 2024-01-27 13:11+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "Default build directory"
-msgstr ""
+msgstr "תיקיית בנייה כברירת מחדל"
 
 #: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
@@ -197,10 +197,8 @@ msgid "Tab width:"
 msgstr "רוחב טאב:"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "מיזם"
+msgstr "מיזמים"
 
 #: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
