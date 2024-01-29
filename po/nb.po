@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2023-07-12 15:07+0000\n"
+"PO-Revision-Date: 2024-01-30 14:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38
@@ -169,7 +169,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "Default build directory"
-msgstr ""
+msgstr "Forvalgt byggmappe"
 
 #: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
@@ -248,7 +248,7 @@ msgstr "Vis minikart:"
 
 #: src/Dialogs/PreferencesDialog.vala:144
 msgid "Line width guide:"
-msgstr "Linjebredde guide:"
+msgstr "Linjebreddehentydning:"
 
 #: src/Dialogs/PreferencesDialog.vala:152
 msgid "Font"
@@ -278,8 +278,9 @@ msgstr "Last inn uansett"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
 #: src/FolderManager/ProjectFolderItem.vala:120
+#, fuzzy
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Åpne i terminalfelt"
 
 #: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"
@@ -412,10 +413,9 @@ msgid "Cancel Loading"
 msgstr "Avbryt innlasting"
 
 #: src/Services/Document.vala:438
-#, fuzzy, c-format
-#| msgid "Save changes to \"%s\" before closing?"
+#, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "Lagre endringer i \"%s\" før lukking?"
+msgstr "Lagre endringer i «%s» før lukking?"
 
 #: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
@@ -433,7 +433,7 @@ msgstr "Lagre"
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
-msgstr "Lagre endringer i \"%s\" før lukking?"
+msgstr "Kunne ikke lagre i «%s«."
 
 #: src/Services/Document.vala:613
 msgid "Save File"
@@ -544,10 +544,8 @@ msgid "Continue"
 msgstr "Fortsett"
 
 #: src/Services/Document.vala:977
-#, fuzzy
-#| msgid "Upload"
 msgid "Reload"
-msgstr "Last Opp"
+msgstr "Last inn igjen"
 
 #: src/Services/Document.vala:980
 msgid "Overwrite"
