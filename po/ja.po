@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-01-27 13:11+0000\n"
+"PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -250,7 +250,7 @@ msgstr "カスタムフォント:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr "このファイルを編集前の状態に復元してもよろしいですか？"
+msgstr "このファイルを編集前の状態に復元してもよろしいですか?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
@@ -400,7 +400,7 @@ msgstr "読み込みをキャンセル"
 #: src/Services/Document.vala:438
 #, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "閉じる前に “%s” への変更を保存しますか？"
+msgstr "閉じる前に “%s” への変更を保存しますか?"
 
 #: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
@@ -493,7 +493,7 @@ msgstr "ドキュメントは、最後の保存以降に外部で変更されま
 #: src/Services/Document.vala:915
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "“%s” はここには保存できません。複製をほかの場所に保存しますか？"
+msgstr "“%s” はここには保存できません。ほかの場所に複製して保存しますか?"
 
 #: src/Services/Document.vala:924
 msgid "Ignore"
