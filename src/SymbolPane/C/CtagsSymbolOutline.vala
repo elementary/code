@@ -53,7 +53,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
 
     private async void parse_output (GLib.Subprocess subprocess) {
         var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
-        var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
 
         var datainput = new GLib.DataInputStream (subprocess.get_stdout_pipe ());
         try {
@@ -206,7 +206,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         });
     }
 
-    private void destroy_root (Granite.Widgets.SourceList.ExpandableItem to_destroy) {
+    private void destroy_root (Code.Widgets.SourceList.ExpandableItem to_destroy) {
         var children = iterate_children (to_destroy);
         to_destroy.clear ();
         foreach (var item in children) {
@@ -218,7 +218,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
     }
 
-    private Gee.TreeSet<CtagsSymbol> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+    private Gee.TreeSet<CtagsSymbol> iterate_children (Code.Widgets.SourceList.ExpandableItem parent) {
         var result = new Gee.TreeSet<CtagsSymbol> ();
         foreach (var child in parent.children) {
             result.add_all (iterate_children ((CtagsSymbol)child));
@@ -226,7 +226,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         return result;
     }
 
-    CtagsSymbol? find_existing (string name, Granite.Widgets.SourceList.ExpandableItem parent) {
+    CtagsSymbol? find_existing (string name, Code.Widgets.SourceList.ExpandableItem parent) {
         CtagsSymbol match = null;
         foreach (var child in parent.children) {
             var child_symbol = child as CtagsSymbol;

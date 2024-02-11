@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 18:49+0000\n"
+"POT-Creation-Date: 2024-01-25 13:56+0000\n"
 "PO-Revision-Date: 2020-11-28 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -14,107 +14,107 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:38
 msgid "New Tab"
 msgstr "नवीन टॅब"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
 msgid "New Window"
 msgstr "नवीन विंडो"
 
-#: src/Application.vala:41
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "आवृत्तीची माहिती प्रिन्ट करा आणि बाहेर पडा"
 
 #: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "प्लगिन्सचा संच"
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr "प्लगइन"
-
-#: src/Application.vala:43
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:223
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "कोड"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:225
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:362
 msgid "Hide search bar"
 msgstr "सर्च बार लपवा"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:367 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find on Page…"
 msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:378
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "सर्च बार लपवा"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:383
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "पूर्वावलोकन दाखवा"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:392
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:397
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "कोणतेही सिम्बॉल्स सापडले नाही"
 
+#: src/MainWindow.vala:406
+msgid "Hide Terminal"
+msgstr "टर्मिनल लपवा"
+
+#: src/MainWindow.vala:411 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "टर्मिनल दाखवा"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:527
+#: src/MainWindow.vala:604
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:832 src/Services/Document.vala:526
+#: src/MainWindow.vala:932 src/Services/Document.vala:605
 msgid "All files"
 msgstr "सर्व फाईल्स"
 
-#: src/MainWindow.vala:836 src/Services/Document.vala:530
+#: src/MainWindow.vala:936 src/Services/Document.vala:609
 msgid "Text files"
 msgstr "टेक्स्ट फाईल्स"
 
-#: src/MainWindow.vala:840
+#: src/MainWindow.vala:940
 msgid "Open some files"
 msgstr "काही फाईल्स उघडा"
 
-#: src/MainWindow.vala:843
+#: src/MainWindow.vala:943
 msgid "Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:844 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:403
-#: src/Services/Document.vala:538 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
+#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: src/MainWindow.vala:869
+#: src/MainWindow.vala:971
 msgid "_Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:870
+#: src/MainWindow.vala:972
 msgid "_Cancel"
 msgstr "रद्द करा"
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "ब्रँच"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "प्राधान्ये"
 
@@ -171,84 +171,94 @@ msgstr ""
 "सक्रिय निवडीशिवाय कटिंग किंवा कॉपी केल्याने संपूर्ण वर्तमान ओळ कापली जाईल किंवा कॉपी "
 "होईल"
 
-#: src/Dialogs/PreferencesDialog.vala:55
+#: src/Dialogs/PreferencesDialog.vala:52
+msgid "Default build directory"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
 msgstr "सामान्य"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:65
 msgid "Save files when changed:"
 msgstr "बदल केल्यावर फाईल्स सेव्ह करा:"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Smart cut/copy lines:"
 msgstr "ओळी स्मार्ट कट / कॉपी :"
 
-#: src/Dialogs/PreferencesDialog.vala:61
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Tabs"
 msgstr "टॅब्स"
 
-#: src/Dialogs/PreferencesDialog.vala:62
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Automatic indentation:"
 msgstr "स्वयंचलित समास:"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:73
 msgid "Insert spaces instead of tabs:"
 msgstr "टॅब्स च्या ऐवजी रिकाम्या जागा लावा:"
 
-#: src/Dialogs/PreferencesDialog.vala:66
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Strip trailing whitespace:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:77
 msgid "Tab width:"
 msgstr "टॅबची रूंदी:"
 
-#: src/Dialogs/PreferencesDialog.vala:74
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Project templates"
+msgid "Projects"
+msgstr "प्रोजेक्ट टेम्प्लेट"
+
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
 msgstr "व्‍यवहार"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:88
 msgid "Interface"
 msgstr "इंटरफेस"
 
-#: src/Dialogs/PreferencesDialog.vala:91
+#: src/Dialogs/PreferencesDialog.vala:104
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "बंद करा"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Extensions"
 msgstr "एक्सटेंशन्स"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Editor"
 msgstr "एडीटर"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Highlight matching brackets:"
 msgstr "सध्याची ओळ हायलाईट करा:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Line wrap:"
 msgstr "ओळ लपेट:"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:135
 msgid "Visible whitespace:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Show Mini Map:"
 msgstr "मिनी मॅप दाखवा:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:144
 msgid "Line width guide:"
 msgstr "ओळीच्या रूंदीची गाईड:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:152
 msgid "Font"
 msgstr "फॉन्ट"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:154
 msgid "Custom font:"
 msgstr "आपला आवडता फॉन्ट:"
 
@@ -268,77 +278,82 @@ msgstr "पुनर्संचयित करू नका"
 msgid "Restore Anyway"
 msgstr "तरीही पुनर्संचयित करा"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:120
+msgid "Open in Terminal Pane"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"
 msgstr "अन्य अप्लिकेशन…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
 msgid "Open In"
 msgstr "उघडण्यास वापरा"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
 msgid "Other Actions"
 msgstr "अन्य कारवाई"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
 msgid "Rename"
 msgstr "नाव बदला"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:163
+#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:182
 msgid "Move to Trash"
 msgstr "कचऱ्या मध्ये टाका"
 
-#: src/FolderManager/FileView.vala:42
+#: src/FolderManager/FileView.vala:49
 msgid "Folders"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:150
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Folder…"
 msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:218
 msgid "Folder"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:221
 msgid "Empty File"
 msgstr "रिकामी फाईल"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:251
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/ProjectFolderItem.vala:271
+#: src/FolderManager/ProjectFolderItem.vala:277
 msgid "New"
 msgstr "नवीन"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:387
 msgid "untitled folder"
 msgstr "निनावी फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:366
+#: src/FolderManager/FolderItem.vala:387
 msgid "new file"
 msgstr "नवीन फाईल"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:130
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Close Other Folders"
 msgstr "इतर फोल्डर्स बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:121
+#: src/FolderManager/ProjectFolderItem.vala:140
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:154
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -346,188 +361,210 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "नवीन दस्तऐवज"
 msgstr[1] "नवीन दस्तऐवज"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:169
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Project…"
 msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:277
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, सुधारले"
 
-#: src/FolderManager/ProjectFolderItem.vala:295
+#: src/FolderManager/ProjectFolderItem.vala:315
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:601
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "ब्रँच"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:614
 msgid "Branch"
 msgstr "ब्रँच"
 
-#: src/Services/Document.vala:276
+#: src/Services/Document.vala:324
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s  एक टेक्स्ट फाईल नाहीए"
 
-#: src/Services/Document.vala:277
+#: src/Services/Document.vala:325
 msgid "Code will not load this type of file."
 msgstr "कोड या प्रकारची फाईल लोड करणार नाही."
 
-#: src/Services/Document.vala:279
+#: src/Services/Document.vala:327
 msgid "Load Anyway"
 msgstr "कशीही लोड करा"
 
-#: src/Services/Document.vala:300
+#: src/Services/Document.vala:348
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "%s फाईल लोड होण्यास जादा वेळ घेत आहे"
 
-#: src/Services/Document.vala:301
+#: src/Services/Document.vala:349
 msgid "Please wait while Code is loading the file."
 msgstr "कोड फाईल लोड करीत असे पर्यंत कृपया प्रतिक्षा करा."
 
-#: src/Services/Document.vala:303
+#: src/Services/Document.vala:351
 msgid "Cancel Loading"
 msgstr "लोड करणे रद्द करा"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:438
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "\"%s\" बंद करण्याअगोदर बदल सेव्ह करायचे आहेत का?"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
 msgstr "आपण सेव्ह न केल्यास  केलेले बदल नेहमीकरिता नाहीसे होतील."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:445
 msgid "Close Without Saving"
 msgstr "सेव्ह न करता बंद करा"
 
-#: src/Services/Document.vala:404 src/Services/Document.vala:537
-#: src/Services/Document.vala:814
+#: src/Services/Document.vala:449 src/Services/Document.vala:616
 msgid "Save"
 msgstr "सेव्ह करा"
 
-#: src/Services/Document.vala:534
+#: src/Services/Document.vala:575
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Saving to “%s” failed."
+msgstr "\"%s\" बंद करण्याअगोदर बदल सेव्ह करायचे आहेत का?"
+
+#: src/Services/Document.vala:613
 msgid "Save File"
 msgstr "फाईल सेव्ह करा"
 
-#: src/Services/Document.vala:621 src/Services/Document.vala:639
+#: src/Services/Document.vala:700 src/Services/Document.vala:718
 msgid "New Document"
 msgstr "नवीन दस्तऐवज"
 
+#. No path for a new document
+#: src/Services/Document.vala:720
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:762
+#: src/Services/Document.vala:786
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:765
+#: src/Services/Document.vala:789
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "बहुतेक ही फाईल खराब आहे अथवा आपल्याला ही फाईल वाचण्याची अनुमती नाही."
 
-#: src/Services/Document.vala:767
+#: src/Services/Document.vala:791
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:773
+#: src/Services/Document.vala:797
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "कशीही लोड करा"
 
-#: src/Services/Document.vala:802
+#: src/Services/Document.vala:828
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
 #| "save somewhere else?"
 msgid ""
-"The location containing the file “%s” was unmounted. Do you want to save "
-"somewhere else?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "\"%s\" फाईल असंलेली जागा अन माउंट करण्यात अली आहे. आपल्याला फाईल अन्य ठिकाणी सेव्ह "
 "करायची आहे का?"
 
-#: src/Services/Document.vala:805
-msgid "Save As…"
-msgstr "अन्य प्रकारे सेव्ह करा…"
-
-#: src/Services/Document.vala:811
-#, fuzzy, c-format
-#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgid "File “%s” was deleted. Do you want to save it anyway?"
-msgstr "\"%s\" फाईल हटविल्या गेली आहे. तरीही आपणांस सेव्ह करायची आहे का?"
-
-#: src/Services/Document.vala:855
+#: src/Services/Document.vala:830
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid ""
-"File “%s” was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+msgid "File “%s” was deleted and there are unsaved changes."
 msgstr ""
 "फाईल \"%s\" एका बाह्य अप्लिकेशन द्वारे बदलल्या गेली आहे. आपणांस ती पुन्हा लोड करायची आहे "
 "कि आपले लिखाण सुरु ठेवायचे आहे?"
 
-#: src/Services/Document.vala:858
-msgid "Load"
-msgstr "लोड करा"
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:844
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "\"%s\" फाईल हटविल्या गेली आहे. तरीही आपणांस सेव्ह करायची आहे का?"
 
-#: src/Services/Document.vala:861
+#: src/Services/Document.vala:890
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was modified by an external application"
+msgstr ""
+"फाईल \"%s\" एका बाह्य अप्लिकेशन द्वारे बदलल्या गेली आहे. आपणांस ती पुन्हा लोड करायची आहे "
+"कि आपले लिखाण सुरु ठेवायचे आहे?"
+
+#: src/Services/Document.vala:895
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:899
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:915
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:924
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:926
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:975
 msgid "Continue"
 msgstr "सुरु ठेवा"
 
-#: src/Services/Document.vala:888
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save the document to “%s”. Do you want to save the file somewhere "
-"else?"
-msgstr ""
-"आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्य ठिकाणी "
-"सेव्ह करायचे आहेत का?"
+#: src/Services/Document.vala:977
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "अपलोड करा"
 
-#: src/Services/Document.vala:892
-#, fuzzy, c-format
-#| msgid ""
-#| "You cannot save changes to the file \"%s\". Do you want to save the "
-#| "changes somewhere else?"
-msgid ""
-"You cannot save changes to the file “%s”. Do you want to save the changes "
-"somewhere else?"
+#: src/Services/Document.vala:980
+msgid "Overwrite"
 msgstr ""
-"आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्य ठिकाणी "
-"सेव्ह करायचे आहेत का?"
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:983
 #, fuzzy
 #| msgid "Save changes elsewhere"
-msgid "Save the document elsewhere"
+msgid "Save Document elsewhere"
 msgstr "बदल अन्य ठिकाणी सेव्ह करा"
 
 #: src/Services/TemplateManager.vala:198
@@ -547,224 +584,216 @@ msgstr "सिम्बॉल्स"
 msgid "No Project Selected"
 msgstr "प्रोजेक्ट टेम्प्लेट"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:112
-#: src/Widgets/ChooseProjectButton.vala:162
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:159
+#: src/Widgets/DocumentView.vala:167
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "%s:%d मधल्या टेक्स्ट फाईल्स"
 
-#: src/Widgets/FormatBar.vala:46
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "सिंटेक्स हाईलाइटिंग"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 msgid "Line number"
 msgstr "ओळ क्रमांक"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr "भाषा फिल्टर करा"
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr "साधे लिखाण"
 
-#: src/Widgets/FormatBar.vala:145
+#: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:148
+#: src/Widgets/FormatBar.vala:152
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic Indentation"
 msgstr "स्वयंचलित समास:"
 
-#: src/Widgets/FormatBar.vala:150
+#: src/Widgets/FormatBar.vala:154
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "टॅब्स च्या ऐवजी रिकाम्या जागा लावा:"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:156
 #, fuzzy
 #| msgid "Tab width:"
 msgid "Tab width"
 msgstr "टॅबची रूंदी:"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "या ओळीवर जा:"
 
-#: src/Widgets/FormatBar.vala:269
+#: src/Widgets/FormatBar.vala:287
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d रिकामी जागा"
 msgstr[1] "%d रिकाम्या जागा"
 
-#: src/Widgets/FormatBar.vala:271
+#: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d टॅब"
 msgstr[1] "%d टॅब्स"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "फाईल उघडा"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "प्रोजेक्ट टेम्प्लेट"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "ही फाईल सेव्ह करा"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "ही फाईल अन्य नावाने सेव्ह करा"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "ही फाईल पुर्वस्थितीत आणा"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "शेअर करा"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "झूम आउट"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "झूम  1:1"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "झूम इन"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "टर्मिनल दाखवा"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "टर्मिनल लपवा"
-
-#: src/Widgets/Sidebar.vala:57
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Open Folder…"
 msgstr "फोल्डर उघडा"
 
-#: src/Widgets/Sidebar.vala:60
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr "सर्व संकुचित करा"
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:70
 msgid "Alphabetize"
 msgstr "अल्फाबेटाईझ"
 
-#: src/Widgets/Sidebar.vala:76
+#: src/Widgets/Sidebar.vala:82
 msgid "Manage project folders"
 msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "शोधा"
 
-#: src/Widgets/SearchBar.vala:75
+#: src/Widgets/SearchBar.vala:74
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "पुढे शोधा"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:100
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "चक्री शोध"
 
-#: src/Widgets/SearchBar.vala:103 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "कधीही नाही"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:103
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:105
+#: src/Widgets/SearchBar.vala:104
 msgid "Always"
 msgstr "नेहमी"
 
-#: src/Widgets/SearchBar.vala:108
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr "केस संवेदनशील"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:116
+#: src/Widgets/SearchBar.vala:115
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:137
+#: src/Widgets/SearchBar.vala:136
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:169
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "च्या सोबत बदला"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "बदला"
 
-#: src/Widgets/SearchBar.vala:175
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:574
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:519
+#: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
 msgstr "निवडलेल्या ओळी क्रमबद्ध करा"
 
-#: src/Widgets/SourceView.vala:532
+#: src/Widgets/SourceView.vala:564
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल  करा"
 
@@ -870,6 +899,45 @@ msgstr "कृपया कमीत कमी एक [aspell] dictionary इन
 msgid "%s - Word Completion"
 msgstr "%s -  शब्द संपूर्ण"
 
+#, fuzzy, c-format
+#~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#~ msgid "File “%s” was deleted."
+#~ msgstr "\"%s\" फाईल हटविल्या गेली आहे. तरीही आपणांस सेव्ह करायची आहे का?"
+
+#~ msgid "Set of plugins"
+#~ msgstr "प्लगिन्सचा संच"
+
+#~ msgid "plugin"
+#~ msgstr "प्लगइन"
+
+#~ msgid "Save As…"
+#~ msgstr "अन्य प्रकारे सेव्ह करा…"
+
+#~ msgid "Load"
+#~ msgstr "लोड करा"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्य "
+#~ "ठिकाणी सेव्ह करायचे आहेत का?"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्य "
+#~ "ठिकाणी सेव्ह करायचे आहेत का?"
+
 #, c-format
 #~ msgid "File \"%s\" Cannot Be Read"
 #~ msgstr "\"%s\" फाईल वाचली जाऊ शकत नाही"
@@ -969,9 +1037,6 @@ msgstr "%s -  शब्द संपूर्ण"
 
 #~ msgid "Others…"
 #~ msgstr "अन्य…"
-
-#~ msgid "Upload"
-#~ msgstr "अपलोड करा"
 
 #~ msgid "Other formats"
 #~ msgstr "अन्य प्रारूप"

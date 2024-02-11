@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
      */
-    public abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+    public abstract class Item: Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
         public File file { get; construct; }
 
         public FileView view { get; construct; }
@@ -55,7 +55,7 @@ namespace Scratch.FolderManager {
             file.trash ();
         }
 
-        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+        public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
             if (a is RenameItem) {
                 return -1;
             } else if (b is RenameItem) {
@@ -67,6 +67,8 @@ namespace Scratch.FolderManager {
             } else if (a is FileItem && b is FolderItem) {
                 return 1;
             }
+
+            assert (a is Item && b is Item); //Ensure more informative error message
 
             return File.compare (((Item)a).file, ((Item)b).file);
         }
@@ -100,7 +102,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+        public ProjectFolderItem? get_root_folder (Code.Widgets.SourceList.ExpandableItem? start = null) {
             if (start == null) {
                 start = this;
             }

@@ -163,4 +163,21 @@ namespace Scratch.Utils {
         return true;
     }
 
+    public bool check_if_valid_text_file (string path, FileInfo info) {
+        if (path.has_prefix (".goutputstream")) {
+            return false;
+        }
+
+        if (info.get_is_backup ()) {
+            return false;
+        }
+
+        if (info.get_file_type () == FileType.REGULAR &&
+            ContentType.is_a (info.get_content_type (), "text/*")) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

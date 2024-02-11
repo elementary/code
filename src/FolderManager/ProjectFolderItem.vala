@@ -82,6 +82,14 @@ namespace Scratch.FolderManager {
             }
         }
 
+        protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+            if (source.equal (file.file) && event == DELETED) {
+                closed ();
+            } else {
+                base.on_changed (source, dest, event);
+            }
+        }
+
         public void child_folder_changed (FolderItem folder) {
             if (monitored_repo != null) {
                 monitored_repo.update_status_map ();
@@ -108,6 +116,17 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_terminal_pane_label = new Granite.AccelLabel.from_action_name (
+               _("Open in Terminal Pane"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL + "::"
+            );
+
+            var open_in_terminal_pane_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                action_target = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (path))
+            };
+            open_in_terminal_pane_item.add (open_in_terminal_pane_label);
+
             var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_folder_item.activate.connect (() => {
                 closed ();
@@ -188,6 +207,7 @@ namespace Scratch.FolderManager {
             }
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_terminal_pane_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
@@ -323,7 +343,11 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
         }
 
-        public void global_search (GLib.File start_folder = this.file.file, string? term = null) {
+        public void global_search (
+            GLib.File start_folder = this.file.file,
+            string? term = null,
+            bool is_explicit = false
+        ) {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
             string? search_term = null;
@@ -410,7 +434,7 @@ namespace Scratch.FolderManager {
             remove_all_badges ();
             collapse_all ();
 
-            if (monitored_repo != null) {
+            if (monitored_repo != null && !is_explicit) {
                 try {
                     monitored_repo.git_repo.file_status_foreach (status_options, (rel_path, status) => {
                         var target = file.file.resolve_relative_path (rel_path);
