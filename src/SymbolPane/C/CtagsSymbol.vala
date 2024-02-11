@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.CtagsSymbol : Granite.Widgets.SourceList.ExpandableItem {
+public class Scratch.Services.CtagsSymbol : Code.Widgets.SourceList.ExpandableItem {
     public Scratch.Services.Document doc { get; construct set; }
     public int line { get; construct set; }
 

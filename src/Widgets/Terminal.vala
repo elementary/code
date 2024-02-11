@@ -11,7 +11,7 @@ public class Code.Terminal : Gtk.Box {
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
     private GLib.Pid child_pid;
-    private Vte.Terminal terminal;
+    public Vte.Terminal terminal { get; construct; }
 
     construct {
         terminal = new Vte.Terminal () {
@@ -60,21 +60,7 @@ public class Code.Terminal : Gtk.Box {
         });
 
         var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
-        try {
-            var last_path_setting = settings.get_string ("last-opened-path");
-            //FIXME Replace with the async method once the .vapi is fixed upstream.
-            terminal.spawn_sync (
-                Vte.PtyFlags.DEFAULT,
-                last_path_setting == "" ? "~/" : last_path_setting,
-                { Vte.get_user_shell () },
-                null,
-                GLib.SpawnFlags.SEARCH_PATH,
-                null,
-                out child_pid
-            );
-        } catch (GLib.Error e) {
-            warning (e.message);
-        }
+        spawn_shell (settings.get_string ("last-opened-path"));
 
         var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
         scrolled_window.add (terminal);
@@ -84,6 +70,31 @@ public class Code.Terminal : Gtk.Box {
         destroy.connect (() => {
             settings.set_string ("last-opened-path", get_shell_location ());
         });
+
+        show_all ();
+    }
+
+    private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
+        try {
+            terminal.spawn_sync (
+                Vte.PtyFlags.DEFAULT,
+                dir,
+                { Vte.get_user_shell () },
+                null,
+                SpawnFlags.SEARCH_PATH,
+                null,
+                out this.child_pid,
+                null
+            );
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
+
+    public void change_location (string dir) {
+        Posix.kill (child_pid, Posix.Signal.TERM);
+        terminal.reset (true, true);
+        spawn_shell (dir);
     }
 
     private string get_shell_location () {

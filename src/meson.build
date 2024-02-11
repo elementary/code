@@ -34,8 +34,10 @@ code_files = files(
     'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
+    'Services/LocationJumpManager.vala',
     'Services/MonitoredRepository.vala',
     'Services/PluginManager.vala',
+    'Services/RestoreOverride.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
     'Widgets/ChooseProjectButton.vala',
@@ -46,6 +48,9 @@ code_files = files(
     'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
+    'Widgets/SourceList/CellRendererBadge.vala',
+    'Widgets/SourceList/CellRendererExpander.vala',
+    'Widgets/SourceList/SourceList.vala',
     'Widgets/SourceView.vala',
     'Widgets/Terminal.vala',
     'Widgets/WelcomeView.vala',
@@ -57,7 +62,7 @@ code_files = files(
     'SymbolPane/C/CtagsSymbol.vala',
     'SymbolPane/C/CtagsSymbolIter.vala',
     'SymbolPane/C/CtagsSymbolOutline.vala',
-
+    'Structs/SelectionRange.vala'
 )
 
 executable(

@@ -21,12 +21,15 @@
 /**
  * SourceList that displays folders and their contents.
  */
-public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.PaneSwitcher {
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
-    private ActionGroup? toplevel_action_group = null;
+
+    public ActionGroup toplevel_action_group { get; private set; }
+    private Scratch.Services.PluginsManager plugins;
 
     public signal void select (string file);
+    public signal bool rename_request (File file);
 
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
@@ -35,6 +38,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         get {
             return git_manager.active_project_path;
         }
+    }
+
+    public FileView (Scratch.Services.PluginsManager plugins_manager) {
+        plugins = plugins_manager;
     }
 
     construct {
@@ -53,7 +60,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         });
     }
 
-    private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+    private void on_item_selected (Code.Widgets.SourceList.Item? item) {
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         if (ignore_next_select) {
@@ -75,8 +82,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     public void open_folder (File folder) {
         if (is_open (folder)) {
             var existing = find_path (root, folder.path);
-            if (existing is Granite.Widgets.SourceList.ExpandableItem) {
-                ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+            if (existing is Code.Widgets.SourceList.ExpandableItem) {
+                ((Code.Widgets.SourceList.ExpandableItem)existing).expanded = true;
             }
 
             return;
@@ -114,6 +121,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         item_selected.connect (on_item_selected);
     }
 
+    public void unselect_all () {
+        selected = null;
+    }
+
     public void collapse_other_projects (string? keep_open_path = null) {
         unowned string path;
         if (keep_open_path == null) {
@@ -135,7 +146,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
-    private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+    private unowned Code.Widgets.SourceList.Item? find_path (Code.Widgets.SourceList.ExpandableItem list,
                                                                 string path,
                                                                 bool expand = false) {
         foreach (var item in list.children) {
@@ -145,8 +156,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
                     return (!)item;
                 }
 
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                if (item is Code.Widgets.SourceList.ExpandableItem) {
+                    var expander = item as Code.Widgets.SourceList.ExpandableItem;
                     if (!path.has_prefix (code_item.path)) {
                         continue;
                     }
@@ -183,7 +194,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         return null;
     }
 
-    public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+    public unowned Code.Widgets.SourceList.Item? expand_to_path (string path) {
          return find_path (root, path, true);
     }
 
@@ -193,7 +204,12 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
-                search_root.global_search (search_root.file.file, term);
+                GLib.File start_folder = (item_for_path is FolderItem)
+                    ? item_for_path.file.file
+                    : search_root.file.file;
+
+                bool is_explicit = !(item_for_path is ProjectFolderItem);
+                search_root.global_search (start_folder, term, is_explicit);
             }
         }
     }
@@ -226,6 +242,9 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
+    public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        plugins.hook_folder_item_change (source, dest, event);
+    }
 
     private void rename_items_with_same_name (Item item) {
         string item_name = item.file.name;

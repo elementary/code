@@ -29,6 +29,7 @@ namespace Scratch.Services {
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
         public Scratch.TemplateManager template_manager { private set; get; }
 
@@ -66,6 +67,7 @@ namespace Scratch.Services {
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
@@ -90,10 +92,12 @@ namespace Scratch.Services {
                 ((Peas.Activatable)ext).activate ();
                 extension_added (info);
             });
+
             exts.extension_removed.connect ((info, ext) => {
                 ((Peas.Activatable)ext).deactivate ();
                 extension_removed (info);
             });
+
             exts.foreach (on_extension_foreach);
 
             // Connect managers signals to interface's signals
@@ -104,6 +108,7 @@ namespace Scratch.Services {
             this.hook_share_menu.connect ((m) => {
                 plugin_iface.hook_share_menu (m);
             });
+
             this.hook_toolbar.connect ((t) => {
                 plugin_iface.hook_toolbar (t);
             });
@@ -111,8 +116,13 @@ namespace Scratch.Services {
             this.hook_document.connect ((d) => {
                 plugin_iface.hook_document (d);
             });
+
             this.hook_preferences_dialog.connect ((d) => {
                 plugin_iface.hook_preferences_dialog (d);
+            });
+
+            this.hook_folder_item_change.connect ((source, dest, event) => {
+                plugin_iface.hook_folder_item_change (source, dest, event);
             });
         }
 

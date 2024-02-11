@@ -27,7 +27,7 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private bool has_dummy;
-        private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
+        private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -40,9 +40,9 @@ namespace Scratch.FolderManager {
         construct {
             selectable = false;
 
-            dummy = new Granite.Widgets.SourceList.Item ("");
+            dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
             toggled.connect (on_toggled);
@@ -63,7 +63,7 @@ namespace Scratch.FolderManager {
                  file.children.size > 0) {
 
                 foreach (var child in file.children) {
-                    Granite.Widgets.SourceList.Item item = null;
+                    Code.Widgets.SourceList.Item item = null;
                     if (child.is_valid_directory ()) {
                         item = new FolderItem (child, view);
                     } else if (child.is_valid_textfile) {
@@ -88,6 +88,11 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                action_target = new Variant.string (file.path)
+            };
+
             var contractor_menu = new Gtk.Menu ();
 
             GLib.FileInfo info = null;
@@ -118,8 +123,25 @@ namespace Scratch.FolderManager {
 
             var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_menu_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
+                selectable = true;
+                if (view.start_editing_item (this)) {
+                    // Need to poll view as no signal emited when editing cancelled and need to set
+                    // selectable to false anyway.
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
+                            view.unselect_all ();
+                            // Must do this *after* unselecting all else sourcelist breaks
+                            selectable = false;
+                        }
+
+                        return Source.REMOVE;
+                    });
+                } else {
+                    debug ("Could not rename %s", file.path);
+                    selectable = false;
+                }
             });
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
@@ -131,6 +153,7 @@ namespace Scratch.FolderManager {
             };
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_terminal_pane_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
@@ -214,7 +237,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+        private void remove_badge (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 ((FolderItem) item).remove_all_badges ();
             }
@@ -222,16 +245,16 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        public new void add (Granite.Widgets.SourceList.Item item) {
+        public new void add (Code.Widgets.SourceList.Item item) {
             if (has_dummy && n_children == 1) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+                ((Code.Widgets.SourceList.ExpandableItem)this).remove (dummy);
                 has_dummy = false;
             }
 
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (item);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (item);
         }
 
-        public new void remove (Granite.Widgets.SourceList.Item item) {
+        public new void remove (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 var folder = (FolderItem)item;
                 foreach (var child in folder.children) {
@@ -240,23 +263,25 @@ namespace Scratch.FolderManager {
             }
 
             view.ignore_next_select = true;
-            ((Granite.Widgets.SourceList.ExpandableItem)this).remove (item);
+            ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
             // Add back dummy if empty unless we are removing a rename item
             if (!(item is RenameItem || has_dummy || n_children > 0)) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+                ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }
         }
 
         public new void clear () {
-            ((Granite.Widgets.SourceList.ExpandableItem)this).clear ();
+            ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
             has_dummy = false;
         }
 
-        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
                 return; // Ignore changes due to temp files and streams
             }
+
+            view.folder_item_update_hook (source, dest, event);
 
             if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */
@@ -309,6 +334,8 @@ namespace Scratch.FolderManager {
                                 path_item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
                                 path_item = new FileItem (file, view);
+                            } else {
+                                break;
                             }
 
                             add (path_item);
@@ -370,14 +397,12 @@ namespace Scratch.FolderManager {
             add (rename_item);
             /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
-                view.start_editing_item (rename_item);
-                /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
-                Timeout.add (200, () => {
-                    if (view.editing) {
-                        return Source.CONTINUE;
-                    } else {
+                if (view.start_editing_item (rename_item)) {
+                    ulong once = 0;
+                    once = rename_item.edited.connect (() => {
+                        rename_item.disconnect (once);
+                        // A name was accepted so create the corresponding file
                         var new_name = rename_item.name;
-                        view.ignore_next_select = true;
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
@@ -388,20 +413,30 @@ namespace Scratch.FolderManager {
                             }
                         } catch (Error e) {
                             warning (e.message);
-                        } finally {
+                        }
+                    });
+
+                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
                             remove (rename_item);
                         }
-                    }
 
-                    return Source.REMOVE;
-                });
+                        return Source.REMOVE;
+                    });
+                } else {
+                    remove (rename_item);
+                }
+
 
                 return Source.REMOVE;
             });
         }
     }
 
-    internal class RenameItem : Granite.Widgets.SourceList.Item {
+    internal class RenameItem : Code.Widgets.SourceList.Item {
         public bool is_folder { get; construct; }
 
         public RenameItem (string name, bool is_folder) {
