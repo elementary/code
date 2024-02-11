@@ -134,44 +134,26 @@ namespace Scratch.Dialogs {
 
             var draw_spaces_label = new SettingsLabel (_("White space visible when not selected:"));
 
-            var never_button = new Gtk.RadioButton.with_label (null, _("None"));
-            never_button.set_mode (false);
-            never_button.set_data<uint> ("id", 0);
-
-            var current_button = new Gtk.RadioButton.with_label_from_widget (never_button, _("Current Line"));
-            current_button.set_mode (false);
-            current_button.set_data<uint> ("id", 1);
-
-            var always_button = new Gtk.RadioButton.with_label_from_widget (never_button, _("All"));
-            always_button.set_mode (false);
-            always_button.set_data<uint> ("id", 2);
-
-
-            switch (Scratch.settings.get_enum ("draw-spaces")) {
-                case 0:
-                    never_button.active = true;
-                    break;
-                case 1:
-                    current_button.active = true;
-                    break;
-                case 2:
-                    always_button.active = true;
-                    break;
-                default:
-                    warning ("unrecognized draw space state");
-                    never_button.active = true;
-                    break;
-            }
-
-            never_button.toggled.connect (on_whitespace_toggled);
-            current_button.toggled.connect (on_whitespace_toggled);
-            always_button.toggled.connect (on_whitespace_toggled);
-
-            var draw_spaces_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            draw_spaces_box.add (never_button);
-            draw_spaces_box.add (current_button);
-            draw_spaces_box.add (always_button);
-
+            var drawspaces_combobox = new Gtk.ComboBoxText () {
+                hexpand = true
+            };
+            drawspaces_combobox.append_text (_("None"));
+            drawspaces_combobox.append_text (_("Current Line"));
+            drawspaces_combobox.append_text (_("All"));
+            drawspaces_combobox.active = Scratch.settings.get_enum ("draw-spaces").clamp (0, 2);
+            drawspaces_combobox.changed.connect (() => {
+                switch (drawspaces_combobox.active) {
+                    case 0:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.NEVER);
+                        break;
+                    case 1:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.CURRENT);
+                        break;
+                    case 2:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.ALWAYS);
+                        break;
+                }
+            });
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
 
@@ -202,7 +184,7 @@ namespace Scratch.Dialogs {
             content.attach (line_wrap_label, 0, 3, 1, 1);
             content.attach (line_wrap, 1, 3, 1, 1);
             content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_box, 1, 4, 2, 1);
+            content.attach (drawspaces_combobox, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
@@ -214,23 +196,6 @@ namespace Scratch.Dialogs {
             content.attach (select_font, 2, 9, 1, 1);
 
             return content;
-        }
-
-        private void on_whitespace_toggled (GLib.Object source) {
-            var toggle_button = (Gtk.ToggleButton)source;
-            if (toggle_button.active) {
-                switch (source.get_data<uint> ("id")) {
-                    case 0:
-                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.NEVER);
-                        break;
-                    case 1:
-                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.CURRENT);
-                        break;
-                    case 2:
-                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.ALWAYS);
-                        break;
-                }
-            }
         }
 
         private class SettingsLabel : Gtk.Label {
