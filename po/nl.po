@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2023-12-05 21:00+0000\n"
+"PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "Default build directory"
-msgstr ""
+msgstr "Standaard bouwmap"
 
 #: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
@@ -198,10 +198,8 @@ msgid "Tab width:"
 msgstr "Tabbreedte:"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "Project"
+msgstr "Projecten"
 
 #: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
@@ -273,7 +271,7 @@ msgstr "Toch herstellen"
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
 #: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Openen in terminalvenster"
 
 #: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"

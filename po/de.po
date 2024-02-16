@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-01-21 21:11+0000\n"
+"PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "Default build directory"
-msgstr ""
+msgstr "Standard-Build-Verzeichnis"
 
 #: src/Dialogs/PreferencesDialog.vala:64
 msgid "General"
@@ -199,10 +199,8 @@ msgid "Tab width:"
 msgstr "Tabulatorbreite:"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "Projekt"
+msgstr "Projekte"
 
 #: src/Dialogs/PreferencesDialog.vala:87
 msgid "Behavior"
