@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-02-12 06:41+0000\n"
+"PO-Revision-Date: 2024-02-18 11:47+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -664,7 +664,7 @@ msgstr "検索"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "No Results"
-msgstr "結果がありません"
+msgstr "結果なし"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -725,7 +725,7 @@ msgstr "%d / %d件"
 
 #: src/Widgets/SearchBar.vala:574
 msgid "no results"
-msgstr "結果がありません"
+msgstr "結果なし"
 
 #: src/Widgets/SourceView.vala:551
 msgid "Sort Selected Lines"
@@ -745,7 +745,7 @@ msgstr "貼り付け"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr "開いているファイルはありません"
+msgstr "開いているファイルなし"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
