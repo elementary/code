@@ -132,12 +132,28 @@ namespace Scratch.Dialogs {
             var line_wrap_label = new SettingsLabel (_("Line wrap:"));
             var line_wrap = new SettingsSwitch ("line-wrap");
 
-            var draw_spaces_label = new SettingsLabel (_("Visible whitespace:"));
-            var draw_spaces_switch = new DrawSpacesSwitch () {
-                halign = Gtk.Align.START,
-                valign = Gtk.Align.CENTER
-            };
+            var draw_spaces_label = new SettingsLabel (_("White space visible when not selected:"));
 
+            var drawspaces_combobox = new Gtk.ComboBoxText () {
+                hexpand = true
+            };
+            drawspaces_combobox.append_text (_("None"));
+            drawspaces_combobox.append_text (_("Current Line"));
+            drawspaces_combobox.append_text (_("All"));
+            drawspaces_combobox.active = Scratch.settings.get_enum ("draw-spaces").clamp (0, 2);
+            drawspaces_combobox.changed.connect (() => {
+                switch (drawspaces_combobox.active) {
+                    case 0:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.NEVER);
+                        break;
+                    case 1:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.CURRENT);
+                        break;
+                    case 2:
+                        Scratch.settings.set_enum ("draw-spaces", (int)ScratchDrawSpacesState.ALWAYS);
+                        break;
+                }
+            });
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
 
@@ -168,7 +184,7 @@ namespace Scratch.Dialogs {
             content.attach (line_wrap_label, 0, 3, 1, 1);
             content.attach (line_wrap, 1, 3, 1, 1);
             content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_switch, 1, 4, 2, 1);
+            content.attach (drawspaces_combobox, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
@@ -195,26 +211,6 @@ namespace Scratch.Dialogs {
                 halign = Gtk.Align.START;
                 valign = Gtk.Align.CENTER;
                 Scratch.settings.bind (setting, this, "active", SettingsBindFlags.DEFAULT);
-            }
-        }
-
-        private class DrawSpacesSwitch : Gtk.Switch {
-            public string string_value {
-                get {
-                    return active ? "Always" : "For Selection";
-                }
-                set {
-                    active = (value == "Always");
-                }
-            }
-
-            public DrawSpacesSwitch () {
-                halign = Gtk.Align.START;
-                valign = Gtk.Align.CENTER;
-                notify["active"].connect (() => {
-                    string_value = active ? "Always" : "For Selection";
-                });
-                Scratch.settings.bind ("draw-spaces", this, "string_value", SettingsBindFlags.DEFAULT);
             }
         }
     }
