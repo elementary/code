@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-18 11:47+0000\n"
-"PO-Revision-Date: 2024-01-27 13:11+0000\n"
+"PO-Revision-Date: 2024-02-22 00:12+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -234,21 +234,19 @@ msgstr "Ajust de línia:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
 msgid "White space visible when not selected:"
-msgstr ""
+msgstr "Espai en blanc visible quan no s'ha seleccionat:"
 
 #: src/Dialogs/PreferencesDialog.vala:140
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #: src/Dialogs/PreferencesDialog.vala:141
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "Suprimeix la vista actual"
+msgstr "Línia actual"
 
 #: src/Dialogs/PreferencesDialog.vala:142
 msgid "All"
-msgstr ""
+msgstr "Tot"
 
 #: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
