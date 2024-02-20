@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-18 11:47+0000\n"
-"PO-Revision-Date: 2024-02-18 11:47+0000\n"
+"PO-Revision-Date: 2024-02-22 00:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -230,21 +230,19 @@ msgstr "行の折り返し:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
 msgid "White space visible when not selected:"
-msgstr ""
+msgstr "非選択時に空白を表示:"
 
 #: src/Dialogs/PreferencesDialog.vala:140
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 #: src/Dialogs/PreferencesDialog.vala:141
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "現在のビューを削除"
+msgstr "現在の行"
 
 #: src/Dialogs/PreferencesDialog.vala:142
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 #: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
