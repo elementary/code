@@ -71,6 +71,7 @@ namespace Scratch {
         public const string ACTION_SORT_LINES = "action_sort_lines";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
+        public const string ACTION_DUPLICATE_TAB = "action_duplicate_tab";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
@@ -98,6 +99,8 @@ namespace Scratch {
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
         public const string ACTION_CLOSE_TAB = "action_close_tab";
+        public const string ACTION_CLOSE_TABS_TO_RIGHT = "action_close_tabs_to_right";
+        public const string ACTION_CLOSE_OTHER_TABS = "action_close_other_tabs";
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
@@ -128,6 +131,7 @@ namespace Scratch {
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
+            { ACTION_DUPLICATE_TAB, action_duplicate_tab },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
@@ -149,7 +153,9 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
-            { ACTION_CLOSE_TAB, action_close_tab, "s"},
+            { ACTION_CLOSE_TAB, action_close_tab, "s" },
+            { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
+            { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
@@ -206,6 +212,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
+            action_accelerators.set (ACTION_CLOSE_TAB + "::", "<Control>w");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
@@ -586,9 +593,8 @@ namespace Scratch {
                 update_find_actions ();
             });
 
-            document_view.tab_removed.connect ((tab) => {
+            document_view.tab_removed.connect ((doc) => {
                 update_find_actions ();
-                var doc = (Scratch.Services.Document)tab;
                 var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
                 if (selected_item != null && selected_item.file.file.equal (doc.file)) {
                     // Do not leave removed tab selected
@@ -1063,13 +1069,37 @@ namespace Scratch {
         }
 
         private void action_close_tab (SimpleAction action, Variant? param) {
-            var close_path = get_target_path_for_actions (param);
+            string close_path = "";
+            if (param != null) {
+                close_path = param.get_string ();
+            }
+
+            if (close_path == "") {
+                var doc = get_current_document ();
+                if (doc != null) {
+                    document_view.close_document (doc);
+                }
+                return;
+            }
+
             unowned var docs = document_view.docs;
             docs.foreach ((doc) => {
                 if (doc.file.get_path () == close_path) {
                     document_view.close_document (doc);
                 }
             });
+        }
+
+        private void action_duplicate_tab () {
+            document_view.duplicate_tab ();
+        }
+
+        private void action_close_tabs_to_right () {
+            document_view.close_tabs_to_right ();
+        }
+
+        private void action_close_other_tabs () {
+            document_view.close_other_tabs ();
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {
