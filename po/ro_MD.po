@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -236,22 +236,36 @@ msgid "Line wrap:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Eliminați vizualizarea curentă"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Arată mini harta:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Ghidaj pentru lățimea liniei:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "Stil"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Stil personalizat:"
 
@@ -784,12 +798,12 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Pentru textul selectat"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr ""
 
@@ -1040,9 +1054,6 @@ msgstr "%s - Finalizarea cuvintelor"
 
 #~ msgid "Add New View"
 #~ msgstr "Adăugați o vizualizare nouă"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Eliminați vizualizarea curentă"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "un dosar fără titlu %d"

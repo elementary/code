@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2024-01-27 13:11+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"PO-Revision-Date: 2024-02-22 00:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -229,28 +229,40 @@ msgid "Line wrap:"
 msgstr "行の折り返し:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
-msgstr "空白を表示:"
+msgid "White space visible when not selected:"
+msgstr "非選択時に空白を表示:"
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr "なし"
 
 #: src/Dialogs/PreferencesDialog.vala:141
+msgid "Current Line"
+msgstr "現在の行"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr "すべて"
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "ミニマップを表示:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "行の幅のガイド:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "フォント"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr "このファイルを編集前の状態に復元してもよろしいですか？"
+msgstr "このファイルを編集前の状態に復元してもよろしいですか?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
@@ -400,7 +412,7 @@ msgstr "読み込みをキャンセル"
 #: src/Services/Document.vala:438
 #, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "閉じる前に “%s” への変更を保存しますか？"
+msgstr "閉じる前に “%s” への変更を保存しますか?"
 
 #: src/Services/Document.vala:439
 msgid "If you don't save, changes will be permanently lost."
@@ -493,7 +505,7 @@ msgstr "ドキュメントは、最後の保存以降に外部で変更されま
 #: src/Services/Document.vala:915
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "“%s” はここには保存できません。複製をほかの場所に保存しますか？"
+msgstr "“%s” はここには保存できません。ほかの場所に複製して保存しますか?"
 
 #: src/Services/Document.vala:924
 msgid "Ignore"
@@ -664,7 +676,7 @@ msgstr "検索"
 
 #: src/Widgets/SearchBar.vala:74
 msgid "No Results"
-msgstr "結果がありません"
+msgstr "結果なし"
 
 #: src/Widgets/SearchBar.vala:86
 msgid "Search next"
@@ -725,13 +737,13 @@ msgstr "%d / %d件"
 
 #: src/Widgets/SearchBar.vala:574
 msgid "no results"
-msgstr "結果がありません"
+msgstr "結果なし"
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "コメントアウト／コメントイン"
 
@@ -745,7 +757,7 @@ msgstr "貼り付け"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr "開いているファイルはありません"
+msgstr "開いているファイルなし"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
@@ -836,6 +848,9 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "空白を表示:"
 
 #, c-format
 #~ msgid "File “%s” was deleted."
@@ -993,9 +1008,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Add New View"
 #~ msgstr "新しいビューを追加"
-
-#~ msgid "Remove Current View"
-#~ msgstr "現在のビューを削除"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "名称未設定フォルダー %d"

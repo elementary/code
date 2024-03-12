@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2016-09-02 08:23+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -243,24 +243,36 @@ msgid "Line wrap:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:135
-#, fuzzy
-#| msgid "Strip trailing whitespace"
-msgid "Visible whitespace:"
-msgstr "Hiq hapësirat në fundit të rreshtit"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Hiq pamjen e tanishme"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Shfaq hartën e vogël:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Vijë udhëzuese për gjerësisë:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Shkronja të vetë-zgjedhura:"
 
@@ -799,11 +811,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr ""
 
@@ -917,6 +929,11 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s -Vetë-plotësimi i fjalëve"
 
+#, fuzzy
+#~| msgid "Strip trailing whitespace"
+#~ msgid "Visible whitespace:"
+#~ msgstr "Hiq hapësirat në fundit të rreshtit"
+
 #, fuzzy, c-format
 #~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 #~ msgid "File “%s” was deleted."
@@ -1012,9 +1029,6 @@ msgstr "%s -Vetë-plotësimi i fjalëve"
 
 #~ msgid "Add New View"
 #~ msgstr "Shto pamje të re"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Hiq pamjen e tanishme"
 
 #, fuzzy
 #~ msgid "new file %d"

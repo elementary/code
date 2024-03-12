@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2024-01-30 14:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -239,22 +239,36 @@ msgid "Line wrap:"
 msgstr "Linjebryting:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
-msgstr "Synlige blanktegn:"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Fjern den valgte visninga"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Vis minikart:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Linjebreddehentydning:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "Skrift"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Egendefinert skrifttype:"
 
@@ -769,11 +783,11 @@ msgstr "%d av %d"
 msgid "no results"
 msgstr "resultatløst"
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "Sorter valgte linjer"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "Veksle kommentar"
 
@@ -878,6 +892,9 @@ msgstr "Installer minst én [aspel]-ordbok."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordfullføring"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "Synlige blanktegn:"
 
 #, fuzzy, c-format
 #~| msgid "The file %s was deleted."
@@ -1029,9 +1046,6 @@ msgstr "%s - Ordfullføring"
 
 #~ msgid "Add New View"
 #~ msgstr "Legg til ny visning"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Fjern den valgte visninga"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "ikke navngitt mappe %d"

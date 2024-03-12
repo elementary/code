@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2022-02-18 03:56+0000\n"
 "Last-Translator: Jose Manuel Hernandez Farias <ing.josemhf@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
@@ -246,24 +246,36 @@ msgid "Line wrap:"
 msgstr "Ajuste de renglones:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-#, fuzzy
-#| msgid "Strip trailing whitespace"
-msgid "Visible whitespace:"
-msgstr "Eliminar espacios en blanco"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Quitar vista actual"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Mostrar el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Guía de longitud de renglón:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "Tipo de letra"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Tipo de letra personalizado:"
 
@@ -790,11 +802,11 @@ msgstr ""
 msgid "no results"
 msgstr "sin resultados"
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "Ordenar líneas seleccionadas"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "Alternar comentario"
 
@@ -899,6 +911,11 @@ msgstr "Instale por lo menos un diccionario [de aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s. Compleción de palabras"
+
+#, fuzzy
+#~| msgid "Strip trailing whitespace"
+#~ msgid "Visible whitespace:"
+#~ msgstr "Eliminar espacios en blanco"
 
 #, fuzzy, c-format
 #~| msgid "The file %s was deleted."
@@ -1059,9 +1076,6 @@ msgstr "%s. Compleción de palabras"
 
 #~ msgid "Add New View"
 #~ msgstr "Añadir vista nueva"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Quitar vista actual"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "carpeta sin título %d"

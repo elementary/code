@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -235,22 +235,34 @@ msgid "Line wrap:"
 msgstr "ਲਾਈਨਾਂ ਲਪੇਟੋ:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+msgid "Current Line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "ਮਿਨੀ ਨਕਸ਼ਾ ਵਿਖਾਓ:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "ਲਾਈਨ ਦੀ ਚੌੜਾਈ ਦਾ ਰਹਿਬਰ:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "ਫੌਂਟ"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "ਤਬਦੀਲੀ ਕੀਤੇ ਫੌਂਟ:"
 
@@ -770,11 +782,11 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "ਚੁਣੀਆਂ ਲਾਈਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦਿਓ"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "ਟਿੱਪਣੀ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 

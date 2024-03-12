@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
-"PO-Revision-Date: 2023-12-03 01:55+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"PO-Revision-Date: 2024-03-03 06:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,11 +156,11 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:74
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
-msgstr ""
+msgstr "プロジェクト全体でファイルを検索する、ファジーファインドプラグインを追加"
 
 #: data/code.metainfo.xml.in:75
 msgid "Save and restore the state of the terminal pane"
-msgstr ""
+msgstr "ターミナルペインの状態を保存・復元するように変更"
 
 #: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:116
 #: data/code.metainfo.xml.in:165 data/code.metainfo.xml.in:205
@@ -186,21 +186,22 @@ msgstr "コマンドラインオプション \"--new-tab\" が動作しない不
 
 #: data/code.metainfo.xml.in:82
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "シンボルペインの幅が同期・保存されるように修正"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
-msgstr ""
+msgstr "プロジェクトフォルダーが外部で名称変更や移動、削除された場合、自動的に閉じる"
+"ように修正"
 
 #: data/code.metainfo.xml.in:84
 msgid "Fixed temporary backup files persisting under some circumstances"
-msgstr ""
+msgstr "一時バックアップファイルが一部のケースで残り続ける不具合を修正"
 
 #: data/code.metainfo.xml.in:85
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "Show-Replace アクションを改善"
 
 #: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:127
 #: data/code.metainfo.xml.in:175 data/code.metainfo.xml.in:207

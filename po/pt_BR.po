@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2023-07-08 17:07+0000\n"
 "Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
@@ -235,22 +235,36 @@ msgid "Line wrap:"
 msgstr "Quebra de linha:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
-msgstr "Espaço em branco visível:"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Remover visualização atual"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Mostrar mini mapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Largura na linha de guia:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "Fonte"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Fonte personalizada:"
 
@@ -777,11 +791,11 @@ msgstr ""
 msgid "no results"
 msgstr "sem resultados"
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "Ordenar Linhas Selecionadas"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "Alternar Comentário"
 
@@ -886,6 +900,9 @@ msgstr "Por favor, instale pelo menos um dicionário [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Conclusão de Palavras"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "Espaço em branco visível:"
 
 #, fuzzy, c-format
 #~| msgid "The file %s was deleted."
@@ -1035,9 +1052,6 @@ msgstr "%s - Conclusão de Palavras"
 
 #~ msgid "Add New View"
 #~ msgstr "Adicionar nova visualização"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Remover visualização atual"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "pasta sem título %d"

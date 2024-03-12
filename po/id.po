@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 13:56+0000\n"
+"POT-Creation-Date: 2024-02-18 11:47+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -233,22 +233,36 @@ msgid "Line wrap:"
 msgstr "Gulung baris:"
 
 #: src/Dialogs/PreferencesDialog.vala:135
-msgid "Visible whitespace:"
-msgstr "Perlihatkan spasi kosong:"
+msgid "White space visible when not selected:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:140
+msgid "None"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Singkirkan Tinjauan Tertampil"
+
+#: src/Dialogs/PreferencesDialog.vala:142
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:157
 msgid "Show Mini Map:"
 msgstr "Tampilkan Peta Mini:"
 
-#: src/Dialogs/PreferencesDialog.vala:144
+#: src/Dialogs/PreferencesDialog.vala:160
 msgid "Line width guide:"
 msgstr "Pedoman lebar baris:"
 
-#: src/Dialogs/PreferencesDialog.vala:152
+#: src/Dialogs/PreferencesDialog.vala:168
 msgid "Font"
 msgstr "Huruf"
 
-#: src/Dialogs/PreferencesDialog.vala:154
+#: src/Dialogs/PreferencesDialog.vala:170
 msgid "Custom font:"
 msgstr "Huruf kustom:"
 
@@ -733,11 +747,11 @@ msgstr "%d dari %d"
 msgid "no results"
 msgstr "tidak ada hasil"
 
-#: src/Widgets/SourceView.vala:551
+#: src/Widgets/SourceView.vala:556
 msgid "Sort Selected Lines"
 msgstr "Urutkan Baris yang Dipilih"
 
-#: src/Widgets/SourceView.vala:564
+#: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
 msgstr "Munculkan Komentar"
 
@@ -842,6 +856,9 @@ msgstr "Harap pasang setidaknya satu kamus [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Kata"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "Perlihatkan spasi kosong:"
 
 #, c-format
 #~ msgid "File “%s” was deleted."
@@ -982,9 +999,6 @@ msgstr "%s - Pelengkapan Kata"
 
 #~ msgid "Add New View"
 #~ msgstr "Tambah Tinjauan Baru"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Singkirkan Tinjauan Tertampil"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "%d folder tanpa judul"
