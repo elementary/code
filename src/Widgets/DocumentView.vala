@@ -452,7 +452,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
             if (Utils.find_unique_path (d.file, doc.file, out new_tabname_d, out new_tabname_doc)) {
                 if (d.title.length < new_tabname_d.length) {
-                    d.tab_name = new_tabname_d;
+                    d.title = new_tabname_d;
                 }
 
                 if (doc_tab_name.length < new_tabname_doc.length) {
@@ -461,7 +461,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
         }
 
-        doc.tab_name = doc_tab_name;
+        doc.title = doc_tab_name;
     }
 
     private void save_focused_document_uri (Services.Document? current_document) {

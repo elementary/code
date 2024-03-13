@@ -61,13 +61,7 @@ namespace Scratch.Services {
                 source_file.set_location (value);
                 source_view.location = value;
                 file_changed ();
-                tab_name = get_basename ();
-            }
-        }
-
-         public string tab_name {
-            set {
-                title = value;
+                title = get_basename ();
             }
         }
 
@@ -1097,11 +1091,11 @@ namespace Scratch.Services {
             string unsaved_identifier = "* ";
 
             if (!val) {
-                if (!(unsaved_identifier in this.title)) {
-                    tab_name = unsaved_identifier + this.title;
+                if (!(unsaved_identifier in title)) {
+                    title = unsaved_identifier + title;
                 }
             } else {
-                tab_name = this.title.replace (unsaved_identifier, "");
+                title = title.replace (unsaved_identifier, "");
             }
         }
 
