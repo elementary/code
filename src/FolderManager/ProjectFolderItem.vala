@@ -63,7 +63,7 @@ namespace Scratch.FolderManager {
                         name, monitored_repo.branch_name
                     );
                 } else { //Distinguish detached heads visually
-                    markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 }
