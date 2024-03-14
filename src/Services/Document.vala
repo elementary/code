@@ -136,16 +136,14 @@ namespace Scratch.Services {
             }
         }
 
-        private bool _loading = false;
         public bool loading {
             get {
-                return _loading;
+                return tab == null ? false : tab.loading;
             }
 
             set {
-                _loading = value;
                 if (tab != null) {
-                    tab.loading = _loading;
+                    tab.loading = value;
                 }
             }
         }
