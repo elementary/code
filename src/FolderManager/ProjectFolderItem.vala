@@ -59,11 +59,11 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 //As SourceList items are not widgets we have to use markup to change appearance of text.
                 if (monitored_repo.head_is_branch) {
-                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                    markup = "%s\n<span size='small' weight='normal'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 } else { //Distinguish detached heads visually
-                    markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 }
