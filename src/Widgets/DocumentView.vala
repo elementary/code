@@ -156,6 +156,16 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         add (tab_view);
     }
 
+    public void transfer_tab_to_new_window () {
+        if (tab_view.selected_page == null) {
+            return;
+        }
+
+        var current_tab = tab_view.selected_page;
+        var new_window = new MainWindow (false);
+        tab_view.transfer_page (current_tab, new_window.document_view.tab_view, 0);
+    }
+
     public void close_document (Services.Document doc) {
         tab_view.close_page (doc.tab);
     }
@@ -330,6 +340,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         close_tab_section.append (_("Close Tab"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB + "::");
 
         var open_tab_section = new Menu ();
+        open_tab_section.append (_("Open in New Window"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_MOVE_TAB_TO_NEW_WINDOW);
         open_tab_section.append (_("Duplicate"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_DUPLICATE_TAB);
 
         tab_menu.append_section (null, close_tab_section);

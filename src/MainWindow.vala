@@ -104,6 +104,7 @@ namespace Scratch {
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
+        public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -158,7 +159,8 @@ namespace Scratch {
             { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
-            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
+            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
+            { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window }
         };
 
         public MainWindow (bool restore_docs) {
@@ -1370,6 +1372,10 @@ namespace Scratch {
 
         private void action_new_branch (SimpleAction action, Variant? param) {
             folder_manager_view.new_branch (get_target_path_for_actions (param));
+        }
+
+        private void action_move_tab_to_new_window () {
+            document_view.transfer_tab_to_new_window ();
         }
 
         private string? get_target_path_for_actions (Variant? path_variant, bool use_build_dir = false) {
