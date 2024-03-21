@@ -137,6 +137,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.page_detached.connect (on_doc_removed);
         tab_view.page_reordered.connect (on_doc_reordered);
         tab_view.create_window.connect (on_doc_to_new_window);
+        tab_view.page_attached.connect (on_doc_attached);
 
         notify["outline-visible"].connect (update_outline_visible);
         Scratch.saved_state.bind ("outline-width", this, "outline-width", DEFAULT);
@@ -157,13 +158,14 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void transfer_tab_to_new_window () {
-        if (tab_view.selected_page == null) {
+        var target = tab_menu_target ?? current_document.tab;
+
+        if (target == null) {
             return;
         }
 
-        var current_tab = tab_view.selected_page;
         var new_window = new MainWindow (false);
-        tab_view.transfer_page (current_tab, new_window.document_view.tab_view, 0);
+        tab_view.transfer_page (target, new_window.document_view.tab_view, 0);
     }
 
     public void close_document (Services.Document doc) {
@@ -171,20 +173,39 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void close_tabs_to_right () {
+        var target = tab_menu_target ?? current_document.tab;
+
+        if (target == null) {
+            return;
+        }
+
         if (current_document != null) {
-            tab_view.close_pages_after (current_document.tab);
+            tab_view.close_pages_after (target);
         }
     }
 
     public void close_other_tabs () {
+        var target = tab_menu_target ?? tab_view.selected_page;
+
+        if (target == null) {
+            return;
+        }
+
         if (current_document != null) {
-            tab_view.close_pages_before (current_document.tab);
+            tab_view.close_pages_before (target);
         }
     }
 
     public void duplicate_tab () {
-        if (current_document != null) {
-            new_document_from_clipboard (current_document.get_text ());
+        var target = tab_menu_target ?? tab_view.selected_page;
+
+        if (target == null) {
+            return;
+        }
+
+        var doc = target.get_child () as Services.Document;
+        if (doc != null) {
+            new_document_from_clipboard (doc.get_text ());
         }
     }
 
@@ -217,7 +238,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
     }
-
 
     public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
        for (int n = 0; n <= docs.length (); n++) {
@@ -339,8 +359,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     private void insert_document (Scratch.Services.Document doc, int pos) {
         var page = tab_view.insert (doc, pos);
-        doc.init_tab (page);
-        on_doc_added (doc);
         if (Scratch.saved_state.get_boolean ("outline-visible")) {
             debug ("setting outline visible");
             doc.show_outline (true);
@@ -357,26 +375,21 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return Path.build_filename (window.app.data_home_folder_unsaved, new_text_file) + "." + extension;
     }
 
-    private void on_doc_added (Services.Document doc) {
+    private void before_doc_removed (Services.Document doc) {
+        on_doc_removed_shared (doc);
+    }
+
+    private void on_doc_removed (Hdy.TabPage tab, int position) {
+        var doc = tab.get_child () as Services.Document;
         if (doc == null) {
-            print ("No tab!\n");
             return;
         }
 
-        docs.append (doc);
-        doc.actions = window.actions;
-
-        Scratch.Services.DocumentManager.get_instance ().add_open_document (doc);
-
-        if (!doc.is_file_temporary) {
-           rename_tabs_with_same_title (doc);
-        }
-
-        doc.source_view.focus_in_event.connect_after (on_focus_in_event);
-        tab_added (doc);
+        on_doc_removed_shared (doc);
+        request_placeholder_if_empty ();
     }
 
-    private void before_doc_removed (Services.Document doc) {
+    private void on_doc_removed_shared (Services.Document doc) {
         docs.remove (doc);
         tab_removed (doc);
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
@@ -396,10 +409,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    private void on_doc_removed (Hdy.TabPage tab, int position) {
-        request_placeholder_if_empty ();
-    }
-
     private void on_doc_reordered (Hdy.TabPage tab, int new_position) {
         var doc = tab.child as Services.Document;
         if (doc != null) {
@@ -414,6 +423,24 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
         var other_window = new MainWindow (false);
         return other_window.document_view.tab_view;
+    }
+
+    private void on_doc_attached (Hdy.TabPage page, int position) {
+        var doc = page.get_child () as Services.Document;
+
+        doc.init_tab (page);
+
+        docs.append (doc);
+        doc.actions = window.actions;
+
+        Scratch.Services.DocumentManager.get_instance ().add_open_document (doc);
+
+        if (!doc.is_file_temporary) {
+           rename_tabs_with_same_title (doc);
+        }
+
+        doc.source_view.focus_in_event.connect_after (on_focus_in_event);
+        tab_added (doc);
     }
 
     private bool on_focus_in_event () {
