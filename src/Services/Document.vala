@@ -298,9 +298,7 @@ namespace Scratch.Services {
         public void init_tab (Hdy.TabPage tab) {
             this.tab = tab;
             /* Block user editing while tab is loading */
-            notify["tab.loading"].connect (() => {
-                source_view.sensitive = !tab.loading;
-            });
+            notify["tab.loading"].connect (on_tab_loading_change);
 
             tab.title = title;
             // tab.icon = icon;
@@ -524,6 +522,7 @@ namespace Scratch.Services {
                 // Delete backup copy file
                 closing = true; // Stops recreating backup when trailing space stripped
                 delete_backup ();
+                notify["tab.loading"].disconnect (on_tab_loading_change);
                 doc_closed ();
             }
 
@@ -1299,6 +1298,10 @@ namespace Scratch.Services {
 
             source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
             source_buffer.place_cursor (iter);
+        }
+
+        private void on_tab_loading_change () {
+            source_view.sensitive = !tab.loading;
         }
     }
 }
