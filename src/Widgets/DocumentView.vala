@@ -57,11 +57,9 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public bool outline_visible { get; set; default = false; }
     public int outline_width { get; set; }
 
-
     private Hdy.TabView tab_view;
     private Hdy.TabBar tab_bar;
-
-    protected const string TAB_MENU_ACTION_GROUP_PREFIX = "";
+    private weak Hdy.TabPage? tab_menu_target = null;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (
@@ -81,7 +79,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         };
 
         tab_view.menu_model = create_menu_model ();
-        //  tab_view.setup_menu.connect (tab_view_setup_menu);
+        tab_view.setup_menu.connect (tab_view_setup_menu);
         tab_view.notify["selected-page"].connect (() => {
             if (tab_view.selected_page == null) {
                 return;
@@ -328,6 +326,15 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void tab_view_setup_menu (Hdy.TabPage? page) {
+        tab_menu_target = page;
+
+        var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
+        var close_tabs_to_right_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TABS_TO_RIGHT, window.actions);
+
+        int page_position = tab_view.get_page_position (page);
+
+        close_other_tabs_action.set_enabled (page != null && page_position > 0);
+        close_tabs_to_right_action.set_enabled (page != null && page_position != tab_view.n_pages - 1);
     }
 
     private void insert_document (Scratch.Services.Document doc, int pos) {
@@ -474,5 +481,5 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         menu.append_section (null, close_tab_section);
         menu.append_section (null, open_tab_section);
         return menu;
-    } 
+    }
 }
