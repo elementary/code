@@ -61,6 +61,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private Hdy.TabView tab_view;
     private Hdy.TabBar tab_bar;
 
+    protected const string TAB_MENU_ACTION_GROUP_PREFIX = "";
+
     public DocumentView (Scratch.MainWindow window) {
         Object (
             window: window,
@@ -78,8 +80,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             vexpand = true
         };
 
-        tab_view.menu_model = new GLib.Menu ();
-        tab_view.setup_menu.connect (tab_view_setup_menu);
+        tab_view.menu_model = create_menu_model ();
+        //  tab_view.setup_menu.connect (tab_view_setup_menu);
         tab_view.notify["selected-page"].connect (() => {
             if (tab_view.selected_page == null) {
                 return;
@@ -326,25 +328,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void tab_view_setup_menu (Hdy.TabPage? page) {
-        if (page == null) {
-            return;
-        }
-
-
-        var tab_menu = (Menu) tab_view.menu_model;
-        tab_menu.remove_all ();
-
-        var close_tab_section = new Menu ();
-        close_tab_section.append (_("Close Tabs to the Right"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TABS_TO_RIGHT);
-        close_tab_section.append (_("Close Other Tabs"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_OTHER_TABS);
-        close_tab_section.append (_("Close Tab"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB + "::");
-
-        var open_tab_section = new Menu ();
-        open_tab_section.append (_("Open in New Window"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_MOVE_TAB_TO_NEW_WINDOW);
-        open_tab_section.append (_("Duplicate"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_DUPLICATE_TAB);
-
-        tab_menu.append_section (null, close_tab_section);
-        tab_menu.append_section (null, open_tab_section);
     }
 
     private void insert_document (Scratch.Services.Document doc, int pos) {
@@ -475,4 +458,21 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             Scratch.settings.set_string ("focused-document", file_uri);
         }
     }
+
+    private GLib.Menu create_menu_model () {
+        var menu = new GLib.Menu ();
+
+        var close_tab_section = new Menu ();
+        close_tab_section.append (_("Close Tabs to the Right"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TABS_TO_RIGHT);
+        close_tab_section.append (_("Close Other Tabs"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_OTHER_TABS);
+        close_tab_section.append (_("Close Tab"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB + "::");
+
+        var open_tab_section = new Menu ();
+        open_tab_section.append (_("Open in New Window"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_MOVE_TAB_TO_NEW_WINDOW);
+        open_tab_section.append (_("Duplicate"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_DUPLICATE_TAB);
+
+        menu.append_section (null, close_tab_section);
+        menu.append_section (null, open_tab_section);
+        return menu;
+    } 
 }
