@@ -45,7 +45,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             document_change (_current_document, this);
             _current_document.focus ();
             save_focused_document_uri (current_document);
-            if (tab_view.selected_page != value.tab) {
+            if (tab_view.selected_page != value.tab && value.tab != null) {
                 tab_view.selected_page = value.tab;
             }
         }
@@ -81,6 +81,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.menu_model = new GLib.Menu ();
         tab_view.setup_menu.connect (tab_view_setup_menu);
         tab_view.notify["selected-page"].connect (() => {
+            if (tab_view.selected_page == null) {
+                return;
+            }
+
             current_document = tab_view.selected_page.child as Services.Document;
         });
 
@@ -132,6 +136,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         tab_view.page_detached.connect (on_doc_removed);
         tab_view.page_reordered.connect (on_doc_reordered);
+        tab_view.create_window.connect (on_doc_to_new_window);
 
         notify["outline-visible"].connect (update_outline_visible);
         Scratch.saved_state.bind ("outline-width", this, "outline-width", DEFAULT);
@@ -403,6 +408,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         save_opened_files ();
+    }
+
+    private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
+        var other_window = new MainWindow (false);
+        return other_window.document_view.tab_view;
     }
 
     private bool on_focus_in_event () {
