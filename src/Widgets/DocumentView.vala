@@ -168,8 +168,19 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.transfer_page (target, new_window.document_view.tab_view, 0);
     }
 
-    public void close_document (Services.Document doc) {
-        tab_view.close_page (doc.tab);
+    public void close_document (Services.Document? doc) {
+        if (doc != null) {
+            tab_view.close_page (doc.tab);
+            return;
+        }
+
+        var target = tab_menu_target ?? current_document.tab;
+
+        if (target == null) {
+            return;
+        }
+
+        tab_view.close_page (target);
     }
 
     public void close_tabs_to_right () {
@@ -345,6 +356,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         current_document.focus ();
     }
 
+    // This is called when tab context menu is opened or closed
     private void tab_view_setup_menu (Hdy.TabPage? page) {
         tab_menu_target = page;
 
@@ -358,7 +370,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void insert_document (Scratch.Services.Document doc, int pos) {
-        var page = tab_view.insert (doc, pos);
+        tab_view.insert (doc, pos);
         if (Scratch.saved_state.get_boolean ("outline-visible")) {
             debug ("setting outline visible");
             doc.show_outline (true);
