@@ -81,7 +81,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.menu_model = new GLib.Menu ();
         tab_view.setup_menu.connect (tab_view_setup_menu);
         tab_view.notify["selected-page"].connect (() => {
-            current_document = search_for_document_in_tab (tab_view.selected_page);
+            current_document = tab_view.selected_page.child as Services.Document;
         });
 
         var new_tab_button = new Gtk.Button.from_icon_name ("list-add-symbolic") {
@@ -113,7 +113,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         // TabView tab events
         tab_view.close_page.connect ((tab) => {
-            var doc = search_for_document_in_tab (tab);
+            var doc = tab.child as Services.Document;
             if (doc == null) {
                 tab_view.close_page_finish (tab, true);
             } else {
@@ -171,30 +171,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         if (current_document != null) {
             new_document_from_clipboard (current_document.get_text ());
         }
-    }
-
-    public Services.Document search_for_document_in_tab (Hdy.TabPage tab) {
-        unowned var current = docs;
-
-        bool should_end_search = false;
-        Services.Document matching_document = null;
-
-        while (!should_end_search) {
-            if (current == null || current.length () == 0) {
-                should_end_search = true;
-            } else {
-                var doc = current.data;
-                if (doc.tab == tab) {
-                    matching_document = doc;
-                    should_end_search = true;
-                }
-
-                current = current.next;
-            }
-
-        }
-
-        return matching_document;
     }
 
     public void new_document () {
@@ -419,10 +395,13 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void on_doc_reordered (Hdy.TabPage tab, int new_position) {
-        var doc = search_for_document_in_tab (tab);
-        docs.remove (doc);
-        docs.insert (doc, new_position);
-        current_document = doc;
+        var doc = tab.child as Services.Document;
+        if (doc != null) {
+            docs.remove (doc);
+            docs.insert (doc, new_position);
+            current_document = doc;
+        }
+
         save_opened_files ();
     }
 
