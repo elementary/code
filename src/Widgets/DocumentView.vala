@@ -149,9 +149,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         // Handle Drag-and-drop of files onto add-tab button to create document
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
-        var drag_dest_targets = new Gtk.TargetList ({uris});
-        tab_bar.set_extra_drag_dest_targets (drag_dest_targets);
-        // tab_bar.extra_drag_data_received (drag_received);
+        Gtk.drag_dest_set (tab_bar, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        tab_bar.drag_data_received.connect (drag_received);
 
         add (tab_bar);
         add (tab_view);
@@ -550,5 +549,25 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         menu.append_section (null, close_tab_section);
         menu.append_section (null, open_tab_section);
         return menu;
+    }
+
+    private void drag_received (Gtk.Widget w,
+                                Gdk.DragContext ctx,
+                                int x,
+                                int y,
+                                Gtk.SelectionData sel,
+                                uint info,
+                                uint time) {
+
+        if (info == TargetType.URI_LIST) {
+            var uris = sel.get_uris ();
+            foreach (var filename in uris) {
+                var file = File.new_for_uri (filename);
+                var doc = new Services.Document (window.actions, file);
+                open_document (doc);
+            }
+
+            Gtk.drag_finish (ctx, true, false, time);
+        }
     }
 }
