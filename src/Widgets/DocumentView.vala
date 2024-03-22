@@ -214,9 +214,29 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return;
         }
 
-        var doc = target.get_child () as Services.Document;
-        if (doc != null) {
-            new_document_from_clipboard (doc.get_text ());
+        var original_doc = target.get_child () as Services.Document;
+        if (original_doc == null) {
+            return;
+        }
+
+        try {
+            var file = File.new_for_path (unsaved_duplicated_file_path_builder (original_doc.file.get_basename ()));
+            file.create (FileCreateFlags.PRIVATE);
+
+            var doc = new Services.Document (window.actions, file);
+            doc.source_view.set_text (original_doc.get_text ());
+            doc.source_view.language = original_doc.source_view.language;
+            if (Scratch.settings.get_boolean ("autosave")) {
+                doc.save_with_hold.begin (true);
+            }
+
+
+
+            insert_document (doc, tab_view.get_page_position (target) + 1);
+            current_document = doc;
+            doc.focus ();
+        } catch (Error e) {
+            warning ("Cannot copy \"%s\": %s", original_doc.get_basename (), e.message);
         }
     }
 
@@ -385,6 +405,16 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                                 );
 
         return Path.build_filename (window.app.data_home_folder_unsaved, new_text_file) + "." + extension;
+    }
+
+    private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string extension = "txt";
+        string[] parts = original_filename.split (".", 2);
+        if (parts.length > 1) {
+            extension = parts[parts.length - 1];
+        }
+
+        return unsaved_file_path_builder (extension);
     }
 
     private void before_doc_removed (Services.Document doc) {
