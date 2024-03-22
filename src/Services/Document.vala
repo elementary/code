@@ -181,8 +181,6 @@ namespace Scratch.Services {
         public Document (SimpleActionGroup actions, File file) {
             Object (
                 actions: actions
-                // hexpand: true,
-                // vexpand: true
             );
 
             this.file = file;
@@ -297,11 +295,10 @@ namespace Scratch.Services {
 
         public void init_tab (Hdy.TabPage tab) {
             this.tab = tab;
-            /* Block user editing while tab is loading */
             notify["tab.loading"].connect (on_tab_loading_change);
 
             tab.title = title;
-            // tab.icon = icon;
+            tab.icon = icon;
             tab.tooltip = get_tab_tooltip ();
         }
 
@@ -1300,6 +1297,7 @@ namespace Scratch.Services {
             source_buffer.place_cursor (iter);
         }
 
+        /* Block user editing while tab is loading */
         private void on_tab_loading_change () {
             source_view.sensitive = !tab.loading;
         }
