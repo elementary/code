@@ -134,10 +134,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return true;
         });
 
+        tab_view.page_attached.connect (on_doc_added);
         tab_view.page_detached.connect (on_doc_removed);
         tab_view.page_reordered.connect (on_doc_reordered);
         tab_view.create_window.connect (on_doc_to_new_window);
-        tab_view.page_attached.connect (on_doc_attached);
 
         notify["outline-visible"].connect (update_outline_visible);
         Scratch.saved_state.bind ("outline-width", this, "outline-width", DEFAULT);
@@ -174,7 +174,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         var target = tab_menu_target ?? current_document.tab;
-
         if (target == null) {
             return;
         }
@@ -208,7 +207,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     public void duplicate_tab () {
         var target = tab_menu_target ?? tab_view.selected_page;
-
         if (target == null) {
             return;
         }
@@ -228,8 +226,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save_with_hold.begin (true);
             }
-
-
 
             insert_document (doc, tab_view.get_page_position (target) + 1);
             current_document = doc;
@@ -466,7 +462,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return other_window.document_view.tab_view;
     }
 
-    private void on_doc_attached (Hdy.TabPage page, int position) {
+    private void on_doc_added (Hdy.TabPage page, int position) {
         var doc = page.get_child () as Services.Document;
 
         doc.init_tab (page);
