@@ -68,7 +68,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         /* <Alt>f shows fuzzy search dialog */
         switch (Gdk.keyval_to_upper (keyval)) {
             case ACCEL_KEY:
-                if (state == ACCEL_MODTYPE) {
+                if ((state & ACCEL_MODTYPE) == ACCEL_MODTYPE) {
                     fuzzy_find ();
                     return true;
                 }
