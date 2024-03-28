@@ -60,6 +60,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private Hdy.TabView tab_view;
     private Hdy.TabBar tab_bar;
     private weak Hdy.TabPage? tab_menu_target = null;
+    private Gtk.CssProvider style_provider;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (
@@ -139,6 +140,19 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.page_reordered.connect (on_doc_reordered);
         tab_view.create_window.connect (on_doc_to_new_window);
 
+        style_provider = new Gtk.CssProvider ();
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
+        update_inline_tab_colors ();
+        Scratch.settings.changed["style-scheme"].connect (update_inline_tab_colors);
+        Scratch.settings.changed["follow-system-style"].connect (update_inline_tab_colors);
+        var granite_settings = Granite.Settings.get_default ();
+        granite_settings.notify["prefers-color-scheme"].connect (update_inline_tab_colors);
+
         notify["outline-visible"].connect (update_outline_visible);
         Scratch.saved_state.bind ("outline-width", this, "outline-width", DEFAULT);
         this.notify["outline-width"].connect (() => {
@@ -154,6 +168,40 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         add (tab_bar);
         add (tab_view);
+    }
+
+    private void update_inline_tab_colors () {
+        var style_scheme = "";
+        if (settings.get_boolean ("follow-system-style")) {
+            var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            if (system_prefers_dark) {
+                style_scheme = "elementary-dark";
+            } else {
+                style_scheme = "elementary-light";
+            }
+        } else {
+            style_scheme = Scratch.settings.get_string ("style-scheme");
+        }
+
+        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        if (style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (style_scheme);
+            var text_color_data = theme.get_style ("text");
+
+            // Default gtksourceview background color is white
+            var color = "#FFFFFF";
+            if (text_color_data != null) {
+                // If the current style has a background color, use that
+                color = text_color_data.background;
+            }
+
+            var define = "@define-color tab_base_color %s;".printf (color);
+            try {
+                style_provider.load_from_data (define);
+            } catch (Error e) {
+                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
+            }
+        }
     }
 
     public void transfer_tab_to_new_window () {
