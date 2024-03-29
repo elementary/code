@@ -20,7 +20,9 @@
 ***/
 
 public class Scratch.Widgets.DocumentView : Gtk.Box {
-     public enum TargetType {
+    const int TAB_HISTORY_MAX_ITEMS = 20;
+
+    public enum TargetType {
         URI_LIST
     }
 
@@ -496,7 +498,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         if (path_in_menu) {
             menu.remove (position_in_menu);
         }
-        
+
+        if (menu.get_n_items () == TAB_HISTORY_MAX_ITEMS) {
+            menu.remove (TAB_HISTORY_MAX_ITEMS - 1);
+        }
+
         menu.prepend (
             path,
             "%s::%s".printf (MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_CLOSED_TAB, path)
