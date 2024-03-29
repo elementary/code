@@ -105,6 +105,7 @@ namespace Scratch {
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
         public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
+        public const string ACTION_RESTORE_CLOSED_TAB = "action_restore_closed_tab";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -160,7 +161,8 @@ namespace Scratch {
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
-            { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window }
+            { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
+            { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" }
         };
 
         public MainWindow (bool restore_docs) {
@@ -1111,6 +1113,10 @@ namespace Scratch {
 
         private void action_restore_project_docs (SimpleAction action, Variant? param) {
             restore_project_docs (get_target_path_for_actions (param));
+        }
+
+        private void action_restore_closed_tab (SimpleAction action, Variant? param) {
+            document_view.restore_closed_tab (param.get_string ());
         }
 
         private void close_project_docs (string project_path, bool make_restorable) {

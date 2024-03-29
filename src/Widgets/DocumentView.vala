@@ -61,6 +61,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private Hdy.TabBar tab_bar;
     private weak Hdy.TabPage? tab_menu_target = null;
     private Gtk.CssProvider style_provider;
+    private Gtk.MenuButton tab_history_button;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (
@@ -101,10 +102,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             new_document ();
         });
 
-        var tab_history_button = new Gtk.MenuButton () {
+        tab_history_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic", Gtk.IconSize.MENU),
             tooltip_text = _("Closed Tabs"),
-            use_popover = false
+            use_popover = false,
         };
 
         tab_bar = new Hdy.TabBar () {
@@ -303,10 +304,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         try {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
-
             var doc = new Services.Document (window.actions, file);
 
             open_document (doc);
+
 
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
@@ -475,6 +476,29 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void on_doc_removed_shared (Services.Document doc) {
+        if (tab_history_button.menu_model == null) {
+            tab_history_button.menu_model = new Menu ();
+        }
+
+        var path = doc.file.get_path ();
+        var path_in_menu = false;
+
+        var menu = (Menu) tab_history_button.menu_model;
+        for (var i = 0; i < menu.get_n_items (); i++) {
+            if (path == menu.get_item_attribute_value (i, Menu.ATTRIBUTE_TARGET, VariantType.STRING).get_string ()) {
+                path_in_menu = true;
+                break;
+            }
+        }
+
+
+        if (!path_in_menu) {
+            menu.append (
+                path,
+                "%s::%s".printf (MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_CLOSED_TAB, path)
+            );
+        }
+
         docs.remove (doc);
         tab_removed (doc);
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
@@ -491,6 +515,24 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         if (!is_closing) {
             save_opened_files ();
+        }
+    }
+
+    public void restore_closed_tab (string path) {
+        var file = File.new_for_path (path);
+        var doc = new Services.Document (window.actions, file);
+        open_document (doc);
+
+        var menu = (Menu) tab_history_button.menu_model;
+        for (var i = 0; i < menu.get_n_items (); i++) {
+            if (path == menu.get_item_attribute_value (i, Menu.ATTRIBUTE_TARGET, VariantType.STRING).get_string ()) {
+                menu.remove (i);
+                break;
+            }
+        }
+
+        if (menu.get_n_items () == 0) {
+            tab_history_button.menu_model = null;
         }
     }
 
