@@ -484,16 +484,18 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         var path_in_menu = false;
 
         var menu = (Menu) tab_history_button.menu_model;
+        int position_in_menu = -1;
         for (var i = 0; i < menu.get_n_items (); i++) {
             if (path == menu.get_item_attribute_value (i, Menu.ATTRIBUTE_TARGET, VariantType.STRING).get_string ()) {
                 path_in_menu = true;
+                position_in_menu = i;
                 break;
             }
         }
 
 
         if (!path_in_menu) {
-            menu.append (
+            menu.prepend (
                 path,
                 "%s::%s".printf (MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_CLOSED_TAB, path)
             );
