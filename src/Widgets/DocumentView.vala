@@ -493,13 +493,14 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
         }
 
-
-        if (!path_in_menu) {
-            menu.prepend (
-                path,
-                "%s::%s".printf (MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_CLOSED_TAB, path)
-            );
+        if (path_in_menu) {
+            menu.remove (position_in_menu);
         }
+        
+        menu.prepend (
+            path,
+            "%s::%s".printf (MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_CLOSED_TAB, path)
+        );
 
         docs.remove (doc);
         tab_removed (doc);
