@@ -1079,7 +1079,7 @@ namespace Scratch {
             }
 
             if (close_path == "") {
-                document_view.close_document (null);
+                document_view.close_document ();
                 return;
             }
 

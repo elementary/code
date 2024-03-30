@@ -218,7 +218,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.transfer_page (target, new_window.document_view.tab_view, 0);
     }
 
-    public void close_document (Services.Document? doc) {
+    public void close_document (Services.Document? doc = null) {
         if (doc != null) {
             tab_view.close_page (doc.tab);
             return;
