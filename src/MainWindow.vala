@@ -101,6 +101,7 @@ namespace Scratch {
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
+        public const string ACTION_OPEN_IN_NEW_WINDOW = "action_open_in_new_window";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -152,7 +153,8 @@ namespace Scratch {
             { ACTION_CLOSE_TAB, action_close_tab, "s"},
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
-            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
+            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
+            { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -985,6 +987,19 @@ namespace Scratch {
             } else {
                 folder_manager_view.open_folder (new FolderManager.File (path));
             }
+        }
+
+        private void action_open_in_new_window (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                return;
+            }
+
+            var new_window = new MainWindow (false);
+            var file = File.new_for_path (path);
+            var doc = new Scratch.Services.Document (new_window.actions, file);
+
+            new_window.open_document (doc, true);
         }
 
         private void action_collapse_all_folders () {
