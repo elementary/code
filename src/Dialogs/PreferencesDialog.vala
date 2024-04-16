@@ -33,7 +33,6 @@ namespace Scratch.Dialogs {
         public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
             Object (
                 deletable: false,
-                resizable: false,
                 title: _("Preferences"),
                 transient_for: parent
             );
