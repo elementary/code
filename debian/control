@@ -18,7 +18,6 @@ Build-Depends: appstream,
                libsoup2.4-dev,
                libvala-dev,
                libvte-2.91-dev,
-               libwebkit2gtk-4.1-dev | libwebkit2gtk-4.0-dev,
                libxml2-utils,
                meson (>= 0.44.0),
 # Required to generate translation of .policy files in focal+
