@@ -215,15 +215,15 @@ namespace Scratch.FolderManager {
         }
 
         protected Gtk.MenuItem create_submenu_for_new () {
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => on_add_new (true));
-
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
             new_file_item.activate.connect (() => on_add_new (false));
 
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
+            new_folder_item.activate.connect (() => on_add_new (true));
+
             var new_menu = new Gtk.Menu ();
-            new_menu.append (new_folder_item);
             new_menu.append (new_file_item);
+            new_menu.append (new_folder_item);
 
             var new_item = new Gtk.MenuItem.with_label (_("New"));
             new_item.set_submenu (new_menu);
