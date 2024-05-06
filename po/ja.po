@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 02:16+0000\n"
-"PO-Revision-Date: 2024-02-22 00:12+0000\n"
+"PO-Revision-Date: 2024-05-07 05:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38
@@ -602,13 +602,13 @@ msgstr "行へ移動:"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%dスペース"
+msgstr[0] "%d スペース"
 
 #: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d個のタブ"
+msgstr[0] "%d 個のタブ"
 
 #: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
@@ -640,7 +640,7 @@ msgstr "縮小"
 
 #: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
-msgstr "100 % 表示"
+msgstr "100% 表示"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
@@ -733,7 +733,7 @@ msgstr "すべて置換"
 #: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
-msgstr "%d / %d件"
+msgstr "%d / %d 件"
 
 #: src/Widgets/SearchBar.vala:574
 msgid "no results"
