@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 02:16+0000\n"
-"PO-Revision-Date: 2024-05-07 05:13+0000\n"
+"PO-Revision-Date: 2024-05-09 03:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -173,7 +173,7 @@ msgstr "変更が加えられた時にファイルを保存:"
 
 #: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
-msgstr "便利な行の切り取り／コピー:"
+msgstr "便利な行の切り取り/コピー:"
 
 #: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
@@ -745,7 +745,7 @@ msgstr "選択された行を並べ替え"
 
 #: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
-msgstr "コメントアウト／コメントイン"
+msgstr "コメントアウト/コメント解除"
 
 #: src/Widgets/Terminal.vala:39
 msgid "Copy"
