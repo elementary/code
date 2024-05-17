@@ -38,7 +38,7 @@ namespace Scratch {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
-            { "go-to", 'g', 0, OptionArg.STRING, null, "Open file at specified selection range", "<start_line[.start_column][-end_line[.end_column]]>" },
+            { "go-to", 'g', 0, OptionArg.STRING, null, N_("Open file at specified selection range"), N_("<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>") },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
