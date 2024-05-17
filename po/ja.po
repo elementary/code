@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:40+0000\n"
-"PO-Revision-Date: 2024-05-17 12:40+0000\n"
+"PO-Revision-Date: 2024-05-18 13:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -33,11 +33,11 @@ msgstr "バージョン情報を表示して終了する"
 
 #: src/Application.vala:41
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "選択範囲を指定してファイルを開く"
 
 #: src/Application.vala:41
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<開始行[.開始位置][-終了行[.終了位置]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
