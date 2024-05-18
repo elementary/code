@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
 "PO-Revision-Date: 2021-07-29 19:59+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -30,6 +30,14 @@ msgstr "新增視窗"
 #: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -161,120 +169,120 @@ msgstr ""
 msgid "Create Branch"
 msgstr "分支"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "在沒有手動選擇內容範圍的狀況下，預設將會剪下或複製目前整行內容"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "一般"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "當更動後儲存檔案："
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
 msgstr "智慧剪下 / 複製："
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "Tab"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "自動縮排："
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "插入空格而不是跳格："
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 #, fuzzy
 #| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
 msgstr "儲存時截去蔓生空白"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "跳格寬度："
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "專案"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "行為"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "介面"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "關閉"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "擴充套件"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "標明對應括號："
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "自動折行："
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "移除目前檢視"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "顯示迷你圖："
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "列寬指引："
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr "字型"
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "自訂字型："
 

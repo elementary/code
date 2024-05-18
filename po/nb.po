@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
 "PO-Revision-Date: 2024-01-30 14:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -31,6 +31,14 @@ msgstr "Nytt vindu"
 #: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Skriv versjoninformasjon og avslutt"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -155,11 +163,11 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Opprett forgrening"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -167,108 +175,108 @@ msgstr ""
 "Utklipping og kopiering uten et aktivt utvalg vil klippe ut eller kopiere "
 "hele nåværende linje"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr "Forvalgt byggmappe"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "Generelt"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "Lagre filer når de er endret:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
 msgstr "Smart utklipp/kopi av linjer:"
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "Faner"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "Automatisk innrykk:"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "Sett inn mellomrom i stedet for tabulator:"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Strip trailing whitespace:"
 msgstr "Fjern påfølgende blanktegn:"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "Tabulatorbredde:"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "Prosjekt"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "Oppførsel"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "Brukergrensesnitt"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Lukk"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "Utvidelser"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "Tekstbehandler"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "Uthev klammer som hører sammen:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "Linjebryting:"
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Fjern den valgte visninga"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "Vis minikart:"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "Linjebreddehentydning:"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr "Skrift"
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "Egendefinert skrifttype:"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/code/code/bg/"
@@ -31,6 +31,14 @@ msgstr "Нов прозорец"
 #: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Принтиране на информация за версията и затваряне"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -160,120 +168,120 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Промяна на настройките на програмата"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Предпочитания"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "Основни"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "Записвай файловете при промяна:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "Подпрозорци"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "Самостоятелно подравняване:"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "Използване на интервали вместо табулации:"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 #, fuzzy
 #| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace:"
 msgstr "Мажнете свободните места в края ва файла при запис"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "Широчина на табулацията:"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "Проект"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "Поведение"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "Потребителска среда"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Затваряне"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "Разширения"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "Открояване на съвпадащи скоби:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "Обвивка на ред:"
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Премахване на текущия изглед"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "Показване на карта:"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "Покажи препоръчителната ширина за ред:"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "Шрифт по избор:"
 

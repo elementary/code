@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
 "PO-Revision-Date: 2024-02-22 00:12+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -30,6 +30,14 @@ msgstr "Finestra nova"
 #: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Imprimeix informació de la versió i surt"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -151,11 +159,11 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Crea'n una branca"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Preferències"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -163,104 +171,104 @@ msgstr ""
 "Retallar o copiar sense una selecció activa tallarà o copiarà tota la línia "
 "actual."
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr "Directori de construcció per defecte"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "General"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "Desa els fitxers quan es produeixin canvis:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
 msgstr "Línies de retall / còpia intel·ligents:"
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "Pestanyes"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "Sagnat automàtic:"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserir espais en comptes de tabulacions:"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Strip trailing whitespace:"
 msgstr "Suprimeix els espais en blanc al final:"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "Amplada del tabulador:"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "Projects"
 msgstr "Projectes"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "Interfície"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Tanca"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "Realça la parella de claudàtors:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "Ajust de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr "Espai en blanc visible quan no s'ha seleccionat:"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr "Cap"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Current Line"
 msgstr "Línia actual"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr "Tot"
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "Mostra el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "Guia d'amplada de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr "Lletra"
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 

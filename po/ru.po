@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
-"PO-Revision-Date: 2024-02-20 02:12+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"PO-Revision-Date: 2024-05-18 13:13+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:38
@@ -31,6 +31,14 @@ msgstr "Новое окно"
 #: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Распечатать информацию о версии и выйти"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr "Открыть файл с выделением указанного диапазона"
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr "<НАЧ_СТРОКА[.НАЧ_СТОЛБЕЦ][-КОНЕЧ_СТРОКА[.КОНЕЧ_СТОЛБЕЦ]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -63,11 +71,11 @@ msgstr "Показать панель проекта"
 
 #: src/MainWindow.vala:392
 msgid "Hide Symbol Outline"
-msgstr "Скрыть обводку символов"
+msgstr "Скрыть структуру символов"
 
 #: src/MainWindow.vala:397
 msgid "Show Symbol Outline"
-msgstr "Показать обводку символов"
+msgstr "Показать структуру символов"
 
 #: src/MainWindow.vala:406
 msgid "Hide Terminal"
@@ -151,11 +159,11 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Создать ветку"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Настройки"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -163,104 +171,104 @@ msgstr ""
 "Вырезание или копирование без активного выделения приведёт к вырезанию или "
 "копированию всей текущей строки"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr "Директория сборки по умолчанию"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "Общие"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "Сохранять файлы при изменении:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
 msgstr "Умное вырезание/копирование строк:"
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "Вкладки"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "Автоматическая расстановка отступов:"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "Вставлять пробелы вместо табуляций:"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Strip trailing whitespace:"
 msgstr "Удалять пробелы в конце:"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "Ширина табуляции:"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "Projects"
 msgstr "Проекты"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "Поведение"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "Расширения"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "Подсвечивать парные скобки:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "Перенос строки:"
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr "Отображать невыделенные пробелы:"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr "Никогда"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Current Line"
 msgstr "На текущей строке"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr "Всегда"
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "Показывать мини-карту:"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "Настройка строки:"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "Пользовательский шрифт:"
 

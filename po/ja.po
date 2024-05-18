@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 11:47+0000\n"
-"PO-Revision-Date: 2024-02-22 00:12+0000\n"
+"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"PO-Revision-Date: 2024-05-18 13:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38
@@ -29,7 +29,15 @@ msgstr "新しいウィンドウ"
 
 #: src/Application.vala:40
 msgid "Print version info and exit"
-msgstr "バージョン情報を表示して終了します"
+msgstr "バージョン情報を表示して終了する"
+
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr "選択範囲を指定してファイルを開く"
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr "<開始行[.開始位置][-終了行[.終了位置]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -149,114 +157,114 @@ msgstr "ブランチ名は固有で Git の命名規則に従う必要があり�
 msgid "Create Branch"
 msgstr "ブランチを作成"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "設定"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:46
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "文字を選択していない場合は、現在の行全体の切り取りやコピーを行います"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Default build directory"
 msgstr "デフォルトのビルドディレクトリ"
 
-#: src/Dialogs/PreferencesDialog.vala:64
+#: src/Dialogs/PreferencesDialog.vala:63
 msgid "General"
 msgstr "一般"
 
-#: src/Dialogs/PreferencesDialog.vala:65
+#: src/Dialogs/PreferencesDialog.vala:64
 msgid "Save files when changed:"
 msgstr "変更が加えられた時にファイルを保存:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:66
 msgid "Smart cut/copy lines:"
-msgstr "便利な行の切り取り／コピー:"
+msgstr "便利な行の切り取り/コピー:"
 
-#: src/Dialogs/PreferencesDialog.vala:70
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Tabs"
 msgstr "タブ"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:70
 msgid "Automatic indentation:"
 msgstr "自動インデント:"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Insert spaces instead of tabs:"
 msgstr "タブの代わりにスペースを挿入:"
 
-#: src/Dialogs/PreferencesDialog.vala:75
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Strip trailing whitespace:"
 msgstr "行末の余分な空白を削除:"
 
-#: src/Dialogs/PreferencesDialog.vala:77
+#: src/Dialogs/PreferencesDialog.vala:76
 msgid "Tab width:"
 msgstr "タブ幅:"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "Projects"
 msgstr "プロジェクト"
 
-#: src/Dialogs/PreferencesDialog.vala:87
+#: src/Dialogs/PreferencesDialog.vala:86
 msgid "Behavior"
 msgstr "挙動"
 
-#: src/Dialogs/PreferencesDialog.vala:88
+#: src/Dialogs/PreferencesDialog.vala:87
 msgid "Interface"
 msgstr "インターフェース"
 
-#: src/Dialogs/PreferencesDialog.vala:104
+#: src/Dialogs/PreferencesDialog.vala:103
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "閉じる"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Editor"
 msgstr "エディター"
 
-#: src/Dialogs/PreferencesDialog.vala:129
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Highlight matching brackets:"
 msgstr "対となるブラケットをハイライト:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line wrap:"
 msgstr "行の折り返し:"
 
-#: src/Dialogs/PreferencesDialog.vala:135
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
 msgstr "非選択時に空白を表示:"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "None"
 msgstr "なし"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Current Line"
 msgstr "現在の行"
 
-#: src/Dialogs/PreferencesDialog.vala:142
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "All"
 msgstr "すべて"
 
-#: src/Dialogs/PreferencesDialog.vala:157
+#: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
 msgstr "ミニマップを表示:"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:159
 msgid "Line width guide:"
 msgstr "行の幅のガイド:"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:167
 msgid "Font"
 msgstr "フォント"
 
-#: src/Dialogs/PreferencesDialog.vala:170
+#: src/Dialogs/PreferencesDialog.vala:169
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
@@ -602,13 +610,13 @@ msgstr "行へ移動:"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%dスペース"
+msgstr[0] "%d スペース"
 
 #: src/Widgets/FormatBar.vala:289
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d個のタブ"
+msgstr[0] "%d 個のタブ"
 
 #: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
@@ -640,7 +648,7 @@ msgstr "縮小"
 
 #: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
-msgstr "100 % 表示"
+msgstr "100% 表示"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
@@ -733,7 +741,7 @@ msgstr "すべて置換"
 #: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
-msgstr "%d / %d件"
+msgstr "%d / %d 件"
 
 #: src/Widgets/SearchBar.vala:574
 msgid "no results"
@@ -745,7 +753,7 @@ msgstr "選択された行を並べ替え"
 
 #: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
-msgstr "コメントアウト／コメントイン"
+msgstr "コメントアウト/コメント解除"
 
 #: src/Widgets/Terminal.vala:39
 msgid "Copy"
