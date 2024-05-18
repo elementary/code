@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:40+0000\n"
-"PO-Revision-Date: 2024-04-27 07:13+0000\n"
+"PO-Revision-Date: 2024-05-18 13:13+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:38
@@ -34,11 +34,11 @@ msgstr "Распечатать информацию о версии и выйт�
 
 #: src/Application.vala:41
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "Открыть файл с выделением указанного диапазона"
 
 #: src/Application.vala:41
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<НАЧ_СТРОКА[.НАЧ_СТОЛБЕЦ][-КОНЕЧ_СТРОКА[.КОНЕЧ_СТОЛБЕЦ]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
