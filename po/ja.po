@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:40+0000\n"
-"PO-Revision-Date: 2024-05-18 13:13+0000\n"
+"PO-Revision-Date: 2024-05-26 07:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -129,7 +129,7 @@ msgstr "フォルダー “%s” 内のテキストを検索"
 
 #: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
-msgstr "検索文字列は3文字以上にする必要があります。"
+msgstr "検索語句は 3 文字以上にする必要があります。"
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
@@ -151,7 +151,7 @@ msgstr "“%s/%s” の新しいブランチを作成"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr "ブランチ名は固有で Git の命名規則に従う必要があります。"
+msgstr "ブランチ名は一意かつ Git の命名規則に従う必要があります。"
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
@@ -289,7 +289,7 @@ msgstr "了解して復元"
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
 #: src/FolderManager/ProjectFolderItem.vala:120
 msgid "Open in Terminal Pane"
-msgstr "“ターミナル”ペインで開く"
+msgstr "ターミナルペインで開く"
 
 #: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
 msgid "Other Application…"
@@ -616,7 +616,7 @@ msgstr[0] "%d スペース"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d 個のタブ"
+msgstr[0] "%d タブ"
 
 #: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
@@ -830,19 +830,19 @@ msgstr "書式を選択"
 
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
-msgstr "10分間"
+msgstr "10 分間"
 
 #: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
-msgstr "1時間"
+msgstr "1 時間"
 
 #: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
-msgstr "1日"
+msgstr "1 日"
 
 #: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr "1か月"
+msgstr "1 か月"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
