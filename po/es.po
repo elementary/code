@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:40+0000\n"
 "PO-Revision-Date: 2024-06-06 02:38+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Last-Translator: Luis Daniel <danieluis9225@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "[FILE…]"
 msgstr "[ARCHIVO…]"
 
 #: src/MainWindow.vala:223
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Code"
+msgstr "Code (%s)"
 
 #: src/MainWindow.vala:225
 msgid "Code"
@@ -90,7 +89,7 @@ msgstr "Mostrar terminal"
 #: src/MainWindow.vala:604
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:932 src/Services/Document.vala:605
 msgid "All files"
