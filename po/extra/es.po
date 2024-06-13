@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-17 12:40+0000\n"
-"PO-Revision-Date: 2024-06-13 04:27+0000\n"
+"PO-Revision-Date: 2024-06-13 22:33+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -68,7 +68,7 @@ msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
-"Encuentre cualquier cosa en su archivo actual, en carpetas específicas o en "
+"Encuentre cualquier cosa en el archivo actual, en carpetas específicas o en "
 "todo su proyecto con opciones de distinción entre mayúsculas y minúsculas y "
 "expresiones regulares."
 
@@ -83,7 +83,7 @@ msgstr ""
 "inteligente de cortar/copiar, espacios en blanco visibles para el texto "
 "seleccionado y al final de las líneas de forma predeterminada, y extensiones "
 "opcionales para acciones de Markdown, revisión ortográfica, eliminación de "
-"espacios en blanco, completar palabras y más."
+"espacios en blanco, compleción de palabras y más."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -450,7 +450,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:220
 msgid "Use the FileChooser portal instead of the one from GTK"
-msgstr "Se utiliza el diálogo de FileChooser en lugar del de GTK"
+msgstr "Se utiliza el portal FileChooser en lugar del de GTK"
 
 #: data/code.metainfo.xml.in:221
 msgid "Center the global search dialog over the main Code window"
