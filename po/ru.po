@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"POT-Creation-Date: 2024-06-13 22:33+0000\n"
 "PO-Revision-Date: 2024-05-18 13:13+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -92,11 +92,11 @@ msgstr "Показать Терминал"
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:608
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:612
 msgid "Text files"
 msgstr "Текстовые файлы"
 
@@ -109,8 +109,8 @@ msgid "Open"
 msgstr "Открыть"
 
 #: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
-#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
+#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
@@ -399,89 +399,90 @@ msgstr "Новая ветка…"
 msgid "Branch"
 msgstr "Ветка"
 
-#: src/Services/Document.vala:324
+#. Empty files are valid text files
+#: src/Services/Document.vala:327
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s не является текстовым файлом"
 
-#: src/Services/Document.vala:325
+#: src/Services/Document.vala:328
 msgid "Code will not load this type of file."
 msgstr "Код не открывает файлы этого типа."
 
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:330
 msgid "Load Anyway"
 msgstr "Всё равно открыть"
 
-#: src/Services/Document.vala:348
+#: src/Services/Document.vala:351
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Загрузка файла «%s» занимает много времени"
 
-#: src/Services/Document.vala:349
+#: src/Services/Document.vala:352
 msgid "Please wait while Code is loading the file."
 msgstr "Пожалуйста, подождите, пока Код открывает файл."
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:354
 msgid "Cancel Loading"
 msgstr "Отменить загрузку"
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:441
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Сохранить изменения в «%s» перед закрытием?"
 
-#: src/Services/Document.vala:439
+#: src/Services/Document.vala:442
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Если вы не сохраните, то изменения будут безвозвратно потеряны."
 
-#: src/Services/Document.vala:445
+#: src/Services/Document.vala:448
 msgid "Close Without Saving"
 msgstr "Закрыть без сохранения"
 
-#: src/Services/Document.vala:449 src/Services/Document.vala:616
+#: src/Services/Document.vala:452 src/Services/Document.vala:619
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/Services/Document.vala:575
+#: src/Services/Document.vala:578
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Не удалось сохранить «%s»."
 
-#: src/Services/Document.vala:613
+#: src/Services/Document.vala:616
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: src/Services/Document.vala:700 src/Services/Document.vala:718
+#: src/Services/Document.vala:703 src/Services/Document.vala:721
 msgid "New Document"
 msgstr "Новый документ"
 
 #. No path for a new document
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:723
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Невозможно сохранить документ в %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:789
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Невозможно прочитать текст в файле «%s»"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:792
 msgid "You may not have permission to read the file."
 msgstr "Возможно, у вас нет разрешения на чтение этого файла."
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Файл может быть повреждён или быть не текстовым"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:800
 msgid "Show Anyway"
 msgstr "Всё равно показать"
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:831
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -489,24 +490,24 @@ msgid ""
 msgstr ""
 "Источник, содержащий файл «%s» с несохранёнными изменениями, был извлечён."
 
-#: src/Services/Document.vala:830
+#: src/Services/Document.vala:833
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
 msgstr "Файл «%s» с несохранёнными изменениями был изменён другим приложением."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:844
+#: src/Services/Document.vala:847
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Файл «%s» не имеет прав на запись."
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:893
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Файл «%s» был изменён другим приложением"
 
-#: src/Services/Document.vala:895
+#: src/Services/Document.vala:898
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -514,36 +515,36 @@ msgstr ""
 "Имеются несохранённые изменения. При перезагрузке документа они будут "
 "перезаписаны."
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:902
 msgid "The document changed externally since you last saved it."
 msgstr "Документ был изменён извне с момента его последнего сохранения."
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "«%s» не может быть сохранён здесь. Сохранить копию в другом месте?"
 
-#: src/Services/Document.vala:924
+#: src/Services/Document.vala:927
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/Services/Document.vala:926
+#: src/Services/Document.vala:929
 msgid "Save Duplicate…"
 msgstr "Сохранить копию…"
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:978
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/Services/Document.vala:977
+#: src/Services/Document.vala:980
 msgid "Reload"
 msgstr "Перезагрузить"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Overwrite"
 msgstr "Перезаписать"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:986
 msgid "Save Document elsewhere"
 msgstr "Сохранить в другом месте"
 

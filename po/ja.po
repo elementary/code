@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"POT-Creation-Date: 2024-06-13 22:33+0000\n"
 "PO-Revision-Date: 2024-05-26 07:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -91,11 +91,11 @@ msgstr "ターミナルを表示"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:608
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:612
 msgid "Text files"
 msgstr "テキストファイル"
 
@@ -108,8 +108,8 @@ msgid "Open"
 msgstr "開く"
 
 #: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
-#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
+#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "キャンセル"
@@ -391,89 +391,90 @@ msgstr "新しいブランチ…"
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/Services/Document.vala:324
+#. Empty files are valid text files
+#: src/Services/Document.vala:327
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:325
+#: src/Services/Document.vala:328
 msgid "Code will not load this type of file."
 msgstr "“コード”はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:330
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:348
+#: src/Services/Document.vala:351
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "ファイル “%s” の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:349
+#: src/Services/Document.vala:352
 msgid "Please wait while Code is loading the file."
 msgstr "ファイルが読み込まれるまでお待ちください。"
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:354
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:441
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "閉じる前に “%s” への変更を保存しますか?"
 
-#: src/Services/Document.vala:439
+#: src/Services/Document.vala:442
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:445
+#: src/Services/Document.vala:448
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:449 src/Services/Document.vala:616
+#: src/Services/Document.vala:452 src/Services/Document.vala:619
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:575
+#: src/Services/Document.vala:578
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "“%s” に保存できませんでした。"
 
-#: src/Services/Document.vala:613
+#: src/Services/Document.vala:616
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:700 src/Services/Document.vala:718
+#: src/Services/Document.vala:703 src/Services/Document.vala:721
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. No path for a new document
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:723
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "%s にこのドキュメントを保存できません"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:789
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "ファイル “%s” 内のテキストを読み込めません"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:792
 msgid "You may not have permission to read the file."
 msgstr "ファイルを読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "The file may be corrupt or may not be a text file"
 msgstr "ファイルが破損しているか、テキストファイルではない可能性があります"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:800
 msgid "Show Anyway"
 msgstr "強制的に表示"
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:831
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -481,24 +482,24 @@ msgid ""
 msgstr ""
 "ファイル “%s” を含む場所はアンマウントされていて、未保存の変更があります。"
 
-#: src/Services/Document.vala:830
+#: src/Services/Document.vala:833
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
 msgstr "ファイル “%s” は削除されていて、未保存の変更があります。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:844
+#: src/Services/Document.vala:847
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "“%s” への書き込み権限がありません。"
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:893
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "ファイル “%s” は外部のアプリケーションによって変更されました"
 
-#: src/Services/Document.vala:895
+#: src/Services/Document.vala:898
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -506,36 +507,36 @@ msgstr ""
 "未保存の変更も存在します。ドキュメントを最読み込みすると、未保存の変更は上書"
 "きされます。"
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:902
 msgid "The document changed externally since you last saved it."
 msgstr "ドキュメントは、最後の保存以降に外部で変更されました。"
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” はここには保存できません。ほかの場所に複製して保存しますか?"
 
-#: src/Services/Document.vala:924
+#: src/Services/Document.vala:927
 msgid "Ignore"
 msgstr "無視"
 
-#: src/Services/Document.vala:926
+#: src/Services/Document.vala:929
 msgid "Save Duplicate…"
 msgstr "複製を保存…"
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:978
 msgid "Continue"
 msgstr "編集を続行"
 
-#: src/Services/Document.vala:977
+#: src/Services/Document.vala:980
 msgid "Reload"
 msgstr "再読み込み"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Overwrite"
 msgstr "上書きする"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:986
 msgid "Save Document elsewhere"
 msgstr "ドキュメントをほかの場所に保存"
 
