@@ -192,7 +192,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
-            action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Alt>t" );
+            action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
