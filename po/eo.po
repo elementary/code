@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"POT-Creation-Date: 2024-06-13 22:33+0000\n"
 "PO-Revision-Date: 2020-03-14 21:09+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -101,11 +101,11 @@ msgstr "Montri la Terminalon"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:608
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:612
 msgid "Text files"
 msgstr "Tekstaj dosieroj"
 
@@ -118,8 +118,8 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
-#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
+#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Rezigni"
@@ -420,96 +420,97 @@ msgstr "Branĉo"
 msgid "Branch"
 msgstr "Branĉo"
 
-#: src/Services/Document.vala:324
+#. Empty files are valid text files
+#: src/Services/Document.vala:327
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s estas dosiero ne teksta"
 
-#: src/Services/Document.vala:325
+#: src/Services/Document.vala:328
 msgid "Code will not load this type of file."
 msgstr "Kodo ne ŝargos tian dosiertipon."
 
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:330
 msgid "Load Anyway"
 msgstr "Ŝargi Ĉiukaze"
 
-#: src/Services/Document.vala:348
+#: src/Services/Document.vala:351
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Ŝargo de la dosiero „%s“ longe daŭras"
 
-#: src/Services/Document.vala:349
+#: src/Services/Document.vala:352
 msgid "Please wait while Code is loading the file."
 msgstr "Bonvolu atendi dum Kodo ŝargas la dosieron."
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:354
 msgid "Cancel Loading"
 msgstr "Rezigni Ŝargon"
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:441
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Ĉu estu konservata al „%s“ antaŭ fermo?"
 
-#: src/Services/Document.vala:439
+#: src/Services/Document.vala:442
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Sen konservo, ŝanĝoj definitive perdiĝos."
 
-#: src/Services/Document.vala:445
+#: src/Services/Document.vala:448
 msgid "Close Without Saving"
 msgstr "Fermi sen konservo"
 
-#: src/Services/Document.vala:449 src/Services/Document.vala:616
+#: src/Services/Document.vala:452 src/Services/Document.vala:619
 msgid "Save"
 msgstr "Konservi"
 
-#: src/Services/Document.vala:575
+#: src/Services/Document.vala:578
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Ĉu estu konservata al „%s“ antaŭ fermo?"
 
-#: src/Services/Document.vala:613
+#: src/Services/Document.vala:616
 msgid "Save File"
 msgstr "Konservi dosieron"
 
-#: src/Services/Document.vala:700 src/Services/Document.vala:718
+#: src/Services/Document.vala:703 src/Services/Document.vala:721
 msgid "New Document"
 msgstr "Nova dokumento"
 
 #. No path for a new document
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:723
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:789
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:792
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "Eble ĝi estas koruptita, aŭ mankas al vi leg-permeso."
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:800
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Ŝargi Ĉiukaze"
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:831
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -521,7 +522,7 @@ msgstr ""
 "La dosierujo en kiu estis la dosiero „%s“ estis malmuntita. Ĉu vi deziras "
 "konservi aliloke?"
 
-#: src/Services/Document.vala:830
+#: src/Services/Document.vala:833
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -533,13 +534,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:844
+#: src/Services/Document.vala:847
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "La dosiero „%s“ estis forigita. Ĉu vi deziras tamen konservi ĝin?"
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:893
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -549,44 +550,44 @@ msgstr ""
 "La dosiero „%s“ estis modifita de ekstera aplikaĵo. Ĉu vi deziras reŝargi "
 "ĝin aŭ daŭrigi ĝian redaktadon?"
 
-#: src/Services/Document.vala:895
+#: src/Services/Document.vala:898
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:902
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:924
+#: src/Services/Document.vala:927
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:926
+#: src/Services/Document.vala:929
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:978
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: src/Services/Document.vala:977
+#: src/Services/Document.vala:980
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Alŝuti"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:986
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"

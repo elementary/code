@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"POT-Creation-Date: 2024-06-13 22:33+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -100,11 +100,11 @@ msgstr "Προβολή τερματικού"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:608
 msgid "All files"
 msgstr "Όλα τα αρχεία"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:612
 msgid "Text files"
 msgstr "Αρχεία κειμένου"
 
@@ -117,8 +117,8 @@ msgid "Open"
 msgstr "Άνοιγμα"
 
 #: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
-#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
+#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ακύρωση"
@@ -425,97 +425,98 @@ msgstr "Αλλαγή ρυθμίσεων του Scratch"
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Services/Document.vala:324
+#. Empty files are valid text files
+#: src/Services/Document.vala:327
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "Το %s δεν είναι αρχείο κειμένου"
 
-#: src/Services/Document.vala:325
+#: src/Services/Document.vala:328
 msgid "Code will not load this type of file."
 msgstr "Ο κώδικας δεν μπορεί να φορτώσει αυτόν τον τύπο αρχείου."
 
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:330
 msgid "Load Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:348
+#: src/Services/Document.vala:351
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:349
+#: src/Services/Document.vala:352
 msgid "Please wait while Code is loading the file."
 msgstr "Παρακαλώ περιμένετε όσο ο κώδικας φορτώνει το αρχείο."
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:354
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Ακύρωση"
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:441
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
 
-#: src/Services/Document.vala:439
+#: src/Services/Document.vala:442
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
 "μόνιμα."
 
-#: src/Services/Document.vala:445
+#: src/Services/Document.vala:448
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Κλείσιμο χωρίς αποθήκευση"
 
-#: src/Services/Document.vala:449 src/Services/Document.vala:616
+#: src/Services/Document.vala:452 src/Services/Document.vala:619
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/Services/Document.vala:575
+#: src/Services/Document.vala:578
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
 
-#: src/Services/Document.vala:613
+#: src/Services/Document.vala:616
 msgid "Save File"
 msgstr "Αποθήκευση Αρχείου"
 
-#: src/Services/Document.vala:700 src/Services/Document.vala:718
+#: src/Services/Document.vala:703 src/Services/Document.vala:721
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
 #. No path for a new document
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:723
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:789
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:792
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματα."
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:800
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Φόρτωσέ το"
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:831
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -527,7 +528,7 @@ msgstr ""
 "Η τοποθεσία που περιέχει το αρχείο \"%s\" δεν μπορεί να βρεθεί. Θέλετε να "
 "αποθηκεύσετε σε κάποια άλλη τοποθεσία;"
 
-#: src/Services/Document.vala:830
+#: src/Services/Document.vala:833
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -539,14 +540,14 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:844
+#: src/Services/Document.vala:847
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr ""
 "Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:893
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -556,44 +557,44 @@ msgstr ""
 "Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
 "φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
 
-#: src/Services/Document.vala:895
+#: src/Services/Document.vala:898
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:902
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:924
+#: src/Services/Document.vala:927
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:926
+#: src/Services/Document.vala:929
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:978
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/Services/Document.vala:977
+#: src/Services/Document.vala:980
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Μεταφόρτωση"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:986
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"

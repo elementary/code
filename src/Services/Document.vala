@@ -361,8 +361,11 @@ namespace Scratch.Services {
             loading = true;
 
             var content_type = ContentType.from_mime_type (mime_type);
-
-            if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
+            if (!(
+                force
+                || ContentType.is_a (content_type, "text/plain")
+                || ContentType.is_a (content_type, "application/x-zerosize")   // Empty files are valid text files
+            )) {
                 var title = _("%s Is Not a Text File").printf (get_basename ());
                 var description = _("Code will not load this type of file.");
                 var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");

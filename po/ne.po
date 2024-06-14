@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 12:40+0000\n"
+"POT-Creation-Date: 2024-06-13 22:33+0000\n"
 "PO-Revision-Date: 2016-01-22 12:51+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
@@ -93,11 +93,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:605
+#: src/MainWindow.vala:932 src/Services/Document.vala:608
 msgid "All files"
 msgstr "सबै फाईलरहरु"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:609
+#: src/MainWindow.vala:936 src/Services/Document.vala:612
 msgid "Text files"
 msgstr "पाठ फाइलहरू"
 
@@ -110,8 +110,8 @@ msgid "Open"
 msgstr "खोल्नुहोस्"
 
 #: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:448
-#: src/Services/Document.vala:617 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
+#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "रद्द गर्नुहोस्"
@@ -410,153 +410,154 @@ msgstr "स्क्र्याचको प्राथमिकताहर�
 msgid "Branch"
 msgstr "स्क्र्याचको प्राथमिकताहरू बदल्नुहोस्"
 
-#: src/Services/Document.vala:324
+#. Empty files are valid text files
+#: src/Services/Document.vala:327
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:325
+#: src/Services/Document.vala:328
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:330
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:348
+#: src/Services/Document.vala:351
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:349
+#: src/Services/Document.vala:352
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:354
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "रद्द गर्नुहोस्"
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:441
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
 
-#: src/Services/Document.vala:439
+#: src/Services/Document.vala:442
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "यदि बचत नगर्नुभएको खण्डमा पछिल्लो ४ सेकोण्डको परिवर्तन सधैंकालागी हराउने छ।"
 
-#: src/Services/Document.vala:445
+#: src/Services/Document.vala:448
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "बचत नगरी बन्द गर्नुहोस्"
 
-#: src/Services/Document.vala:449 src/Services/Document.vala:616
+#: src/Services/Document.vala:452 src/Services/Document.vala:619
 msgid "Save"
 msgstr "बचत गर्नुहोस्"
 
-#: src/Services/Document.vala:575
+#: src/Services/Document.vala:578
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
 
-#: src/Services/Document.vala:613
+#: src/Services/Document.vala:616
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:700 src/Services/Document.vala:718
+#: src/Services/Document.vala:703 src/Services/Document.vala:721
 msgid "New Document"
 msgstr "नयाँ कागजात"
 
 #. No path for a new document
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:723
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:789
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:792
 msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:791
+#: src/Services/Document.vala:794
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:797
+#: src/Services/Document.vala:800
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:828
+#: src/Services/Document.vala:831
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr ""
 
-#: src/Services/Document.vala:830
+#: src/Services/Document.vala:833
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
 msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:844
+#: src/Services/Document.vala:847
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr ""
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:893
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr ""
 
-#: src/Services/Document.vala:895
+#: src/Services/Document.vala:898
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:899
+#: src/Services/Document.vala:902
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:915
+#: src/Services/Document.vala:918
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:924
+#: src/Services/Document.vala:927
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:926
+#: src/Services/Document.vala:929
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:978
 msgid "Continue"
 msgstr ""
 
-#: src/Services/Document.vala:977
+#: src/Services/Document.vala:980
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "अपलोड गर्नुहोस्"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:986
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
