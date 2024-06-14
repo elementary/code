@@ -208,7 +208,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void transfer_tab_to_new_window () {
-        var target = tab_menu_target ?? current_document.tab;
+        var target = tab_menu_target ?? tab_view.selected_page;
 
         if (target == null) {
             return;
@@ -224,7 +224,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return;
         }
 
-        var target = tab_menu_target ?? current_document.tab;
+        var target = tab_menu_target ?? tab_view.selected_page;
         if (target == null) {
             return;
         }
@@ -233,7 +233,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void close_tabs_to_right () {
-        var target = tab_menu_target ?? current_document.tab;
+        var target = tab_menu_target ?? tab_view.selected_page;
 
         if (target == null) {
             return;
