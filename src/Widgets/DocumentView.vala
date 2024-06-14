@@ -252,7 +252,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         if (current_document != null) {
-            tab_view.close_pages_before (target);
+            tab_view.close_other_pages (target);
         }
     }
 
@@ -429,9 +429,9 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
         var close_tabs_to_right_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TABS_TO_RIGHT, window.actions);
 
-        int page_position = tab_view.get_page_position (page);
+        int page_position = page != null ? tab_view.get_page_position (page) : -1;
 
-        close_other_tabs_action.set_enabled (page != null && page_position > 0);
+        close_other_tabs_action.set_enabled (page != null && tab_view.n_pages > 1);
         close_tabs_to_right_action.set_enabled (page != null && page_position != tab_view.n_pages - 1);
     }
 
