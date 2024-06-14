@@ -639,7 +639,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         var open_tab_section = new Menu ();
         open_tab_section.append (_("Open in New Window"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_MOVE_TAB_TO_NEW_WINDOW);
-        open_tab_section.append (_("Duplicate"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_DUPLICATE_TAB);
+        open_tab_section.append (_("Duplicate Tab"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_DUPLICATE_TAB);
 
         menu.append_section (null, open_tab_section);
         menu.append_section (null, close_tab_section);
