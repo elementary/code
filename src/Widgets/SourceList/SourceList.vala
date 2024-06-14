@@ -422,15 +422,13 @@ public class SourceList : Gtk.ScrolledWindow {
          * any context menu items should be actioned on the item instance rather than the selected item
          * in the SourceList
          *
-         * @return A {@link Gtk.Menu} or //null// if nothing should be displayed.
+         * @return A {@link GLib.Menu} or //null// if nothing should be displayed.
          * @since 0.2
          */
-        public virtual Gtk.Menu? get_context_menu () {
+        public virtual GLib.Menu? get_context_menu () {
             return null;
         }
     }
-
-
 
     /**
      * An item that can contain more items.
@@ -1574,6 +1572,7 @@ public class SourceList : Gtk.ScrolledWindow {
         private CellRendererExpander secondary_expander_cell;
         private Gee.HashMap<int, CellRendererSpacer> spacer_cells; // cells used for left spacing
         private bool unselectable_item_clicked = false;
+        private Gtk.PopoverMenu popover_menu;
 
         private const string DEFAULT_STYLESHEET = """
             .sidebar.badge {
@@ -1721,6 +1720,11 @@ public class SourceList : Gtk.ScrolledWindow {
 
             query_tooltip.connect_after (on_query_tooltip);
             has_tooltip = true;
+
+            popover_menu = new Gtk.PopoverMenu () {
+                halign = Gtk.Align.START,
+                position = Gtk.PositionType.BOTTOM
+            };
         }
 
         ~Tree () {
@@ -2400,11 +2404,24 @@ public class SourceList : Gtk.ScrolledWindow {
             if (item != null) {
                 var menu = item.get_context_menu ();
                 if (menu != null) {
-                    menu.attach_widget = this;
-                    menu.popup_at_pointer (event);
-                    if (event == null) {
-                        menu.select_first (false);
-                    }
+                    popover_menu.bind_model (menu, null);
+
+                    var display = Gdk.Display.get_default ();
+                    var seat = display.get_default_seat ();
+                    var mouse_device = seat.get_pointer ();
+
+                    int x;
+                    int y;
+                    event.window.get_device_position (mouse_device, out x, out y, null);
+
+                    var rect = Gdk.Rectangle () {
+                        x = (int) x,
+                        y = (int) y
+                    };
+
+                    popover_menu.set_relative_to (this);
+                    popover_menu.pointing_to = rect;
+                    popover_menu.popup ();
 
                     return true;
                 }
