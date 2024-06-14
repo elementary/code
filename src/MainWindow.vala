@@ -162,7 +162,7 @@ namespace Scratch {
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
             { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
-            { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" }
+            { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -192,6 +192,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
+            action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Alt>t" );
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
@@ -222,6 +223,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
+            action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
 
             var provider = new Gtk.CssProvider ();
