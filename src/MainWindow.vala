@@ -71,6 +71,7 @@ namespace Scratch {
         public const string ACTION_SORT_LINES = "action_sort_lines";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
+        public const string ACTION_DUPLICATE_TAB = "action_duplicate_tab";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
@@ -98,9 +99,13 @@ namespace Scratch {
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
         public const string ACTION_NEW_BRANCH = "action_new_branch";
         public const string ACTION_CLOSE_TAB = "action_close_tab";
+        public const string ACTION_CLOSE_TABS_TO_RIGHT = "action_close_tabs_to_right";
+        public const string ACTION_CLOSE_OTHER_TABS = "action_close_other_tabs";
         public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
+        public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
+        public const string ACTION_RESTORE_CLOSED_TAB = "action_restore_closed_tab";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -128,6 +133,7 @@ namespace Scratch {
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
+            { ACTION_DUPLICATE_TAB, action_duplicate_tab },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
@@ -149,10 +155,14 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
-            { ACTION_CLOSE_TAB, action_close_tab, "s"},
+            { ACTION_CLOSE_TAB, action_close_tab, "s" },
+            { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
+            { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
-            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"}
+            { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
+            { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
+            { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -182,6 +192,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
+            action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
@@ -206,11 +217,13 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
+            action_accelerators.set (ACTION_CLOSE_TAB + "::", "<Control>w");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
+            action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
 
             var provider = new Gtk.CssProvider ();
@@ -586,9 +599,8 @@ namespace Scratch {
                 update_find_actions ();
             });
 
-            document_view.tab_removed.connect ((tab) => {
+            document_view.tab_removed.connect ((doc) => {
                 update_find_actions ();
-                var doc = (Scratch.Services.Document)tab;
                 var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
                 if (selected_item != null && selected_item.file.file.equal (doc.file)) {
                     // Do not leave removed tab selected
@@ -1063,13 +1075,34 @@ namespace Scratch {
         }
 
         private void action_close_tab (SimpleAction action, Variant? param) {
-            var close_path = get_target_path_for_actions (param);
+            string close_path = "";
+            if (param != null) {
+                close_path = param.get_string ();
+            }
+
+            if (close_path == "") {
+                document_view.close_document ();
+                return;
+            }
+
             unowned var docs = document_view.docs;
             docs.foreach ((doc) => {
                 if (doc.file.get_path () == close_path) {
                     document_view.close_document (doc);
                 }
             });
+        }
+
+        private void action_duplicate_tab () {
+            document_view.duplicate_tab ();
+        }
+
+        private void action_close_tabs_to_right () {
+            document_view.close_tabs_to_right ();
+        }
+
+        private void action_close_other_tabs () {
+            document_view.close_other_tabs ();
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {
@@ -1082,6 +1115,10 @@ namespace Scratch {
 
         private void action_restore_project_docs (SimpleAction action, Variant? param) {
             restore_project_docs (get_target_path_for_actions (param));
+        }
+
+        private void action_restore_closed_tab (SimpleAction action, Variant? param) {
+            document_view.restore_closed_tab (param.get_string ());
         }
 
         private void close_project_docs (string project_path, bool make_restorable) {
@@ -1340,6 +1377,10 @@ namespace Scratch {
 
         private void action_new_branch (SimpleAction action, Variant? param) {
             folder_manager_view.new_branch (get_target_path_for_actions (param));
+        }
+
+        private void action_move_tab_to_new_window () {
+            document_view.transfer_tab_to_new_window ();
         }
 
         private string? get_target_path_for_actions (Variant? path_variant, bool use_build_dir = false) {
