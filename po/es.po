@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-13 22:33+0000\n"
-"PO-Revision-Date: 2024-06-06 02:38+0000\n"
-"Last-Translator: Deleted User <noreply+1497@weblate.org>\n"
+"PO-Revision-Date: 2024-06-15 18:47+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38
@@ -765,7 +765,7 @@ msgstr "Ordenar líneas seleccionadas"
 
 #: src/Widgets/SourceView.vala:569
 msgid "Toggle Comment"
-msgstr "Alternar comentario"
+msgstr "Activar o desactivar comentario"
 
 #: src/Widgets/Terminal.vala:39
 msgid "Copy"
