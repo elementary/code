@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-01-30 14:11+0000\n"
+"PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -33,12 +33,13 @@ msgid "Print version info and exit"
 msgstr "Skriv versjoninformasjon og avslutt"
 
 #: src/Application.vala:41
+#, fuzzy
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "Åpne fil i angitt utvalgsområde"
 
 #: src/Application.vala:41
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<STARTLINJE[.STARTKOLONNE][-SLUTTLINJE[.SLUTTKOLONNE]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -248,21 +249,21 @@ msgstr "Linjebryting:"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "White space visible when not selected:"
-msgstr ""
+msgstr "Blanktegn synlig uten å være valgt:"
 
 #: src/Dialogs/PreferencesDialog.vala:139
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: src/Dialogs/PreferencesDialog.vala:140
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "Fjern den valgte visninga"
+msgstr "Nåværende linje"
 
 #: src/Dialogs/PreferencesDialog.vala:141
+#, fuzzy
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: src/Dialogs/PreferencesDialog.vala:156
 msgid "Show Mini Map:"
@@ -425,7 +426,7 @@ msgstr "Last inn uansett"
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "Innlasting av \"%s\" tar lang tid"
+msgstr "Innlasting av «%s» tar lang tid"
 
 #: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
@@ -474,16 +475,15 @@ msgstr "Kan ikke lagre dette dokumentet i %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:832
-#, fuzzy, c-format
-#| msgid "Search for text in “%s”"
+#, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Søk etter tekst i «%s»"
+msgstr "Kan ikke lese tekst i «%s»-filen."
 
 #: src/Services/Document.vala:835
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
-msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den."
+msgstr "Kanskje du mangler rettigheter til å lese den?"
 
 #: src/Services/Document.vala:837
 msgid "The file may be corrupt or may not be a text file"
@@ -492,32 +492,22 @@ msgstr "Tekstfilen kan være skadet eller være en annen type fil"
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
 #: src/Services/Document.vala:843
-#, fuzzy
-#| msgid "Load Anyway"
 msgid "Show Anyway"
-msgstr "Last inn uansett"
+msgstr "Vis uansett"
 
 #: src/Services/Document.vala:874
-#, fuzzy, c-format
-#| msgid ""
-#| "The location containing the file \"%s\" was unmounted. Do you want to "
-#| "save somewhere else?"
+#, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr ""
-"Plasseringen som inneholder filen \"%s\" var umontert. Ønsker du å lagre et "
-"annet sted?"
+"Plasseringen som inneholder filen «%s» ble avmontert og det er ulagrede "
+"endringer."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr ""
-"Filen \"%s\" ble endret av et eksternt program. Ønsker du å laste den igjen "
-"eller fortsette redigeringen?"
+msgstr "Filen «%s» ble slettet og det er ulagrede endringer."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -525,17 +515,12 @@ msgstr ""
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
-msgstr "Filen \"%s\" har blitt slettet. Ønsker du å lagre den likevel?"
+msgstr "Du mangler skrivetilgang til «%s»-filen."
 
 #: src/Services/Document.vala:936
-#, fuzzy, c-format
-#| msgid ""
-#| "File \"%s\" was modified by an external application. Do you want to load "
-#| "it again or continue your editing?"
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr ""
-"Filen \"%s\" ble endret av et eksternt program. Ønsker du å laste den igjen "
-"eller fortsette redigeringen?"
+msgstr "«%s»-filen ble endret av et eksternt program."
 
 #: src/Services/Document.vala:941
 #, fuzzy
@@ -607,10 +592,8 @@ msgid "Filter projects"
 msgstr "Filtrer prosjekter"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Lukk"
+msgstr "Lukkede faner"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -619,31 +602,23 @@ msgstr "Tekstfil fra %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Lukk faner til →"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Lukk andre mapper"
+msgstr "Lukk andre faner"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Lukk"
+msgstr "Lukk fane"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Nytt vindu"
+msgstr "Nytt i nytt vindu"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Lagre duplikat …"
+msgstr "Dupliser fane"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -836,7 +811,7 @@ msgstr "Veksle kommentar"
 
 #: src/Widgets/Terminal.vala:39
 msgid "Copy"
-msgstr "Kopiér"
+msgstr "Kopier"
 
 #: src/Widgets/Terminal.vala:44
 msgid "Paste"
