@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-05-26 07:13+0000\n"
+"PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -567,10 +567,8 @@ msgid "Filter projects"
 msgstr "プロジェクトをフィルター"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "閉じる"
+msgstr "閉じたタブ"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -579,31 +577,23 @@ msgstr "テキストファイル %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "右側のタブを閉じる"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "ほかのフォルダーを閉じる"
+msgstr "ほかのタブを閉じる"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "閉じる"
+msgstr "タブを閉じる"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "新しいウィンドウ"
+msgstr "新しいウィンドウで開く"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "複製を保存…"
+msgstr "タブを複製"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
