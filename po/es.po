@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 22:33+0000\n"
+"POT-Creation-Date: 2024-06-15 18:47+0000\n"
 "PO-Revision-Date: 2024-06-15 18:47+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:38
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nueva pestaña"
 
@@ -43,82 +43,82 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ARCHIVO…]"
 
-#: src/MainWindow.vala:223
+#: src/MainWindow.vala:236
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:225
+#: src/MainWindow.vala:238
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:362
+#: src/MainWindow.vala:375
 msgid "Hide search bar"
 msgstr "Ocultar la barra de búsqueda"
 
-#: src/MainWindow.vala:367 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Buscar en la página…"
 
-#: src/MainWindow.vala:378
+#: src/MainWindow.vala:391
 msgid "Hide Projects Sidebar"
 msgstr "Ocultar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:396
 msgid "Show Projects Sidebar"
 msgstr "Mostrar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:392
+#: src/MainWindow.vala:405
 msgid "Hide Symbol Outline"
 msgstr "Ocultar la vista de esquema"
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:410
 msgid "Show Symbol Outline"
 msgstr "Mostrar la vista de esquema"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:419
 msgid "Hide Terminal"
 msgstr "Ocultar terminal"
 
-#: src/MainWindow.vala:411 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Mostrar terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:604
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:608
+#: src/MainWindow.vala:944 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:612
+#: src/MainWindow.vala:948 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/MainWindow.vala:940
+#: src/MainWindow.vala:952
 msgid "Open some files"
 msgstr "Abra algunos archivos"
 
-#: src/MainWindow.vala:943
+#: src/MainWindow.vala:955
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
-#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:983
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:984
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -398,89 +398,89 @@ msgid "Branch"
 msgstr "Rama"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s no es un archivo de texto"
 
-#: src/Services/Document.vala:328
+#: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
 msgstr "Code no cargará este tipo de archivo."
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:372
 msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:393
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "La carga del archivo «%s» está tomando mucho tiempo"
 
-#: src/Services/Document.vala:352
+#: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
 msgstr "Espere mientras Code carga el archivo."
 
-#: src/Services/Document.vala:354
+#: src/Services/Document.vala:396
 msgid "Cancel Loading"
 msgstr "Cancelar carga"
 
-#: src/Services/Document.vala:441
+#: src/Services/Document.vala:483
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "¿Desea guardar los cambios del documento «%s» antes de cerrar?"
 
-#: src/Services/Document.vala:442
+#: src/Services/Document.vala:484
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no lo guarda, los cambios se perderán para siempre."
 
-#: src/Services/Document.vala:448
+#: src/Services/Document.vala:490
 msgid "Close Without Saving"
 msgstr "Cerrar sin guardar"
 
-#: src/Services/Document.vala:452 src/Services/Document.vala:619
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "Guardar"
 
-#: src/Services/Document.vala:578
+#: src/Services/Document.vala:621
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "No se pudo guardar en «%s»."
 
-#: src/Services/Document.vala:616
+#: src/Services/Document.vala:659
 msgid "Save File"
 msgstr "Guardar archivo"
 
-#: src/Services/Document.vala:703 src/Services/Document.vala:721
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
 msgid "New Document"
 msgstr "Documento nuevo"
 
 #. No path for a new document
-#: src/Services/Document.vala:723
+#: src/Services/Document.vala:766
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "No se puede guardar este documento en «%s»"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "No se pudo leer texto en el archivo «%s»"
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:835
 msgid "You may not have permission to read the file."
 msgstr "Puede que no tenga los permisos necesarios para leerlo."
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:837
 msgid "The file may be corrupt or may not be a text file"
 msgstr "El archivo puede estar dañado o no ser un archivo de texto"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:800
+#: src/Services/Document.vala:843
 msgid "Show Anyway"
 msgstr "Mostrar de todos modos"
 
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:874
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -489,24 +489,24 @@ msgstr ""
 "La ubicación que contiene el archivo «%s» fue desmontada, y existen cambios "
 "sin guardar."
 
-#: src/Services/Document.vala:833
+#: src/Services/Document.vala:876
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
 msgstr "El archivo «%s» fue borrado y existen cambios sin guardar."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:890
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "El archivo «%s» no tiene permisos de escritura."
 
-#: src/Services/Document.vala:893
+#: src/Services/Document.vala:936
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "El archivo «%s» fue modificado por una aplicación externa"
 
-#: src/Services/Document.vala:898
+#: src/Services/Document.vala:941
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -514,38 +514,38 @@ msgstr ""
 "Existen cambios sin guardar. Cargar el documento de nuevo sobreescribirá "
 "esos cambios."
 
-#: src/Services/Document.vala:902
+#: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
 msgstr "El documento cambió externamente desde la última vez que se guardó."
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:961
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 "El archivo «%s» no se puede guardar aquí. ¿Desea guardar un duplicado en "
 "otro lugar?"
 
-#: src/Services/Document.vala:927
+#: src/Services/Document.vala:970
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: src/Services/Document.vala:929
+#: src/Services/Document.vala:972
 msgid "Save Duplicate…"
 msgstr "Guardar duplicado…"
 
-#: src/Services/Document.vala:978
+#: src/Services/Document.vala:1021
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:1023
 msgid "Reload"
 msgstr "Volver a cargar"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1026
 msgid "Overwrite"
 msgstr "Sobreescribir"
 
-#: src/Services/Document.vala:986
+#: src/Services/Document.vala:1029
 msgid "Save Document elsewhere"
 msgstr "Guardar el documento en otro lugar"
 
@@ -575,10 +575,44 @@ msgstr "Proyecto Git activo: %s"
 msgid "Filter projects"
 msgstr "Filtrar proyectos"
 
-#: src/Widgets/DocumentView.vala:167
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "Cerrar"
+
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Archivo de texto de %s:%d"
+
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+#| msgid "Close Other Folders"
+msgid "Close Other Tabs"
+msgstr "Cerrar otras carpetas"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "Cerrar"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "Nueva ventana"
+
+#: src/Widgets/DocumentView.vala:642
+#, fuzzy
+#| msgid "Save Duplicate…"
+msgid "Duplicate Tab"
+msgstr "Guardar duplicado…"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"

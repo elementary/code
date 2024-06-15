@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 22:33+0000\n"
+"POT-Creation-Date: 2024-06-15 18:47+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nauja kortelė"
 
@@ -45,91 +45,91 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:223
+#: src/MainWindow.vala:236
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:225
+#: src/MainWindow.vala:238
 msgid "Code"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:362
+#: src/MainWindow.vala:375
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:367 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Atverti aplanką"
 
-#: src/MainWindow.vala:378
+#: src/MainWindow.vala:391
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:383
+#: src/MainWindow.vala:396
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Rodyti peržiūrą"
 
-#: src/MainWindow.vala:392
+#: src/MainWindow.vala:405
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:410
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Simboliai"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:419
 msgid "Hide Terminal"
 msgstr "Slėpti terminalą"
 
-#: src/MainWindow.vala:411 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Rodyti terminalą"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:604
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:932 src/Services/Document.vala:608
+#: src/MainWindow.vala:944 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:936 src/Services/Document.vala:612
+#: src/MainWindow.vala:948 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
-#: src/MainWindow.vala:940
+#: src/MainWindow.vala:952
 msgid "Open some files"
 msgstr "Atverti failus"
 
-#: src/MainWindow.vala:943
+#: src/MainWindow.vala:955
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:944 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:451
-#: src/Services/Document.vala:620 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:983
 msgid "_Open"
 msgstr "At_verti"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:984
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
@@ -429,97 +429,97 @@ msgid "Branch"
 msgstr "Šaka"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:327
+#: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nėra tekstinis failas"
 
-#: src/Services/Document.vala:328
+#: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
 msgstr "Kodas neįkels šio failo tipo."
 
-#: src/Services/Document.vala:330
+#: src/Services/Document.vala:372
 msgid "Load Anyway"
 msgstr "Vis tiek įkelti"
 
-#: src/Services/Document.vala:351
+#: src/Services/Document.vala:393
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Failo \"%s\" įkėlimas užima daug laiko"
 
-#: src/Services/Document.vala:352
+#: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
 msgstr "Palaukite, kol Kodas įkelia failą."
 
-#: src/Services/Document.vala:354
+#: src/Services/Document.vala:396
 msgid "Cancel Loading"
 msgstr "Atsisakyti įkėlimo"
 
-#: src/Services/Document.vala:441
+#: src/Services/Document.vala:483
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
 
-#: src/Services/Document.vala:442
+#: src/Services/Document.vala:484
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jeigu neįrašysite, pakeitimai bus negrįžtamai prarasti."
 
-#: src/Services/Document.vala:448
+#: src/Services/Document.vala:490
 msgid "Close Without Saving"
 msgstr "Užverti neįrašant"
 
-#: src/Services/Document.vala:452 src/Services/Document.vala:619
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/Services/Document.vala:578
+#: src/Services/Document.vala:621
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
 
-#: src/Services/Document.vala:616
+#: src/Services/Document.vala:659
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: src/Services/Document.vala:703 src/Services/Document.vala:721
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
 msgid "New Document"
 msgstr "Naujas dokumentas"
 
 #. No path for a new document
-#: src/Services/Document.vala:723
+#: src/Services/Document.vala:766
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:792
+#: src/Services/Document.vala:835
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr ""
 "Galbūt, jis yra pažeistas arba jūs neturite reikiamų leidimų jo skaityti."
 
-#: src/Services/Document.vala:794
+#: src/Services/Document.vala:837
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:800
+#: src/Services/Document.vala:843
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Vis tiek įkelti"
 
-#: src/Services/Document.vala:831
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -531,7 +531,7 @@ msgstr ""
 "Vieta, kurioje buvo failas \"%s\", buvo atjungta. Ar norite įrašyti kur nors "
 "kitur?"
 
-#: src/Services/Document.vala:833
+#: src/Services/Document.vala:876
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -543,13 +543,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:890
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
 
-#: src/Services/Document.vala:893
+#: src/Services/Document.vala:936
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -559,44 +559,44 @@ msgstr ""
 "Failas \"%s\" buvo pakeistas išorinės programos. Ar norite vėl jį įkelti, ar "
 "tęsti redagavimą?"
 
-#: src/Services/Document.vala:898
+#: src/Services/Document.vala:941
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:902
+#: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:961
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:927
+#: src/Services/Document.vala:970
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:929
+#: src/Services/Document.vala:972
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:978
+#: src/Services/Document.vala:1021
 msgid "Continue"
 msgstr "Tęsti"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:1023
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Išsiųsti"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1026
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:986
+#: src/Services/Document.vala:1029
 #, fuzzy
 #| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
@@ -630,10 +630,42 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:167
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "Užverti"
+
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstinis failas iš %s:%d"
+
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Tabs"
+msgstr "Užverti aplanką"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "Užverti"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "Naujas langas"
+
+#: src/Widgets/DocumentView.vala:642
+msgid "Duplicate Tab"
+msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
