@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-05-18 13:13+0000\n"
+"PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -566,10 +566,8 @@ msgid "Filter projects"
 msgstr "סינון מיזמים"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "סגירה"
+msgstr "לשוניות סגורות"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -578,31 +576,23 @@ msgstr "קובץ טקסט מ־%s:‏%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "סגירת הלשוניות מימין"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "לסגור את התיקיות האחרות"
+msgstr "שגירת שאר הלשוניות"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "סגירה"
+msgstr "סגירת לשונית"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "חלון חדש"
+msgstr "פתיחה בחלון חדש"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "שמירת שכפול…"
+msgstr "שכפול לשונית"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
