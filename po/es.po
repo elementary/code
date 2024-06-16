@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-06-15 18:47+0000\n"
+"PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -576,10 +576,8 @@ msgid "Filter projects"
 msgstr "Filtrar proyectos"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Cerrar"
+msgstr "Pestañas cerradas"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -588,31 +586,23 @@ msgstr "Archivo de texto de %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Cerrar pestañas a la derecha"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Cerrar otras carpetas"
+msgstr "Cerrar otras pestañas"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Cerrar"
+msgstr "Cerrar pestaña"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Nueva ventana"
+msgstr "Abrir en una nueva ventana"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Guardar duplicado…"
+msgstr "Duplicar pestaña"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
