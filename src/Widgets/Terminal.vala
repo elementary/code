@@ -5,13 +5,23 @@
  */
 
 public class Code.Terminal : Gtk.Box {
+    public const string ACTION_GROUP = "term";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_COPY = "action_copy";
+    public const string ACTION_PASTE = "action_paste";
+
     private const double MAX_SCALE = 5.0;
     private const double MIN_SCALE = 0.2;
     private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
-    private GLib.Pid child_pid;
     public Vte.Terminal terminal { get; construct; }
+    public SimpleActionGroup actions { get; construct; }
+
+    private GLib.Pid child_pid;
+    private SimpleAction copy_action;
+    private SimpleAction paste_action;
+    private Gtk.Clipboard current_clipboard;
 
     construct {
         terminal = new Vte.Terminal () {
@@ -36,27 +46,42 @@ public class Code.Terminal : Gtk.Box {
             GLib.Application.get_default ().activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
         });
 
-        var copy = new Gtk.MenuItem.with_label (_("Copy"));
-        copy.activate.connect (() => {
-            terminal.copy_clipboard ();
-        });
+        copy_action = new SimpleAction (ACTION_COPY, null);
+        copy_action.set_enabled (false);
+        copy_action.activate.connect (() => copy ());
 
-        var paste = new Gtk.MenuItem.with_label (_("Paste"));
-        paste.activate.connect (() => {
-            terminal.paste_clipboard ();
-        });
+        paste_action = new SimpleAction (ACTION_PASTE, null);
+        paste_action.activate.connect (() => paste ());
 
-        var menu = new Gtk.Menu ();
-        menu.append (copy);
-        menu.append (paste);
+        actions = new SimpleActionGroup ();
+        actions.add_action (copy_action);
+        actions.add_action (paste_action);
+
+        var menu_model = new GLib.Menu ();
+        menu_model.append (_("Copy"), ACTION_PREFIX + ACTION_COPY);
+        menu_model.append (_("Paste"), ACTION_PREFIX + ACTION_PASTE);
+
+        var menu = new Gtk.Menu.from_model (menu_model);
+        menu.insert_action_group (ACTION_GROUP, actions);
         menu.show_all ();
 
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
+                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
                 menu.select_first (false);
                 menu.popup_at_pointer (event);
             }
             return false;
+        });
+
+        realize.connect (() => {
+            current_clipboard = terminal.get_clipboard (Gdk.SELECTION_CLIPBOARD);
+            copy_action.set_enabled (terminal.get_has_selection ());
+
+        });
+
+        terminal.selection_changed.connect (() => {
+            copy_action.set_enabled (terminal.get_has_selection ());
         });
 
         var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
@@ -72,6 +97,14 @@ public class Code.Terminal : Gtk.Box {
         });
 
         show_all ();
+    }
+
+    public void copy () {
+        terminal.copy_clipboard ();
+    }
+
+    public void paste () {
+        terminal.paste_clipboard ();
     }
 
     private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
