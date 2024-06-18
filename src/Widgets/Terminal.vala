@@ -75,7 +75,6 @@ public class Code.Terminal : Gtk.Box {
         realize.connect (() => {
             current_clipboard = terminal.get_clipboard (Gdk.SELECTION_CLIPBOARD);
             copy_action.set_enabled (terminal.get_has_selection ());
-
         });
 
         terminal.selection_changed.connect (() => {
