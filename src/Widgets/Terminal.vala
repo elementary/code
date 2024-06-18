@@ -46,10 +46,10 @@ public class Code.Terminal : Gtk.Box {
 
         var copy_action = new SimpleAction (ACTION_COPY, null);
         copy_action.set_enabled (false);
-        copy_action.activate.connect (() => copy ());
+        copy_action.activate.connect (() => terminal.copy_clipboard ());
 
         var paste_action = new SimpleAction (ACTION_PASTE, null);
-        paste_action.activate.connect (() => paste ());
+        paste_action.activate.connect (() => terminal.paste_clipboard ());
 
         actions = new SimpleActionGroup ();
         actions.add_action (copy_action);
@@ -95,14 +95,6 @@ public class Code.Terminal : Gtk.Box {
         });
 
         show_all ();
-    }
-
-    public void copy () {
-        terminal.copy_clipboard ();
-    }
-
-    public void paste () {
-        terminal.paste_clipboard ();
     }
 
     private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
