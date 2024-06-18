@@ -19,8 +19,6 @@ public class Code.Terminal : Gtk.Box {
     public SimpleActionGroup actions { get; construct; }
 
     private GLib.Pid child_pid;
-    private SimpleAction copy_action;
-    private SimpleAction paste_action;
     private Gtk.Clipboard current_clipboard;
 
     construct {
@@ -46,11 +44,11 @@ public class Code.Terminal : Gtk.Box {
             GLib.Application.get_default ().activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
         });
 
-        copy_action = new SimpleAction (ACTION_COPY, null);
+        var copy_action = new SimpleAction (ACTION_COPY, null);
         copy_action.set_enabled (false);
         copy_action.activate.connect (() => copy ());
 
-        paste_action = new SimpleAction (ACTION_PASTE, null);
+        var paste_action = new SimpleAction (ACTION_PASTE, null);
         paste_action.activate.connect (() => paste ());
 
         actions = new SimpleActionGroup ();
