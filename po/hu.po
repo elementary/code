@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-05-21 23:13+0000\n"
+"PO-Revision-Date: 2024-06-19 05:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -576,10 +576,8 @@ msgid "Filter projects"
 msgstr "Projektek szűrése"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Bezárás"
+msgstr "Bezárt lapok"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -588,31 +586,23 @@ msgstr "Szöveges fájl innen: %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Jobbra lévő lapok bezárása"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Többi mappa bezárása"
+msgstr "A többi lap bezárása"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Bezárás"
+msgstr "A lap bezárása"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Új ablak"
+msgstr "Megnyitás új ablakban"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Másolat mentése…"
+msgstr "Lap megkettőzése"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
