@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-06-16 12:29+0000\n"
+"PO-Revision-Date: 2024-06-20 12:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -125,7 +125,7 @@ msgstr "キャンセル(_C)"
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
-msgstr "フォルダー “%s” 内のテキストを検索"
+msgstr "フォルダー“%s”内のテキストを検索"
 
 #: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
@@ -146,7 +146,7 @@ msgstr "検索"
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr "“%s/%s” の新しいブランチを作成"
+msgstr "“%s/%s”の新しいブランチを作成"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
@@ -408,7 +408,7 @@ msgstr "強制的に読み込む"
 #: src/Services/Document.vala:393
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "ファイル “%s” の読み込みに時間がかかっています"
+msgstr "ファイル“%s”の読み込みに時間がかかっています"
 
 #: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
@@ -421,7 +421,7 @@ msgstr "読み込みをキャンセル"
 #: src/Services/Document.vala:483
 #, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "閉じる前に “%s” への変更を保存しますか?"
+msgstr "閉じる前に“%s”への変更を保存しますか?"
 
 #: src/Services/Document.vala:484
 msgid "If you don't save, changes will be permanently lost."
@@ -438,7 +438,7 @@ msgstr "保存"
 #: src/Services/Document.vala:621
 #, c-format
 msgid "Saving to “%s” failed."
-msgstr "“%s” に保存できませんでした。"
+msgstr "“%s”に保存できませんでした。"
 
 #: src/Services/Document.vala:659
 msgid "Save File"
@@ -458,7 +458,7 @@ msgstr "%s にこのドキュメントを保存できません"
 #: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "ファイル “%s” 内のテキストを読み込めません"
+msgstr "ファイル“%s”内のテキストを読み込めません"
 
 #: src/Services/Document.vala:835
 msgid "You may not have permission to read the file."
@@ -479,25 +479,24 @@ msgstr "強制的に表示"
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
-msgstr ""
-"ファイル “%s” を含む場所はアンマウントされていて、未保存の変更があります。"
+msgstr "ファイル“%s”を含む場所はアンマウントされていて、未保存の変更があります。"
 
 #: src/Services/Document.vala:876
 #, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "ファイル “%s” は削除されていて、未保存の変更があります。"
+msgstr "ファイル“%s”は削除されていて、未保存の変更があります。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
 #: src/Services/Document.vala:890
 #, c-format
 msgid "File “%s” does not have write permission."
-msgstr "“%s” への書き込み権限がありません。"
+msgstr "“%s”への書き込み権限がありません。"
 
 #: src/Services/Document.vala:936
 #, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "ファイル “%s” は外部のアプリケーションによって変更されました"
+msgstr "ファイル“%s”は外部のアプリケーションによって変更されました"
 
 #: src/Services/Document.vala:941
 msgid ""
@@ -514,7 +513,7 @@ msgstr "ドキュメントは、最後の保存以降に外部で変更されま
 #: src/Services/Document.vala:961
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "“%s” はここには保存できません。ほかの場所に複製して保存しますか?"
+msgstr "“%s”はここには保存できません。ほかの場所に複製して保存しますか?"
 
 #: src/Services/Document.vala:970
 msgid "Ignore"
