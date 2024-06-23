@@ -25,7 +25,7 @@ public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
-    public Gtk.Menu project_menu { get; construct; }
+    public GLib.MenuModel project_menu_model { get; construct; }
 
     private Gtk.StackSwitcher stack_switcher;
 
@@ -63,22 +63,21 @@ public class Code.Sidebar : Gtk.Grid {
             label = _("Open Folder…")
         };
 
-        var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
-        collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX +
-                                             Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
+        var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
+        + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
 
-        var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize"));
-        order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX +
-                                               Scratch.MainWindow.ACTION_ORDER_FOLDERS;
+        var order_projects_menu_item = new GLib.MenuItem (_("Alphabetize"), Scratch.MainWindow.ACTION_PREFIX
+                + Scratch.MainWindow.ACTION_ORDER_FOLDERS);
 
-        project_menu = new Gtk.Menu ();
-        project_menu.append (collapse_all_menu_item);
-        project_menu.append (order_projects_menu_item);
-        project_menu.show_all ();
+        var project_menu = new GLib.Menu ();
+        project_menu.append_item (collapse_all_menu_item);
+        project_menu.append_item (order_projects_menu_item);
+        project_menu_model = project_menu;
 
         var project_more_button = new Gtk.MenuButton ();
         project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        project_more_button.popup = project_menu;
+        project_more_button.use_popover = false;
+        project_more_button.menu_model = project_menu_model;
         project_more_button.tooltip_text = _("Manage project folders");
 
         actionbar.add (add_folder_button);
