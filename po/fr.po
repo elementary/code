@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2024-06-20 12:16+0000\n"
+"PO-Revision-Date: 2024-06-26 10:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -582,10 +582,8 @@ msgid "Filter projects"
 msgstr "Filtrer les projets"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Fermer"
+msgstr "Onglets fermés"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -597,28 +595,20 @@ msgid "Close Tabs to the Right"
 msgstr "Fermer les onglets de droite"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Fermer les autres dossiers"
+msgstr "Fermer les autres onglets"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Fermer"
+msgstr "Fermer l'onglet"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Nouvelle fenêtre"
+msgstr "Ouvrir dans une nouvelle fenêtre"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Enregistrer un doublon…"
+msgstr "Dupliquer l'onglet"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
