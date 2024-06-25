@@ -21,7 +21,7 @@
 namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
-     */
+    */
     public abstract class Item: Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
         public File file { get; construct; }
 
@@ -51,7 +51,7 @@ namespace Scratch.FolderManager {
             file.rename (new_name);
         }
 
-        protected void trash () {
+        public void trash () {
             file.trash ();
         }
 

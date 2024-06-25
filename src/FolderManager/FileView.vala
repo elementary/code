@@ -22,11 +22,39 @@
  * SourceList that displays folders and their contents.
  */
 public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.PaneSwitcher {
+    public const string ACTION_GROUP = "file-view";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_LAUNCH_APP_WITH_FILE_PATH = "launch-app-with-file-path";
+    public const string ACTION_SHOW_APP_CHOOSER = "show-app-chooser";
+    public const string ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH = "execute-contract-with-file-path";
+    public const string ACTION_RENAME_FILE = "rename-file";
+    public const string ACTION_RENAME_FOLDER = "rename-folder";
+    public const string ACTION_DELETE = "delete";
+    public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FOLDER = "new-folder";
+    public const string ACTION_CHANGE_BRANCH = "change-branch";
+    public const string ACTION_CLOSE_FOLDER = "close-folder";
+    public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
+
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
 
-    public ActionGroup toplevel_action_group { get; private set; }
     private Scratch.Services.PluginsManager plugins;
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
+        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
+        { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
+        { ACTION_RENAME_FILE, action_rename_file, "s" },
+        { ACTION_DELETE, action_delete, "s" },
+        { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FOLDER, add_new_folder, "s"},
+        { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
+    };
+
+    public SimpleActionGroup actions { get; construct; }
+    public ActionGroup toplevel_action_group { get; private set; }
+    public SimpleAction rename_folder_action { get; private set; }
 
     public signal void select (string file);
     public signal bool rename_request (File file);
@@ -54,10 +82,45 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
         git_manager = Scratch.Services.GitManager.get_instance ();
 
+        rename_folder_action = new SimpleAction (ACTION_RENAME_FOLDER, null);
+        actions = new SimpleActionGroup ();
+        actions.add_action_entries (ACTION_ENTRIES, this);
+        actions.add_action (rename_folder_action);
+
+        insert_action_group (ACTION_GROUP, actions);
+
         realize.connect (() => {
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
         });
+    }
+
+    private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var project_item = find_path (root, path) as ProjectFolderItem;
+        if (project_item == null) {
+            return;
+        }
+
+        project_item.closed ();
+    }
+
+    private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var project_item = find_path (root, path) as ProjectFolderItem;
+        if (project_item == null) {
+            return;
+        }
+
+        project_item.close_all_except ();
     }
 
     private void on_item_selected (Code.Widgets.SourceList.Item? item) {
@@ -246,6 +309,30 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         plugins.hook_folder_item_change (source, dest, event);
     }
 
+    public void rename_file (string path) {
+        this.select_path (path);
+        if (this.start_editing_item (selected)) {
+            ulong once = 0;
+            once = selected.edited.connect ((new_name) => {
+                selected.disconnect (once);
+                var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
+                this.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (path));
+                this.select (new_path);
+            });
+        }
+
+        // Handle cancelled rename (which does not produce signal)
+        Timeout.add (200, () => {
+            if (this.editing) {
+                return Source.CONTINUE;
+            } else {
+                // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
+                this.unselect_all ();
+                return Source.REMOVE;
+            }
+        });
+    }
+
     private void rename_items_with_same_name (Item item) {
         string item_name = item.file.name;
         foreach (var child in this.root.children) {
@@ -264,6 +351,126 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
         }
         item.name = item_name;
+    }
+
+    private void add_new_folder (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (true)` on `FolderItem`
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder = find_path (root, path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_new (true);
+    }
+
+    private void add_new_file (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder = find_path (root, path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_new (false);
+    }
+
+    private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {
+        var params = param.get_strv ();
+        var path = params[0];
+        if (path == null || path == "") {
+            return;
+        }
+
+        var app_id = params[1];
+        if (app_id == null || app_id == "") {
+            return;
+        }
+
+        var file_type = params[2];
+        if (file_type == null || file_type == "") {
+            return;
+        }
+
+        Utils.launch_app_with_file_path (path, app_id, file_type);
+    }
+
+    private void action_show_app_chooser (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        show_app_chooser (GLib.File.new_for_path (path));
+    }
+
+    public void show_app_chooser (GLib.File file) {
+        var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
+        dialog.deletable = false;
+
+        if (dialog.run () == Gtk.ResponseType.OK) {
+            var app_info = dialog.get_app_info ();
+            if (app_info != null) {
+                Utils.launch_app_with_file (app_info, file);
+            }
+        }
+
+        dialog.destroy ();
+    }
+
+    private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
+        var params = param.get_strv ();
+        var path = params[0];
+        if (path == null || path == "") {
+            return;
+        }
+
+        var contract_name = params[1];
+        if (contract_name == null || contract_name == "") {
+            return;
+        }
+
+        var file_type = params[2];
+        if (file_type == null || file_type == "") {
+            return;
+        }
+
+        Utils.execute_contract_with_file_path (path, contract_name, file_type);
+    }
+
+    private void action_rename_file (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        rename_file (path);
+    }
+
+     private void action_delete (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var item = find_path (root, path);
+        if (item != null) {
+            var item_to_delete = item as Scratch.FolderManager.Item;
+            item_to_delete.trash ();
+        }
     }
 
     private void add_folder (File folder, bool expand) {
