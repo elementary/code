@@ -377,7 +377,7 @@ namespace Scratch.FolderManager {
             return null;
         }
 
-        private void on_add_new (bool is_folder) {
+        public void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");

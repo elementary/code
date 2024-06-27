@@ -51,7 +51,7 @@ namespace Scratch.FolderManager {
             file.rename (new_name);
         }
 
-        protected void trash () {
+        public void trash () {
             file.trash ();
         }
 
