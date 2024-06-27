@@ -29,7 +29,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CHANGE_BRANCH = "change-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
 
@@ -39,6 +38,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     private Scratch.Services.PluginsManager plugins;
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_RENAME_FILE, action_rename_file, "s" },
+        { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
@@ -46,9 +46,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
-    public SimpleActionGroup actions { get; construct; }
+    public SimpleActionGroup actions { get; private set; }
     public ActionGroup toplevel_action_group { get; private set; }
-    public SimpleAction rename_folder_action { get; private set; }
 
     public signal void select (string file);
     public signal bool rename_request (File file);
@@ -76,11 +75,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
         git_manager = Scratch.Services.GitManager.get_instance ();
 
-        rename_folder_action = new SimpleAction (ACTION_RENAME_FOLDER, null);
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
-        actions.add_action (rename_folder_action);
-
         insert_action_group (ACTION_GROUP, actions);
 
         realize.connect (() => {
@@ -327,6 +323,33 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         });
     }
 
+    private void rename_folder (string path) {
+        var folder_to_rename = find_path (root, path) as FolderItem;
+        if (folder_to_rename == null) {
+            critical ("Could not find folder from given path to rename: %s", path);
+        }
+
+        folder_to_rename.selectable = true;
+            if (start_editing_item (folder_to_rename)) {
+                // Need to poll view as no signal emited when editing cancelled and need to set
+                // selectable to false anyway.
+                Timeout.add (200, () => {
+                    if (editing) {
+                        return Source.CONTINUE;
+                    } else {
+                        unselect_all ();
+                        // Must do this *after* unselecting all else sourcelist breaks
+                        folder_to_rename.selectable = false;
+                    }
+
+                    return Source.REMOVE;
+                });
+            } else {
+                critical ("Could not rename %s", path);
+                folder_to_rename.selectable = false;
+            }
+    }
+
     private void rename_items_with_same_name (Item item) {
         string item_name = item.file.name;
         foreach (var child in this.root.children) {
@@ -389,6 +412,17 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         rename_file (path);
     }
 
+    private void action_rename_folder (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        rename_folder (path);
+    }
+
+
      private void action_delete (SimpleAction action, Variant? param) {
         var path = param.get_string ();
 
@@ -399,6 +433,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var item = find_path (root, path);
         if (item != null) {
             var item_to_delete = item as Scratch.FolderManager.Item;
+
+            // Wait for ProjectFolderItem closed signal handle logic to run before moving item to trash
+            if (item_to_delete is Scratch.FolderManager.ProjectFolderItem) {
+                item_to_delete.closed.connect_after (() => {
+                    item_to_delete.trash ();
+                });
+                item_to_delete.closed ();
+                return;
+            }
+
             item_to_delete.trash ();
         }
     }

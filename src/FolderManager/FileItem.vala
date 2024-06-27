@@ -120,37 +120,19 @@ namespace Scratch.FolderManager {
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
             contractor_item.submenu = contractor_menu;
 
-            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => {
-                // Ensure item selected else rename does not work
-                view.select_path (file.path);
-                if (view.start_editing_item (this)) {
-                    ulong once = 0;
-                    once = this.edited.connect ((new_name) => {
-                        this.disconnect (once);
-                        var new_path = Path.get_dirname (file.path) + Path.DIR_SEPARATOR_S + new_name;
-                        view.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (this.path));
-                        view.select (new_path);  // Select and open newly named file
-                    });
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FILE,
+                action_target = new Variant.string (file.path),
+                sensitive = view.rename_request (file)
+            };
 
-                    // Handle cancelled rename (which does not produce signal)
-                    Timeout.add (200, () => {
-                        if (view.editing) {
-                            return Source.CONTINUE;
-                        } else {
-                            // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
-                            view.unselect_all ();
-                            return Source.REMOVE;
-                        }
-                    });
-                }
-            });
-
-            rename_item.sensitive = view.rename_request (file);
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                action_target = new Variant.string (file.path)
+            };
 
             var menu = new Gtk.Menu ();
+            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             menu.append (open_in_terminal_pane_item);
             menu.append (open_in_item);
             menu.append (contractor_item);
