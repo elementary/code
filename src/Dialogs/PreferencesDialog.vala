@@ -156,14 +156,6 @@ namespace Scratch.Dialogs {
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
 
-            var show_right_margin_label = new SettingsLabel (_("Line width guide:"));
-            var show_right_margin = new SettingsSwitch ("show-right-margin");
-
-            var right_margin_position = new Gtk.SpinButton.with_range (1, 250, 1);
-            right_margin_position.hexpand = true;
-            Scratch.settings.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
-
             var font_header = new Granite.HeaderLabel (_("Font"));
 
             var use_custom_font_label = new SettingsLabel (_("Custom font:"));
@@ -186,9 +178,6 @@ namespace Scratch.Dialogs {
             content.attach (drawspaces_combobox, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
-            content.attach (show_right_margin_label, 0, 6, 1, 1);
-            content.attach (show_right_margin, 1, 6, 1, 1);
-            content.attach (right_margin_position, 2, 7, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
