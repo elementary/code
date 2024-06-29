@@ -62,7 +62,7 @@ namespace Scratch {
         public const string ACTION_FIND = "action_find";
         public const string ACTION_FIND_NEXT = "action_find_next";
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
-        public const string ACTION_FIND_GLOBAL = "action_find_global";
+        public const string ACTION_FIND_GLOBAL = "action-find-global";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
@@ -93,19 +93,20 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
         public const string ACTION_TOGGLE_OUTLINE = "action_toggle_outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
-        public const string ACTION_OPEN_IN_TERMINAL = "action-open_in_terminal";
+        public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_CLEAR_LINES = "action_clear_lines";
-        public const string ACTION_NEW_BRANCH = "action_new_branch";
+        public const string ACTION_NEW_BRANCH = "action-new-branch";
         public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action_close_tabs_to_right";
         public const string ACTION_CLOSE_OTHER_TABS = "action_close_other_tabs";
-        public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
-        public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
-        public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
+        public const string ACTION_CLOSE_PROJECT_DOCS = "action-close-project-docs";
+        public const string ACTION_HIDE_PROJECT_DOCS = "action-hide-project-docs";
+        public const string ACTION_RESTORE_PROJECT_DOCS = "action-restore-project-docs";
         public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
         public const string ACTION_RESTORE_CLOSED_TAB = "action_restore_closed_tab";
+        public const string ACTION_OPEN_IN_NEW_WINDOW = "action-open-in-new-window";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -163,6 +164,7 @@ namespace Scratch {
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
             { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
             { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
+            { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -973,6 +975,19 @@ namespace Scratch {
                     open_document (doc);
                 }
             }
+        }
+
+        private void action_open_in_new_window (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                return;
+            }
+
+            var new_window = new MainWindow (false);
+            var file = File.new_for_path (path);
+            var doc = new Scratch.Services.Document (new_window.actions, file);
+
+            new_window.open_document (doc, true);
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {

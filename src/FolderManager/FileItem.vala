@@ -18,7 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.FolderManager {
+ namespace Scratch.FolderManager {
     /**
      * Normal item in the source list, represents a textfile.
      */
@@ -28,42 +28,21 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                action_target = new Variant.string (file.file.get_parent ().get_path ())
-            };
-            var new_window_menuitem = new Gtk.MenuItem.with_label (_("New Window"));
-            new_window_menuitem.activate.connect (() => {
-                var new_window = new MainWindow (false);
-                var doc = new Scratch.Services.Document (new_window.actions, file.file);
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                _("Open in Terminal Pane"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    file.path
+                )
+            );
 
-                new_window.open_document (doc, true);
-            });
-
-            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-
-            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
-            files_item_icon.pixel_size = 16;
-
-            var files_item_grid = new Gtk.Grid ();
-            files_item_grid.add (files_item_icon);
-            files_item_grid.add (new Gtk.Label (files_appinfo.get_name ()));
-
-            var files_menuitem = new Gtk.MenuItem ();
-            files_menuitem.add (files_item_grid);
-            files_menuitem.activate.connect (() => launch_app_with_file (files_appinfo, file.file));
-
-            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
-            other_menuitem.activate.connect (() => show_app_chooser (file));
-
-            var open_in_menu = new Gtk.Menu ();
-            if (file.is_valid_textfile) {
-                open_in_menu.add (new_window_menuitem);
-                open_in_menu.add (new Gtk.SeparatorMenuItem ());
-            }
-            open_in_menu.add (files_menuitem);
-
-            var contractor_menu = new Gtk.Menu ();
+            var new_window_menu_item = new GLib.MenuItem (
+                _("New Window"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
+                    file.path
+                )
+            );
 
             GLib.FileInfo info = null;
 
@@ -73,92 +52,72 @@ namespace Scratch.FolderManager {
                 warning (e.message);
             }
 
-            if (info != null) {
-                var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+            var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+            var launch_app_action = Utils.action_from_group (
+                FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
+                view.actions
+            ) as SimpleAction;
+            launch_app_action.change_state (file_type);
 
-                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
+            var rename_menu_item = new GLib.MenuItem (
+                _("Rename"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FILE,
+                    file.path
+                )
+            );
 
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
-                        continue;
-                    }
+            var rename_file_action = Utils.action_from_group (FileView.ACTION_RENAME_FILE,
+                                                              view.actions) as SimpleAction;
+            rename_file_action.set_enabled (view.rename_request (file));
 
-                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                    menuitem_icon.pixel_size = 16;
+            var delete_menu_item = new GLib.MenuItem (
+                _("Move to Trash"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                    file.path
+                )
+            );
 
-                    var menuitem_grid = new Gtk.Grid ();
-                    menuitem_grid.add (menuitem_icon);
-                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
+            var open_in_menu = new GLib.Menu ();
+            var open_in_top_section = new GLib.Menu ();
+            open_in_top_section.append_item (new_window_menu_item);
 
-                    var item_app = new Gtk.MenuItem ();
-                    item_app.add (menuitem_grid);
+            var open_in_app_section = Utils.create_executable_app_items_for_file (file.file, file_type);
 
-                    item_app.activate.connect (() => {
-                        launch_app_with_file (app_info, file.file);
-                    });
-                    open_in_menu.add (item_app);
-                }
+            var open_in_extra_section = new GLib.Menu ();
+            var open_in_other_menu_item = new GLib.MenuItem (
+                _("Other Application…"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,
+                    file.path
+                )
+            );
+            open_in_extra_section.append_item (open_in_other_menu_item);
 
-                try {
-                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
-                    foreach (var contract in contracts) {
-                        var menu_item = new ContractMenuItem (contract, file.file);
-                        contractor_menu.append (menu_item);
-                        menu_item.show_all ();
-                    }
-                } catch (Error e) {
-                    warning (e.message);
-                }
+            open_in_menu.append_section (null, open_in_top_section);
+            open_in_menu.append_section (null, open_in_app_section);
+            open_in_menu.append_section (null, open_in_extra_section);
+
+            var contractor_submenu = Utils.create_contract_items_for_file (file.file, file_type);
+
+            var external_actions_menu_section = new GLib.Menu ();
+            external_actions_menu_section.append_item (open_in_terminal_pane_item);
+            external_actions_menu_section.append_submenu (_("Open In"), open_in_menu);
+            if (contractor_submenu.get_n_items () > 0) {
+                external_actions_menu_section.append_submenu (_("Other Actions"), contractor_submenu);
             }
 
-            open_in_menu.add (new Gtk.SeparatorMenuItem ());
-            open_in_menu.add (other_menuitem);
+            var direct_actions_menu_section = new GLib.Menu ();
+            direct_actions_menu_section.append_item (rename_menu_item);
+            direct_actions_menu_section.append_item (delete_menu_item);
 
-            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
-            open_in_item.submenu = open_in_menu;
+            var menu_model = new GLib.Menu ();
+            menu_model.append_section (null, external_actions_menu_section);
+            menu_model.append_section (null, direct_actions_menu_section);
 
-            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = contractor_menu;
-
-            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => {
-                // Ensure item selected else rename does not work
-                view.select_path (file.path);
-                if (view.start_editing_item (this)) {
-                    ulong once = 0;
-                    once = this.edited.connect ((new_name) => {
-                        this.disconnect (once);
-                        var new_path = Path.get_dirname (file.path) + Path.DIR_SEPARATOR_S + new_name;
-                        view.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (this.path));
-                        view.select (new_path);  // Select and open newly named file
-                    });
-
-                    // Handle cancelled rename (which does not produce signal)
-                    Timeout.add (200, () => {
-                        if (view.editing) {
-                            return Source.CONTINUE;
-                        } else {
-                            // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
-                            view.unselect_all ();
-                            return Source.REMOVE;
-                        }
-                    });
-                }
-            });
-
-            rename_item.sensitive = view.rename_request (file);
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
-
-            var menu = new Gtk.Menu ();
-            menu.append (open_in_terminal_pane_item);
-            menu.append (open_in_item);
-            menu.append (contractor_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (rename_item);
-            menu.append (delete_item);
-            menu.show_all ();
-
+            var menu = new Gtk.Menu.from_model (menu_model);
+            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             return menu;
         }
     }
