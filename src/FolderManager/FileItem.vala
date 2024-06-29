@@ -132,7 +132,6 @@ namespace Scratch.FolderManager {
             };
 
             var menu = new Gtk.Menu ();
-            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             menu.append (open_in_terminal_pane_item);
             menu.append (open_in_item);
             menu.append (contractor_item);

@@ -31,11 +31,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_NEW_FOLDER = "new-folder";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
-
-    private GLib.Settings settings;
-    private Scratch.Services.GitManager git_manager;
-
-    private Scratch.Services.PluginsManager plugins;
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_RENAME_FILE, action_rename_file, "s" },
         { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
@@ -46,12 +41,15 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
-    public SimpleActionGroup actions { get; private set; }
-    public ActionGroup toplevel_action_group { get; private set; }
+    private GLib.Settings settings;
+    private Scratch.Services.GitManager git_manager;
+    private Scratch.Services.PluginsManager plugins;
+    private SimpleActionGroup actions;
 
     public signal void select (string file);
     public signal bool rename_request (File file);
 
+    public ActionGroup toplevel_action_group { get; private set; }
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
     public string title { get; set; }
