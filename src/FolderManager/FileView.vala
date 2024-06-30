@@ -328,24 +328,24 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         folder_to_rename.selectable = true;
-            if (start_editing_item (folder_to_rename)) {
-                // Need to poll view as no signal emited when editing cancelled and need to set
-                // selectable to false anyway.
-                Timeout.add (200, () => {
-                    if (editing) {
-                        return Source.CONTINUE;
-                    } else {
-                        unselect_all ();
-                        // Must do this *after* unselecting all else sourcelist breaks
-                        folder_to_rename.selectable = false;
-                    }
+        if (start_editing_item (folder_to_rename)) {
+            // Need to poll view as no signal emited when editing cancelled and need to set
+            // selectable to false anyway.
+            Timeout.add (200, () => {
+                if (editing) {
+                    return Source.CONTINUE;
+                } else {
+                    unselect_all ();
+                    // Must do this *after* unselecting all else sourcelist breaks
+                    folder_to_rename.selectable = false;
+                }
 
-                    return Source.REMOVE;
-                });
-            } else {
-                critical ("Could not rename %s", path);
-                folder_to_rename.selectable = false;
-            }
+                return Source.REMOVE;
+            });
+        } else {
+            critical ("Could not rename %s", path);
+            folder_to_rename.selectable = false;
+        }
     }
 
     private void rename_items_with_same_name (Item item) {
