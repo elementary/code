@@ -44,11 +44,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
     private Scratch.Services.PluginsManager plugins;
-    private SimpleActionGroup actions;
 
     public signal void select (string file);
     public signal bool rename_request (File file);
 
+    public SimpleActionGroup actions { get; private set; }
     public ActionGroup toplevel_action_group { get; private set; }
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }

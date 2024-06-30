@@ -135,8 +135,12 @@ namespace Scratch.FolderManager {
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders")) {
                 action_name = FileView.ACTION_PREFIX + FileView.ACTION_CLOSE_OTHER_FOLDERS,
                 action_target = new Variant.string (file.path),
-                sensitive = view.root.children.size > 1
             };
+            var close_other_folders_action = Utils.action_from_group (
+                FileView.ACTION_CLOSE_OTHER_FOLDERS,
+                view.actions
+            );
+            close_other_folders_action.set_enabled (view.root.children.size > 1);
 
             var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
             var open_text = ngettext ("Close %u Open Document",
