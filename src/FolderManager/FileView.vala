@@ -325,6 +325,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var folder_to_rename = find_path (root, path) as FolderItem;
         if (folder_to_rename == null) {
             critical ("Could not find folder from given path to rename: %s", path);
+            return;
         }
 
         folder_to_rename.selectable = true;
