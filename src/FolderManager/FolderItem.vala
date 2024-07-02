@@ -121,31 +121,15 @@ namespace Scratch.FolderManager {
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
             contractor_item.submenu = contractor_menu;
 
-            var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_menu_item.activate.connect (() => {
-                selectable = true;
-                if (view.start_editing_item (this)) {
-                    // Need to poll view as no signal emited when editing cancelled and need to set
-                    // selectable to false anyway.
-                    Timeout.add (200, () => {
-                        if (view.editing) {
-                            return Source.CONTINUE;
-                        } else {
-                            view.unselect_all ();
-                            // Must do this *after* unselecting all else sourcelist breaks
-                            selectable = false;
-                        }
+            var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,
+                action_target = new Variant.string (file.path)
+            };
 
-                        return Source.REMOVE;
-                    });
-                } else {
-                    debug ("Could not rename %s", file.path);
-                    selectable = false;
-                }
-            });
-
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                action_target = new Variant.string (file.path)
+            };
 
             var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
                 action_name = "win.action_find_global",
@@ -215,11 +199,15 @@ namespace Scratch.FolderManager {
         }
 
         protected Gtk.MenuItem create_submenu_for_new () {
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => on_add_new (true));
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_NEW_FOLDER,
+                action_target = new Variant.string (file.path)
+            };
 
-            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => on_add_new (false));
+            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_NEW_FILE,
+                action_target = new Variant.string (file.path)
+            };
 
             var new_menu = new Gtk.Menu ();
             new_menu.append (new_folder_item);
@@ -377,7 +365,7 @@ namespace Scratch.FolderManager {
             return null;
         }
 
-        private void on_add_new (bool is_folder) {
+        public void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
