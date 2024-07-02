@@ -28,7 +28,6 @@ namespace Scratch.FolderManager {
         private static Icon modified_icon;
 
         public signal void closed ();
-        public signal void close_all_except ();
 
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
@@ -127,14 +126,20 @@ namespace Scratch.FolderManager {
             };
             open_in_terminal_pane_item.add (open_in_terminal_pane_label);
 
-            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_folder_item.activate.connect (() => {
-                closed ();
-            });
+            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_CLOSE_FOLDER,
+                action_target = new Variant.string (file.path)
+            };
 
-            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
-            close_all_except_item.activate.connect (() => { close_all_except (); });
-            close_all_except_item.sensitive = view.root.children.size > 1;
+            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_CLOSE_OTHER_FOLDERS,
+                action_target = new Variant.string (file.path),
+            };
+            var close_other_folders_action = Utils.action_from_group (
+                FileView.ACTION_CLOSE_OTHER_FOLDERS,
+                view.actions
+            );
+            close_other_folders_action.set_enabled (view.root.children.size > 1);
 
             var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
             var open_text = ngettext ("Close %u Open Document",
@@ -179,11 +184,10 @@ namespace Scratch.FolderManager {
             };
             restore_item.add (restore_accellabel);
 
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (() => {
-                closed ();
-                trash ();
-            });
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                action_target = new Variant.string (file.path)
+            };
 
             var search_accellabel = new Granite.AccelLabel.from_action_name (
                 _("Find in Project…"),
