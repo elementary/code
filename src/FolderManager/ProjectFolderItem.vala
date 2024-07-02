@@ -28,7 +28,6 @@ namespace Scratch.FolderManager {
         private static Icon modified_icon;
 
         public signal void closed ();
-        public signal void close_all_except ();
 
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.

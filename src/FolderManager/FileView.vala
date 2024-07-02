@@ -103,12 +103,21 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        var project_item = find_path (root, path) as ProjectFolderItem;
-        if (project_item == null) {
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
             return;
         }
 
-        project_item.close_all_except ();
+        foreach (var child in root.children) {
+            var project_folder_item = (ProjectFolderItem) child;
+            if (project_folder_item != folder_root) {
+                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                root.remove (project_folder_item);
+                Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
+            }
+        }
+
+        write_settings ();
     }
 
     private void on_item_selected (Code.Widgets.SourceList.Item? item) {
@@ -470,19 +479,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
             }
             Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-            write_settings ();
-        });
-
-        folder_root.close_all_except.connect (() => {
-            foreach (var child in root.children) {
-                var project_folder_item = (ProjectFolderItem)child;
-                if (project_folder_item != folder_root) {
-                    toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
-                    root.remove (project_folder_item);
-                    Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
-                }
-            }
-
             write_settings ();
         });
 
