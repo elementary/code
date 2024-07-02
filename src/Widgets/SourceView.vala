@@ -320,7 +320,9 @@ namespace Scratch.Widgets {
         public void go_to_line (int line, int offset = 0) {
             Gtk.TextIter it;
             buffer.get_iter_at_line (out it, line - 1);
-            it.forward_chars (offset);
+            // Ensures offset is set to start of line when column is not set
+            // offset = column - 1
+            it.forward_chars (offset == -1 ? 0 : offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
         }
