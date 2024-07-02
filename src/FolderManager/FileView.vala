@@ -431,7 +431,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
 
-     private void action_delete (SimpleAction action, Variant? param) {
+    private void action_delete (SimpleAction action, Variant? param) {
         var path = param.get_string ();
 
         if (path == null || path == "") {
