@@ -53,17 +53,24 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
         var window_search_context = main_window != null ? main_window.search_bar.search_context : null;
 
+        if (current_search_context != null) {
+            // Cancel existing search
+            current_search_context.set_highlight (false);
+            current_search_context = null;
+        }
+
+
+        // Perform plugin selection highlighting only when there is no ongoing and successful search in the window search bar
         if (window_search_context == null ||
             window_search_context.settings.search_text == "" ||
             window_search_context.get_occurrences_count () == 0) {
-            // Perform plugin selection when there is no ongoing and successful search 
-            current_search_context = new Gtk.SourceSearchContext (
-                (Gtk.SourceBuffer)current_source.buffer,
-                null
-            );
-            current_search_context.settings.search_text = "";
-            current_search_context.set_highlight (false);
 
+            // Only highlight if selection is over a single line
+            if (start.get_line () != end.get_line ()) {
+                return;
+            }
+
+            // Determine word(s) to be highlighted
             var original_start = start.copy ();
 
             // Ignore leading space
@@ -124,12 +131,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
                 return;
             }
 
+            current_search_context = new Gtk.SourceSearchContext (
+                (Gtk.SourceBuffer)current_source.buffer,
+                null
+            );
+
             current_search_context.settings.search_text = selected_text;
             current_search_context.set_highlight (true);
-        } else if (current_search_context != null) {
-            // Cancel existing search
-            current_search_context.set_highlight (false);
-            current_search_context = null;
         }
     }
 
