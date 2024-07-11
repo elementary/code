@@ -8,15 +8,14 @@
  */
 
 public class Scratch.Dialogs.Preferences : Granite.Dialog {
-    private Gtk.Stack main_stack;
+    public Services.PluginsManager plugins { get; construct; }
 
     public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
         Object (
             title: _("Preferences"),
-            transient_for: parent
+            transient_for: parent,
+            plugins: plugins
         );
-
-        create_layout (plugins);
     }
 
     construct {
@@ -130,42 +129,37 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         interface_box.add (editor_box);
         interface_box.add (font_box);
 
-        main_stack = new Gtk.Stack () {
+        var stack = new Gtk.Stack () {
             margin = 12,
             vhomogeneous = true
         };
-        main_stack.add_titled (behavior_box, "behavior", _("Behavior"));
-        main_stack.add_titled (interface_box, "interface", _("Interface"));
+        stack.add_titled (behavior_box, "behavior", _("Behavior"));
+        stack.add_titled (interface_box, "interface", _("Interface"));
 
-        var main_stackswitcher = new Gtk.StackSwitcher ();
-        main_stackswitcher.set_stack (main_stack);
-        main_stackswitcher.halign = Gtk.Align.CENTER;
+        var stackswitcher = new Gtk.StackSwitcher ();
+        stackswitcher.set_stack (stack);
+        stackswitcher.halign = Gtk.Align.CENTER;
 
-        var main_grid = new Gtk.Grid () {
-            row_spacing = 12
-        };
-        main_grid.attach (main_stackswitcher, 0, 0);
-        main_grid.attach (main_stack, 0, 1);
+        var main_box = new Gtk.Box (VERTICAL, 12);
+        main_box.add (stackswitcher);
+        main_box.add (stack);
 
-        border_width = 0;
-        get_content_area ().add (main_grid);
-
-        var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
-        close_button.clicked.connect (() => {
-            destroy ();
-        });
-    }
-
-    private void create_layout (Services.PluginsManager plugins) {
-        // Plugin hook function
         plugins.hook_preferences_dialog (this);
 
         if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
             var pbox = plugins.get_view ();
             pbox.vexpand = true;
 
-            main_stack.add_titled (pbox, "extensions", _("Extensions"));
+            stack.add_titled (pbox, "extensions", _("Extensions"));
         }
+
+        border_width = 0;
+        get_content_area ().add (main_box);
+
+        var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
+        close_button.clicked.connect (() => {
+            destroy ();
+        });
     }
 
     private class SettingSwitch : Gtk.Grid {
