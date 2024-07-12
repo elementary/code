@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 15:09+0000\n"
-"PO-Revision-Date: 2024-06-16 12:29+0000\n"
+"PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -166,22 +166,16 @@ msgid "General"
 msgstr "כללי"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "שמירת קבצים בעת שינוי:"
+msgstr "שמירת קבצים בעת שינוי"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "הסרה של הרווחים בסוף השורה:"
+msgstr "הסרה של הרווחים בסוף השורה עם השמירה"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "גזירה/העתקה חכמה של שורות:"
+msgstr "גזירה/העתקה חכמה של שורות"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -191,28 +185,20 @@ msgstr ""
 "גזירה או העתקה ללא בחירה פעילה תובלנה לגזירה או להעתקה של כל השורה הנוכחית"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "רוחב השול:"
+msgstr "רוחב הזחה"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "הזחה אוטומטית"
+msgstr "הזחה"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "הזחה אוטומטית:"
+msgstr "הזחה אוטומטית"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "הוספת רווחים במקום טאבים:"
+msgstr "הוספת רווחים במקום טאבים"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -235,36 +221,28 @@ msgid "All"
 msgstr "הכול"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "White space visible when not selected"
-msgstr "רווח גלוי כשלא נבחר:"
+msgstr "רווח גלוי כשלא נבחר"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "עורך"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "הדגשת הסוגר התואם:"
+msgstr "הדגשת הסוגר התואם"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "הצגת מפת סקירה:"
+msgstr "מפת סקירה"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "גלישת שורות"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "הנחיית רוחב שורה:"
+msgstr "הנחיית רוחב שורה"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -272,7 +250,7 @@ msgstr "גופן"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "להשתמש בגופן המערכת"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
