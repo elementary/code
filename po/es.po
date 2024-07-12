@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 15:09+0000\n"
-"PO-Revision-Date: 2024-06-16 12:29+0000\n"
+"PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -168,22 +168,16 @@ msgid "General"
 msgstr "General"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Guardar archivos al modificarlos:"
+msgstr "Guardar archivos cuando se modifiquen"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espacios en blanco:"
+msgstr "Eliminar espacios en blanco al guardar"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Copiar/cortar líneas de forma inteligente:"
+msgstr "Copiar/cortar líneas de forma inteligente"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -194,28 +188,20 @@ msgstr ""
 "actual"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Ancho del margen:"
+msgstr "Tamaño de sangría"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Sangría automática"
+msgstr "Sangría"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Sangría automática:"
+msgstr "Sangría automática"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Insertar espacios en lugar de tabuladores:"
+msgstr "Insertar espacios en lugar de tabuladores"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -238,36 +224,28 @@ msgid "All"
 msgstr "Todos"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "White space visible when not selected"
-msgstr "Espacios en blanco visibles cuando no esté seleccionando:"
+msgstr "Espacios en blanco visibles cuando no esté seleccionando"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Resaltar corchetes correspondientes:"
+msgstr "Resaltar corchetes correspondientes"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Mostrar el minimapa:"
+msgstr "Mini mapa"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Ajuste de línea"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Guía de ancho de línea:"
+msgstr "Guía de tamaño de línea"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -275,7 +253,7 @@ msgstr "Tipo de letra"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Usar fuentes del sistema"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
