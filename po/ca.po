@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 15:09+0000\n"
-"PO-Revision-Date: 2024-06-17 09:46+0000\n"
+"PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -168,22 +168,16 @@ msgid "General"
 msgstr "General"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Desa els fitxers quan es produeixin canvis:"
+msgstr "Desa els fitxers quan canviïn"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Suprimeix els espais en blanc al final:"
+msgstr "Suprimeix els espais en blanc al final en desar"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Línies de retall / còpia intel·ligents:"
+msgstr "Línies de retall / còpia intel·ligents"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -194,28 +188,20 @@ msgstr ""
 "actual."
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Amplada del marge:"
+msgstr "Amplada del sagnat"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Sagnat automàtic"
+msgstr "Sagnat"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Sagnat automàtic:"
+msgstr "Sagnat automàtic"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Inserir espais en comptes de tabulacions:"
+msgstr "Insereix espais en comptes de tabulacions"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -238,36 +224,28 @@ msgid "All"
 msgstr "Tot"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "White space visible when not selected"
-msgstr "Espai en blanc visible quan no s'ha seleccionat:"
+msgstr "Espai en blanc visible quan no s'ha seleccionat"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Realça la parella de claudàtors:"
+msgstr "Realça la parella de claudàtors"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Mostra el minimapa:"
+msgstr "Minimapa"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Replega les línies"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Guia d'amplada de línia:"
+msgstr "Guia d'amplada de línia"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -275,7 +253,7 @@ msgstr "Lletra"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Usa la lletra del sistema"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
