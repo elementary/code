@@ -93,7 +93,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
             }
         });
 
-        var draw_spaces_label = new Gtk.Label (_("White space visible when not selected")) {
+        var draw_spaces_label = new Gtk.Label (_("Whitespace visible when not selected")) {
             halign = START,
             hexpand = true,
             mnemonic_widget = drawspaces_combobox
