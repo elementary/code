@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 15:09+0000\n"
-"PO-Revision-Date: 2024-06-20 12:16+0000\n"
+"PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -168,22 +168,16 @@ msgid "General"
 msgstr "Общие"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Сохранять файлы при изменении:"
+msgstr "Сохранять файлы при изменении"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Удалять пробелы в конце:"
+msgstr "Удалять пробелы в конце при сохранении"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Умное вырезание/копирование строк:"
+msgstr "Умное вырезание/копирование строк"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -194,28 +188,20 @@ msgstr ""
 "копированию всей текущей строки"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Ширина отступа:"
+msgstr "Ширина отступа"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Автоматическая расстановка отступов"
+msgstr "Отступы"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Автоматическая расстановка отступов:"
+msgstr "Автоматическая расстановка отступов"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Вставлять пробелы вместо табуляций:"
+msgstr "Вставлять пробелы вместо табуляций"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -238,36 +224,28 @@ msgid "All"
 msgstr "Всегда"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "White space visible when not selected"
-msgstr "Отображать невыделенные пробелы:"
+msgstr "Отображать невыделенные пробелы"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Редактор"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Подсвечивать парные скобки:"
+msgstr "Подсвечивать парные скобки"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Показывать мини-карту:"
+msgstr "Мини-карта"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Перенос строк"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Настройка строки:"
+msgstr "Указатель длины строки"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -275,7 +253,7 @@ msgstr "Шрифт"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Использовать системный шрифт"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
