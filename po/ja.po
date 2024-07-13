@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 15:09+0000\n"
+"POT-Creation-Date: 2024-07-13 16:59+0000\n"
 "PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -220,7 +220,9 @@ msgid "All"
 msgstr "すべて"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-msgid "White space visible when not selected"
+#, fuzzy
+#| msgid "White space visible when not selected"
+msgid "Whitespace visible when not selected"
 msgstr "非選択時に空白を表示"
 
 #: src/Dialogs/PreferencesDialog.vala:111

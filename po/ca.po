@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 15:09+0000\n"
+"POT-Creation-Date: 2024-07-13 16:59+0000\n"
 "PO-Revision-Date: 2024-07-13 16:16+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -224,7 +224,9 @@ msgid "All"
 msgstr "Tot"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-msgid "White space visible when not selected"
+#, fuzzy
+#| msgid "White space visible when not selected"
+msgid "Whitespace visible when not selected"
 msgstr "Espai en blanc visible quan no s'ha seleccionat"
 
 #: src/Dialogs/PreferencesDialog.vala:111
