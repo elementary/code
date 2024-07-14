@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-14 07:09+0000\n"
-"PO-Revision-Date: 2024-06-21 15:16+0000\n"
+"PO-Revision-Date: 2024-07-15 08:16+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -169,22 +169,16 @@ msgid "General"
 msgstr "Ogólne"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Zapisywanie plików po ich zmianie:"
+msgstr "Zapisywanie plików po ich zmianie"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Usuwaj końcowe białe znaki:"
+msgstr "Usuwaj końcowe białe znaki przy zapisywaniu"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Inteligentne wycinanie/kopiowanie linijek:"
+msgstr "Inteligentne wycinanie/kopiowanie linijek"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -195,28 +189,20 @@ msgstr ""
 "skopiowanie całej linii"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Szerokość marginesu:"
+msgstr "Szerokość wcięcia"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Automatyczne wcięcia"
+msgstr "Wcięcia"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Automatyczne wcięcia akapitu:"
+msgstr "Automatyczne wcięcia"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Wstawianie spacji zamiast znaku tabulatora:"
+msgstr "Wstawianie spacji zamiast znaku tabulatora"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -239,36 +225,28 @@ msgid "All"
 msgstr "Wszystkie"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "Whitespace visible when not selected"
-msgstr "Białe znaki widoczne gdy niezaznaczone:"
+msgstr "Białe znaki widoczne gdy niezaznaczone"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Edytor"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Podświetlanie pasujących nawiasów:"
+msgstr "Podświetlanie pasujących nawiasów"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Pokaż mini mapę:"
+msgstr "Mini mapa"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Łamanie linii"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Szerokość prawego marginesu:"
+msgstr "Szerokość prawego marginesu"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -276,7 +254,7 @@ msgstr "Czcionka"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Użyj fontu systemowego"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
