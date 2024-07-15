@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-14 07:09+0000\n"
-"PO-Revision-Date: 2024-06-19 05:16+0000\n"
+"PO-Revision-Date: 2024-07-15 08:16+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/code/code/ka/>\n"
 "Language: ka\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -162,22 +162,16 @@ msgid "General"
 msgstr "ზოგადი"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "ფაილების შენახვა ცვლილებისას:"
+msgstr "ფაილების შენახვა ცვლილებისას"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "ბოლო ცარიელი ადგილის მოჭრა:"
+msgstr "ბოლო ჰარეების მოცილება შენახვისას"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "ხაზების ჭკვიანი ამოჭრა/კოპირება:"
+msgstr "ხაზების ჭკვიანი ამოჭრა/კოპირება"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -192,42 +186,32 @@ msgid "Indentation width"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "ავტომატური სწორება"
+msgstr "სწორება"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "ავტომატური სწორება:"
+msgstr "ავტომატური სწორება"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "ტაბულაციის მაგიერ გამოტოვებების ჩასმა:"
+msgstr "ტაბულაციის მაგიერ გამოტოვებების ჩასმა"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:67
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "პროექტი"
+msgstr "პროექტები"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "მიმდინარე ხედის წაშლა"
+msgstr "მიმდინარე ხაზი"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
@@ -242,26 +226,20 @@ msgid "Editor"
 msgstr "რედაქტორი"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "შესაბამისი ბრჭყალების გამოკვეთა:"
+msgstr "შესაბამისი ბრჭყალების გამოკვეთა"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "მინი რუკის ჩვენება:"
+msgstr "მინირუკა"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "ხაზის სიგანის გიდი:"
+msgstr "ხაზის სიგანის გიდი"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -590,10 +568,8 @@ msgid "Filter projects"
 msgstr "პროექტების გაფილტვრა"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "დახურვა"
+msgstr "დახურული ჩანართები"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -605,22 +581,16 @@ msgid "Close Tabs to the Right"
 msgstr ""
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "სხვა საქაღალდეების დახურვა"
+msgstr "სხვა ჩანართების დახურვა"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "დახურვა"
+msgstr "ჩანართის დახურვა"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "ახალი ფანჯარა"
+msgstr "გახსნა ახალი ფანჯარაში"
 
 #: src/Widgets/DocumentView.vala:642
 msgid "Duplicate Tab"
