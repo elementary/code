@@ -70,10 +70,10 @@ namespace Scratch.FolderManager {
             open_in_item.submenu = open_in_menu;
 
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = new Gtk.Menu.from_model (Utils.create_contract_items_for_file (
+            contractor_item.submenu = Utils.create_contract_items_for_file (
                 file.file,
                 file_type
-            ));
+            );
 
             var rename_item = new Gtk.MenuItem.with_label (_("Rename")) {
                 action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FILE,

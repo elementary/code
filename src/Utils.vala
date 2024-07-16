@@ -247,25 +247,23 @@ namespace Scratch.Utils {
         }
     }
 
-    public GLib.Menu create_contract_items_for_file (GLib.File file, string file_type) {
-        var menu = new GLib.Menu ();
+    public Gtk.Menu create_contract_items_for_file (GLib.File file, string file_type) {
+        var menu = new Gtk.Menu ();
 
         try {
             var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
             foreach (var contract in contracts) {
                 string contract_name = contract.get_display_name ();
-                var menu_item = new MenuItem (
-                    contract_name,
-                    Scratch.FolderManager.FileView.ACTION_PREFIX
-                    + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH
-                );
+                var menu_item = new Gtk.MenuItem.with_label (contract_name) {
+                    action_name = Scratch.FolderManager.FileView.ACTION_PREFIX
+                        + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
+                    action_target = new GLib.Variant.array (
+                        GLib.VariantType.STRING,
+                        { file.get_path (), contract_name, file_type }
+                    )
+                };
 
-                menu_item.set_attribute_value (GLib.Menu.ATTRIBUTE_TARGET, new GLib.Variant.array (
-                    GLib.VariantType.STRING,
-                    { file.get_path (), contract_name, file_type })
-                );
-
-                menu.append_item (menu_item);
+                menu.add (menu_item);
             }
         } catch (Error e) {
             warning (e.message);
