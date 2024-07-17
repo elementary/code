@@ -173,7 +173,6 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         }
 
         var symbol_type = ((SymbolItem)item).symbol_type;
-
         if (symbol_type == SymbolType.NAMESPACE) {
             return true;
         }
@@ -188,7 +187,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
 
         // Do not exclude misses on Item with children as may
         // hide hits on its children
-        if (item is Granite.Widgets.SourceList.ExpandableItem) {
+        if (item is Code.Widgets.SourceList.ExpandableItem) {
             var expandable = (Granite.Widgets.SourceList.ExpandableItem)item;
             if (expandable.n_children > 0) {
                 return true;
