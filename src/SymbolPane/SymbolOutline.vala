@@ -59,7 +59,7 @@ public enum Scratch.Services.SymbolType {
     }
 }
 
-public interface Scratch.Services.SymbolItem : Granite.Widgets.SourceList.ExpandableItem {
+public interface Scratch.Services.SymbolItem : Code.Widgets.SourceList.ExpandableItem {
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
 }
 
@@ -72,16 +72,16 @@ public abstract class Scratch.Services.SymbolOutline : Object {
     protected Gee.HashMap<SymbolType, Gtk.CheckButton> checks;
     protected Gtk.Box symbol_pane;
     protected Gtk.SearchEntry search_entry;
-    protected Granite.Widgets.SourceList store;
-    protected Granite.Widgets.SourceList.ExpandableItem root;
+    protected Code.Widgets.SourceList store;
+    protected Code.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return (Gtk.Widget)symbol_pane; }
     public abstract void parse_symbols ();
 
     construct {
-        store = new Granite.Widgets.SourceList ();
         checks = new Gee.HashMap<SymbolType, Gtk.CheckButton> ();
-        root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        store = new Code.Widgets.SourceList ();
+        root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
         symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
-"PO-Revision-Date: 2019-11-22 03:25+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"PO-Revision-Date: 2024-04-24 13:13+0000\n"
+"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "plugins/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -43,9 +43,17 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Carregar configurações de um arquivo EditorConfig"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr "Realçar seleção de palavras"
+msgstr "Destacar palavra selecionada"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
@@ -53,11 +61,11 @@ msgstr "Destaca todas as ocorrências das palavras selecionadas"
 
 #: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Markdown Actions"
-msgstr ""
+msgstr "Ações de Markdown"
 
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
-msgstr ""
+msgstr "Adiciona teclas de atalho para edição rápida de arquivos Markdown"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"

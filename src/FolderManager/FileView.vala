@@ -21,13 +21,35 @@
 /**
  * SourceList that displays folders and their contents.
  */
-public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.PaneSwitcher {
+    public const string ACTION_GROUP = "file-view";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_RENAME_FILE = "rename-file";
+    public const string ACTION_RENAME_FOLDER = "rename-folder";
+    public const string ACTION_DELETE = "delete";
+    public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FOLDER = "new-folder";
+    public const string ACTION_CLOSE_FOLDER = "close-folder";
+    public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_RENAME_FILE, action_rename_file, "s" },
+        { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
+        { ACTION_DELETE, action_delete, "s" },
+        { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FOLDER, add_new_folder, "s"},
+        { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
+    };
+
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
-    private ActionGroup? toplevel_action_group = null;
+    private Scratch.Services.PluginsManager plugins;
 
     public signal void select (string file);
+    public signal bool rename_request (File file);
 
+    public SimpleActionGroup actions { get; private set; }
+    public ActionGroup toplevel_action_group { get; private set; }
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
     public string title { get; set; }
@@ -35,6 +57,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         get {
             return git_manager.active_project_path;
         }
+    }
+
+    public FileView (Scratch.Services.PluginsManager plugins_manager) {
+        plugins = plugins_manager;
     }
 
     construct {
@@ -47,13 +73,54 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
 
         git_manager = Scratch.Services.GitManager.get_instance ();
 
+        actions = new SimpleActionGroup ();
+        actions.add_action_entries (ACTION_ENTRIES, this);
+        insert_action_group (ACTION_GROUP, actions);
+
         realize.connect (() => {
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
         });
     }
 
-    private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+    private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var project_item = find_path (root, path) as ProjectFolderItem;
+        if (project_item == null) {
+            return;
+        }
+
+        project_item.closed ();
+    }
+
+    private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
+            return;
+        }
+
+        foreach (var child in root.children) {
+            var project_folder_item = (ProjectFolderItem) child;
+            if (project_folder_item != folder_root) {
+                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                root.remove (project_folder_item);
+                Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
+            }
+        }
+
+        write_settings ();
+    }
+
+    private void on_item_selected (Code.Widgets.SourceList.Item? item) {
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         if (ignore_next_select) {
@@ -75,8 +142,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
     public void open_folder (File folder) {
         if (is_open (folder)) {
             var existing = find_path (root, folder.path);
-            if (existing is Granite.Widgets.SourceList.ExpandableItem) {
-                ((Granite.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+            if (existing is Code.Widgets.SourceList.ExpandableItem) {
+                ((Code.Widgets.SourceList.ExpandableItem)existing).expanded = true;
             }
 
             return;
@@ -114,6 +181,10 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         item_selected.connect (on_item_selected);
     }
 
+    public void unselect_all () {
+        selected = null;
+    }
+
     public void collapse_other_projects (string? keep_open_path = null) {
         unowned string path;
         if (keep_open_path == null) {
@@ -135,7 +206,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
-    private unowned Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list,
+    private unowned Code.Widgets.SourceList.Item? find_path (Code.Widgets.SourceList.ExpandableItem list,
                                                                 string path,
                                                                 bool expand = false) {
         foreach (var item in list.children) {
@@ -145,8 +216,8 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
                     return (!)item;
                 }
 
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                if (item is Code.Widgets.SourceList.ExpandableItem) {
+                    var expander = item as Code.Widgets.SourceList.ExpandableItem;
                     if (!path.has_prefix (code_item.path)) {
                         continue;
                     }
@@ -183,7 +254,7 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         return null;
     }
 
-    public unowned Granite.Widgets.SourceList.Item? expand_to_path (string path) {
+    public unowned Code.Widgets.SourceList.Item? expand_to_path (string path) {
          return find_path (root, path, true);
     }
 
@@ -193,7 +264,12 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
-                search_root.global_search (search_root.file.file, term);
+                GLib.File start_folder = (item_for_path is FolderItem)
+                    ? item_for_path.file.file
+                    : search_root.file.file;
+
+                bool is_explicit = !(item_for_path is ProjectFolderItem);
+                search_root.global_search (start_folder, term, is_explicit);
             }
         }
     }
@@ -226,6 +302,61 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
         }
     }
 
+    public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        plugins.hook_folder_item_change (source, dest, event);
+    }
+
+    private void rename_file (string path) {
+        this.select_path (path);
+        if (this.start_editing_item (selected)) {
+            ulong once = 0;
+            once = selected.edited.connect ((new_name) => {
+                selected.disconnect (once);
+                var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
+                this.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (path));
+                this.select (new_path);
+            });
+        }
+
+        // Handle cancelled rename (which does not produce signal)
+        Timeout.add (200, () => {
+            if (this.editing) {
+                return Source.CONTINUE;
+            } else {
+                // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
+                this.unselect_all ();
+                return Source.REMOVE;
+            }
+        });
+    }
+
+    private void rename_folder (string path) {
+        var folder_to_rename = find_path (root, path) as FolderItem;
+        if (folder_to_rename == null) {
+            critical ("Could not find folder from given path to rename: %s", path);
+            return;
+        }
+
+        folder_to_rename.selectable = true;
+        if (start_editing_item (folder_to_rename)) {
+            // Need to poll view as no signal emited when editing cancelled and need to set
+            // selectable to false anyway.
+            Timeout.add (200, () => {
+                if (editing) {
+                    return Source.CONTINUE;
+                } else {
+                    unselect_all ();
+                    // Must do this *after* unselecting all else sourcelist breaks
+                    folder_to_rename.selectable = false;
+                }
+
+                return Source.REMOVE;
+            });
+        } else {
+            critical ("Could not rename %s", path);
+            folder_to_rename.selectable = false;
+        }
+    }
 
     private void rename_items_with_same_name (Item item) {
         string item_name = item.file.name;
@@ -245,6 +376,83 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
 
         }
         item.name = item_name;
+    }
+
+    private void add_new_folder (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (true)` on `FolderItem`
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder = find_path (root, path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_new (true);
+    }
+
+    private void add_new_file (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder = find_path (root, path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_new (false);
+    }
+
+    private void action_rename_file (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        rename_file (path);
+    }
+
+    private void action_rename_folder (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        rename_folder (path);
+    }
+
+
+    private void action_delete (SimpleAction action, Variant? param) {
+        var path = param.get_string ();
+
+        if (path == null || path == "") {
+            return;
+        }
+
+        var item = find_path (root, path);
+        if (item != null) {
+            var item_to_delete = item as Scratch.FolderManager.Item;
+
+            // Wait for ProjectFolderItem closed signal handle logic to run before moving item to trash
+            if (item_to_delete is Scratch.FolderManager.ProjectFolderItem) {
+                item_to_delete.closed.connect_after (() => {
+                    item_to_delete.trash ();
+                });
+                item_to_delete.closed ();
+                return;
+            }
+
+            item_to_delete.trash ();
+        }
     }
 
     private void add_folder (File folder, bool expand) {
@@ -271,19 +479,6 @@ public class Scratch.FolderManager.FileView : Granite.Widgets.SourceList, Code.P
                 }
             }
             Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-            write_settings ();
-        });
-
-        folder_root.close_all_except.connect (() => {
-            foreach (var child in root.children) {
-                var project_folder_item = (ProjectFolderItem)child;
-                if (project_folder_item != folder_root) {
-                    toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
-                    root.remove (project_folder_item);
-                    Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
-                }
-            }
-
             write_settings ();
         });
 

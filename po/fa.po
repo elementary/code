@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -19,96 +19,112 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "تب جدید"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
 msgid "New Window"
 msgstr "پنجره جدید"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "چاپ اطلاعات نسخه و خارج شدن"
 
-#: src/Application.vala:40
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
+
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:236
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "کد"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:238
 msgid "Code"
 msgstr "کد"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:375
 msgid "Hide search bar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 msgid "Find on Page…"
 msgstr "باز کردن پرونده"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:391
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:396
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "قالب پروژه ها"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:405
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:410
 msgid "Show Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:419
+msgid "Hide Terminal"
+msgstr ""
+
+#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:944 src/Services/Document.vala:651
 msgid "All files"
 msgstr "همه  ی فایل‌ها"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:948 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "پرونده‌های متنی"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:952
 msgid "Open some files"
 msgstr "باز کردن چند پرونده"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:955
 msgid "Open"
 msgstr "باز کردن"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
-#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "انصراف"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:983
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:984
 msgid "_Cancel"
 msgstr ""
 
@@ -151,96 +167,134 @@ msgstr ""
 msgid "Create Branch"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "تنظیمات"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "ذخیره پرونده‌ها پس از تغییر:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+msgid "Strip trailing whitespace on save"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid "Smart cut/copy lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:55
-msgid "General"
-msgstr ""
+#: src/Dialogs/PreferencesDialog.vala:35
+#, fuzzy
+#| msgid "Margin width:"
+msgid "Indentation width"
+msgstr "طول حاشیه:"
 
-#: src/Dialogs/PreferencesDialog.vala:56
-msgid "Save files when changed:"
-msgstr "ذخیره پرونده‌ها پس از تغییر:"
-
-#: src/Dialogs/PreferencesDialog.vala:58
-msgid "Smart cut/copy lines:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:61
-msgid "Tabs"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:62
-msgid "Automatic indentation:"
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
 msgstr "دندانه‌گذاری خودکار:"
 
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Insert spaces instead of tabs:"
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "دندانه‌گذاری خودکار:"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
 msgstr "قرار دادن فاصله به جای تب:"
 
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Strip trailing whitespace:"
+#: src/Dialogs/PreferencesDialog.vala:57
+msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:68
-msgid "Tab width:"
-msgstr "عرض هر تب:"
+#: src/Dialogs/PreferencesDialog.vala:67
+#, fuzzy
+#| msgid "Project templates"
+msgid "Projects"
+msgstr "قالب پروژه ها"
 
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Behavior"
-msgstr "رفتار"
+#: src/Dialogs/PreferencesDialog.vala:78
+msgid "None"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:75
-msgid "Interface"
-msgstr "رابط"
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "حذف نمای کنونی"
 
-#: src/Dialogs/PreferencesDialog.vala:91
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "بستن"
+#: src/Dialogs/PreferencesDialog.vala:80
+msgid "All"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:105
-msgid "Extensions"
-msgstr "افزونه‌ها"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
-msgid "Highlight matching brackets:"
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
 msgstr "نمایش کروشه مطابق:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
-msgid "Line wrap:"
-msgstr "فاصله بین خطوط:"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Visible whitespace:"
+#: src/Dialogs/PreferencesDialog.vala:114
+msgid "Mini Map"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "پهنای خط راهنما:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Custom font:"
-msgstr "قلم سفارشی:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "رفتار"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "رابط"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "افزونه‌ها"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "بستن"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -258,81 +312,86 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:119
+msgid "Open in Terminal Pane"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 #, fuzzy
 msgid "Open In"
 msgstr "باز کردن"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
 #, fuzzy
 msgid "Other Actions"
 msgstr "قالب‌های دیگر"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
-#: src/FolderManager/ProjectFolderItem.vala:163
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:42
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:134
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:205
-#: src/FolderManager/ProjectFolderItem.vala:251
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 #, fuzzy
 msgid "New"
 msgstr "تب جدید"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:375
 #, fuzzy
 msgid "new file"
 msgstr "پرونده جدید"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:134
 #, fuzzy
 msgid "Close Other Folders"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/ProjectFolderItem.vala:121
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -340,125 +399,126 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "سند جدید"
 msgstr[1] "سند جدید"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 msgid "Find in Project…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:295
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:605
 #, fuzzy
 msgid "New Branch…"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:618
 #, fuzzy
 msgid "Branch"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/Services/Document.vala:317
+#. Empty files are valid text files
+#: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:318
+#: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:320
+#: src/Services/Document.vala:372
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:341
+#: src/Services/Document.vala:393
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:342
+#: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:344
+#: src/Services/Document.vala:396
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "انصراف"
 
-#: src/Services/Document.vala:431
+#: src/Services/Document.vala:483
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "آیا تغییرات سند %s پیش از بسته شدن ذخیره شوند؟"
 
-#: src/Services/Document.vala:432
+#: src/Services/Document.vala:484
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "اگر تغییرات را ذخیره نکنید، موارد مربوط به ۴ ثانیه پیش از دست خواهند رفت."
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:490
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "بستن بدون ذخیره کردن"
 
-#: src/Services/Document.vala:442 src/Services/Document.vala:608
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "ذخیره کردن"
 
-#: src/Services/Document.vala:567
+#: src/Services/Document.vala:621
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "آیا تغییرات سند %s پیش از بسته شدن ذخیره شوند؟"
 
-#: src/Services/Document.vala:605
+#: src/Services/Document.vala:659
 msgid "Save File"
 msgstr "ذخیره پرونده"
 
-#: src/Services/Document.vala:692 src/Services/Document.vala:710
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
 msgid "New Document"
 msgstr "سند جدید"
 
 #. No path for a new document
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:766
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:835
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr "%s قابل خواندن نیست.شاید خراب شده است."
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:837
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:843
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -469,7 +529,7 @@ msgid ""
 msgstr ""
 "مکان فایل %s از دستگاه جدا شده است.مایلید در جایی دیگر آنرا ذخیره نمایید؟"
 
-#: src/Services/Document.vala:822
+#: src/Services/Document.vala:876
 #, fuzzy, c-format
 #| msgid "The file %s was deleted."
 msgid "File “%s” was deleted and there are unsaved changes."
@@ -477,55 +537,55 @@ msgstr "پرونده %s حذف شده است."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:836
+#: src/Services/Document.vala:890
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "%s پاک شده است. مایلید جایی دیگر آنرا ذخیره کنید؟"
 
-#: src/Services/Document.vala:882
+#: src/Services/Document.vala:936
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr ""
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:941
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:907
+#: src/Services/Document.vala:961
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:916
+#: src/Services/Document.vala:970
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:972
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:967
+#: src/Services/Document.vala:1021
 msgid "Continue"
 msgstr ""
 
-#: src/Services/Document.vala:969
+#: src/Services/Document.vala:1023
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "ارسال"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:1026
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:975
+#: src/Services/Document.vala:1029
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
@@ -548,21 +608,52 @@ msgstr ""
 msgid "No Project Selected"
 msgstr "قالب پروژه ها"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:112
-#: src/Widgets/ChooseProjectButton.vala:162
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:161
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "بستن"
+
+#: src/Widgets/DocumentView.vala:449
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "پرونده‌های متنی"
+
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+msgid "Close Other Tabs"
+msgstr "باز کردن پرونده"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "بستن"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "پنجره جدید"
+
+#: src/Widgets/DocumentView.vala:642
+msgid "Duplicate Tab"
+msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -621,72 +712,64 @@ msgid_plural "%d Tabs"
 msgstr[0] "تب جدید"
 msgstr[1] "تب جدید"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "باز کردن یک پرونده"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "قالب پروژه ها"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "ذخیره کردن این پرونده"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "ذخیره این پرونده با نام متفاوت"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "بازیابی این پرونده"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "به‌اشتراک گذاری"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:57
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
 msgid "Open Folder…"
 msgstr "باز کردن پرونده"
 
-#: src/Widgets/Sidebar.vala:60
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:76
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr ""
 
@@ -752,28 +835,28 @@ msgstr "جایگزینی"
 msgid "Replace all"
 msgstr "جايگزينی همه"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:574
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "نمایش دیدگاه"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr ""
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr ""
 
@@ -813,7 +896,7 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr ""
 
@@ -879,6 +962,15 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
+#~ msgid "Tab width:"
+#~ msgstr "عرض هر تب:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "فاصله بین خطوط:"
+
+#~ msgid "Custom font:"
+#~ msgstr "قلم سفارشی:"
+
 #~ msgid "Set of plugins"
 #~ msgstr "مجموعه افزونه‌ها"
 
@@ -936,9 +1028,6 @@ msgstr ""
 
 #~ msgid "Add New View"
 #~ msgstr "افزودن نمای جدید"
-
-#~ msgid "Remove Current View"
-#~ msgstr "حذف نمای کنونی"
 
 #, fuzzy
 #~ msgid "new file %d"
@@ -1105,9 +1194,6 @@ msgstr ""
 
 #~ msgid "Show margin on right:"
 #~ msgstr "نمایش حاشیه سمت راست:"
-
-#~ msgid "Margin width:"
-#~ msgstr "طول حاشیه:"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "طرح قلم و رنگ:"

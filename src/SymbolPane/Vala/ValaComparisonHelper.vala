@@ -17,7 +17,7 @@
  */
 
 namespace Scratch.Services.ValaComparison {
-    int sort_function (Granite.Widgets.SourceList.Item str1, Granite.Widgets.SourceList.Item str2) {
+    int sort_function (Code.Widgets.SourceList.Item str1, Code.Widgets.SourceList.Item str2) {
         if (!(str1 is ValaSymbolItem && str2 is ValaSymbolItem))
             return str1.name.collate (str2.name);
         var a = (ValaSymbolItem) str1;

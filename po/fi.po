@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 20:46+0000\n"
-"PO-Revision-Date: 2023-07-03 13:07+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"PO-Revision-Date: 2023-08-27 12:08+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -19,92 +19,108 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:37
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Uusi välilehti"
 
-#: src/Application.vala:38 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: src/Application.vala:39
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
-#: src/Application.vala:40
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
+
+#: src/Application.vala:42
 msgid "[FILE…]"
 msgstr "[TIEDOSTO…]"
 
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:236
 #, c-format
 msgid "Code (%s)"
 msgstr "Koodi (%s)"
 
-#: src/MainWindow.vala:209
+#: src/MainWindow.vala:238
 msgid "Code"
 msgstr "Koodi"
 
-#: src/MainWindow.vala:321
+#: src/MainWindow.vala:375
 msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
-#: src/MainWindow.vala:326 src/Widgets/HeaderBar.vala:121
+#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Etsi sivulta…"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:391
 msgid "Hide Projects Sidebar"
 msgstr "Piilota projektipalkki"
 
-#: src/MainWindow.vala:342
+#: src/MainWindow.vala:396
 msgid "Show Projects Sidebar"
 msgstr "Näytä projektipalkki"
 
-#: src/MainWindow.vala:351
+#: src/MainWindow.vala:405
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:356
+#: src/MainWindow.vala:410
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Symboleja ei löytynyt"
 
+#: src/MainWindow.vala:419
+msgid "Hide Terminal"
+msgstr "Piilota pääte"
+
+#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "Näytä pääte"
+
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:533
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:838 src/Services/Document.vala:597
+#: src/MainWindow.vala:944 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:842 src/Services/Document.vala:601
+#: src/MainWindow.vala:948 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/MainWindow.vala:846
+#: src/MainWindow.vala:952
 msgid "Open some files"
 msgstr "Avaa tiedostoja"
 
-#: src/MainWindow.vala:849
+#: src/MainWindow.vala:955
 msgid "Open"
 msgstr "Avaa"
 
-#: src/MainWindow.vala:850 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:441
-#: src/Services/Document.vala:609 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/MainWindow.vala:875
+#: src/MainWindow.vala:983
 msgid "_Open"
 msgstr "_Avaa"
 
-#: src/MainWindow.vala:876
+#: src/MainWindow.vala:984
 msgid "_Cancel"
 msgstr "_Peru"
 
@@ -145,11 +161,33 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Luo haara"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "Yleiset"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "Tallenna tiedostot muutoksien jälkeen:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+#, fuzzy
+#| msgid "Strip trailing whitespace:"
+msgid "Strip trailing whitespace on save"
+msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit:"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "Älykäs rivien leikkaus/kopiointi:"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -157,86 +195,108 @@ msgstr ""
 "Leikkaaminen tai kopiointi ilman aktiivista valintaa leikkaa tai kopioi koko "
 "nykyisen rivin"
 
-#: src/Dialogs/PreferencesDialog.vala:55
-msgid "General"
-msgstr "Yleiset"
+#: src/Dialogs/PreferencesDialog.vala:35
+#, fuzzy
+#| msgid "Margin width:"
+msgid "Indentation width"
+msgstr "Reunuksen leveys:"
 
-#: src/Dialogs/PreferencesDialog.vala:56
-msgid "Save files when changed:"
-msgstr "Tallenna tiedostot muutoksien jälkeen:"
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic Indentation"
+msgid "Indentation"
+msgstr "Automaattinen sisennys"
 
-#: src/Dialogs/PreferencesDialog.vala:58
-msgid "Smart cut/copy lines:"
-msgstr "Älykäs rivien leikkaus/kopiointi:"
-
-#: src/Dialogs/PreferencesDialog.vala:61
-msgid "Tabs"
-msgstr "Sarkaimet"
-
-#: src/Dialogs/PreferencesDialog.vala:62
-msgid "Automatic indentation:"
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
 msgstr "Automaattinen sisennys:"
 
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Insert spaces instead of tabs:"
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
 msgstr "Käytä välilyöntejä sarkainten tilalla:"
 
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Strip trailing whitespace:"
-msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit:"
+#: src/Dialogs/PreferencesDialog.vala:57
+msgid "Default build directory"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:68
-msgid "Tab width:"
-msgstr "Sarkaimen leveys:"
+#: src/Dialogs/PreferencesDialog.vala:67
+#, fuzzy
+#| msgid "Project"
+msgid "Projects"
+msgstr "Projekti"
 
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Behavior"
-msgstr "Toiminta"
+#: src/Dialogs/PreferencesDialog.vala:78
+msgid "None"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:75
-msgid "Interface"
-msgstr "Käyttöliittymä"
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "Poista nykyinen näkymä"
 
-#: src/Dialogs/PreferencesDialog.vala:91
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "Sulje"
+#: src/Dialogs/PreferencesDialog.vala:80
+msgid "All"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:105
-msgid "Extensions"
-msgstr "Laajennukset"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Muokkain"
 
-#: src/Dialogs/PreferencesDialog.vala:116
-msgid "Highlight matching brackets:"
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
 msgstr "Korosta toisiaan vastaavat hakasulut:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
-msgid "Line wrap:"
-msgstr "Rivitys:"
-
-#: src/Dialogs/PreferencesDialog.vala:122
-msgid "Visible whitespace:"
-msgstr "Näkyvät välilyönnit:"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "Näytä pienoiskartta:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "Rivileveyden merkki:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "Fontti"
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Custom font:"
-msgstr "Mukautettu fontti:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "Toiminta"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "Käyttöliittymä"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "Laajennukset"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "Sulje"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -256,193 +316,199 @@ msgstr "Älä palauta"
 msgid "Restore Anyway"
 msgstr "Palauta silti"
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
+#: src/FolderManager/ProjectFolderItem.vala:119
+msgid "Open in Terminal Pane"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "Muu sovellus…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:116
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
 msgid "Other Actions"
 msgstr "Muut toiminnot"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:125
-#: src/FolderManager/ProjectFolderItem.vala:163
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
 
-#: src/FolderManager/FileView.vala:42
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "Kansiot"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "Etsi kansiosta…"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Kansio"
 
-#: src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "Tyhjä tiedosto"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:205
-#: src/FolderManager/ProjectFolderItem.vala:251
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "Uusi"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "nimetön kansio"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "uusi tiedosto"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Sulje kansio"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "Sulje muut kansiot"
 
-#: src/FolderManager/ProjectFolderItem.vala:121
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Sulje %u avoin asiakirja"
 msgstr[1] "Sulje %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Piilota %u avoin asiakirja"
 msgstr[1] "Piilota %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:150
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Palauta %u piilotettu asiakirja"
 msgstr[1] "Palauta %u piilotettua asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:170 src/Widgets/HeaderBar.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Etsi projektista…"
 
-#: src/FolderManager/ProjectFolderItem.vala:257
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr "Muokattu"
 
-#: src/FolderManager/ProjectFolderItem.vala:295
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Virhe uutta haaraa luotaessa: “%s”"
 
-#: src/FolderManager/ProjectFolderItem.vala:577
+#: src/FolderManager/ProjectFolderItem.vala:605
 msgid "New Branch…"
 msgstr "Uusi haara…"
 
-#: src/FolderManager/ProjectFolderItem.vala:590
+#: src/FolderManager/ProjectFolderItem.vala:618
 msgid "Branch"
 msgstr "Haara"
 
-#: src/Services/Document.vala:317
+#. Empty files are valid text files
+#: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ei ole tekstitiedosto"
 
-#: src/Services/Document.vala:318
+#: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
 msgstr "Koodi ei voi ladata tämäntyyppistä tiedostoa."
 
-#: src/Services/Document.vala:320
+#: src/Services/Document.vala:372
 msgid "Load Anyway"
 msgstr "Lataa silti"
 
-#: src/Services/Document.vala:341
+#: src/Services/Document.vala:393
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Tiedoston “%s” lataaminen kestää kauan"
 
-#: src/Services/Document.vala:342
+#: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
 msgstr "Koodi lataa tiedostoa. Ole hyvä ja odota."
 
-#: src/Services/Document.vala:344
+#: src/Services/Document.vala:396
 msgid "Cancel Loading"
 msgstr "Peru lataaminen"
 
-#: src/Services/Document.vala:431
+#: src/Services/Document.vala:483
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Tallennetaanko tiedostoon “%s” tehdyt muutokset ennen sulkemista?"
 
-#: src/Services/Document.vala:432
+#: src/Services/Document.vala:484
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jos et tallenna, muutokset katoavat pysyvästi."
 
-#: src/Services/Document.vala:438
+#: src/Services/Document.vala:490
 msgid "Close Without Saving"
 msgstr "Sulje tallentamatta"
 
-#: src/Services/Document.vala:442 src/Services/Document.vala:608
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/Services/Document.vala:567
+#: src/Services/Document.vala:621
 #, fuzzy, c-format
 #| msgid "Save changes to “%s” before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Tallennetaanko tiedostoon “%s” tehdyt muutokset ennen sulkemista?"
 
-#: src/Services/Document.vala:605
+#: src/Services/Document.vala:659
 msgid "Save File"
 msgstr "Tallenna tiedosto"
 
-#: src/Services/Document.vala:692 src/Services/Document.vala:710
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
 msgid "New Document"
 msgstr "Uusi asiakirja"
 
 #. No path for a new document
-#: src/Services/Document.vala:712
+#: src/Services/Document.vala:766
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Tiedoston “%s” tekstiä ei voi lukea"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:835
 msgid "You may not have permission to read the file."
 msgstr "Tarvittava käyttöoikeus sen lukemiseen saattaa puuttua."
 
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:837
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Tiedosto saattaa olla rikkoutunut tai se ei ole tekstitiedosto"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:843
 msgid "Show Anyway"
 msgstr "Näytä silti"
 
-#: src/Services/Document.vala:820
+#: src/Services/Document.vala:874
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file “%s” was unmounted. Do you want to save "
@@ -454,64 +520,61 @@ msgstr ""
 "Liitos, jossa tiedosto “%s” sijaitsee, irrotettiin. Haluatko tallentaa "
 "tiedoston jonnekin muualle?"
 
-#: src/Services/Document.vala:822
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#: src/Services/Document.vala:876
+#, c-format
 msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "Tiedostoa “%s” muokattiin toisella sovelluksella."
+msgstr "Tiedosto “%s” poistettiin ja siihen on tallentamattomia muutoksia."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:836
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted. Do you want to save it anyway?"
+#: src/Services/Document.vala:890
+#, c-format
 msgid "File “%s” does not have write permission."
-msgstr "Tiedosto “%s” poistettiin. Haluatko tallentaa sen silti?"
+msgstr "Tiedostoon “%s” ei ole kirjoitusoikeutta."
 
-#: src/Services/Document.vala:882
-#, fuzzy, c-format
-#| msgid "File “%s” was modified by an external application."
+#: src/Services/Document.vala:936
+#, c-format
 msgid "File “%s” was modified by an external application"
-msgstr "Tiedostoa “%s” muokattiin toisella sovelluksella."
+msgstr "Tiedostoa “%s” muokattiin toisella sovelluksella"
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:941
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:907
+#: src/Services/Document.vala:961
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
+"Asiakirjaa “%s” ei voi tallentaa tänne. Tallennetaanko kaksoiskappale "
+"muualle?"
 
-#: src/Services/Document.vala:916
+#: src/Services/Document.vala:970
 msgid "Ignore"
-msgstr ""
+msgstr "Ohita"
 
-#: src/Services/Document.vala:918
+#: src/Services/Document.vala:972
 msgid "Save Duplicate…"
 msgstr "Tallenna kaksoiskappale…"
 
-#: src/Services/Document.vala:967
+#: src/Services/Document.vala:1021
 msgid "Continue"
 msgstr "Jatka"
 
-#: src/Services/Document.vala:969
+#: src/Services/Document.vala:1023
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:1026
 msgid "Overwrite"
-msgstr ""
+msgstr "Korvaa"
 
-#: src/Services/Document.vala:975
-#, fuzzy
-#| msgid "Save the document elsewhere"
+#: src/Services/Document.vala:1029
 msgid "Save Document elsewhere"
 msgstr "Tallenna asiakirja muualle"
 
@@ -530,21 +593,55 @@ msgstr "Symbolit"
 msgid "No Project Selected"
 msgstr "Projektia ei ole valittu"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:112
-#: src/Widgets/ChooseProjectButton.vala:162
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr "Aktiivinen Git-projekti: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr "Suodata projekteja"
 
-#: src/Widgets/DocumentView.vala:161
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "Sulje"
+
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstitiedosto lähteestä %s:%d"
+
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+#| msgid "Close Other Folders"
+msgid "Close Other Tabs"
+msgstr "Sulje muut kansiot"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "Sulje"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "Uusi ikkuna"
+
+#: src/Widgets/DocumentView.vala:642
+#, fuzzy
+#| msgid "Save Duplicate…"
+msgid "Duplicate Tab"
+msgstr "Tallenna kaksoiskappale…"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -596,71 +693,63 @@ msgid_plural "%d Tabs"
 msgstr[0] "%d Sarkainlyönti"
 msgstr[1] "%d Sarkainlyöntiä"
 
-#: src/Widgets/HeaderBar.vala:37
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "Avaa tiedosto"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "Projektimallit"
 
-#: src/Widgets/HeaderBar.vala:50
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "Tallenna tämä tiedosto"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "Tallenna tämä tiedosto eri nimellä"
 
-#: src/Widgets/HeaderBar.vala:66
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "Palauta tämä tiedosto"
 
-#: src/Widgets/HeaderBar.vala:75
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "Jaa"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
 msgstr "Loitonna"
 
-#: src/Widgets/HeaderBar.vala:91
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "Zoomaus 1:1"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
 msgstr "Lähennä"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
 msgstr "Seuraa järjestelmän tyyliä"
 
-#: src/Widgets/HeaderBar.vala:195 src/Widgets/HeaderBar.vala:265
-msgid "Show Terminal"
-msgstr "Näytä pääte"
-
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr "Valikko"
 
-#: src/Widgets/HeaderBar.vala:260
-msgid "Hide Terminal"
-msgstr "Piilota pääte"
-
-#: src/Widgets/Sidebar.vala:57
+#: src/Widgets/Sidebar.vala:63
 msgid "Open Folder…"
 msgstr "Avaa kansio…"
 
-#: src/Widgets/Sidebar.vala:60
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr "Supista kaikki"
 
-#: src/Widgets/Sidebar.vala:64
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr "Aakkosta"
 
-#: src/Widgets/Sidebar.vala:76
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr "Hallitse projektikansioita"
 
@@ -724,28 +813,28 @@ msgstr "Korvaa"
 msgid "Replace all"
 msgstr "Korvaa kaikki"
 
-#: src/Widgets/SearchBar.vala:576
+#: src/Widgets/SearchBar.vala:569
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:581
+#: src/Widgets/SearchBar.vala:574
 msgid "no results"
 msgstr "ei tuloksia"
 
-#: src/Widgets/SourceView.vala:522
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "Järjestä valitut rivit"
 
-#: src/Widgets/SourceView.vala:535
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "Kytke kommentti"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "Kopioi"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "Liitä"
 
@@ -782,7 +871,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Lisää projektikansio sivupalkkiin."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "Lähetä Pastebiniin"
 
@@ -842,6 +931,21 @@ msgstr "Asenna vähintään yksi [aspell]-sanakirja."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
+
+#~ msgid "Tabs"
+#~ msgstr "Sarkaimet"
+
+#~ msgid "Tab width:"
+#~ msgstr "Sarkaimen leveys:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "Rivitys:"
+
+#~ msgid "Custom font:"
+#~ msgstr "Mukautettu fontti:"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "Näkyvät välilyönnit:"
 
 #, c-format
 #~ msgid "File “%s” was deleted."
@@ -997,9 +1101,6 @@ msgstr "%s - Sanojen täydennys"
 
 #~ msgid "Add New View"
 #~ msgstr "Lisää uusi näkymä"
-
-#~ msgid "Remove Current View"
-#~ msgstr "Poista nykyinen näkymä"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "nimetön kansio %d"
@@ -1181,9 +1282,6 @@ msgstr "%s - Sanojen täydennys"
 #~ msgid "Files"
 #~ msgstr "Tiedostot"
 
-#~ msgid "Project"
-#~ msgstr "Projekti"
-
 #~ msgid "Bookmarks"
 #~ msgstr "Kirjanmerkit"
 
@@ -1296,9 +1394,6 @@ msgstr "%s - Sanojen täydennys"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Näytä reunus oikealla:"
-
-#~ msgid "Margin width:"
-#~ msgstr "Reunuksen leveys:"
 
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Haluatko ladata sen uudelleen?"

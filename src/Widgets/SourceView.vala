@@ -119,8 +119,6 @@ namespace Scratch.Widgets {
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
 
-            restore_settings ();
-
             Gtk.drag_dest_add_uri_targets (this);
 
             restore_settings ();
@@ -255,6 +253,7 @@ namespace Scratch.Widgets {
                     );
                     break;
                 case ScratchDrawSpacesState.FOR_SELECTION:
+                case ScratchDrawSpacesState.CURRENT:
                     space_drawer.set_types_for_locations (
                         Gtk.SourceSpaceLocationFlags.ALL,
                         Gtk.SourceSpaceTypeFlags.NONE
@@ -321,7 +320,9 @@ namespace Scratch.Widgets {
         public void go_to_line (int line, int offset = 0) {
             Gtk.TextIter it;
             buffer.get_iter_at_line (out it, line - 1);
-            it.forward_chars (offset);
+            // Ensures offset is set to start of line when column is not set
+            // offset = column - 1
+            it.forward_chars (offset == -1 ? 0 : offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
         }
@@ -476,6 +477,35 @@ namespace Scratch.Widgets {
             buffer.end_user_action ();
         }
 
+        public void select_range (SelectionRange range) {
+            if (range.start_line < 0) {
+                return;
+            }
+
+            Gtk.TextIter start_iter;
+            buffer.get_start_iter (out start_iter);
+            start_iter.set_line (range.start_line - 1);
+
+            if (range.start_column > 0) {
+                start_iter.set_visible_line_offset (range.start_column - 1);
+            }
+
+            Gtk.TextIter end_iter = start_iter.copy ();
+            if (range.end_line > 0) {
+                end_iter.set_line (range.end_line - 1);
+
+                if (range.end_column > 0) {
+                    end_iter.set_visible_line_offset (range.end_column - 1);
+                }
+            }
+
+            buffer.select_range (start_iter, end_iter);
+            Idle.add (() => {
+                scroll_to_iter (end_iter, 0.25, false, 0, 0);
+                return Source.REMOVE;
+            });
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
@@ -505,13 +535,19 @@ namespace Scratch.Widgets {
 
             Gtk.TextIter start, end;
             var selection = buffer.get_selection_bounds (out start, out end);
-
+            var draw_spaces_state = (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces");
             /* Draw spaces in selection the same way if drawn at all */
-            if (selection) {
-                var draw_spaces_state = (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces");
-                if (draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+            if (selection &&
+                draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.CURRENT | ScratchDrawSpacesState.ALWAYS)) {
+
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
-                }
+                    return;
+            }
+
+            if (draw_spaces_state == ScratchDrawSpacesState.CURRENT &&
+                get_current_line (out start, out end)) {
+
+                    buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
         }
 

@@ -28,6 +28,10 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                action_target = new Variant.string (file.file.get_parent ().get_path ())
+            };
             var new_window_menuitem = new Gtk.MenuItem.with_label (_("New Window"));
             new_window_menuitem.activate.connect (() => {
                 var new_window = new MainWindow (false);
@@ -116,16 +120,20 @@ namespace Scratch.FolderManager {
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
             contractor_item.submenu = contractor_menu;
 
-            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
-            });
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FILE,
+                action_target = new Variant.string (file.path),
+            };
+            var rename_action = Utils.action_from_group (FileView.ACTION_RENAME_FILE, view.actions);
+            rename_action.set_enabled (view.rename_request (file));
 
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                action_target = new Variant.string (file.path)
+            };
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_terminal_pane_item);
             menu.append (open_in_item);
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
