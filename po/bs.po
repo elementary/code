@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -172,120 +172,136 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Postavke"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "Opće"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "Sačuvaj datoteke kad se datoteka promijeni:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+msgid "Strip trailing whitespace on save"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid "Smart cut/copy lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:35
+#, fuzzy
+#| msgid "Margin width:"
+msgid "Indentation width"
+msgstr "Širina margina:"
+
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
+msgstr "Automatsko uvlačenje:"
+
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "Automatsko uvlačenje:"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "Umetni razmake umjesto tabulatora:"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63
-msgid "General"
-msgstr "Opće"
-
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Save files when changed:"
-msgstr "Sačuvaj datoteke kad se datoteka promijeni:"
-
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Smart cut/copy lines:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:69
-msgid "Tabs"
-msgstr "Kartice"
-
-#: src/Dialogs/PreferencesDialog.vala:70
-msgid "Automatic indentation:"
-msgstr "Automatsko uvlačenje:"
-
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Insert spaces instead of tabs:"
-msgstr "Umetni razmake umjesto tabulatora:"
-
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Strip trailing whitespace:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:76
-msgid "Tab width:"
-msgstr "Širina tabulatora:"
-
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:67
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "Projekat"
 
-#: src/Dialogs/PreferencesDialog.vala:86
-msgid "Behavior"
-msgstr "Ponašanje"
-
-#: src/Dialogs/PreferencesDialog.vala:87
-msgid "Interface"
-msgstr "Interfejs"
-
-#: src/Dialogs/PreferencesDialog.vala:103
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "Zatvori"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-msgid "Extensions"
-msgstr "Proširenja"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Editor"
-msgstr "Uređivač"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Highlight matching brackets:"
-msgstr "Obeležite odgavarajuće nosače:"
-
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line wrap:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:134
-msgid "White space visible when not selected:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:79
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Ukloni trenutni pogled"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:156
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:111
+msgid "Editor"
+msgstr "Uređivač"
+
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "Obeležite odgavarajuće nosače:"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "Prikaži minijaturni prikaz:"
 
-#: src/Dialogs/PreferencesDialog.vala:159
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "Vodič za širinu reda:"
 
-#: src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "Font"
 
-#: src/Dialogs/PreferencesDialog.vala:169
-msgid "Custom font:"
-msgstr "Prilagođeni font:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "Ponašanje"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "Interfejs"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "Proširenja"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "Zatvori"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -305,15 +321,15 @@ msgid "Restore Anyway"
 msgstr "Svejedno učitaj"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "Otvori sa"
 
@@ -325,56 +341,56 @@ msgstr "Druge radnje"
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "Premjesti u Otpad"
 
-#: src/FolderManager/FileView.vala:49
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "Direktoriji"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:134
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Otvori direktorij"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Fascikle"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:228
-#: src/FolderManager/ProjectFolderItem.vala:271
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "Novo"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "neimenovana fascikla"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "nova datoteka"
 
-#: src/FolderManager/ProjectFolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Zatvori direktorij"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:134
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Zatvori direktorij"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -382,7 +398,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:154
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -391,7 +407,7 @@ msgstr[0] "Novi dokument"
 msgstr[1] "Novi dokument"
 msgstr[2] "Novi dokument"
 
-#: src/FolderManager/ProjectFolderItem.vala:169
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -399,27 +415,27 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Otvori direktorij"
 
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:315
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:601
+#: src/FolderManager/ProjectFolderItem.vala:605
 #, fuzzy
 msgid "New Branch…"
 msgstr "Promijeni Scratch podešavanja"
 
-#: src/FolderManager/ProjectFolderItem.vala:614
+#: src/FolderManager/ProjectFolderItem.vala:618
 #, fuzzy
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"
@@ -774,11 +790,11 @@ msgstr "Otvori fasciklu"
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:82
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr ""
 
@@ -853,19 +869,19 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:556
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "Razvrstaj odabrane redove"
 
-#: src/Widgets/SourceView.vala:569
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "Uključi komentar"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "Umnoži"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "Nalijepi"
 
@@ -902,7 +918,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Dodaj projektnu fasciklu na bočnu traku."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "Postavite na Pastebin"
 
@@ -969,6 +985,15 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Automatski završetak riječi"
+
+#~ msgid "Tabs"
+#~ msgstr "Kartice"
+
+#~ msgid "Tab width:"
+#~ msgstr "Širina tabulatora:"
+
+#~ msgid "Custom font:"
+#~ msgstr "Prilagođeni font:"
 
 #, fuzzy, c-format
 #~| msgid "The file %s was deleted."
@@ -1371,9 +1396,6 @@ msgstr "%s - Automatski završetak riječi"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Prikaži margine na desnoj strani:"
-
-#~ msgid "Margin width:"
-#~ msgstr "Širina margina:"
 
 #~ msgid "Draw spaces:"
 #~ msgstr "ndentationndentation"

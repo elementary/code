@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
-"PO-Revision-Date: 2021-08-09 11:02+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"PO-Revision-Date: 2024-07-15 08:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/plugins/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -42,6 +42,15 @@ msgstr "EditorConfig"
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
 msgstr "EditorConfig ファイルから設定を読み込みます"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "プロジェクトファイルを検索"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr "開いているすべてのプロジェクトを対象にファイルをあいまい検索します (ALT + F "
+"で表示)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"

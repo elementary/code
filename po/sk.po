@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2022-12-26 20:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
@@ -167,11 +167,33 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Vytvoriť vetvu"
 
-#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Predvoľby"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "Všeobecné"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "Ukladať súbory po upravení:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+#, fuzzy
+#| msgid "Strip trailing whitespace:"
+msgid "Strip trailing whitespace on save"
+msgstr "Odstraňovať medzery na konci riadkov:"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "Inteligentné vystrihnutie/kopírovanie riadkov:"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -179,110 +201,108 @@ msgstr ""
 "Vystrihnutie alebo kopírovanie bez aktívneho výberu vystrihne alebo "
 "skopíruje celý aktuálny riadok"
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:35
+#, fuzzy
+#| msgid "Margin width:"
+msgid "Indentation width"
+msgstr "Šírka okraja:"
+
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
+msgstr "Automatické odsadzovanie:"
+
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "Automatické odsadzovanie:"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "Vkladať medzery namiesto tabulátorov:"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63
-msgid "General"
-msgstr "Všeobecné"
-
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Save files when changed:"
-msgstr "Ukladať súbory po upravení:"
-
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Smart cut/copy lines:"
-msgstr "Inteligentné vystrihnutie/kopírovanie riadkov:"
-
-#: src/Dialogs/PreferencesDialog.vala:69
-msgid "Tabs"
-msgstr "Karty"
-
-#: src/Dialogs/PreferencesDialog.vala:70
-msgid "Automatic indentation:"
-msgstr "Automatické odsadzovanie:"
-
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Insert spaces instead of tabs:"
-msgstr "Vkladať medzery namiesto tabulátorov:"
-
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Strip trailing whitespace:"
-msgstr "Odstraňovať medzery na konci riadkov:"
-
-#: src/Dialogs/PreferencesDialog.vala:76
-msgid "Tab width:"
-msgstr "Šírka tabulátora:"
-
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:67
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "Projekt"
 
-#: src/Dialogs/PreferencesDialog.vala:86
-msgid "Behavior"
-msgstr "Správanie"
-
-#: src/Dialogs/PreferencesDialog.vala:87
-msgid "Interface"
-msgstr "Rozhranie"
-
-#: src/Dialogs/PreferencesDialog.vala:103
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "Zatvoriť"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-msgid "Extensions"
-msgstr "Rozšírenia"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Editor"
-msgstr "Editor"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Highlight matching brackets:"
-msgstr "Zvýrazňovať zodpovedajúce zátvorky:"
-
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line wrap:"
-msgstr "Zalamovať riadky:"
-
-#: src/Dialogs/PreferencesDialog.vala:134
-msgid "White space visible when not selected:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:79
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Odstrániť aktuálne zobrazenie"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:156
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:111
+msgid "Editor"
+msgstr "Editor"
+
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "Zvýrazňovať zodpovedajúce zátvorky:"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "Zobraziť minimapu:"
 
-#: src/Dialogs/PreferencesDialog.vala:159
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "Vodidlo dĺžky riadku:"
 
-#: src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "Písmo"
 
-#: src/Dialogs/PreferencesDialog.vala:169
-msgid "Custom font:"
-msgstr "Vlastné písmo:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "Správanie"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "Rozhranie"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "Rozšírenia"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "Zatvoriť"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -301,15 +321,15 @@ msgid "Restore Anyway"
 msgstr "Napriek tomu obnoviť"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "Iná aplikácia…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "Otvoriť v"
 
@@ -321,52 +341,52 @@ msgstr "Ostatné akcie"
 msgid "Rename"
 msgstr "Premenovať"
 
-#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "Presunúť do koša"
 
-#: src/FolderManager/FileView.vala:49
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "Priečinky"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "Nájsť v priečinku…"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Priečinok"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "Prázdny súbor"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:228
-#: src/FolderManager/ProjectFolderItem.vala:271
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "Nový"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "priečinok bez názvu"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "nový súbor"
 
-#: src/FolderManager/ProjectFolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "Zatvoriť ostatné priečinky"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -374,7 +394,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:154
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -383,7 +403,7 @@ msgstr[0] "Nový dokument"
 msgstr[1] "Nový dokument"
 msgstr[2] "Nový dokument"
 
-#: src/FolderManager/ProjectFolderItem.vala:169
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -391,24 +411,24 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Nájsť v projekte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr "Upravený"
 
-#: src/FolderManager/ProjectFolderItem.vala:315
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Chyba pri vytváraní novej vetvy: „%s“"
 
-#: src/FolderManager/ProjectFolderItem.vala:601
+#: src/FolderManager/ProjectFolderItem.vala:605
 msgid "New Branch…"
 msgstr "Nová vetva…"
 
-#: src/FolderManager/ProjectFolderItem.vala:614
+#: src/FolderManager/ProjectFolderItem.vala:618
 msgid "Branch"
 msgstr "Vetva"
 
@@ -761,11 +781,11 @@ msgstr "Otvoriť priečinok"
 msgid "Collapse All"
 msgstr "Zbaliť všetko"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr "Zoradiť abecedne"
 
-#: src/Widgets/Sidebar.vala:82
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr "Spravovať priečinky projektu"
 
@@ -844,19 +864,19 @@ msgstr "%d z %d"
 msgid "no results"
 msgstr "žiadne výsledky"
 
-#: src/Widgets/SourceView.vala:556
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "Zoradiť vybrané riadky"
 
-#: src/Widgets/SourceView.vala:569
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "Zobraziť/Skryť komentár"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "Vložiť"
 
@@ -893,7 +913,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Pridať priečinok projektu do bočného panela."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "Nahrať na Pastebin"
 
@@ -953,6 +973,18 @@ msgstr "Nainštalujte prosím aspoň jeden [aspell] slovník."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "Dokončovanie slov: %s"
+
+#~ msgid "Tabs"
+#~ msgstr "Karty"
+
+#~ msgid "Tab width:"
+#~ msgstr "Šírka tabulátora:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "Zalamovať riadky:"
+
+#~ msgid "Custom font:"
+#~ msgstr "Vlastné písmo:"
 
 #~ msgid "Visible whitespace:"
 #~ msgstr "Viditeľné medzery:"
@@ -1460,9 +1492,6 @@ msgstr "Dokončovanie slov: %s"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Zobraziť okraj napravo:"
-
-#~ msgid "Margin width:"
-#~ msgstr "Šírka okraja:"
 
 #~ msgid "Draw spaces:"
 #~ msgstr "Vykresľovanie medzier:"

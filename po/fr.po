@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2024-07-05 10:16+0000\n"
 "Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
@@ -158,11 +158,33 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Créer une branche"
 
-#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Préférences"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "Général"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+#, fuzzy
+#| msgid "Strip trailing whitespace:"
+msgid "Strip trailing whitespace on save"
+msgstr "Supprimer les espaces en fin de ligne :"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "Coupure/copie intelligente des lignes :"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -170,106 +192,106 @@ msgstr ""
 "Couper ou copier sans sélection active coupera ou copiera toute la ligne "
 "courante"
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:35
+#, fuzzy
+#| msgid "Margin width:"
+msgid "Indentation width"
+msgstr "Largeur de la marge :"
+
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic Indentation"
+msgid "Indentation"
+msgstr "Indentation automatique"
+
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "Indentation automatique :"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "Insérer des espaces au lieu des tabulations :"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr "Répertoire de compilation par défaut"
 
-#: src/Dialogs/PreferencesDialog.vala:63
-msgid "General"
-msgstr "Général"
-
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Save files when changed:"
-msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
-
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Smart cut/copy lines:"
-msgstr "Coupure/copie intelligente des lignes :"
-
-#: src/Dialogs/PreferencesDialog.vala:69
-msgid "Tabs"
-msgstr "Indentations"
-
-#: src/Dialogs/PreferencesDialog.vala:70
-msgid "Automatic indentation:"
-msgstr "Indentation automatique :"
-
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Insert spaces instead of tabs:"
-msgstr "Insérer des espaces au lieu des tabulations :"
-
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Strip trailing whitespace:"
-msgstr "Supprimer les espaces en fin de ligne :"
-
-#: src/Dialogs/PreferencesDialog.vala:76
-msgid "Tab width:"
-msgstr "Largeur des tabulations :"
-
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Projects"
 msgstr "Projets"
 
-#: src/Dialogs/PreferencesDialog.vala:86
-msgid "Behavior"
-msgstr "Comportement"
-
-#: src/Dialogs/PreferencesDialog.vala:87
-msgid "Interface"
-msgstr "Interface"
-
-#: src/Dialogs/PreferencesDialog.vala:103
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "Fermer"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-msgid "Extensions"
-msgstr "Extensions"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Editor"
-msgstr "Éditeur"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Highlight matching brackets:"
-msgstr "Surligner les crochets correspondants :"
-
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line wrap:"
-msgstr "Retour à la ligne :"
-
-#: src/Dialogs/PreferencesDialog.vala:134
-msgid "White space visible when not selected:"
-msgstr "Espace blanc visible lorsqu'il n'est pas sélectionné :"
-
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr "Aucun"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:79
 msgid "Current Line"
 msgstr "Ligne courante"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
 msgstr "Tous"
 
-#: src/Dialogs/PreferencesDialog.vala:156
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:96
+#, fuzzy
+#| msgid "White space visible when not selected:"
+msgid "Whitespace visible when not selected"
+msgstr "Espace blanc visible lorsqu'il n'est pas sélectionné :"
+
+#: src/Dialogs/PreferencesDialog.vala:111
+msgid "Editor"
+msgstr "Éditeur"
+
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "Surligner les crochets correspondants :"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "Afficher l'aperçu du fichier :"
 
-#: src/Dialogs/PreferencesDialog.vala:159
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "Guide de largeur de ligne :"
 
-#: src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "Police"
 
-#: src/Dialogs/PreferencesDialog.vala:169
-msgid "Custom font:"
-msgstr "Police personnalisée :"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "Comportement"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "Interface"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "Extensions"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "Fermer"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -290,15 +312,15 @@ msgid "Restore Anyway"
 msgstr "Restaurer quand-même"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Open in Terminal Pane"
 msgstr "Ouvrir dans le panneau du Terminal"
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "Ouvrir dans"
 
@@ -310,90 +332,90 @@ msgstr "Autres actions"
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
-#: src/FolderManager/FileView.vala:49
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "Rechercher dans le dossier…"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:228
-#: src/FolderManager/ProjectFolderItem.vala:271
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/ProjectFolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "Fermer les autres dossiers"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Fermer %u document ouvert"
 msgstr[1] "Fermer %u documents ouverts"
 
-#: src/FolderManager/ProjectFolderItem.vala:154
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Cacher %u document ouvert"
 msgstr[1] "Cacher %u documents ouverts"
 
-#: src/FolderManager/ProjectFolderItem.vala:169
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Afficher %u document caché"
 msgstr[1] "Afficher %u documents cachés"
 
-#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Rechercher dans le projet…"
 
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr "Modifié"
 
-#: src/FolderManager/ProjectFolderItem.vala:315
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Erreur lors de la création de la nouvelle branche : « %s »"
 
-#: src/FolderManager/ProjectFolderItem.vala:601
+#: src/FolderManager/ProjectFolderItem.vala:605
 msgid "New Branch…"
 msgstr "Nouvelle branche…"
 
-#: src/FolderManager/ProjectFolderItem.vala:614
+#: src/FolderManager/ProjectFolderItem.vala:618
 msgid "Branch"
 msgstr "Branche"
 
@@ -712,11 +734,11 @@ msgstr "Ouvrir un dossier…"
 msgid "Collapse All"
 msgstr "Tout réduire"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr "Trier par ordre alphabétique"
 
-#: src/Widgets/Sidebar.vala:82
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr "Gérer les dossiers du projet"
 
@@ -789,19 +811,19 @@ msgstr "%d sur %d"
 msgid "no results"
 msgstr "Aucun résultat"
 
-#: src/Widgets/SourceView.vala:556
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:569
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "Copier"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "Coller"
 
@@ -838,7 +860,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Ajouter le dossier d'un projet dans la barre latérale."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "Envoyer vers Pastebin"
 
@@ -898,6 +920,18 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
+
+#~ msgid "Tabs"
+#~ msgstr "Indentations"
+
+#~ msgid "Tab width:"
+#~ msgstr "Largeur des tabulations :"
+
+#~ msgid "Line wrap:"
+#~ msgstr "Retour à la ligne :"
+
+#~ msgid "Custom font:"
+#~ msgstr "Police personnalisée :"
 
 #~ msgid "Visible whitespace:"
 #~ msgstr "Espaces blancs visibles :"
@@ -1401,9 +1435,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Afficher la marge de droite :"
-
-#~ msgid "Margin width:"
-#~ msgstr "Largeur de la marge :"
 
 #~ msgid "Tabs:"
 #~ msgstr "Onglets :"

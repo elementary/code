@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -167,11 +167,31 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Gałōńź"
 
-#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "Preferyncyje"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "Ôgōlne"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "Spamiyntuj zbiory po umianach:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+msgid "Strip trailing whitespace on save"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "Inteligyntne wycinanie/kopiowanie liniji:"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -179,110 +199,106 @@ msgstr ""
 "Wycinanie abo kopiowanie bez aktywnego zaznaczynio wytnie abo skopiuje cołko "
 "teroźno linijo"
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:35
+msgid "Indentation width"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
+msgstr "Autōmatyczne wciyńcia:"
+
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "Autōmatyczne wciyńcia:"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "Wraź spacyje zamiast tabulatorōw:"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63
-msgid "General"
-msgstr "Ôgōlne"
-
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Save files when changed:"
-msgstr "Spamiyntuj zbiory po umianach:"
-
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Smart cut/copy lines:"
-msgstr "Inteligyntne wycinanie/kopiowanie liniji:"
-
-#: src/Dialogs/PreferencesDialog.vala:69
-msgid "Tabs"
-msgstr "Karty"
-
-#: src/Dialogs/PreferencesDialog.vala:70
-msgid "Automatic indentation:"
-msgstr "Autōmatyczne wciyńcia:"
-
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Insert spaces instead of tabs:"
-msgstr "Wraź spacyje zamiast tabulatorōw:"
-
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Strip trailing whitespace:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:76
-msgid "Tab width:"
-msgstr "Szyrokość tabulacyje:"
-
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:67
 #, fuzzy
 #| msgid "Project templates"
 msgid "Projects"
 msgstr "Szymle projektu"
 
-#: src/Dialogs/PreferencesDialog.vala:86
-msgid "Behavior"
-msgstr "Zachowanie"
-
-#: src/Dialogs/PreferencesDialog.vala:87
-msgid "Interface"
-msgstr "Interfejs"
-
-#: src/Dialogs/PreferencesDialog.vala:103
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "Zawrzij"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-msgid "Extensions"
-msgstr "Rozszyrzynia"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Editor"
-msgstr "Edytōr"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Highlight matching brackets:"
-msgstr "Ôznocz nowiasy, co sztymujōm:"
-
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line wrap:"
-msgstr "Swijanie wierszōw:"
-
-#: src/Dialogs/PreferencesDialog.vala:134
-msgid "White space visible when not selected:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:79
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Wychrōń teroźny widok"
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:156
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:111
+msgid "Editor"
+msgstr "Edytōr"
+
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "Ôznocz nowiasy, co sztymujōm:"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "Pokoż minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:159
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "Przewodnik szyrokości linije:"
 
-#: src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "Fōnt"
 
-#: src/Dialogs/PreferencesDialog.vala:169
-msgid "Custom font:"
-msgstr "Niysztandardowy fōnt:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "Zachowanie"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "Interfejs"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "Rozszyrzynia"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "Zawrzij"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -302,15 +318,15 @@ msgid "Restore Anyway"
 msgstr "Prziwrōć i tak"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "Inkszy program…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "Ôtwōrz we"
 
@@ -322,54 +338,54 @@ msgstr "Inksze akcyje"
 msgid "Rename"
 msgstr "Przemianuj"
 
-#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "Przeniyś do hasioka"
 
-#: src/FolderManager/FileView.vala:49
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "Katalogi"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:134
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Folder…"
 msgstr "Ôtwōrz katalog projektu…"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Katalog"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "Prōzny zbiōr"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:228
-#: src/FolderManager/ProjectFolderItem.vala:271
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "Nowy"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "katalog bez miana"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "nowy zbiōr"
 
-#: src/FolderManager/ProjectFolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "Zawrzij katalog"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "Zawrzij inksze katalogi"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -377,7 +393,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:154
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -386,7 +402,7 @@ msgstr[0] "Nowy dokumynt"
 msgstr[1] "Nowy dokumynt"
 msgstr[2] "Nowy dokumynt"
 
-#: src/FolderManager/ProjectFolderItem.vala:169
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -394,30 +410,30 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "Ôtwōrz katalog projektu…"
 
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/ProjectFolderItem.vala:281
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, Zmodyfikowany"
 
-#: src/FolderManager/ProjectFolderItem.vala:315
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:601
+#: src/FolderManager/ProjectFolderItem.vala:605
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Gałōńź"
 
-#: src/FolderManager/ProjectFolderItem.vala:614
+#: src/FolderManager/ProjectFolderItem.vala:618
 msgid "Branch"
 msgstr "Gałōńź"
 
@@ -770,11 +786,11 @@ msgstr "Ôtwōrz katalog"
 msgid "Collapse All"
 msgstr "Swijń wszyjsko"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr "Alfabetyzuj"
 
-#: src/Widgets/Sidebar.vala:82
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr "Zarzōndzej katalogami projektōw"
 
@@ -849,19 +865,19 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:556
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "Zortuj zaznaczōne wiersze"
 
-#: src/Widgets/SourceView.vala:569
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "Wraź"
 
@@ -898,7 +914,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Przidej katalog projektu do bocznego poska."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "Wyślij do Pastebin"
 
@@ -962,6 +978,18 @@ msgstr "Zainstaluj aby jedyn słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#~ msgid "Tabs"
+#~ msgstr "Karty"
+
+#~ msgid "Tab width:"
+#~ msgstr "Szyrokość tabulacyje:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "Swijanie wierszōw:"
+
+#~ msgid "Custom font:"
+#~ msgstr "Niysztandardowy fōnt:"
 
 #, fuzzy, c-format
 #~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"

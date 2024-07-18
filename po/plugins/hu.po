@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2021-08-26 13:23+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/plugins/"
@@ -42,6 +42,14 @@ msgstr "EditorConfig"
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
 msgstr "Beállítások betöltése egy konfigurációs fájlból"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
