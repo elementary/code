@@ -172,8 +172,12 @@ namespace Scratch.Utils {
             return false;
         }
 
+        var content_type = info.get_content_type ();
         if (info.get_file_type () == FileType.REGULAR &&
-            ContentType.is_a (info.get_content_type (), "text/*")) {
+            ContentType.is_a (content_type, "text/*") ||
+            ContentType.is_a (content_type, "application/x-zerosize")
+            ) {
+
             return true;
         }
 
