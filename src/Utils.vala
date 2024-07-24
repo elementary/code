@@ -240,7 +240,6 @@ namespace Scratch.Utils {
         var app_info = new GLib.DesktopAppInfo (app_id);
         try {
             app_info.launch (file_list, null);
-            print ("Launching app!\n");
         } catch (Error e) {
             warning (e.message);
         }
