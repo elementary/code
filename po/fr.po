@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-14 07:09+0000\n"
-"PO-Revision-Date: 2024-07-05 10:16+0000\n"
-"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
+"PO-Revision-Date: 2024-07-23 15:16+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -167,22 +167,16 @@ msgid "General"
 msgstr "Général"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
+msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Supprimer les espaces en fin de ligne :"
+msgstr "Supprimer les espaces en fin de ligne en enregistrant"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Coupure/copie intelligente des lignes :"
+msgstr "Coupure/copie intelligente des lignes"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -193,28 +187,20 @@ msgstr ""
 "courante"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Largeur de la marge :"
+msgstr "Largeur d'indentation"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Indentation automatique"
+msgstr "Indentation"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Indentation automatique :"
+msgstr "Indentation automatique"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Insérer des espaces au lieu des tabulations :"
+msgstr "Insérer des espaces au lieu des tabulations"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -237,36 +223,28 @@ msgid "All"
 msgstr "Tous"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "Whitespace visible when not selected"
-msgstr "Espace blanc visible lorsqu'il n'est pas sélectionné :"
+msgstr "Espace blanc visible lorsqu'il n'est pas sélectionné"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Éditeur"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Surligner les crochets correspondants :"
+msgstr "Surligner les crochets correspondants"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Afficher l'aperçu du fichier :"
+msgstr "Aperçu du fichier"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Guide de largeur de ligne :"
+msgstr "Guide de largeur de ligne"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -274,7 +252,7 @@ msgstr "Police"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Utiliser la police du système"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
