@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 18:47+0000\n"
+"POT-Creation-Date: 2024-07-14 07:09+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -161,118 +161,134 @@ msgstr "ਸ਼ਾਖ਼ ਦਾ ਨਾਂ ਅਨੋਖਾ ਅਤੇ Git ਦੇ �
 msgid "Create Branch"
 msgstr "ਸ਼ਾਖ਼ ਬਣਾਓ"
 
-#: src/Dialogs/PreferencesDialog.vala:36 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "ਤਰਜੀਹਾਂ"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "ਆਮ"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "ਤਬਦੀਲੀ ਹੋਵੇ ਤਾਂ ਫ਼ਾਇਲਾਂ ਸੇਵ ਕਰੋ:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+msgid "Strip trailing whitespace on save"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "ਲਾਈਨਾਂ ਨੂੰ ਚੁਸਤੀ ਨਾਲ਼ ਨਕਲ/ਕੱਟ ਕਰਨਾ:"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "ਬਿਨਾਂ ਕਿਸੇ ਸਰਗਰਮ ਚੋਣ ਤੋਂ ਕੀਤੀ ਗਈ ਨਕਲ ਜਾਂ ਕਟਿੰਗ ਸਾਰੀ ਲਾਈਨ ਨੂੰ ਨਕਲ ਜਾਂ ਕੱਟ ਕਰੇਗੀ"
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:35
+msgid "Indentation width"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
+msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
+
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63
-msgid "General"
-msgstr "ਆਮ"
-
-#: src/Dialogs/PreferencesDialog.vala:64
-msgid "Save files when changed:"
-msgstr "ਤਬਦੀਲੀ ਹੋਵੇ ਤਾਂ ਫ਼ਾਇਲਾਂ ਸੇਵ ਕਰੋ:"
-
-#: src/Dialogs/PreferencesDialog.vala:66
-msgid "Smart cut/copy lines:"
-msgstr "ਲਾਈਨਾਂ ਨੂੰ ਚੁਸਤੀ ਨਾਲ਼ ਨਕਲ/ਕੱਟ ਕਰਨਾ:"
-
-#: src/Dialogs/PreferencesDialog.vala:69
-msgid "Tabs"
-msgstr "ਟੈਬਾਂ"
-
-#: src/Dialogs/PreferencesDialog.vala:70
-msgid "Automatic indentation:"
-msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਦੂਰੀ ਖ਼ੁਦਮੁਖ਼ਤਾਰ:"
-
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Insert spaces instead of tabs:"
-msgstr "ਟੈਬ ਦੀ ਬਜਾਇ ਸਪੇਸ ਸ਼ਾਮਲ ਕਰੋ:"
-
-#: src/Dialogs/PreferencesDialog.vala:74
-msgid "Strip trailing whitespace:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:76
-msgid "Tab width:"
-msgstr "ਟੈਬ ਦੀ ਚੌੜਾਈ:"
-
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:67
 #, fuzzy
 #| msgid "Project templates"
 msgid "Projects"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫਰਮੇ"
 
-#: src/Dialogs/PreferencesDialog.vala:86
-msgid "Behavior"
-msgstr "ਰਵੱਈਆ"
-
-#: src/Dialogs/PreferencesDialog.vala:87
-msgid "Interface"
-msgstr "ਇੰਟਰਫ਼ੇਸ"
-
-#: src/Dialogs/PreferencesDialog.vala:103
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "ਬੰਦ ਕਰੋ"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-msgid "Extensions"
-msgstr "ਵਾਧਾ ਕਰਨ ਵਾਲ਼ੇ"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Editor"
-msgstr "ਐਡੀਟਰ"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Highlight matching brackets:"
-msgstr "ਮੇਲ ਖਾਂਦੀਆਂ ਬਰੈਕਟਾਂ ਨੂੰ ਉਜਾਗਰ ਕਰੋ:"
-
-#: src/Dialogs/PreferencesDialog.vala:131
-msgid "Line wrap:"
-msgstr "ਲਾਈਨਾਂ ਲਪੇਟੋ:"
-
-#: src/Dialogs/PreferencesDialog.vala:134
-msgid "White space visible when not selected:"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:139
+#: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:79
 msgid "Current Line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
+#: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:156
-msgid "Show Mini Map:"
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:111
+msgid "Editor"
+msgstr "ਐਡੀਟਰ"
+
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "ਮੇਲ ਖਾਂਦੀਆਂ ਬਰੈਕਟਾਂ ਨੂੰ ਉਜਾਗਰ ਕਰੋ:"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "ਮਿਨੀ ਨਕਸ਼ਾ ਵਿਖਾਓ:"
 
-#: src/Dialogs/PreferencesDialog.vala:159
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "ਲਾਈਨ ਦੀ ਚੌੜਾਈ ਦਾ ਰਹਿਬਰ:"
 
-#: src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr "ਫੌਂਟ"
 
-#: src/Dialogs/PreferencesDialog.vala:169
-msgid "Custom font:"
-msgstr "ਤਬਦੀਲੀ ਕੀਤੇ ਫੌਂਟ:"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "ਰਵੱਈਆ"
+
+#: src/Dialogs/PreferencesDialog.vala:137
+msgid "Interface"
+msgstr "ਇੰਟਰਫ਼ੇਸ"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "ਵਾਧਾ ਕਰਨ ਵਾਲ਼ੇ"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "ਬੰਦ ਕਰੋ"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -291,15 +307,15 @@ msgid "Restore Anyway"
 msgstr "ਕੋਈ ਗੱਲ ਨਹੀਂ ਰੀਸਟੋਰ ਕਰ ਦਿਓ"
 
 #: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:119
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
 msgid "Other Application…"
 msgstr "ਹੋਰ ਐਪ…"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:211
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
 msgid "Open In"
 msgstr "ਇਸ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
@@ -311,59 +327,59 @@ msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
 msgid "Rename"
 msgstr "ਨਾਂ ਬਦਲੋ"
 
-#: src/FolderManager/FileItem.vala:150 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:182
+#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Move to Trash"
 msgstr "ਕੂੜੇਦਾਨ ਵਿੱਚ (ਭੇਜੋ) ਸਥਾਨਅੰਤਰਨ ਕਰੋ"
 
-#: src/FolderManager/FileView.vala:49
+#: src/FolderManager/FileView.vala:68
 msgid "Folders"
 msgstr "ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "ਫ਼ੋਲਡਰ ਵਿੱਚ ਲੱਭੋ…"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:207
 msgid "Empty File"
 msgstr "ਖ਼ਾਲੀ ਫ਼ਾਇਲ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:228
-#: src/FolderManager/ProjectFolderItem.vala:271
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "New"
 msgstr "ਨਵੀਂ"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "untitled folder"
 msgstr "ਬੇਨਾਮ ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:387
+#: src/FolderManager/FolderItem.vala:375
 msgid "new file"
 msgstr "ਨਵੀਂ ਫ਼ਾਇਲ"
 
-#: src/FolderManager/ProjectFolderItem.vala:130
+#: src/FolderManager/ProjectFolderItem.vala:129
 msgid "Close Folder"
 msgstr "ਫ਼ੋਲਡਰ ਬੰਦ ਕਰੋ"
 
-#: src/FolderManager/ProjectFolderItem.vala:135
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Other Folders"
 msgstr "ਬਾਕੀ ਫ਼ੋਲਡਰ ਬੰਦ ਕਰੋ"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:145
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:154
+#: src/FolderManager/ProjectFolderItem.vala:159
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -371,31 +387,31 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "ਨਵਾਂ ਦਸਤਾਵੇਜ਼"
 msgstr[1] "ਨਵਾਂ ਦਸਤਾਵੇਜ਼"
 
-#: src/FolderManager/ProjectFolderItem.vala:169
+#: src/FolderManager/ProjectFolderItem.vala:174
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:189 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:277
+#: src/FolderManager/ProjectFolderItem.vala:281
 msgid "Modified"
 msgstr "ਤਬਦੀਲ"
 
-#: src/FolderManager/ProjectFolderItem.vala:315
+#: src/FolderManager/ProjectFolderItem.vala:319
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "ਨਵੀਂ ਸ਼ਾਖ਼ “%s” ਬਣਾਉਂਦੇ ਵਕ਼ਤ ਖ਼ਰਾਬੀ ਰਹੀ"
 
-#: src/FolderManager/ProjectFolderItem.vala:601
+#: src/FolderManager/ProjectFolderItem.vala:605
 msgid "New Branch…"
 msgstr "ਨਵੀਂ ਸ਼ਾਖ਼…"
 
-#: src/FolderManager/ProjectFolderItem.vala:614
+#: src/FolderManager/ProjectFolderItem.vala:618
 msgid "Branch"
 msgstr "ਸ਼ਾਖ਼"
 
@@ -742,11 +758,11 @@ msgstr "ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ"
 msgid "Collapse All"
 msgstr "ਸਾਰਿਆਂ ਦੀ ਤਹਿ ਬੰਦ ਕਰੋ"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr "ਅੱਖਰ-ਤਰਤੀਬ ਮੁਤਾਬਕ"
 
-#: src/Widgets/Sidebar.vala:82
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰਾਂ ਦਾ ਰੱਖ-ਰਖਾਓ"
 
@@ -823,19 +839,19 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:556
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr "ਚੁਣੀਆਂ ਲਾਈਨਾਂ ਨੂੰ ਤਰਤੀਬ ਦਿਓ"
 
-#: src/Widgets/SourceView.vala:569
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr "ਟਿੱਪਣੀ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
-#: src/Widgets/Terminal.vala:39
+#: src/Widgets/Terminal.vala:59
 msgid "Copy"
 msgstr "ਨਕਲ ਕਰੋ"
 
-#: src/Widgets/Terminal.vala:44
+#: src/Widgets/Terminal.vala:60
 msgid "Paste"
 msgstr "ਪੇਸਟ ਕਰੋ"
 
@@ -872,7 +888,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "ਕਿਸੇ ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰ ਨੂੰ ਸਾਈਡਬਾਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।"
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "ਪੇਸਟ-ਟਰੋਕੀ ਵਿੱਚ ਅਪਲੋਡ ਕਰੋ"
 
@@ -932,6 +948,18 @@ msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
+
+#~ msgid "Tabs"
+#~ msgstr "ਟੈਬਾਂ"
+
+#~ msgid "Tab width:"
+#~ msgstr "ਟੈਬ ਦੀ ਚੌੜਾਈ:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "ਲਾਈਨਾਂ ਲਪੇਟੋ:"
+
+#~ msgid "Custom font:"
+#~ msgstr "ਤਬਦੀਲੀ ਕੀਤੇ ਫੌਂਟ:"
 
 #, fuzzy, c-format
 #~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
