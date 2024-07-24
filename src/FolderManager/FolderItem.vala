@@ -252,8 +252,8 @@ namespace Scratch.FolderManager {
 
             view.ignore_next_select = true;
             ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
-            // Add back dummy if empty unless we are removing a rename item
-            if (!(item is RenameItem || has_dummy || n_children > 0)) {
+            // Add back dummy if empty
+            if (!(has_dummy || n_children > 0)) {
                 ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }
