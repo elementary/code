@@ -30,7 +30,7 @@ namespace Scratch.FolderManager {
         public override Gtk.Menu? get_context_menu () {
             GLib.FileInfo info = null;
 
-             try {
+            try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
             } catch (Error e) {
                 warning (e.message);
