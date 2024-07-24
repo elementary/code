@@ -69,3 +69,11 @@ textview.scrubber {
 .fuzzy-item.preselect-fuzzy label {
     opacity: 0.7;
 }
+
+.symbol-outline > box.horizontal {
+    margin: 1em;
+}
+
+.symbol-outline .sidebar {
+    background: inherit;
+}

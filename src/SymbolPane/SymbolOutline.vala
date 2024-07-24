@@ -87,7 +87,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             hexpand = true
         };
-        var tool_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) ;
+
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),
             hexpand = true
@@ -134,25 +134,26 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         button_bar.pack_end (clear_button);
         button_bar.pack_end (select_all_button);
 
-        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+        var popover_content = new Gtk.Box (VERTICAL, 6);
         popover_content.add (filter_header);
         popover_content.add (filter_items);
         popover_content.add (button_bar);
         popover_content.show_all ();
-        //TODO Provide "filter" icon?
 
-        var filter_popover = new Gtk.Popover (null);
-        filter_popover.add (popover_content);
+        var filter_popover = new Gtk.Popover (null) {
+            child = popover_content
+        };
 
         var filter_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name (
-                "open-menu-symbolic",
+                "filter-symbolic",
                 Gtk.IconSize.SMALL_TOOLBAR
             ),
             popover = filter_popover,
             tooltip_text = _("Filter symbol type"),
         };
 
+        var tool_box = new Gtk.Box (HORIZONTAL, 3);
         tool_box.add (search_entry);
         tool_box.add (filter_button);
 
@@ -231,7 +232,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
         // Add a class to distinguish from foldermanager sourcelist
-        store.get_style_context ().add_class ("symbol-outline");
+        symbol_pane.get_style_context ().add_class ("symbol-outline");
 
         update_style_scheme (((Gtk.SourceBuffer)(doc.source_view.buffer)).style_scheme);
         doc.source_view.style_changed.connect (update_style_scheme);
@@ -246,7 +247,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             color = text_color_data.background;
         }
 
-        var define = ".symbol-outline .sidebar {background-color: %s;}".printf (color);
+        var define = ".symbol-outline {background-color: %s;}".printf (color);
 
         try {
             source_list_style_provider.load_from_data (define);
