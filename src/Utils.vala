@@ -212,7 +212,7 @@ namespace Scratch.Utils {
                     + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
                 action_target = new GLib.Variant.array (
                     GLib.VariantType.STRING,
-                    { file.get_path (), app_id, file_type }
+                    { file.get_path (), app_id }
                 )
             };
 
@@ -221,23 +221,10 @@ namespace Scratch.Utils {
         }
     }
 
-
     public void launch_app_with_file (AppInfo app_info, GLib.File file) {
         var file_list = new List<GLib.File> ();
         file_list.append (file);
 
-        try {
-            app_info.launch (file_list, null);
-        } catch (Error e) {
-            warning (e.message);
-        }
-    }
-
-    public void launch_app_with_file_path (string path, string app_id, string file_type) {
-        var file = GLib.File.new_for_path (path);
-        var file_list = new List<GLib.File> ();
-        file_list.append (file);
-        var app_info = new GLib.DesktopAppInfo (app_id);
         try {
             app_info.launch (file_list, null);
         } catch (Error e) {
@@ -270,7 +257,6 @@ namespace Scratch.Utils {
         return menu;
     }
 
-
     public void execute_contract_with_file_path (string path, string contract_name, string file_type) {
         var file = GLib.File.new_for_path (path);
 
@@ -288,5 +274,4 @@ namespace Scratch.Utils {
             warning (e.message);
         }
     }
-
 }

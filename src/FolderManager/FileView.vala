@@ -428,12 +428,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        var file_type = params[2];
-        if (file_type == null || file_type == "") {
-            return;
-        }
+        var app_info = new GLib.DesktopAppInfo (app_id);
+        var file = GLib.File.new_for_path (path);
 
-        Utils.launch_app_with_file_path (path, app_id, file_type);
+        Utils.launch_app_with_file (app_info, file);
     }
 
     private void action_show_app_chooser (SimpleAction action, Variant? param) {
