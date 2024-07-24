@@ -217,7 +217,6 @@ namespace Scratch.Utils {
             };
 
             menuitem.add (menuitem_grid);
-
             menu.add (menuitem);
         }
     }
