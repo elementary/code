@@ -80,12 +80,6 @@ namespace Scratch.FolderManager {
             direct_actions_section.append_item (rename_item);
             direct_actions_section.append_item (delete_item);
 
-
-            //  menu.append (new Gtk.SeparatorMenuItem ());
-            //  menu.append (rename_item);
-            //  menu.append (delete_item);
-            //  menu.show_all ();
-
             var menu_model = new GLib.Menu ();
             menu_model.append_section (null, external_actions_section);
             menu_model.append_section (null, direct_actions_section);
