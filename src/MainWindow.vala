@@ -986,7 +986,7 @@ namespace Scratch {
             var new_window = new MainWindow (false);
             var file = File.new_for_path (path);
             var doc = new Scratch.Services.Document (new_window.actions, file);
-            
+
             new_window.open_document (doc, true);
         }
 
