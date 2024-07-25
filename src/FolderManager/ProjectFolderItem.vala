@@ -139,6 +139,16 @@ namespace Scratch.FolderManager {
             external_actions_section.append_item (open_in_terminal_pane_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
+
+            var folder_actions_section = new GLib.Menu ();
+            folder_actions_section.append_item (create_submenu_for_new ());
+            //  if (monitored_repo != null) {
+            //      folder_actions_section.append_submenu (
+            //          _("Branch"),
+            //          create_submenu_for_branch ()
+            //      );
+            //  }
+
             var close_folder_item = new GLib.MenuItem (
                 _("Close Folder"),
                 GLib.Action.print_detailed_name (
@@ -251,6 +261,7 @@ namespace Scratch.FolderManager {
 
             var menu_model = new GLib.Menu ();
             menu_model.append_section (null, external_actions_section);
+            menu_model.append_section (null, folder_actions_section);
 
             var menu = new Gtk.Menu.from_model (menu_model);
             menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
