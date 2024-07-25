@@ -170,6 +170,10 @@ namespace Scratch.FolderManager {
             );
             close_other_folders_action.set_enabled (view.root.children.size > 1);
 
+            var close_section = new GLib.Menu ();
+            close_section.append_item (close_folder_item);
+            close_section.append_item (close_all_except_item);
+
             var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
             var open_text = ngettext ("Close %u Open Document",
                                       "Close %u Open Documents",
@@ -223,6 +227,7 @@ namespace Scratch.FolderManager {
                     new Variant.string (file.file.get_path ())
                 )
             );
+            
 
             //  menu.append (open_in_terminal_pane_item);
             //  //  menu.append (create_submenu_for_open_in (file_type));
@@ -262,6 +267,7 @@ namespace Scratch.FolderManager {
             var menu_model = new GLib.Menu ();
             menu_model.append_section (null, external_actions_section);
             menu_model.append_section (null, folder_actions_section);
+            menu_model.append_section (null, close_section);
 
             var menu = new Gtk.Menu.from_model (menu_model);
             menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
