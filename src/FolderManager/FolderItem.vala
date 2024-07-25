@@ -139,23 +139,18 @@ namespace Scratch.FolderManager {
                 external_actions_section.append_submenu (_("Other Actions"), contractor_items);
             }
 
-            //  menu.append (create_submenu_for_new ());
-            //  menu.append (rename_menu_item);
-            //  menu.append (delete_item);
-
-
             var direct_actions_section = new GLib.Menu ();
             direct_actions_section.append_item (create_submenu_for_new ());
             direct_actions_section.append_item (rename_menu_item);
             direct_actions_section.append_item (delete_item);
 
-            //  menu.append (new Gtk.SeparatorMenuItem ());
-            //  menu.append (search_item);
-            //  menu.show_all ();
+            var search_section = new GLib.Menu ();
+            search_section.append_item (search_item);
 
             var menu_model = new GLib.Menu ();
             menu_model.append_section (null, external_actions_section);
             menu_model.append_section (null, direct_actions_section);
+            menu_model.append_section (null, search_section);
 
             var menu = new Gtk.Menu.from_model (menu_model);
             menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
