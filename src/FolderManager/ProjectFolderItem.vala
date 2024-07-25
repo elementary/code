@@ -212,6 +212,24 @@ namespace Scratch.FolderManager {
                 )
             );
 
+            var search_item = new GLib.MenuItem (
+                _("Find in Project…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            var direct_actions_section = new GLib.Menu (); 
+            if (n_restorable > 0) {
+                direct_actions_section.append_item (restore_item);
+            }
+
+            if (n_open > 0) {
+                direct_actions_section.append_item (hide_item);
+                direct_actions_section.append_item (close_item);
+            }
+
             var delete_item = new GLib.MenuItem (
                 _("Move to Trash"),
                 GLib.Action.print_detailed_name (
@@ -220,14 +238,8 @@ namespace Scratch.FolderManager {
                 )
             );
 
-            var search_item = new GLib.MenuItem (
-                _("Find in Project…"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
-                    new Variant.string (file.file.get_path ())
-                )
-            );
-            
+            var delete_actions_section = new GLib.Menu ();
+            delete_actions_section.append_item (delete_item);
 
             //  menu.append (open_in_terminal_pane_item);
             //  //  menu.append (create_submenu_for_open_in (file_type));
@@ -268,6 +280,8 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, external_actions_section);
             menu_model.append_section (null, folder_actions_section);
             menu_model.append_section (null, close_section);
+            menu_model.append_section (null, direct_actions_section);
+            menu_model.append_section (null, delete_actions_section);
 
             var menu = new Gtk.Menu.from_model (menu_model);
             menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
