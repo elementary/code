@@ -214,7 +214,7 @@ namespace Scratch.FolderManager {
             menu.append (open_in_terminal_pane_item);
             //  menu.append (create_submenu_for_open_in (file_type));
             menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (create_submenu_for_new ());
+            //  menu.append (create_submenu_for_new ());
 
             if (monitored_repo != null) {
                 var branch_menu = new ChangeBranchMenu (this) {
