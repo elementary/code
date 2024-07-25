@@ -467,12 +467,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        var file_type = params[2];
-        if (file_type == null || file_type == "") {
-            return;
-        }
-
-        Utils.execute_contract_with_file_path (path, contract_name, file_type);
+        Utils.execute_contract_with_file_path (path, contract_name);
     }
 
     private void action_rename_file (SimpleAction action, Variant? param) {

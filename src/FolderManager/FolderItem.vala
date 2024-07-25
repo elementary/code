@@ -104,10 +104,7 @@ namespace Scratch.FolderManager {
             var file_type = info.get_content_type ();
 
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = Utils.create_contract_items_for_file (
-                file.file,
-                file_type
-            );
+            contractor_item.submenu = Utils.create_contract_items_for_file (file.file);
 
             var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename")) {
                 action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,

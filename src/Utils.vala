@@ -232,11 +232,11 @@ namespace Scratch.Utils {
         }
     }
 
-    public Gtk.Menu create_contract_items_for_file (GLib.File file, string file_type) {
+    public Gtk.Menu create_contract_items_for_file (GLib.File file) {
         var menu = new Gtk.Menu ();
 
         try {
-            var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
             foreach (var contract in contracts) {
                 string contract_name = contract.get_display_name ();
                 var menu_item = new Gtk.MenuItem.with_label (contract_name) {
@@ -244,7 +244,7 @@ namespace Scratch.Utils {
                         + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
                     action_target = new GLib.Variant.array (
                         GLib.VariantType.STRING,
-                        { file.get_path (), contract_name, file_type }
+                        { file.get_path (), contract_name }
                     )
                 };
 
@@ -257,11 +257,11 @@ namespace Scratch.Utils {
         return menu;
     }
 
-    public void execute_contract_with_file_path (string path, string contract_name, string file_type) {
+    public void execute_contract_with_file_path (string path, string contract_name) {
         var file = GLib.File.new_for_path (path);
 
         try {
-            var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
             int length = contracts.size;
             for (int i = 0; i < length; i++) {
                 var contract = contracts[i];
