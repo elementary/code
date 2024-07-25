@@ -184,12 +184,13 @@ namespace Scratch.Utils {
         return false;
     }
 
-    public void create_executable_app_items_for_file (GLib.File file, string file_type, Gtk.Menu menu) {
+    public GLib.Menu create_executable_app_items_for_file (GLib.File file, string file_type) {
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
         var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
         external_apps.prepend (files_appinfo);
 
         string this_id = GLib.Application.get_default ().application_id + ".desktop";
+        var menu = new GLib.Menu ();
 
         foreach (AppInfo app_info in external_apps) {
             string app_id = app_info.get_id ();
@@ -197,28 +198,22 @@ namespace Scratch.Utils {
                 continue;
             }
 
-            var menuitem_icon = new Gtk.Image.from_gicon (
-                app_info.get_icon (),
-                Gtk.IconSize.MENU
-            );
-            menuitem_icon.pixel_size = 16;
-
-            var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (menuitem_icon);
-            menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
-
-            var menuitem = new Gtk.MenuItem () {
-                action_name = Scratch.FolderManager.FileView.ACTION_PREFIX
+            var menu_item = new MenuItem (
+                app_info.get_name (),
+                GLib.Action.print_detailed_name (
+                    Scratch.FolderManager.FileView.ACTION_PREFIX
                     + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
-                action_target = new GLib.Variant.array (
-                    GLib.VariantType.STRING,
-                    { file.get_path (), app_id }
+                    new GLib.Variant.array (
+                        GLib.VariantType.STRING,
+                        { file.get_path (), app_id }
+                    )
                 )
-            };
-
-            menuitem.add (menuitem_grid);
-            menu.add (menuitem);
+            );
+            menu_item.set_icon (app_info.get_icon ());
+            menu.append_item (menu_item);
         }
+
+        return menu;
     }
 
     public void launch_app_with_file (AppInfo app_info, GLib.File file) {
@@ -232,23 +227,26 @@ namespace Scratch.Utils {
         }
     }
 
-    public Gtk.Menu create_contract_items_for_file (GLib.File file) {
-        var menu = new Gtk.Menu ();
+    public GLib.Menu create_contract_items_for_file (GLib.File file) {
+        var menu = new GLib.Menu ();
 
         try {
             var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
             foreach (var contract in contracts) {
                 string contract_name = contract.get_display_name ();
-                var menu_item = new Gtk.MenuItem.with_label (contract_name) {
-                    action_name = Scratch.FolderManager.FileView.ACTION_PREFIX
+                var menu_item = new GLib.MenuItem (
+                    contract_name,
+                    GLib.Action.print_detailed_name (
+                        Scratch.FolderManager.FileView.ACTION_PREFIX
                         + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
-                    action_target = new GLib.Variant.array (
-                        GLib.VariantType.STRING,
-                        { file.get_path (), contract_name }
+                        new GLib.Variant.array (
+                            GLib.VariantType.STRING,
+                            { file.get_path (), contract_name }
+                        )
                     )
-                };
+                );
 
-                menu.add (menu_item);
+                menu.append_item (menu_item);
             }
         } catch (Error e) {
             warning (e.message);
