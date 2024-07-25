@@ -42,13 +42,10 @@ namespace Scratch.FolderManager {
                 action_target = new Variant.string (file.file.get_parent ().get_path ())
             };
 
-            var new_window_menuitem = new Gtk.MenuItem.with_label (_("New Window"));
-            new_window_menuitem.activate.connect (() => {
-                var new_window = new MainWindow (false);
-                var doc = new Scratch.Services.Document (new_window.actions, file.file);
-
-                new_window.open_document (doc, true);
-            });
+            var new_window_menuitem = new Gtk.MenuItem.with_label (_("New Window")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
+                action_target = file.path
+            };
 
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…")) {
                 action_name = FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,

@@ -106,6 +106,7 @@ namespace Scratch {
         public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
         public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
         public const string ACTION_RESTORE_CLOSED_TAB = "action_restore_closed_tab";
+        public const string ACTION_OPEN_IN_NEW_WINDOW = "action-open-in-new-window";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -163,6 +164,7 @@ namespace Scratch {
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
             { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
             { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
+            { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -973,6 +975,19 @@ namespace Scratch {
                     open_document (doc);
                 }
             }
+        }
+
+        private void action_open_in_new_window (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                return;
+            }
+
+            var new_window = new MainWindow (false);
+            var file = File.new_for_path (path);
+            var doc = new Scratch.Services.Document (new_window.actions, file);
+
+            new_window.open_document (doc, true);
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
