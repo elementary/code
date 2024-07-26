@@ -272,4 +272,14 @@ namespace Scratch.Utils {
             warning (e.message);
         }
     }
+
+    public string? get_accel_for_action (string detailed_action_name) {
+        var app_instance = (Gtk.Application) GLib.Application.get_default ();
+        string[] accels = app_instance.get_accels_for_action (detailed_action_name);
+        if (accels.length > 0) {
+            return accels[0];
+        }
+
+        return null;
+    }
 }

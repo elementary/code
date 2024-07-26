@@ -143,11 +143,17 @@ namespace Scratch.FolderManager {
                     )
                 )
             );
+            open_in_terminal_pane_item.set_attribute_value ("accel", Utils.get_accel_for_action (
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    ""
+                    )
+                )
+            );
 
             var external_actions_section = new GLib.Menu ();
             external_actions_section.append_item (open_in_terminal_pane_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
-
 
             var folder_actions_section = new GLib.Menu ();
             folder_actions_section.append_item (create_submenu_for_new ());
