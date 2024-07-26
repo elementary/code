@@ -213,6 +213,16 @@ namespace Scratch.FolderManager {
                 )
             );
 
+            hide_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                        ""
+                    )
+                )
+            );
+
             var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
             var restore_text = ngettext ("Restore %u Hidden Document",
                                          "Restore %u Hidden Documents",
@@ -223,6 +233,16 @@ namespace Scratch.FolderManager {
                 GLib.Action.print_detailed_name (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
                     new Variant.string (file.file.get_path ())
+                )
+            );
+
+            restore_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                        ""
+                    )
                 )
             );
 
@@ -255,6 +275,16 @@ namespace Scratch.FolderManager {
                 )
             );
 
+            search_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                        ""
+                    )
+                )
+            );
+
             var search_actions_section = new GLib.Menu ();
             search_actions_section.append_item (search_item);
 
@@ -275,16 +305,7 @@ namespace Scratch.FolderManager {
             // Ensures that action for relevant project is being used
             view.actions.add_action (change_branch_action);
 
-            GLib.Menu top_section = new GLib.Menu ();
             GLib.Menu branch_selection_menu = new GLib.Menu ();
-
-            top_section.append (
-                _("New Branch…"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                    file.path
-                )
-            );
             foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
                 branch_selection_menu.append (
                     branch_name,
@@ -295,9 +316,31 @@ namespace Scratch.FolderManager {
                 );
             }
 
+
+            var new_branch_item = new GLib.MenuItem (
+                _("New Branch…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                    file.path
+                )
+            );
+
+            new_branch_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                        ""
+                    )
+                )
+            );
+
+            GLib.Menu bottom_section = new GLib.Menu ();
+            bottom_section.append_item (new_branch_item);
+
             var menu = new GLib.Menu ();
-            menu.append_section (null, top_section);
             menu.append_section (null, branch_selection_menu);
+            menu.append_section (null, bottom_section);
 
             var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
             return menu_item;
