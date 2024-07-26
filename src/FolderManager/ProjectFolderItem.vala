@@ -143,10 +143,12 @@ namespace Scratch.FolderManager {
                     )
                 )
             );
-            open_in_terminal_pane_item.set_attribute_value ("accel", Utils.get_accel_for_action (
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    ""
+            open_in_terminal_pane_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        ""
                     )
                 )
             );

@@ -273,13 +273,14 @@ namespace Scratch.Utils {
         }
     }
 
-    public string? get_accel_for_action (string detailed_action_name) {
+    public string get_accel_for_action (string detailed_action_name) {
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
         string[] accels = app_instance.get_accels_for_action (detailed_action_name);
         if (accels.length > 0) {
             return accels[0];
         }
 
-        return null;
+        warning ("Accelerators were not found for the action: %s", detailed_action_name);
+        return "";
     }
 }
