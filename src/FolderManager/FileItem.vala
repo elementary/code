@@ -54,7 +54,7 @@ namespace Scratch.FolderManager {
             if (contractor_items.get_n_items () > 0) {
                 external_actions_section.append_submenu (
                     _("Other Actions"),
-                    Utils.create_contract_items_for_file (file.file)
+                    contractor_items
                 );
             }
 
