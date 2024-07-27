@@ -19,7 +19,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
     private const string ACTION_GROUP = "fuzzysearch";
     private const string ACTION_PREFIX = ACTION_GROUP + ".";
-    private const string ACTION_SHOW = "action_show";
+    private const string ACTION_SHOW = "action-show";
     private const ActionEntry[] ACTION_ENTRIES = {
         {ACTION_SHOW, fuzzy_find }
     };

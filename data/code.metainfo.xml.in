@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/7.2.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.3.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/7.2.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.3.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -89,6 +89,7 @@
         <issue url="https://github.com/elementary/code/issues/1416">Code hangs when choosing active project when two project starting with the same string are loaded</issue>
         <issue url="https://github.com/elementary/code/issues/1418">Duplicated items in "Find In Project Popover"</issue>
         <issue url="https://github.com/elementary/code/issues/1429">Extensions dialogue MUST be resizable</issue>
+        <issue url="https://github.com/elementary/code/issues/1436">Cancelling new folder creation in project causes parent folder to disappear from sidebar</issue>
         <issue url="https://github.com/elementary/code/issues/570">Draw Spaces On Current Line</issue>
         <issue url="https://github.com/elementary/code/issues/574">git branch not readable if dir name is too long</issue>
         <issue url="https://github.com/elementary/code/pull/1446">Fix "go to line" behaviour when column number is not explicitly set</issue>

@@ -93,33 +93,18 @@ namespace Scratch.FolderManager {
                 action_target = new Variant.string (file.path)
             };
 
-            var contractor_menu = new Gtk.Menu ();
-
             GLib.FileInfo info = null;
-            unowned string? file_type = null;
 
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-                file_type = info.get_content_type ();
             } catch (Error e) {
                 warning (e.message);
             }
 
-            if (info != null) {
-                try {
-                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
-                    foreach (var contract in contracts) {
-                        var menu_item = new ContractMenuItem (contract, file.file);
-                        contractor_menu.append (menu_item);
-                        menu_item.show_all ();
-                    }
-                } catch (Error e) {
-                    warning (e.message);
-                }
-            }
+            var file_type = info.get_content_type ();
 
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = contractor_menu;
+            contractor_item.submenu = Utils.create_contract_items_for_file (file.file);
 
             var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename")) {
                 action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,
@@ -138,7 +123,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (open_in_terminal_pane_item);
-            menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (create_submenu_for_open_in (file_type));
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
@@ -151,40 +136,16 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string? file_type) {
-            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
-            other_menuitem.activate.connect (() => show_app_chooser (file));
+        protected Gtk.MenuItem create_submenu_for_open_in (string? file_type) {
+            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…")) {
+                action_name = FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,
+                action_target = file.path
+            };
 
             file_type = file_type ?? "inode/directory";
 
             var open_in_menu = new Gtk.Menu ();
-
-            if (info != null) {
-                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-
-                string this_id = GLib.Application.get_default ().application_id + ".desktop";
-
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == this_id) {
-                        continue;
-                    }
-
-                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                    menuitem_icon.pixel_size = 16;
-
-                    var menuitem_grid = new Gtk.Grid ();
-                    menuitem_grid.add (menuitem_icon);
-                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
-
-                    var item_app = new Gtk.MenuItem ();
-                    item_app.add (menuitem_grid);
-
-                    item_app.activate.connect (() => {
-                        launch_app_with_file (app_info, file.file);
-                    });
-                    open_in_menu.add (item_app);
-                }
-            }
+            Utils.create_executable_app_items_for_file (file.file, file_type, open_in_menu);
 
             if (open_in_menu.get_children ().length () > 0) {
                 open_in_menu.add (new Gtk.SeparatorMenuItem ());
@@ -252,8 +213,8 @@ namespace Scratch.FolderManager {
 
             view.ignore_next_select = true;
             ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
-            // Add back dummy if empty unless we are removing a rename item
-            if (!(item is RenameItem || has_dummy || n_children > 0)) {
+            // Add back dummy if empty
+            if (!(has_dummy || n_children > 0)) {
                 ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }

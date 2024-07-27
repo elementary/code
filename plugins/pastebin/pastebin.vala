@@ -78,7 +78,7 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
 
     const string ACTION_GROUP = "pastebin";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
-    const string ACTION_SHOW = "action_show";
+    const string ACTION_SHOW = "action-show";
     SimpleActionGroup actions;
 
     const ActionEntry[] ACTION_ENTRIES = {
