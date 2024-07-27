@@ -59,53 +59,54 @@ namespace Scratch {
 
         public const string ACTION_GROUP = "win";
         public const string ACTION_PREFIX = ACTION_GROUP + ".";
-        public const string ACTION_FIND = "action_find";
-        public const string ACTION_FIND_NEXT = "action_find_next";
-        public const string ACTION_FIND_PREVIOUS = "action_find_previous";
-        public const string ACTION_FIND_GLOBAL = "action_find_global";
-        public const string ACTION_OPEN = "action_open";
-        public const string ACTION_OPEN_FOLDER = "action_open_folder";
-        public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
-        public const string ACTION_ORDER_FOLDERS = "action_order_folders";
-        public const string ACTION_GO_TO = "action_go_to";
-        public const string ACTION_SORT_LINES = "action_sort_lines";
-        public const string ACTION_NEW_TAB = "action_new_tab";
-        public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
-        public const string ACTION_DUPLICATE_TAB = "action_duplicate_tab";
+        public const string ACTION_FIND = "action-find";
+        public const string ACTION_FIND_NEXT = "action-find-next";
+        public const string ACTION_FIND_PREVIOUS = "action-find-previous";
+        public const string ACTION_FIND_GLOBAL = "action-find-global";
+        public const string ACTION_OPEN = "action-open";
+        public const string ACTION_OPEN_FOLDER = "action-open-folder";
+        public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
+        public const string ACTION_ORDER_FOLDERS = "action-order-folders";
+        public const string ACTION_GO_TO = "action-go-to";
+        public const string ACTION_SORT_LINES = "action-sort-lines";
+        public const string ACTION_NEW_TAB = "action-new-tab";
+        public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
+        public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
-        public const string ACTION_UNDO = "action_undo";
-        public const string ACTION_REDO = "action_redo";
-        public const string ACTION_REVERT = "action_revert";
-        public const string ACTION_SAVE = "action_save";
-        public const string ACTION_SAVE_AS = "action_save_as";
-        public const string ACTION_SHOW_FIND = "action_show_find";
-        public const string ACTION_TEMPLATES = "action_templates";
-        public const string ACTION_SHOW_REPLACE = "action_show_replace";
-        public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
-        public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
-        public const string ACTION_DUPLICATE = "action_duplicate";
-        public const string ACTION_FULLSCREEN = "action_fullscreen";
-        public const string ACTION_QUIT = "action_quit";
-        public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
-        public const string ACTION_ZOOM_IN = "action_zoom_in";
-        public const string ACTION_ZOOM_OUT = "action_zoom_out";
-        public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
-        public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
-        public const string ACTION_TOGGLE_OUTLINE = "action_toggle_outline";
+        public const string ACTION_UNDO = "action-undo";
+        public const string ACTION_REDO = "action-redo";
+        public const string ACTION_REVERT = "action-revert";
+        public const string ACTION_SAVE = "action-save";
+        public const string ACTION_SAVE_AS = "action-save-as";
+        public const string ACTION_SHOW_FIND = "action-show-find";
+        public const string ACTION_TEMPLATES = "action-templates";
+        public const string ACTION_SHOW_REPLACE = "action-show-replace";
+        public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
+        public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
+        public const string ACTION_DUPLICATE = "action-duplicate";
+        public const string ACTION_FULLSCREEN = "action-fullscreen";
+        public const string ACTION_QUIT = "action-quit";
+        public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
+        public const string ACTION_ZOOM_IN = "action-zoom-in";
+        public const string ACTION_ZOOM_OUT = "action-zoom-out";
+        public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
+        public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
+        public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
-        public const string ACTION_OPEN_IN_TERMINAL = "action-open_in_terminal";
-        public const string ACTION_NEXT_TAB = "action_next_tab";
-        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
-        public const string ACTION_CLEAR_LINES = "action_clear_lines";
-        public const string ACTION_NEW_BRANCH = "action_new_branch";
-        public const string ACTION_CLOSE_TAB = "action_close_tab";
-        public const string ACTION_CLOSE_TABS_TO_RIGHT = "action_close_tabs_to_right";
-        public const string ACTION_CLOSE_OTHER_TABS = "action_close_other_tabs";
-        public const string ACTION_CLOSE_PROJECT_DOCS = "action_close_project_docs";
-        public const string ACTION_HIDE_PROJECT_DOCS = "action_hide_project_docs";
-        public const string ACTION_RESTORE_PROJECT_DOCS = "action_restore_project_docs";
-        public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action_move_tab_to_new_window";
-        public const string ACTION_RESTORE_CLOSED_TAB = "action_restore_closed_tab";
+        public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
+        public const string ACTION_NEXT_TAB = "action-next-tab";
+        public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
+        public const string ACTION_CLEAR_LINES = "action-clear-lines";
+        public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_CLOSE_TAB = "action-close-tab";
+        public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
+        public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
+        public const string ACTION_CLOSE_PROJECT_DOCS = "action-close-project-docs";
+        public const string ACTION_HIDE_PROJECT_DOCS = "action-hide-project-docs";
+        public const string ACTION_RESTORE_PROJECT_DOCS = "action-restore-project-docs";
+        public const string ACTION_MOVE_TAB_TO_NEW_WINDOW = "action-move-tab-to-new-window";
+        public const string ACTION_RESTORE_CLOSED_TAB = "action-restore-closed-tab";
+        public const string ACTION_OPEN_IN_NEW_WINDOW = "action-open-in-new-window";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
         private static string base_title;
@@ -163,6 +164,7 @@ namespace Scratch {
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
             { ACTION_MOVE_TAB_TO_NEW_WINDOW, action_move_tab_to_new_window },
             { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
+            { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
         };
 
         public MainWindow (bool restore_docs) {
@@ -973,6 +975,19 @@ namespace Scratch {
                     open_document (doc);
                 }
             }
+        }
+
+        private void action_open_in_new_window (SimpleAction action, Variant? param) {
+            var path = param.get_string ();
+            if (path == "") {
+                return;
+            }
+
+            var new_window = new MainWindow (false);
+            var file = File.new_for_path (path);
+            var doc = new Scratch.Services.Document (new_window.actions, file);
+
+            new_window.open_document (doc, true);
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {

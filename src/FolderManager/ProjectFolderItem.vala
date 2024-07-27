@@ -212,7 +212,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (open_in_terminal_pane_item);
-            menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (create_submenu_for_open_in (file_type));
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
 
@@ -401,7 +401,7 @@ namespace Scratch.FolderManager {
                 var search_variant = new Variant.string (search_term);
                 var app = (Gtk.Application)GLib.Application.get_default ();
                 var win = (Scratch.MainWindow)(app.get_active_window ());
-                win.actions.lookup_action ("action_find").activate (search_variant);
+                win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
                     search_term = Regex.escape_string (search_term);

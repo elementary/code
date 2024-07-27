@@ -7,8 +7,8 @@
 public class Code.Terminal : Gtk.Box {
     public const string ACTION_GROUP = "term";
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
-    public const string ACTION_COPY = "action_copy";
-    public const string ACTION_PASTE = "action_paste";
+    public const string ACTION_COPY = "action-copy";
+    public const string ACTION_PASTE = "action-paste";
 
     private const double MAX_SCALE = 5.0;
     private const double MIN_SCALE = 0.2;
