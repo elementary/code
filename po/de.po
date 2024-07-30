@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-14 07:09+0000\n"
-"PO-Revision-Date: 2024-06-16 12:29+0000\n"
+"PO-Revision-Date: 2024-07-29 11:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -167,22 +167,16 @@ msgid "General"
 msgstr "Allgemein"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Dateien bei Änderungen speichern:"
+msgstr "Dateien bei Änderungen speichern"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Leerzeichen am Zeilenende entfernen:"
+msgstr "Leerzeichen am Zeilenende vor dem Speichern entfernen"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Intelligentes Ausschneiden/Kopieren von Zeilen:"
+msgstr "Zeilen intelligent ausschneiden/kopieren"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -193,28 +187,20 @@ msgstr ""
 "aktuelle Zeile ausgeschnitten oder kopiert"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Randbreite:"
+msgstr "Einrücktiefe"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Automatisch einrücken"
+msgstr "Einrücken"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Automatisches Einrücken:"
+msgstr "Automatisches Einrücken"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Leerzeichen anstelle von Tabulatoren einfügen:"
+msgstr "Leerzeichen anstelle von Tabulatoren einfügen"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -237,36 +223,28 @@ msgid "All"
 msgstr "Gesamt"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "Whitespace visible when not selected"
-msgstr "Weißraum sichtbar, wenn nicht ausgewählt:"
+msgstr "Weißraum sichtbar, wenn nicht ausgewählt"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Zusammengehörende Klammern hervorheben:"
+msgstr "Zusammengehörende Klammern hervorheben"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Miniaturansicht zeigen:"
+msgstr "Miniaturansicht zeigen"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Zeilen umbrechen"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Zeilenbreitenführungslinie:"
+msgstr "Zeilenbreitenführungslinie"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -274,7 +252,7 @@ msgstr "Schriftart"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Systemschrift verwenden"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
