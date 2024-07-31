@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"POT-Creation-Date: 2024-07-31 18:25+0000\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Bagong Tab"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
 msgid "New Window"
 msgstr "Bagong Window"
 
@@ -39,90 +39,90 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:238
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:240
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:375
+#: src/MainWindow.vala:377
 msgid "Hide search bar"
 msgstr "Itago ang search bar"
 
-#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Magbukas ng Polder"
 
-#: src/MainWindow.vala:391
+#: src/MainWindow.vala:393
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Itago ang search bar"
 
-#: src/MainWindow.vala:396
+#: src/MainWindow.vala:398
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Ipakita ang Prebiyu"
 
-#: src/MainWindow.vala:405
+#: src/MainWindow.vala:407
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:412
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Mga Simbolo"
 
-#: src/MainWindow.vala:419
+#: src/MainWindow.vala:421
 msgid "Hide Terminal"
 msgstr "Itago ang Terminal"
 
-#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Ipakita ang Terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:944 src/Services/Document.vala:651
+#: src/MainWindow.vala:946 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Lahat ng mga File"
 
-#: src/MainWindow.vala:948 src/Services/Document.vala:655
+#: src/MainWindow.vala:950 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Tekstong mga file"
 
-#: src/MainWindow.vala:952
+#: src/MainWindow.vala:954
 msgid "Open some files"
 msgstr "Magbukas ng ilang mga file"
 
-#: src/MainWindow.vala:955
+#: src/MainWindow.vala:957
 msgid "Open"
 msgstr "Buksan"
 
-#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
 #: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Ikansela"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:998
 msgid "_Open"
 msgstr "_Buksan"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:999
 msgid "_Cancel"
 msgstr "I_kansela"
 
@@ -311,124 +311,124 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
-msgid "Other Application…"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
-#, fuzzy
-msgid "Open In"
-msgstr "Buksan"
-
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
 #, fuzzy
 msgid "Other Actions"
 msgstr "Iba pang mga format"
 
-#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:68
+#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#, fuzzy
+msgid "Open In"
+msgstr "Buksan"
+
+#: src/FolderManager/FileView.vala:76
 msgid "Folders"
 msgstr "Mga Polder"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Magbukas ng Polder"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:184
 #, fuzzy
 msgid "Folder"
 msgstr "Mga Polder"
 
-#: src/FolderManager/FolderItem.vala:207
+#: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:216
-#: src/FolderManager/ProjectFolderItem.vala:275
-#: src/FolderManager/ProjectFolderItem.vala:281
+#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/ProjectFolderItem.vala:382
+#: src/FolderManager/ProjectFolderItem.vala:388
 #, fuzzy
 msgid "New"
 msgstr "Bagong Tab"
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 #, fuzzy
 msgid "new file"
 msgstr "Bagong File"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:175
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:145
+#: src/FolderManager/ProjectFolderItem.vala:192
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:159
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Bagong Dokumento"
 
-#: src/FolderManager/ProjectFolderItem.vala:174
+#: src/FolderManager/ProjectFolderItem.vala:227
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Magbukas ng Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:281
-msgid "Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:319
-#, c-format
-msgid "Error while creating new branch: “%s”"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:605
+#: src/FolderManager/ProjectFolderItem.vala:321
 #, fuzzy
 msgid "New Branch…"
 msgstr "Ibahin ang mga setting ng Scratch"
 
-#: src/FolderManager/ProjectFolderItem.vala:618
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:388
+msgid "Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:426
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:369
