@@ -67,13 +67,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     protected static SymbolType[] filters; //Initialized by derived classes
     const string ACTION_GROUP = "symbol";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
-    const string ACTION_SELECT_ALL = "action-select-all";
-    const string ACTION_DESELECT_ALL = "action-deselect-all";
+    const string ACTION_SELECT = "action-select";
     const string ACTION_TOGGLE = "toggle-";
-    const ActionEntry [] SELECT_ACTIONS = {
-        {ACTION_SELECT_ALL, action_select_all_filter},
-        {ACTION_DESELECT_ALL, action_deselect_all_filter}
-    };
     SimpleActionGroup symbol_action_group;
 
     public Scratch.Services.Document doc { get; construct; }
@@ -91,7 +86,6 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     construct {
         symbol_action_group = new SimpleActionGroup ();
         insert_action_group (ACTION_GROUP, symbol_action_group);
-        symbol_action_group.add_action_entries (SELECT_ACTIONS, this);
 
         checks = new Gee.HashMap<SymbolType, SimpleAction> ();
         store = new Code.Widgets.SourceList ();
@@ -120,8 +114,25 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         // Derived classes must not add SymbolType.OTHER
         add_filter_menuitem (top_model, SymbolType.OTHER);
 
-        select_section.append (_("Select All"), ACTION_PREFIX + ACTION_SELECT_ALL);
-        select_section.append (_("Deselect All"), ACTION_PREFIX + ACTION_DESELECT_ALL);
+        var select_action = new SimpleAction (
+            ACTION_SELECT,
+            new VariantType ("b")
+        );
+        select_action.activate.connect (action_select_filters);
+        symbol_action_group.add_action (select_action);
+
+        select_section.append (
+            _("Select All"),
+            Action.print_detailed_name (
+                ACTION_PREFIX + ACTION_SELECT, new Variant ("b", true)
+            )
+        );
+        select_section.append (
+            _("Deselect All"),
+            Action.print_detailed_name(
+                ACTION_PREFIX + ACTION_SELECT, new Variant ("b", false)
+            )
+        );
         top_model.append_section ("", select_section);
 
         filter_button.menu_model = top_model;
@@ -248,9 +259,9 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
     }
 
-    public void action_deselect_all_filter (SimpleAction action, Variant? param) {
+    private void action_select_filters (SimpleAction action, Variant? param) {
         foreach (var filter_action in checks.values) {
-           filter_action.set_state (new Variant ("b", false));
+           filter_action.set_state (new Variant ("b", param.get_boolean ()));
         }
         schedule_refilter ();
         // Keep menu open
@@ -260,19 +271,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         });
     }
 
-    public void action_select_all_filter (SimpleAction action, Variant? param) {
-        foreach (var filter_action in checks.values) {
-           filter_action.set_state (new Variant ("b", true));
-        }
-        schedule_refilter ();
-        // Keep menu open
-        Idle.add (() => {
-            filter_button.set_active (true);
-            return Source.REMOVE;
-        });
-    }
-
-    public void action_toggle_filter (SimpleAction action, Variant? param) {
+    private void action_toggle_filter (SimpleAction action, Variant? param) {
         var state = action.get_state ().get_boolean ();
         action.set_state (new Variant ("b", !state));
         schedule_refilter ();
