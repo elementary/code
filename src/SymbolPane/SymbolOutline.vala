@@ -129,7 +129,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         );
         select_section.append (
             _("Deselect All"),
-            Action.print_detailed_name(
+            Action.print_detailed_name (
                 ACTION_PREFIX + ACTION_SELECT, new Variant ("b", false)
             )
         );
