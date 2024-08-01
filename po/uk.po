@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"POT-Creation-Date: 2024-07-31 18:25+0000\n"
 "PO-Revision-Date: 2024-07-21 11:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
-"\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
+">\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Нова вкладка"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
 msgid "New Window"
 msgstr "Нове вікно"
 
@@ -45,82 +45,82 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:238
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:240
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:375
+#: src/MainWindow.vala:377
 msgid "Hide search bar"
 msgstr "Сховати панель пошуку"
 
-#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Знайти на сторінці…"
 
-#: src/MainWindow.vala:391
+#: src/MainWindow.vala:393
 msgid "Hide Projects Sidebar"
 msgstr "Сховати бічну панель проєктів"
 
-#: src/MainWindow.vala:396
+#: src/MainWindow.vala:398
 msgid "Show Projects Sidebar"
 msgstr "Показати бічну панель проєктів"
 
-#: src/MainWindow.vala:405
+#: src/MainWindow.vala:407
 msgid "Hide Symbol Outline"
 msgstr "Сховати контур символу"
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:412
 msgid "Show Symbol Outline"
 msgstr "Показати контур символу"
 
-#: src/MainWindow.vala:419
+#: src/MainWindow.vala:421
 msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
-#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Показати термінал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:944 src/Services/Document.vala:651
+#: src/MainWindow.vala:946 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:948 src/Services/Document.vala:655
+#: src/MainWindow.vala:950 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Текстові файли"
 
-#: src/MainWindow.vala:952
+#: src/MainWindow.vala:954
 msgid "Open some files"
 msgstr "Відкрити файли"
 
-#: src/MainWindow.vala:955
+#: src/MainWindow.vala:957
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
 #: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:998
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:999
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -289,73 +289,73 @@ msgstr "Не відновлювати"
 msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr "Відкрити у панелі Термінала"
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
-msgid "Other Application…"
-msgstr "Інший Застосунок…"
-
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
-msgid "Open In"
-msgstr "Відкрити у"
-
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
 msgstr "Інші дії"
 
-#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr "Перемістити до смітника"
 
-#: src/FolderManager/FileView.vala:68
+#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+msgid "Other Application…"
+msgstr "Інший Застосунок…"
+
+#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+msgid "Open In"
+msgstr "Відкрити у"
+
+#: src/FolderManager/FileView.vala:76
 msgid "Folders"
 msgstr "Теки"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
 msgstr "Пошук у теці…"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:184
 msgid "Folder"
 msgstr "Тека"
 
-#: src/FolderManager/FolderItem.vala:207
+#: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
 msgstr "Порожній файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:216
-#: src/FolderManager/ProjectFolderItem.vala:275
-#: src/FolderManager/ProjectFolderItem.vala:281
+#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/ProjectFolderItem.vala:382
+#: src/FolderManager/ProjectFolderItem.vala:388
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr "тека без назви"
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 msgid "new file"
 msgstr "новий файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
 msgstr "Закрити теку"
 
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:175
 msgid "Close Other Folders"
 msgstr "Закрити інші теки"
 
-#: src/FolderManager/ProjectFolderItem.vala:145
+#: src/FolderManager/ProjectFolderItem.vala:192
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -363,7 +363,7 @@ msgstr[0] "Закрити %u відкритий документ"
 msgstr[1] "Закрити %u відкриті документи"
 msgstr[2] "Закрити %u відкритих документів"
 
-#: src/FolderManager/ProjectFolderItem.vala:159
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
@@ -371,7 +371,7 @@ msgstr[0] "Сховати %u відкритий документ"
 msgstr[1] "Сховати %u відкриті документи"
 msgstr[2] "Сховати %u відкритих документів"
 
-#: src/FolderManager/ProjectFolderItem.vala:174
+#: src/FolderManager/ProjectFolderItem.vala:227
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -379,26 +379,26 @@ msgstr[0] "Відновити %u схований документ"
 msgstr[1] "Відновити %u сховані документи"
 msgstr[2] "Відновити %u схованих документів"
 
-#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Пошук у проєкті…"
 
-#: src/FolderManager/ProjectFolderItem.vala:281
-msgid "Modified"
-msgstr "Змінено"
-
-#: src/FolderManager/ProjectFolderItem.vala:319
-#, c-format
-msgid "Error while creating new branch: “%s”"
-msgstr "Помилка створення нової гілки: «%s»"
-
-#: src/FolderManager/ProjectFolderItem.vala:605
+#: src/FolderManager/ProjectFolderItem.vala:321
 msgid "New Branch…"
 msgstr "Нова гілка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:618
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "Гілка"
+
+#: src/FolderManager/ProjectFolderItem.vala:388
+msgid "Modified"
+msgstr "Змінено"
+
+#: src/FolderManager/ProjectFolderItem.vala:426
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr "Помилка створення нової гілки: «%s»"
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:369

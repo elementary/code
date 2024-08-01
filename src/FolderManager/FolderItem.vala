@@ -88,10 +88,13 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_in_terminal_pane_item = new Gtk.MenuItem.with_label (_("Open in Terminal Pane")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                action_target = new Variant.string (file.path)
-            };
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                (_("Open in Terminal Pane")),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (file.path)
+                )
+            );
 
             GLib.FileInfo info = null;
 
@@ -103,78 +106,101 @@ namespace Scratch.FolderManager {
 
             var file_type = info.get_content_type ();
 
-            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = Utils.create_contract_items_for_file (file.file);
+            var contractor_items = Utils.create_contract_items_for_file (file.file);
 
-            var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename")) {
-                action_name = FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,
-                action_target = new Variant.string (file.path)
-            };
+            var rename_menu_item = new GLib.MenuItem (
+                _("Rename"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash")) {
-                action_name = FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
-                action_target = new Variant.string (file.path)
-            };
+            var delete_item = new GLib.MenuItem (
+                _("Move to Trash"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
-                action_name = "win.action_find_global",
-                action_target = new Variant.string (file.file.get_path ())
-            };
+            var search_item = new GLib.MenuItem (
+                _("Find in Folder…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
 
-            var menu = new Gtk.Menu ();
-            menu.append (open_in_terminal_pane_item);
-            menu.append (create_submenu_for_open_in (file_type));
-            menu.append (contractor_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (create_submenu_for_new ());
-            menu.append (rename_menu_item);
-            menu.append (delete_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (search_item);
-            menu.show_all ();
+            var external_actions_section = new GLib.Menu ();
+            external_actions_section.append_item (open_in_terminal_pane_item);
+            external_actions_section.append_item (create_submenu_for_open_in (file_type));
+            if (contractor_items.get_n_items () > 0) {
+                external_actions_section.append_submenu (_("Other Actions"), contractor_items);
+            }
 
+            var direct_actions_section = new GLib.Menu ();
+            direct_actions_section.append_item (create_submenu_for_new ());
+            direct_actions_section.append_item (rename_menu_item);
+            direct_actions_section.append_item (delete_item);
+
+            var search_section = new GLib.Menu ();
+            search_section.append_item (search_item);
+
+            var menu_model = new GLib.Menu ();
+            menu_model.append_section (null, external_actions_section);
+            menu_model.append_section (null, direct_actions_section);
+            menu_model.append_section (null, search_section);
+
+            var menu = new Gtk.Menu.from_model (menu_model);
+            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             return menu;
         }
 
-        protected Gtk.MenuItem create_submenu_for_open_in (string? file_type) {
-            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…")) {
-                action_name = FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,
-                action_target = file.path
-            };
+        protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
+            var other_menu_item = new GLib.MenuItem (
+                _("Other Application…"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,
+                    file.path
+                )
+            );
+
+            var extra_section = new GLib.Menu ();
+            extra_section.append_item (other_menu_item);
 
             file_type = file_type ?? "inode/directory";
 
-            var open_in_menu = new Gtk.Menu ();
-            Utils.create_executable_app_items_for_file (file.file, file_type, open_in_menu);
+            var open_in_menu = new GLib.Menu ();
+            open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
+            open_in_menu.append_section (null, extra_section);
 
-            if (open_in_menu.get_children ().length () > 0) {
-                open_in_menu.add (new Gtk.SeparatorMenuItem ());
-            }
-
-            open_in_menu.add (other_menuitem);
-
-            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
-            open_in_item.submenu = open_in_menu;
-
-            return open_in_item;
+            var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
+            return open_in_menu_item;
         }
 
-        protected Gtk.MenuItem create_submenu_for_new () {
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder")) {
-                action_name = FileView.ACTION_PREFIX + FileView.ACTION_NEW_FOLDER,
-                action_target = new Variant.string (file.path)
-            };
+        protected GLib.MenuItem create_submenu_for_new () {
+            var new_folder_item = new GLib.MenuItem (
+                _("Folder"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_NEW_FOLDER,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File")) {
-                action_name = FileView.ACTION_PREFIX + FileView.ACTION_NEW_FILE,
-                action_target = new Variant.string (file.path)
-            };
+            var new_file_item = new GLib.MenuItem (
+                _("Empty File"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_NEW_FILE,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var new_menu = new Gtk.Menu ();
-            new_menu.append (new_folder_item);
-            new_menu.append (new_file_item);
+            var new_menu = new GLib.Menu ();
+            new_menu.append_item (new_folder_item);
+            new_menu.append_item (new_file_item);
 
-            var new_item = new Gtk.MenuItem.with_label (_("New"));
+            var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
             new_item.set_submenu (new_menu);
 
             return new_item;
