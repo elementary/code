@@ -21,6 +21,8 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {
         Object (
+            orientation: Gtk.Orientation.VERTICAL,
+            hexpand: true,
             doc: _doc
         );
     }

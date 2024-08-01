@@ -22,6 +22,8 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
     private GLib.Cancellable cancellable;
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
         Object (
+            orientation: Gtk.Orientation.VERTICAL,
+            hexpand: true,
             doc: _doc
         );
     }
