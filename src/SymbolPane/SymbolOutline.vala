@@ -63,109 +63,100 @@ public interface Scratch.Services.SymbolItem : Code.Widgets.SourceList.Expandabl
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
 }
 
-public abstract class Scratch.Services.SymbolOutline : Object {
-    protected static SymbolType[] filters;
+public class Scratch.Services.SymbolOutline : Gtk.Box {
+    protected static SymbolType[] filters; //Initialized by derived classes
+    const string ACTION_GROUP = "symbol";
+    const string ACTION_PREFIX = ACTION_GROUP + ".";
+    const string ACTION_SELECT_ALL = "action-select-all";
+    const string ACTION_DESELECT_ALL = "action-deselect-all";
+    const string ACTION_TOGGLE = "toggle-";
+    const ActionEntry [] SELECT_ACTIONS = {
+        {ACTION_SELECT_ALL, action_select_all_filter},
+        {ACTION_DESELECT_ALL, action_deselect_all_filter}
+    };
+    SimpleActionGroup symbol_action_group;
 
     public Scratch.Services.Document doc { get; construct; }
-    //TODO Should this be a class property or an instance property?
 
-    protected Gee.HashMap<SymbolType, Gtk.CheckButton> checks;
-    protected Gtk.Box symbol_pane;
+    protected Gee.HashMap<SymbolType, SimpleAction> checks;
     protected Gtk.SearchEntry search_entry;
     protected Code.Widgets.SourceList store;
     protected Code.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
-    public Gtk.Widget get_widget () { return (Gtk.Widget)symbol_pane; }
-    public abstract void parse_symbols ();
+    public Gtk.Widget get_widget () { return this; }
+    public virtual void parse_symbols () {}
+
+    Gtk.MenuButton filter_button;
 
     construct {
-        checks = new Gee.HashMap<SymbolType, Gtk.CheckButton> ();
+        symbol_action_group = new SimpleActionGroup ();
+        insert_action_group (ACTION_GROUP, symbol_action_group);
+        symbol_action_group.add_action_entries (SELECT_ACTIONS, this);
+
+        checks = new Gee.HashMap<SymbolType, SimpleAction> ();
         store = new Code.Widgets.SourceList ();
         root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
-
-        symbol_pane = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            hexpand = true
-        };
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),
             hexpand = true
         };
 
-        var filter_header = new Granite.HeaderLabel (_("Filter Symbols"));
-        var filter_items = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
-            margin_bottom = 6,
-            margin_start = 12,
-            margin_end = 12
-        };
-        //Always have OTHER category
-        filters.resize (filters.length + 1);
-        filters[filters.length - 1] = SymbolType.OTHER;
-        foreach (var filter in filters) {
-            var check = new Gtk.CheckButton.with_label (filter.to_string ()) {
-                active = true
-            };
-            filter_items.add (check);
-            checks[filter] = check;
-            check.toggled.connect (schedule_refilter);
-        }
-
-        var clear_button = new Gtk.Button.from_icon_name ("edit-clear-all") {
-            tooltip_text = _("Deselect All")
-        };
-        clear_button.clicked.connect (() => {
-            foreach (var chck in checks.values) {
-                chck.active = false;
-            }
-        });
-
-        var select_all_button = new Gtk.Button.from_icon_name ("edit-select-all") {
-            tooltip_text = _("Select All")
-        };
-
-        select_all_button.clicked.connect (() => {
-            foreach (var chck in checks.values) {
-                chck.active = true;
-            }
-        });
-
-        var button_bar = new Gtk.ActionBar ();
-        button_bar.pack_end (clear_button);
-        button_bar.pack_end (select_all_button);
-
-        var popover_content = new Gtk.Box (VERTICAL, 6);
-        popover_content.add (filter_header);
-        popover_content.add (filter_items);
-        popover_content.add (button_bar);
-        popover_content.show_all ();
-
-        var filter_popover = new Gtk.Popover (null) {
-            child = popover_content
-        };
-
-        var filter_button = new Gtk.MenuButton () {
+        filter_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name (
                 "filter-symbolic",
                 Gtk.IconSize.SMALL_TOOLBAR
             ),
-            popover = filter_popover,
             tooltip_text = _("Filter symbol type"),
         };
+
+        var select_section = new Menu ();
+        var top_model = new Menu ();
+        foreach (var filter in filters) {
+            add_filter_menuitem (top_model, filter);
+        }
+
+        // Derived classes must not add SymbolType.OTHER
+        add_filter_menuitem (top_model, SymbolType.OTHER);
+
+        select_section.append (_("Select All"), ACTION_PREFIX + ACTION_SELECT_ALL);
+        select_section.append (_("Deselect All"), ACTION_PREFIX + ACTION_DESELECT_ALL);
+        top_model.append_section ("", select_section);
+
+        filter_button.menu_model = top_model;
 
         var tool_box = new Gtk.Box (HORIZONTAL, 3);
         tool_box.add (search_entry);
         tool_box.add (filter_button);
-
-        symbol_pane.add (tool_box);
-        symbol_pane.add (store);
+        add (tool_box);
+        add (store);
         set_up_css ();
-        symbol_pane.show_all ();
+        show_all ();
 
-        symbol_pane.realize.connect (() => {
+        realize.connect (() => {
             store.set_filter_func (filter_func, false);
             search_entry.changed.connect (schedule_refilter);
         });
+    }
+
+    private void add_filter_menuitem (Menu menu, SymbolType filter) {
+        var filter_action = new SimpleAction.stateful (
+            ACTION_TOGGLE + ((uint)filter).to_string (),
+            null,
+            new Variant.boolean (true)
+        );
+
+        checks[filter] = filter_action;
+        filter_action.activate.connect (action_toggle_filter);
+        symbol_action_group.add_action (filter_action);
+
+        var filter_item = new MenuItem (
+            filter.to_string (),
+            ACTION_PREFIX + filter_action.get_name ()
+        );
+
+        menu.append_item (filter_item);
     }
 
     protected bool filter_func (Object item) {
@@ -182,11 +173,13 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             symbol_type = SymbolType.OTHER;
         }
 
-        if (!checks[symbol_type].active) {
+        var filter_action = checks[symbol_type];
+
+        if (!filter_action.get_state ().get_boolean ()) {
             return false;
         }
 
-        // Do not exclude misses on Item with children as may
+        // Do not exclude text search misses on Item with children as may
         // hide hits on its children
         if (item is Code.Widgets.SourceList.ExpandableItem) {
             var expandable = (Code.Widgets.SourceList.ExpandableItem)item;
@@ -232,8 +225,7 @@ public abstract class Scratch.Services.SymbolOutline : Object {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
         // Add a class to distinguish from foldermanager sourcelist
-        symbol_pane.get_style_context ().add_class ("symbol-outline");
-
+        get_style_context ().add_class ("symbol-outline");
         update_style_scheme (((Gtk.SourceBuffer)(doc.source_view.buffer)).style_scheme);
         doc.source_view.style_changed.connect (update_style_scheme);
     }
@@ -254,5 +246,35 @@ public abstract class Scratch.Services.SymbolOutline : Object {
         } catch (Error e) {
             critical ("Unable to sourcelist styling, going back to classic styling");
         }
+    }
+
+    public void action_deselect_all_filter (SimpleAction action, Variant? param) {
+        foreach (var filter_action in checks.values) {
+           filter_action.set_state (new Variant ("b", false));
+        }
+        schedule_refilter ();
+        // Keep menu open
+        Idle.add (() => {
+            filter_button.set_active (true);
+            return Source.REMOVE;
+        });
+    }
+
+    public void action_select_all_filter (SimpleAction action, Variant? param) {
+        foreach (var filter_action in checks.values) {
+           filter_action.set_state (new Variant ("b", true));
+        }
+        schedule_refilter ();
+        // Keep menu open
+        Idle.add (() => {
+            filter_button.set_active (true);
+            return Source.REMOVE;
+        });
+    }
+
+    public void action_toggle_filter (SimpleAction action, Variant? param) {
+        var state = action.get_state ().get_boolean ();
+        action.set_state (new Variant ("b", !state));
+        schedule_refilter ();
     }
 }
