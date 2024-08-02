@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 18:25+0000\n"
+"POT-Creation-Date: 2024-08-02 18:27+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Behavior"
 msgstr "السلوك"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "الواجهة"
 
@@ -622,11 +622,73 @@ msgid "Templates"
 msgstr "القوالب"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
-#: src/SymbolPane/SymbolOutline.vala:30
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+#, fuzzy
+#| msgid "Others…"
+msgid "Other"
+msgstr "اخرى…"
+
+#: src/SymbolPane/SymbolOutline.vala:96
+#, fuzzy
+#| msgid "Symbols"
+msgid "Find Symbol"
+msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select All"
+msgstr "إختر الخط :"
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
+msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:20
 #, fuzzy
@@ -1145,9 +1207,6 @@ msgstr "اتمام %s من الكلمات"
 #, fuzzy
 #~ msgid "Share via Pastebin"
 #~ msgstr "مشاركة بواسطة PasteBin"
-
-#~ msgid "Others…"
-#~ msgstr "اخرى…"
 
 #~ msgid "Other formats"
 #~ msgstr "صيغ اخري"

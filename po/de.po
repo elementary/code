@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 18:25+0000\n"
+"POT-Creation-Date: 2024-08-02 18:27+0000\n"
 "PO-Revision-Date: 2024-07-29 11:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -258,7 +258,7 @@ msgstr "Systemschrift verwenden"
 msgid "Behavior"
 msgstr "Verhalten"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Oberfläche"
 
@@ -560,11 +560,73 @@ msgid "Templates"
 msgstr "Vorlagen"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
-#: src/SymbolPane/SymbolOutline.vala:30
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Symbole"
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+#, fuzzy
+#| msgid "Others…"
+msgid "Other"
+msgstr "Andere…"
+
+#: src/SymbolPane/SymbolOutline.vala:96
+#, fuzzy
+#| msgid "Symbols"
+msgid "Find Symbol"
+msgstr "Symbole"
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+#| msgid "Select Format"
+msgid "Select All"
+msgstr "Format wählen"
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
+msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
@@ -1062,9 +1124,6 @@ msgstr "%s – Wortvervollständigung"
 
 #~ msgid "Share via Pastebin"
 #~ msgstr "Über Pastebin teilen"
-
-#~ msgid "Others…"
-#~ msgstr "Andere…"
 
 #~ msgid "Other formats"
 #~ msgstr "Andere Formate"

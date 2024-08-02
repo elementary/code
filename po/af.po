@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 18:25+0000\n"
+"POT-Creation-Date: 2024-08-02 18:27+0000\n"
 "PO-Revision-Date: 2017-04-09 21:07+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
@@ -266,7 +266,7 @@ msgstr ""
 msgid "Behavior"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr ""
 
@@ -572,10 +572,69 @@ msgid "Templates"
 msgstr ""
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
-#: src/SymbolPane/SymbolOutline.vala:30
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+#, fuzzy
+msgid "Other"
+msgstr "Andere..."
+
+#: src/SymbolPane/SymbolOutline.vala:96
+msgid "Find Symbol"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select All"
+msgstr "Selekteer font"
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
 msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:20
@@ -961,10 +1020,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Share via Pastebin"
 #~ msgstr "Deel via PasteBin"
-
-#, fuzzy
-#~ msgid "Others…"
-#~ msgstr "Andere..."
 
 #~ msgid "Other formats"
 #~ msgstr "Ander formate"
