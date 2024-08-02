@@ -29,4 +29,7 @@
     <file alias="scalable/actions/panel-right-rtl-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-right-rtl-symbolic.svg</file>
     <file alias="scalable/actions/panel-right-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-right-symbolic.svg</file>
   </gresource>
+  <gresource prefix="/io/elementary/code/icons">
+    <file alias="scalable/actions/filter-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/filter-symbolic.svg</file>
+  </gresource>
 </gresources>
