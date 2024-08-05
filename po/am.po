@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"POT-Creation-Date: 2024-08-02 18:27+0000\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "አዲስ ንዑስ መስኮት"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:35
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
 msgid "New Window"
 msgstr "አዲስ መስኮት"
 
@@ -42,90 +42,90 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:238
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:240
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:375
+#: src/MainWindow.vala:377
 msgid "Hide search bar"
 msgstr "የመፈለጊያ ባሩን መደበቂያ"
 
-#: src/MainWindow.vala:380 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/MainWindow.vala:391
+#: src/MainWindow.vala:393
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "የመፈለጊያ ባሩን መደበቂያ"
 
-#: src/MainWindow.vala:396
+#: src/MainWindow.vala:398
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "የ እቅድ ቴምፕሌቶች"
 
-#: src/MainWindow.vala:405
+#: src/MainWindow.vala:407
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:412
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "ምልክቶች"
 
-#: src/MainWindow.vala:419
+#: src/MainWindow.vala:421
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/MainWindow.vala:424 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:944 src/Services/Document.vala:651
+#: src/MainWindow.vala:946 src/Services/Document.vala:651
 msgid "All files"
 msgstr "ሁሉንም ፋይሎች"
 
-#: src/MainWindow.vala:948 src/Services/Document.vala:655
+#: src/MainWindow.vala:950 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "የጽሁፍ ፋይሎች"
 
-#: src/MainWindow.vala:952
+#: src/MainWindow.vala:954
 msgid "Open some files"
 msgstr "አንዳንድ ፋይሎች መክፈቻ"
 
-#: src/MainWindow.vala:955
+#: src/MainWindow.vala:957
 msgid "Open"
 msgstr "መክፈቻ"
 
-#: src/MainWindow.vala:956 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
 #: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "መሰረዣ"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:998
 msgid "_Open"
 msgstr "_መክፈቻ"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:999
 msgid "_Cancel"
 msgstr "_መሰረዣ"
 
@@ -279,7 +279,7 @@ msgstr ""
 msgid "Behavior"
 msgstr "ባህሪ"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "ግንኙነት"
 
@@ -308,89 +308,89 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:91
-#: src/FolderManager/ProjectFolderItem.vala:119
+#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:155
-msgid "Other Application…"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:195
-#, fuzzy
-msgid "Open In"
-msgstr "መክፈቻ"
-
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
 #, fuzzy
 msgid "Other Actions"
 msgstr "ለሎች አቀራረቦች"
 
-#: src/FolderManager/FileItem.vala:123 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:130 src/FolderManager/FolderItem.vala:129
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:68
+#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#, fuzzy
+msgid "Open In"
+msgstr "መክፈቻ"
+
+#: src/FolderManager/FileView.vala:76
 msgid "Folders"
 msgstr "ፎልደሮች"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:184
 #, fuzzy
 msgid "Folder"
 msgstr "ፎልደሮች"
 
-#: src/FolderManager/FolderItem.vala:207
+#: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:216
-#: src/FolderManager/ProjectFolderItem.vala:275
-#: src/FolderManager/ProjectFolderItem.vala:281
+#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/ProjectFolderItem.vala:382
+#: src/FolderManager/ProjectFolderItem.vala:388
 #, fuzzy
 msgid "New"
 msgstr "አዲስ ንዑስ መስኮት"
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:375
+#: src/FolderManager/FolderItem.vala:362
 #, fuzzy
 msgid "new file"
 msgstr "አዲስ ፋይል"
 
-#: src/FolderManager/ProjectFolderItem.vala:129
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
 msgstr "ፎልደር መዝጊያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:175
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "ፎልደር መዝጊያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:145
+#: src/FolderManager/ProjectFolderItem.vala:192
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:159
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -398,37 +398,37 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "አዲስ ሰነድ"
 msgstr[1] "አዲስ ሰነድ"
 
-#: src/FolderManager/ProjectFolderItem.vala:174
+#: src/FolderManager/ProjectFolderItem.vala:227
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:193 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/FolderManager/ProjectFolderItem.vala:281
-msgid "Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:319
-#, c-format
-msgid "Error while creating new branch: “%s”"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:605
+#: src/FolderManager/ProjectFolderItem.vala:321
 #, fuzzy
 msgid "New Branch…"
 msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
 
-#: src/FolderManager/ProjectFolderItem.vala:618
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
+
+#: src/FolderManager/ProjectFolderItem.vala:388
+msgid "Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:426
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:369
@@ -587,11 +587,72 @@ msgid "Templates"
 msgstr "ቴምፕሌትስ"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:56
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:116
-#: src/SymbolPane/SymbolOutline.vala:30
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "ምልክቶች"
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+#, fuzzy
+msgid "Other"
+msgstr "ሌሎች..."
+
+#: src/SymbolPane/SymbolOutline.vala:96
+#, fuzzy
+#| msgid "Symbols"
+msgid "Find Symbol"
+msgstr "ምልክቶች"
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select All"
+msgstr "ፊደል ይምረጡ :"
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
+msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:20
 #, fuzzy
@@ -981,10 +1042,6 @@ msgstr ""
 
 #~ msgid "Find…"
 #~ msgstr "መፈለጊያ…"
-
-#, fuzzy
-#~ msgid "Others…"
-#~ msgstr "ሌሎች..."
 
 #~ msgid "Other formats"
 #~ msgstr "ለሎች አቀራረቦች"

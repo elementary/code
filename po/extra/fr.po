@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 07:09+0000\n"
+"POT-Creation-Date: 2024-08-02 18:27+0000\n"
 "PO-Revision-Date: 2024-07-23 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
@@ -143,9 +143,9 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 "Mini-carte en option pour faciliter la navigation dans les gros fichiers"
 
-#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:100
-#: data/code.metainfo.xml.in:139 data/code.metainfo.xml.in:187
-#: data/code.metainfo.xml.in:219
+#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:101
+#: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:188
+#: data/code.metainfo.xml.in:220
 msgid "Improvements:"
 msgstr "Améliorations :"
 
@@ -158,19 +158,19 @@ msgstr ""
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
 msgstr "Nouvelle barre d'onglets avec animations améliorées et glisser-déposer"
 
-#: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:106
-#: data/code.metainfo.xml.in:145 data/code.metainfo.xml.in:194
-#: data/code.metainfo.xml.in:234
+#: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:107
+#: data/code.metainfo.xml.in:146 data/code.metainfo.xml.in:195
+#: data/code.metainfo.xml.in:235
 msgid "Minor updates:"
 msgstr "Mises à jour mineures :"
 
-#: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:115
-#: data/code.metainfo.xml.in:156 data/code.metainfo.xml.in:204
-#: data/code.metainfo.xml.in:236
+#: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:116
+#: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:205
+#: data/code.metainfo.xml.in:237
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/code.metainfo.xml.in:102
+#: data/code.metainfo.xml.in:103
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
@@ -179,17 +179,17 @@ msgstr ""
 "une autre application, une position de ligne/caractère ou une plage de "
 "sélection peut être spécifiée"
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:104
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
 "Ajout d'une extension de recherche fuzzy qui trouve des fichiers dans tous "
 "les projets ouverts"
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:105
 msgid "Save and restore the state of the terminal pane"
 msgstr "Sauvegarde et restauration de l'état du panneau de terminal"
 
-#: data/code.metainfo.xml.in:108
+#: data/code.metainfo.xml.in:109
 msgid ""
 "\"Find in Folder\" now works for all folders and text files, not only \"."
 "vala\" files"
@@ -197,20 +197,20 @@ msgstr ""
 "« Rechercher dans le dossier » fonctionne désormais pour tous les dossiers "
 "et fichiers texte, pas seulement les fichiers « .vala »"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:110
 msgid "\"Follow System Style\" is now fully respected"
 msgstr "« Suivre le thème du système » est désormais respecté"
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:111
 msgid "The \"--new-tab\" commandline option now works"
 msgstr "L'option en ligne de commande « --new-tab » fonctionne désormais"
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:112
 msgid "The symbol pane width is now synchronised and saved"
 msgstr ""
 "La largeur du panneau des symboles est désormais synchronisée et sauvegardée"
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:113
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
@@ -218,47 +218,47 @@ msgstr ""
 "Les dossiers de projet sont automatiquement fermés s'ils sont renommés, "
 "déplacés ou supprimés en dehors de l'application"
 
-#: data/code.metainfo.xml.in:113
+#: data/code.metainfo.xml.in:114
 msgid "Fixed temporary backup files persisting under some circumstances"
 msgstr ""
 "Correction des fichiers de sauvegarde temporaires persistant dans certaines "
 "circonstances"
 
-#: data/code.metainfo.xml.in:114
+#: data/code.metainfo.xml.in:115
 msgid "The Show-Replace action has been improved"
 msgstr "L'action « Afficher-Remplacer » a été améliorée"
 
-#: data/code.metainfo.xml.in:141
+#: data/code.metainfo.xml.in:142
 msgid "Search options transferred to searchbar menu"
 msgstr ""
 "Les options de recherche ont été transférées dans le menu de la barre de "
 "recherche"
 
-#: data/code.metainfo.xml.in:142
+#: data/code.metainfo.xml.in:143
 msgid "Whole word search option added"
 msgstr "Ajout d'une option de recherche de mots entiers"
 
-#: data/code.metainfo.xml.in:143
+#: data/code.metainfo.xml.in:144
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
 "Les paramètres de recherche de mots entiers, de mode sensible à la casse et "
 "d'utilisation d'expressions rationnelles persistent désormais"
 
-#: data/code.metainfo.xml.in:147
+#: data/code.metainfo.xml.in:148
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
 "La barre de recherche se met désormais à jour correctement après avoir "
 "changé de document actif"
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:149
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
 "La tentative d'enregistrement d'un document à un emplacement non "
 "inscriptible est désormais mieux gérée"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:150
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
@@ -266,18 +266,18 @@ msgstr ""
 "Le thème du système est maintenant respecté par le détecteur de symboles, "
 "ainsi que lors du lancement sans documents ouverts"
 
-#: data/code.metainfo.xml.in:150
+#: data/code.metainfo.xml.in:151
 msgid "Mixed case sensitive search now works as expected"
 msgstr "La recherche sensible à la casse fonctionne désormais comme attendu"
 
-#: data/code.metainfo.xml.in:151
+#: data/code.metainfo.xml.in:152
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
 msgstr ""
 "Les résultats de la recherche ne changent plus inopinément lors de la "
 "focalisation sur un document"
 
-#: data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:153
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
@@ -285,7 +285,7 @@ msgstr ""
 "Désormais, il y a toujours un projet actif au démarrage lorsqu'il y a des "
 "projets dans la barre latérale"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:154
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
@@ -293,39 +293,39 @@ msgstr ""
 "Si une branche de développement est en cours d'exécution, cela apparaît dans "
 "le titre de la fenêtre et dans l'infobulle du dock"
 
-#: data/code.metainfo.xml.in:154
+#: data/code.metainfo.xml.in:155
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr ""
 "Les raccourcis Ctrl+PageHaut et Ctrl+PageBas permettent désormais de changer "
 "d'onglet"
 
-#: data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:156
 msgid "Ensure active project at startup (include non-git folders)"
 msgstr ""
 "Nous nous sommes assurés qu'il y ait un projet actif au lancement (y compris "
 "pour les dossiers qui ne sont pas des dépôts git)"
 
-#: data/code.metainfo.xml.in:189
+#: data/code.metainfo.xml.in:190
 msgid "Redesigned app icon"
 msgstr "Nouvelle icône de l'application"
 
-#: data/code.metainfo.xml.in:190
+#: data/code.metainfo.xml.in:191
 msgid "New custom dark and light elementary styles for the source view"
 msgstr ""
 "Nouveaux thèmes sombre et clair personnalisés d'elementary pour la vue du "
 "code source"
 
-#: data/code.metainfo.xml.in:191
+#: data/code.metainfo.xml.in:192
 msgid "Option to follow the system dark style preference"
 msgstr "Option pour suivre le thème du système"
 
-#: data/code.metainfo.xml.in:192
+#: data/code.metainfo.xml.in:193
 msgid "Ability to half tile on small notebook displays"
 msgstr ""
 "Possibilité d'utiliser la moitié de l'écran sur les petits écrans "
 "d'ordinateurs portables"
 
-#: data/code.metainfo.xml.in:196
+#: data/code.metainfo.xml.in:197
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
@@ -334,7 +334,7 @@ msgstr ""
 "sont désormais disponibles dans le menu de l'application et non plus dans la "
 "barre de titre"
 
-#: data/code.metainfo.xml.in:197
+#: data/code.metainfo.xml.in:198
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
@@ -343,7 +343,7 @@ msgstr ""
 "toutes présentes dans un ensemble compact de boutons liés dans le menu de "
 "l'application"
 
-#: data/code.metainfo.xml.in:198
+#: data/code.metainfo.xml.in:199
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
@@ -351,13 +351,13 @@ msgstr ""
 "La barre latérale contient désormais le bouton de sélection des projets et "
 "occupe toute la hauteur de la fenêtre"
 
-#: data/code.metainfo.xml.in:199
+#: data/code.metainfo.xml.in:200
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 "Le lancement d'une recherche globale avec du texte sélectionné pré-remplit "
 "désormais le champ"
 
-#: data/code.metainfo.xml.in:200
+#: data/code.metainfo.xml.in:201
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
@@ -366,7 +366,7 @@ msgstr ""
 "du code source et peut être affiché et masqué à l'aide du raccourci clavier "
 "« Alt + \\ »"
 
-#: data/code.metainfo.xml.in:201
+#: data/code.metainfo.xml.in:202
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
@@ -374,7 +374,7 @@ msgstr ""
 "Les modules terminal, détecteur de symboles et suppression des espaces "
 "blancs de fin de ligne font désormais partie intégrante de l'application"
 
-#: data/code.metainfo.xml.in:202
+#: data/code.metainfo.xml.in:203
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
@@ -382,14 +382,14 @@ msgstr ""
 "Affichage d'une barre d'information lorsque les paramètres de largeur de "
 "tabulation sont écrasés par un fichier EditorConfig"
 
-#: data/code.metainfo.xml.in:203
+#: data/code.metainfo.xml.in:204
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 "Le raccourci pour reconstituer la liste d'autocomplétion est désormais "
 "« Ctrl + | »"
 
-#: data/code.metainfo.xml.in:221
+#: data/code.metainfo.xml.in:222
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -397,12 +397,12 @@ msgstr ""
 "Le nom du document courant est désormais affiché comme titre de fenêtre dans "
 "la vue multitâche"
 
-#: data/code.metainfo.xml.in:222
+#: data/code.metainfo.xml.in:223
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr ""
 "Les dossiers cachés sont désormais affichés dans la barre latérale du projet"
 
-#: data/code.metainfo.xml.in:223
+#: data/code.metainfo.xml.in:224
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
@@ -410,15 +410,15 @@ msgstr ""
 "Le résultat sélectionné et le nombre de résultats est affiché lors de la "
 "recherche"
 
-#: data/code.metainfo.xml.in:224
+#: data/code.metainfo.xml.in:225
 msgid "The search bar now has a regular expression mode"
 msgstr "La barre de recherche possède désormais un mode expression régulière"
 
-#: data/code.metainfo.xml.in:226
+#: data/code.metainfo.xml.in:227
 msgid "Fixes:"
 msgstr "Corrections :"
 
-#: data/code.metainfo.xml.in:228
+#: data/code.metainfo.xml.in:229
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -426,13 +426,13 @@ msgstr ""
 "Il est désormais possible de changer de branche Git lorsque des fichiers non "
 "suivi sont présent dans un projet"
 
-#: data/code.metainfo.xml.in:229
+#: data/code.metainfo.xml.in:230
 msgid "Crashes are prevented while searching in large projects"
 msgstr ""
 "Prévention des risques de plantage lors de la recherche dans des projets "
 "conséquents"
 
-#: data/code.metainfo.xml.in:230
+#: data/code.metainfo.xml.in:231
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
@@ -440,14 +440,14 @@ msgstr ""
 "Le bon document est désormais sélectionné après l'ouverture de Code depuis "
 "un autre programme"
 
-#: data/code.metainfo.xml.in:231
+#: data/code.metainfo.xml.in:232
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 "La duplication des lignes est maintenant effectuée correctement si aucune "
 "sélection n'est présente"
 
-#: data/code.metainfo.xml.in:232
+#: data/code.metainfo.xml.in:233
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr ""
 "Code ne plante plus lorsqu'il est demandé d'ouvrir un format d'URI inconnu"

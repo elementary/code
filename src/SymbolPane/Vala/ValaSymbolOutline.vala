@@ -22,8 +22,25 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
     private GLib.Cancellable cancellable;
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
         Object (
+            orientation: Gtk.Orientation.VERTICAL,
+            hexpand: true,
             doc: _doc
         );
+    }
+
+    static construct {
+        // Array of symbol types that could be assigned to a ValaSymbolItem
+        // by construct_child output ()
+        filters = {
+            SymbolType.CLASS,
+            SymbolType.CONSTRUCTOR,
+            SymbolType.PROPERTY,
+            SymbolType.METHOD,
+            SymbolType.STRUCT,
+            SymbolType.ENUM,
+            SymbolType.CONSTANT,
+            SymbolType.INTERFACE
+        };
     }
 
     construct {
@@ -144,20 +161,27 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         var tree_child = new ValaSymbolItem (symbol);
         if (symbol is Vala.Struct) {
             tree_child.icon = new ThemedIcon ("lang-struct");
+            tree_child.symbol_type = SymbolType.STRUCT;
         } else if (symbol is Vala.Class) {
             if (((Vala.Class) symbol).is_abstract) {
                 tree_child.icon = new ThemedIcon ("lang-class-abstract");
             } else {
                 tree_child.icon = new ThemedIcon ("lang-class");
             }
+
+            tree_child.symbol_type = SymbolType.CLASS;
         } else if (symbol is Vala.Constant) {
             tree_child.icon = new ThemedIcon ("lang-constant");
+            tree_child.symbol_type = SymbolType.CONSTANT;
         } else if (symbol is Vala.Enum) {
             tree_child.icon = new ThemedIcon ("lang-enum");
+            tree_child.symbol_type = SymbolType.ENUM;
         } else if (symbol is Vala.Field) {
             tree_child.icon = new ThemedIcon ("lang-property");
+            tree_child.symbol_type = SymbolType.PROPERTY;
         } else if (symbol is Vala.Interface) {
             tree_child.icon = new ThemedIcon ("lang-interface");
+            tree_child.symbol_type = SymbolType.INTERFACE;
         } else if (symbol is Vala.Property) {
             if (((Vala.Property) symbol).is_abstract) {
                 tree_child.icon = new ThemedIcon ("lang-property-abstract");
@@ -166,10 +190,14 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             } else {
                 tree_child.icon = new ThemedIcon ("lang-property");
             }
+
+            tree_child.symbol_type = SymbolType.PROPERTY;
         } else if (symbol is Vala.Signal) {
             tree_child.icon = new ThemedIcon ("lang-signal");
+            tree_child.symbol_type = SymbolType.SIGNAL;
         } else if (symbol is Vala.CreationMethod) {
             tree_child.icon = new ThemedIcon ("lang-constructor");
+            tree_child.symbol_type = SymbolType.CONSTRUCTOR;
         } else if (symbol is Vala.Method) {
             if (((Vala.Method) symbol).is_abstract) {
                 tree_child.icon = new ThemedIcon ("lang-method-abstract");
@@ -180,8 +208,11 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             } else {
                 tree_child.icon = new ThemedIcon ("lang-method");
             }
+
+            tree_child.symbol_type = SymbolType.METHOD;
         } else if (symbol is Vala.Namespace) {
             tree_child.icon = new ThemedIcon ("lang-namespace");
+            tree_child.symbol_type = SymbolType.NAMESPACE;
         } else if (symbol is Vala.ErrorDomain) {
             tree_child.icon = new ThemedIcon ("lang-errordomain");
         } else if (symbol is Vala.Delegate) {
