@@ -150,10 +150,27 @@ namespace Scratch.Utils {
             return false;
         }
 
+        if (!f1.has_parent (null) || !f2.has_parent (null)) {
+            path1 = f1.get_basename ();
+            path2 = f2.get_basename ();
+            return true;
+        }
+
         var f1_parent = f1.get_parent ();
         var f2_parent = f2.get_parent ();
 
         while (f1_parent.get_relative_path (f1) == f2_parent.get_relative_path (f2)) {
+            // If f1 == /a/b and f2 == /.../a/b we still need to disambiguate with
+            // the one parent name that we have
+            // Both conditions cannot simultaneously be true
+            if (!f1_parent.has_parent (null)) {
+                f2_parent = f2_parent.get_parent ();
+                break;
+            }
+            if (!f2_parent.has_parent (null)) {
+                f1_parent = f1_parent.get_parent ();
+                break;
+            }
             f1_parent = f1_parent.get_parent ();
             f2_parent = f2_parent.get_parent ();
         }
