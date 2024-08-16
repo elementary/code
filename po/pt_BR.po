@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-08-16 18:52+0000\n"
+"PO-Revision-Date: 2024-08-16 18:59+0000\n"
 "Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "code/pt_BR/>\n"
@@ -67,7 +67,7 @@ msgstr "Esconder barra de projetos"
 
 #: src/MainWindow.vala:398
 msgid "Show Projects Sidebar"
-msgstr "Exibir Barra de Projetos"
+msgstr "Exibir barra de projetos"
 
 #: src/MainWindow.vala:407
 msgid "Hide Symbol Outline"
@@ -517,7 +517,8 @@ msgstr ""
 
 #: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
-msgstr "O documento foi alterado externamente desde a última vez que o salvou."
+msgstr ""
+"O documento foi alterado externamente desde a última vez que você salvou."
 
 #: src/Services/Document.vala:961
 #, c-format
