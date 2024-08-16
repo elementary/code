@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-04-24 13:13+0000\n"
-"Last-Translator: Felipe Kinoshita <kinofhek@gmail.com>\n"
+"PO-Revision-Date: 2024-08-16 18:51+0000\n"
+"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "code/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -34,11 +34,11 @@ msgstr "Imprimir informações de versão e sair"
 
 #: src/Application.vala:41
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "Abrir o arquivo no intervalo especificado"
 
 #: src/Application.vala:41
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
 #: src/Application.vala:42
 msgid "[FILE…]"
@@ -168,22 +168,16 @@ msgid "General"
 msgstr "Geral"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Salvar arquivos quando alterados:"
+msgstr "Salvar arquivos quando alterados"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espaços no final das linhas:"
+msgstr "Eliminar espaços no final das linhas ao salvar"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Linhas inteligentes de recorte/cópia:"
+msgstr "Linhas inteligentes de recorte/cópia"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -194,28 +188,20 @@ msgstr ""
 "atual"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Largura da margem:"
+msgstr "Tamanho da indentação"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Recuo automático"
+msgstr "Indentação"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Recuo automático:"
+msgstr "Indentação automática"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Inserir espaços ao invés de margem tabulada:"
+msgstr "Inserir espaços ao invés de margem tabulada"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -238,36 +224,28 @@ msgid "All"
 msgstr "Tudo"
 
 #: src/Dialogs/PreferencesDialog.vala:96
-#, fuzzy
-#| msgid "White space visible when not selected:"
 msgid "Whitespace visible when not selected"
-msgstr "Espaço em branco visível quando não está selecionado:"
+msgstr "Espaço em branco visível quando não está selecionado"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Editor"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Destacar colchetes correspondentes:"
+msgstr "Destacar colchetes correspondentes"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Mostrar mini mapa:"
+msgstr "Mini mapa"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Ajuste de linhas"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Largura na linha de guia:"
+msgstr "Guia de tamanho de linha"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -275,7 +253,7 @@ msgstr "Fonte"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Usar fonte do sistema"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
@@ -583,65 +561,59 @@ msgstr "Símbolos"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Propriedade"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Sinal"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Método"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr ""
+msgstr "Estrutura"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
-msgstr ""
+msgstr "Enum"
 
 #: src/SymbolPane/SymbolOutline.vala:47
 msgid "Constant"
-msgstr ""
+msgstr "Constante"
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Construtor"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Namespace"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Outros…"
+msgstr "Outro"
 
 #: src/SymbolPane/SymbolOutline.vala:96
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Símbolos"
+msgstr "Procurar Símbolo"
 
 #: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
-msgstr ""
+msgstr "Filtrar tipo de símbolo"
 
 #: src/SymbolPane/SymbolOutline.vala:125
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Selecionar formato"
+msgstr "Selecionar tudo"
 
 #: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
-msgstr ""
+msgstr "Desmarque tudo"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
@@ -659,10 +631,8 @@ msgid "Filter projects"
 msgstr "Filtrar Projetos"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Fechar"
+msgstr "Abas Fechadas"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -671,31 +641,23 @@ msgstr "Arquivo de texto de %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Feche as abas à direita"
 
 #: src/Widgets/DocumentView.vala:637
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Fechar outras pastas"
+msgstr "Fechar outras abas"
 
 #: src/Widgets/DocumentView.vala:638
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Fechar"
+msgstr "Fechar aba"
 
 #: src/Widgets/DocumentView.vala:641
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Nova Janela"
+msgstr "Abrir em nova janela"
 
 #: src/Widgets/DocumentView.vala:642
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Salvar uma cópia…"
+msgstr "Duplicar aba"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
