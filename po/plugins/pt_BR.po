@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-04-24 13:13+0000\n"
-"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2024-08-16 18:51+0000\n"
+"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "plugins/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,13 @@ msgstr "Carregar configurações de um arquivo EditorConfig"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Find Project Files"
-msgstr ""
+msgstr "Procurar arquivos do projeto"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:7
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
+"Pesquisa difusa por arquivos em todos os projetos abertos (mostrar usando "
+"ALT + F)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
