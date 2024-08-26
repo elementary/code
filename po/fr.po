@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-07-23 15:16+0000\n"
+"PO-Revision-Date: 2024-08-27 08:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -240,7 +240,7 @@ msgstr "Aperçu du fichier"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Retour à la ligne"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line width guide"
@@ -568,65 +568,59 @@ msgstr "Symboles"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Propriété"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Signal"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Méthode"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr ""
+msgstr "Structure"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
-msgstr ""
+msgstr "Énumération"
 
 #: src/SymbolPane/SymbolOutline.vala:47
 msgid "Constant"
-msgstr ""
+msgstr "Constante"
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Constructeur"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Namespace"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Autres…"
+msgstr "Autre"
 
 #: src/SymbolPane/SymbolOutline.vala:96
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Symboles"
+msgstr "Rechercher le symbole"
 
 #: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
-msgstr ""
+msgstr "Filtrer par type de symbole"
 
 #: src/SymbolPane/SymbolOutline.vala:125
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Choisissez un format"
+msgstr "Tout sélectionner"
 
 #: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
-msgstr ""
+msgstr "Tout désélectionner"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
