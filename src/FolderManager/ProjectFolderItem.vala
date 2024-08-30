@@ -51,8 +51,8 @@ namespace Scratch.FolderManager {
         }
 
         static construct {
-            added_icon = new ThemedIcon ("user-available");
-            modified_icon = new ThemedIcon ("user-away");
+            added_icon = new ThemedIcon ("emblem-git-new");
+            modified_icon = new ThemedIcon ("emblem-git-modified");
         }
 
         private void branch_or_name_changed () {
