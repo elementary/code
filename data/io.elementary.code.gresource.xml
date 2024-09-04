@@ -31,5 +31,7 @@
   </gresource>
   <gresource prefix="/io/elementary/code/icons">
     <file alias="scalable/actions/filter-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/filter-symbolic.svg</file>
+    <file alias="scalable/emblems/emblem-git-modified-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/emblem-git-modified-symbolic.svg</file>
+    <file alias="scalable/emblems/emblem-git-new-symbolic-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/emblem-git-new-symbolic-symbolic.svg</file>
   </gresource>
 </gresources>
