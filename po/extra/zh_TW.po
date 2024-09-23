@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-09-02 05:42+0000\n"
+"PO-Revision-Date: 2024-09-23 11:35+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hant/>\n"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "還有更多："
 
 #: data/code.metainfo.xml.in:20
 msgid ""
@@ -103,7 +103,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "側邊欄可切換是否顯示以符合您的習慣"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
@@ -159,7 +159,8 @@ msgstr "更新翻譯"
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
-msgstr ""
+msgstr "從指令列或另一個應用程式讓 Code "
+"開啟檔案時，現在能夠指定行數/欄位位置或選取範圍"
 
 #: data/code.metainfo.xml.in:104
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
@@ -207,12 +208,12 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:143
 msgid "Whole word search option added"
-msgstr ""
+msgstr "新增搜尋整個單詞的選項"
 
 #: data/code.metainfo.xml.in:144
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
-msgstr ""
+msgstr "現在會記住完整單詞、區分大小寫、以及是否使用正則表達式的選項"
 
 #: data/code.metainfo.xml.in:148
 msgid "The search bar now updates properly after changing the active document"
@@ -221,7 +222,7 @@ msgstr ""
 #: data/code.metainfo.xml.in:149
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
-msgstr ""
+msgstr "改善嘗試將文件儲存到不可寫入的位置時的處理方式"
 
 #: data/code.metainfo.xml.in:150
 msgid ""
