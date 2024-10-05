@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-07-17 11:16+0000\n"
+"PO-Revision-Date: 2024-09-29 02:16+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -558,65 +558,59 @@ msgstr "Symbols"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Class"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Property"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Signal"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Method"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr ""
+msgstr "Struct"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
-msgstr ""
+msgstr "Enum"
 
 #: src/SymbolPane/SymbolOutline.vala:47
 msgid "Constant"
-msgstr ""
+msgstr "Constant"
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Constructor"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Namespace"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Others…"
+msgstr "Other"
 
 #: src/SymbolPane/SymbolOutline.vala:96
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Symbols"
+msgstr "Find Symbol"
 
 #: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
-msgstr ""
+msgstr "Filter symbol type"
 
 #: src/SymbolPane/SymbolOutline.vala:125
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Select Format"
+msgstr "Select All"
 
 #: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
-msgstr ""
+msgstr "Deselect All"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
