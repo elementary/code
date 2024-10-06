@@ -27,6 +27,10 @@ namespace Scratch.FolderManager {
             Object (file: file, view: view);
         }
 
+        public override void activated () {
+            view.activate (file.path);
+        }
+
         public override Gtk.Menu? get_context_menu () {
             GLib.FileInfo info = null;
 

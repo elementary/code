@@ -237,7 +237,6 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            view.ignore_next_select = true;
             ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
             // Add back dummy if empty
             if (!(has_dummy || n_children > 0)) {
@@ -384,7 +383,7 @@ namespace Scratch.FolderManager {
                                 gfile.make_directory ();
                             } else {
                                 gfile.create (FileCreateFlags.NONE);
-                                view.select (gfile.get_path ());
+                                view.activate (gfile.get_path ());
                             }
                         } catch (Error e) {
                             warning (e.message);

@@ -2646,6 +2646,12 @@ public class SourceList : Gtk.ScrolledWindow {
         get { return tree.editing; }
     }
 
+    public bool activate_on_single_click {
+        set {
+            tree.activate_on_single_click = value;
+        }
+    }
+
     private Tree tree;
     private DataModel data_model = new DataModel ();
 
