@@ -580,8 +580,6 @@ namespace Scratch.Services {
         }
 
         private async bool save (bool force = false, bool saving_as = false) requires (!locked && is_saving) {
-            Gtk.RecentManager recent_manager = Gtk.RecentManager.get_default ();
-
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -637,7 +635,7 @@ namespace Scratch.Services {
             }
 
 
-            recent_manager.add_item (get_uri ());
+            Gtk.RecentManager.get_default ().add_item (get_uri ());
             debug ("File “%s” saved successfully", get_basename ());
 
             return true;
