@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-09-02 05:42+0000\n"
+"PO-Revision-Date: 2024-09-24 13:14+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hant/>\n"
@@ -89,11 +89,12 @@ msgid ""
 "Adapt Code to your workflow: you can tweak the behavior and interface as "
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
-msgstr ""
+msgstr "調整 Code 讓它符合您的習慣："
+"您可以隨需要利用一些細心設計的擴充元件與偏好設定來調整 Code 的行為和介面。"
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "還有更多："
 
 #: data/code.metainfo.xml.in:20
 msgid ""
@@ -103,31 +104,31 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "側邊欄可切換是否顯示以符合您的習慣"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "智慧縮排和 .editorconfig 支援"
 
 #: data/code.metainfo.xml.in:23
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
-msgstr ""
+msgstr "如同瀏覽器一般功能完善的分頁，支援拖放、建立副本、復原關閉以及分頁歷史"
 
 #: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "顯示目前游標所在的行與欄——並快速跳到另一行"
 
 #: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
-msgstr ""
+msgstr "捲動到超過檔案末端，讓您能把目前的行保持在讀起來舒適的位置"
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "可關閉的小地圖，讓瀏覽大檔案變得更容易"
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:101
 #: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:188
@@ -137,11 +138,11 @@ msgstr "改善："
 
 #: data/code.metainfo.xml.in:75
 msgid "The Terminal pane now has a settable default directory"
-msgstr ""
+msgstr "終端機面板現在提供設定預設目錄的選項"
 
 #: data/code.metainfo.xml.in:76
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
-msgstr ""
+msgstr "新分頁列，提供改善的動畫與拖放"
 
 #: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:107
 #: data/code.metainfo.xml.in:146 data/code.metainfo.xml.in:195
@@ -159,7 +160,8 @@ msgstr "更新翻譯"
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
-msgstr ""
+msgstr "從指令列或另一個應用程式讓 Code "
+"開啟檔案時，現在能夠指定行數/欄位位置或選取範圍"
 
 #: data/code.metainfo.xml.in:104
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
@@ -167,7 +169,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:105
 msgid "Save and restore the state of the terminal pane"
-msgstr ""
+msgstr "儲存或復原終端機面板狀態"
 
 #: data/code.metainfo.xml.in:109
 msgid ""
@@ -181,21 +183,21 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:111
 msgid "The \"--new-tab\" commandline option now works"
-msgstr ""
+msgstr "\"--new-tab\" 指令列選項現在能用了"
 
 #: data/code.metainfo.xml.in:112
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "同步並儲存符號面板的寬度"
 
 #: data/code.metainfo.xml.in:113
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
-msgstr ""
+msgstr "專案資料夾在外部被重新命名、移動或刪除時自動將其關閉"
 
 #: data/code.metainfo.xml.in:114
 msgid "Fixed temporary backup files persisting under some circumstances"
-msgstr ""
+msgstr "修正暫存備份檔在某些情況下會留下來的問題"
 
 #: data/code.metainfo.xml.in:115
 msgid "The Show-Replace action has been improved"
@@ -203,16 +205,16 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:142
 msgid "Search options transferred to searchbar menu"
-msgstr ""
+msgstr "將搜尋選項移到搜尋列選單"
 
 #: data/code.metainfo.xml.in:143
 msgid "Whole word search option added"
-msgstr ""
+msgstr "新增搜尋整個單詞的選項"
 
 #: data/code.metainfo.xml.in:144
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
-msgstr ""
+msgstr "現在會記住完整單詞、區分大小寫、以及是否使用正則表達式的選項"
 
 #: data/code.metainfo.xml.in:148
 msgid "The search bar now updates properly after changing the active document"
@@ -221,7 +223,7 @@ msgstr ""
 #: data/code.metainfo.xml.in:149
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
-msgstr ""
+msgstr "改善嘗試將文件儲存到不可寫入的位置時的處理方式"
 
 #: data/code.metainfo.xml.in:150
 msgid ""
