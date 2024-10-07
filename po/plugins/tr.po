@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2021-07-27 15:57+0000\n"
-"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
-"Language-Team: Turkish <https://l10n.elementary.io/projects/code/plugins/tr/"
-">\n"
+"PO-Revision-Date: 2024-09-20 09:43+0000\n"
+"Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/code/plugins/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,13 @@ msgstr "Ayarları bir EditorConfig dosyasından yükle"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Find Project Files"
-msgstr ""
+msgstr "Proje Dosyalarını Bul"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:7
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
+"Tüm açık projelerdeki dosyalar için yaklaşık arama (ALT + F kullanarak "
+"göster)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
