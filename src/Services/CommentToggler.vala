@@ -254,13 +254,17 @@ public class Scratch.CommentToggler {
 
         for (int i = 0; i < num_lines; i++) {
             if (!iter.ends_line ()) {
-                iter.forward_chars (min_indent);
-                buffer.insert (ref iter, formatted_start_tag, -1);
-            }
-
-            if (type == CommentType.BLOCK) {
-                iter.forward_to_line_end ();
-                buffer.insert (ref iter, end_tag, -1);
+                var copy_iter = iter.copy ();
+                copy_iter.forward_to_line_end ();
+                var line_text = iter.get_slice (copy_iter).strip ();
+                if (line_text != "") {
+                    iter.forward_chars (min_indent);
+                    buffer.insert (ref iter, formatted_start_tag, -1);
+                    if (type == CommentType.BLOCK) {
+                        iter.forward_to_line_end ();
+                        buffer.insert (ref iter, end_tag, -1);
+                    }
+                }
             }
 
             buffer.get_iter_at_mark (out iter, imark);
