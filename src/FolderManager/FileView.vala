@@ -61,11 +61,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
     public string title { get; set; }
-    public string active_project_path {
-        get {
-            return git_manager.active_project_path;
-        }
-    }
 
     public FileView (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
@@ -193,14 +188,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         selected = null;
     }
 
-    public void collapse_other_projects (string? keep_open_path = null) {
+    public void collapse_other_projects () {
         unowned string path;
-        if (keep_open_path == null) {
-            path = git_manager.active_project_path;
-        } else {
-            path = keep_open_path;
-            git_manager.active_project_path = path;
-        }
+        path = git_manager.active_project_path;
 
         foreach (var child in root.children) {
             var project_folder = ((ProjectFolderItem) child);

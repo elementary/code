@@ -21,7 +21,7 @@
 namespace Scratch.Services {
     public class GitManager : Object {
         public ListStore project_liststore { get; private set; }
-        public string active_project_path { get; set; default = "";}
+        public string active_project_path { get; set;}
 
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
@@ -44,9 +44,10 @@ namespace Scratch.Services {
             return instance;
         }
 
-        private GitManager () {
+        construct {
             // Used to populate the ChooseProject popover in sorted order
             project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
+            settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {

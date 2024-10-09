@@ -97,6 +97,11 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         popover = project_popover;
 
         var git_manager = Scratch.Services.GitManager.get_instance ();
+        set_active_path (git_manager.active_project_path);
+        git_manager.notify["active-project-path"].connect (() => {
+            set_active_path (git_manager.active_project_path);
+        });
+
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
             var rows = project_listbox.get_children ();
             for (int index = (int)pos; index < pos + n_removed; index++) {
@@ -112,10 +117,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 }
             }
 
-            set_active_path (git_manager.active_project_path);
-        });
-
-        git_manager.notify["active-project-path"].connect (() => {
             set_active_path (git_manager.active_project_path);
         });
 
@@ -140,12 +141,15 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         });
     }
 
+    // Determine which docs are actually visible, terminal path, expanded folder etc
     private void set_active_path (string active_path) {
         foreach (var child in project_listbox.get_children ()) {
-            var project_entry = ((ProjectRow) child);
-            if (active_path.has_prefix (project_entry.project_path + Path.DIR_SEPARATOR_S)) {
-                project_listbox.row_activated (project_entry);
-                break;
+            var project_row = ((ProjectRow) child);
+            if (active_path.has_prefix (project_row.project_path)) {
+                project_row.active = true;
+                project_row.activate ();
+            } else {
+                project_row.active = false;
             }
         }
     }
