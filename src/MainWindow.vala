@@ -618,8 +618,6 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
-                    // FIXME Active project should not change just because selected document changes
-                    git_manager.active_project_path = doc.source_view.project.path;
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
