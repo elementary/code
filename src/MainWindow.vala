@@ -1220,7 +1220,10 @@ namespace Scratch {
                 term = search_bar.search_entry.text;
             }
 
-            folder_manager_view.search_global (get_target_path_for_actions (param), term);
+            // Do not try to "guess" intended path if it is not provided by action.  The global
+            // search dialog will get it from user
+            string? search_path = param != null ? param.get_string () : null;
+            folder_manager_view.search_global (search_path, term);
         }
 
         private void update_find_actions () {
