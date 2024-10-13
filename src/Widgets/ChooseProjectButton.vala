@@ -146,8 +146,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         foreach (var child in project_listbox.get_children ()) {
             var project_row = ((ProjectRow) child);
             if (active_path.has_prefix (project_row.project_path)) {
-                project_row.active = true;
-                project_row.activate ();
+                if (!project_row.active) {
+                    project_row.active = true;
+                    project_row.activate ();
+                }
             } else {
                 project_row.active = false;
             }

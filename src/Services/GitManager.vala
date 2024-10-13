@@ -73,8 +73,7 @@ namespace Scratch.Services {
                 );
             }
 
-            //Ensure active_project_path always set
-            active_project_path = root_path;
+            // No longer need to set default project (restored from settings or left unset)
             return project_gitrepo_map.@get (root_path);
         }
 
