@@ -144,7 +144,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         }
     }
 
-    private string get_current_line (Gtk.TextIter? start=null) {
+    private string get_current_line (Gtk.TextIter? start = null) {
         var current_buffer = current_source.buffer;
         Gtk.TextIter end;
 
