@@ -533,9 +533,14 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     rename_items_with_same_name (child_folder);
                 }
             }
+
             Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
             write_settings ();
         });
+
+        if (Scratch.Services.GitManager.get_instance ().active_project_path == "" && folder_root.is_git_repo) {
+            Scratch.Services.GitManager.get_instance ().active_project_path = folder_root.path;
+        }
 
         write_settings ();
     }
