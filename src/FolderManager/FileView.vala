@@ -116,7 +116,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (project_folder_item != folder_root) {
                 toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
                 root.remove (project_folder_item);
-                Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
+                git_manager.remove_project (project_folder_item);
             }
         }
 
@@ -534,12 +534,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
             }
 
-            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+            git_manager.remove_project (folder_root);
             write_settings ();
         });
 
-        if (Scratch.Services.GitManager.get_instance ().active_project_path == "" && folder_root.is_git_repo) {
-            Scratch.Services.GitManager.get_instance ().active_project_path = folder_root.path;
+        if (git_manager.active_project_path == "" && folder_root.is_git_repo) {
+            git_manager.active_project_path = folder_root.path;
         }
 
         write_settings ();
