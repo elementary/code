@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-09-24 13:14+0000\n"
+"PO-Revision-Date: 2024-10-14 06:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hant/>\n"
@@ -25,10 +25,8 @@ msgid "Code"
 msgstr "Code"
 
 #: data/code.metainfo.xml.in:10
-#, fuzzy
-#| msgid "The editor that works"
 msgid "The editor that works for you"
-msgstr "就是行的編輯器"
+msgstr "為您而生的編輯器"
 
 #: data/code.metainfo.xml.in:12
 #, fuzzy
@@ -175,7 +173,7 @@ msgstr "儲存或復原終端機面板狀態"
 msgid ""
 "\"Find in Folder\" now works for all folders and text files, not only \"."
 "vala\" files"
-msgstr ""
+msgstr "「在資料夾中尋找」現在支援所有資料夾和文字檔案，不只有 \".vala\" 檔案"
 
 #: data/code.metainfo.xml.in:110
 msgid "\"Follow System Style\" is now fully respected"
@@ -329,7 +327,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:223
 msgid "Hidden folders are now shown in the project sidebar"
-msgstr ""
+msgstr "在專案側邊欄當中顯示隱藏檔案"
 
 #: data/code.metainfo.xml.in:224
 msgid ""
@@ -339,7 +337,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:225
 msgid "The search bar now has a regular expression mode"
-msgstr ""
+msgstr "為搜尋列加入正則表達式模式"
 
 #: data/code.metainfo.xml.in:227
 msgid "Fixes:"
@@ -349,7 +347,7 @@ msgstr "修正："
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
-msgstr ""
+msgstr "專案中即使有未追蹤的檔案現在也能變更 Git 分支"
 
 #: data/code.metainfo.xml.in:230
 msgid "Crashes are prevented while searching in large projects"
@@ -359,7 +357,7 @@ msgstr ""
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
-msgstr ""
+msgstr "從外部程式開啟 Code 時聚焦正確的文件"
 
 #: data/code.metainfo.xml.in:232
 msgid ""
@@ -368,7 +366,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:233
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr ""
+msgstr "修正開啟未知的 URI 格式時會崩潰的問題"
 
 #: data/io.elementary.code.desktop.in.in:4
 msgid "@NAME@"
