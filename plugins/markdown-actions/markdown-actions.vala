@@ -76,15 +76,15 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         }
 
         if (evt.keyval == Gdk.Key.Return) {
-            char ul_marker;
+            string ul_marker;
             int ol_number = 1;
             string item_text;
             var line = get_current_line ();
             if (parse_unordered_list_item (line, out ul_marker)) {
-                if (line.length <= 3) { // empty item
+                if (line.strip ().length <= 3) { // empty item
                     delete_empty_item ();
                 } else {
-                    string to_insert = "\n%c ".printf (ul_marker);
+                    string to_insert = "\n%s".printf (ul_marker);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
                 }
                 return true;
@@ -174,12 +174,15 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         return true;
     }
 
-    private bool parse_unordered_list_item (string line, out char ul_marker) {
-        if ((line[0] == '*' || line[0] == '-') && line[1] == ' ') {
-            ul_marker = line[0];
+    private bool parse_unordered_list_item (string line, out string ul_marker) {
+        var stripped_line = line.strip ();
+        if ((stripped_line[0] == '*' || stripped_line[0] == '-') && stripped_line[1] == ' ') {
+            var ul_marker_index = line.index_of_char (stripped_line[0]);
+            ul_marker = "%s%c ".printf (string.nfill (ul_marker_index, ' '), stripped_line[0]);
             return true;
         }
-        ul_marker = '\0';
+
+        ul_marker = "";
         return false;
     }
 
