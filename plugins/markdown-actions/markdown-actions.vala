@@ -76,12 +76,16 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         }
 
         if (evt.keyval == Gdk.Key.Return) {
+            var line = get_current_line ();
+            if (line.strip () == "") {
+                return false;
+            }
+
             string ul_marker;
             int indent_spaces, ol_number;
             string item_text;
-            var line = get_current_line ();
             if (parse_unordered_list_item (line, out ul_marker)) {
-                if (line.strip ().length <= 3) { // empty item
+                if (line.strip ().length <= 3) { // empty list item
                     delete_empty_item ();
                 } else {
                     string to_insert = "\n%s".printf (ul_marker);
@@ -197,10 +201,11 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
     }
 
     private bool parse_unordered_list_item (string line, out string ul_marker) {
-        var stripped_line = line.strip ();
-        if ((stripped_line[0] == '*' || stripped_line[0] == '-') && stripped_line[1] == ' ') {
-            var ul_marker_index = line.index_of_char (stripped_line[0]);
-            ul_marker = "%s%c ".printf (string.nfill (ul_marker_index, ' '), stripped_line[0]);
+        var chugged_line = line.chug ();
+        if ((chugged_line[0] == '*' || chugged_line[0] == '-') &&
+            chugged_line[1] == ' ') {
+            var ul_marker_index = line.index_of_char (chugged_line[0]);
+            ul_marker = "%s%c ".printf (string.nfill (ul_marker_index, ' '), chugged_line[0]);
             return true;
         }
 
