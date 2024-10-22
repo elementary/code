@@ -61,11 +61,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
     public string title { get; set; }
-    public string active_project_path {
-        get {
-            return git_manager.active_project_path;
-        }
-    }
 
     public FileView (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
@@ -121,7 +116,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (project_folder_item != folder_root) {
                 toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
                 root.remove (project_folder_item);
-                Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
+                git_manager.remove_project (project_folder_item);
             }
         }
 
@@ -193,14 +188,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         selected = null;
     }
 
-    public void collapse_other_projects (string? keep_open_path = null) {
+    public void collapse_other_projects () {
         unowned string path;
-        if (keep_open_path == null) {
-            path = git_manager.active_project_path;
-        } else {
-            path = keep_open_path;
-            git_manager.active_project_path = path;
-        }
+        path = git_manager.active_project_path;
 
         foreach (var child in root.children) {
             var project_folder = ((ProjectFolderItem) child);
@@ -543,9 +533,14 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     rename_items_with_same_name (child_folder);
                 }
             }
-            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+
+            git_manager.remove_project (folder_root);
             write_settings ();
         });
+
+        if (git_manager.active_project_path == "" && folder_root.is_git_repo) {
+            git_manager.active_project_path = folder_root.path;
+        }
 
         write_settings ();
     }
