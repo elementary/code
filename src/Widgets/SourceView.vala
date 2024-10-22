@@ -539,14 +539,12 @@ namespace Scratch.Widgets {
             /* Draw spaces in selection the same way if drawn at all */
             if (selection &&
                 draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.CURRENT | ScratchDrawSpacesState.ALWAYS)) {
-
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
                     return;
             }
 
             if (draw_spaces_state == ScratchDrawSpacesState.CURRENT &&
                 get_current_line (out start, out end)) {
-
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
         }
@@ -600,6 +598,8 @@ namespace Scratch.Widgets {
         private bool continue_selection_timer = false;
         private uint selection_changed_timer = 0;
         private void schedule_selection_changed_event () {
+            // Update spaces immediately to maintain previous behaviour
+            update_draw_spaces ();
 
             if (selection_changed_timer != 0) {
                 continue_selection_timer = true;
@@ -613,7 +613,6 @@ namespace Scratch.Widgets {
                 }
 
                 selection_changed_timer = 0;
-                update_draw_spaces ();
                 Gtk.TextIter start, end;
                 var selected_text = "";
                 if (buffer.get_selection_bounds (out start, out end)) {
