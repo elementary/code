@@ -31,11 +31,10 @@ namespace Scratch.Widgets {
         public FolderManager.ProjectFolderItem project { get; set; default = null; }
 
         private string font;
-        private uint selection_changed_timer = 0;
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
-        private string selected_text = "";
+        private string prev_selected_text = "";
         private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
@@ -44,8 +43,7 @@ namespace Scratch.Widgets {
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
-        public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
-        public signal void deselected ();
+        public signal void selection_changed (string selected_text, Gtk.TextIter start_iter, Gtk.TextIter end_iter);
 
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
@@ -99,7 +97,9 @@ namespace Scratch.Widgets {
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
-            source_buffer.mark_set.connect (on_mark_set);
+            source_buffer.mark_set.connect (schedule_selection_changed_event);
+            // Need to handle this signal else not all deselections are detected
+            source_buffer.mark_deleted.connect (schedule_selection_changed_event);
             highlight_current_line = true;
 
             var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
@@ -597,49 +597,36 @@ namespace Scratch.Widgets {
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
-        void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
-            // Weed out user movement for text selection changes
-            Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start, out end);
+        private bool continue_selection_timer = false;
+        private uint selection_changed_timer = 0;
+        private void schedule_selection_changed_event () {
 
-            if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
+            if (selection_changed_timer != 0) {
+                continue_selection_timer = true;
                 return;
             }
 
-            last_select_start_iter.assign (start);
-            last_select_end_iter.assign (end);
-            update_draw_spaces ();
-
-            if (selection_changed_timer != 0) {
-                Source.remove (selection_changed_timer);
-                selection_changed_timer = 0;
-            }
-
-            // Fire deselected immediately
-            if (start.equal (end)) {
-                deselected ();
-            // Don't fire signal till we think select movement is done
-            } else {
-                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
-            }
-
-        }
-
-        bool selection_changed_event () {
-            Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start, out end);
-            if (selected) {
-                var prev_selected_text = selected_text;
-                selected_text = buffer.get_text (start, end, true);
-                if (selected_text != prev_selected_text) {
-                    selection_changed (start, end);
+            selection_changed_timer = Timeout.add (THROTTLE_MS, () => {
+                if (continue_selection_timer) {
+                    continue_selection_timer = false;
+                    return Source.CONTINUE;
                 }
-            } else {
-                deselected ();
-            }
 
-            selection_changed_timer = 0;
-            return false;
+                selection_changed_timer = 0;
+                update_draw_spaces ();
+                Gtk.TextIter start, end;
+                var selected_text = "";
+                if (buffer.get_selection_bounds (out start, out end)) {
+                    selected_text = buffer.get_text (start, end, true);
+                }
+
+                if (selected_text != prev_selected_text) {
+                    selection_changed (selected_text, start, end);
+                }
+
+                prev_selected_text = selected_text;
+                return Source.REMOVE;
+            });
         }
 
         uint refresh_diff_timeout_id = 0;
