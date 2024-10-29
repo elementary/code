@@ -305,6 +305,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 selected.disconnect (once);
                 var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
                 this.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (path));
+
+                // RecentManager requires valid URI
+                var new_uri = "file://" + new_path; // Code only edits local files
+                Gtk.RecentManager.get_default ().add_item (new_uri);
+
                 activate (new_path);
             });
         }
