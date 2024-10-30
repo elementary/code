@@ -26,9 +26,9 @@ namespace Scratch.FolderManager {
 
         private static Icon added_icon;
         private static Icon modified_icon;
+        private SimpleAction change_branch_action;
 
         public signal void closed ();
-        public signal void close_all_except ();
 
         public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
         // Cache the visible item in the project.
@@ -51,22 +51,24 @@ namespace Scratch.FolderManager {
         }
 
         static construct {
-            added_icon = new ThemedIcon ("user-available");
-            modified_icon = new ThemedIcon ("user-away");
+            added_icon = new ThemedIcon ("emblem-git-new-symbolic");
+            modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
         }
 
         private void branch_or_name_changed () {
             if (monitored_repo != null) {
                 //As SourceList items are not widgets we have to use markup to change appearance of text.
                 if (monitored_repo.head_is_branch) {
-                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (
+                    markup = "%s\n<span size='small' weight='normal'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 } else { //Distinguish detached heads visually
-                    markup = "%s <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 }
+
+                change_branch_action.set_state (monitored_repo.branch_name);
             }
         }
 
@@ -74,11 +76,25 @@ namespace Scratch.FolderManager {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
+                change_branch_action = new SimpleAction.stateful (
+                    FileView.ACTION_CHANGE_BRANCH,
+                    GLib.VariantType.STRING,
+                    ""
+                );
                 monitored_repo.branch_changed.connect (branch_or_name_changed);
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
+                change_branch_action.activate.connect (handle_change_branch_action);
+            }
+        }
+
+        protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+            if (source.equal (file.file) && event == DELETED) {
+                closed ();
+            } else {
+                base.on_changed (source, dest, event);
             }
         }
 
@@ -108,75 +124,6 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var close_folder_item = new Gtk.MenuItem.with_label (_("Close Folder"));
-            close_folder_item.activate.connect (() => {
-                closed ();
-            });
-
-            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
-            close_all_except_item.activate.connect (() => { close_all_except (); });
-            close_all_except_item.sensitive = view.root.children.size > 1;
-
-            var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
-            var open_text = ngettext ("Close %u Open Document",
-                                      "Close %u Open Documents",
-                                      n_open).printf (n_open);
-
-            var close_accellabel = new Granite.AccelLabel.from_action_name (
-                open_text,
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS + "::"
-            );
-            var close_item = new Gtk.MenuItem () {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                action_target = new Variant.string (file.file.get_path ())
-            };
-            close_item.add (close_accellabel);
-
-            var hide_text = ngettext ("Hide %u Open Document",
-                                      "Hide %u Open Documents",
-                                      n_open).printf (n_open);
-
-            var hide_accellabel = new Granite.AccelLabel.from_action_name (
-                hide_text,
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS + "::"
-            );
-            var hide_item = new Gtk.MenuItem () {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
-                action_target = new Variant.string (file.file.get_path ())
-            };
-            hide_item.add (hide_accellabel);
-
-            var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
-            var restore_text = ngettext ("Restore %u Hidden Document",
-                                         "Restore %u Hidden Documents",
-                                         n_restorable).printf (n_restorable);
-            var restore_accellabel = new Granite.AccelLabel.from_action_name (
-                restore_text,
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS + "::"
-            );
-            var restore_item = new Gtk.MenuItem () {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
-                action_target = new Variant.string (file.file.get_path ())
-            };
-            restore_item.add (restore_accellabel);
-
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (() => {
-                closed ();
-                trash ();
-            });
-
-            var search_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Find in Project…"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL + "::"
-            );
-
-            var search_item = new Gtk.MenuItem () {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
-                action_target = new Variant.string (file.file.get_path ())
-            };
-            search_item.add (search_accellabel);
-
             GLib.FileInfo info = null;
             unowned string? file_type = null;
 
@@ -187,41 +134,225 @@ namespace Scratch.FolderManager {
                 warning (e.message);
             }
 
-            var menu = new Gtk.Menu ();
-            menu.append (create_submenu_for_open_in (info, file_type));
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (create_submenu_for_new ());
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                _("Open in Terminal Pane"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (
+                        Services.GitManager.get_instance ().get_default_build_dir (path)
+                    )
+                )
+            );
+            open_in_terminal_pane_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        ""
+                    )
+                )
+            );
 
+            var external_actions_section = new GLib.Menu ();
+            external_actions_section.append_item (open_in_terminal_pane_item);
+            external_actions_section.append_item (create_submenu_for_open_in (file_type));
+
+            var folder_actions_section = new GLib.Menu ();
+            folder_actions_section.append_item (create_submenu_for_new ());
             if (monitored_repo != null) {
-                var branch_menu = new ChangeBranchMenu (this) {
-                    sensitive = !monitored_repo.has_uncommitted
-                };
-                menu.append (branch_menu);
+                folder_actions_section.append_item (create_submenu_for_branch ());
             }
 
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (close_folder_item);
-            menu.append (close_all_except_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
+            var close_folder_item = new GLib.MenuItem (
+                _("Close Folder"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_CLOSE_FOLDER,
+                    new Variant.string (file.path)
+                )
+            );
+
+            var close_all_except_item = new GLib.MenuItem (
+                _("Close Other Folders"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_CLOSE_OTHER_FOLDERS,
+                    new Variant.string (file.path)
+                )
+            );
+            var close_other_folders_action = Utils.action_from_group (
+                FileView.ACTION_CLOSE_OTHER_FOLDERS,
+                view.actions
+            );
+            close_other_folders_action.set_enabled (view.root.children.size > 1);
+
+            var close_actions_section = new GLib.Menu ();
+            close_actions_section.append_item (close_folder_item);
+            close_actions_section.append_item (close_all_except_item);
+
+            var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
+            var open_text = ngettext ("Close %u Open Document",
+                                      "Close %u Open Documents",
+                                      n_open).printf (n_open);
+
+            var close_item = new GLib.MenuItem (
+                open_text,
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            var hide_text = ngettext ("Hide %u Open Document",
+                                      "Hide %u Open Documents",
+                                      n_open).printf (n_open);
+
+            var hide_item = new GLib.MenuItem (
+                hide_text,
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            hide_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                        ""
+                    )
+                )
+            );
+
+            var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
+            var restore_text = ngettext ("Restore %u Hidden Document",
+                                         "Restore %u Hidden Documents",
+                                         n_restorable).printf (n_restorable);
+
+            var restore_item = new GLib.MenuItem (
+                restore_text,
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            restore_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                        ""
+                    )
+                )
+            );
+
+            var direct_actions_section = new GLib.Menu ();
             if (n_restorable > 0) {
-                menu.append (restore_item);
+                direct_actions_section.append_item (restore_item);
             }
 
             if (n_open > 0) {
-                menu.append (hide_item);
-                menu.append (close_item);
+                direct_actions_section.append_item (hide_item);
+                direct_actions_section.append_item (close_item);
             }
 
-            if (n_restorable + n_open > 1) {
-                menu.append (new Gtk.SeparatorMenuItem ());
-            }
+            var delete_item = new GLib.MenuItem (
+                _("Move to Trash"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                    new Variant.string (file.path)
+                )
+            );
 
-            menu.append (delete_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (search_item);
-            menu.show_all ();
+            var delete_actions_section = new GLib.Menu ();
+            delete_actions_section.append_item (delete_item);
 
+            var search_item = new GLib.MenuItem (
+                _("Find in Project…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            search_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                        ""
+                    )
+                )
+            );
+
+            var search_actions_section = new GLib.Menu ();
+            search_actions_section.append_item (search_item);
+
+            var menu_model = new GLib.Menu ();
+            menu_model.append_section (null, external_actions_section);
+            menu_model.append_section (null, folder_actions_section);
+            menu_model.append_section (null, close_actions_section);
+            menu_model.append_section (null, direct_actions_section);
+            menu_model.append_section (null, delete_actions_section);
+            menu_model.append_section (null, search_actions_section);
+
+            var menu = new Gtk.Menu.from_model (menu_model);
+            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             return menu;
+        }
+
+        protected GLib.MenuItem create_submenu_for_branch () {
+            // Ensures that action for relevant project is being used
+            view.actions.add_action (change_branch_action);
+
+            GLib.Menu branch_selection_menu = new GLib.Menu ();
+            foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
+                branch_selection_menu.append (
+                    branch_name,
+                    GLib.Action.print_detailed_name (
+                        FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
+                        branch_name
+                    )
+                );
+            }
+
+
+            var new_branch_item = new GLib.MenuItem (
+                _("New Branch…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                    file.path
+                )
+            );
+
+            new_branch_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                        ""
+                    )
+                )
+            );
+
+            GLib.Menu bottom_section = new GLib.Menu ();
+            bottom_section.append_item (new_branch_item);
+
+            var menu = new GLib.Menu ();
+            menu.append_section (null, branch_selection_menu);
+            menu.append_section (null, bottom_section);
+
+            var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
+            return menu_item;
+        }
+
+        private void handle_change_branch_action (GLib.Variant? parameter) {
+            var branch_name = parameter.get_string ();
+            try {
+                monitored_repo.change_branch (branch_name);
+            } catch (GLib.Error e) {
+                warning ("Failed to change branch to %s. %s", branch_name, e.message);
+            }
         }
 
         public void update_item_status (FolderItem? start_folder) {
@@ -323,7 +454,11 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
         }
 
-        public void global_search (GLib.File start_folder = this.file.file, string? term = null) {
+        public void global_search (
+            GLib.File start_folder = this.file.file,
+            string? term = null,
+            bool is_explicit = false
+        ) {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
             string? search_term = null;
@@ -373,7 +508,7 @@ namespace Scratch.FolderManager {
                 var search_variant = new Variant.string (search_term);
                 var app = (Gtk.Application)GLib.Application.get_default ();
                 var win = (Scratch.MainWindow)(app.get_active_window ());
-                win.actions.lookup_action ("action_find").activate (search_variant);
+                win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
                     search_term = Regex.escape_string (search_term);
@@ -410,7 +545,7 @@ namespace Scratch.FolderManager {
             remove_all_badges ();
             collapse_all ();
 
-            if (monitored_repo != null) {
+            if (monitored_repo != null && !is_explicit) {
                 try {
                     monitored_repo.git_repo.file_status_foreach (status_options, (rel_path, status) => {
                         var target = file.file.resolve_relative_path (rel_path);
@@ -529,67 +664,6 @@ namespace Scratch.FolderManager {
 
         public void refresh_diff (ref Gee.HashMap<int, Services.VCStatus> line_status_map, string doc_path) {
             monitored_repo.refresh_diff (doc_path, ref line_status_map);
-        }
-
-        private class ChangeBranchMenu : Gtk.MenuItem {
-            public Scratch.Services.MonitoredRepository monitored_repo {
-                get {
-                    return project_folder.monitored_repo;
-                }
-            }
-            public ProjectFolderItem project_folder { get; construct; }
-            public ChangeBranchMenu (ProjectFolderItem project_folder) {
-                 Object (
-                     project_folder: project_folder
-                 );
-            }
-
-            construct {
-                assert_nonnull (monitored_repo);
-                unowned var current_branch_name = monitored_repo.get_current_branch ();
-                var change_branch_menu = new Gtk.Menu ();
-
-                foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
-                    var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
-                    branch_item.draw_as_radio = true;
-
-                    if (branch_name == current_branch_name) {
-                        branch_item.active = true;
-                    }
-
-                    change_branch_menu.add (branch_item);
-
-                    branch_item.toggled.connect (() => {
-                        try {
-                            monitored_repo.change_branch (branch_name);
-                        } catch (GLib.Error e) {
-                            warning ("Failed to change branch to %s. %s", name, e.message);
-                        }
-                    });
-                }
-
-                var main_window = (MainWindow)((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
-                Utils.action_from_group (
-                    MainWindow.ACTION_NEW_BRANCH, main_window.actions
-                ).set_enabled (monitored_repo.head_is_branch);
-
-                var accel_label = new Granite.AccelLabel.from_action_name (
-                    _("New Branch…"),
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH + "::"
-                );
-
-                var branch_item = new Gtk.MenuItem () {
-                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                    action_target = project_folder.file.file.get_path ()
-                };
-                branch_item.add (accel_label);
-
-                change_branch_menu.add (new Gtk.SeparatorMenuItem ());
-                change_branch_menu.add (branch_item);
-
-                label = _("Branch");
-                submenu = change_branch_menu;
-            }
         }
     }
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-09 17:18+0000\n"
+"POT-Creation-Date: 2024-10-21 22:46+0000\n"
 "PO-Revision-Date: 2019-09-10 14:55+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/plugins/zh/"
@@ -41,6 +41,14 @@ msgstr ""
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6

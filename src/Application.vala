@@ -32,11 +32,13 @@ namespace Scratch {
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
+        private LocationJumpManager location_jump_manager;
 
         const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, null, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
+            { "go-to", 'g', 0, OptionArg.STRING, null, N_("Open file at specified selection range"), N_("<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>") },
             { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
@@ -46,6 +48,7 @@ namespace Scratch {
             _data_home_folder_unsaved = Path.build_filename (
                                             Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
                                         );
+
         }
 
         construct {
@@ -66,6 +69,7 @@ namespace Scratch {
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
 
+            location_jump_manager = new LocationJumpManager ();
             Environment.set_variable ("GTK_USE_PORTAL", "1", true);
 
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
@@ -94,6 +98,7 @@ namespace Scratch {
             };
 
             var options = command_line.get_options_dict ();
+            location_jump_manager.clear ();
 
             if (options.contains ("new-tab")) {
                 create_new_tab = true;
@@ -101,6 +106,25 @@ namespace Scratch {
 
             if (options.contains ("new-window")) {
                 create_new_window = true;
+            }
+
+            if (options.contains ("go-to")) {
+                var go_to_string_variant = options.lookup_value ("go-to", GLib.VariantType.STRING);
+                string selection_range_string = (string) go_to_string_variant.get_string ();
+                location_jump_manager.parse_selection_range_string (selection_range_string);
+                debug ("go-to arg value: %s", selection_range_string);
+            }
+
+            if (location_jump_manager.has_selection_range () && options.contains (GLib.OPTION_REMAINING)) {
+                (unowned string)[] file_list = options.lookup_value (
+                    GLib.OPTION_REMAINING,
+                    VariantType.BYTESTRING_ARRAY
+                ).get_bytestring_array ();
+
+                if (file_list.length == 1) {
+                    unowned string selection_range_file_path = file_list[0];
+                    location_jump_manager.file = command_line.create_file_for_arg (selection_range_file_path);
+                }
             }
 
             activate ();
@@ -126,7 +150,12 @@ namespace Scratch {
 
         protected override void activate () {
             if (active_window == null) {
-                add_window (new MainWindow (true)); // Will restore documents if required
+                if (location_jump_manager.has_selection_range () && location_jump_manager.has_override_target ()) {
+                    RestoreOverride restore_override = location_jump_manager.create_restore_override ();
+                    add_window (new MainWindow.with_restore_override (true, restore_override));
+                } else {
+                    add_window (new MainWindow (true)); // Will restore documents if required
+                }
             } else if (create_new_window) {
                 create_new_window = false;
                 add_window (new MainWindow (false)); // Will NOT restore documents in additional windows
@@ -137,21 +166,26 @@ namespace Scratch {
             // Create a new document if requested
             if (create_new_tab) {
                 create_new_tab = false;
-                activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB, null);
+                var active_window_action_group = active_window.get_action_group (MainWindow.ACTION_GROUP);
+                active_window_action_group.activate_action (MainWindow.ACTION_NEW_TAB, null);
             }
         }
 
         protected override void open (File[] files, string hint) {
             var window = get_last_window ();
-
             foreach (var file in files) {
                 bool is_folder;
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
                     if (is_folder) {
                         window.open_folder (file);
                     } else {
+                        debug ("Files length: %d\n", files.length);
                         var doc = new Scratch.Services.Document (window.actions, file);
-                        window.open_document (doc);
+                        if (location_jump_manager.has_selection_range != null && files.length == 1) {
+                            window.open_document_at_selected_range (doc, true, location_jump_manager.range);
+                        } else {
+                            window.open_document (doc);
+                        }
                     }
                 }
             }

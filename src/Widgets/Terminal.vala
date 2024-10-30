@@ -5,13 +5,21 @@
  */
 
 public class Code.Terminal : Gtk.Box {
+    public const string ACTION_GROUP = "term";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_COPY = "action-copy";
+    public const string ACTION_PASTE = "action-paste";
+
     private const double MAX_SCALE = 5.0;
     private const double MIN_SCALE = 0.2;
     private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
+    public Vte.Terminal terminal { get; construct; }
+    public SimpleActionGroup actions { get; construct; }
+
     private GLib.Pid child_pid;
-    private Vte.Terminal terminal;
+    private Gtk.Clipboard current_clipboard;
 
     construct {
         terminal = new Vte.Terminal () {
@@ -36,45 +44,45 @@ public class Code.Terminal : Gtk.Box {
             GLib.Application.get_default ().activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
         });
 
-        var copy = new Gtk.MenuItem.with_label (_("Copy"));
-        copy.activate.connect (() => {
-            terminal.copy_clipboard ();
-        });
+        var copy_action = new SimpleAction (ACTION_COPY, null);
+        copy_action.set_enabled (false);
+        copy_action.activate.connect (() => terminal.copy_clipboard ());
 
-        var paste = new Gtk.MenuItem.with_label (_("Paste"));
-        paste.activate.connect (() => {
-            terminal.paste_clipboard ();
-        });
+        var paste_action = new SimpleAction (ACTION_PASTE, null);
+        paste_action.activate.connect (() => terminal.paste_clipboard ());
 
-        var menu = new Gtk.Menu ();
-        menu.append (copy);
-        menu.append (paste);
+        actions = new SimpleActionGroup ();
+        actions.add_action (copy_action);
+        actions.add_action (paste_action);
+
+        var menu_model = new GLib.Menu ();
+        menu_model.append (_("Copy"), ACTION_PREFIX + ACTION_COPY);
+        menu_model.append (_("Paste"), ACTION_PREFIX + ACTION_PASTE);
+
+        var menu = new Gtk.Menu.from_model (menu_model);
+        menu.insert_action_group (ACTION_GROUP, actions);
         menu.show_all ();
 
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
+                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
                 menu.select_first (false);
                 menu.popup_at_pointer (event);
             }
             return false;
         });
 
+        realize.connect (() => {
+            current_clipboard = terminal.get_clipboard (Gdk.SELECTION_CLIPBOARD);
+            copy_action.set_enabled (terminal.get_has_selection ());
+        });
+
+        terminal.selection_changed.connect (() => {
+            copy_action.set_enabled (terminal.get_has_selection ());
+        });
+
         var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
-        try {
-            var last_path_setting = settings.get_string ("last-opened-path");
-            //FIXME Replace with the async method once the .vapi is fixed upstream.
-            terminal.spawn_sync (
-                Vte.PtyFlags.DEFAULT,
-                last_path_setting == "" ? "~/" : last_path_setting,
-                { Vte.get_user_shell () },
-                null,
-                GLib.SpawnFlags.SEARCH_PATH,
-                null,
-                out child_pid
-            );
-        } catch (GLib.Error e) {
-            warning (e.message);
-        }
+        spawn_shell (settings.get_string ("last-opened-path"));
 
         var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
         scrolled_window.add (terminal);
@@ -84,6 +92,31 @@ public class Code.Terminal : Gtk.Box {
         destroy.connect (() => {
             settings.set_string ("last-opened-path", get_shell_location ());
         });
+
+        show_all ();
+    }
+
+    private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
+        try {
+            terminal.spawn_sync (
+                Vte.PtyFlags.DEFAULT,
+                dir,
+                { Vte.get_user_shell () },
+                null,
+                SpawnFlags.SEARCH_PATH,
+                null,
+                out this.child_pid,
+                null
+            );
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
+
+    public void change_location (string dir) {
+        Posix.kill (child_pid, Posix.Signal.TERM);
+        terminal.reset (true, true);
+        spawn_shell (dir);
     }
 
     private string get_shell_location () {

@@ -27,7 +27,7 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private bool has_dummy;
-        private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
+        private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -40,9 +40,9 @@ namespace Scratch.FolderManager {
         construct {
             selectable = false;
 
-            dummy = new Granite.Widgets.SourceList.Item ("");
+            dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
             toggled.connect (on_toggled);
@@ -63,7 +63,7 @@ namespace Scratch.FolderManager {
                  file.children.size > 0) {
 
                 foreach (var child in file.children) {
-                    Granite.Widgets.SourceList.Item item = null;
+                    Code.Widgets.SourceList.Item item = null;
                     if (child.is_valid_directory ()) {
                         item = new FolderItem (child, view);
                     } else if (child.is_valid_textfile) {
@@ -88,121 +88,119 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var contractor_menu = new Gtk.Menu ();
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                (_("Open in Terminal Pane")),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (file.path)
+                )
+            );
 
             GLib.FileInfo info = null;
-            unowned string? file_type = null;
 
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-                file_type = info.get_content_type ();
             } catch (Error e) {
                 warning (e.message);
             }
 
-            if (info != null) {
-                try {
-                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
-                    foreach (var contract in contracts) {
-                        var menu_item = new ContractMenuItem (contract, file.file);
-                        contractor_menu.append (menu_item);
-                        menu_item.show_all ();
-                    }
-                } catch (Error e) {
-                    warning (e.message);
-                }
+            var file_type = info.get_content_type ();
+
+            var contractor_items = Utils.create_contract_items_for_file (file.file);
+
+            var rename_menu_item = new GLib.MenuItem (
+                _("Rename"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_RENAME_FOLDER,
+                    new Variant.string (file.path)
+                )
+            );
+
+            var delete_item = new GLib.MenuItem (
+                _("Move to Trash"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
+                    new Variant.string (file.path)
+                )
+            );
+
+            var search_item = new GLib.MenuItem (
+                _("Find in Folder…"),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                    new Variant.string (file.file.get_path ())
+                )
+            );
+
+            var external_actions_section = new GLib.Menu ();
+            external_actions_section.append_item (open_in_terminal_pane_item);
+            external_actions_section.append_item (create_submenu_for_open_in (file_type));
+            if (contractor_items.get_n_items () > 0) {
+                external_actions_section.append_submenu (_("Other Actions"), contractor_items);
             }
 
-            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = contractor_menu;
+            var direct_actions_section = new GLib.Menu ();
+            direct_actions_section.append_item (create_submenu_for_new ());
+            direct_actions_section.append_item (rename_menu_item);
+            direct_actions_section.append_item (delete_item);
 
-            var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_menu_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
-            });
+            var search_section = new GLib.Menu ();
+            search_section.append_item (search_item);
 
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
+            var menu_model = new GLib.Menu ();
+            menu_model.append_section (null, external_actions_section);
+            menu_model.append_section (null, direct_actions_section);
+            menu_model.append_section (null, search_section);
 
-            var search_item = new Gtk.MenuItem.with_label (_("Find in Folder…")) {
-                action_name = "win.action_find_global",
-                action_target = new Variant.string (file.file.get_path ())
-            };
-
-            var menu = new Gtk.Menu ();
-            menu.append (create_submenu_for_open_in (info, file_type));
-            menu.append (contractor_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (create_submenu_for_new ());
-            menu.append (rename_menu_item);
-            menu.append (delete_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (search_item);
-            menu.show_all ();
-
+            var menu = new Gtk.Menu.from_model (menu_model);
+            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
             return menu;
         }
 
-        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string? file_type) {
-            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
-            other_menuitem.activate.connect (() => show_app_chooser (file));
+        protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
+            var other_menu_item = new GLib.MenuItem (
+                _("Other Application…"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_SHOW_APP_CHOOSER,
+                    file.path
+                )
+            );
+
+            var extra_section = new GLib.Menu ();
+            extra_section.append_item (other_menu_item);
 
             file_type = file_type ?? "inode/directory";
 
-            var open_in_menu = new Gtk.Menu ();
+            var open_in_menu = new GLib.Menu ();
+            open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
+            open_in_menu.append_section (null, extra_section);
 
-            if (info != null) {
-                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-
-                string this_id = GLib.Application.get_default ().application_id + ".desktop";
-
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == this_id) {
-                        continue;
-                    }
-
-                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                    menuitem_icon.pixel_size = 16;
-
-                    var menuitem_grid = new Gtk.Grid ();
-                    menuitem_grid.add (menuitem_icon);
-                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
-
-                    var item_app = new Gtk.MenuItem ();
-                    item_app.add (menuitem_grid);
-
-                    item_app.activate.connect (() => {
-                        launch_app_with_file (app_info, file.file);
-                    });
-                    open_in_menu.add (item_app);
-                }
-            }
-
-            if (open_in_menu.get_children ().length () > 0) {
-                open_in_menu.add (new Gtk.SeparatorMenuItem ());
-            }
-
-            open_in_menu.add (other_menuitem);
-
-            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
-            open_in_item.submenu = open_in_menu;
-
-            return open_in_item;
+            var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
+            return open_in_menu_item;
         }
 
-        protected Gtk.MenuItem create_submenu_for_new () {
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => on_add_new (true));
+        protected GLib.MenuItem create_submenu_for_new () {
+            var new_folder_item = new GLib.MenuItem (
+                _("Folder"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_NEW_FOLDER,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => on_add_new (false));
+            var new_file_item = new GLib.MenuItem (
+                _("Empty File"),
+                GLib.Action.print_detailed_name (
+                    FileView.ACTION_PREFIX + FileView.ACTION_NEW_FILE,
+                    new Variant.string (file.path)
+                )
+            );
 
-            var new_menu = new Gtk.Menu ();
-            new_menu.append (new_folder_item);
-            new_menu.append (new_file_item);
+            var new_menu = new GLib.Menu ();
+            new_menu.append_item (new_folder_item);
+            new_menu.append_item (new_file_item);
 
-            var new_item = new Gtk.MenuItem.with_label (_("New"));
+            var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
             new_item.set_submenu (new_menu);
 
             return new_item;
@@ -214,7 +212,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void remove_badge (Granite.Widgets.SourceList.Item item) {
+        private void remove_badge (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 ((FolderItem) item).remove_all_badges ();
             }
@@ -222,16 +220,16 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        public new void add (Granite.Widgets.SourceList.Item item) {
+        public new void add (Code.Widgets.SourceList.Item item) {
             if (has_dummy && n_children == 1) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+                ((Code.Widgets.SourceList.ExpandableItem)this).remove (dummy);
                 has_dummy = false;
             }
 
-            ((Granite.Widgets.SourceList.ExpandableItem)this).add (item);
+            ((Code.Widgets.SourceList.ExpandableItem)this).add (item);
         }
 
-        public new void remove (Granite.Widgets.SourceList.Item item) {
+        public new void remove (Code.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
                 var folder = (FolderItem)item;
                 foreach (var child in folder.children) {
@@ -240,23 +238,25 @@ namespace Scratch.FolderManager {
             }
 
             view.ignore_next_select = true;
-            ((Granite.Widgets.SourceList.ExpandableItem)this).remove (item);
-            // Add back dummy if empty unless we are removing a rename item
-            if (!(item is RenameItem || has_dummy || n_children > 0)) {
-                ((Granite.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
+            // Add back dummy if empty
+            if (!(has_dummy || n_children > 0)) {
+                ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
                 has_dummy = true;
             }
         }
 
         public new void clear () {
-            ((Granite.Widgets.SourceList.ExpandableItem)this).clear ();
+            ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
             has_dummy = false;
         }
 
-        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
                 return; // Ignore changes due to temp files and streams
             }
+
+            view.folder_item_update_hook (source, dest, event);
 
             if (!children_loaded) { // No child items except dummy, child never expanded
                 /* Empty folder with dummy item will come here even if expanded */
@@ -309,6 +309,8 @@ namespace Scratch.FolderManager {
                                 path_item = new FolderItem (file, view);
                             } else if (!file.is_temporary) {
                                 path_item = new FileItem (file, view);
+                            } else {
+                                break;
                             }
 
                             add (path_item);
@@ -350,7 +352,7 @@ namespace Scratch.FolderManager {
             return null;
         }
 
-        private void on_add_new (bool is_folder) {
+        public void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
@@ -370,14 +372,12 @@ namespace Scratch.FolderManager {
             add (rename_item);
             /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
-                view.start_editing_item (rename_item);
-                /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
-                Timeout.add (200, () => {
-                    if (view.editing) {
-                        return Source.CONTINUE;
-                    } else {
+                if (view.start_editing_item (rename_item)) {
+                    ulong once = 0;
+                    once = rename_item.edited.connect (() => {
+                        rename_item.disconnect (once);
+                        // A name was accepted so create the corresponding file
                         var new_name = rename_item.name;
-                        view.ignore_next_select = true;
                         try {
                             var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
@@ -388,20 +388,30 @@ namespace Scratch.FolderManager {
                             }
                         } catch (Error e) {
                             warning (e.message);
-                        } finally {
+                        }
+                    });
+
+                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
                             remove (rename_item);
                         }
-                    }
 
-                    return Source.REMOVE;
-                });
+                        return Source.REMOVE;
+                    });
+                } else {
+                    remove (rename_item);
+                }
+
 
                 return Source.REMOVE;
             });
         }
     }
 
-    internal class RenameItem : Granite.Widgets.SourceList.Item {
+    internal class RenameItem : Code.Widgets.SourceList.Item {
         public bool is_folder { get; construct; }
 
         public RenameItem (string name, bool is_folder) {

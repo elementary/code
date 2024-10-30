@@ -4,6 +4,7 @@
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
                 2013      Mario Guerriero <mario@elemnetaryos.org>
+                2024      Colin Kiama <colinkiama@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -21,11 +22,11 @@
 
 namespace Scratch.Services {
     public enum DocumentStates {
-        NORMAL,
-        READONLY
+       NORMAL,
+       READONLY
     }
 
-    public class Document : Granite.Widgets.Tab {
+    public class Document : Gtk.Box {
         private const uint LOAD_TIMEOUT_MSEC = 5000;
 
         public delegate void VoidFunc ();
@@ -34,6 +35,9 @@ namespace Scratch.Services {
 
         // The parent window's actions
         public unowned SimpleActionGroup actions { get; set construct; }
+
+        // The TabPage that this document is a child of
+        public unowned Hdy.TabPage tab { get; private set; }
 
         public bool is_file_temporary {
             get {
@@ -57,14 +61,19 @@ namespace Scratch.Services {
                 source_file.set_location (value);
                 source_view.location = value;
                 file_changed ();
-                tab_name = get_basename ();
+                title = get_basename ();
             }
         }
 
-        public string tab_name {
+        private string _title = "";
+        public string title {
+            get { return _title; }
             set {
-                label = value;
-                tooltip = get_tab_tooltip ();
+                _title = value;
+                if (tab != null) {
+                    tab.title = value;
+                    tab.tooltip = get_tab_tooltip ();
+                }
             }
         }
 
@@ -87,6 +96,20 @@ namespace Scratch.Services {
                 }
 
                 return _mime_type;
+            }
+        }
+
+        private Icon _icon = null;
+        public Icon icon {
+            get {
+                return _icon;
+            }
+
+            set {
+                _icon = value;
+                if (tab != null) {
+                    tab.icon = _icon;
+                }
             }
         }
 
@@ -113,9 +136,27 @@ namespace Scratch.Services {
             }
         }
 
+        public bool loading {
+            get {
+                return tab == null ? false : tab.loading;
+            }
+
+            set {
+                if (tab != null) {
+                    tab.loading = value;
+                }
+            }
+        }
+
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
+        private Scratch.Widgets.DocumentView doc_view {
+            get {
+                return ((MainWindow) get_toplevel ()).document_view;
+            }
+        }
+
         public string original_content = "";
         private string last_save_content = "";
         public bool saved = true;
@@ -130,6 +171,7 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
+        private bool closing = false;
         private Mount mount;
         private Icon locked_icon;
 
@@ -137,10 +179,11 @@ namespace Scratch.Services {
         private static Pango.FontMap? builder_font_map = null;
 
         public Document (SimpleActionGroup actions, File file) {
-            Object (actions: actions);
+            Object (
+                actions: actions
+            );
 
             this.file = file;
-            page = main_stack;
         }
 
         ~Document () {
@@ -187,11 +230,6 @@ namespace Scratch.Services {
             settings.changed["show-mini-map"].connect (set_minimap);
             settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
-            /* Block user editing while working */
-            notify["working"].connect (() => {
-                source_view.sensitive = !working;
-            });
-
             var source_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.HORIZONTAL,
                 column_homogeneous = false
@@ -213,8 +251,8 @@ namespace Scratch.Services {
             // Check if file changed externally or permissions changed
             this.source_view.focus_in_event.connect (() => {
                 if (!locked && !is_file_temporary) {
-                    check_file_status ();
                     check_undoable_actions ();
+                    check_file_status.begin ();
                 }
 
                 return false;
@@ -223,7 +261,7 @@ namespace Scratch.Services {
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
                 if (!locked && Scratch.settings.get_boolean ("autosave")) {
-                    save.begin ();
+                    save_with_hold.begin ();
                 }
 
                 return false;
@@ -254,7 +292,18 @@ namespace Scratch.Services {
             });
 
             loaded = file == null;
-            ellipsize_mode = Pango.EllipsizeMode.MIDDLE;
+
+            add (main_stack);
+            this.show_all ();
+        }
+
+        public void init_tab (Hdy.TabPage tab) {
+            this.tab = tab;
+            notify["tab.loading"].connect (on_tab_loading_change);
+
+            tab.title = title;
+            tab.icon = icon;
+            tab.tooltip = get_tab_tooltip ();
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -277,8 +326,7 @@ namespace Scratch.Services {
                             }
 
                             timeout_saving = Timeout.add (1000, () => {
-                                check_file_status ();
-                                save.begin (); // Not forced
+                                save_with_hold.begin (); // Not forced
                                 timeout_saving = 0;
                                 return false;
                             });
@@ -314,11 +362,14 @@ namespace Scratch.Services {
             }
 
             source_view.sensitive = false;
-            this.working = true;
+            loading = true;
 
             var content_type = ContentType.from_mime_type (mime_type);
-
-            if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
+            if (!(
+                force
+                || ContentType.is_a (content_type, "text/plain")
+                || ContentType.is_a (content_type, "application/x-zerosize")   // Empty files are valid text files
+            )) {
                 var title = _("%s Is Not a Text File").printf (get_basename ());
                 var description = _("Code will not load this type of file.");
                 var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
@@ -331,7 +382,7 @@ namespace Scratch.Services {
                     alert_view.destroy ();
                 });
 
-                working = false;
+                loading = false;
                 return;
             }
 
@@ -377,7 +428,7 @@ namespace Scratch.Services {
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                working = false;
+                loading = false;
                 show_default_load_error_view (buffer.text);
                 return;
             } finally {
@@ -397,14 +448,14 @@ namespace Scratch.Services {
             doc_opened ();
             source_view.sensitive = true;
 
-            /* Do not stop working (blocks editing) until idle
+            /* Do not stop tab loading (blocks editing) until idle
              * (large documents take time to format/display after loading)
              */
             Idle.add (() => {
-                working = false;
+                loading = false;
                 loaded = true;
                 locked = false; // Assume writable until status checked
-                check_file_status ();
+                check_file_status.begin ();
                 return false;
             });
 
@@ -473,10 +524,13 @@ namespace Scratch.Services {
 
             if (ret_value) {
                 // Delete backup copy file
+                closing = true; // Stops recreating backup when trailing space stripped
                 delete_backup ();
                 // Need to destoy outline for Document to destruct
                 outline_widget_pane.get_child2 ().destroy ();
                 outline = null;
+
+                notify["tab.loading"].disconnect (on_tab_loading_change);
                 doc_closed ();
             }
 
@@ -486,7 +540,6 @@ namespace Scratch.Services {
         // Handle save action (only use for user interaction)
         public void save_request () {
             check_undoable_actions ();
-            check_file_status (); // Need to check for external changes before forcing save
             save_with_hold.begin (true);
         }
 
@@ -498,6 +551,8 @@ namespace Scratch.Services {
             } else {
                 is_saving = true;
             }
+
+            yield check_file_status ();
 
             bool result;
             lock (is_saving) {
@@ -520,19 +575,19 @@ namespace Scratch.Services {
             var old_uri = file.get_uri ();
             var old_locked = locked;
             locked = false;  // Can always try to save as a different file
-            working = true; // Prevent premature status check when focus in after dialog closes
+            loading = true; // Prevent premature status check when focus in after dialog closes
             var result = yield save_with_hold (true, true);
             if (!result) {
                 file = File.new_for_uri (old_uri);
                 locked = old_locked;
             }
 
-            working = false;
-            check_file_status ();
+            loading = false;
+            yield check_file_status ();
             return result;
         }
 
-        private async bool save (bool force = false, bool saving_as = false) requires (!locked) {
+        private async bool save (bool force = false, bool saving_as = false) requires (!locked && is_saving) {
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -553,6 +608,8 @@ namespace Scratch.Services {
                 success = yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
                 // Only create backup once save successful
                 if (success) {
+                    this.set_saved_status (true);
+                    last_save_content = source_view.buffer.text;
                     create_backup ();
                 }
             } catch (Error e) {
@@ -585,15 +642,14 @@ namespace Scratch.Services {
                 outline.parse_symbols ();
             }
 
-            this.set_saved_status (true);
-            last_save_content = source_view.buffer.text;
 
+            Gtk.RecentManager.get_default ().add_item (get_uri ());
             debug ("File “%s” saved successfully", get_basename ());
 
             return true;
         }
 
-        private async bool save_as () requires (!locked) {
+        private async bool save_as () requires (!locked && is_saving) {
             // New file
             if (!loaded) {
                 return false;
@@ -816,7 +872,7 @@ namespace Scratch.Services {
         }
 
         // Check if the file was deleted/changed by an external source
-        private void check_file_status () {
+        private async void check_file_status () {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (source_view.buffer.get_modified ()) {
@@ -855,52 +911,50 @@ namespace Scratch.Services {
                         new_buffer,
                         source_file
                     );
-                    source_file_loader.load_async.begin (
-                        GLib.Priority.DEFAULT,
-                        null,
-                        null,
-                        (obj, res) => {
-                            try {
-                                source_file_loader.load_async.end (res);
-                            } catch (Error e) {
-                                critical (e.message);
-                                show_default_load_error_view ();
-                                return;
-                            }
 
-                            if (last_save_content == new_buffer.text) {
-                                return;
-                            }
+                    try {
+                        yield source_file_loader.load_async (
+                            GLib.Priority.DEFAULT,
+                            null,
+                            null
+                        );
+                    } catch (Error e) {
+                        critical (e.message);
+                        show_default_load_error_view ();
+                        return;
+                    }
 
-                            if (last_save_content == source_view.buffer.text) {
-                                // There are no unsaved internal edits so just load the external changes
-                                //TODO Indicate to the user external changes loaded?
-                                loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
-                                source_view.set_text (new_buffer.text);
-                                last_save_content = new_buffer.text; // Now in sync with file
-                                // We know the content and file will be in sync after paste so set unmodified
-                                set_saved_status (true);
-                                source_view.buffer.set_modified (false);
-                                loaded = true;
-                                return;
-                            }
+                    if (last_save_content == new_buffer.text) {
+                        return;
+                    }
 
-                            var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
-                            string secondary_text;
+                    if (last_save_content == source_view.buffer.text) {
+                        // There are no unsaved internal edits so just load the external changes
+                        //TODO Indicate to the user external changes loaded?
+                        loaded = false; // Block certain actions. Will be set `true` when `paste-done` sigal received.
+                        source_view.set_text (new_buffer.text);
+                        last_save_content = new_buffer.text; // Now in sync with file
+                        // We know the content and file will be in sync after paste so set unmodified
+                        set_saved_status (true);
+                        source_view.buffer.set_modified (false);
+                        loaded = true;
+                        return;
+                    }
 
-                            if (source_view.buffer.get_modified ()) {
-                                secondary_text = _(
-                "There are also unsaved changes. Reloading the document will overwrite the unsaved changes."
-                                    );
-                            } else {
-                                secondary_text = _(
-                "The document changed externally since you last saved it."
-                                    );
-                            }
+                    var primary_text = _("File “%s” was modified by an external application").printf (file.get_uri ());
+                    string secondary_text;
 
-                            ask_external_changes (primary_text, secondary_text, new_buffer.text);
-                        }
-                    );
+                    if (source_view.buffer.get_modified ()) {
+                        secondary_text = _(
+        "There are also unsaved changes. Reloading the document will overwrite the unsaved changes."
+                            );
+                    } else {
+                        secondary_text = _(
+        "The document changed externally since you last saved it."
+                            );
+                    }
+
+                    ask_external_changes (primary_text, secondary_text, new_buffer.text);
                 }
             }
         }
@@ -1042,17 +1096,17 @@ namespace Scratch.Services {
             string unsaved_identifier = "* ";
 
             if (!val) {
-                if (!(unsaved_identifier in this.label)) {
-                    tab_name = unsaved_identifier + this.label;
+                if (!(unsaved_identifier in title)) {
+                    title = unsaved_identifier + title;
                 }
             } else {
-                tab_name = this.label.replace (unsaved_identifier, "");
+                title = title.replace (unsaved_identifier, "");
             }
         }
 
         // Backup functions
         private void create_backup () {
-            if (!can_write ()) {
+            if (!can_write () || closing) {
                 return;
             }
 
@@ -1142,27 +1196,45 @@ namespace Scratch.Services {
 
         public void show_outline (bool show) {
             if (show && outline == null) {
-                switch (mime_type) {
-                    case "text/x-vala":
-                        outline = new ValaSymbolOutline (this);
-                        break;
-                    case "text/x-csrc":
-                    case "text/x-chdr":
-                    case "text/x-c++src":
-                    case "text/x-c++hdr":
-                        outline = new CtagsSymbolOutline (this);
-                        break;
-                }
+               switch (mime_type) {
+                   case "text/x-vala":
+                       outline = new ValaSymbolOutline (this);
+                       break;
+                   case "text/x-csrc":
+                   case "text/x-chdr":
+                   case "text/x-c++src":
+                   case "text/x-c++hdr":
+                       outline = new CtagsSymbolOutline (this);
+                       break;
+               }
 
-                if (outline != null) {
-                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
-                    var position = int.max (outline_widget_pane.get_allocated_width () * 4 / 5, 100);
-                    outline_widget_pane.set_position (position);
-                    outline.parse_symbols ();
-                }
+               if (outline != null) {
+                   outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                   Idle.add (() => {
+                       set_outline_width (doc_view.outline_width);
+                       outline_widget_pane.notify["position"].connect (sync_outline_width);
+                       outline.parse_symbols ();
+                       return Source.REMOVE;
+                   });
+               }
             } else if (!show && outline != null) {
-                outline_widget_pane.get_child2 ().destroy ();
-                outline = null;
+               outline_widget_pane.notify["position"].disconnect (sync_outline_width);
+               outline_widget_pane.get_child2 ().destroy ();
+               outline = null;
+            }
+        }
+
+        private void sync_outline_width () {
+            var width = outline_widget_pane.get_allocated_width () - outline_widget_pane.position;
+            if (width != doc_view.outline_width) {
+               doc_view.outline_width = width;
+            }
+        }
+
+        public void set_outline_width (int width) {
+            if (outline != null) {
+               var aw = outline_widget_pane.get_allocated_width ();
+               outline_widget_pane.position = (aw - width);
             }
         }
 
@@ -1234,6 +1306,11 @@ namespace Scratch.Services {
 
             source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
             source_buffer.place_cursor (iter);
+        }
+
+        /* Block user editing while tab is loading */
+        private void on_tab_loading_change () {
+            source_view.sensitive = !tab.loading;
         }
     }
 }

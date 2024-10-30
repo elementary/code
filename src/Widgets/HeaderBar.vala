@@ -7,13 +7,14 @@
 public class Scratch.HeaderBar : Hdy.HeaderBar {
     // Plugins segfault without full access
     public Code.FormatBar format_bar;
-    public Gtk.Menu share_menu;
-    public Gtk.MenuButton share_app_menu;
+    public GLib.Menu share_menu;
+    public Gtk.MenuButton share_menu_button;
 
     public Gtk.Button templates_button { get; private set; }
     public Gtk.ToggleButton find_button { get; private set; }
     public Gtk.ToggleButton outline_button { get; private set; }
     public Gtk.ToggleButton sidebar_button { get; private set; }
+    public Gtk.ToggleButton terminal_button { get; private set; }
 
     private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
@@ -66,12 +67,12 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             _("Restore this file")
         );
 
-        share_menu = new Gtk.Menu ();
+        share_menu = new GLib.Menu ();
 
-        share_app_menu = new Gtk.MenuButton () {
+        share_menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR),
             no_show_all = true,
-            popup = share_menu,
+            menu_model = share_menu,
             tooltip_text = _("Share")
         };
 
@@ -186,7 +187,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
         };
 
-        var terminal_button = new Gtk.ToggleButton () {
+        terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
             image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
         };
@@ -251,24 +252,9 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         pack_start (save_as_button);
         pack_start (revert_button);
         pack_end (app_menu);
-        pack_end (share_app_menu);
+        pack_end (share_menu_button);
 
-        terminal_button.toggled.connect (() => {
-            if (terminal_button.active) {
-                terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
-                    app_instance.get_accels_for_action (terminal_button.action_name),
-                    _("Hide Terminal")
-                );
-            } else {
-                terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
-                    app_instance.get_accels_for_action (terminal_button.action_name),
-                    _("Show Terminal")
-                );
-            }
-        });
-
-        share_menu.insert.connect (on_share_menu_changed);
-        share_menu.remove.connect (on_share_menu_changed);
+        share_menu.items_changed.connect (on_share_menu_changed);
 
         realize.connect (() => {
             save_button.visible = !Scratch.settings.get_boolean ("autosave");
@@ -378,14 +364,14 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     }
 
     private void on_share_menu_changed () {
-        if (share_menu.get_children ().length () > 0) {
-            share_app_menu.no_show_all = false;
-            share_app_menu.visible = true;
-            share_app_menu.show_all ();
+        if (share_menu.get_n_items () > 0) {
+            share_menu_button.no_show_all = false;
+            share_menu_button.visible = true;
+            share_menu_button.show_all ();
         } else {
-            share_app_menu.no_show_all = true;
-            share_app_menu.visible = false;
-            share_app_menu.hide ();
+            share_menu_button.no_show_all = true;
+            share_menu_button.visible = false;
+            share_menu_button.hide ();
         }
     }
 
