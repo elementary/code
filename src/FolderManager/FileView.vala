@@ -538,9 +538,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             write_settings ();
         });
 
-        if (git_manager.active_project_path == "" && folder_root.is_git_repo) {
-            git_manager.active_project_path = folder_root.path;
-        }
+        // Do not assume this is the active folder
 
         write_settings ();
     }
