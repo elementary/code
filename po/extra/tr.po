@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2022-12-03 12:25+0000\n"
-"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
+"POT-Creation-Date: 2024-10-21 22:46+0000\n"
+"PO-Revision-Date: 2024-09-24 11:24+0000\n"
+"Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -140,197 +140,235 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 "Büyük dosyalarda gezinmeyi kolaylaştırmak için isteğe bağlı mini harita"
 
-#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:101
-#: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:188
-#: data/code.metainfo.xml.in:220
-msgid "Improvements:"
-msgstr "İyileştirmeler:"
-
-#: data/code.metainfo.xml.in:75
-msgid "The Terminal pane now has a settable default directory"
-msgstr ""
-
-#: data/code.metainfo.xml.in:76
-msgid "New Tab Bar with improved animations and Drag-n-Drop"
-msgstr ""
-
-#: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:107
-#: data/code.metainfo.xml.in:146 data/code.metainfo.xml.in:195
-#: data/code.metainfo.xml.in:235
+#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
+#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
+#: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
 msgid "Minor updates:"
 msgstr "Küçük güncellemeler:"
 
-#: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:116
-#: data/code.metainfo.xml.in:157 data/code.metainfo.xml.in:205
-#: data/code.metainfo.xml.in:237
+#: data/code.metainfo.xml.in:75
+msgid "Add symbol filter to Outline pane"
+msgstr ""
+
+#: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:96
+#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:173
+#: data/code.metainfo.xml.in:221 data/code.metainfo.xml.in:253
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/code.metainfo.xml.in:103
+#: data/code.metainfo.xml.in:89 data/code.metainfo.xml.in:117
+#: data/code.metainfo.xml.in:156 data/code.metainfo.xml.in:204
+#: data/code.metainfo.xml.in:236
+msgid "Improvements:"
+msgstr "İyileştirmeler:"
+
+#: data/code.metainfo.xml.in:91
+msgid "The Terminal pane now has a settable default directory"
+msgstr "Terminal bölmesi artık ayarlanabilir bir varsayılan dizine sahip"
+
+#: data/code.metainfo.xml.in:92
+msgid "New Tab Bar with improved animations and Drag-n-Drop"
+msgstr "Geliştirilmiş animasyonlar ve Sürükle-Bırak ile Yeni Sekme Çubuğu"
+
+#: data/code.metainfo.xml.in:119
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
 msgstr ""
+"Komut satırından veya başka bir uygulamadan Kod'da bir dosya açıldığında, "
+"bir satır/karakter konumu veya seçim aralığı belirtilebilir"
 
-#: data/code.metainfo.xml.in:104
+#: data/code.metainfo.xml.in:120
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
-msgstr ""
+msgstr "Tüm açık projelerdeki dosyaları bulan bir fuzzy-find eklentisi ekleyin"
 
-#: data/code.metainfo.xml.in:105
+#: data/code.metainfo.xml.in:121
 msgid "Save and restore the state of the terminal pane"
-msgstr ""
+msgstr "Terminal bölmesinin durumunu kaydedin ve geri yükleyin"
 
-#: data/code.metainfo.xml.in:109
+#: data/code.metainfo.xml.in:125
 msgid ""
 "\"Find in Folder\" now works for all folders and text files, not only \"."
 "vala\" files"
 msgstr ""
+"\"Klasörde Bul\" artık yalnızca \".vala\" dosyaları için değil, tüm "
+"klasörler ve metin dosyaları için çalışıyor"
 
-#: data/code.metainfo.xml.in:110
+#: data/code.metainfo.xml.in:126
 msgid "\"Follow System Style\" is now fully respected"
-msgstr ""
+msgstr "\"Sistem Stilini Takip Et\" artık tam olarak dikkate alınıyor"
 
-#: data/code.metainfo.xml.in:111
+#: data/code.metainfo.xml.in:127
 msgid "The \"--new-tab\" commandline option now works"
-msgstr ""
+msgstr "\"--new-tab\" komut satırı seçeneği artık çalışıyor"
 
-#: data/code.metainfo.xml.in:112
+#: data/code.metainfo.xml.in:128
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "Sembol bölmesi genişliği artık senkronize ediliyor ve kaydediliyor"
 
-#: data/code.metainfo.xml.in:113
+#: data/code.metainfo.xml.in:129
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
 msgstr ""
+"Proje klasörleri, harici olarak yeniden adlandırıldığında, taşındığında veya "
+"silindiğinde otomatik olarak kapatılır"
 
-#: data/code.metainfo.xml.in:114
+#: data/code.metainfo.xml.in:130
 msgid "Fixed temporary backup files persisting under some circumstances"
-msgstr ""
+msgstr "Bazı durumlarda geçici yedekleme dosyalarının kalıcı olması düzeltildi"
 
-#: data/code.metainfo.xml.in:115
+#: data/code.metainfo.xml.in:131
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "Göster-Değiştir eylemi iyileştirildi"
 
-#: data/code.metainfo.xml.in:142
+#: data/code.metainfo.xml.in:158
 msgid "Search options transferred to searchbar menu"
-msgstr ""
+msgstr "Arama seçenekleri arama çubuğu menüsüne aktarıldı"
 
-#: data/code.metainfo.xml.in:143
+#: data/code.metainfo.xml.in:159
 msgid "Whole word search option added"
-msgstr ""
+msgstr "Tüm kelime arama seçeneği eklendi"
 
-#: data/code.metainfo.xml.in:144
+#: data/code.metainfo.xml.in:160
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Tüm kelime, büyük/küçük harfe duyarlı mod ve regex arama ayarlarının "
+"kullanımı artık saklanıyor"
 
-#: data/code.metainfo.xml.in:148
+#: data/code.metainfo.xml.in:164
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"Etkin belge değiştirildikten sonra arama çubuğu artık düzgün bir şekilde "
+"güncelleniyor"
 
-#: data/code.metainfo.xml.in:149
+#: data/code.metainfo.xml.in:165
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Bir belgeyi yazılamaz bir konuma kaydetmeye çalışmak artık daha iyi işleniyor"
 
-#: data/code.metainfo.xml.in:150
+#: data/code.metainfo.xml.in:166
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"Açık belgeler olmadan başlatıldığında ve sistem stili sembol anahattı "
+"tarafından takip ediliyor"
 
-#: data/code.metainfo.xml.in:151
+#: data/code.metainfo.xml.in:167
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "Karma büyük/küçük harfe duyarlı arama artık beklendiği gibi çalışıyor"
 
-#: data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:168
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
 msgstr ""
+"Bir belgeye odaklanıldığında arama sonuçları artık beklenmedik şekilde "
+"değişmiyor"
 
-#: data/code.metainfo.xml.in:153
+#: data/code.metainfo.xml.in:169
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Artık kenar çubuğunda projeler varsa başlangıçta her zaman etkin bir proje "
+"var"
 
-#: data/code.metainfo.xml.in:154
+#: data/code.metainfo.xml.in:170
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Bir geliştirme dalı çalışıyorsa bu, pencere başlığında ve dock araç ipucunda "
+"gösterilir"
 
-#: data/code.metainfo.xml.in:155
+#: data/code.metainfo.xml.in:171
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Ctrl+PageUp ve Ctrl+PageDown kısayolları artık sekmeleri değiştiriyor"
 
-#: data/code.metainfo.xml.in:156
+#: data/code.metainfo.xml.in:172
 msgid "Ensure active project at startup (include non-git folders)"
-msgstr ""
+msgstr "Başlangıçta etkin proje sağlansın (git olmayan klasörleri dahil)"
 
-#: data/code.metainfo.xml.in:190
+#: data/code.metainfo.xml.in:206
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Yeniden tasarlanan uygulama simgesi"
 
-#: data/code.metainfo.xml.in:191
+#: data/code.metainfo.xml.in:207
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "Kaynak görünüm için yeni özel koyu ve açık elementary stilleri"
 
-#: data/code.metainfo.xml.in:192
+#: data/code.metainfo.xml.in:208
 msgid "Option to follow the system dark style preference"
 msgstr "Sistem koyu renk tema tercihini takip etme seçeneği eklendi"
 
-#: data/code.metainfo.xml.in:193
+#: data/code.metainfo.xml.in:209
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "Küçük dizüstü bilgisayar ekranlarında yarı döşeme yeteneği"
 
-#: data/code.metainfo.xml.in:197
+#: data/code.metainfo.xml.in:213
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Hem Sayfada Bul hem de Projede Bul artık başlık çubuğundan ziyade "
+"uygulamanın menüsünden kullanılabilir"
 
-#: data/code.metainfo.xml.in:198
+#: data/code.metainfo.xml.in:214
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Panelleri gizleme ve gösterme seçenekleri artık uygulamanın menüsünde "
+"kompakt bağlantılı düğmeler olarak mevcut"
 
-#: data/code.metainfo.xml.in:199
+#: data/code.metainfo.xml.in:215
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"Kenar çubuğu artık proje seçici düğmesini içeriyor ve pencerenin "
+"yüksekliğini dolduruyor"
 
-#: data/code.metainfo.xml.in:200
+#: data/code.metainfo.xml.in:216
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
+"Artık seçili metinle küresel bir arama başlatıldığında, söz konusu metin "
+"önceden dolduruluyor"
 
-#: data/code.metainfo.xml.in:201
+#: data/code.metainfo.xml.in:217
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"Sembol anahat bölmesi artık kaynak görünümünün sağında gösteriliyor ve \"Alt "
+"+ \\\" klavye kısayoluyla gösterilip gizlenebiliyor"
 
-#: data/code.metainfo.xml.in:202
+#: data/code.metainfo.xml.in:218
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"Terminal, Sembol anahattı ve Strip Trailing Whitespace eklentileri artık ana "
+"kod tabanının bir parçası"
 
-#: data/code.metainfo.xml.in:203
+#: data/code.metainfo.xml.in:219
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Sekme genişliği ayarları bir EditorConfig dosyası tarafından üzerine "
+"yazıldığında bir bilgi çubuğu göster"
 
-#: data/code.metainfo.xml.in:204
+#: data/code.metainfo.xml.in:220
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"Tamamlama sözcük listesini yeniden oluşturmanın kısayolu artık \"Ctrl + |\""
 
-#: data/code.metainfo.xml.in:222
+#: data/code.metainfo.xml.in:238
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -338,25 +376,25 @@ msgstr ""
 "Geçerli belgenin dosya adı artık çoklu görev görünümünde bir pencere başlığı "
 "olarak gösteriliyor"
 
-#: data/code.metainfo.xml.in:223
+#: data/code.metainfo.xml.in:239
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "Gizli klasörler artık proje kenar çubuğunda gösteriliyor"
 
-#: data/code.metainfo.xml.in:224
+#: data/code.metainfo.xml.in:240
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
 msgstr "Şu anda seçili olan sonuç ve sonuç sayısı arama sırasında görüntülenir"
 
-#: data/code.metainfo.xml.in:225
+#: data/code.metainfo.xml.in:241
 msgid "The search bar now has a regular expression mode"
 msgstr "Arama çubuğunun şimdi düzenli ifade modu bulunmaktadır"
 
-#: data/code.metainfo.xml.in:227
+#: data/code.metainfo.xml.in:243
 msgid "Fixes:"
 msgstr "Düzeltmeler:"
 
-#: data/code.metainfo.xml.in:229
+#: data/code.metainfo.xml.in:245
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -364,24 +402,24 @@ msgstr ""
 "Bir projede bulunan dokunulmamış dosyalar içeren Git dalını şimdi "
 "değiştirmeniz mümkün"
 
-#: data/code.metainfo.xml.in:230
+#: data/code.metainfo.xml.in:246
 msgid "Crashes are prevented while searching in large projects"
 msgstr "Büyük projelerde arama yaparken oluşan çökmelerin önüne geçilmiştir"
 
-#: data/code.metainfo.xml.in:231
+#: data/code.metainfo.xml.in:247
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
 "Kod'u dış bir programdan açtıktan sonra doğru belgeye odaklanılmaktadır"
 
-#: data/code.metainfo.xml.in:232
+#: data/code.metainfo.xml.in:248
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr ""
 "Eğer herhangi bir seçim yoksa satır tekrarı doğru bir şekilde uygulanmaktadır"
 
-#: data/code.metainfo.xml.in:233
+#: data/code.metainfo.xml.in:249
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr "Kod; bilinmeyen bir URI formatı açılması istendiğinde artık çökmüyor"
 
@@ -411,11 +449,11 @@ msgstr "Yeni Pencere"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr ""
+msgstr "Kodu Yönetici Olarak Çalıştır"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr ""
+msgstr "Kodu Yönetici olarak çalıştırmak için kimlik doğrulaması gereklidir"
 
 #~ msgid ""
 #~ "Projects with the same name now include their parent folder name as well"

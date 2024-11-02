@@ -635,7 +635,7 @@ namespace Scratch.Services {
             }
 
 
-
+            Gtk.RecentManager.get_default ().add_item (get_uri ());
             debug ("File “%s” saved successfully", get_basename ());
 
             return true;

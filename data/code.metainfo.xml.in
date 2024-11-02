@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/7.3.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/7.3.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -68,6 +68,22 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="7.4.0" date="2024-10-21" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Add symbol filter to Outline pane</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1281">Editing a file does not update Recent in Files</issue>
+        <issue url="https://github.com/elementary/code/issues/1466">improper markdown auto comment on empty lines</issue>
+        <issue url="https://github.com/elementary/code/issues/1462">Git status icons use user-namespace icons</issue>
+        <issue url="https://github.com/elementary/code/issues/1440">Opening folders with same name and on different partitions as projects causes Code to crash</issue>
+      </issues>
+    </release>
+
     <release version="7.3.0" date="2024-07-11" urgency="medium">
       <description>
         <p>Improvements:</p>
