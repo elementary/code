@@ -132,6 +132,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         if (pos.ends_word ()) {
             this.handle_insert_at_phrase_end (pos, new_text, new_text_length);
+        } else {
+            this.handle_insert_not_at_word_boundary (pos, new_text, new_text_length);
         }
     }
 
@@ -146,6 +148,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         var full_phrases = text_start_iter.get_text (text_end_iter) + new_text;
         parser.parse_string (full_phrases);
+    }
+
+    private void handle_insert_not_at_word_boundary (Gtk.TextIter pos, string new_text, int new_text_length) {
+        parser.parse_string (new_text);
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
