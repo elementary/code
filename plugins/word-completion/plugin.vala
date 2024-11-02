@@ -76,7 +76,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_document = doc;
         current_view = doc.source_view;
-        current_view.buffer.insert_text.connect(on_insert_text);
+        current_view.buffer.insert_text.connect (on_insert_text);
 
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
@@ -134,19 +134,18 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             this.handle_insert_at_phrase_end (pos, new_text, new_text_length);
         }
     }
-    
+
     private void handle_insert_at_phrase_end (Gtk.TextIter pos, string new_text, int new_text_length) {
         var text_start_iter = Gtk.TextIter ();
         text_start_iter = pos;
         text_start_iter.backward_word_start ();
-        
-        // Create a string of all the words from the first word start to the new text length
+
         var text_end_iter = Gtk.TextIter ();
         text_end_iter.assign (pos);
         text_end_iter.forward_chars (new_text_length - 1);
-        
-        var full_phrases = text_start_iter.get_text (text_end_iter);
-        debug ("Full phrases:\n\n%s\n\n", full_phrases);
+
+        var full_phrases = text_start_iter.get_text (text_end_iter) + new_text;
+        parser.parse_string (full_phrases);
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {

@@ -86,7 +86,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         parsing_cancelled = true;
     }
 
-    private bool parse_string (string text) {
+    public bool parse_string (string text) {
         parsing_cancelled = false;
         string [] word_array = text.split_set (DELIMITERS, MAX_TOKENS);
         foreach (var current_word in word_array ) {
