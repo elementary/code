@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-21 22:46+0000\n"
-"PO-Revision-Date: 2024-10-14 06:58+0000\n"
+"PO-Revision-Date: 2024-11-06 11:20+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hant/>\n"
@@ -29,50 +29,42 @@ msgid "The editor that works for you"
 msgstr "為您而生的編輯器"
 
 #: data/code.metainfo.xml.in:12
-#, fuzzy
-#| msgid ""
-#| "Code is the editor that works for you. It auto-saves your files, meaning "
-#| "they're always up-to-date. Plus it remembers your tabs so you never lose "
-#| "your spot, even in between sessions."
 msgid ""
 "Whether you're writing in Markdown or managing a complex app codebase, Code "
 "is the lightweight but full-featured editor for you. It auto-saves your "
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Code 是為您打造的文字編輯器。它能自動儲存檔案，代表檔案總是自動更新到最新狀"
-"態。此外，它還能記住您使用的分頁，所以您永不失焦，而且即使是不同的作業階段也"
-"都記得住。"
+"不論您是在撰寫簡單 Markdown 文件還是要管理應用程式複雜的原始碼，Code "
+"都能符合您的需求。Code 是一個輕量化但功能完善的編輯器，它會自動儲存您的檔案來"
+"確保它們總是與檔案系統維持同步，也會記住您的分頁讓您即使離開之後再回來也不會"
+"忘記自己上次在哪裡。"
 
 #: data/code.metainfo.xml.in:13
 msgid ""
 "Designed around a project-based workflow, Code knows about your separate "
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
-msgstr ""
+msgstr "Code 的工作流程以專案為單位，瞭解您各個分開來的程式庫。它提供有用的 Git "
+"整合，讓您建立或切換分支，並在專案中顯示已變更的檔案與行。"
 
 #: data/code.metainfo.xml.in:14
-#, fuzzy
-#| msgid ""
-#| "Works with your language. Whether you're crafting code in Vala, scripting "
-#| "with PHP, or marking things up in HTML, Code has you covered. Experience "
-#| "full syntax highlighting with nearly all programming, scripting, and "
-#| "markup languages."
 msgid ""
 "Work with your language: whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"配合您的語言。不管您是要用 Vala 寫程式碼、用 PHP 寫指令稿、用 HTML 標記事情"
-"等，Code 都一把罩。請體驗它完整的語法標明功能，支援幾乎所有的程式設計、指令稿"
-"編排、標記等語言。"
+"配合您所使用的語言：不論您是在寫 Vala 程式、PHP 的指令稿、還是在編輯 HTML "
+"標記，Code 都能符合您的需求。Code "
+"為幾乎所有程式語言、指令稿語言與標記語言提供完整的語法突顯。"
 
 #: data/code.metainfo.xml.in:15
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
-msgstr ""
+msgstr "在目前檔案、指定資料夾，或是整個專案中尋找任何內容，並可設定是否要區分大小寫"
+"或是使用正則表達式。"
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -81,6 +73,9 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Code 提供許多智慧功能：自動縮排、智慧剪下/複製行為、預設顯示所選文字與行尾空"
+"白字元，並提供可選的擴充元件來支援 Markdown "
+"相關的動作、拼字檢查、刪除不必要的空白、單字補完等等。"
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -99,7 +94,7 @@ msgstr "還有更多："
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
-msgstr ""
+msgstr "提供影響整個介面的 Solarized Light、Solarized Dark 及高對比配色方案"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
@@ -137,7 +132,7 @@ msgstr "小型更新："
 
 #: data/code.metainfo.xml.in:75
 msgid "Add symbol filter to Outline pane"
-msgstr ""
+msgstr "在大綱面板中加入符號過濾器"
 
 #: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:96
 #: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:173
@@ -169,7 +164,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:120
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
-msgstr ""
+msgstr "新增模糊搜尋插件，它能夠在所有已開啟專案中尋找檔案"
 
 #: data/code.metainfo.xml.in:121
 msgid "Save and restore the state of the terminal pane"
@@ -183,7 +178,7 @@ msgstr "「在資料夾中尋找」現在支援所有資料夾和文字檔案，
 
 #: data/code.metainfo.xml.in:126
 msgid "\"Follow System Style\" is now fully respected"
-msgstr ""
+msgstr "修正沒有完全遵循「跟隨系統風格」設定值的問題"
 
 #: data/code.metainfo.xml.in:127
 msgid "The \"--new-tab\" commandline option now works"
@@ -205,7 +200,7 @@ msgstr "修正暫存備份檔在某些情況下會留下來的問題"
 
 #: data/code.metainfo.xml.in:131
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "改善 Show-Replace 動作"
 
 #: data/code.metainfo.xml.in:158
 msgid "Search options transferred to searchbar menu"
@@ -222,7 +217,7 @@ msgstr "現在會記住完整單詞、區分大小寫、以及是否使用正則
 
 #: data/code.metainfo.xml.in:164
 msgid "The search bar now updates properly after changing the active document"
-msgstr ""
+msgstr "搜尋列現在在變更作用中文件後會正確更新"
 
 #: data/code.metainfo.xml.in:165
 msgid ""
@@ -233,36 +228,36 @@ msgstr "改善嘗試將文件儲存到不可寫入的位置時的處理方式"
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
-msgstr ""
+msgstr "在符號大綱中，以及在剛啟動且未開啟任何文件時遵循系統風格"
 
 #: data/code.metainfo.xml.in:167
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "混合大小寫的搜尋現在會正常運作"
 
 #: data/code.metainfo.xml.in:168
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
-msgstr ""
+msgstr "聚焦文件時搜尋結果不再會突然跑掉"
 
 #: data/code.metainfo.xml.in:169
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
-msgstr ""
+msgstr "現在只要側邊欄中有專案，啟動時就一定會有作用中專案"
 
 #: data/code.metainfo.xml.in:170
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
-msgstr ""
+msgstr "執行開發版分支時在視窗標題與 Dock 工具提示中顯示"
 
 #: data/code.metainfo.xml.in:171
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "Ctrl+PageUp 和 Ctrl+PageDown 快捷鍵現在會切換分頁"
 
 #: data/code.metainfo.xml.in:172
 msgid "Ensure active project at startup (include non-git folders)"
-msgstr ""
+msgstr "啟動時確保有作用中專案（包含非由 git 管理的資料夾）"
 
 #: data/code.metainfo.xml.in:206
 msgid "Redesigned app icon"
@@ -270,66 +265,67 @@ msgstr "重新設計過的應用程式圖示"
 
 #: data/code.metainfo.xml.in:207
 msgid "New custom dark and light elementary styles for the source view"
-msgstr ""
+msgstr "在原始碼檢視中提供新的自訂 elementary 深色與淺色風格"
 
 #: data/code.metainfo.xml.in:208
 msgid "Option to follow the system dark style preference"
-msgstr ""
+msgstr "新增跟隨系統深色風格的選項"
 
 #: data/code.metainfo.xml.in:209
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "修正在不夠大的筆電螢幕上無法鋪排視窗的問題"
 
 #: data/code.metainfo.xml.in:213
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
-msgstr ""
+msgstr "將「在頁面上尋找」和「在專案中尋找」從標頭列移到應用程式選單中"
 
 #: data/code.metainfo.xml.in:214
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
-msgstr ""
+msgstr "將顯示/隱藏面板的各按鈕全部整理成應用程式選單裡的相連按鈕"
 
 #: data/code.metainfo.xml.in:215
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
-msgstr ""
+msgstr "將專案選擇按鈕加入側邊欄中，並讓側邊欄填滿視窗高度"
 
 #: data/code.metainfo.xml.in:216
 msgid "Starting a global search with text selected now pre-fills that text"
-msgstr ""
+msgstr "進行全域搜尋時如果有選擇文字，讓該文字變成搜尋的文字"
 
 #: data/code.metainfo.xml.in:217
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
-msgstr ""
+msgstr "符號大綱面板現在顯示在程式碼檢視的右邊，並且可使用 \"Alt + \\\" "
+"快捷鍵來顯示或隱藏"
 
 #: data/code.metainfo.xml.in:218
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
-msgstr ""
+msgstr "將終端機、符號大綱、刪除行尾空白三個插件的程式碼併入主程式碼版本庫中"
 
 #: data/code.metainfo.xml.in:219
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
-msgstr ""
+msgstr "Tab 字元寬度被 EditorConfig 設定檔案覆寫時顯示資訊列來提醒"
 
 #: data/code.metainfo.xml.in:220
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
-msgstr ""
+msgstr "更新單字補完的單字列表的快捷鍵現在改為 \"Ctrl + |\""
 
 #: data/code.metainfo.xml.in:238
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
-msgstr ""
+msgstr "在多工作業檢視中現在會將目前文件的檔案名稱顯示為視窗標題"
 
 #: data/code.metainfo.xml.in:239
 msgid "Hidden folders are now shown in the project sidebar"
@@ -339,7 +335,7 @@ msgstr "在專案側邊欄當中顯示隱藏檔案"
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
-msgstr ""
+msgstr "搜尋時顯示目前所選的結果與結果總數"
 
 #: data/code.metainfo.xml.in:241
 msgid "The search bar now has a regular expression mode"
@@ -357,7 +353,7 @@ msgstr "專案中即使有未追蹤的檔案現在也能變更 Git 分支"
 
 #: data/code.metainfo.xml.in:246
 msgid "Crashes are prevented while searching in large projects"
-msgstr ""
+msgstr "防止在大型專案中搜尋時發生的崩潰"
 
 #: data/code.metainfo.xml.in:247
 msgid ""
@@ -368,7 +364,7 @@ msgstr "從外部程式開啟 Code 時聚焦正確的文件"
 #: data/code.metainfo.xml.in:248
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr ""
+msgstr "現在即使沒有選擇行，重製行數的功能也能正確執行"
 
 #: data/code.metainfo.xml.in:249
 msgid "Code no longer crashes when asked to open an unknown URI format"

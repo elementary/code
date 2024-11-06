@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-21 22:46+0000\n"
-"PO-Revision-Date: 2024-08-27 08:16+0000\n"
+"PO-Revision-Date: 2024-11-04 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -125,7 +125,7 @@ msgstr "_Annuler"
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
-msgstr "Rechercher du texte dans le dossier « %s »"
+msgstr "Rechercher du texte dans « %s »"
 
 #: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
@@ -467,7 +467,7 @@ msgstr "Impossible d'enregistrer ce document vers %s"
 #: src/Services/Document.vala:832
 #, c-format
 msgid "Cannot read text in file “%s”"
-msgstr "Rechercher du texte dans le dossier « %s »"
+msgstr "Rechercher du texte dans le fichier « %s »"
 
 #: src/Services/Document.vala:835
 msgid "You may not have permission to read the file."

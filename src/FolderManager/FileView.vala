@@ -53,12 +53,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     private Scratch.Services.GitManager git_manager;
     private Scratch.Services.PluginsManager plugins;
 
-    public signal void select (string file);
+    public new signal void activate (string file);
     public signal bool rename_request (File file);
 
     public SimpleActionGroup actions { get; private set; }
     public ActionGroup toplevel_action_group { get; private set; }
-    public bool ignore_next_select { get; set; default = false; }
     public string icon_name { get; set; }
     public string title { get; set; }
 
@@ -67,10 +66,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     construct {
+        activate_on_single_click = true;
         icon_name = "folder-symbolic";
         title = _("Folders");
-
-        item_selected.connect (on_item_selected);
 
         settings = new GLib.Settings ("io.elementary.code.folder-manager");
 
@@ -123,19 +121,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         write_settings ();
     }
 
-    private void on_item_selected (Code.Widgets.SourceList.Item? item) {
-        // This is a workaround for SourceList silliness: you cannot remove an item
-        // without it automatically selecting another one.
-        if (ignore_next_select) {
-            ignore_next_select = false;
-            return;
-        }
-
-        if (item is FileItem) {
-            select (((FileItem) item).file.path);
-        }
-    }
-
     public void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
             add_folder (new File (path), false);
@@ -179,9 +164,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     public void select_path (string path) {
-        item_selected.disconnect (on_item_selected);
         selected = find_path (root, path);
-        item_selected.connect (on_item_selected);
     }
 
     public void unselect_all () {
@@ -312,10 +295,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 selected.disconnect (once);
                 var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
                 this.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (path));
+
                 // RecentManager requires valid URI
                 var new_uri = "file://" + new_path; // Code only edits local files
                 Gtk.RecentManager.get_default ().add_item (new_uri);
-                this.select (new_path);
+
+                activate (new_path);
             });
         }
 
