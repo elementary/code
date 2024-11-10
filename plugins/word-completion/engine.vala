@@ -98,4 +98,41 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
         return true;
     }
+
+    public void delete_word (string word, string text) requires (word.length > 0) {
+        bool match_found = false;
+        uint word_end_index = word.length - 1;
+
+        // Figure out if another instance of a word in another position before trying to delete it
+        // from the prefix tree
+        while (word_end_index > -1 && !match_found) {
+            match_found = prefix_in_text (word[0:word_end_index], text);
+            word_end_index--;
+        }
+
+        // All possible prefixes of the word exist in the source view
+        if (match_found && word_end_index == word.length - 1) {
+            return;
+        }
+
+        uint deletion_depth_level = word.length - word_end_index;
+        // TODO: Now delete word (prefix) from prefix tree with deletion_
+        // depth level
+    }
+
+    private bool prefix_in_text (string word, string text) {
+        // If there are at least two matches then the prefix
+        // still exists after the modifications made to the source view
+
+        try {
+            var search_regex = new Regex ("\\b$word\\b");
+            GLib.MatchInfo match_info;
+            search_regex.match_all (text, 0, out match_info);
+            return match_info.get_match_count () > 1;
+        } catch (GLib.Error err) {
+            critical ("Error while attempting regex search of prefix in document text: %s", err.message);
+        }
+
+        return false;
+    }
 }
