@@ -115,9 +115,11 @@ public class Euclide.Completion.Parser : GLib.Object {
             return;
         }
 
-        uint deletion_depth_level = word.length - word_end_index;
-        // TODO: Now delete word (prefix) from prefix tree with deletion_
-        // depth level
+        uint min_deletion_index = word_end_index + 1;
+
+        lock (prefix_tree) {
+            prefix_tree.remove (word, (int) min_deletion_index);
+        }
     }
 
     private bool prefix_in_text (string word, string text) {

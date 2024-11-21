@@ -63,6 +63,38 @@ namespace Scratch.Plugins {
             }
         }
 
+        public void remove (string word, int min_deletion_index) {
+            if (word.length == 0) {
+                return;
+            }
+
+            remove_at (word, root, min_deletion_index);
+        }
+
+        private bool remove_at (string word, PrefixNode node, int min_deletion_index, int char_index = 0) {
+            unichar curr;
+
+            word.get_next_char (ref char_index, out curr);
+            if (curr == '\0') {
+                return true;
+            }
+
+            foreach (var child in node.children) {
+                if (child.value == curr) {
+                    bool should_continue = this.remove_at (word, node, min_deletion_index, char_index + 1);
+
+                    if (should_continue && child.children.length () == 0) {
+                        node.children.remove (child);
+                        return char_index < min_deletion_index;
+                    }
+
+                    break;
+                }
+            }
+
+            return false;
+        }
+
         public bool find_prefix (string prefix) {
             return find_prefix_at (prefix, root) != null? true : false;
         }
