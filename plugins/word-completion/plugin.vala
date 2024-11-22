@@ -130,8 +130,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             return;
         }
 
-        if (pos.ends_word ()) {
+        bool starts_word = pos.starts_word ();
+        bool ends_word = pos.ends_word ();
+        bool between_word = pos.inside_word () && !starts_word && !ends_word;
+
+        if (ends_word) {
             this.handle_insert_at_phrase_end (pos, new_text, new_text_length);
+        } else if (between_word) {
+            debug ("word-completion: Text inserted between word.\n");
         } else {
             this.handle_insert_not_at_word_boundary (pos, new_text, new_text_length);
         }
