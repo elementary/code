@@ -137,10 +137,47 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         if (ends_word) {
             this.handle_insert_at_phrase_end (pos, new_text, new_text_length);
         } else if (between_word) {
-            debug ("word-completion: Text inserted between word.\n");
+            this.handle_insert_between_phrase (pos, new_text, new_text_length);
         } else {
             this.handle_insert_not_at_word_boundary (pos, new_text, new_text_length);
         }
+    }
+
+    private void handle_insert_between_phrase (Gtk.TextIter pos, string new_text, int new_text_length) {
+        debug ("word-completion: Text inserted between word.\n");
+        var word_start_iter = pos;
+        word_start_iter.backward_word_start ();
+
+        var word_end_iter = pos;
+        word_end_iter.forward_word_end ();
+
+        var old_word_to_delete = word_start_iter.get_text (word_end_iter);
+        parser.delete_word (old_word_to_delete, current_view.buffer.text);
+        
+        // Check if new text ends with whitespace
+        if (ends_with_whitespace (new_text)) {
+            // The text from the insert postiion to the end of the word needs to be added as its own word
+            var final_word_end_iter = pos;
+            final_word_end_iter.forward_word_end ();
+            
+            var extra_word_to_add = pos.get_text (final_word_end_iter);
+            parser.parse_string (extra_word_to_add);
+        }
+
+        var full_phrases = word_start_iter.get_text (pos) + new_text;
+        parser.parse_string (full_phrases);
+    }
+    
+    private bool ends_with_whitespace (string str) {
+        if (str.length == 0) {
+            return false;
+        }
+        
+        if (str.get_char(str.length - 1).isspace ()) {
+            return true;
+        }
+        
+        return false;
     }
 
     private void handle_insert_at_phrase_end (Gtk.TextIter pos, string new_text, int new_text_length) {
