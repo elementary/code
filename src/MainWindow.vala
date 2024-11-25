@@ -618,7 +618,10 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
-                    git_manager.active_project_path = doc.source_view.project.path;
+                    if (doc.source_view.project != null) {
+                        git_manager.active_project_path = doc.source_view.project.path;
+                    }
+
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
