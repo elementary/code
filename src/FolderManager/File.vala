@@ -25,7 +25,7 @@ namespace Scratch.FolderManager {
      */
     public class File : GLib.Object {
         public GLib.File file { get; private set; }
-        private GLib.FileInfo info;
+        private GLib.FileInfo? info = null; // Non-null after loading
 
         public File (string path) {
             Object (path: path);
