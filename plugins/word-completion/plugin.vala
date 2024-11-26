@@ -122,9 +122,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void on_insert_text (Gtk.TextIter pos, string new_text, int new_text_length) {
-        if (completion_in_progress) {
-            return;
-        }
 
         if (new_text.strip () == "") {
             return;
