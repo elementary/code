@@ -48,6 +48,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public bool get_for_word (string to_find, out List<string> list) {
         list = prefix_tree.get_all_matches (to_find);
+        list.remove_link (list.find_custom (to_find, strcmp));
         return list.first () != null;
     }
 
