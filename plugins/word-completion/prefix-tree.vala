@@ -2,7 +2,13 @@
 namespace Scratch.Plugins {
     private class PrefixNode : Object {
         public GLib.List<PrefixNode> children;
-        public unichar value { get; set; }
+        public unichar value { get; construct; }
+
+        public PrefixNode (unichar c = '\0') {
+            Object (
+                value: c
+            );
+        }
 
         construct {
             children = new List<PrefixNode> ();
@@ -17,9 +23,7 @@ namespace Scratch.Plugins {
         }
 
         public void clear () {
-            root = new PrefixNode () {
-                value = '\0'
-            };
+            root = new PrefixNode ();
         }
 
         public void insert (string word) {
@@ -47,9 +51,7 @@ namespace Scratch.Plugins {
                 }
             }
 
-            var new_child = new PrefixNode () {
-                value = curr
-            };
+            var new_child = new PrefixNode (curr);
             node.children.insert_sorted (new_child, (c1, c2) => {
                 if (c1.value > c2.value) {
                     return 1;
