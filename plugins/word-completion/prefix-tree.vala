@@ -96,7 +96,7 @@ namespace Scratch.Plugins {
         }
 
         public bool find_prefix (string prefix) {
-            return find_prefix_at (prefix, root) != null? true : false;
+            return find_prefix_at (prefix, root) != null ? true : false;
         }
 
         private PrefixNode? find_prefix_at (string prefix, PrefixNode node, int i = 0) {

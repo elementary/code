@@ -173,10 +173,11 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             return false;
         }
         
-        if (str.get_char(str.length - 1).isspace ()) {
+
+        if (str.get_char (str.length - 1).isspace ()) {
             return true;
         }
-        
+
         return false;
     }
 
