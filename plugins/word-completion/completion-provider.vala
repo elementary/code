@@ -55,7 +55,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         Gtk.TextIter start, end;
         buffer.get_iter_at_offset (out end, buffer.cursor_position);
         start = end.copy ();
-        Euclide.Completion.Parser.back_to_word_start (ref start);
+        start.backward_word_start ();
         string text = buffer.get_text (start, end, true);
 
         return parser.match (text);
@@ -102,7 +102,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         buffer.get_iter_at_mark (out cursor_iter, mark);
 
         iter = cursor_iter;
-        Euclide.Completion.Parser.back_to_word_start (ref iter);
+        iter.backward_word_start ();
         return true;
     }
 
@@ -121,7 +121,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
 
             start = end;
-            Euclide.Completion.Parser.back_to_word_start (ref start);
+            start.backward_word_start ();
 
             to_find = buffer.get_text (start, end, false);
         }

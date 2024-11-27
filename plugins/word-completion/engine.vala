@@ -19,26 +19,13 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
-    public const int MINIMUM_WORD_LENGTH = 1;
-    public const int MAX_TOKENS = 1000000;
-
+    public const uint MINIMUM_WORD_LENGTH = 3;
     private Scratch.Plugins.PrefixTree prefix_tree;
-
-    public const string DELIMITERS = " .,;:?{}[]()0123456789+=&|<>*\\/\r\n\t\'\"`";
-    public static bool is_delimiter (unichar c) {
-        return DELIMITERS.index_of_char (c) >= 0;
-    }
-
-    public static void back_to_word_start (ref Gtk.TextIter iter) {
-        iter.backward_find_char (is_delimiter, null);
-        iter.forward_char ();
-    }
-
-    public Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> text_view_words;
+    public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 
     public Parser () {
-         text_view_words = new Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> ();
+         text_view_words = new Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> ();
          prefix_tree = new Scratch.Plugins.PrefixTree ();
     }
 
@@ -46,96 +33,79 @@ public class Euclide.Completion.Parser : GLib.Object {
         return prefix_tree.find_prefix (to_find);
     }
 
-    public bool get_for_word (string to_find, out List<string> list) {
-        list = prefix_tree.get_all_matches (to_find);
-        list.remove_link (list.find_custom (to_find, strcmp));
-        return list.first () != null;
-    }
-
-    public void rebuild_word_list (Gtk.TextView view) {
-        prefix_tree.clear ();
-        parse_text_view (view);
-    }
-
-    public void parse_text_view (Gtk.TextView view) {
-        /* If this view has already been parsed, restore the word list */
-        lock (prefix_tree) {
+    public void select_prefix_tree (Gtk.TextView view) {
+       lock (prefix_tree) {
             if (text_view_words.has_key (view)) {
                 prefix_tree = text_view_words.@get (view);
             } else {
                 /* Else create a new word list and parse the buffer text */
                 prefix_tree = new Scratch.Plugins.PrefixTree ();
             }
-        }
+       }
+    }
 
-        if (view.buffer.text.length > 0) {
-            parse_string (view.buffer.text);
-            text_view_words.@set (view, prefix_tree);
-        }
+    public void clear () requires (prefix_tree != null) {
+        prefix_tree.clear ();
+    }
+
+    public void set_view_words (Gtk.TextView view) requires (prefix_tree != null) {
+        text_view_words.@set (view, prefix_tree);
+    }
+
+    // Fills list with complete words having prefix
+    public bool get_for_word (string to_find, out List<string> list) {
+        list = prefix_tree.get_all_matches (to_find);
+        list.remove_link (list.find_custom (to_find, strcmp));
+        return list.first () != null;
     }
 
     public void add_word (string word) {
-        if (word.length < MINIMUM_WORD_LENGTH)
+        if (!is_valid_word (word)) {
             return;
+        }
+
+        if (word.length < MINIMUM_WORD_LENGTH) {
+            return;
+        }
 
         lock (prefix_tree) {
             prefix_tree.insert (word);
         }
     }
 
+    private bool is_valid_word (string word) {
+        // Exclude words beginning with digit
+        if (word.get_char (0).isdigit ()) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void cancel_parsing () {
         parsing_cancelled = true;
     }
 
-    public bool parse_string (string text) {
-        parsing_cancelled = false;
-        string [] word_array = text.split_set (DELIMITERS, MAX_TOKENS);
-        foreach (var current_word in word_array ) {
-            if (parsing_cancelled) {
-                debug ("Cancelling parse");
-                return false;
-            }
-            add_word (current_word);
-        }
-        return true;
-    }
+    public void delete_word (string word) requires (word.length > 0) {
+        // bool match_found = false;
+        // uint word_end_index = word.length - 1;
 
-    public void delete_word (string word, string text) requires (word.length > 0) {
-        bool match_found = false;
-        uint word_end_index = word.length - 1;
+        // // Figure out if another instance of a word in another position before trying to delete it
+        // // from the prefix tree
+        // while (word_end_index > -1 && !match_found) {
+        //     match_found = prefix_in_text (word[0:word_end_index], text);
+        //     word_end_index--;
+        // }
 
-        // Figure out if another instance of a word in another position before trying to delete it
-        // from the prefix tree
-        while (word_end_index > -1 && !match_found) {
-            match_found = prefix_in_text (word[0:word_end_index], text);
-            word_end_index--;
-        }
+        // // All possible prefixes of the word exist in the source view
+        // if (match_found && word_end_index == word.length - 1) {
+        //     return;
+        // }
 
-        // All possible prefixes of the word exist in the source view
-        if (match_found && word_end_index == word.length - 1) {
-            return;
-        }
+        // uint min_deletion_index = word_end_index + 1;
 
-        uint min_deletion_index = word_end_index + 1;
-
-        lock (prefix_tree) {
-            prefix_tree.remove (word, (int) min_deletion_index);
-        }
-    }
-
-    private bool prefix_in_text (string word, string text) {
-        // If there are at least two matches then the prefix
-        // still exists after the modifications made to the source view
-
-        try {
-            var search_regex = new Regex ("\\b$word\\b");
-            GLib.MatchInfo match_info;
-            search_regex.match_all (text, 0, out match_info);
-            return match_info.get_match_count () > 1;
-        } catch (GLib.Error err) {
-            critical ("Error while attempting regex search of prefix in document text: %s", err.message);
-        }
-
-        return false;
+        // lock (prefix_tree) {
+        //     prefix_tree.remove (word);
+        // }
     }
 }
