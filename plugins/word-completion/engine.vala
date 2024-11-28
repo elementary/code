@@ -1,6 +1,7 @@
 /*
- * Copyright (c) 2011 Lucas Baudin <xapantu@gmail.com>
- *
+ * Copyright 2024 elementary, Inc. <https://elementary.io>
+ *           2011 Lucas Baudin <xapantu@gmail.com>
+ *  *
  * This is a free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -20,13 +21,12 @@
 
 public class Euclide.Completion.Parser : GLib.Object {
     public const uint MINIMUM_WORD_LENGTH = 3;
-    private Scratch.Plugins.PrefixTree prefix_tree;
+    private Scratch.Plugins.PrefixTree? current_tree = null;
     public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 
     public Parser () {
          text_view_words = new Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> ();
-         // prefix_tree = new Scratch.Plugins.PrefixTree ();
     }
 
     public void initial_parse_buffer_text (string buffer_text) {
@@ -89,11 +89,11 @@ public class Euclide.Completion.Parser : GLib.Object {
         return Scratch.Plugins.Completion.DELIMITERS.index_of_char (uc) > -1;
     }
 
-    public bool match (string to_find) {
-        return prefix_tree.find_prefix (to_find);
+    public bool match (string to_find) requires (current_tree != null) {
+        return current_tree.find_prefix (to_find);
     }
 
-    public bool select_prefix_tree (Gtk.TextView view) {
+    public bool select_current_tree (Gtk.TextView view) {
         bool pre_existing = true;
 
         if (!text_view_words.has_key (view)) {
@@ -101,55 +101,51 @@ public class Euclide.Completion.Parser : GLib.Object {
             pre_existing = false;
         }
 
-        lock (prefix_tree) {
-            prefix_tree = text_view_words.@get (view);
+        lock (current_tree) {
+            current_tree = text_view_words.@get (view);
         }
 
         return pre_existing;
     }
 
-    public void clear () requires (prefix_tree != null) {
-        lock (prefix_tree) {
-            prefix_tree.clear (); // Sets completed false
+    public void clear () requires (current_tree != null) {
+        lock (current_tree) {
+            current_tree.clear (); // Sets completed false
         }
 
         parsing_cancelled = false;
     }
 
-    public void set_initial_parsing_completed (bool completed) {
-        lock (prefix_tree) {
-            prefix_tree.initial_parse_complete = completed;
+    public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
+        lock (current_tree) {
+            current_tree.initial_parse_complete = completed;
         }
     }
 
-    public bool get_initial_parsing_completed () {
-        return prefix_tree.initial_parse_complete;
+    public bool get_initial_parsing_completed () requires (current_tree != null) {
+        return current_tree.initial_parse_complete;
     }
 
-    // public void set_view_words (Gtk.TextView view) requires (prefix_tree != null) {
-    //     text_view_words.@set (view, prefix_tree);
-    // }
-
     // Fills list with complete words having prefix
-    public bool get_for_word (string to_find, out List<string> list) {
-        list = prefix_tree.get_all_matches (to_find);
+    public bool get_for_word (string to_find, out List<string> list) requires (current_tree != null) {
+        list = current_tree.get_all_matches (to_find);
         // list.remove_link (list.find_custom (to_find, strcmp));
         return list.first () != null;
     }
 
-    public void add_word (string word) {
+    public void add_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
-            lock (prefix_tree) {
-                prefix_tree.insert (word);
+            lock (current_tree) {
+                current_tree.insert (word);
             }
         }
     }
 
-    public void remove_word (string word) requires (word.length > 0) {
+    public void remove_word (string word) requires (word.length > 0 && current_tree != null) {
         if (is_valid_word (word)) {
-            lock (prefix_tree) {
+            lock (current_tree) {
                 warning ("remove %s", word);
-                prefix_tree.remove (word);
+                current_tree.remove (word);
             }
         }
     }

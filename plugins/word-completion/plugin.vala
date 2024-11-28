@@ -117,9 +117,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         }
 
         /* Wait a bit to allow text to load then run parser*/
-        if (!parser.select_prefix_tree (current_view)) { // Returns whether selected prefix tree has been initially parsed
+        if (!parser.select_current_tree (current_view)) { // Returns whether selected prefix tree has been initially parsed
             // Start initial parsing  after timeout to ensure text loaded
-            timeout_id = Timeout.add (1000,() => {
+            timeout_id = Timeout.add (1000, () => {
                 timeout_id = 0;
                 try {
                     new Thread<void*>.try ("word-completion-thread", () => {
