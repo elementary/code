@@ -29,9 +29,66 @@ public class Euclide.Completion.Parser : GLib.Object {
          // prefix_tree = new Scratch.Plugins.PrefixTree ();
     }
 
-    ~Parser () {
-        critical ("DESTRUCT parser");
+    public void initial_parse_buffer_text (string buffer_text) {
+        parsing_cancelled = false;
+
+        clear ();
+        if (buffer_text.length > 0) {
+            set_initial_parsing_completed (parse_text (buffer_text));
+        } else {
+            set_initial_parsing_completed (false);
+        }
     }
+
+    // Returns whether text was completely parsed
+    private bool parse_text (string text) {
+        int start_pos = 0;
+        string word = "";
+        while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
+            add_word (word);
+        }
+
+        return parsing_cancelled;
+    }
+
+    private bool get_next_word (string text, ref int pos, out string word) {
+        word = "";
+        if (forward_word_start (text, ref pos)) {
+            var end_pos = pos;
+            forward_word_end (text, ref end_pos);
+            word = text.slice (pos, end_pos);
+            pos = end_pos;
+            return true;
+        }
+
+        return false;
+    }
+
+    // Returns pointing to first char of word
+    private bool forward_word_start (string text, ref int pos) {
+        unichar? uc;
+        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+        pos--;
+        return uc != null && !is_delimiter (uc);
+    }
+
+    // Returns pointing to char after word
+    private bool forward_word_end (string text, ref int pos) {
+        unichar? uc;
+        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {
+        }
+
+        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {
+        }
+
+        pos--;
+        return uc == null || is_delimiter (uc);
+    }
+
+    private bool is_delimiter (unichar uc) {
+        return Scratch.Plugins.Completion.DELIMITERS.index_of_char (uc) > -1;
+    }
+
     public bool match (string to_find) {
         return prefix_tree.find_prefix (to_find);
     }
@@ -53,20 +110,19 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void clear () requires (prefix_tree != null) {
         lock (prefix_tree) {
-            prefix_tree.clear ();
-            prefix_tree.initial_parse_complete = false;
+            prefix_tree.clear (); // Sets completed false
         }
 
         parsing_cancelled = false;
     }
 
-    public void set_initial_parsing_complete () {
+    public void set_initial_parsing_completed (bool completed) {
         lock (prefix_tree) {
-            prefix_tree.initial_parse_complete = true;
+            prefix_tree.initial_parse_complete = completed;
         }
     }
 
-    public bool get_initial_parsing_complete () {
+    public bool get_initial_parsing_completed () {
         return prefix_tree.initial_parse_complete;
     }
 

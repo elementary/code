@@ -17,14 +17,13 @@
  * Boston, MA 02110-1301 USA.
  *
  */
-namespace Scratch {
+
+public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
     // Therefore, we reimplement some iter functions to move between words here below
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t\'\"`";
     public const int MAX_TOKENS = 1000000;
-}
 
-public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
@@ -68,16 +67,19 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
+    warning ("new source_view %s", doc.title);
         if (current_view != null) {
-            if (current_view == doc.source_view)
+            if (current_view == doc.source_view) {
                 return;
+            }
 
             parser.cancel_parsing ();
 
-            if (timeout_id > 0)
+            if (timeout_id > 0) {
                 GLib.Source.remove (timeout_id);
+            }
 
-            cleanup (current_view);
+            cleanup ();
         }
 
         current_document = doc;
@@ -90,13 +92,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
         });
+
         current_view.completion.hide.connect (() => {
             completion_in_progress = false;
         });
 
-
-        if (text_view_list.find (current_view) == null)
+        if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
+        }
 
         var comp_provider = new Scratch.Plugins.CompletionProvider (this);
         comp_provider.priority = 1;
@@ -106,91 +109,46 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             current_view.completion.add_provider (comp_provider);
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load then run parser*/
-            parser.cancel_parsing ();
-            if (!parser.select_prefix_tree (current_view) || !parser.get_initial_parsing_complete ()) {
-                // No pre-existing parsed tree - start parsing  after timeout
-                timeout_id = Timeout.add (1000, on_timeout_update);
-            }
         } catch (Error e) {
-            warning (e.message);
+            warning ("Could not add completion provider to %s. %s\n", current_document.title, e.message);
+            warning ("Not parsing");
+            cleanup ();
+            return;
         }
-    }
 
-    private bool on_timeout_update () {
-        try {
-            timeout_id = 0;
-            new Thread<void*>.try ("word-completion-thread", () => {
-                if (current_view != null) {
-                    warning ("parsing text view");
-                    parse_text_view ();
-                    warning ("finished parsing");
+        /* Wait a bit to allow text to load then run parser*/
+        if (!parser.select_prefix_tree (current_view)) { // Returns whether selected prefix tree has been initially parsed
+            // Start initial parsing  after timeout to ensure text loaded
+            timeout_id = Timeout.add (1000,() => {
+                timeout_id = 0;
+                try {
+                    new Thread<void*>.try ("word-completion-thread", () => {
+                        if (current_view != null) {
+                            warning ("%s - initial parsing", provider_name_from_document (current_document));
+                            parser.initial_parse_buffer_text (current_view.buffer.text);
+                            warning ("%s - finished initial parsing", provider_name_from_document (current_document));
+                        }
+
+                        return null;
+                    });
+                } catch (Error e) {
+                    warning (e.message);
                 }
 
-                return null;
+                return Source.REMOVE;
             });
-        } catch (Error e) {
-            warning (e.message);
-        }
-
-        return Source.REMOVE;
-    }
-
-    private void parse_text_view (Gtk.TextView view = current_view) {
-        parser.clear ();
-        if (view.buffer.text.length > 0) {
-            parse_buffer_text (view.buffer.text);
         }
     }
 
-    private void parse_buffer_text (string text) {
-        int start_pos = 0;
-        string word = "";
-        while (!parser.parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
-            parser.add_word (word);
+    // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
+    private void on_insert_text (Gtk.TextIter pos, string new_text, int new_text_length) {
+        if (contains_only_delimiters (new_text)) {
+            return;
         }
 
-        parser.set_initial_parsing_complete ();
-    }
-
-    // private bool get_next_word (ref Gtk.TextIter iter, out string word) {
-    private bool get_next_word (string text, ref int pos, out string word) {
-        word = "";
-        if (forward_word_start (text, ref pos)) {
-
-            var end_pos = pos;
-            forward_word_end (text, ref end_pos);
-            word = text.slice (pos, end_pos);
-            pos = end_pos;
-            return true;
+        if (current_insertion_line == -1) {
+            record_original_line_at (pos);
         }
-
-        return false;
-    }
-
-    // Returns pointing to first char of word
-    private bool forward_word_start (string text, ref int pos) {
-        unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
-        pos--;
-        return uc != null && !is_delimiter (uc);
-    }
-
-    // Returns pointing to char after word
-    private bool forward_word_end (string text, ref int pos) {
-        unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {
-        }
-
-        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {
-        }
-
-        pos--;
-        return uc == null || is_delimiter (uc);
-    }
-
-    private bool is_delimiter (unichar uc) {
-        return DELIMITERS.index_of_char (uc) > -1;
     }
 
     private void on_cursor_moved () {
@@ -207,7 +165,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             line_end_iter.forward_to_line_end ();
             var line_text = line_start_iter.get_text (line_end_iter).strip ();
 
-            warning ("NEW LINE TEXT %s", line_text);
             var split_s = line_text.split_set (DELIMITERS, MAX_TOKENS);
             foreach (string s in split_s) {
                 parser.add_word (s); // Ignores invalid words
@@ -220,17 +177,50 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             }
         }
     }
-    // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
-    private void on_insert_text (Gtk.TextIter pos, string new_text, int new_text_length) {
-        // We need to process spaces and other delimiters too
-        // pos points to char immediately after where text will be inserted
-        if (contains_only_delimiters (new_text)) {
+
+    int start_del_line = -1;
+    int end_del_line = -1;
+    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
+        var del_text = del_start_iter.get_text (del_end_iter);
+
+        if (contains_only_delimiters (del_text)) {
             return;
         }
 
-        if (current_insertion_line == -1) {
-            record_original_line_at (pos);
+        start_del_line = del_start_iter.get_line ();
+        end_del_line = del_end_iter.get_line ();
+        if (end_del_line == start_del_line && current_insertion_line == -1) {
+            record_original_line_at (del_start_iter); //TODO Handle multiline delete ? rebuild
         }
+    }
+
+    private void after_delete_range () {
+        if (end_del_line > start_del_line) {
+            current_insertion_line = -1;
+            original_text = "";
+           // warning ("parse view");
+            // parse_text_view ();
+        }
+
+        start_del_line = -1;
+        end_del_line = -1;
+    }
+
+    private bool contains_only_delimiters (string str) {
+        int i = 0;
+        unichar curr;
+        bool found_char = false;
+        bool has_next_character = false;
+        do {
+            has_next_character = str.get_next_char (ref i, out curr);
+            if (has_next_character) {
+                if (!(DELIMITERS.contains (curr.to_string ()))) {
+                    found_char = true;
+                }
+            }
+        } while (has_next_character && !found_char);
+
+        return !found_char;
     }
 
     private int current_insertion_line = -1;
@@ -256,153 +246,11 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         return return_s;
     }
 
-    int start_del_line = -1;
-    int end_del_line = -1;
-    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
-        var del_text = del_start_iter.get_text (del_end_iter);
-
-        if (contains_only_delimiters (del_text)) {
-            return;
-        }
-
-        start_del_line = del_start_iter.get_line ();
-        end_del_line = del_end_iter.get_line ();
-        if (end_del_line == start_del_line && current_insertion_line == -1) {
-            record_original_line_at (del_start_iter); //TODO Handle multiline delete ? rebuild
-        }
-    }
-
-    private void after_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
-        if (end_del_line > start_del_line) {
-            current_insertion_line = -1;
-            original_text = "";
-           // warning ("parse view");
-            // parse_text_view ();
-        }
-
-        start_del_line = -1;
-        end_del_line = -1;
-
-    }
-
-    private void handle_continue_word (Gtk.TextIter pos, string new_text, int new_text_length) {
-        // if (!contains_delimiter (new_text)) {
-        //     return;
-        // }
-
-        // // At least one complete word has been formed
-        // var split_s = new_text.split_set (DELIMITERS, MAX_TOKENS);
-        // assert (split_s.length > 1);
-
-        // var text_start_iter = Gtk.TextIter ();
-        // text_start_iter = pos;
-        // backward_word_start (ref text_start_iter);
-
-        // var new_word = text_start_iter.get_text (pos) + split_s[0];
-        // parser.add_word (new_word);
-        // // Add any other definitely complete words in new text
-        // for (int i = 1; i < split_s.length - 1; i++) {
-        //     parser.add_word (split_s[i]);
-        // }
-
-        // var temp = pos;
-        // temp.forward_char ();
-        // if (ends_with_delimiter (new_text) || is_delimiter (temp)) {
-        //     parser.add_word (split_s[split_s.length - 1]);
-        // }
-
-        // current_insertion_line = -1;
-    }
-
-    private void handle_insert_not_at_word_boundary (Gtk.TextIter pos, string new_text, int new_text_length) {
-// warning ("insert alone or at start");
-//         parser.add_word (new_text);
-    }
-
-    private void handle_insert_between_phrase (Gtk.TextIter pos, string new_text, int new_text_length) {
-        // warning ("word-completion: Text inserted between word.\n");
-        // var word_start_iter = pos;
-        // word_start_iter.backward_word_start ();
-
-        // var word_end_iter = pos;
-        // word_end_iter.forward_word_end ();
-
-        // var old_word_to_delete = word_start_iter.get_text (word_end_iter);
-        // parser.delete_word (old_word_to_delete);
-
-        // // Check if new text ends with whitespace
-        // if (ends_with_whitespace (new_text)) {
-        //     // The text from the insert postiion to the end of the word needs to be added as its own word
-        //     var final_word_end_iter = pos;
-        //     final_word_end_iter.forward_word_end ();
-
-        //     var extra_word_to_add = pos.get_text (final_word_end_iter);
-        //     parser.add_word (extra_word_to_add);
-        // }
-
-        // var full_phrases = word_start_iter.get_text (pos) + new_text;
-        // parser.add_word (full_phrases);
-    }
-
-    // private bool ends_with_delimiter (string str) {
-    //     if (str.length == 0) {
-    //         return false;
-    //     }
-
-    //     if (DELIMITERS.contains (str.slice (-1, str.length))) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    // private bool contains_delimiter (string str) {
-    //     int i = 0;
-    //     unichar curr;
-    //     bool found_delimiter = false;
-    //     bool has_next_character = false;
-    //     do {
-    //         has_next_character = str.get_next_char (ref i, out curr);
-    //         if (has_next_character) {
-    //             if (DELIMITERS.contains (curr.to_string ())) {
-    //                 found_delimiter = true;
-    //             }
-    //         }
-    //     } while (has_next_character && !found_delimiter);
-
-    //     return found_delimiter;
-    // }
-
-    private bool contains_only_delimiters (string str) {
-        int i = 0;
-        unichar curr;
-        bool found_char = false;
-        bool has_next_character = false;
-        do {
-            has_next_character = str.get_next_char (ref i, out curr);
-            if (has_next_character) {
-                if (!(DELIMITERS.contains (curr.to_string ()))) {
-                    found_char = true;
-                }
-            }
-        } while (has_next_character && !found_char);
-
-        return !found_char;
-    }
-
     private string provider_name_from_document (Scratch.Services.Document doc) {
         return _("%s - Word Completion").printf (doc.get_basename ());
     }
 
-    // // Returns if pointing to pos immediately after possibly incomplete word
-    // private bool is_immediate_word_end (Gtk.TextIter iter) {
-    //     var temp = iter;
-    //     temp.backward_char ();
-
-    //     return !is_delimiter (temp);
-    // }
-
-    private void cleanup (Gtk.SourceView view) {
+    private void cleanup () {
         current_view.buffer.insert_text.disconnect (on_insert_text);
         current_view.buffer.delete_range.disconnect (on_delete_range);
         current_view.buffer.delete_range.disconnect (after_delete_range);

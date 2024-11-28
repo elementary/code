@@ -76,10 +76,6 @@ namespace Scratch.Plugins {
             type = WORD_END;
         }
 
-        ~PrefixNode () {
-            critical ("DESTRUCT PrefixNode '%s' type %s", this.char_s, type.to_string ());
-        }
-
         construct {
             children = new Gee.ArrayList<PrefixNode> ();
         }
@@ -88,7 +84,7 @@ namespace Scratch.Plugins {
             return uc == c;
         }
 
-        private void increment () requires (type == WORD_END && occurrences < Scratch.MAX_TOKENS) {
+        private void increment () requires (type == WORD_END) {
             occurrences++;
         }
 
@@ -161,13 +157,9 @@ namespace Scratch.Plugins {
             clear ();
         }
 
-        ~PrefixTree () {
-            critical ("DESTRUCT PREFIXTREE");
-        }
-
         public void clear () {
-            warning ("clear prefix tree -  new root");
             root = new PrefixNode.root ();
+            initial_parse_complete = false;
         }
 
         public void insert (string word) {
