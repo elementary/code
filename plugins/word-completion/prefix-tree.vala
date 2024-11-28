@@ -1,14 +1,13 @@
 
 namespace Scratch.Plugins {
-
-    private class PrefixNode : Object {
+    public class PrefixNode : Object {
         private enum NodeType {
             ROOT,
             CHAR,
             WORD_END
         }
 
-        public GLib.List<PrefixNode> children;
+        public Gee.ArrayList<PrefixNode> children;
         private unichar? uc = null;
         private NodeType type = ROOT;
         public uint occurrences { get; set construct; default = 0; }
@@ -44,7 +43,7 @@ namespace Scratch.Plugins {
 
         public bool has_children {
             get {
-                return type != WORD_END && children.first ().data != null;
+                return type != WORD_END && children.size > 0;
             }
         }
 
@@ -77,8 +76,12 @@ namespace Scratch.Plugins {
             type = WORD_END;
         }
 
+        ~PrefixNode () {
+            critical ("DESTRUCT PrefixNode '%s' type %s", this.char_s, type.to_string ());
+        }
+
         construct {
-            children = new List<PrefixNode> ();
+            children = new Gee.ArrayList<PrefixNode> ();
         }
 
         public bool has_char (unichar c) {
@@ -89,24 +92,34 @@ namespace Scratch.Plugins {
             occurrences++;
         }
 
-        public void decrement () requires (type != WORD_END && occurrences > 0) {
+        private void decrement () requires (type == WORD_END && occurrences > 0) {
             occurrences--;
-        }
-
-        public void append_child (PrefixNode child) requires (type != WORD_END) {
-            children.append (child);
-        }
-
-        public void remove_child (PrefixNode child) requires (this.has_children) {
-            children.remove (child);
-            if (children.length () < 1 && parent != null) {
+            if (occurrences == 0) {
+                critical ("remove after decrement");
                 parent.remove_child (this);
             }
         }
 
-        public void insert_word_end () {
+        private void append_child (owned PrefixNode child) requires (type != WORD_END) {
+            children.add (child);
+        }
+
+        private void remove_child (PrefixNode child) requires (type != WORD_END) {
+            children.remove (child);
+        }
+
+        public void remove_word_end () requires (this.has_children) {
             foreach (var child in children) {
                 if (child.is_word_end) {
+                    child.decrement ();
+                    return;
+                }
+            }
+        }
+
+        public void insert_word_end () requires (!this.is_word_end && !this.is_root) {
+            foreach (var child in children) {
+                if (child.type == WORD_END) {
                     child.increment ();
                     return;
                 }
@@ -116,26 +129,43 @@ namespace Scratch.Plugins {
             append_child (new_child);
         }
 
-        public void insert_char_child (unichar c) requires (!this.is_word_end) {
+        public PrefixNode append_char_child (unichar c) requires (!this.is_word_end) {
             foreach (var child in children) {
                 if (child.has_char (c)) {
-                    return;
+                    return child;
                 }
             }
 
-            var new_child = new PrefixNode.word_end (this);
+            var new_child = new PrefixNode.from_unichar (c, this);
             append_child (new_child);
+            return new_child;
+        }
+        
+        public PrefixNode? has_char_child (unichar c) requires (!this.is_word_end) {
+            foreach (var child in children) {
+                if (child.has_char (c)) {
+                    return child;
+                }
+            }
+
+            return null;
         }
     }
 
     public class PrefixTree : Object {
-        private PrefixNode root;
+        private PrefixNode? root = null;
 
         construct {
+            warning ("construct prefix tree");
             clear ();
         }
 
+        ~PrefixTree () {
+            critical ("DESTRUCT PREFIXTREE");
+        }
+
         public void clear () {
+            warning ("clear prefix tree -  new root");
             root = new PrefixNode.root ();
         }
 
@@ -143,71 +173,32 @@ namespace Scratch.Plugins {
             if (word.length == 0) {
                 return;
             }
-warning ("prefix tree insert %s", word);
+
             this.insert_at (word, this.root);
-        }
-
-        public void decrement_word_occurrences (string word) {
-
         }
 
         private void insert_at (string word, PrefixNode node, int i = 0) requires (!node.is_word_end) {
             unichar curr = '\0';
             if (!word.get_next_char (ref i, out curr) || curr == '\0') {
-                insert_word_end_at (node);
+                node.insert_word_end ();
                 return;
             }
 
-            foreach (var child in node.children) {
-                if (child.has_char (curr)) {
-                    insert_at (word, child, i);
-                    return;
-                }
-            }
-
-            assert (curr != '\0');
-            var new_child = new PrefixNode.from_unichar (curr, node);
-            node.append_child (new_child);
-            insert_at (word, new_child, i);
-        }
-
-        private void insert_word_end_at (PrefixNode node) {
-            node.insert_word_end ();
+            var child = node.append_char_child (curr);
+            insert_at (word, child, i);
         }
 
         public void remove (string word) requires (word.length > 0) {
-            // if (word.length == 0) {
-            //     return;
-            // }
-            // var word_node = find_prefix_at (word, root);
-            // assert (word_node.occurrences > 0);
-            // word_node.decrement ();
-            // remove_at (word, root, min_deletion_index);
+            if (word.length == 0) {
+                return;
+            }
+
+            var word_node = find_prefix_at (word, root);
+
+            if (word_node != null) {
+                word_node.remove_word_end (); // Will autoremove unused parents
+            }
         }
-
-        // private bool remove_at (string word, PrefixNode node, int min_deletion_index, int char_index = 0) {
-        //     unichar curr;
-
-        //     word.get_next_char (ref char_index, out curr);
-        //     if (curr == '\0') {
-        //         return true;
-        //     }
-
-        //     foreach (var child in node.children) {
-        //         if (child.value == curr) {
-        //             bool should_continue = this.remove_at (word, node, min_deletion_index, char_index + 1);
-
-        //             if (should_continue && child.children.length () == 0) {
-        //                 node.children.remove (child);
-        //                 return char_index < min_deletion_index;
-        //             }
-
-        //             break;
-        //         }
-        //     }
-
-        //     return false;
-        // }
 
         public bool find_prefix (string prefix) {
             return find_prefix_at (prefix, root) != null ? true : false;
@@ -217,14 +208,12 @@ warning ("prefix tree insert %s", word);
             unichar curr;
 
             if (!prefix.get_next_char (ref i, out curr)) {
-            // if (curr == '\0') {
                 return node;
             }
 
-            foreach (var child in node.children) {
-                if (child.has_char (curr)) {
-                    return find_prefix_at (prefix, child, i);
-                }
+            var child = node.has_char_child (curr);
+            if (child != null) {
+                return find_prefix_at (prefix, child, i);
             }
 
             return null;

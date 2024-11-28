@@ -21,45 +21,50 @@
 public class Euclide.Completion.Parser : GLib.Object {
     public const uint MINIMUM_WORD_LENGTH = 3;
     private Scratch.Plugins.PrefixTree prefix_tree;
+    private Gtk.TextView current_view;
     public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 
     public Parser () {
          text_view_words = new Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> ();
-         prefix_tree = new Scratch.Plugins.PrefixTree ();
+         // prefix_tree = new Scratch.Plugins.PrefixTree ();
     }
 
+    ~Parser () {
+        critical ("DESTRUCT parser");
+    }
     public bool match (string to_find) {
         return prefix_tree.find_prefix (to_find);
     }
 
     public void select_prefix_tree (Gtk.TextView view) {
-       lock (prefix_tree) {
-            if (text_view_words.has_key (view)) {
-                prefix_tree = text_view_words.@get (view);
-            } else {
-                /* Else create a new word list and parse the buffer text */
-                prefix_tree = new Scratch.Plugins.PrefixTree ();
+       // lock (prefix_tree) {
+            if (!text_view_words.has_key (view)) {
+            warning ("creating new prefix tree for view");
+                text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
             }
-       }
+       // }
+        prefix_tree = text_view_words.@get (view);
+        current_view = view;
     }
 
     public void clear () requires (prefix_tree != null) {
         prefix_tree.clear ();
     }
 
-    public void set_view_words (Gtk.TextView view) requires (prefix_tree != null) {
-        text_view_words.@set (view, prefix_tree);
-    }
+    // public void set_view_words (Gtk.TextView view) requires (prefix_tree != null) {
+    //     text_view_words.@set (view, prefix_tree);
+    // }
 
     // Fills list with complete words having prefix
     public bool get_for_word (string to_find, out List<string> list) {
         list = prefix_tree.get_all_matches (to_find);
-        list.remove_link (list.find_custom (to_find, strcmp));
+        // list.remove_link (list.find_custom (to_find, strcmp));
         return list.first () != null;
     }
 
     public void add_word (string word) {
+
         if (!is_valid_word (word)) {
             return;
         }
@@ -69,6 +74,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
 
         lock (prefix_tree) {
+warning ("add word %s", word);
             prefix_tree.insert (word);
         }
     }
@@ -86,26 +92,10 @@ public class Euclide.Completion.Parser : GLib.Object {
         parsing_cancelled = true;
     }
 
-    public void delete_word (string word) requires (word.length > 0) {
-        // bool match_found = false;
-        // uint word_end_index = word.length - 1;
-
-        // // Figure out if another instance of a word in another position before trying to delete it
-        // // from the prefix tree
-        // while (word_end_index > -1 && !match_found) {
-        //     match_found = prefix_in_text (word[0:word_end_index], text);
-        //     word_end_index--;
-        // }
-
-        // // All possible prefixes of the word exist in the source view
-        // if (match_found && word_end_index == word.length - 1) {
-        //     return;
-        // }
-
-        // uint min_deletion_index = word_end_index + 1;
-
-        // lock (prefix_tree) {
-        //     prefix_tree.remove (word);
-        // }
+    public void remove_word (string word) requires (word.length > 0) {
+        lock (prefix_tree) {
+            warning ("remove %s", word);
+            prefix_tree.remove (word);
+        }
     }
 }
