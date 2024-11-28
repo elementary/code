@@ -34,18 +34,30 @@ public class Euclide.Completion.Parser : GLib.Object {
 
         clear ();
         if (buffer_text.length > 0) {
-            set_initial_parsing_completed (parse_text (buffer_text));
+            set_initial_parsing_completed (parse_text_and_add (buffer_text));
         } else {
             set_initial_parsing_completed (false);
         }
     }
 
-    // Returns whether text was completely parsed
-    private bool parse_text (string text) {
+    // Returns true if text was completely parsed
+    public bool parse_text_and_add (string text) {
         int start_pos = 0;
         string word = "";
         while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
+            warning ("adding word %s", word);
             add_word (word);
+        }
+
+        return !parsing_cancelled;
+    }
+
+    // Returns whether text was completely parsed
+    public bool parse_text_and_remove (string text) {
+        int start_pos = 0;
+        string word = "";
+        while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
+            remove_word (word);
         }
 
         return parsing_cancelled;
@@ -56,7 +68,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         if (forward_word_start (text, ref pos)) {
             var end_pos = pos;
             forward_word_end (text, ref end_pos);
-            word = text.slice (pos, end_pos);
+            word = text.slice (pos, end_pos).strip ();
             pos = end_pos;
             return true;
         }
@@ -72,7 +84,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         return uc != null && !is_delimiter (uc);
     }
 
-    // Returns pointing to char after word
+    // Returns pointing to char after last char of word
     private bool forward_word_end (string text, ref int pos) {
         unichar? uc;
         while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {
@@ -81,7 +93,6 @@ public class Euclide.Completion.Parser : GLib.Object {
         while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {
         }
 
-        pos--;
         return uc == null || is_delimiter (uc);
     }
 
@@ -133,20 +144,23 @@ public class Euclide.Completion.Parser : GLib.Object {
         return list.first () != null;
     }
 
-    public void add_word (string word) requires (current_tree != null) {
+    private void add_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
             lock (current_tree) {
                 current_tree.insert (word);
             }
+        } else {
+        warning ("'%s' not added", word);
         }
     }
 
-    public void remove_word (string word) requires (word.length > 0 && current_tree != null) {
+    private void remove_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
             lock (current_tree) {
-                warning ("remove %s", word);
                 current_tree.remove (word);
             }
+        } else {
+        warning ("'%s' not removed", word);
         }
     }
 

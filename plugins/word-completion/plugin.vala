@@ -21,7 +21,7 @@
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
     // Therefore, we reimplement some iter functions to move between words here below
-    public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t\'\"`";
+    public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`";
     public const int MAX_TOKENS = 1000000;
 
     public Object object { owned get; construct; }
@@ -74,11 +74,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             }
 
             parser.cancel_parsing ();
-
-            if (timeout_id > 0) {
-                GLib.Source.remove (timeout_id);
-            }
-
             cleanup ();
         }
 
@@ -117,16 +112,17 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         }
 
         /* Wait a bit to allow text to load then run parser*/
-        if (!parser.select_current_tree (current_view)) { // Returns whether selected prefix tree has been initially parsed
+        if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
             // Start initial parsing  after timeout to ensure text loaded
+            warning ("start timeout for %s", current_document.title);
             timeout_id = Timeout.add (1000, () => {
                 timeout_id = 0;
                 try {
                     new Thread<void*>.try ("word-completion-thread", () => {
                         if (current_view != null) {
-                            warning ("%s - initial parsing", provider_name_from_document (current_document));
+                            warning ("%s - initial parsing", current_document.title);
                             parser.initial_parse_buffer_text (current_view.buffer.text);
-                            warning ("%s - finished initial parsing", provider_name_from_document (current_document));
+                            warning ("%s - finished initial parsing - completed %s", current_document.title, parser. get_initial_parsing_completed ().to_string ());
                         }
 
                         return null;
@@ -151,59 +147,76 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         }
     }
 
+    Gtk.TextMark start_del_mark = new Gtk.TextMark ("StartDelete", true);
+    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
+        var del_text = del_start_iter.get_text (del_end_iter);
+
+        if (contains_only_delimiters (del_text)) {
+            return;
+        } else {
+            parser.parse_text_and_remove (del_text);
+        }
+
+        current_view.buffer.add_mark (start_del_mark, del_start_iter);
+    }
+
+    private void after_delete_range () {
+        Gtk.TextIter? iter = null;
+        // start_del_mark may not have been added
+        if (!start_del_mark.get_deleted ()) {
+            current_view.buffer.get_iter_at_mark (out iter, start_del_mark);
+            var word = "";
+            if (iter != null) {
+                if (iter.starts_word ()) {
+                    var start_iter = iter;
+                    iter.forward_word_end ();
+                    word = start_iter.get_text (iter);
+                } else if (iter.ends_word ()) {
+                    var end_iter = iter;
+                    iter.backward_word_start ();
+                    word = iter.get_text (end_iter);
+                } else if (iter.inside_word ()) {
+                    var start_iter = iter;
+                    start_iter.backward_word_start ();
+                    var end_iter = iter;
+                    end_iter.forward_word_end ();
+                    word = start_iter.get_text (end_iter);
+                }
+
+                if (word != "") {
+                    warning ("got possible new word %s", word);
+                    parser.parse_text_and_add (word);
+                }
+            }
+
+            current_view.buffer.delete_mark (start_del_mark);
+        }
+    }
+
     private void on_cursor_moved () {
+        // Ignore moves within when no insertions or we are deleting
+        // Deletions are handled in `after_delete_range`
+        if (current_insertion_line < 0 || current_view.buffer.get_mark ("StartDelete") != null) {
+            return;
+        }
+
         var insert_offset = current_view.buffer.cursor_position;
         Gtk.TextIter cursor_iter;
         current_view.buffer.get_iter_at_offset (out cursor_iter, insert_offset);
         var temp_iter = cursor_iter;
         temp_iter.backward_char ();
 
-        if (current_insertion_line > -1 && (current_insertion_line != cursor_iter.get_line ())) {
+        if (current_insertion_line != cursor_iter.get_line ()) {
             Gtk.TextIter line_start_iter, line_end_iter;
             current_view.buffer.get_iter_at_line (out line_start_iter, current_insertion_line);
             line_end_iter = line_start_iter;
             line_end_iter.forward_to_line_end ();
-            var line_text = line_start_iter.get_text (line_end_iter).strip ();
+            var line_text = line_start_iter.get_text (line_end_iter);
+            parser.parse_text_and_add (line_text);
 
-            var split_s = line_text.split_set (DELIMITERS, MAX_TOKENS);
-            foreach (string s in split_s) {
-                parser.add_word (s); // Ignores invalid words
-            }
-
-            var retrieved_original_text = retrieve_original_text ().strip ();
-            var orig_split_s = retrieved_original_text.split_set (DELIMITERS, MAX_TOKENS);
-            foreach (string s in orig_split_s) {
-                parser.remove_word (s);
-            }
+            var retrieved_original_text = retrieve_original_text ();
+            parser.parse_text_and_remove (retrieved_original_text);
         }
-    }
-
-    int start_del_line = -1;
-    int end_del_line = -1;
-    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
-        var del_text = del_start_iter.get_text (del_end_iter);
-
-        if (contains_only_delimiters (del_text)) {
-            return;
-        }
-
-        start_del_line = del_start_iter.get_line ();
-        end_del_line = del_end_iter.get_line ();
-        if (end_del_line == start_del_line && current_insertion_line == -1) {
-            record_original_line_at (del_start_iter); //TODO Handle multiline delete ? rebuild
-        }
-    }
-
-    private void after_delete_range () {
-        if (end_del_line > start_del_line) {
-            current_insertion_line = -1;
-            original_text = "";
-           // warning ("parse view");
-            // parse_text_view ();
-        }
-
-        start_del_line = -1;
-        end_del_line = -1;
     }
 
     private bool contains_only_delimiters (string str) {
@@ -235,14 +248,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         end_iter.forward_to_line_end ();
         original_text = start_iter.get_text (end_iter);
-        warning ("record original text %s", original_text);
     }
 
     private string retrieve_original_text () {
         var return_s = original_text;
         original_text = "";
         current_insertion_line = -1;
-        // warning ("retrieved %s", return_s);
         return return_s;
     }
 
@@ -251,6 +262,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void cleanup () {
+        if (timeout_id > 0) {
+            GLib.Source.remove (timeout_id);
+        }
+
         current_view.buffer.insert_text.disconnect (on_insert_text);
         current_view.buffer.delete_range.disconnect (on_delete_range);
         current_view.buffer.delete_range.disconnect (after_delete_range);
