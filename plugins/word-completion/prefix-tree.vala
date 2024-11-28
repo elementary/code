@@ -140,7 +140,7 @@ namespace Scratch.Plugins {
             append_child (new_child);
             return new_child;
         }
-        
+
         public PrefixNode? has_char_child (unichar c) requires (!this.is_word_end) {
             foreach (var child in children) {
                 if (child.has_char (c)) {
@@ -154,6 +154,7 @@ namespace Scratch.Plugins {
 
     public class PrefixTree : Object {
         private PrefixNode? root = null;
+        public bool initial_parse_complete = false;
 
         construct {
             warning ("construct prefix tree");

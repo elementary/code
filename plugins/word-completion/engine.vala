@@ -21,7 +21,6 @@
 public class Euclide.Completion.Parser : GLib.Object {
     public const uint MINIMUM_WORD_LENGTH = 3;
     private Scratch.Plugins.PrefixTree prefix_tree;
-    private Gtk.TextView current_view;
     public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
 
@@ -37,19 +36,38 @@ public class Euclide.Completion.Parser : GLib.Object {
         return prefix_tree.find_prefix (to_find);
     }
 
-    public void select_prefix_tree (Gtk.TextView view) {
-       // lock (prefix_tree) {
-            if (!text_view_words.has_key (view)) {
-            warning ("creating new prefix tree for view");
-                text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
-            }
-       // }
-        prefix_tree = text_view_words.@get (view);
-        current_view = view;
+    public bool select_prefix_tree (Gtk.TextView view) {
+        bool pre_existing = true;
+
+        if (!text_view_words.has_key (view)) {
+            text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
+            pre_existing = false;
+        }
+
+        lock (prefix_tree) {
+            prefix_tree = text_view_words.@get (view);
+        }
+
+        return pre_existing;
     }
 
     public void clear () requires (prefix_tree != null) {
-        prefix_tree.clear ();
+        lock (prefix_tree) {
+            prefix_tree.clear ();
+            prefix_tree.initial_parse_complete = false;
+        }
+
+        parsing_cancelled = false;
+    }
+
+    public void set_initial_parsing_complete () {
+        lock (prefix_tree) {
+            prefix_tree.initial_parse_complete = true;
+        }
+    }
+
+    public bool get_initial_parsing_complete () {
+        return prefix_tree.initial_parse_complete;
     }
 
     // public void set_view_words (Gtk.TextView view) requires (prefix_tree != null) {
@@ -64,22 +82,27 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     public void add_word (string word) {
-
-        if (!is_valid_word (word)) {
-            return;
+        if (is_valid_word (word)) {
+            lock (prefix_tree) {
+                prefix_tree.insert (word);
+            }
         }
+    }
 
-        if (word.length < MINIMUM_WORD_LENGTH) {
-            return;
-        }
-
-        lock (prefix_tree) {
-warning ("add word %s", word);
-            prefix_tree.insert (word);
+    public void remove_word (string word) requires (word.length > 0) {
+        if (is_valid_word (word)) {
+            lock (prefix_tree) {
+                warning ("remove %s", word);
+                prefix_tree.remove (word);
+            }
         }
     }
 
     private bool is_valid_word (string word) {
+        if (word.strip ().length < MINIMUM_WORD_LENGTH) {
+            return false;
+        }
+
         // Exclude words beginning with digit
         if (word.get_char (0).isdigit ()) {
             return false;
@@ -90,12 +113,5 @@ warning ("add word %s", word);
 
     public void cancel_parsing () {
         parsing_cancelled = true;
-    }
-
-    public void remove_word (string word) requires (word.length > 0) {
-        lock (prefix_tree) {
-            warning ("remove %s", word);
-            prefix_tree.remove (word);
-        }
     }
 }
