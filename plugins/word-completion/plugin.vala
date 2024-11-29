@@ -23,6 +23,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     // Therefore, we reimplement some iter functions to move between words here below
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`";
     public const int MAX_TOKENS = 1000000;
+    public static bool is_delimiter (unichar? uc) {
+        return uc == null || DELIMITERS.index_of_char (uc) > -1;
+    }
 
     public Object object { owned get; construct; }
 
@@ -137,13 +140,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
-    private void on_insert_text (Gtk.TextIter pos, string new_text, int new_text_length) {
+    private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
         if (contains_only_delimiters (new_text)) {
             return;
         }
 
         if (current_insertion_line == -1) {
-            record_original_line_at (pos);
+            record_original_line_at (iter);
         }
     }
 
@@ -166,21 +169,33 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         if (!start_del_mark.get_deleted ()) {
             current_view.buffer.get_iter_at_mark (out iter, start_del_mark);
             var word = "";
+            unichar? curr = null;
+            unichar? prev = null;
             if (iter != null) {
-                if (iter.starts_word ()) {
-                    var start_iter = iter;
-                    iter.forward_word_end ();
-                    word = start_iter.get_text (iter);
-                } else if (iter.ends_word ()) {
-                    var end_iter = iter;
-                    iter.backward_word_start ();
-                    word = iter.get_text (end_iter);
-                } else if (iter.inside_word ()) {
-                    var start_iter = iter;
-                    start_iter.backward_word_start ();
-                    var end_iter = iter;
-                    end_iter.forward_word_end ();
-                    word = start_iter.get_text (end_iter);
+                var text = current_view.buffer.text;
+                var pos = iter.get_offset ();
+                text.get_prev_char (ref pos, out prev);
+                pos = iter.get_offset ();
+                text.get_next_char (ref pos, out curr);
+
+                if (is_delimiter (prev) && !is_delimiter (curr)) { // starts word
+                    var start_pos = iter.get_offset ();
+                    pos = start_pos;
+                    if (parser.forward_word_end (text, ref pos)) {
+                        word = text.slice (start_pos, pos);
+                    }
+                } else if (!is_delimiter (prev) && is_delimiter (curr)) {
+                    var end_pos = iter.get_offset ();
+                    pos = end_pos;
+                    if (parser.backward_word_start (text, ref pos)) {
+                        word = text.slice (pos, end_pos);
+                    }
+                } else if (!is_delimiter (prev) && !is_delimiter (prev)) {
+                    var start_pos = iter.get_offset ();
+                    var end_pos = start_pos;
+                    if (parser.backward_word_start (text, ref start_pos) && parser.forward_word_end (text, ref end_pos)) {
+                        word = text.slice (start_pos, end_pos);
+                    }
                 }
 
                 if (word != "") {

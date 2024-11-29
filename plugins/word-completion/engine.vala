@@ -78,15 +78,22 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     // Returns pointing to first char of word
-    private bool forward_word_start (string text, ref int pos) {
+    public bool forward_word_start (string text, ref int pos) {
         unichar? uc;
         while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
         pos--;
         return uc != null && !is_delimiter (uc);
     }
+    // Returns pointing to first char of word
+    public bool backward_word_start (string text, ref int pos) {
+        unichar? uc;
+        while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {}
+        pos++;
+        return uc != null && !is_delimiter (uc);
+    }
 
     // Returns pointing to char after last char of word
-    private bool forward_word_end (string text, ref int pos) {
+    public bool forward_word_end (string text, ref int pos) {
         unichar? uc;
         while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {
         }
@@ -98,7 +105,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     private bool is_delimiter (unichar uc) {
-        return Scratch.Plugins.Completion.DELIMITERS.index_of_char (uc) > -1;
+        return Scratch.Plugins.Completion.is_delimiter (uc);
     }
 
     public bool match (string to_find) requires (current_tree != null) {

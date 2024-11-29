@@ -53,7 +53,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     private string current_text_to_find = "";
     public bool match (Gtk.SourceCompletionContext context) {
-        Gtk.TextIter start, end;
         int start_pos = buffer.cursor_position;
         back_to_word_start (buffer.text, ref start_pos);
         current_text_to_find = buffer.text.slice (start_pos, buffer.cursor_position);
@@ -112,12 +111,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 out Gtk.TextIter iter) {
-        var mark = buffer.get_insert ();
-        Gtk.TextIter cursor_iter;
-        buffer.get_iter_at_mark (out cursor_iter, mark);
 
-        iter = cursor_iter;
-        iter.backward_word_start ();
+        var word_start = buffer.cursor_position;
+        buffer.get_iter_at_offset (out iter, word_start);
         return true;
     }
 

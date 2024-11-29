@@ -90,7 +90,7 @@
             warning ("looking for completions for %s", prefix);
             var sb = new StringBuilder ("");
             node.get_all_completions (ref list, ref sb);
-            warning ("got %u completions",list.length ());
+            warning ("got %u completions", list.length ());
         }
 
         return list;
