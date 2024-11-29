@@ -26,7 +26,7 @@ public class Scratch.Plugins.PrefixNode : Object {
         WORD_END
     }
 
-    public Gee.ArrayList<PrefixNode> children;
+    private Gee.ArrayList<PrefixNode> children;
     private unichar? uc = null;
     private NodeType type = ROOT;
     public uint occurrences { get; set construct; default = 0; }
@@ -110,7 +110,6 @@ public class Scratch.Plugins.PrefixNode : Object {
     private void decrement () requires (type == WORD_END && occurrences > 0) {
         occurrences--;
         if (occurrences == 0) {
-            critical ("remove after decrement");
             parent.remove_child (this);
         }
     }
@@ -164,5 +163,24 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
 
         return null;
+    }
+
+    // First could with node at the last char of the prefix
+    public void get_all_completions (ref List<string> completions, ref StringBuilder sb) {
+        var initial_sb_str = sb.str;
+        warning ("get all completions for %s", initial_sb_str);
+        foreach (var child in children) {
+            if (child.is_word_end) {
+                if (sb.str.length > 0) {
+                    warning ("word end - appending completion %s", sb.str);
+                    completions.prepend (sb.str);
+                }
+            } else {
+                sb.append (child.char_s);
+                child.get_all_completions (ref completions, ref sb);
+            }
+
+            sb.assign (initial_sb_str);
+        }
     }
 }

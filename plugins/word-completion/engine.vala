@@ -38,6 +38,8 @@ public class Euclide.Completion.Parser : GLib.Object {
         } else {
             set_initial_parsing_completed (false);
         }
+
+        warning ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
     }
 
     // Returns true if text was completely parsed
@@ -45,7 +47,6 @@ public class Euclide.Completion.Parser : GLib.Object {
         int start_pos = 0;
         string word = "";
         while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
-            warning ("adding word %s", word);
             add_word (word);
         }
 
@@ -138,19 +139,18 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     // Fills list with complete words having prefix
-    public bool get_for_word (string to_find, out List<string> list) requires (current_tree != null) {
-        list = current_tree.get_all_matches (to_find);
-        // list.remove_link (list.find_custom (to_find, strcmp));
-        return list.first () != null;
+    public bool get_completions_for_prefix (string prefix, out List<string> completions) requires (current_tree != null) {
+        completions = current_tree.get_all_completions (prefix);
+warning ("engine got %u completions", completions.length ());
+        return completions.first () != null;
     }
 
     private void add_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
             lock (current_tree) {
+                warning ("add word %s", word);
                 current_tree.insert (word);
             }
-        } else {
-        warning ("'%s' not added", word);
         }
     }
 
@@ -159,8 +159,6 @@ public class Euclide.Completion.Parser : GLib.Object {
             lock (current_tree) {
                 current_tree.remove (word);
             }
-        } else {
-        warning ("'%s' not removed", word);
         }
     }
 

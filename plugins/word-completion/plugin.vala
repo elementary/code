@@ -184,7 +184,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 }
 
                 if (word != "") {
-                    warning ("got possible new word %s", word);
                     parser.parse_text_and_add (word);
                 }
             }

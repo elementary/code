@@ -24,7 +24,6 @@
     public bool initial_parse_complete = false;
 
     construct {
-        warning ("construct prefix tree");
         clear ();
     }
 
@@ -83,30 +82,17 @@
         return null;
     }
 
-    public List<string> get_all_matches (string prefix) {
+    public List<string> get_all_completions (string prefix) {
         var list = new List<string> ();
         var node = find_prefix_at (prefix, root, 0);
+        warning ("found node for %s - letter is %s", prefix, node.char_s);
         if (node != null && !node.is_word_end) {
-            var sb = new StringBuilder (prefix);
-            get_all_matches_rec (node, ref sb, ref list);
+            warning ("looking for completions for %s", prefix);
+            var sb = new StringBuilder ("");
+            node.get_all_completions (ref list, ref sb);
+            warning ("got %u completions",list.length ());
         }
 
         return list;
-    }
-
-    private void get_all_matches_rec (
-                PrefixNode node,
-                ref StringBuilder sbuilder,
-                ref List<string> matches) {
-
-        foreach (var child in node.children) {
-            if (child.is_word_end) {
-                matches.append (sbuilder.str);
-            } else {
-                sbuilder.append (child.char_s);
-                get_all_matches_rec (child, ref sbuilder, ref matches);
-                sbuilder.erase (sbuilder.len - child.length, -1);
-            }
-        }
     }
 }

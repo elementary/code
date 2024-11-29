@@ -142,13 +142,16 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
             /* Get proposals, if any */
-            List<string> prop_word_list;
-            if (parser.get_for_word (to_find, out prop_word_list)) {
-                foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem ();
-                    item.label = word;
-                    item.text = word;
-                    props.append (item);
+            List<string> completions;
+            if (parser.get_completions_for_prefix (to_find, out completions)) {
+                foreach (var completion in completions) {
+                    if (completion.length > 0) {
+                        var item = new Gtk.SourceCompletionItem ();
+                        var word = to_find + completion;
+                        item.label = word;
+                        item.text = completion;
+                        props.append (item);
+                    }
                 }
 
                 return true;
