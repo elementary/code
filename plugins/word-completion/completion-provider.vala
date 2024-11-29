@@ -136,7 +136,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
 
         /* There is no minimum length of word to find if the user requested a completion */
-        if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
+        if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_PREFIX_LENGTH) {
             /* Get proposals, if any */
             List<string> completions;
             if (parser.get_completions_for_prefix (to_find, out completions)) {

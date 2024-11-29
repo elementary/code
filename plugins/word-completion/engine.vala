@@ -20,7 +20,8 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
-    public const uint MINIMUM_WORD_LENGTH = 3;
+    public const uint MINIMUM_WORD_LENGTH = 4;
+    public const uint MINIMUM_PREFIX_LENGTH = 1;
     private Scratch.Plugins.PrefixTree? current_tree = null;
     public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
