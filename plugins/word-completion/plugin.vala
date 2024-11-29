@@ -142,6 +142,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
         if (contains_only_delimiters (new_text)) {
+            var text = current_view.buffer.text;
+            var pos = iter.get_offset ();
+            parser.backward_word_start (text, ref pos);
+            var word = text.slice (pos, iter.get_offset ());
+            warning ("inserting word %s after insert delimiter", word);
+            parser.parse_text_and_add (word);
             return;
         }
 
