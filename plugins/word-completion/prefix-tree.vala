@@ -85,12 +85,9 @@
     public List<string> get_all_completions (string prefix) {
         var list = new List<string> ();
         var node = find_prefix_at (prefix, root, 0);
-        warning ("found node for %s - letter is %s", prefix, node.char_s);
         if (node != null && !node.is_word_end) {
-            warning ("looking for completions for %s", prefix);
             var sb = new StringBuilder ("");
             node.get_all_completions (ref list, ref sb);
-            warning ("got %u completions", list.length ());
         }
 
         return list;

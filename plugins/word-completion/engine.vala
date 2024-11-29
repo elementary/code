@@ -124,7 +124,8 @@ public class Euclide.Completion.Parser : GLib.Object {
             current_tree = text_view_words.@get (view);
         }
 
-        return pre_existing;
+        warning ("selected tree for view %s", ((Scratch.Widgets.SourceView)view).location.get_basename ());
+        return pre_existing && get_initial_parsing_completed ();
     }
 
     public void clear () requires (current_tree != null) {
@@ -137,6 +138,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
         lock (current_tree) {
+            warning ("setting current tree completed %s", completed.to_string ());
             current_tree.initial_parse_complete = completed;
         }
     }
@@ -155,7 +157,7 @@ warning ("engine got %u completions", completions.length ());
     private void add_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
             lock (current_tree) {
-                warning ("add word %s", word);
+                // warning ("add word %s", word);
                 current_tree.insert (word);
             }
         }
