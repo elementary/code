@@ -105,8 +105,11 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
         } catch (Error e) {
-            warning ("Could not add completion provider to %s. %s\n", current_document.title, e.message);
-            warning ("Not parsing");
+            warning (
+                "Could not add completion provider to %s. %s\n",
+                current_document.title,
+                e.message
+            );
             cleanup ();
             return;
         }
@@ -114,15 +117,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         /* Wait a bit to allow text to load then run parser*/
         if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
             // Start initial parsing  after timeout to ensure text loaded
-            warning ("start timeout for %s", current_document.title);
             timeout_id = Timeout.add (1000, () => {
                 timeout_id = 0;
                 try {
                     new Thread<void*>.try ("word-completion-thread", () => {
                         if (current_view != null) {
-                            warning ("%s - initial parsing", current_document.title);
                             parser.initial_parse_buffer_text (current_view.buffer.text);
-                            warning ("%s - finished initial parsing - completed %s", current_document.title, parser. get_initial_parsing_completed ().to_string ());
                         }
 
                         return null;

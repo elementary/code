@@ -51,14 +51,29 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return this.priority;
     }
 
+    private string current_text_to_find = "";
     public bool match (Gtk.SourceCompletionContext context) {
         Gtk.TextIter start, end;
-        buffer.get_iter_at_offset (out end, buffer.cursor_position);
-        start = end.copy ();
-        start.backward_word_start ();
-        string text = buffer.get_text (start, end, true);
+        int start_pos = buffer.cursor_position;
+        back_to_word_start (buffer.text, ref start_pos);
+        current_text_to_find = buffer.text.slice (start_pos, buffer.cursor_position);
+        var found = parser.match (current_text_to_find);
 
-        return parser.match (text);
+        return found;
+    }
+
+    private void back_to_word_start (string text, ref int pos) {
+        unichar uc;
+        while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {
+        }
+
+        pos++;
+
+        return;
+    }
+
+    private bool is_delimiter (unichar uc) {
+        return Scratch.Plugins.Completion.DELIMITERS.index_of_char (uc) > -1;
     }
 
     public void populate (Gtk.SourceCompletionContext context) {
@@ -118,12 +133,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         to_find = temp_buffer.get_text (start, end, true);
 
         if (to_find.length == 0) {
-            temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
-
-            start = end;
-            start.backward_word_start ();
-
-            to_find = buffer.get_text (start, end, false);
+            to_find = current_text_to_find;
         }
 
         buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
