@@ -63,7 +63,7 @@
         }
     }
 
-    public bool find_prefix (string prefix) {
+    public bool has_prefix (string prefix) {
         return find_prefix_at (prefix, root) != null ? true : false;
     }
 

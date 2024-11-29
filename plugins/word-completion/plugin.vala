@@ -72,7 +72,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
-    warning ("new source_view %s", doc.title);
+    debug ("new source_view %s", doc.title);
         if (current_view != null) {
             if (current_view == doc.source_view) {
                 return;
@@ -87,7 +87,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view.buffer.insert_text.connect (on_insert_text);
         current_view.buffer.delete_range.connect (on_delete_range);
         current_view.buffer.delete_range.connect_after (after_delete_range);
-        current_view.buffer.notify["cursor-position"].connect (on_cursor_moved);
+        // current_view.buffer.notify["cursor-position"].connect (on_cursor_moved);
 
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
@@ -143,101 +143,91 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
-        if (contains_only_delimiters (new_text)) {
-            var text = current_view.buffer.text;
-            var pos = iter.get_offset ();
-            parser.backward_word_start (text, ref pos);
-            var word = text.slice (pos, iter.get_offset ());
-            warning ("inserting word %s after insert delimiter", word);
-            parser.parse_text_and_add (word);
-            return;
+        // Determine whether insertion point ends and/or starts a word
+        var text = current_view.buffer.text;
+        var insert_pos = iter.get_offset ();
+        string word_before, word_after;
+        get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
+
+        var text_to_parse = word_before + new_text + word_after;
+        parser.parse_text_and_add (text_to_parse);
+
+        if (word_before != "" && word_after != "") {
+            // Word has been broken up and potentially requires removal
+            parser.parse_text_and_remove (word_before + word_after);
+        }
+    }
+
+    // Used by both insertions and deletion handlers
+    private void get_words_before_and_after_pos (
+        string text,
+        int offset,
+        out string word_before,
+        out string word_after
+    ) {
+        var pos = offset;
+        unichar? prev_char = null;
+        unichar? following_char = null;
+        word_before = "";
+        word_after = "";
+        text.get_prev_char (ref pos, out prev_char);
+        pos = offset;
+        text.get_next_char (ref pos, out following_char);
+        warning ("prev char %s, next char %s", prev_char.to_string (), following_char.to_string ());
+        var is_word_before = !is_delimiter (prev_char);
+        var is_word_after = !is_delimiter (following_char);
+
+        if (is_word_before) {
+        warning ("got word before");
+            pos = offset;
+            warning ("offset %i", offset);
+            if (parser.backward_word_start (text, ref pos)) {
+                warning ("pos word start %i", pos);
+                word_before = text.slice (pos, offset);
+            }
         }
 
-        if (current_insertion_line == -1) {
-            record_original_line_at (iter);
+        if (is_word_after) {
+        warning ("got word_after");
+            pos = offset;
+            if (parser.forward_word_end (text, ref pos)) {
+                word_after = text.slice (offset, pos);
+            }
         }
     }
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
 
-        if (contains_only_delimiters (del_text)) {
-            return;
-        } else {
+        if (!contains_only_delimiters (del_text)) {
             parser.parse_text_and_remove (del_text);
         }
 
+        // Mark for after_delete handler where deletion occurred
         current_view.buffer.add_mark (start_del_mark, del_start_iter);
     }
 
     private void after_delete_range () {
         Gtk.TextIter? iter = null;
-        // start_del_mark may not have been added
-        if (!start_del_mark.get_deleted ()) {
-            current_view.buffer.get_iter_at_mark (out iter, start_del_mark);
-            var word = "";
-            unichar? curr = null;
-            unichar? prev = null;
-            if (iter != null) {
-                var text = current_view.buffer.text;
-                var pos = iter.get_offset ();
-                text.get_prev_char (ref pos, out prev);
-                pos = iter.get_offset ();
-                text.get_next_char (ref pos, out curr);
-
-                if (is_delimiter (prev) && !is_delimiter (curr)) { // starts word
-                    var start_pos = iter.get_offset ();
-                    pos = start_pos;
-                    if (parser.forward_word_end (text, ref pos)) {
-                        word = text.slice (start_pos, pos);
-                    }
-                } else if (!is_delimiter (prev) && is_delimiter (curr)) {
-                    var end_pos = iter.get_offset ();
-                    pos = end_pos;
-                    if (parser.backward_word_start (text, ref pos)) {
-                        word = text.slice (pos, end_pos);
-                    }
-                } else if (!is_delimiter (prev) && !is_delimiter (prev)) {
-                    var start_pos = iter.get_offset ();
-                    var end_pos = start_pos;
-                    if (parser.backward_word_start (text, ref start_pos) && parser.forward_word_end (text, ref end_pos)) {
-                        word = text.slice (start_pos, end_pos);
-                    }
-                }
-
-                if (word != "") {
-                    parser.parse_text_and_add (word);
-                }
-            }
-
-            current_view.buffer.delete_mark (start_del_mark);
-        }
-    }
-
-    private void on_cursor_moved () {
-        // Ignore moves within when no insertions or we are deleting
-        // Deletions are handled in `after_delete_range`
-        if (current_insertion_line < 0 || current_view.buffer.get_mark ("StartDelete") != null) {
+        if (start_del_mark.get_deleted ()) {
+            critical ("No DeleteMark after deletion");
             return;
         }
 
-        var insert_offset = current_view.buffer.cursor_position;
-        Gtk.TextIter cursor_iter;
-        current_view.buffer.get_iter_at_offset (out cursor_iter, insert_offset);
-        var temp_iter = cursor_iter;
-        temp_iter.backward_char ();
-
-        if (current_insertion_line != cursor_iter.get_line ()) {
-            Gtk.TextIter line_start_iter, line_end_iter;
-            current_view.buffer.get_iter_at_line (out line_start_iter, current_insertion_line);
-            line_end_iter = line_start_iter;
-            line_end_iter.forward_to_line_end ();
-            var line_text = line_start_iter.get_text (line_end_iter);
-            parser.parse_text_and_add (line_text);
-
-            var retrieved_original_text = retrieve_original_text ();
-            parser.parse_text_and_remove (retrieved_original_text);
+        // The deleted text has already been parsed and removed from prefix tree
+        // Need to check whether a new word has been created by deletion
+        current_view.buffer.get_iter_at_mark (out iter, start_del_mark);
+        if (iter == null) {
+            critical ("Unable to get iter from deletion mark");
+            return;
         }
+
+        var delete_pos = iter.get_offset ();
+        string word_before, word_after;
+        get_words_before_and_after_pos (current_view.buffer.text, delete_pos, out word_before, out word_after);
+        // A new word could have been created
+        parser.parse_text_and_add (word_before + word_after);
+        current_view.buffer.delete_mark (start_del_mark);
     }
 
     private bool contains_only_delimiters (string str) {
@@ -290,7 +280,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view.buffer.insert_text.disconnect (on_insert_text);
         current_view.buffer.delete_range.disconnect (on_delete_range);
         current_view.buffer.delete_range.disconnect (after_delete_range);
-        current_view.buffer.notify["cursor-position"].disconnect (on_cursor_moved);
         // Disconnect show completion??
 
         current_view.completion.get_providers ().foreach ((p) => {

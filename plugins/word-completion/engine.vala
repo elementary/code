@@ -40,7 +40,7 @@ public class Euclide.Completion.Parser : GLib.Object {
             set_initial_parsing_completed (false);
         }
 
-        warning ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
+        debug ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
     }
 
     // Returns true if text was completely parsed
@@ -89,8 +89,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public bool backward_word_start (string text, ref int pos) {
         unichar? uc;
         while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {}
-        pos++;
-        return uc != null && !is_delimiter (uc);
+        return uc != null && is_delimiter (uc);
     }
 
     // Returns pointing to char after last char of word
@@ -110,7 +109,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     public bool match (string to_find) requires (current_tree != null) {
-        return current_tree.find_prefix (to_find);
+        return current_tree.has_prefix (to_find);
     }
 
     public bool select_current_tree (Gtk.TextView view) {
@@ -125,7 +124,6 @@ public class Euclide.Completion.Parser : GLib.Object {
             current_tree = text_view_words.@get (view);
         }
 
-        warning ("selected tree for view %s", ((Scratch.Widgets.SourceView)view).location.get_basename ());
         return pre_existing && get_initial_parsing_completed ();
     }
 
@@ -139,7 +137,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
         lock (current_tree) {
-            warning ("setting current tree completed %s", completed.to_string ());
+            debug ("setting current tree completed %s", completed.to_string ());
             current_tree.initial_parse_complete = completed;
         }
     }
@@ -151,7 +149,6 @@ public class Euclide.Completion.Parser : GLib.Object {
     // Fills list with complete words having prefix
     public bool get_completions_for_prefix (string prefix, out List<string> completions) requires (current_tree != null) {
         completions = current_tree.get_all_completions (prefix);
-warning ("engine got %u completions", completions.length ());
         return completions.first () != null;
     }
 
