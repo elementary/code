@@ -23,21 +23,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     // Therefore, we reimplement some iter functions to move between words here below
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`";
     public const int MAX_TOKENS = 1000000;
-    public static bool is_delimiter (unichar? uc) {
-        return uc == null || DELIMITERS.index_of_char (uc) > -1;
-    }
-
-    public Object object { owned get; construct; }
-
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
-
-    private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
-
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
         Gdk.Key.KP_Enter,
@@ -48,6 +33,23 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     };
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
+
+    public static bool is_delimiter (unichar? uc) {
+        return uc == null || DELIMITERS.index_of_char (uc) > -1;
+    }
+
+    public Object object { owned get; construct; }
+
+    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
+    private Euclide.Completion.Parser parser {get; private set;}
+    private Gtk.SourceView? current_view {get; private set;}
+    private Scratch.Services.Document current_document {get; private set;}
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
+
+
+    Gtk.TextMark start_del_mark = new Gtk.TextMark ("StartDelete", true);
 
     private uint timeout_id = 0;
 
@@ -99,7 +101,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             text_view_list.append (current_view);
         }
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
+        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, current_view);
         comp_provider.priority = 1;
         comp_provider.name = provider_name_from_document (doc);
 
@@ -156,7 +158,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         }
     }
 
-    Gtk.TextMark start_del_mark = new Gtk.TextMark ("StartDelete", true);
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
 

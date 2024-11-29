@@ -168,11 +168,9 @@ public class Scratch.Plugins.PrefixNode : Object {
     // First could with node at the last char of the prefix
     public void get_all_completions (ref List<string> completions, ref StringBuilder sb) {
         var initial_sb_str = sb.str;
-        warning ("get all completions for %s", initial_sb_str);
         foreach (var child in children) {
             if (child.is_word_end) {
                 if (sb.str.length > 0) {
-                    warning ("word end - appending completion %s", sb.str);
                     completions.prepend (sb.str);
                 }
             } else {

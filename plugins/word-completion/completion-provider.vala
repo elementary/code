@@ -25,20 +25,35 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
 
-    private Gtk.TextView? view;
-    private Gtk.TextBuffer? buffer;
-    private Euclide.Completion.Parser parser;
+    public Gtk.TextView? view { get; construct; }
+    public Euclide.Completion.Parser parser { get; construct; }
+
+    private unowned Gtk.TextBuffer buffer {
+        get {
+            return view.buffer;
+        }
+    }
+
     private Gtk.TextMark completion_end_mark;
     private Gtk.TextMark completion_start_mark;
+    private string current_text_to_find = "";
 
     public signal void can_propose (bool b);
 
-    public CompletionProvider (Scratch.Plugins.Completion completion) {
-        this.view = completion.current_view as Gtk.TextView;
-        this.buffer = completion.current_view.buffer;
-        this.parser = completion.parser;
+    public CompletionProvider (
+        Euclide.Completion.Parser _parser,
+        Gtk.TextView _view
+        ) {
+
+        Object (
+            parser: _parser,
+            view: _view
+        );
+    }
+
+    construct {
         Gtk.TextIter iter;
-        buffer.get_iter_at_offset (out iter, 0);
+        view.buffer.get_iter_at_offset (out iter, 0);
         completion_end_mark = buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
     }
@@ -51,7 +66,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return this.priority;
     }
 
-    private string current_text_to_find = "";
     public bool match (Gtk.SourceCompletionContext context) {
         int start_pos = buffer.cursor_position;
         back_to_word_start (buffer.text, ref start_pos);
@@ -85,16 +99,25 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         Gtk.TextIter start;
-        Gtk.TextIter end;
+        Gtk.TextIter end_iter;
         Gtk.TextMark mark;
 
         mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
-        buffer.get_iter_at_mark (out end, mark);
+        buffer.get_iter_at_mark (out end_iter, mark);
+
+        // If inserting in middle of word then completion overwrites end of word
+        var end_pos = end_iter.get_offset ();
+        unichar? uc;
+        if (buffer.text.get_next_char (ref end_pos, out uc) && !is_delimiter (uc)) {
+        warning ("inserting in word");
+            parser.forward_word_end (buffer.text, ref end_pos);
+            buffer.get_iter_at_offset (out end_iter, end_pos);
+        }
 
         mark = buffer.get_mark (COMPLETION_START_MARK_NAME);
         buffer.get_iter_at_mark (out start, mark);
 
-        buffer.@delete (ref start, ref end);
+        buffer.@delete (ref start, ref end_iter);
         buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         return true;
     }
