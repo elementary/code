@@ -20,8 +20,15 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
+    // DELIMITERS used for word completion are not necessarily the same Pango word breaks
+    // Therefore, we reimplement some iter functions to move between words here below
+    public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`\"\'";
     public const uint MINIMUM_WORD_LENGTH = 4;
     public const uint MINIMUM_PREFIX_LENGTH = 1;
+    public static bool is_delimiter (unichar? uc) {
+        return uc == null || DELIMITERS.index_of_char (uc) > -1;
+    }
+
     private Scratch.Plugins.PrefixTree? current_tree = null;
     public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
     public bool parsing_cancelled = false;
@@ -55,7 +62,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         string to_parse = " " + text + " ";
 
         while (!parsing_cancelled && get_next_word (to_parse, ref start_pos, out word)) {
-            debug ("engine add word %s", word);
+            warning ("engine add word %s", word);
             add_word (word);
         }
 
@@ -112,7 +119,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     // Returns pointing to delimiter (or end of text) after last char of word
     public bool forward_word_end (string text, ref int pos) {
-        unichar? uc = text.get_char ((long)pos);
+        unichar? uc;
         while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
         if (uc == null) {
             return false;
@@ -144,12 +151,6 @@ public class Euclide.Completion.Parser : GLib.Object {
 
         pos++;
         return true;
-    }
-
-
-
-    private bool is_delimiter (unichar uc) {
-        return Scratch.Plugins.Completion.is_delimiter (uc);
     }
 
     public bool match (string to_find) requires (current_tree != null) {
@@ -194,6 +195,42 @@ public class Euclide.Completion.Parser : GLib.Object {
     public bool get_completions_for_prefix (string prefix, out List<string> completions) requires (current_tree != null) {
         completions = current_tree.get_all_completions (prefix);
         return completions.first () != null;
+    }
+
+    public void get_words_before_and_after_pos (
+        string text,
+        int offset,
+        out string word_before,
+        out string word_after
+    ) {
+        var pos = offset;
+        unichar? prev_char = null;
+        unichar? following_char = null;
+        word_before = "";
+        word_after = "";
+        text.get_next_char (ref pos, out following_char);
+        pos = offset;
+        text.get_prev_char (ref pos, out prev_char);
+        pos = offset;
+        var is_word_before = !is_delimiter (prev_char);
+        var is_word_after = !is_delimiter (following_char);
+
+        debug ("curr '%s' prev '%s'", following_char.to_string (), prev_char.to_string ());
+        if (is_word_before) {
+            pos = offset;
+            if (backward_word_start (text, ref pos)) {
+                word_before = text.slice (pos, offset);
+            }
+        }
+
+        if (is_word_after) {
+            pos = offset;
+            if (forward_word_end (text, ref pos)) {
+                word_after = text.slice (offset, pos);
+            }
+        }
+
+        debug ("word before %s, after %s", word_before, word_after);
     }
 
     private void add_word (string word) requires (current_tree != null) {

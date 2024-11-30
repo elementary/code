@@ -21,10 +21,12 @@
 
  public class Scratch.Plugins.PrefixTree : Object {
     private PrefixNode? root = null;
+    private GLib.StringBuilder sb;
     public bool initial_parse_complete = false;
 
     construct {
         clear ();
+        sb = new GLib.StringBuilder ("");
     }
 
     public void clear () {
@@ -37,18 +39,7 @@
             return;
         }
 
-        this.insert_at (word, this.root);
-    }
-
-    private void insert_at (string word, PrefixNode node, int i = 0) requires (!node.is_word_end) {
-        unichar curr = '\0';
-        if (!word.get_next_char (ref i, out curr) || curr == '\0') {
-            node.insert_word_end ();
-            return;
-        }
-
-        var child = node.append_char_child (curr);
-        insert_at (word, child, i);
+        root.insert_word (word);
     }
 
     public void remove (string word) requires (word.length > 0) {
@@ -56,40 +47,43 @@
             return;
         }
 
-        var word_node = find_prefix_at (word, root);
-
-        if (word_node != null) {
-            word_node.remove_word_end (); // Will autoremove unused parents
-        }
+        root.remove_word (word);
     }
 
     public bool has_prefix (string prefix) {
-        return find_prefix_at (prefix, root) != null ? true : false;
+        return root.find_last_node_for (prefix) != null ? true : false;
     }
 
-    private PrefixNode? find_prefix_at (string prefix, PrefixNode node, int i = 0) {
-        unichar curr;
+    // private PrefixNode? find_prefix_at (string prefix, PrefixNode node, int i = 0) {
+    //     unichar curr;
 
-        if (!prefix.get_next_char (ref i, out curr)) {
-            return node;
-        }
+    //     if (!prefix.get_next_char (ref i, out curr)) {
+    //         return node;
+    //     }
 
-        var child = node.has_char_child (curr);
-        if (child != null) {
-            return find_prefix_at (prefix, child, i);
-        }
+    //     var child = node.has_char_child (curr);
+    //     if (child != null) {
+    //         return find_prefix_at (prefix, child, i);
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 
     public List<string> get_all_completions (string prefix) {
+warning ("prefix tree get_all_completions for %s", prefix);
         var list = new List<string> ();
-        var node = find_prefix_at (prefix, root, 0);
+        // var node = find_prefix_at (prefix, root, 0);
+        var node = root.find_last_node_for (prefix);
+        warning ("node found is %s null", node != null ? "NOT" : "");
         if (node != null && !node.is_word_end) {
-            var sb = new StringBuilder ("");
+            warning ("erase string builder");
+            sb.erase ();
             node.get_all_completions (ref list, ref sb);
+        } else {
+            warning ("node is word end %s", node.is_word_end.to_string ());
         }
 
+        warning ("returning list length %u", list.length ());
         return list;
     }
 }

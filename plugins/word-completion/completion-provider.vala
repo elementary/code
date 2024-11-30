@@ -68,25 +68,15 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public bool match (Gtk.SourceCompletionContext context) {
         int start_pos = buffer.cursor_position;
-        back_to_word_start (buffer.text, ref start_pos);
+        parser.backward_word_start (buffer.text, ref start_pos);
         current_text_to_find = buffer.text.slice (start_pos, buffer.cursor_position);
         var found = parser.match (current_text_to_find);
 
         return found;
     }
 
-    private void back_to_word_start (string text, ref int pos) {
-        unichar uc;
-        while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {
-        }
-
-        pos++;
-
-        return;
-    }
-
     private bool is_delimiter (unichar uc) {
-        return Scratch.Plugins.Completion.DELIMITERS.index_of_char (uc) > -1;
+        return Euclide.Completion.Parser.is_delimiter (uc);
     }
 
     public void populate (Gtk.SourceCompletionContext context) {

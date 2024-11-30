@@ -122,18 +122,21 @@ public class Scratch.Plugins.PrefixNode : Object {
         children.remove (child);
     }
 
-    public void remove_word_end () requires (this.has_children) {
+    private bool remove_or_decrement_word_end () requires (this.has_children) {
         foreach (var child in children) {
             if (child.is_word_end) {
                 child.decrement ();
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
-    public void insert_word_end () requires (!this.is_word_end && !this.is_root) {
+    private void append_or_increment_word_end () requires (!this.is_word_end && !this.is_root) {
         foreach (var child in children) {
             if (child.type == WORD_END) {
+                warning ("word end incremented");
                 child.increment ();
                 return;
             }
@@ -141,18 +144,71 @@ public class Scratch.Plugins.PrefixNode : Object {
 
         var new_child = new PrefixNode.word_end (this);
         append_child (new_child);
+        warning ("added new word end");
     }
 
-    public PrefixNode append_char_child (unichar c) requires (!this.is_word_end) {
+    private PrefixNode? find_or_append_char_child (
+        unichar c,
+        bool append_if_not_found = false
+    ) requires (!this.is_word_end) {
+
         foreach (var child in children) {
             if (child.has_char (c)) {
                 return child;
             }
         }
 
-        var new_child = new PrefixNode.from_unichar (c, this);
-        append_child (new_child);
-        return new_child;
+        if (append_if_not_found) {
+            var new_child = new PrefixNode.from_unichar (c, this);
+            append_child (new_child);
+            return new_child;
+        } else {
+            return null;
+        }
+    }
+
+    public void insert_word (string text) {
+        int index = 0;
+        insert_word_internal (text, ref index);
+    }
+
+    protected void insert_word_internal (string text, ref int index) {
+        warning ("insert word internal %s, index %i", text, index);
+        unichar? uc = null;
+        if (text.get_next_char (ref index, out uc)) {
+            var child = find_or_append_char_child (uc, true); // Appends if not found
+            warning ("recurse");
+            child.insert_word_internal (text, ref index);
+        } else {
+            append_or_increment_word_end ();
+        }
+    }
+
+    public PrefixNode? find_last_node_for (string text) {
+        warning ("find last node for %s", text);
+        int index = 0;
+        return find_last_node_for_internal (text, ref index);
+    }
+
+    protected PrefixNode? find_last_node_for_internal (string text, ref int index) requires (!this.is_word_end) {
+        unichar? uc = null;
+        if (text.get_next_char (ref index, out uc)) {
+            var child = find_or_append_char_child (uc, false);
+            if (child == null ) {
+                critical ("Unable to find node for suffix %s - not found char '%s'", text, uc.to_string ());
+                return null;
+            } else {
+                return child.find_last_node_for_internal (text, ref index);
+            }
+        } else {
+            warning ("RETURNING THIS");
+            return this;
+        }
+    }
+
+    public bool remove_word (string text) {
+        var node = find_last_node_for (text);
+        return this.remove_or_decrement_word_end ();
     }
 
     public PrefixNode? has_char_child (unichar c) requires (!this.is_word_end) {
@@ -168,11 +224,10 @@ public class Scratch.Plugins.PrefixNode : Object {
     // First could with node at the last char of the prefix
     public void get_all_completions (ref List<string> completions, ref StringBuilder sb) {
         var initial_sb_str = sb.str;
+        warning ("initial sb str %s", initial_sb_str);
         foreach (var child in children) {
             if (child.is_word_end) {
-                if (sb.str.length > 0) {
-                    completions.prepend (sb.str);
-                }
+                completions.prepend (sb.str);
             } else {
                 sb.append (child.char_s);
                 child.get_all_completions (ref completions, ref sb);

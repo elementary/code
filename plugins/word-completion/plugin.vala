@@ -19,9 +19,7 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    // DELIMITERS used for word completion are not necessarily the same Pango word breaks
-    // Therefore, we reimplement some iter functions to move between words here below
-    public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`";
+
     public const int MAX_TOKENS = 1000000;
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -34,9 +32,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
 
-    public static bool is_delimiter (unichar? uc) {
-        return uc == null || DELIMITERS.index_of_char (uc) > -1;
-    }
 
     public Object object { owned get; construct; }
 
@@ -147,7 +142,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var text = current_view.buffer.text;
         var insert_pos = iter.get_offset ();
         string word_before, word_after;
-        get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
+        parser.get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
 
         var text_to_parse = word_before + new_text + word_after;
         parser.parse_text_and_add (text_to_parse);
@@ -164,51 +159,22 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     // Used by both insertions and deletion handlers
-    private void get_words_before_and_after_pos (
-        string text,
-        int offset,
-        out string word_before,
-        out string word_after
-    ) {
-        var pos = offset;
-        unichar? prev_char = null;
-        unichar? following_char = null;
-        word_before = "";
-        word_after = "";
-        following_char = text.get_char ((long)offset);
-        text.get_prev_char (ref pos, out prev_char);
-        pos = offset;
-        var is_word_before = !is_delimiter (prev_char);
-        var is_word_after = !is_delimiter (following_char);
 
-        debug ("curr '%s' prev '%s'", following_char.to_string (), prev_char.to_string ());
-        if (is_word_before) {
-            pos = offset;
-            if (parser.backward_word_start (text, ref pos)) {
-                word_before = text.slice (pos, offset);
-            }
-        }
-
-        if (is_word_after) {
-            pos = offset;
-            if (parser.forward_word_end (text, ref pos)) {
-                word_after = text.slice (offset, pos);
-            }
-        }
-
-        debug ("word before %s, after %s", word_before, word_after);
-    }
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
         var text = current_view.buffer.text;
         var delete_start_pos = del_start_iter.get_offset ();
         var delete_end_pos = del_end_iter.get_offset ();
+
         string before, after;
-        get_words_before_and_after_pos (text, delete_start_pos, out before, out after);
+        parser.get_words_before_and_after_pos (text, delete_start_pos, out before, out after);
         var word_before = before;
-        get_words_before_and_after_pos (text, delete_end_pos, out before, out after);
+
+        // We do not want word in deleted text so get word after delete end separately
+        parser.get_words_before_and_after_pos (text, delete_end_pos, out before, out after);
         var word_after = after;
+
         var to_remove = word_before + del_text + word_after;
         warning ("parse and remove %s", to_remove);
         parser.parse_text_and_remove (to_remove);
@@ -234,28 +200,17 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         var delete_pos = iter.get_offset ();
         string word_before, word_after;
-        get_words_before_and_after_pos (current_view.buffer.text, delete_pos, out word_before, out word_after);
+        parser. get_words_before_and_after_pos (
+            current_view.buffer.text,
+            delete_pos,
+            out word_before,
+            out word_after
+        );
+
         // A new word could have been created
         var to_add = word_before + word_after;
         parser.parse_text_and_add (to_add);
         current_view.buffer.delete_mark (start_del_mark);
-    }
-
-    private bool contains_only_delimiters (string str) {
-        int i = 0;
-        unichar curr;
-        bool found_char = false;
-        bool has_next_character = false;
-        do {
-            has_next_character = str.get_next_char (ref i, out curr);
-            if (has_next_character) {
-                if (!(DELIMITERS.contains (curr.to_string ()))) {
-                    found_char = true;
-                }
-            }
-        } while (has_next_character && !found_char);
-
-        return !found_char;
     }
 
     private int current_insertion_line = -1;
