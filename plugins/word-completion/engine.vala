@@ -39,7 +39,6 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void initial_parse_buffer_text (string buffer_text) {
         parsing_cancelled = false;
-
         clear ();
         if (buffer_text.length > 0) {
             set_initial_parsing_completed (parse_text_and_add (buffer_text));
@@ -56,13 +55,11 @@ public class Euclide.Completion.Parser : GLib.Object {
             return false;
         }
 
-        int start_pos = 0;
-        string word = "";
         // Ensure text starts and ends with delimiter - easier to parse;
         string to_parse = " " + text + " ";
-
+        int start_pos = 0;
+        string word = "";
         while (!parsing_cancelled && get_next_word (to_parse, ref start_pos, out word)) {
-            warning ("engine add word %s", word);
             add_word (word);
         }
 
@@ -71,13 +68,15 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     // Returns whether text was completely parsed
     public bool parse_text_and_remove (string text) {
-        int start_pos = 0;
-        string word = "";
         if (text.length < MINIMUM_WORD_LENGTH) {
             return false;
         }
 
-        while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
+        // Ensure text starts and ends with delimiter - easier to parse;
+        string to_parse = " " + text + " ";
+        int start_pos = 0;
+        string word = "";
+        while (!parsing_cancelled && get_next_word (to_parse, ref start_pos, out word)) {
             remove_word (word);
         }
 
@@ -100,14 +99,18 @@ public class Euclide.Completion.Parser : GLib.Object {
     // Returns pointing to first char of word
     public bool forward_word_start (string text, ref int pos) {
         unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {}
+        while (text.get_next_char (ref pos, out uc) && uc != null && !is_delimiter (uc)) {
+            // warning ("forward word start while not delimiter - pos %i", pos);
+        }
 
         if (uc == null) {
             return false;
         }
 
         pos--;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+        while (text.get_next_char (ref pos, out uc) && uc != null && is_delimiter (uc)) {
+            // warning ("forward word start while is delimiter - pos %i", pos);
+        }
 
         if (uc == null) {
             return false;
@@ -120,13 +123,19 @@ public class Euclide.Completion.Parser : GLib.Object {
     // Returns pointing to delimiter (or end of text) after last char of word
     public bool forward_word_end (string text, ref int pos) {
         unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+        while (text.get_next_char (ref pos, out uc) && uc != null && is_delimiter (uc)) {
+            // warning ("forward word end while delimiter - pos %i", pos);
+        }
+
         if (uc == null) {
             return false;
         }
 
         pos--;
-        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {}
+        while (text.get_next_char (ref pos, out uc) && uc != null && !is_delimiter (uc)) {
+            // warning ("forward word end while not delimiter - pos %i", pos);
+        }
+
         if (uc == null) {
             return false;
         }
@@ -138,13 +147,18 @@ public class Euclide.Completion.Parser : GLib.Object {
     // Returns pointing to first char of word
     public bool backward_word_start (string text, ref int pos) {
         unichar? uc;
-        while (text.get_prev_char (ref pos, out uc) && is_delimiter (uc)) {}
+        while (text.get_prev_char (ref pos, out uc) && uc != null && is_delimiter (uc)) {
+            // warning ("backward word start while is delimiter pos %i", pos);
+        }
         if (uc == null) {
             return false;
         }
 
         pos++;
-        while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {}
+        while (text.get_prev_char (ref pos, out uc) && uc != null && !is_delimiter (uc)) {
+            // warning ("backward word start while is not delimiter pos %i", pos);
+        }
+
         if (uc == null) {
             return false;
         }
@@ -215,7 +229,6 @@ public class Euclide.Completion.Parser : GLib.Object {
         var is_word_before = !is_delimiter (prev_char);
         var is_word_after = !is_delimiter (following_char);
 
-        debug ("curr '%s' prev '%s'", following_char.to_string (), prev_char.to_string ());
         if (is_word_before) {
             pos = offset;
             if (backward_word_start (text, ref pos)) {
@@ -236,7 +249,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     private void add_word (string word) requires (current_tree != null) {
         if (is_valid_word (word)) {
             lock (current_tree) {
-                // warning ("add word %s", word);
+                warning ("add word %s", word);
                 current_tree.insert (word);
             }
         }

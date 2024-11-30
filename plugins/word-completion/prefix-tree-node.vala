@@ -99,7 +99,7 @@ public class Scratch.Plugins.PrefixNode : Object {
         children = new Gee.ArrayList<PrefixNode> ();
     }
 
-    public bool has_char (unichar c) {
+    private bool has_char (unichar c) {
         return uc == c;
     }
 
@@ -110,6 +110,7 @@ public class Scratch.Plugins.PrefixNode : Object {
     private void decrement () requires (type == WORD_END && occurrences > 0) {
         occurrences--;
         if (occurrences == 0) {
+            warning ("removing child no longer used");
             parent.remove_child (this);
         }
     }
@@ -118,17 +119,24 @@ public class Scratch.Plugins.PrefixNode : Object {
         children.add (child);
     }
 
-    private void remove_child (PrefixNode child) requires (type != WORD_END) {
+    private void remove_child (PrefixNode child) requires (type == CHAR) {
         children.remove (child);
+        if (children.is_empty) {
+            parent.remove_child (this);
+        }
     }
 
     private bool remove_or_decrement_word_end () requires (this.has_children) {
         foreach (var child in children) {
             if (child.is_word_end) {
+                debug ("found word end - occurrences %u - decrementing", child.occurrences);
                 child.decrement ();
+
                 return true;
             }
         }
+
+        critical ("No word end node found when removing");
 
         return false;
     }
@@ -136,7 +144,6 @@ public class Scratch.Plugins.PrefixNode : Object {
     private void append_or_increment_word_end () requires (!this.is_word_end && !this.is_root) {
         foreach (var child in children) {
             if (child.type == WORD_END) {
-                warning ("word end incremented");
                 child.increment ();
                 return;
             }
@@ -144,7 +151,6 @@ public class Scratch.Plugins.PrefixNode : Object {
 
         var new_child = new PrefixNode.word_end (this);
         append_child (new_child);
-        warning ("added new word end");
     }
 
     private PrefixNode? find_or_append_char_child (
@@ -173,11 +179,9 @@ public class Scratch.Plugins.PrefixNode : Object {
     }
 
     protected void insert_word_internal (string text, ref int index) {
-        warning ("insert word internal %s, index %i", text, index);
         unichar? uc = null;
         if (text.get_next_char (ref index, out uc)) {
             var child = find_or_append_char_child (uc, true); // Appends if not found
-            warning ("recurse");
             child.insert_word_internal (text, ref index);
         } else {
             append_or_increment_word_end ();
@@ -185,9 +189,9 @@ public class Scratch.Plugins.PrefixNode : Object {
     }
 
     public PrefixNode? find_last_node_for (string text) {
-        warning ("find last node for %s", text);
         int index = 0;
-        return find_last_node_for_internal (text, ref index);
+        var res = find_last_node_for_internal (text, ref index);
+        return res;
     }
 
     protected PrefixNode? find_last_node_for_internal (string text, ref int index) requires (!this.is_word_end) {
@@ -195,20 +199,20 @@ public class Scratch.Plugins.PrefixNode : Object {
         if (text.get_next_char (ref index, out uc)) {
             var child = find_or_append_char_child (uc, false);
             if (child == null ) {
-                critical ("Unable to find node for suffix %s - not found char '%s'", text, uc.to_string ());
                 return null;
             } else {
                 return child.find_last_node_for_internal (text, ref index);
             }
         } else {
-            warning ("RETURNING THIS");
             return this;
         }
     }
 
     public bool remove_word (string text) {
         var node = find_last_node_for (text);
-        return this.remove_or_decrement_word_end ();
+        var res = node.remove_or_decrement_word_end ();
+        warning ("remove %s result %s", text, res.to_string ());
+        return res;
     }
 
     public PrefixNode? has_char_child (unichar c) requires (!this.is_word_end) {
@@ -224,7 +228,6 @@ public class Scratch.Plugins.PrefixNode : Object {
     // First could with node at the last char of the prefix
     public void get_all_completions (ref List<string> completions, ref StringBuilder sb) {
         var initial_sb_str = sb.str;
-        warning ("initial sb str %s", initial_sb_str);
         foreach (var child in children) {
             if (child.is_word_end) {
                 completions.prepend (sb.str);
