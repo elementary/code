@@ -72,7 +72,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
-    debug ("new source_view %s", doc.title);
+        debug ("new source_view %s", doc.title);
         if (current_view != null) {
             if (current_view == doc.source_view) {
                 return;
@@ -152,9 +152,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var text_to_parse = word_before + new_text + word_after;
         parser.parse_text_and_add (text_to_parse);
 
-        if (word_before != "" && word_after != "") {
-            // Word has been broken up and potentially requires removal
-            parser.parse_text_and_remove (word_before + word_after);
+        if (word_before != "" || word_after != "") {
+            // Word has been altered and potentially requires removal and readding
+            var to_remove = word_before + word_after;
+            var to_add = word_before + new_text + word_after;
+            debug ("remove %s", to_remove);
+            parser.parse_text_and_remove (to_remove);
+            debug ("add %s", to_add);
+            parser.parse_text_and_add (to_add);
         }
     }
 
@@ -170,38 +175,43 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         unichar? following_char = null;
         word_before = "";
         word_after = "";
+        following_char = text.get_char ((long)offset);
         text.get_prev_char (ref pos, out prev_char);
         pos = offset;
-        text.get_next_char (ref pos, out following_char);
-        warning ("prev char %s, next char %s", prev_char.to_string (), following_char.to_string ());
         var is_word_before = !is_delimiter (prev_char);
         var is_word_after = !is_delimiter (following_char);
 
+        debug ("curr '%s' prev '%s'", following_char.to_string (), prev_char.to_string ());
         if (is_word_before) {
-        warning ("got word before");
             pos = offset;
-            warning ("offset %i", offset);
             if (parser.backward_word_start (text, ref pos)) {
-                warning ("pos word start %i", pos);
                 word_before = text.slice (pos, offset);
             }
         }
 
         if (is_word_after) {
-        warning ("got word_after");
             pos = offset;
             if (parser.forward_word_end (text, ref pos)) {
                 word_after = text.slice (offset, pos);
             }
         }
+
+        debug ("word before %s, after %s", word_before, word_after);
     }
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
-
-        if (!contains_only_delimiters (del_text)) {
-            parser.parse_text_and_remove (del_text);
-        }
+        var text = current_view.buffer.text;
+        var delete_start_pos = del_start_iter.get_offset ();
+        var delete_end_pos = del_end_iter.get_offset ();
+        string before, after;
+        get_words_before_and_after_pos (text, delete_start_pos, out before, out after);
+        var word_before = before;
+        get_words_before_and_after_pos (text, delete_end_pos, out before, out after);
+        var word_after = after;
+        var to_remove = word_before + del_text + word_after;
+        warning ("parse and remove %s", to_remove);
+        parser.parse_text_and_remove (to_remove);
 
         // Mark for after_delete handler where deletion occurred
         current_view.buffer.add_mark (start_del_mark, del_start_iter);
@@ -226,7 +236,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         string word_before, word_after;
         get_words_before_and_after_pos (current_view.buffer.text, delete_pos, out word_before, out word_after);
         // A new word could have been created
-        parser.parse_text_and_add (word_before + word_after);
+        var to_add = word_before + word_after;
+        parser.parse_text_and_add (to_add);
         current_view.buffer.delete_mark (start_del_mark);
     }
 

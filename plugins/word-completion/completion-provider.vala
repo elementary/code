@@ -109,7 +109,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         var end_pos = end_iter.get_offset ();
         unichar? uc;
         if (buffer.text.get_next_char (ref end_pos, out uc) && !is_delimiter (uc)) {
-        warning ("inserting in word");
             parser.forward_word_end (buffer.text, ref end_pos);
             buffer.get_iter_at_offset (out end_iter, end_pos);
         }
