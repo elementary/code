@@ -44,10 +44,18 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     // Returns true if text was completely parsed
-    public bool parse_text_and_add (string text) {
+    public bool parse_text_and_add (string text) requires (text.length > 0) {
+        if (text.length < MINIMUM_WORD_LENGTH) {
+            return false;
+        }
+
         int start_pos = 0;
         string word = "";
-        while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
+        // Ensure text starts and ends with delimiter - easier to parse;
+        string to_parse = " " + text + " ";
+
+        while (!parsing_cancelled && get_next_word (to_parse, ref start_pos, out word)) {
+            debug ("engine add word %s", word);
             add_word (word);
         }
 
@@ -58,6 +66,10 @@ public class Euclide.Completion.Parser : GLib.Object {
     public bool parse_text_and_remove (string text) {
         int start_pos = 0;
         string word = "";
+        if (text.length < MINIMUM_WORD_LENGTH) {
+            return false;
+        }
+
         while (!parsing_cancelled && get_next_word (text, ref start_pos, out word)) {
             remove_word (word);
         }
@@ -81,28 +93,60 @@ public class Euclide.Completion.Parser : GLib.Object {
     // Returns pointing to first char of word
     public bool forward_word_start (string text, ref int pos) {
         unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {}
+
+        if (uc == null) {
+            return false;
+        }
+
         pos--;
-        return uc != null && !is_delimiter (uc);
+        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+
+        if (uc == null) {
+            return false;
+        }
+
+        pos--;
+        return pos < text.length - MINIMUM_WORD_LENGTH;
     }
+
+    // Returns pointing to delimiter (or end of text) after last char of word
+    public bool forward_word_end (string text, ref int pos) {
+        unichar? uc = text.get_char ((long)pos);
+        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {}
+        if (uc == null) {
+            return false;
+        }
+
+        pos--;
+        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {}
+        if (uc == null) {
+            return false;
+        }
+
+        pos--;
+        return pos < text.length;
+    }
+
     // Returns pointing to first char of word
     public bool backward_word_start (string text, ref int pos) {
         unichar? uc;
+        while (text.get_prev_char (ref pos, out uc) && is_delimiter (uc)) {}
+        if (uc == null) {
+            return false;
+        }
+
+        pos++;
         while (text.get_prev_char (ref pos, out uc) && !is_delimiter (uc)) {}
-        return uc != null && is_delimiter (uc);
-    }
-
-    // Returns pointing to char after last char of word
-    public bool forward_word_end (string text, ref int pos) {
-        unichar? uc;
-        while (text.get_next_char (ref pos, out uc) && is_delimiter (uc)) {
+        if (uc == null) {
+            return false;
         }
 
-        while (text.get_next_char (ref pos, out uc) && !is_delimiter (uc)) {
-        }
-
-        return uc == null || is_delimiter (uc);
+        pos++;
+        return true;
     }
+
+
 
     private bool is_delimiter (unichar uc) {
         return Scratch.Plugins.Completion.is_delimiter (uc);
