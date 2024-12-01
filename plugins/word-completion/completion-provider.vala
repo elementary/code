@@ -67,10 +67,20 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public bool match (Gtk.SourceCompletionContext context) {
-        int start_pos = buffer.cursor_position;
-        parser.backward_word_start (buffer.text, ref start_pos);
-        current_text_to_find = buffer.text.slice (start_pos, buffer.cursor_position);
-        var found = parser.match (current_text_to_find);
+        int end_pos = buffer.cursor_position;
+        int start_pos = end_pos;
+        bool found = false;
+        var text = buffer.text;
+
+        // parser.backward_word_start (text, ref start_pos);
+        var preceding_word = parser.get_word_immediately_before (text, start_pos);
+        if (preceding_word != "") {
+            // warning ("preceding word found %s", preceding_word);
+            // current_text_to_find = text.slice (start_pos, end_pos);
+            found = parser.match (preceding_word);
+            // warning ("parser match returned %s", found.to_string ());
+            current_text_to_find = found ? preceding_word : "";
+        }
 
         return found;
     }
@@ -80,6 +90,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public void populate (Gtk.SourceCompletionContext context) {
+// warning ("populate");
         /*Store current insertion point for use in activate_proposal */
         GLib.List<Gtk.SourceCompletionItem>? file_props;
         bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
@@ -97,10 +108,11 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
         // If inserting in middle of word then completion overwrites end of word
         var end_pos = end_iter.get_offset ();
-        unichar? uc;
-        if (buffer.text.get_next_char (ref end_pos, out uc) && !is_delimiter (uc)) {
-            parser.forward_word_end (buffer.text, ref end_pos);
-            buffer.get_iter_at_offset (out end_iter, end_pos);
+        var text = buffer.text;
+        // If word immediately follows then find offset of end and reset end_iter there
+        var following_word = parser.get_word_immediately_after (text, end_pos);
+        if (following_word != "") {
+            buffer.get_iter_at_offset (out end_iter, end_pos + following_word.length);
         }
 
         mark = buffer.get_mark (COMPLETION_START_MARK_NAME);

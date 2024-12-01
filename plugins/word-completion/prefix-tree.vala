@@ -34,15 +34,13 @@
         initial_parse_complete = false;
     }
 
-    public void insert (string word) {
-        if (word.length == 0) {
-            return;
-        }
-
+    public void insert (string word) requires (word.length > 0) {
+        warning ("add '%s' to root", word);
         root.insert_word (word);
     }
 
     public void remove (string word) requires (word.length > 0) {
+        warning ("remove '%s' from root", word);
         var res = root.remove_word (word);
     }
 
@@ -52,9 +50,8 @@
 
     public List<string> get_all_completions (string prefix) {
         var list = new List<string> ();
-        // var node = find_prefix_at (prefix, root, 0);
         var node = root.find_last_node_for (prefix);
-        if (node != null && !node.is_word_end) {
+        if (node != null) {
             sb.erase ();
             node.get_all_completions (ref list, ref sb);
         }
