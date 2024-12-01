@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-21 22:46+0000\n"
-"PO-Revision-Date: 2023-08-27 12:08+0000\n"
+"PO-Revision-Date: 2024-12-01 18:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -196,52 +196,40 @@ msgstr ""
 "nykyisen rivin"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Reunuksen leveys:"
+msgstr "Sisennyksen leveys"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Automaattinen sisennys"
+msgstr "Sisennys"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Automaattinen sisennys:"
+msgstr "Automaattinen sisennys"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Käytä välilyöntejä sarkainten tilalla:"
+msgstr "Käytä välilyöntejä sarkainten tilalla"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:67
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "Projekti"
+msgstr "Projektit"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "Poista nykyinen näkymä"
+msgstr "Nykyinen rivi"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
@@ -258,10 +246,8 @@ msgid "Highlight matching brackets"
 msgstr "Korosta toisiaan vastaavat hakasulut:"
 
 #: src/Dialogs/PreferencesDialog.vala:114
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Näytä pienoiskartta:"
+msgstr "Pienoiskartta"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
@@ -279,7 +265,7 @@ msgstr "Fontti"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Käytä järjestelmän fonttia"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
