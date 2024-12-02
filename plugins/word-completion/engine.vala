@@ -107,7 +107,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         parsing_cancelled = false;
         clear ();
         if (buffer_text.length > 0) {
-        var parsed = parse_text_and_add (buffer_text);
+            var parsed = parse_text_and_add (buffer_text);
             set_initial_parsing_completed (parsed);
         } else {
             // Assume any buffer text would have been loaded when this is called
@@ -243,18 +243,18 @@ public class Euclide.Completion.Parser : GLib.Object {
         return found;
     }
 
-    // Fills list with complete words having prefix
     public List<string> get_completions_for_prefix (string prefix) requires (current_tree != null) {
         var completions = new List<string> ();
         debug ("completions for %s", prefix);
         var prefix_length = prefix.length;
         // Sub map should always have been constructed in `match ()` function before coming here
         assert (sub_map != null);
+        // Submap (tail_map) sometimes contains unexpected word *before* prefix_length
+        // Possibly a bug in Gee? It also contains words that do not start with prefix,
+        // but required words will be contiguous. So we continue loop if before prefix, 
+        // and continue until not a completion
         var count = 0;
         sub_map.map_iterator ().@foreach ((word, wo) => {
-            // Submap (tail_map) sometimes contains unexpected word *before* prefix_length
-            // Possibly a bug in Gee? It also contains words that do not start with prefix,
-            // but required words will be contiguous.
             if (word.has_prefix (prefix)) {
                 if (wo.occurs ()) {
                     var completion = word.slice (prefix_length, word.length);
