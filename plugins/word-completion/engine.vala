@@ -63,10 +63,9 @@ public class Euclide.Completion.Parser : GLib.Object {
             return -1;
         }
 
-        return 1;
+        return scomp;
     }
 
-    private Gee.TreeMap<string, WordOccurrences>? current_tree = null;
     public Gee.HashMap<Gtk.TextView, Gee.TreeMap> text_view_words;
     public bool parsing_cancelled = false;
 
