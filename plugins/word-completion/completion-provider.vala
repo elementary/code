@@ -58,15 +58,15 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
     }
 
-    public string get_name () {
+    public override string get_name () {
         return this.name;
     }
 
-    public int get_priority () {
+    public override int get_priority () {
         return this.priority;
     }
 
-    public bool match (Gtk.SourceCompletionContext context) {
+    public override bool match (Gtk.SourceCompletionContext context) {
         int end_pos = buffer.cursor_position;
         int start_pos = end_pos;
         bool found = false;
@@ -86,11 +86,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return found;
     }
 
-    private bool is_delimiter (unichar uc) {
-        return Euclide.Completion.Parser.is_delimiter (uc);
-    }
-
-    public void populate (Gtk.SourceCompletionContext context) {
+    public override void populate (Gtk.SourceCompletionContext context) {
 // warning ("populate");
         /*Store current insertion point for use in activate_proposal */
         GLib.List<Gtk.SourceCompletionItem>? file_props;
@@ -99,7 +95,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         context.add_proposals (this, file_props, true);
     }
 
-    public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
+    public override bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         Gtk.TextIter start;
         Gtk.TextIter end_iter;
         Gtk.TextMark mark;
@@ -124,16 +120,16 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-    public Gtk.SourceCompletionActivation get_activation () {
+    public override Gtk.SourceCompletionActivation get_activation () {
         return Gtk.SourceCompletionActivation.INTERACTIVE |
                Gtk.SourceCompletionActivation.USER_REQUESTED;
     }
 
-    public int get_interactive_delay () {
-        return 0;
+    public override int get_interactive_delay () {
+        return 500;
     }
 
-    public bool get_start_iter (Gtk.SourceCompletionContext context,
+    public override bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 out Gtk.TextIter iter) {
 
@@ -168,7 +164,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             if (completions.length () > 0) {
                 // warning ("got completions - length %u", completions.length ());
                 foreach (var completion in completions) {
-                    // warning ("completion: %s", completion);
+                    warning ("completion: %s", completion);
                     if (completion.length > 0) {
                         var item = new Gtk.SourceCompletionItem ();
                         var word = to_find + completion;
@@ -186,5 +182,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         }
 
         return false;
+    }
+
+    private bool is_delimiter (unichar uc) {
+        return Euclide.Completion.Parser.is_delimiter (uc);
     }
 }
