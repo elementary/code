@@ -41,7 +41,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private Scratch.Services.Document current_document {get; private set;}
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
+    // private bool completion_in_progress = false;
     private uint timeout_id = 0;
 
     public void activate () {
@@ -77,15 +77,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view = doc.source_view;
         current_view.buffer.insert_text.connect (on_insert_text);
         current_view.buffer.delete_range.connect (on_delete_range);
-        // current_view.buffer.notify["cursor-position"].connect (on_cursor_moved);
 
-        current_view.completion.show.connect (() => {
-            completion_in_progress = true;
-        });
+        // current_view.completion.show.connect (() => {
+        //     completion_in_progress = true;
+        // });
 
-        current_view.completion.hide.connect (() => {
-            completion_in_progress = false;
-        });
+        // current_view.completion.hide.connect (() => {
+        //     completion_in_progress = false;
+        // });
 
         if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
