@@ -48,6 +48,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const uint MINIMUM_PREFIX_LENGTH = 1;
     public const int MAX_TOKENS = 100000;
     public const string COMPLETED = "Completed";
+    public const string WORDS_TO_REMOVE = "WordsToRemove";
     public static bool is_delimiter (unichar? uc) {
         return uc == null || DELIMITERS.index_of_char (uc) > -1;
     }
@@ -77,6 +78,7 @@ public class Euclide.Completion.Parser : GLib.Object {
             // text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
             var new_treemap = new Gee.TreeMap<string, WordOccurrences> (compare_words, null);
             new_treemap.set_data<bool> (COMPLETED, false);
+            new_treemap.set_data<Gee.LinkedList<string>> (WORDS_TO_REMOVE, new Gee.LinkedList<string> ());
             text_view_words.@set (view, new_treemap);
             pre_existing = false;
         }
@@ -114,10 +116,6 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     // Returns true if text was completely parsed
     public bool parse_text_and_add (string text) {
-        if (text.length < MINIMUM_WORD_LENGTH) {
-            return false;
-        }
-
         int index = 0;
         string word = "";
         while (!parsing_cancelled && get_next_word (text, ref index, out word)) {
@@ -343,15 +341,19 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     Gee.SortedMap<string, WordOccurrences> sub_map;
     public bool match (string prefix) requires (current_tree != null) {
+        current_tree.map_iterator ().foreach ((word, occurrences) => {
+            warning ("current tree:  %s (%i)", word, occurrences.occurrences);
+            return Source.CONTINUE;
+        });
         sub_map = get_submap_for_prefix (prefix);
 
         bool found = false;
         sub_map.map_iterator ().foreach ((word, occurrences) => {
             if (word.has_prefix (prefix)) {
-                if (occurrences.occurs ()) {
+                // if (occurrences.occurs ()) {
                     found = true;
                     return false; // At least one match
-                }
+                // }
             }
 
             return true; // Continue iterations
@@ -368,9 +370,12 @@ public class Euclide.Completion.Parser : GLib.Object {
         assert (sub_map != null);
         var count = 0;
         sub_map.map_iterator ().@foreach ((word, occurrences) => {
+            // warning ("sub_map: %s (%i)", word, occurrences.occurrences);
             if (word.has_prefix (prefix)) {
+                var completion = word.slice (prefix_length, word.length);
+                // warning ("completion is: %s", completion);
                 if (occurrences.occurs ()) {
-                    completions.prepend (word.slice (prefix_length, word.length));
+                    completions.prepend (completion);
                 }
 
                 count++;
@@ -387,7 +392,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public void add_word (string word_to_add) requires (current_tree != null) {
         if (is_valid_word (word_to_add)) {
             if (current_tree.has_key (word_to_add)) {
-                warning ("found word %s", word_to_add);
+                // warning ("found word %s", word_to_add);
                 var word_occurrences = current_tree.@get (word_to_add);
                 word_occurrences.increment ();
             } else {
@@ -397,14 +402,73 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
     }
 
+    private uint reaper_timeout_id = 0;
+    private bool delay_reaping = false;
+    private const uint REAPING_THROTTLE_MS = 500;
     // only call if known that @word is a single word
     public void remove_word (string word_to_remove) requires (current_tree != null) {
         if (is_valid_word (word_to_remove)) {
             if (current_tree.has_key (word_to_remove)) {
-                warning ("found word to remove %s", word_to_remove);
                 var word_occurrences = current_tree.@get (word_to_remove);
                 word_occurrences.decrement ();
+                if (!word_occurrences.occurs ()) {
+                    warning ("%s does not occur - schedule remove", word_to_remove);
+                    var words_to_remove = get_words_to_remove ();
+                        words_to_remove.add (word_to_remove);
+                        warning ("words to remove length %i", words_to_remove.size);
+                        schedule_reaping ();
+                }
             }
+        }
+    }
+
+    private unowned Gee.LinkedList<string> get_words_to_remove () {
+        return current_tree.get_data<Gee.LinkedList<string>> (WORDS_TO_REMOVE);
+    }
+
+    private bool reaping_cancelled = false;
+    private void cancel_reaping () {
+        warning ("cancel reaping");
+        if (reaper_timeout_id > 0) {
+            Source.remove (reaper_timeout_id);
+        }
+
+        reaping_cancelled = true;
+    }
+
+    private void schedule_reaping () {
+        if (reaper_timeout_id > 0) {
+            delay_reaping = true;
+            return;
+        } else {
+            reaper_timeout_id = Timeout.add (REAPING_THROTTLE_MS, () => {
+                if (delay_reaping) {
+                    delay_reaping = false;
+                    return Source.CONTINUE;
+                } else {
+                    reaper_timeout_id = 0;
+                    var words_to_remove = get_words_to_remove ();
+                    warning ("reaping %i words", words_to_remove.size);
+                    words_to_remove.foreach ((word) => {
+                        if (reaping_cancelled) {
+                            warning ("reaping cancelled!");
+                            return false;
+                        }
+
+                        var occurrences = current_tree.@get (word);
+                        if (occurrences != null && !occurrences.occurs ()) {
+                            warning ("Reaping %s", word);
+                            current_tree.unset (word);
+                        }
+
+                        return true;
+                    });
+
+                    // Cannot remove inside @foreach loop so do it now
+                    words_to_remove.clear ();
+                    return Source.REMOVE;
+                }
+            });
         }
     }
 
