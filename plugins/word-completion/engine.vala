@@ -21,7 +21,7 @@
 
 public class Euclide.Completion.Parser : GLib.Object {
     private class WordOccurrences {
-        private int occurrences;
+        public int occurrences;
 
         public WordOccurrences () {
             occurrences = 1;
@@ -47,6 +47,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const uint MINIMUM_WORD_LENGTH = 3;
     public const uint MINIMUM_PREFIX_LENGTH = 1;
     public const int MAX_TOKENS = 100000;
+    public const string COMPLETED = "Completed";
     public static bool is_delimiter (unichar? uc) {
         return uc == null || DELIMITERS.index_of_char (uc) > -1;
     }
@@ -75,7 +76,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         if (!text_view_words.has_key (view)) {
             // text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
             var new_treemap = new Gee.TreeMap<string, WordOccurrences> (compare_words, null);
-            new_treemap.set_data<bool> ("Completed", false);
+            new_treemap.set_data<bool> (COMPLETED, false);
             text_view_words.@set (view, new_treemap);
             pre_existing = false;
         }
@@ -87,14 +88,25 @@ public class Euclide.Completion.Parser : GLib.Object {
         return pre_existing && get_initial_parsing_completed ();
     }
 
+    public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
+        lock (current_tree) {
+            current_tree.set_data<bool> (COMPLETED, completed);
+        }
+    }
+
+    public bool get_initial_parsing_completed () requires (current_tree != null) {
+        return current_tree.get_data<bool> (COMPLETED);
+    }
+
     public void initial_parse_buffer_text (string buffer_text) {
-    warning ("initial parse buffer");
+    warning ("initial parse buffer - length %u", buffer_text.length);
         parsing_cancelled = false;
         clear ();
         if (buffer_text.length > 0) {
             set_initial_parsing_completed (parse_text_and_add (buffer_text));
         } else {
-            set_initial_parsing_completed (false);
+            // Assume any buffer text has been loaded when this is called
+            set_initial_parsing_completed (true);
         }
 
         warning ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
@@ -323,16 +335,6 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
 
         parsing_cancelled = false;
-    }
-
-    public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
-        lock (current_tree) {
-            current_tree.set_data<bool> ("Completed", completed);
-        }
-    }
-
-    public bool get_initial_parsing_completed () requires (current_tree != null) {
-        return current_tree.get_data<bool> ("Completed");
     }
 
     private Gee.SortedMap<string, WordOccurrences> get_submap_for_prefix (string prefix) {
