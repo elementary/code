@@ -42,7 +42,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
     }
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
-    // Therefore, we reimplement some iter functions to move between words here below
+    // Therefore, only use string.split_set () to identify words
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`\"\'";
     public const int MINIMUM_WORD_LENGTH = 3;
     public const int MAXIMUM_WORD_LENGTH = 45;
