@@ -44,9 +44,9 @@ public class Euclide.Completion.Parser : GLib.Object {
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
     // Therefore, only use string.split_set () to identify words
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`\"\'";
-    public const int MINIMUM_WORD_LENGTH = 3;
+    public const int MINIMUM_WORD_LENGTH = 4;
     public const int MAXIMUM_WORD_LENGTH = 45;
-    public const int MINIMUM_PREFIX_LENGTH = 1;
+    public const int MINIMUM_PREFIX_LENGTH = 2;
     public const int MAX_TOKENS = 100000;
     public const string COMPLETED = "Completed";
     public const string WORDS_TO_REMOVE = "WordsToRemove";
@@ -58,10 +58,12 @@ public class Euclide.Completion.Parser : GLib.Object {
     // the target word as a prefix
     public static int compare_words (string word_a, string word_b) {
         // Only compare the first n characters
-        var scomp = Posix.strncmp (word_a, word_b, word_a.length);
-        // If same prefix then order by word length
-        if (scomp == 0 && word_b.length > word_a.length) {
-            return -1;
+        // Must return 0 when strings are the same!
+        var la = word_a.length;
+        var l_diff = word_b.length - la;
+        var scomp = Posix.strncmp (word_a, word_b, la);
+        if (scomp == 0 && l_diff > 0) {
+            return -l_diff;
         }
 
         return scomp;
@@ -177,7 +179,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         var words = sliced_text.split_set (DELIMITERS);
         var previous_word = words[words.length - 1]; // Maybe ""
         debug ("previous word %s", previous_word);
-        return previous_word;
+        return previous_word.strip ();
     }
 
     public string get_word_immediately_after (string text, int start_pos) {
@@ -201,7 +203,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         var words = text.slice (start_pos, pos).split_set (DELIMITERS, 2);
         var next_word = words[0]; // Maybe ""
         debug ("next word %s", next_word);
-        return next_word;
+        return next_word.strip ();
     }
 
     public void clear () requires (current_tree != null) {
@@ -229,6 +231,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         // Keep sub map so do not need to reconstruct in get_completions_for_prefix.
         sub_map = current_tree.tail_map (prefix);
         bool found = false;
+
         sub_map.map_iterator ().foreach ((word, wo) => {
             if (word.has_prefix (prefix)) {
                 if (wo.occurs ()) {
@@ -251,7 +254,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         assert (sub_map != null);
         // Submap (tail_map) sometimes contains unexpected word *before* prefix_length
         // Possibly a bug in Gee? It also contains words that do not start with prefix,
-        // but required words will be contiguous. So we continue loop if before prefix, 
+        // but required words will be contiguous. So we continue loop if before prefix,
         // and continue until not a completion
         var count = 0;
         sub_map.map_iterator ().@foreach ((word, wo) => {
@@ -277,10 +280,14 @@ public class Euclide.Completion.Parser : GLib.Object {
         if (is_valid_word (word_to_add)) {
             if (current_tree.has_key (word_to_add)) {
                 var wo = current_tree.@get (word_to_add);
+                debug ("incrementing");
                 wo.increment ();
             } else {
+                debug ("adding new %s length %u", word_to_add, word_to_add.length);
                 current_tree.@set (word_to_add, new WordOccurrence ());
             }
+        } else {
+            debug ("Not valid to add %s", word_to_add);
         }
     }
 
@@ -291,16 +298,19 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     // only call if known that @word is a single word
     public void remove_word (string word_to_remove) requires (current_tree != null) {
-        if (is_valid_word (word_to_remove)) {
-            if (current_tree.has_key (word_to_remove)) {
-                var word_occurrences = current_tree.@get (word_to_remove);
-                word_occurrences.decrement ();
-                if (!word_occurrences.occurs ()) {
-                    var words_to_remove = get_words_to_remove ();
-                        words_to_remove.add (word_to_remove);
-                        schedule_reaping ();
-                }
+        if (current_tree.has_key (word_to_remove)) {
+            var word_occurrences = current_tree.@get (word_to_remove);
+            word_occurrences.decrement ();
+            if (!word_occurrences.occurs ()) {
+                var words_to_remove = get_words_to_remove ();
+                    debug ("schedule remove %s", word_to_remove);
+                    words_to_remove.add (word_to_remove);
+                    schedule_reaping ();
+            } else {
+                debug ("not removing %s", word_to_remove);
             }
+        } else {
+            debug ("%s not found in tree - length %u", word_to_remove, word_to_remove.length);
         }
     }
 
@@ -309,6 +319,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     private void schedule_reaping () {
+        reaping_cancelled = false;
         if (reaper_timeout_id > 0) {
             delay_reaping = true;
             return;
@@ -320,13 +331,16 @@ public class Euclide.Completion.Parser : GLib.Object {
                 } else {
                     reaper_timeout_id = 0;
                     var words_to_remove = get_words_to_remove ();
+                    debug ("reaping");
                     words_to_remove.foreach ((word) => {
                         if (reaping_cancelled) {
+                            debug ("reaping was cancelled");
                             return false;
                         }
 
                         var wo = current_tree.@get (word);
                         if (wo != null && !wo.occurs ()) {
+                            debug ("reaping %s", word);
                             current_tree.unset (word);
                         }
 

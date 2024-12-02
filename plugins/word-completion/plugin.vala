@@ -138,8 +138,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         // Only update if words have changed
         if (text_to_add != text_to_remove) {
             // Text to add may contain delimiters so parse
+            debug ("insert: add %s", text_to_add);
             parser.parse_text_and_add (text_to_add);
             // We know text to remove does not contain delimiters
+            debug ("insert: remove %s", text_to_remove);
             parser.remove_word (text_to_remove);
         }
     }
