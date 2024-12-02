@@ -41,8 +41,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private Scratch.Services.Document current_document {get; private set;}
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
-    // private bool completion_in_progress = false;
-    private uint timeout_id = 0;
+    private uint initial_parse_timeout_id = 0;
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
@@ -78,14 +77,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view.buffer.insert_text.connect (on_insert_text);
         current_view.buffer.delete_range.connect (on_delete_range);
 
-        // current_view.completion.show.connect (() => {
-        //     completion_in_progress = true;
-        // });
-
-        // current_view.completion.hide.connect (() => {
-        //     completion_in_progress = false;
-        // });
-
         if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
         }
@@ -111,8 +102,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         /* Wait a bit to allow text to load then run parser*/
         if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
             // Start initial parsing  after timeout to ensure text loaded
-            timeout_id = Timeout.add (1000, () => {
-                timeout_id = 0;
+            initial_parse_timeout_id = Timeout.add (1000, () => {
+                initial_parse_timeout_id = 0;
                 try {
                     new Thread<void*>.try ("word-completion-thread", () => {
                         if (current_view != null) {
@@ -132,9 +123,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
-    // warning ("on insert text %s", new_text);
         if (!parser.get_initial_parsing_completed ()) {
-            // warning ("ignore spurious insertions when doc loading");
+            debug ("Ignoring spurious insertions when doc loading");
             return;
         }
         // Determine whether insertion point ends and/or starts a word
@@ -142,17 +132,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var insert_pos = iter.get_offset ();
         string word_before, word_after;
         parser.get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
-
         var text_to_add = (word_before + new_text + word_after).strip ();
-        // warning ("add text to parse %s", text_to_parse);
-        // Inserted text could contain delimiters so parse before adding
-
         var text_to_remove = (word_before + word_after).strip ();
         // Only update if words have changed
         if (text_to_add != text_to_remove) {
-            // warning ("after insert remove %s", to_remove);
-            // We know this does not contain delimiters
-            // warning ("adding %s, removing %s", text_to_add, text_to_remove);
             // Text to add may contain delimiters so parse
             parser.parse_text_and_add (text_to_add);
             // We know text to remove does not contain delimiters
@@ -165,10 +148,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var text = current_view.buffer.text;
         var delete_start_pos = del_start_iter.get_offset ();
         var delete_end_pos = del_end_iter.get_offset ();
-
         var word_before = parser.get_word_immediately_before (text, delete_start_pos);
-
-        // We do not want word in deleted text so get word after delete end separately
         var word_after = parser.get_word_immediately_after (text, delete_end_pos);
 
         var to_remove = word_before + del_text + word_after;
@@ -184,13 +164,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void cleanup () {
-        if (timeout_id > 0) {
-            GLib.Source.remove (timeout_id);
+        if (initial_parse_timeout_id > 0) {
+            GLib.Source.remove (initial_parse_timeout_id);
         }
 
         current_view.buffer.insert_text.disconnect (on_insert_text);
         current_view.buffer.delete_range.disconnect (on_delete_range);
-        // Disconnect show completion??
 
         current_view.completion.get_providers ().foreach ((p) => {
             try {

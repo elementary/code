@@ -74,20 +74,14 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
         var preceding_word = parser.get_word_immediately_before (text, start_pos);
         if (preceding_word != "") {
-            // warning ("preceding word found %s", preceding_word);
             found = parser.match (preceding_word);
-            // warning ("parser match returned %s", found.to_string ());
             current_text_to_find = found ? preceding_word : "";
-            // warning ("current text to find %s", current_text_to_find);
-        } else {
-            // warning ("No word before");
         }
 
         return found;
     }
 
     public override void populate (Gtk.SourceCompletionContext context) {
-// warning ("populate");
         /*Store current insertion point for use in activate_proposal */
         GLib.List<Gtk.SourceCompletionItem>? file_props;
         bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
@@ -106,7 +100,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         // If inserting in middle of word then completion overwrites end of word
         var end_pos = end_iter.get_offset ();
         var text = buffer.text;
-        // If word immediately follows then find offset of end and reset end_iter there
         var following_word = parser.get_word_immediately_after (text, end_pos);
         if (following_word != "") {
             buffer.get_iter_at_offset (out end_iter, end_pos + following_word.length);
@@ -140,7 +133,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
-    // warning ("get proposals");
         string to_find = "";
         Gtk.TextBuffer temp_buffer = buffer;
         props = null;
@@ -162,22 +154,17 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             /* Get proposals, if any */
             var completions = parser.get_completions_for_prefix (to_find);
             if (completions.length () > 0) {
-                // warning ("got completions - length %u", completions.length ());
                 foreach (var completion in completions) {
-                    warning ("completion: %s", completion);
                     if (completion.length > 0) {
                         var item = new Gtk.SourceCompletionItem ();
                         var word = to_find + completion;
                         item.label = word;
                         item.text = completion;
-                        // warning ("adding completion");
                         props.append (item);
                     }
                 }
 
                 return true;
-            } else {
-                // warning ("No completions");
             }
         }
 
