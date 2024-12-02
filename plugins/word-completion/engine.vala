@@ -20,6 +20,27 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
+    private class WordOccurrences {
+        private int occurrences;
+
+        public WordOccurrences () {
+            occurrences = 1;
+        }
+
+        public void increment () {
+            occurrences++;
+        }
+
+        public void decrement () {
+            if (occurrences > 0) {
+                occurrences--;
+            }
+        }
+
+        public bool occurs () {
+            return occurrences > 0;
+        }
+    }
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
     // Therefore, we reimplement some iter functions to move between words here below
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`\"\'";
@@ -30,16 +51,44 @@ public class Euclide.Completion.Parser : GLib.Object {
         return uc == null || DELIMITERS.index_of_char (uc) > -1;
     }
 
-    private Scratch.Plugins.PrefixTree? current_tree = null;
-    public Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> text_view_words;
+    public static int compare_words (string word_a, string word_b) {
+        var scomp = Posix.strncmp (word_a, word_b, word_a.length);
+        if (scomp == 0 && word_b.length > word_a.length) {
+            return -1;
+        }
+
+        return scomp;
+    }
+
+    private Gee.TreeMap<string, WordOccurrences>? current_tree = null;
+    public Gee.HashMap<Gtk.TextView, Gee.TreeMap> text_view_words;
     public bool parsing_cancelled = false;
 
     public Parser () {
-         text_view_words = new Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> ();
+         text_view_words = new Gee.HashMap<Gtk.TextView, Gee.TreeMap> ();
+
+    }
+
+    public bool select_current_tree (Gtk.TextView view) {
+        bool pre_existing = true;
+
+        if (!text_view_words.has_key (view)) {
+            // text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
+            var new_treemap = new Gee.TreeMap<string, WordOccurrences> (compare_words, null);
+            new_treemap.set_data<bool> ("Completed", false);
+            text_view_words.@set (view, new_treemap);
+            pre_existing = false;
+        }
+
+        lock (current_tree) {
+            current_tree = text_view_words.@get (view);
+        }
+
+        return pre_existing && get_initial_parsing_completed ();
     }
 
     public void initial_parse_buffer_text (string buffer_text) {
-    // warning ("initial parse buffer text %s", buffer_text);
+    warning ("initial parse buffer");
         parsing_cancelled = false;
         clear ();
         if (buffer_text.length > 0) {
@@ -220,8 +269,6 @@ public class Euclide.Completion.Parser : GLib.Object {
             return true;
         }
 
-        // warning ("pos now %i", offset);
-
         // Pointing after first delimiter after word end - back up if not text end
         text.get_prev_char (ref offset, out uc);
 //        warning ("word end after skip back offset %i", offset);
@@ -265,32 +312,14 @@ public class Euclide.Completion.Parser : GLib.Object {
 
         // Pointing before delimiter before word - skip forward to word start
         text.get_next_char (ref offset, out uc);
-//        warning ("after skip forward offset %i", offset);
         return true;
-    }
-
-    public bool match (string to_find) requires (current_tree != null) {
-        return current_tree.has_prefix (to_find);
-    }
-
-    public bool select_current_tree (Gtk.TextView view) {
-        bool pre_existing = true;
-
-        if (!text_view_words.has_key (view)) {
-            text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
-            pre_existing = false;
-        }
-
-        lock (current_tree) {
-            current_tree = text_view_words.@get (view);
-        }
-
-        return pre_existing && get_initial_parsing_completed ();
     }
 
     public void clear () requires (current_tree != null) {
         lock (current_tree) {
             current_tree.clear (); // Sets completed false
+            set_initial_parsing_completed (false);
+
         }
 
         parsing_cancelled = false;
@@ -298,36 +327,81 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
         lock (current_tree) {
-            debug ("setting current tree completed %s", completed.to_string ());
-            current_tree.initial_parse_complete = completed;
+            current_tree.set_data<bool> ("Completed", completed);
         }
     }
 
     public bool get_initial_parsing_completed () requires (current_tree != null) {
-        return current_tree.initial_parse_complete;
+        return current_tree.get_data<bool> ("Completed");
+    }
+
+    private Gee.SortedMap<string, WordOccurrences> get_submap_for_prefix (string prefix) {
+        return current_tree.tail_map (prefix);
+    }
+
+    Gee.SortedMap<string, WordOccurrences> sub_map;
+    public bool match (string prefix) requires (current_tree != null) {
+        sub_map = get_submap_for_prefix (prefix);
+
+        bool found = false;
+        sub_map.map_iterator ().foreach ((word, occurrences) => {
+            if (word.has_prefix (prefix)) {
+                if (occurrences.occurs ()) {
+                    found = true;
+                    return false; // At least one match
+                }
+            }
+
+            return true; // Continue iterations
+        });
+
+        return found;
     }
 
     // Fills list with complete words having prefix
-    public bool get_completions_for_prefix (string prefix, out List<string> completions) requires (current_tree != null) {
-        completions = current_tree.get_all_completions (prefix);
-        return completions.first () != null;
+    public List<string> get_completions_for_prefix (string prefix) requires (current_tree != null) {
+        var completions = new List<string> ();
+        var list = new List<string> ();
+        var prefix_length = prefix.length;
+        assert (sub_map != null);
+        var count = 0;
+        sub_map.map_iterator ().@foreach ((word, occurrences) => {
+            if (word.has_prefix (prefix)) {
+                if (occurrences.occurs ()) {
+                    completions.prepend (word.slice (prefix_length, word.length));
+                }
+
+                count++;
+                return true;
+            }
+
+            return count == 0; // Ignore words before prefix
+        });
+
+        return (owned)completions;
     }
 
     // Only call if known that @word is a single word
-    public void add_word (string word) requires (current_tree != null) {
-        if (is_valid_word (word)) {
-            lock (current_tree) {
-                // warning ("add word %s", word);
-                current_tree.insert (word);
+    public void add_word (string word_to_add) requires (current_tree != null) {
+        if (is_valid_word (word_to_add)) {
+            if (current_tree.has_key (word_to_add)) {
+                warning ("found word %s", word_to_add);
+                var word_occurrences = current_tree.@get (word_to_add);
+                word_occurrences.increment ();
+            } else {
+                warning ("inserting new word %s", word_to_add);
+                current_tree.@set (word_to_add, new WordOccurrences ());
             }
         }
     }
 
     // only call if known that @word is a single word
-    public void remove_word (string word) requires (current_tree != null) {
-        if (is_valid_word (word)) {
-            lock (current_tree) {
-                current_tree.remove (word);
+    public void remove_word (string word_to_remove) requires (current_tree != null) {
+        if (is_valid_word (word_to_remove)) {
+            if (current_tree.has_key (word_to_remove)) {
+                warning ("found word to remove %s", word_to_remove);
+                var word_occurrences = current_tree.@get (word_to_remove);
+                word_occurrences.decrement ();
             }
         }
     }
