@@ -19,7 +19,6 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-
     public const int MAX_TOKENS = 1000000;
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -68,7 +67,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 return;
             }
 
-            parser.cancel_parsing ();
+            parser.cancel (); // Stop any ongoing parsing or reaping
             cleanup ();
         }
 
@@ -99,26 +98,28 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             return;
         }
 
-        /* Wait a bit to allow text to load then run parser*/
-        if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
-            // Start initial parsing  after timeout to ensure text loaded
-            initial_parse_timeout_id = Timeout.add (1000, () => {
-                initial_parse_timeout_id = 0;
-                try {
-                    new Thread<void*>.try ("word-completion-thread", () => {
-                        if (current_view != null) {
-                            parser.initial_parse_buffer_text (current_view.buffer.text);
-                        }
-
-                        return null;
-                    });
-                } catch (Error e) {
-                    warning (e.message);
-                }
-
+        // Start initial parsing after timeout to ensure text loaded into buffer.
+        initial_parse_timeout_id = Timeout.add (1000, () => {
+            initial_parse_timeout_id = 0;
+            if (parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
                 return Source.REMOVE;
-            });
-        }
+            }
+
+
+            try {
+                new Thread<void*>.try ("word-completion-thread", () => {
+                    if (current_view != null) {
+                        parser.initial_parse_buffer_text (current_view.buffer.text);
+                    }
+
+                    return null;
+                });
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            return Source.REMOVE;
+        });
     }
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
