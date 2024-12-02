@@ -37,7 +37,8 @@ namespace Scratch.Widgets {
         private string prev_selected_text = "";
         private SourceGutterRenderer git_diff_gutter_renderer;
 
-        private const uint THROTTLE_MS = 400;
+        private const uint SIZE_ALLOCATION_THROTTLE_MS = 400;
+        private const uint SELECTION_CHANGE_THROTTLE_MS = 100;
         private double total_delta = 0;
         private const double SCROLL_THRESHOLD = 1.0;
 
@@ -189,7 +190,7 @@ namespace Scratch.Widgets {
             size_allocate.connect ((allocation) => {
                 // Throttle for performance
                 if (size_allocate_timer == 0) {
-                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                    size_allocate_timer = Timeout.add (SIZE_ALLOCATION_THROTTLE_MS, () => {
                         size_allocate_timer = 0;
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
@@ -606,7 +607,7 @@ namespace Scratch.Widgets {
                 return;
             }
 
-            selection_changed_timer = Timeout.add (THROTTLE_MS, () => {
+            selection_changed_timer = Timeout.add (SELECTION_CHANGE_THROTTLE_MS, () => {
                 if (continue_selection_timer) {
                     continue_selection_timer = false;
                     return Source.CONTINUE;
