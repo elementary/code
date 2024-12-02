@@ -171,7 +171,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return false;
     }
 
-    private bool is_delimiter (unichar uc) {
-        return Euclide.Completion.Parser.is_delimiter (uc);
-    }
+    // private bool is_delimiter (unichar uc) {
+    //     return Euclide.Completion.Parser.is_delimiter (uc);
+    // }
 }
