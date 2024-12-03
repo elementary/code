@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 elementary, Inc. <https://elementary.io>
  * Copyright (c) 2013 Mario Guerriero <mario@elementaryos.org>
  *
  * This is a free software; you can redistribute it and/or
@@ -58,39 +59,30 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
     }
 
-    public string get_name () {
+    public override string get_name () {
         return this.name;
     }
 
-    public int get_priority () {
+    public override int get_priority () {
         return this.priority;
     }
 
-    public bool match (Gtk.SourceCompletionContext context) {
+    public override bool match (Gtk.SourceCompletionContext context) {
         int end_pos = buffer.cursor_position;
         int start_pos = end_pos;
         bool found = false;
         var text = buffer.text;
 
-        // parser.backward_word_start (text, ref start_pos);
         var preceding_word = parser.get_word_immediately_before (text, start_pos);
         if (preceding_word != "") {
-            // warning ("preceding word found %s", preceding_word);
-            // current_text_to_find = text.slice (start_pos, end_pos);
             found = parser.match (preceding_word);
-            // warning ("parser match returned %s", found.to_string ());
             current_text_to_find = found ? preceding_word : "";
         }
 
         return found;
     }
 
-    private bool is_delimiter (unichar uc) {
-        return Euclide.Completion.Parser.is_delimiter (uc);
-    }
-
-    public void populate (Gtk.SourceCompletionContext context) {
-// warning ("populate");
+    public override void populate (Gtk.SourceCompletionContext context) {
         /*Store current insertion point for use in activate_proposal */
         GLib.List<Gtk.SourceCompletionItem>? file_props;
         bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
@@ -98,7 +90,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         context.add_proposals (this, file_props, true);
     }
 
-    public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
+    public override bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         Gtk.TextIter start;
         Gtk.TextIter end_iter;
         Gtk.TextMark mark;
@@ -109,7 +101,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         // If inserting in middle of word then completion overwrites end of word
         var end_pos = end_iter.get_offset ();
         var text = buffer.text;
-        // If word immediately follows then find offset of end and reset end_iter there
         var following_word = parser.get_word_immediately_after (text, end_pos);
         if (following_word != "") {
             buffer.get_iter_at_offset (out end_iter, end_pos + following_word.length);
@@ -123,16 +114,16 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-    public Gtk.SourceCompletionActivation get_activation () {
+    public override Gtk.SourceCompletionActivation get_activation () {
         return Gtk.SourceCompletionActivation.INTERACTIVE |
                Gtk.SourceCompletionActivation.USER_REQUESTED;
     }
 
-    public int get_interactive_delay () {
-        return 0;
+    public override int get_interactive_delay () {
+        return 500;
     }
 
-    public bool get_start_iter (Gtk.SourceCompletionContext context,
+    public override bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 out Gtk.TextIter iter) {
 
@@ -162,8 +153,8 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_PREFIX_LENGTH) {
             /* Get proposals, if any */
-            List<string> completions;
-            if (parser.get_completions_for_prefix (to_find, out completions)) {
+            var completions = parser.get_completions_for_prefix (to_find);
+            if (completions.length () > 0) {
                 foreach (var completion in completions) {
                     if (completion.length > 0) {
                         var item = new Gtk.SourceCompletionItem ();
@@ -177,6 +168,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
                 return true;
             }
         }
+
         return false;
     }
 }

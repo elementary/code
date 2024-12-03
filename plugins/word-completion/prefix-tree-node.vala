@@ -32,11 +32,11 @@ public class Scratch.Plugins.PrefixNode : Object {
     public uint occurrences { get; set construct; default = 0; }
     public PrefixNode? parent { get; construct; default = null; }
 
-    // public bool is_word_end {
-    //     get {
-    //         return type == WORD_END;
-    //     }
-    // }
+    public bool is_word_end {
+        get {
+            return type == WORD_END;
+        }
+    }
 
     // public bool is_root {
     //     get {
@@ -109,15 +109,19 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
     }
 
-    private void decrement () requires (type == WORD_END && occurrences > 0) {
+    public void decrement () requires (type == WORD_END) {
+        if (occurrences == 0) {
+            warning ("decrementing non-occurring node");
+            return;
+        }
+
         lock (occurrences) {
             occurrences--;
         }
-
-        if (occurrences == 0) {
-            // critical ("removing child no longer used");
-            parent.remove_child (this);
-        }
+    }
+    
+    public bool occurs () requires (type == WORD_END) {
+        return occurrences > 0;
     }
 
     private void append_child (owned PrefixNode child) requires (type != WORD_END) {
@@ -126,7 +130,7 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
     }
 
-    private void remove_child (PrefixNode child) requires (type != WORD_END) {
+    public void remove_child (PrefixNode child) requires (type != WORD_END) {
         lock (children) {
             children.remove (child);
             if (children.is_empty && type != ROOT) {
@@ -135,25 +139,25 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
     }
 
-    private bool remove_or_decrement_word_end () requires (this.has_children) {
-        foreach (var child in children) {
-            if (child.type == WORD_END) {
-//                warning ("found word end - occurrences %u - decrementing", child.occurrences);
-                child.decrement ();
+//     private bool remove_or_decrement_word_end () requires (this.has_children) {
+//         foreach (var child in children) {
+//             if (child.type == WORD_END) {
+// //                warning ("found word end - occurrences %u - decrementing", child.occurrences);
+//                 child.decrement ();
 
-                return true;
-            }
-        }
+//                 return true;
+//             }
+//         }
 
-        critical ("No word end node found when removing");
+//         critical ("No word end node found when removing");
 
-        return false;
-    }
+//         return false;
+//     }
 
     private void append_or_increment_word_end () requires (type != WORD_END && type != ROOT) {
         foreach (var child in children) {
             if (child.type == WORD_END) {
-//                warning ("incrementing child occurrence");
+               debug ("incrementing child occurrence");
                 child.increment ();
                 return;
             }
@@ -183,7 +187,7 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
     }
 
-    public void insert_word (string text) {
+    public void insert_word (string text) requires (type == ROOT) {
         int index = 0;
         insert_word_internal (text, ref index);
     }
@@ -218,12 +222,12 @@ public class Scratch.Plugins.PrefixNode : Object {
         }
     }
 
-    public bool remove_word (string text) {
-        var node = find_last_node_for (text);
-        var res = node.remove_or_decrement_word_end ();
-        // warning ("remove %s result %s", text, res.to_string ());
-        return res;
-    }
+    // public bool remove_word (string text) {
+    //     var node = find_last_node_for (text);
+    //     var res = node.remove_or_decrement_word_end ();
+    //     // warning ("remove %s result %s", text, res.to_string ());
+    //     return res;
+    // }
 
     public PrefixNode? has_char_child (unichar c) requires (type != WORD_END) {
         foreach (var child in children) {

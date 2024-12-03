@@ -43,9 +43,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private Scratch.Services.Interface plugins;
     private bool completion_in_progress = false;
 
-
-    // Gtk.TextMark start_del_mark = new Gtk.TextMark ("StartDelete", true);
-
     private uint timeout_id = 0;
 
     public void activate () {
@@ -67,7 +64,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
-        // warning ("new source_view %s", doc.title);
+        debug ("new source_view %s", doc !=null ? doc.title : "null");
         if (current_view != null) {
             if (current_view == doc.source_view) {
                 return;
@@ -81,8 +78,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view = doc.source_view;
         current_view.buffer.insert_text.connect (on_insert_text);
         current_view.buffer.delete_range.connect (on_delete_range);
-        current_view.buffer.delete_range.connect_after (after_delete_range);
-        // current_view.buffer.notify["cursor-position"].connect (on_cursor_moved);
 
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
@@ -138,9 +133,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
-    // warning ("on insert text %s", new_text);
         if (!parser.get_initial_parsing_completed ()) {
-            // warning ("ignore spurious insertions when doc loading");
+            // Ignore spurious insertions when doc loading
             return;
         }
         // Determine whether insertion point ends and/or starts a word
@@ -148,101 +142,36 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var insert_pos = iter.get_offset ();
         string word_before, word_after;
         parser.get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
-
         var text_to_add = (word_before + new_text + word_after).strip ();
-        // warning ("add text to parse %s", text_to_parse);
-        // Inserted text could contain delimiters so parse before adding
-
         var text_to_remove = (word_before + word_after).strip ();
+
         // Only update if words have changed
         if (text_to_add != text_to_remove) {
-            // warning ("after insert remove %s", to_remove);
-            // We know this does not contain delimiters
-            // warning ("adding %s, removing %s", text_to_add, text_to_remove);
+            debug ("adding %s, removing %s", text_to_add, text_to_remove);
             // Text to add may contain delimiters so parse
             parser.parse_text_and_add (text_to_add);
+            debug ("after insert remove %s", text_to_remove);
             // We know text to remove does not contain delimiters
             parser.remove_word (text_to_remove);
         }
     }
-
-    // Used by both insertions and deletion handlers
-
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
         var text = current_view.buffer.text;
         var delete_start_pos = del_start_iter.get_offset ();
         var delete_end_pos = del_end_iter.get_offset ();
-
-        // string before, after;
-        // parser.get_words_before_and_after_pos (text, delete_start_pos, out before, out after);
         var word_before = parser.get_word_immediately_before (text, delete_start_pos);
-
-        // // We do not want word in deleted text so get word after delete end separately
-        // parser.get_words_before_and_after_pos (text, delete_end_pos, out before, out after);
         var word_after = parser.get_word_immediately_after (text, delete_end_pos);
 
         var to_remove = word_before + del_text + word_after;
+        debug ("delete range: remove %s", to_remove);
         parser.parse_text_and_remove (to_remove);
 
         // A new word could have been created
         var to_add = word_before + word_after;
+        debug ("delete range: new word created %s", to_add);
         parser.add_word (to_add);
-
-        // // Mark for after_delete handler where deletion occurred
-        // current_view.buffer.add_mark (start_del_mark, del_start_iter);
-    }
-
-    private void after_delete_range () {
-        // Gtk.TextIter? iter = null;
-        // if (start_del_mark.get_deleted ()) {
-        //     critical ("No DeleteMark after deletion");
-        //     return;
-        // }
-
-        // // The deleted text has already been parsed and removed from prefix tree
-        // // Need to check whether a new word has been created by deletion
-        // current_view.buffer.get_iter_at_mark (out iter, start_del_mark);
-        // if (iter == null) {
-        //     critical ("Unable to get iter from deletion mark");
-        //     return;
-        // }
-
-        // var delete_pos = iter.get_offset ();
-        // string word_before, word_after;
-        // parser. get_words_before_and_after_pos (
-        //     current_view.buffer.text,
-        //     delete_pos,
-        //     out word_before,
-        //     out word_after
-        // );
-
-        // // A new word could have been created
-        // var to_add = word_before + word_after;
-        // parser.parse_text_and_add (to_add);
-        // current_view.buffer.delete_mark (start_del_mark);
-    }
-
-    private int current_insertion_line = -1;
-    private string original_text = "";
-    private void record_original_line_at (Gtk.TextIter iter) requires (current_insertion_line < 0) {
-        current_insertion_line = iter.get_line ();
-        var start_iter = iter;
-        var end_iter = iter;
-        while (!start_iter.starts_line ()) {
-            start_iter.backward_char ();
-        }
-
-        end_iter.forward_to_line_end ();
-        original_text = start_iter.get_text (end_iter);
-    }
-
-    private string retrieve_original_text () {
-        var return_s = original_text;
-        original_text = "";
-        current_insertion_line = -1;
-        return return_s;
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
@@ -256,14 +185,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_view.buffer.insert_text.disconnect (on_insert_text);
         current_view.buffer.delete_range.disconnect (on_delete_range);
-        current_view.buffer.delete_range.disconnect (after_delete_range);
         // Disconnect show completion??
 
         current_view.completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
                 if (p.get_name () == provider_name_from_document (current_document)) {
-                    debug ("removing provider %s", p.get_name ());
+                    debug ("removing provider %s", p != null ? p.get_name () : "null");
                     current_view.completion.remove_provider (p);
                 }
             } catch (Error e) {

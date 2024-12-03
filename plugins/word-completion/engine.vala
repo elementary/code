@@ -23,8 +23,9 @@ public class Euclide.Completion.Parser : GLib.Object {
     // DELIMITERS used for word completion are not necessarily the same Pango word breaks
     // Therefore, we reimplement some iter functions to move between words here below
     public const string DELIMITERS = " .,;:?{}[]()+=&|<>*\\/\r\n\t`\"\'";
-    public const uint MINIMUM_WORD_LENGTH = 3;
-    public const uint MINIMUM_PREFIX_LENGTH = 1;
+    public const int MINIMUM_WORD_LENGTH = 3;
+    public const int MAXIMUM_WORD_LENGTH = 50;
+    public const int MINIMUM_PREFIX_LENGTH = 1;
     public const int MAX_TOKENS = 100000;
     public static bool is_delimiter (unichar? uc) {
         return uc == null || DELIMITERS.index_of_char (uc) > -1;
@@ -38,49 +39,72 @@ public class Euclide.Completion.Parser : GLib.Object {
          text_view_words = new Gee.HashMap<Gtk.TextView, Scratch.Plugins.PrefixTree> ();
     }
 
+    public bool select_current_tree (Gtk.TextView view) {
+        bool pre_existing = true;
+        if (!text_view_words.has_key (view)) {
+            var new_treemap = new Scratch.Plugins.PrefixTree ();
+            text_view_words.@set (view, new_treemap);
+            pre_existing = false;
+        }
+
+        lock (current_tree) {
+            current_tree = text_view_words.@get (view);
+            parsing_cancelled = false;
+        }
+
+        return pre_existing && get_initial_parsing_completed ();
+    }
+
+    public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
+        lock (current_tree) {
+            current_tree.completed = completed;
+        }
+    }
+
+    public bool get_initial_parsing_completed () requires (current_tree != null) {
+        return current_tree.completed;
+    }
+
     public void initial_parse_buffer_text (string buffer_text) {
-    // warning ("initial parse buffer text %s", buffer_text);
         parsing_cancelled = false;
         clear ();
         if (buffer_text.length > 0) {
-            set_initial_parsing_completed (parse_text_and_add (buffer_text));
+            var parsed = parse_text_and_add (buffer_text);
+            set_initial_parsing_completed (parsed);
         } else {
-            set_initial_parsing_completed (false);
+            // Assume any buffer text would have been loaded when this is called
+            // so definitely no initial parse needed
+            set_initial_parsing_completed (true);
         }
 
-        warning ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
+        debug ("initial parsing %s", get_initial_parsing_completed () ? "completed" : "INCOMPLETE");
     }
 
     // Returns true if text was completely parsed
     public bool parse_text_and_add (string text) {
+        int index = 0;
+        string[] words = text.split_set (DELIMITERS);
+        uint n_words = words.length;
+        while (!parsing_cancelled && index < n_words) {
+            add_word (words[index++]); // only valid words will be added
+        }
+
+        return index == n_words;
+    }
+
+    public void parse_text_and_remove (string text) {
         if (text.length < MINIMUM_WORD_LENGTH) {
-            return false;
+            return;
         }
 
         int index = 0;
-        string word = "";
-        while (!parsing_cancelled && get_next_word (text, ref index, out word)) {
-            add_word (word);
+        string[] words = text.split_set (DELIMITERS);
+        uint n_words = words.length;
+        while (index < n_words) {
+            remove_word (words[index++]);
         }
 
-        return !parsing_cancelled;
-    }
-
-    // Returns whether text was completely parsed
-    public bool parse_text_and_remove (string text) {
-        if (text.length < MINIMUM_WORD_LENGTH) {
-            return false;
-        }
-
-        // Ensure text starts and ends with delimiter - easier to parse;
-        string to_parse = " " + text + " ";
-        int start_pos = 0;
-        string word = "";
-        while (!parsing_cancelled && get_next_word (to_parse, ref start_pos, out word)) {
-            remove_word (word);
-        }
-
-        return parsing_cancelled;
+        return;
     }
 
     public void get_words_before_and_after_pos (
@@ -89,246 +113,97 @@ public class Euclide.Completion.Parser : GLib.Object {
         out string word_before,
         out string word_after
     ) {
-
-//        warning ("get words before and after pos %i", offset);
-        var pos = offset;
-        word_before = "";
-        word_after = "";
-
-        // Words must be contiguous with start point
-        if (backward_word_start (text, ref pos, true) && offset >= pos) {
-            word_before = text.slice (pos, offset);
-        }
-
-        if (forward_word_end (text, ref pos, true) && pos >= offset) {
-            word_after = text.slice (offset, pos);
-        }
-
-//        warning ("got word before %s, word after %s", word_before, word_after);
+        word_before = get_word_immediately_before (text, offset);
+        word_after = get_word_immediately_after (text, offset);
     }
 
     public string get_word_immediately_before (string text, int end_pos) {
-        int start_pos = end_pos;
-        if (backward_word_start (text, ref start_pos, true) && end_pos > start_pos) {
-            return text.slice (start_pos, end_pos);
+        if (end_pos < 1) {
+            return "";
         }
 
-        return "";
+        int pos = end_pos;
+        unichar uc;
+        text.get_prev_char (ref pos, out uc);
+        if (is_delimiter (uc)) {
+            return "";
+        }
+
+        pos = (end_pos - MAXIMUM_WORD_LENGTH - 1).clamp (0, end_pos);
+        if (pos >= end_pos) {
+            critical ("pos after end_pos");
+            return "";
+        }
+
+        var sliced_text = text.slice (pos, end_pos);
+        var words = sliced_text.split_set (DELIMITERS);
+        var previous_word = words[words.length - 1]; // Maybe ""
+        debug ("previous word %s", previous_word);
+        return previous_word.strip ();
     }
 
     public string get_word_immediately_after (string text, int start_pos) {
-        int end_pos = start_pos;
-        if (forward_word_start (text, ref end_pos, true) && end_pos > start_pos) {
-            return text.slice (start_pos, end_pos);
+        if (start_pos < 0 || start_pos > text.length - 1) {
+            return "";
         }
 
-        return "";
-    }
-
-    private bool get_next_word (string text, ref int pos, out string word) {
-        word = "";
-        // May be delimiters after start point
-        if (forward_word_start (text, ref pos)) {
-            var start = pos;
-            forward_word_end (text, ref pos);
-            word = text.slice (start, pos).strip ();
-//            warning ("found %s", word);
-            return true;
+        int pos = start_pos;
+        unichar uc;
+        text.get_next_char (ref pos, out uc);
+        if (is_delimiter (uc)) {
+            return "";
         }
 
-        // warning ("Next word not found");
-        return false;
-    }
-
-    // Pos could point to beginning, middle or end of text and point
-    // at a delimiter or non-delimiter. Moves pointer forward to start of next
-    // Returns pointing BEFORE first char of next word
-    // Offset is in bytes NOT unichars!
-    private bool forward_word_start (string text, ref int offset, bool immediate = false) {
-        if (offset >= text.length - MINIMUM_WORD_LENGTH) {
-//            warning ("offset too large");
-            return false;
+        pos = (start_pos + MAXIMUM_WORD_LENGTH + 1).clamp (start_pos, text.length);
+        if (start_pos >= pos) {
+            critical ("start pos after pos");
+            return "";
         }
 
-        unichar? uc = null;
-        bool found = false;
-        int delimiters = -1;
-
-        // Skip delimiters before word
-        do {
-//            warning ("forward word end while IS delimiter - pos %i", offset);
-            found = text.get_next_char (ref offset, out uc);
-            delimiters++;
-        } while (found && is_delimiter (uc));
-
-        if (immediate && delimiters > 0) {
-            // warning ("Found preceding delimiters - not immediate");
-            return false;
-        }
-
-        if (!found) {
-            // Unable to find next non-delimiter in text - must be end of text
-//            warning (" no more word starts");
-            return false;
-        }
-
-        // Skip back
-        text.get_prev_char (ref offset, out uc);
-//        warning ("word start after skip back offset %i", offset);
-        return true;
-    }
-
-    // Pos could point to middle or end of text and point
-    // at a delimiter or non-delimiter. Moves pointer forward to next word end
-    // Returns pointing after last char of word
-    // Offset is in bytes NOT unichars!
-    private bool forward_word_end (string text, ref int offset, bool immediate = false) {
-        if (offset >= text.length) {
-//            warning ("offset too large");
-            return false;
-        }
-
-        unichar? uc = null;
-        bool found = false;
-        int delimiters = -1;
-
-        // Skip delimiters before word
-        do {
-//            warning ("forward word end while IS delimiter - pos %i", offset);
-            found = text.get_next_char (ref offset, out uc);
-            delimiters++;
-        } while (found && is_delimiter (uc));
-
-        if (immediate && delimiters > 0) {
-            warning ("found following delimiters - not immediate");
-            return false;
-        }
-
-        if (!found) { // Reached end of text without finding target
-//            warning ("No more word ends");
-            return false;
-        }
-
-        // Skip chars in word
-        do {
-//            warning ("forward word end while IS char - pos %i", offset);
-            found = text.get_next_char (ref offset, out uc);
-        } while (found && !is_delimiter (uc));
-
-        if (!found) { // Reached end of text without finding target
-//            warning ("End of text is word end - pos %i", offset);
-            return true;
-        }
-
-        // warning ("pos now %i", offset);
-
-        // Pointing after first delimiter after word end - back up if not text end
-        text.get_prev_char (ref offset, out uc);
-//        warning ("word end after skip back offset %i", offset);
-        return true;
-    }
-
-    // Returns pointing to first char of word
-    // Offset is in bytes NOT unichars!
-    private bool backward_word_start (string text, ref int offset, bool immediate = false) requires (offset > 0) {
-        unichar? uc = null;
-        bool found = false;
-        int delimiters = -1;
-        // Skip delimiters before start point
-        do {
-//            warning ("backward word start while IS delimiter - pos %i", offset);
-            found = text.get_prev_char (ref offset, out uc);
-            delimiters++;
-        } while (found && is_delimiter (uc));
-
-        if (immediate && delimiters > 0) {
-            // warning ("Found preceding delimiters - not immediate");
-            return false;
-        }
-
-        if (!found) {
-            // Unable to find next non-delimiter before
-//            warning (" no more word starts");
-            return false;
-        }
-
-        // Skip chars before in word
-        do {
-//            warning ("forward word end while IS char - pos %i", offset);
-            found = text.get_prev_char (ref offset, out uc);
-        } while (found && !is_delimiter (uc));
-
-        if (!found) { // Reached start of text without finding target - must be word start
-//            warning ("Start of text is word start - pos %i", offset);
-            return true;
-        }
-
-        // Pointing before delimiter before word - skip forward to word start
-        text.get_next_char (ref offset, out uc);
-//        warning ("after skip forward offset %i", offset);
-        return true;
-    }
-
-    public bool match (string to_find) requires (current_tree != null) {
-        return current_tree.has_prefix (to_find);
-    }
-
-    public bool select_current_tree (Gtk.TextView view) {
-        bool pre_existing = true;
-
-        if (!text_view_words.has_key (view)) {
-            text_view_words.@set (view, new Scratch.Plugins.PrefixTree ());
-            pre_existing = false;
-        }
-
-        lock (current_tree) {
-            current_tree = text_view_words.@get (view);
-        }
-
-        return pre_existing && get_initial_parsing_completed ();
+        var words = text.slice (start_pos, pos).split_set (DELIMITERS, 2);
+        var next_word = words[0]; // Maybe ""
+        debug ("next word %s", next_word);
+        return next_word.strip ();
     }
 
     public void clear () requires (current_tree != null) {
+        cancel_parsing ();
         lock (current_tree) {
             current_tree.clear (); // Sets completed false
+            set_initial_parsing_completed (false);
+
         }
 
         parsing_cancelled = false;
     }
 
-    public void set_initial_parsing_completed (bool completed) requires (current_tree != null) {
+    public void cancel_parsing () {
+        // Do not need to cancel reaping - this continues when prefix_tree is not current
+        parsing_cancelled = true;
+    }
+
+    private List<string> current_completions;
+    public bool match (string prefix) requires (current_tree != null) {
+        current_completions = current_tree.get_all_completions (prefix);
+        return current_completions != null && current_completions.first ().data != null;
+    }
+
+    public List<string> get_completions_for_prefix (string prefix) requires (current_tree != null) {
+        // Assume always preceded by match and current_completions up to date
+        return (owned)current_completions;
+    }
+    
+    public void add_word (string word_to_add) requires (current_tree != null) {
+        if (is_valid_word (word_to_add)) {
+            lock (current_tree) {
+                current_tree.add_word (word_to_add);
+            }
+        }
+    }
+
+    public void remove_word (string word_to_remove) requires (current_tree != null) {
         lock (current_tree) {
-            debug ("setting current tree completed %s", completed.to_string ());
-            current_tree.initial_parse_complete = completed;
-        }
-    }
-
-    public bool get_initial_parsing_completed () requires (current_tree != null) {
-        return current_tree.initial_parse_complete;
-    }
-
-    // Fills list with complete words having prefix
-    public bool get_completions_for_prefix (string prefix, out List<string> completions) requires (current_tree != null) {
-        completions = current_tree.get_all_completions (prefix);
-        return completions.first () != null;
-    }
-
-    // Only call if known that @word is a single word
-    public void add_word (string word) requires (current_tree != null) {
-        if (is_valid_word (word)) {
-            lock (current_tree) {
-                // warning ("add word %s", word);
-                current_tree.insert (word);
-            }
-        }
-    }
-
-    // only call if known that @word is a single word
-    public void remove_word (string word) requires (current_tree != null) {
-        if (is_valid_word (word)) {
-            lock (current_tree) {
-                current_tree.remove (word);
-            }
+            current_tree.remove_word (word_to_remove);
         }
     }
 
@@ -343,9 +218,5 @@ public class Euclide.Completion.Parser : GLib.Object {
         }
 
         return true;
-    }
-
-    public void cancel_parsing () {
-        parsing_cancelled = true;
     }
 }
