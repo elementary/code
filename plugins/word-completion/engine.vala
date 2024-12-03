@@ -192,7 +192,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         // Assume always preceded by match and current_completions up to date
         return (owned)current_completions;
     }
-    
+
     public void add_word (string word_to_add) requires (current_tree != null) {
         if (is_valid_word (word_to_add)) {
             lock (current_tree) {

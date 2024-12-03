@@ -27,8 +27,8 @@
     private const uint REAPING_THROTTLE_MS = 500;
     private bool reaping_cancelled = false;
 
-    public bool initial_parse_complete = false;
     public bool completed { get; set; default = false; }
+    // We just store the end_nodes corresponding to words to be removed
     public Gee.LinkedList<PrefixNode> words_to_remove { get; construct; }
 
     construct {
@@ -39,7 +39,7 @@
 
     public void clear () {
         root = new PrefixNode.root ();
-        initial_parse_complete = false;
+        completed = false;
     }
 
     public void add_word (string word) requires (word.length > 0) {
@@ -47,58 +47,32 @@
         root.insert_word (word);
     }
 
-    public bool has_prefix (string prefix) {
-        return root.find_last_node_for (prefix) != null ? true : false;
-    }
-
     public List<string> get_all_completions (string prefix) {
         var list = new List<string> ();
-        var node = root.find_last_node_for (prefix);
-        if (node != null) {
+        var last_node = root.find_last_node_for (prefix);
+        if (last_node != null) {
             sb.erase ();
-            node.get_all_completions (ref list, ref sb);
+            last_node.get_all_completions (ref list, ref sb);
         }
 
         return (owned)list;
     }
 
-
-
-    // public void add_word (string word_to_add) requires (current_tree != null) {
-    //     if (is_valid_word (word_to_add)) {
-    //         if (current_tree.has_key (word_to_add)) {
-    //             var wo = current_tree.@get (word_to_add);
-    //             debug ("incrementing");
-    //             wo.increment ();
-    //         } else {
-    //             debug ("adding new %s length %u", word_to_add, word_to_add.length);
-    //             current_tree.@set (word_to_add, new WordOccurrence ());
-    //         }
-    //     } else {
-    //         debug ("Not valid to add %s", word_to_add);
-    //     }
-    // }
-
     public void remove_word (string word_to_remove) {
-        debug ("remove word %s", word_to_remove);
-        var end_node = root.find_last_node_for (word_to_remove);
-        if (end_node != null && end_node.is_word_end) {
-            end_node.decrement ();
-            if (!end_node.occurs ()) {
+        debug ("prefix tree: remove word %s", word_to_remove);
+        var end_node = root.find_end_node_for (word_to_remove);
+        if (end_node != null) {
+            if (!end_node.decrement ()) {
                 debug ("schedule remove %s", word_to_remove);
                 words_to_remove.add (end_node);
                 schedule_reaping ();
             } else {
-                debug ("not removing %s", word_to_remove);
+                debug ("not removing %s - still occurs", word_to_remove);
             }
         } else {
-            debug ("%s not found in tree", word_to_remove);
+            debug ("%s end node not found in tree", word_to_remove);
         }
     }
-
-    // private unowned Gee.LinkedList<string> get_words_to_remove () {
-    //     return current_tree.get_data<Gee.LinkedList<string>> (WORDS_TO_REMOVE);
-    // }
 
     private void schedule_reaping () {
         reaping_cancelled = false;
@@ -111,6 +85,7 @@
                     delay_reaping = false;
                     return Source.CONTINUE;
                 } else {
+                    debug ("reaping timeout");
                     reaper_timeout_id = 0;
                     // var words_to_remove = get_words_to_remove ();
                     debug ("reaping");
@@ -120,15 +95,16 @@
                             return false;
                         }
 
-                        // var wo = current_tree.@get (word);
                         if (!end_node.occurs ()) {
-                            end_node.parent.remove_child (end_node); 
+                            end_node.parent.remove_child (end_node);
+                        } else {
+                            debug ("still occurs when reaping");
                         }
 
                         return true;
                     });
 
-                    // Cannot remove inside @foreach loop so do it now
+                    // Cannot clear list while inside @foreach loop so do it now
                     words_to_remove.clear ();
                     return Source.REMOVE;
                 }

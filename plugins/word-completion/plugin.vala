@@ -64,7 +64,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
-        debug ("new source_view %s", doc !=null ? doc.title : "null");
+        debug ("new source_view %s", doc != null ? doc.title : "null");
         if (current_view != null) {
             if (current_view == doc.source_view) {
                 return;
