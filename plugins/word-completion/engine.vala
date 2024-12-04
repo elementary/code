@@ -107,16 +107,6 @@ public class Euclide.Completion.Parser : GLib.Object {
         return;
     }
 
-    public void get_words_before_and_after_pos (
-        string text,
-        int offset,
-        out string word_before,
-        out string word_after
-    ) {
-        word_before = get_word_immediately_before (text, offset);
-        word_after = get_word_immediately_after (text, offset);
-    }
-
     public string get_word_immediately_before (string text, int end_pos) {
         if (end_pos < 1) {
             return "";

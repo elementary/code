@@ -140,8 +140,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         // Determine whether insertion point ends and/or starts a word
         var text = current_view.buffer.text;
         var insert_pos = iter.get_offset ();
-        string word_before, word_after;
-        parser.get_words_before_and_after_pos (text, insert_pos, out word_before, out word_after);
+        var word_before = parser.get_word_immediately_before (text, insert_pos);
+        var word_after = parser.get_word_immediately_after (text, insert_pos);
         var text_to_add = (word_before + new_text + word_after).strip ();
         var text_to_remove = (word_before + word_after).strip ();
 
