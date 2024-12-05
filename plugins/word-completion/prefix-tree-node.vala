@@ -198,7 +198,7 @@ public class Scratch.Plugins.PrefixNode : Object {
     }
 
     private PrefixNode? find_or_append_char_child (unichar c, bool append_if_not_found = false)
-    requires (type != WORD_END && c != WORD_END_CHAR) {
+    requires (type != WORD_END) {
 
         foreach (var child in children) {
             if (child.has_char (c)) {
