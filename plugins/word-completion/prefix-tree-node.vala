@@ -229,7 +229,7 @@ public class Scratch.Plugins.PrefixNode : Object {
 
         var initial_sb_str = sb.str;
         foreach (var child in children) {
-            if (child.type == WORD_END) {
+            if (child.type == WORD_END && child.occurs ()) {
                 completions.prepend (sb.str);
             } else {
                 sb.append (child.char_s);
