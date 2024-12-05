@@ -19,16 +19,9 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
 
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
-
-    private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
+    public const int MAX_TOKENS = 1000000;
+    public const uint INTERACTIVE_DELAY = 500;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -40,6 +33,19 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     };
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
+
+
+    public Object object { owned get; construct; }
+
+    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
+    private Euclide.Completion.Parser parser;
+    private Gtk.SourceView? current_view;
+    private Gtk.SourceCompletion? current_completion;
+    private Scratch.Plugins.CompletionProvider current_provider;
+    private Scratch.Services.Document current_document {get; private set;}
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
 
     private uint timeout_id = 0;
 
@@ -62,119 +68,139 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
+        debug ("new source_view %s", doc != null ? doc.title : "null");
         if (current_view != null) {
-            if (current_view == doc.source_view)
+            if (current_view == doc.source_view) {
                 return;
+            }
 
             parser.cancel_parsing ();
-
-            if (timeout_id > 0)
-                GLib.Source.remove (timeout_id);
-
-            cleanup (current_view);
+            cleanup ();
         }
 
         current_document = doc;
         current_view = doc.source_view;
-        current_view.key_press_event.connect (on_key_press);
-        current_view.completion.show.connect (() => {
+        current_completion = current_view.completion;
+        current_view.buffer.insert_text.connect (on_insert_text);
+        current_view.buffer.delete_range.connect (on_delete_range);
+
+        current_completion.show.connect (() => {
             completion_in_progress = true;
         });
-        current_view.completion.hide.connect (() => {
+
+        current_completion.hide.connect (() => {
             completion_in_progress = false;
         });
 
-
-        if (text_view_list.find (current_view) == null)
+        if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
-
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
-
-        try {
-            current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
-            current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load then run parser*/
-            timeout_id = Timeout.add (1000, on_timeout_update);
-
-        } catch (Error e) {
-            warning (e.message);
         }
-    }
 
-    private bool on_timeout_update () {
+        current_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
+
         try {
-            new Thread<void*>.try ("word-completion-thread", () => {
-                if (current_view != null)
-                    parser.parse_text_view (current_view as Gtk.TextView);
+            current_completion.add_provider (current_provider);
+            current_completion.show_headers = true;
+            current_completion.show_icons = true;
+            current_completion.accelerators = 9;
+            current_completion.select_on_show = true;
+        } catch (Error e) {
+            critical (
+                "Could not add completion provider to %s. %s\n",
+                current_document.title,
+                e.message
+            );
+            cleanup ();
+            return;
+        }
 
-                return null;
+        /* Wait a bit to allow text to load then run parser*/
+        if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
+            // Start initial parsing  after timeout to ensure text loaded
+            timeout_id = Timeout.add (1000, () => {
+                timeout_id = 0;
+                try {
+                    new Thread<void*>.try ("word-completion-thread", () => {
+                        if (current_view != null) {
+                            parser.initial_parse_buffer_text (current_view.buffer.text);
+                        }
+
+                        return null;
+                    });
+                } catch (Error e) {
+                    warning (e.message);
+                }
+
+                return Source.REMOVE;
             });
-        } catch (Error e) {
-            warning (e.message);
         }
-
-        timeout_id = 0;
-        return false;
     }
 
-    private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
-        var kv = event.keyval;
-        /* Pass through any modified keypress except Shift or Capslock */
-        Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
-                                            & ~Gdk.ModifierType.SHIFT_MASK
-                                            & ~Gdk.ModifierType.LOCK_MASK;
-        if (mods > 0 ) {
-            /* Default key for USER_REQUESTED completion is ControlSpace
-             * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
-             * alternative and also purges spelling mistakes and unused words from the list.
-             * If used when a word or part of a word is selected, the selection will be
-             * used as the word to find. */
+    // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
+    private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
+        if (!parser.get_initial_parsing_completed ()) {
+            // Ignore spurious insertions when doc loading
+            return;
+        }
+        // Determine whether insertion point ends and/or starts a word
+        var text = current_view.buffer.text;
+        var insert_pos = iter.get_offset ();
+        var word_before = parser.get_word_immediately_before (text, insert_pos);
+        var word_after = parser.get_word_immediately_after (text, insert_pos);
+        var text_to_add = (word_before + new_text + word_after).strip ();
+        var text_to_remove = (word_before + word_after).strip ();
 
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
-                (kv == REFRESH_SHORTCUT)) {
+        // Only update if words have changed
+        if (text_to_add != text_to_remove) {
+            debug ("adding %s, removing %s", text_to_add, text_to_remove);
+            // Text to add may contain delimiters so parse
+            parser.parse_text_and_add (text_to_add);
+            debug ("after insert remove %s", text_to_remove);
+            // We know text to remove does not contain delimiters
+            parser.remove_word (text_to_remove);
+        }
+    }
 
-                parser.rebuild_word_list (current_view);
+    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
+        var del_text = del_start_iter.get_text (del_end_iter);
+        var text = current_view.buffer.text;
+        var delete_start_pos = del_start_iter.get_offset ();
+        var delete_end_pos = del_end_iter.get_offset ();
+        var word_before = parser.get_word_immediately_before (text, delete_start_pos);
+        var word_after = parser.get_word_immediately_after (text, delete_end_pos);
+
+        var to_remove = word_before + del_text + word_after;
+        debug ("delete range: remove %s", to_remove);
+        parser.parse_text_and_remove (to_remove);
+
+        // A new word could have been created
+        var to_add = word_before + word_after;
+        debug ("delete range: new word created %s", to_add);
+        parser.add_word (to_add);
+        if (del_text.length == 1) {
+            // Wait until after buffer has been amended then trigger completion
+            Timeout.add (current_provider.interactive_delay, () => {
+                warning ("showing completion");
                 current_view.show_completion ();
-                return true;
-            }
+                return Source.REMOVE;
+            });
         }
 
-        var uc = (unichar)(Gdk.keyval_to_unicode (kv));
-        if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
-            (uc.isprint () || uc.isspace ())) {
+    }
 
-            var buffer = current_view.buffer;
-            var mark = buffer.get_insert ();
-            Gtk.TextIter cursor_iter;
-            buffer.get_iter_at_mark (out cursor_iter, mark);
-
-            var word_start = cursor_iter;
-            Euclide.Completion.Parser.back_to_word_start (ref word_start);
-
-            string word = buffer.get_text (word_start, cursor_iter, false);
-            parser.add_word (word);
+    private void cleanup () {
+        if (timeout_id > 0) {
+            GLib.Source.remove (timeout_id);
         }
 
-        return false;
-    }
+        current_view.buffer.insert_text.disconnect (on_insert_text);
+        current_view.buffer.delete_range.disconnect (on_delete_range);
+        // Disconnect show completion??
 
-    private string provider_name_from_document (Scratch.Services.Document doc) {
-        return _("%s - Word Completion").printf (doc.get_basename ());
-    }
-
-    private void cleanup (Gtk.SourceView view) {
-        current_view.key_press_event.disconnect (on_key_press);
-
-        current_view.completion.get_providers ().foreach ((p) => {
+        current_completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
-                if (p.get_name () == provider_name_from_document (current_document)) {
-                    debug ("removing provider %s", p.get_name ());
-                    current_view.completion.remove_provider (p);
-                }
+                current_completion.remove_provider (current_provider);
             } catch (Error e) {
                 warning (e.message);
             }
