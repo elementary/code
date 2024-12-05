@@ -172,6 +172,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var to_add = word_before + word_after;
         debug ("delete range: new word created %s", to_add);
         parser.add_word (to_add);
+        if (del_text.length == 1) {
+            // Wait until after buffer has been amended then trigger completion
+            Timeout.add (current_provider.interactive_delay, () => {
+                warning ("showing completion");
+                current_view.show_completion ();
+                return Source.REMOVE;
+            });
+        }
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
