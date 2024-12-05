@@ -19,9 +19,11 @@
  *
  */
 
-public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
-    public string name;
-    public int priority;
+public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, GLib.Object {
+    public string name { get; construct; }
+    public int priority { get; construct; }
+    public int interactive_delay { get; construct; }
+    public Gtk.SourceCompletionActivation activation { get; construct; }
 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
@@ -43,28 +45,23 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public CompletionProvider (
         Euclide.Completion.Parser _parser,
-        Gtk.TextView _view
+        Scratch.Services.Document _doc
         ) {
 
         Object (
             parser: _parser,
-            view: _view
+            view: _doc.source_view,
+            name: _("%s - Word Completion").printf (_doc.get_basename ())
         );
     }
 
     construct {
+        interactive_delay = (int) Completion.INTERACTIVE_DELAY;
+        activation = INTERACTIVE | USER_REQUESTED;
         Gtk.TextIter iter;
         view.buffer.get_iter_at_offset (out iter, 0);
         completion_end_mark = buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
-    }
-
-    public override string get_name () {
-        return this.name;
-    }
-
-    public override int get_priority () {
-        return this.priority;
     }
 
     public override bool match (Gtk.SourceCompletionContext context) {
@@ -114,15 +111,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-    public override Gtk.SourceCompletionActivation get_activation () {
-        return Gtk.SourceCompletionActivation.INTERACTIVE |
-               Gtk.SourceCompletionActivation.USER_REQUESTED;
-    }
-
-    public override int get_interactive_delay () {
-        return 500;
-    }
-
     public override bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 out Gtk.TextIter iter) {
@@ -132,6 +120,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
+    public override string get_name () {
+        return name;
+    }
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";

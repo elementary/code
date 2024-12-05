@@ -21,6 +21,8 @@
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     public const int MAX_TOKENS = 1000000;
+    public const uint INTERACTIVE_DELAY = 500;
+
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
         Gdk.Key.KP_Enter,
@@ -36,8 +38,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    private Euclide.Completion.Parser parser {get; private set;}
-    private Gtk.SourceView? current_view {get; private set;}
+    private Euclide.Completion.Parser parser;
+    private Gtk.SourceView? current_view;
+    private Gtk.SourceCompletion? current_completion;
+    private Scratch.Plugins.CompletionProvider current_provider;
     private Scratch.Services.Document current_document {get; private set;}
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
@@ -76,14 +80,15 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_document = doc;
         current_view = doc.source_view;
+        current_completion = current_view.completion;
         current_view.buffer.insert_text.connect (on_insert_text);
         current_view.buffer.delete_range.connect (on_delete_range);
 
-        current_view.completion.show.connect (() => {
+        current_completion.show.connect (() => {
             completion_in_progress = true;
         });
 
-        current_view.completion.hide.connect (() => {
+        current_completion.hide.connect (() => {
             completion_in_progress = false;
         });
 
@@ -91,14 +96,14 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             text_view_list.append (current_view);
         }
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, current_view);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
+        current_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
 
         try {
-            current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
-            current_view.completion.show_icons = true;
+            current_completion.add_provider (current_provider);
+            current_completion.show_headers = true;
+            current_completion.show_icons = true;
+            current_completion.accelerators = 9;
+            current_completion.select_on_show = true;
         } catch (Error e) {
             critical (
                 "Could not add completion provider to %s. %s\n",
@@ -180,10 +185,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 return Source.REMOVE;
             });
         }
-    }
 
-    private string provider_name_from_document (Scratch.Services.Document doc) {
-        return _("%s - Word Completion").printf (doc.get_basename ());
     }
 
     private void cleanup () {
@@ -195,13 +197,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_view.buffer.delete_range.disconnect (on_delete_range);
         // Disconnect show completion??
 
-        current_view.completion.get_providers ().foreach ((p) => {
+        current_completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
-                if (p.get_name () == provider_name_from_document (current_document)) {
-                    debug ("removing provider %s", p != null ? p.get_name () : "null");
-                    current_view.completion.remove_provider (p);
-                }
+                current_completion.remove_provider (current_provider);
             } catch (Error e) {
                 warning (e.message);
             }

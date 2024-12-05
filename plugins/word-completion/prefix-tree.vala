@@ -24,7 +24,9 @@
     private GLib.StringBuilder sb;
     private uint reaper_timeout_id = 0;
     private bool delay_reaping = false;
-    private const uint REAPING_THROTTLE_MS = 500;
+    // Reaping need not occur before completions shown since non-occurring words are
+    // not shown anyway.
+    private const uint REAPING_THROTTLE_MS = Completion.INTERACTIVE_DELAY * 2;
     private bool reaping_cancelled = false;
 
     public bool completed { get; set; default = false; }
@@ -85,9 +87,7 @@
                     delay_reaping = false;
                     return Source.CONTINUE;
                 } else {
-                    debug ("reaping timeout");
                     reaper_timeout_id = 0;
-                    // var words_to_remove = get_words_to_remove ();
                     debug ("reaping");
                     words_to_remove.foreach ((end_node) => {
                         if (reaping_cancelled) {
