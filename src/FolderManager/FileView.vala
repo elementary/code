@@ -35,6 +35,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CHANGE_BRANCH = "change-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
+    public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -46,7 +47,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
+        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
     };
 
     private GLib.Settings settings;
@@ -119,6 +121,23 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         //Make remaining project the active one
+        git_manager.active_project_path = path;
+
+        write_settings ();
+    }
+
+    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+    warning ("set active project");
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
+            return;
+        }
+
         git_manager.active_project_path = path;
 
         write_settings ();
