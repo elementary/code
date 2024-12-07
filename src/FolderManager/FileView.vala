@@ -118,6 +118,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             }
         }
 
+        //Make remaining project the active one
+        git_manager.active_project_path = path;
+
         write_settings ();
     }
 
