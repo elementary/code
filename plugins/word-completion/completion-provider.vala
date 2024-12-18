@@ -20,6 +20,7 @@
  */
 
 public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, GLib.Object {
+    private const int MAX_COMPLETIONS = 10;
     public string name { get; construct; }
     public int priority { get; construct; }
     public int interactive_delay { get; construct; }
@@ -144,8 +145,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_PREFIX_LENGTH) {
             /* Get proposals, if any */
-            var completions = parser.get_completions_for_prefix (to_find);
+            var completions = parser.get_current_completions (to_find);
             if (completions.length () > 0) {
+                var index = 0;
                 foreach (var completion in completions) {
                     if (completion.length > 0) {
                         var item = new Gtk.SourceCompletionItem ();
@@ -153,6 +155,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
                         item.label = word;
                         item.text = completion;
                         props.append (item);
+                        if (++index > MAX_COMPLETIONS) {
+                            break;
+                        }
                     }
                 }
 
