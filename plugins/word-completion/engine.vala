@@ -201,7 +201,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void add_word (string word_to_add) requires (current_tree != null) {
         if (is_valid_word (word_to_add)) {
-        warning ("ADD WORD %s", word_to_add);
+        // warning ("ADD WORD %s", word_to_add);
             lock (current_tree) {
                 current_tree.add_word (word_to_add);
             }
@@ -209,9 +209,11 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     public void remove_word (string word_to_remove) requires (current_tree != null) {
-    warning ("REMOVE WORD %s", word_to_remove);
-        lock (current_tree) {
-            current_tree.remove_word (word_to_remove);
+        if (is_valid_word (word_to_remove)) {
+    // warning ("REMOVE WORD %s", word_to_remove);
+            lock (current_tree) {
+                current_tree.remove_word (word_to_remove);
+            }
         }
     }
 

@@ -146,10 +146,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var text_to_add = (word_before + new_text + word_after);
         var text_to_remove = (word_before + word_after);
         // Only update if words have changed
-        if (text_to_add != text_to_remove &&
-            (new_text + word_after).strip () != "" &&
-            (new_text + word_before).strip () != "") {
-
+        if (text_to_add != text_to_remove) {
             parser.parse_text_and_add (text_to_add);
             parser.remove_word (text_to_remove);
         }
@@ -157,14 +154,16 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
-        var word_before = parser.get_word_immediately_before (del_end_iter);
-        var word_after = parser.get_word_immediately_after (del_start_iter);
+        var word_before = parser.get_word_immediately_before (del_start_iter);
+        var word_after = parser.get_word_immediately_after (del_end_iter);
         var to_remove = word_before + del_text + word_after;
-        parser.parse_text_and_remove (to_remove);
-
-        // A new word could have been created
         var to_add = word_before + word_after;
+
+        // More than one word could be deleted so parse.
+        parser.parse_text_and_remove (to_remove);
+        // Only one at most new words
         parser.add_word (to_add);
+
         if (del_text.length == 1) {
             // Wait until after buffer has been amended then trigger completion
             Timeout.add (current_provider.interactive_delay * 2, () => {
