@@ -76,7 +76,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_document = doc;
         current_view = doc.source_view;
-        current_view.key_press_event.connect (on_key_press);
+        current_view.buffer.insert_text.connect (on_insert_text);
+
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
         });
@@ -120,45 +121,78 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         return false;
     }
 
-    private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
-        var kv = event.keyval;
-        /* Pass through any modified keypress except Shift or Capslock */
-        Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
-                                            & ~Gdk.ModifierType.SHIFT_MASK
-                                            & ~Gdk.ModifierType.LOCK_MASK;
-        if (mods > 0 ) {
-            /* Default key for USER_REQUESTED completion is ControlSpace
-             * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
-             * alternative and also purges spelling mistakes and unused words from the list.
-             * If used when a word or part of a word is selected, the selection will be
-             * used as the word to find. */
+    private void on_insert_text (Gtk.TextIter pos, string new_text, int new_text_length) {
 
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
-                (kv == REFRESH_SHORTCUT)) {
-
-                parser.rebuild_word_list (current_view);
-                current_view.show_completion ();
-                return true;
-            }
+        if (new_text.strip () == "") {
+            return;
         }
 
-        var uc = (unichar)(Gdk.keyval_to_unicode (kv));
-        if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
-            (uc.isprint () || uc.isspace ())) {
+        bool starts_word = pos.starts_word ();
+        bool ends_word = pos.ends_word ();
+        bool between_word = pos.inside_word () && !starts_word && !ends_word;
 
-            var buffer = current_view.buffer;
-            var mark = buffer.get_insert ();
-            Gtk.TextIter cursor_iter;
-            buffer.get_iter_at_mark (out cursor_iter, mark);
+        if (ends_word) {
+            this.handle_insert_at_phrase_end (pos, new_text, new_text_length);
+        } else if (between_word) {
+            this.handle_insert_between_phrase (pos, new_text, new_text_length);
+        } else {
+            this.handle_insert_not_at_word_boundary (pos, new_text, new_text_length);
+        }
+    }
 
-            var word_start = cursor_iter;
-            Euclide.Completion.Parser.back_to_word_start (ref word_start);
+    private void handle_insert_between_phrase (Gtk.TextIter pos, string new_text, int new_text_length) {
+        debug ("word-completion: Text inserted between word.\n");
+        var word_start_iter = pos;
+        word_start_iter.backward_word_start ();
 
-            string word = buffer.get_text (word_start, cursor_iter, false);
-            parser.add_word (word);
+        var word_end_iter = pos;
+        word_end_iter.forward_word_end ();
+
+        var old_word_to_delete = word_start_iter.get_text (word_end_iter);
+        parser.delete_word (old_word_to_delete, current_view.buffer.text);
+        
+        // Check if new text ends with whitespace
+        if (ends_with_whitespace (new_text)) {
+            // The text from the insert postiion to the end of the word needs to be added as its own word
+            var final_word_end_iter = pos;
+            final_word_end_iter.forward_word_end ();
+            
+            var extra_word_to_add = pos.get_text (final_word_end_iter);
+            parser.parse_string (extra_word_to_add);
+        }
+
+        var full_phrases = word_start_iter.get_text (pos) + new_text;
+        parser.parse_string (full_phrases);
+    }
+    
+    private bool ends_with_whitespace (string str) {
+        if (str.length == 0) {
+            return false;
+        }
+        
+
+        if (str.get_char (str.length - 1).isspace ()) {
+            return true;
         }
 
         return false;
+    }
+
+    private void handle_insert_at_phrase_end (Gtk.TextIter pos, string new_text, int new_text_length) {
+        var text_start_iter = Gtk.TextIter ();
+        text_start_iter = pos;
+        text_start_iter.backward_word_start ();
+
+        var text_end_iter = Gtk.TextIter ();
+        text_end_iter.assign (pos);
+        text_end_iter.forward_chars (new_text_length - 1);
+
+        var full_phrases = text_start_iter.get_text (text_end_iter) + new_text;
+        parser.parse_string (full_phrases);
+    }
+
+    private void handle_insert_not_at_word_boundary (Gtk.TextIter pos, string new_text, int new_text_length) {
+        parser.parse_string (new_text);
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
@@ -166,7 +200,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void cleanup (Gtk.SourceView view) {
-        current_view.key_press_event.disconnect (on_key_press);
+        current_view.buffer.insert_text.disconnect (on_insert_text);
 
         current_view.completion.get_providers ().foreach ((p) => {
             try {
