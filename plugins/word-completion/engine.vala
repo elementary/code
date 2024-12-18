@@ -107,12 +107,10 @@ public class Euclide.Completion.Parser : GLib.Object {
         return;
     }
 
-    public string get_word_immediately_before (string text, int end_pos) {
-        if (end_pos < 1) {
-            return "";
-        }
-
-        int pos = end_pos;
+    public string get_word_immediately_before (Gtk.TextIter iter) {
+        int end_pos;
+        var text = get_sentence_at_iter (iter, out end_pos);
+        var pos = end_pos;
         unichar uc;
         text.get_prev_char (ref pos, out uc);
         if (is_delimiter (uc)) {
@@ -128,32 +126,40 @@ public class Euclide.Completion.Parser : GLib.Object {
         var sliced_text = text.slice (pos, end_pos);
         var words = sliced_text.split_set (DELIMITERS);
         var previous_word = words[words.length - 1]; // Maybe ""
-        debug ("previous word %s", previous_word);
-        return previous_word.strip ();
+        return previous_word;
     }
 
-    public string get_word_immediately_after (string text, int start_pos) {
-        if (start_pos < 0 || start_pos > text.length - 1) {
-            return "";
-        }
-
-        int pos = start_pos;
+    public string get_word_immediately_after (Gtk.TextIter iter) {
+        int start_pos;
+        var text = get_sentence_at_iter (iter, out start_pos);
+        var pos = start_pos;
         unichar uc;
         text.get_next_char (ref pos, out uc);
         if (is_delimiter (uc)) {
             return "";
         }
 
+        // Find end of search range
         pos = (start_pos + MAXIMUM_WORD_LENGTH + 1).clamp (start_pos, text.length);
         if (start_pos >= pos) {
             critical ("start pos after pos");
             return "";
         }
 
+        // Find first word in range
         var words = text.slice (start_pos, pos).split_set (DELIMITERS, 2);
         var next_word = words[0]; // Maybe ""
-        debug ("next word %s", next_word);
-        return next_word.strip ();
+        return next_word;
+    }
+
+    private string get_sentence_at_iter (Gtk.TextIter iter, out int iter_sentence_offset) {
+        var start_iter = iter;
+        var end_iter = iter;
+        start_iter.backward_sentence_start ();
+        end_iter.forward_sentence_end ();
+        var text = start_iter.get_text (end_iter);
+        iter_sentence_offset = iter.get_offset () - start_iter.get_offset ();
+        return text;
     }
 
     public void clear () requires (current_tree != null) {
@@ -173,18 +179,29 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     private List<string> current_completions;
+    private string current_prefix;
     public bool match (string prefix) requires (current_tree != null) {
-        current_completions = current_tree.get_all_completions (prefix);
+        lock (current_tree) {
+            current_completions = current_tree.get_all_completions (prefix);
+            current_prefix = prefix;
+        }
+
         return current_completions != null && current_completions.first ().data != null;
     }
 
-    public List<string> get_completions_for_prefix (string prefix) requires (current_tree != null) {
+    public List<string> get_current_completions (string prefix) requires (current_tree != null) {
         // Assume always preceded by match and current_completions up to date
+        if (current_prefix != prefix) {
+            critical ("current prefix does not match");
+            match (prefix);
+        }
+
         return (owned)current_completions;
     }
 
     public void add_word (string word_to_add) requires (current_tree != null) {
         if (is_valid_word (word_to_add)) {
+        warning ("ADD WORD %s", word_to_add);
             lock (current_tree) {
                 current_tree.add_word (word_to_add);
             }
@@ -192,6 +209,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     }
 
     public void remove_word (string word_to_remove) requires (current_tree != null) {
+    warning ("REMOVE WORD %s", word_to_remove);
         lock (current_tree) {
             current_tree.remove_word (word_to_remove);
         }

@@ -140,54 +140,39 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
-        if (!parser.get_initial_parsing_completed ()) {
-            // Ignore spurious insertions when doc loading
-            return;
-        }
         // Determine whether insertion point ends and/or starts a word
-        var text = current_view.buffer.text;
-        var insert_pos = iter.get_offset ();
-        var word_before = parser.get_word_immediately_before (text, insert_pos);
-        var word_after = parser.get_word_immediately_after (text, insert_pos);
-        var text_to_add = (word_before + new_text + word_after).strip ();
-        var text_to_remove = (word_before + word_after).strip ();
-
+        var word_before = parser.get_word_immediately_before (iter);
+        var word_after = parser.get_word_immediately_after (iter);
+        var text_to_add = (word_before + new_text + word_after);
+        var text_to_remove = (word_before + word_after);
         // Only update if words have changed
-        if (text_to_add != text_to_remove) {
-            debug ("adding %s, removing %s", text_to_add, text_to_remove);
-            // Text to add may contain delimiters so parse
+        if (text_to_add != text_to_remove &&
+            (new_text + word_after).strip () != "" &&
+            (new_text + word_before).strip () != "") {
+
             parser.parse_text_and_add (text_to_add);
-            debug ("after insert remove %s", text_to_remove);
-            // We know text to remove does not contain delimiters
             parser.remove_word (text_to_remove);
         }
     }
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
         var del_text = del_start_iter.get_text (del_end_iter);
-        var text = current_view.buffer.text;
-        var delete_start_pos = del_start_iter.get_offset ();
-        var delete_end_pos = del_end_iter.get_offset ();
-        var word_before = parser.get_word_immediately_before (text, delete_start_pos);
-        var word_after = parser.get_word_immediately_after (text, delete_end_pos);
-
+        var word_before = parser.get_word_immediately_before (del_end_iter);
+        var word_after = parser.get_word_immediately_after (del_start_iter);
         var to_remove = word_before + del_text + word_after;
-        debug ("delete range: remove %s", to_remove);
         parser.parse_text_and_remove (to_remove);
 
         // A new word could have been created
         var to_add = word_before + word_after;
-        debug ("delete range: new word created %s", to_add);
         parser.add_word (to_add);
         if (del_text.length == 1) {
             // Wait until after buffer has been amended then trigger completion
-            Timeout.add (current_provider.interactive_delay, () => {
-                warning ("showing completion");
+            Timeout.add (current_provider.interactive_delay * 2, () => {
+                debug ("showing completion");
                 current_view.show_completion ();
                 return Source.REMOVE;
             });
         }
-
     }
 
     private void cleanup () {

@@ -66,12 +66,12 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public override bool match (Gtk.SourceCompletionContext context) {
-        int end_pos = buffer.cursor_position;
-        int start_pos = end_pos;
+        var iter = context.iter;
+        var start_iter = iter;
+        var end_iter = iter;
         bool found = false;
-        var text = buffer.text;
 
-        var preceding_word = parser.get_word_immediately_before (text, start_pos);
+        var preceding_word = parser.get_word_immediately_before (iter);
         if (preceding_word != "") {
             found = parser.match (preceding_word);
             current_text_to_find = found ? preceding_word : "";
@@ -95,11 +95,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
         mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
         buffer.get_iter_at_mark (out end_iter, mark);
-
-        // If inserting in middle of word then completion overwrites end of word
         var end_pos = end_iter.get_offset ();
-        var text = buffer.text;
-        var following_word = parser.get_word_immediately_after (text, end_pos);
+        // If inserting in middle of word then completion overwrites end of word
+        var following_word = parser.get_word_immediately_after (end_iter);
         if (following_word != "") {
             buffer.get_iter_at_offset (out end_iter, end_pos + following_word.length);
         }
@@ -132,7 +130,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
         Gtk.TextIter start, end;
         buffer.get_selection_bounds (out start, out end);
-
         to_find = temp_buffer.get_text (start, end, true);
 
         if (to_find.length == 0) {
