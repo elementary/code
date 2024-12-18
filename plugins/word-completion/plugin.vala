@@ -22,6 +22,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     public const int MAX_TOKENS = 1000000;
     public const uint INTERACTIVE_DELAY = 500;
+    public const int INITIAL_PARSE_DELAY_MSEC = 1000;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -81,16 +82,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         current_document = doc;
         current_view = doc.source_view;
         current_completion = current_view.completion;
-        current_view.buffer.insert_text.connect (on_insert_text);
-        current_view.buffer.delete_range.connect (on_delete_range);
-
-        current_completion.show.connect (() => {
-            completion_in_progress = true;
-        });
-
-        current_completion.hide.connect (() => {
-            completion_in_progress = false;
-        });
 
         if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
@@ -117,12 +108,23 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         /* Wait a bit to allow text to load then run parser*/
         if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
             // Start initial parsing  after timeout to ensure text loaded
-            timeout_id = Timeout.add (1000, () => {
+            timeout_id = Timeout.add (INITIAL_PARSE_DELAY_MSEC, () => {
                 timeout_id = 0;
                 try {
                     new Thread<void*>.try ("word-completion-thread", () => {
                         if (current_view != null) {
                             parser.initial_parse_buffer_text (current_view.buffer.text);
+                            //
+                            current_view.buffer.insert_text.connect (on_insert_text);
+                            current_view.buffer.delete_range.connect (on_delete_range);
+
+                            current_completion.show.connect (() => {
+                                completion_in_progress = true;
+                            });
+
+                            current_completion.hide.connect (() => {
+                                completion_in_progress = false;
+                            });
                         }
 
                         return null;
