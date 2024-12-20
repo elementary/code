@@ -126,9 +126,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
                 return Source.REMOVE;
             });
-        } else {
-            connect_signals ();
         }
+
+        // Always connect signals - they are disconnected in cleanup
+        connect_signals ();
     }
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
@@ -142,7 +143,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var text_to_add = (word_before + new_text + word_after);
         var text_to_remove = (word_before + word_after);
         // Only update if words have changed
-
+        debug ("insert text - add '%s' + '%s' + '%s'", word_before, new_text, word_after);
         if (text_to_add != text_to_remove) {
             parser.parse_text_and_add (text_to_add);
             parser.remove_word (text_to_remove);
@@ -161,6 +162,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         var to_add = word_before + word_after;
 
         // More than one word could be deleted so parse.
+        debug ("delete range - remove '%s' + '%s' + '%s'", word_before, del_text, word_after);
         parser.parse_text_and_remove (to_remove);
         // Only one at most new words
         parser.add_word (to_add);
