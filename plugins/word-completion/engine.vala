@@ -65,6 +65,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         return current_tree.completed;
     }
 
+    // This gets called from a thread
     public void initial_parse_buffer_text (string buffer_text) {
         parsing_cancelled = false;
         clear ();

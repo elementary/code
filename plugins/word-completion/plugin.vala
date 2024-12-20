@@ -115,6 +115,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 if (view_to_parse == current_view) {
                     try {
                         new Thread<void*>.try ("word-completion-thread", () => {
+                            // The initial parse gets cancelled if view switched before complete
                             parser.initial_parse_buffer_text (view_to_parse.buffer.text);
                             return null;
                         });
@@ -164,13 +165,30 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         // Only one at most new words
         parser.add_word (to_add);
 
+        // Completions not usually shown after deletions so trigger it ourselves
         if (del_text.length == 1) {
-            // Wait until after buffer has been amended then trigger completion
-            Timeout.add (current_provider.interactive_delay * 2, () => {
-                debug ("showing completion");
-                current_view.show_completion ();
-                return Source.REMOVE;
+            schedule_completion ();
+        }
+    }
+
+    uint completion_timeout_id = 0;
+    bool wait = true;
+    // Wait until after buffer has finished being amended then trigger completion
+    private void schedule_completion () {
+        if (completion_timeout_id == 0) {
+            completion_timeout_id = Timeout.add (current_provider.interactive_delay, () => {
+                if (wait) {
+                    wait = false;
+                    return Source.CONTINUE;
+                } else {
+                    completion_timeout_id = 0;
+                    wait = true;
+                    current_view.show_completion ();
+                    return Source.REMOVE;
+                }
             });
+        } else {
+            wait = true;
         }
     }
 
