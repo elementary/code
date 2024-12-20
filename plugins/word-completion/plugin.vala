@@ -105,47 +105,43 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             return;
         }
 
-        /* Wait a bit to allow text to load then run parser*/
-        if (!parser.select_current_tree (current_view)) { // Returns false if prefix tree new or parsing not completed
-            // Start initial parsing  after timeout to ensure text loaded
+        // Check whether there is already a parsed tree
+        if (!parser.select_current_tree (current_view)) {
+            // If not, start initial parsing  after timeout to ensure text loaded
+            var view_to_parse = current_view;
             timeout_id = Timeout.add (INITIAL_PARSE_DELAY_MSEC, () => {
                 timeout_id = 0;
-                try {
-                    new Thread<void*>.try ("word-completion-thread", () => {
-                        if (current_view != null) {
-                            parser.initial_parse_buffer_text (current_view.buffer.text);
-                            //
-                            current_view.buffer.insert_text.connect (on_insert_text);
-                            current_view.buffer.delete_range.connect (on_delete_range);
-
-                            current_completion.show.connect (() => {
-                                completion_in_progress = true;
-                            });
-
-                            current_completion.hide.connect (() => {
-                                completion_in_progress = false;
-                            });
-                        }
-
-                        return null;
-                    });
-                } catch (Error e) {
-                    warning (e.message);
+                // Check view has not been switched
+                if (view_to_parse == current_view) {
+                    try {
+                        new Thread<void*>.try ("word-completion-thread", () => {
+                            parser.initial_parse_buffer_text (view_to_parse.buffer.text);
+                            return null;
+                        });
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
                 }
 
                 return Source.REMOVE;
             });
+        } else {
+            connect_signals ();
         }
     }
 
     // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
     private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
+        if (!parser.get_initial_parsing_completed ()) {
+            return;
+        }
         // Determine whether insertion point ends and/or starts a word
         var word_before = parser.get_word_immediately_before (iter);
         var word_after = parser.get_word_immediately_after (iter);
         var text_to_add = (word_before + new_text + word_after);
         var text_to_remove = (word_before + word_after);
         // Only update if words have changed
+
         if (text_to_add != text_to_remove) {
             parser.parse_text_and_add (text_to_add);
             parser.remove_word (text_to_remove);
@@ -153,6 +149,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
+        if (!parser.get_initial_parsing_completed ()) {
+            return;
+        }
+
         var del_text = del_start_iter.get_text (del_end_iter);
         var word_before = parser.get_word_immediately_before (del_start_iter);
         var word_after = parser.get_word_immediately_after (del_end_iter);
@@ -179,9 +179,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             GLib.Source.remove (timeout_id);
         }
 
-        current_view.buffer.insert_text.disconnect (on_insert_text);
-        current_view.buffer.delete_range.disconnect (on_delete_range);
-        // Disconnect show completion??
+        disconnect_signals ();
 
         current_completion.get_providers ().foreach ((p) => {
             try {
@@ -191,6 +189,16 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
                 warning (e.message);
             }
         });
+    }
+
+    private void connect_signals () {
+        current_view.buffer.insert_text.connect (on_insert_text);
+        current_view.buffer.delete_range.connect (on_delete_range);
+    }
+
+    private void disconnect_signals () {
+        current_view.buffer.insert_text.disconnect (on_insert_text);
+        current_view.buffer.delete_range.disconnect (on_delete_range);
     }
 }
 
