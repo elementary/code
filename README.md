@@ -17,7 +17,7 @@ You'll need the following dependencies:
 * libhandy-1-dev >= 0.90.0
 * libpeas-dev
 * libsoup2.4-dev
-* libvala-0.48-dev (or higher)
+* libvala-0.56-dev (or higher)
 * libvte-2.91-dev
 * valac
 
