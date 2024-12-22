@@ -12,7 +12,7 @@ add_project_arguments([
 )
 
 add_project_arguments(
-    ['--vapidir', meson.project_source_root() / 'vapi'],
+    ['--vapidir', meson.global_source_root() / 'vapi'],
     language: 'vala'
 )
 
@@ -33,8 +33,6 @@ gtk_dep = dependency('gtk4', version: '>=4.14.2')
 granite_dep = dependency('granite-7', version: '>=7.0.0')
 handy_dep = dependency('libadwaita-1', version: '>=1.0.0')
 gtksourceview_dep = dependency('gtksourceview-5')
-peas_dep = dependency('libpeas-2')
-peasgtk_dep = dependency('libpeas-gtk-1.0')
 git_dep = dependency('libgit2-glib-1.0')
 fontconfig_dep = dependency('fontconfig')
 pangofc_dep = dependency('pangoft2')
@@ -58,8 +56,6 @@ dependencies = [
     granite_dep,
     handy_dep,
     gtksourceview_dep,
-    peas_dep,
-    peasgtk_dep,
     git_dep,
     fontconfig_dep,
     pangofc_dep,

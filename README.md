@@ -15,7 +15,6 @@ You'll need the following dependencies:
 * libgtkspell3-3-dev
 * libgranite-7-dev >= 6.0.0
 * libadwaita-1-dev >= 1.0.0
-* libpeas-2-dev
 * libsoup2.4-dev
 * libvala-0.56-dev (or higher)
 * libvte-2.91-dev
