@@ -186,12 +186,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             style_scheme = Scratch.settings.get_string ("style-scheme");
         }
 
-        var sssm = GtkSourceStyleSchemeManager.get_default ();
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
-            // Default gtksourceview background color is white
+            // Default GtkSource.view background color is white
             var color = "#FFFFFF";
             if (text_color_data != null) {
                 // If the current style has a background color, use that

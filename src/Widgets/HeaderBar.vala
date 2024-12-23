@@ -326,7 +326,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         string background = "#FFF";
         string foreground = "#333";
 
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var sssm = GtkSourceStyleSchemeManager.get_default ();
         if (style_id in sssm.scheme_ids) {
             var scheme = sssm.get_scheme (style_id);
             color_button.tooltip_text = scheme.name;

@@ -24,7 +24,7 @@ public class Scratch.CommentToggler {
         BLOCK
     }
 
-    private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
+    private static CommentType get_comment_tags_for_lang (GtkSource.Language lang,
                                                           CommentType type,
                                                           out string? start,
                                                           out string? end) {
@@ -64,7 +64,7 @@ public class Scratch.CommentToggler {
         return CommentType.NONE;
     }
 
-    public static bool language_has_comments (Gtk.SourceLanguage? lang) {
+    public static bool language_has_comments (GtkSource.Language? lang) {
         if (lang == null) {
             return false;
         }
@@ -81,7 +81,7 @@ public class Scratch.CommentToggler {
                                                         Gtk.TextIter start,
                                                         Gtk.TextIter end,
                                                         uint num_lines,
-                                                        Gtk.SourceLanguage lang) {
+                                                        GtkSource.Language lang) {
 
         string start_tag, end_tag;
         var type = get_comment_tags_for_lang (lang, CommentType.BLOCK, out start_tag, out end_tag);

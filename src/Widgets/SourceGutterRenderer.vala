@@ -1,4 +1,4 @@
-public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
+public class Scratch.Widgets.SourceGutterRenderer : GtkSourceGutterRenderer {
     // These style_ids must be present in the "classic" SourceStyleScheme (or allowed Code SourceStyleSchemes) to avoid terminal spam)
     public const string ADDED_STYLE_ID = "diff:added-line";
     public const string REMOVED_STYLE_ID = "diff:removed-line";
@@ -6,14 +6,14 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
     public const string REPLACES_DELETED_STYLE_ID = "diff:special-case";
     public const string NONE_STYLE_ID = "background-pattern";
 
-    private static Gtk.SourceStyleScheme? fallback_scheme;
+    private static GtkSourceStyleScheme? fallback_scheme;
 
     public Gee.HashMap<int, Services.VCStatus> line_status_map;
     public Gee.HashMap<Services.VCStatus, Gdk.RGBA?> status_color_map;
     public FolderManager.ProjectFolderItem? project { get; set; default = null; }
 
     static construct {
-        fallback_scheme = Gtk.SourceStyleSchemeManager.get_default ().get_scheme ("classic"); // We can assume this always exists
+        fallback_scheme = GtkSourceStyleSchemeManager.get_default ().get_scheme ("classic"); // We can assume this always exists
     }
 
     construct {
@@ -24,7 +24,7 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
         set_visible (true);
     }
 
-    public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
+    public void set_style_scheme (GtkSourceStyleScheme? scheme) {
         update_status_color_map (Services.VCStatus.ADDED, scheme, ADDED_STYLE_ID);
         update_status_color_map (Services.VCStatus.REMOVED, scheme, REMOVED_STYLE_ID);
         update_status_color_map (Services.VCStatus.CHANGED, scheme, CHANGED_STYLE_ID);
@@ -33,11 +33,11 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
     }
 
     private void update_status_color_map (Services.VCStatus status,
-                                          Gtk.SourceStyleScheme? scheme,
+                                          GtkSourceStyleScheme? scheme,
                                           string style_id,
                                           bool use_foreground = true) {
 
-        Gtk.SourceStyle style = null;
+        GtkSourceStyle style = null;
         if (scheme != null) {
             style = scheme.get_style (style_id);
             if (style != null) {
@@ -61,7 +61,7 @@ public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
                                Gdk.Rectangle area,
                                Gtk.TextIter start,
                                Gtk.TextIter end,
-                               Gtk.SourceGutterRendererState state) {
+                               GtkSourceGutterRendererState state) {
 
         //Gutter and diff lines numbers start at one, source lines start at 0
         var gutter_line_no = start.get_line () + 1;

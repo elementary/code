@@ -33,7 +33,7 @@ public class Code.FormatBar : Gtk.Box {
     private Gtk.Entry goto_entry;
     private Gtk.ListBox lang_selection_listbox;
     private Gtk.SearchEntry lang_selection_filter;
-    private Gtk.SourceLanguageManager manager;
+    private GtkSourceLanguageManager manager;
     private LangEntry normal_entry;
 
     private unowned Scratch.Services.Document? doc = null;
@@ -41,7 +41,7 @@ public class Code.FormatBar : Gtk.Box {
     construct {
         get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-        manager = Gtk.SourceLanguageManager.get_default ();
+        manager = GtkSourceLanguageManager.get_default ();
 
         tab_menubutton = new FormatButton () {
             icon = new ThemedIcon ("format-indent-more-symbolic")
@@ -104,7 +104,7 @@ public class Code.FormatBar : Gtk.Box {
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.CheckButton> group = null;
         foreach (unowned string id in ids) {
-            weak Gtk.SourceLanguage lang = manager.get_language (id);
+            weak GtkSourceLanguage lang = manager.get_language (id);
             var entry = new LangEntry (id, lang.name, group);
             group = entry.get_radio_group ();
             lang_selection_listbox.add (entry);
