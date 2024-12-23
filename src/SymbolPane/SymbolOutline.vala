@@ -241,7 +241,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         doc.source_view.style_changed.connect (update_style_scheme);
     }
 
-    protected void update_style_scheme (Gtk.SourceStyleScheme style_scheme) {
+    protected void update_style_scheme (GtkSourceStyleScheme style_scheme) {
         var text_color_data = style_scheme.get_style ("text");
 
         // Default gtksourceview background color is white
