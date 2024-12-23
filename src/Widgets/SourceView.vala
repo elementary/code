@@ -551,7 +551,7 @@ namespace Scratch.Widgets {
             }
         }
 
-        private void on_context_menu (Gtk.Menu menu) {
+        private void on_context_menu (GLib.Menu menu) {
             var sort_item = new Gtk.MenuItem ();
             sort_item.sensitive = get_selected_line_count () > 1;
             sort_item.add (new Granite.AccelLabel.from_action_name (

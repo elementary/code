@@ -425,7 +425,7 @@ public class SourceList : Gtk.ScrolledWindow {
          * @return A {@link Gtk.Menu} or //null// if nothing should be displayed.
          * @since 0.2
          */
-        public virtual Gtk.Menu? get_context_menu () {
+        public virtual GLib.Menu? get_context_menu () {
             return null;
         }
     }
