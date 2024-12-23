@@ -50,7 +50,7 @@ namespace Scratch {
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
 
-        public Gtk.Clipboard clipboard;
+        public Gdk.Clipboard clipboard;
 
         // Delegates
         delegate void HookFunc ();
@@ -279,7 +279,7 @@ namespace Scratch {
                 update_style ();
             });
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+            clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
             plugins = new Scratch.Services.PluginsManager (this);
 
