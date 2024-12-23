@@ -24,7 +24,7 @@ public class Code.Sidebar : Gtk.Grid {
 
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
-    public Hdy.HeaderBar headerbar { get; private set; }
+    public Adw.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
 
     private Gtk.StackSwitcher stack_switcher;

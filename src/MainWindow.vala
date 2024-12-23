@@ -19,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Hdy.Window {
+    public class MainWindow : Adw.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;

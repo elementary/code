@@ -59,9 +59,9 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public bool outline_visible { get; set; default = false; }
     public int outline_width { get; set; }
 
-    private Hdy.TabView tab_view;
-    private Hdy.TabBar tab_bar;
-    private weak Hdy.TabPage? tab_menu_target = null;
+    private Adw.TabView tab_view;
+    private Adw.TabBar tab_bar;
+    private weak Adw.TabPage? tab_menu_target = null;
     private Gtk.CssProvider style_provider;
     private Gtk.MenuButton tab_history_button;
 
@@ -423,7 +423,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     // This is called when tab context menu is opened or closed
-    private void tab_view_setup_menu (Hdy.TabPage? page) {
+    private void tab_view_setup_menu (Adw.TabPage? page) {
         tab_menu_target = page;
 
         var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
@@ -467,7 +467,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         on_doc_removed_shared (doc);
     }
 
-    private void on_doc_removed (Hdy.TabPage tab, int position) {
+    private void on_doc_removed (Adw.TabPage tab, int position) {
         var doc = tab.get_child () as Services.Document;
         if (doc == null) {
             return;
@@ -545,7 +545,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    private void on_doc_reordered (Hdy.TabPage tab, int new_position) {
+    private void on_doc_reordered (Adw.TabPage tab, int new_position) {
         var doc = tab.child as Services.Document;
         if (doc != null) {
             docs.remove (doc);
@@ -556,12 +556,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         save_opened_files ();
     }
 
-    private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
+    private unowned Adw.TabView? on_doc_to_new_window (Adw.TabView tab_view) {
         var other_window = new MainWindow (false);
         return other_window.document_view.tab_view;
     }
 
-    private void on_doc_added (Hdy.TabPage page, int position) {
+    private void on_doc_added (Adw.TabPage page, int position) {
         var doc = page.get_child () as Services.Document;
 
         doc.init_tab (page);

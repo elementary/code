@@ -37,7 +37,7 @@ namespace Scratch.Services {
         public unowned SimpleActionGroup actions { get; set construct; }
 
         // The TabPage that this document is a child of
-        public unowned Hdy.TabPage tab { get; private set; }
+        public unowned Adw.TabPage tab { get; private set; }
 
         public bool is_file_temporary {
             get {
@@ -293,7 +293,7 @@ namespace Scratch.Services {
             this.show_all ();
         }
 
-        public void init_tab (Hdy.TabPage tab) {
+        public void init_tab (Adw.TabPage tab) {
             this.tab = tab;
             notify["tab.loading"].connect (on_tab_loading_change);
 

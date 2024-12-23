@@ -4,7 +4,7 @@
  *                         2013 Mario Guerriero <mefrio.g@gmail.com>
  */
 
-public class Scratch.HeaderBar : Hdy.HeaderBar {
+public class Scratch.HeaderBar : Adw.HeaderBar {
     // Plugins segfault without full access
     public Code.FormatBar format_bar;
     public GLib.Menu share_menu;
