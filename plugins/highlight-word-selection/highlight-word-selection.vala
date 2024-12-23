@@ -58,7 +58,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             window_search_context.get_occurrences_count () == 0) {
             // Perform plugin selection when there is no ongoing and successful search 
             current_search_context = new Gtk.SourceSearchContext (
-                (Gtk.SourceBuffer)current_source.buffer,
+                (GtkSource.Buffer)current_source.buffer,
                 null
             );
             current_search_context.settings.search_text = "";

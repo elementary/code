@@ -98,7 +98,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 });
 
                 // Deactivate Spell checker when we are editing a code file
-                var source_buffer = (Gtk.SourceBuffer) d.source_view.buffer;
+                var source_buffer = (GtkSource.Buffer) d.source_view.buffer;
                 var lang = source_buffer.language;
                 if (lang != null && lang.id != "markdown") {
                     spell.detach ();
