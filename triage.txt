@@ -1,0 +1,699 @@
+
+
+
+
+                        GTK SOURCE VIEW
+
+
+
+
+
+
+../src/Services/Document.vala:54.17-54.30: error: The type name `Gtk.SourceFile' could not be found
+   54 |         private Gtk.SourceFile source_file;
+      |                 ^~~~~~~~~~~~~~             
+../src/Services/Document.vala:166.17-166.29: error: The type name `Gtk.SourceMap' could not be found
+  166 |         private Gtk.SourceMap source_map;
+      |                 ^~~~~~~~~~~~~            
+../src/Services/Document.vala:416.59-416.74: error: The type name `Gtk.SourceBuffer' could not be found
+  416 |                 var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+      |                                                           ^~~~~~~~~~~~~~~~ 
+../src/Services/Document.vala:596.63-596.78: error: The type name `Gtk.SourceBuffer' could not be found
+  596 |             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+      |                                                               ^~~~~~~~~~~~~~~~                                   
+../src/Services/Document.vala:805.34-805.49: error: The type name `Gtk.SourceBuffer' could not be found
+  805 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:816.34-816.49: error: The type name `Gtk.SourceBuffer' could not be found
+  816 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:1076.34-1076.49: error: The type name `Gtk.SourceBuffer' could not be found
+ 1076 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:1253.34-1253.49: error: The type name `Gtk.SourceBuffer' could not be found
+ 1253 |             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+
+../src/SymbolPane/SymbolOutline.vala:240.32-240.47: error: The type name `Gtk.SourceBuffer' could not be found
+  240 |         update_style_scheme (((Gtk.SourceBuffer)(doc.source_view.buffer)).style_scheme);
+      |                                ^~~~~~~~~~~~~~~~                                         
+../src/SymbolPane/SymbolOutline.vala:244.41-244.61: error: The type name `Gtk.SourceStyleScheme' could not be found
+  244 |     protected void update_style_scheme (Gtk.SourceStyleScheme style_scheme) {
+      |                ../src/Widgets/SourceGutterRenderer.vala:1.53-1.76: error: The type name `Gtk.SourceGutterRenderer' could not be found
+    1 | public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
+      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~  
+../src/Widgets/SourceGutterRenderer.vala:9.20-9.41: error: The type name `Gtk.SourceStyleScheme' could not be found
+    9 |     private static Gtk.SourceStyleScheme? fallback_scheme;
+      |                    ^~~~~~~~~~~~~~~~~~~~~~                 
+../src/Widgets/SourceGutterRenderer.vala:27.35-27.56: error: The type name `Gtk.SourceStyleScheme' could not be found
+   27 |     public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~          
+../src/Widgets/SourceGutterRenderer.vala:36.43-36.64: error: The type name `Gtk.SourceStyleScheme' could not be found
+   36 |                                           Gtk.SourceStyleScheme? scheme,
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~        
+../src/Widgets/SourceGutterRenderer.vala:40.9-40.23: error: The type name `Gtk.SourceStyle' could not be found
+   40 |         Gtk.SourceStyle style = null;
+      |         ^~~~~~~~~~~~~~~              
+../src/Widgets/SourceGutterRenderer.vala:64.32-64.60: error: The type name `Gtk.SourceGutterRendererState' could not be found
+   64 |                                Gtk.SourceGutterRendererState state) {
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:243.79-243.94: error: The type name `Gtk.SourceBuffer' could not be found
+  243 |             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+      |                                                                               ^~~~~~~~~~~~~~~~        
+   ../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SourceView.vala:23.31-23.44: error: The type name `Gtk.SourceView' could not be found
+   23 |     public class SourceView : Gtk.SourceView {
+      |                               ^~~~~~~~~~~~~~  
+../src/Widgets/SourceView.vala:24.16-24.40: error: The type name `Gtk.SourceLanguageManager' could not be found
+   24 |         public Gtk.SourceLanguageManager manager;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:25.16-25.43: error: The type name `Gtk.SourceStyleSchemeManager' could not be found
+   25 |         public Gtk.SourceStyleSchemeManager style_scheme_manager;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~                      
+../src/Widgets/SourceView.vala:245.34-245.49: error: The type name `Gtk.SourceBuffer' could not be found
+  245 |             var source_buffer = (Gtk.SourceBuffer) buffer;
+      |                                  ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:510.34-510.49: error: The type name `Gtk.SourceBuffer' could not be found
+  510 |             var source_buffer = (Gtk.SourceBuffer) buffer;
+      |                                  ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:565.27-565.42: error: The type name `Gtk.SourceBuffer' could not be found
+  565 |             if (buffer is Gtk.SourceBuffer) {
+      |                           ^~~~~~~~~~~~~~~~   
+../src/Widgets/SourceView.vala:566.75-566.90: error: The type name `Gtk.SourceBuffer' could not be found
+  566 |                 var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+      |                                                                           ^~~~~~~~~~~~~~~~                           
+../src/Widgets/SourceView.vala:575.53-575.68: error: The type name `Gtk.SourceBuffer' could not be found
+  575 |                     CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
+      |                                                     ^~~~~~~~~~~~~~~~          
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:56.26-56.41: error: The type name `Gtk.SourceBuffer' could not be found
+   56 |                 return ((Gtk.SourceBuffer) buffer).language;
+      |                          ^~~~~~~~~~~~~~~~                   
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:53.19-53.34: error: The type name `Gtk.SourceBuffer' could not be found
+   53 |                 ((Gtk.SourceBuffer) buffer).language = value;
+      |                   ^~~~~~~~~~~~~~~~                           
+../src/Widgets/SourceView.vala:45.43-45.63: error: The type name `Gtk.SourceStyleScheme' could not be found
+   45 |         public signal void style_changed (Gtk.SourceStyleScheme style);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~                              ^~~~~~~~~~~~~~~~~~~~~                
+../src/MainWindow.vala:1321.27-1321.42: error: The type name `Gtk.SourceBuffer' could not be found
+ 1321 |             if (buffer is Gtk.SourceBuffer) {
+      |                           ^~~~~~~~~~~~~~~~   
+../src/MainWindow.vala:1322.58-1322.73: error: The type name `Gtk.SourceBuffer' could not be found
+ 1322 |                 CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+      |                                                          ^~~~~~~~~~~~~~~~  
+../src/Services/CommentToggler.vala:27.59-27.76: error: The type name `Gtk.SourceLanguage' could not be found
+   27 |     private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
+      |                                                           ^~~~~~~~~~~~~~~~~~      
+../src/Services/CommentToggler.vala:67.47-67.65: error: The type name `Gtk.SourceLanguage' could not be found
+   67 |     public static bool language_has_comments (Gtk.SourceLanguage? lang) {
+      |                                               ^~~~~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:80.57-80.72: error: The type name `Gtk.SourceBuffer' could not be found
+   80 |     private static CommentType lines_already_commented (Gtk.SourceBuffer buffer,
+      |                                                         ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:84.57-84.74: error: The type name `Gtk.SourceLanguage' could not be found
+   84 |                                                         Gtk.SourceLanguage lang) {
+      |                                                         ^~~~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:121.42-121.57: error: The type name `Gtk.SourceBuffer' could not be found
+  121 |     private static void remove_comments (Gtk.SourceBuffer buffer,
+      |                                          ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:202.39-202.54: error: The type name `Gtk.SourceBuffer' could not be found
+  202 |     private static void add_comments (Gtk.SourceBuffer buffer,
+      |                                       ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:300.40-300.56: error: The type name `Gtk.SourceBuffer' could not be found
+  300 |     public static void toggle_comment (Gtk.SourceBuffer? buffer) {
+      |                                        ^~~~~~~~~~~~~~~~~          
+../src/Services/Document.vala:54.17-54.30: error: The type name `Gtk.SourceFile' could not be found
+   54 |         private Gtk.SourceFile source_file;
+      |                 ^~~~~~~~~~~~~~             
+../src/Services/Document.vala:166.17-166.29: error: The type name `Gtk.SourceMap' could not be found
+  166 |         private Gtk.SourceMap source_map;
+      |                 ^~~~~~~~~~~~~            
+../src/Services/Document.vala:416.59-416.74: error: The type name `Gtk.SourceBuffer' could not be found
+  416 |                 var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+      |                                                           ^~~~~~~~~~~~~~~~ 
+../src/Services/Document.vala:596.63-596.78: error: The type name `Gtk.SourceBuffer' could not be found
+  596 |             var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+      |                                                               ^~~~~~~~~~~~~~~~                                   
+../src/Services/Document.vala:805.34-805.49: error: The type name `Gtk.SourceBuffer' could not be found
+  805 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:816.34-816.49: error: The type name `Gtk.SourceBuffer' could not be found
+  816 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:1076.34-1076.49: error: The type name `Gtk.SourceBuffer' could not be found
+ 1076 |             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+      |                                  ^~~~~~~~~~~~~~~~                     
+../src/Services/Document.vala:1253.34-1253.49: error: The type name `Gtk.SourceBuffer' could not be found
+ 1253 |             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+      |                         ../src/SymbolPane/SymbolOutline.vala:240.32-240.47: error: The type name `Gtk.SourceBuffer' could not be found
+  240 |         update_style_scheme (((Gtk.SourceBuffer)(doc.source_view.buffer)).style_scheme);
+      |                                ^~~~~~~~~~~~~~~~                                         
+../src/SymbolPane/SymbolOutline.vala:244.41-244.61: error: The type name `Gtk.SourceStyleScheme' could not be found
+  244 |     protected void update_style_scheme (Gtk.SourceStyleScheme style_scheme) {
+      |                                         ^~~~~~~~~~~~~~~~~~~~~                         ^~~~~~~~~~~~~~~~                    
+../src/Widgets/SourceGutterRenderer.vala:1.53-1.76: error: The type name `Gtk.SourceGutterRenderer' could not be found
+    1 | public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
+      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~  
+../src/Widgets/SourceGutterRenderer.vala:9.20-9.41: error: The type name `Gtk.SourceStyleScheme' could not be found
+    9 |     private static Gtk.SourceStyleScheme? fallback_scheme;
+      |                    ^~~~~~~~~~~~~~~~~~~~~~                 
+../src/Widgets/SourceGutterRenderer.vala:27.35-27.56: error: The type name `Gtk.SourceStyleScheme' could not be found
+   27 |     public void set_style_scheme (Gtk.SourceStyleScheme? scheme) {
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~          
+../src/Widgets/SourceGutterRenderer.vala:36.43-36.64: error: The type name `Gtk.SourceStyleScheme' could not be found
+   36 |                                           Gtk.SourceStyleScheme? scheme,
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~        
+../src/Widgets/SourceGutterRenderer.vala:40.9-40.23: error: The type name `Gtk.SourceStyle' could not be found
+   40 |         Gtk.SourceStyle style = null;
+      |         ^~~~~~~~~~~~~~~              
+../src/Widgets/SourceGutterRenderer.vala:64.32-64.60: error: The type name `Gtk.SourceGutterRendererState' could not be found
+   64 |                                Gtk.SourceGutterRendererState state) {
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:243.79-243.94: error: The type name `Gtk.SourceBuffer' could not be found
+  243 |             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+      |                                                                               ^~~~~~~~~~~~~~~~        
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SearchBar.vala:53.16-53.39: error: The type name `Gtk.SourceSearchContext' could not be found
+   53 |         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~                                                     
+../src/Widgets/SourceView.vala:23.31-23.44: error: The type name `Gtk.SourceView' could not be found
+   23 |     public class SourceView : Gtk.SourceView {
+      |                               ^~~~~~~~~~~~~~  
+../src/Widgets/SourceView.vala:24.16-24.40: error: The type name `Gtk.SourceLanguageManager' could not be found
+   24 |         public Gtk.SourceLanguageManager manager;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:25.16-25.43: error: The type name `Gtk.SourceStyleSchemeManager' could not be found
+   25 |         public Gtk.SourceStyleSchemeManager style_scheme_manager;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~                      
+../src/Widgets/SourceView.vala:245.34-245.49: error: The type name `Gtk.SourceBuffer' could not be found
+  245 |             var source_buffer = (Gtk.SourceBuffer) buffer;
+      |                                  ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:510.34-510.49: error: The type name `Gtk.SourceBuffer' could not be found
+  510 |             var source_buffer = (Gtk.SourceBuffer) buffer;
+      |                                  ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceView.vala:565.27-565.42: error: The type name `Gtk.SourceBuffer' could not be found
+  565 |             if (buffer is Gtk.SourceBuffer) {
+      |                           ^~~~~~~~~~~~~~~~   
+../src/Widgets/SourceView.vala:566.75-566.90: error: The type name `Gtk.SourceBuffer' could not be found
+  566 |                 var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+      |                                                                           ^~~~~~~~~~~~~~~~                           
+../src/Widgets/SourceView.vala:575.53-575.68: error: The type name `Gtk.SourceBuffer' could not be found
+  575 |                     CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
+      |                                                     ^~~~~~~~~~~~~~~~          
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:56.26-56.41: error: The type name `Gtk.SourceBuffer' could not be found
+   56 |                 return ((Gtk.SourceBuffer) buffer).language;
+      |                          ^~~~~~~~~~~~~~~~                   
+../src/Widgets/SourceView.vala:51.16-51.34: error: The type name `Gtk.SourceLanguage' could not be found
+   51 |         public Gtk.SourceLanguage? language {
+      |                ^~~~~~~~~~~~~~~~~~~           
+../src/Widgets/SourceView.vala:53.19-53.34: error: The type name `Gtk.SourceBuffer' could not be found
+   53 |                 ((Gtk.SourceBuffer) buffer).language = value;
+      |                   ^~~~~~~~~~~~~~~~                           
+../src/Widgets/SourceView.vala:45.43-45.63: error: The type name `Gtk.SourceStyleScheme' could not be found
+   45 |         public signal void style_changed (Gtk.SourceStyleScheme style);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~        
+
+
+
+
+
+
+
+
+                    PEAS LIBRARY
+
+
+
+
+
+
+      |                                  ^~~~~~~~~~~~~~~~                    
+../src/Services/PluginManager.vala:55.9-55.12: error: The symbol `Peas' could not be found
+   55 |         Peas.Engine engine;
+      |         ^~~~               
+../src/Services/PluginManager.vala:56.9-56.12: error: The symbol `Peas' could not be found
+   56 |         Peas.ExtensionSet exts;
+      |         ^~~~                   
+../src/Services/PluginManager.vala:89.59-89.62: error: The symbol `Peas' could not be found
+   89 |             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
+      |                                                           ^~~~                                             
+../src/Services/PluginManager.vala:92.19-92.22: error: The symbol `Peas' could not be found
+   92 |                 ((Peas.Activatable)ext).activate ();
+      |                   ^~~~                              
+../src/Services/PluginManager.vala:97.19-97.22: error: The symbol `Peas' could not be found
+   97 |                 ((Peas.Activatable)ext).deactivate ();
+      |                   ^~~~                                
+../src/Services/PluginManager.vala:129.36-129.39: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                    ^~~~                                                                    
+../src/Services/PluginManager.vala:129.59-129.62: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                                           ^~~~                                             
+../src/Services/PluginManager.vala:129.81-129.84: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                                                                 ^~~~                       
+../src/Services/PluginManager.vala:130.15-130.18: error: The symbol `Peas' could not be found
+  130 |             ((Peas.Activatable)extension).activate ();
+      |               ^~~~                                    
+../src/Services/PluginManager.vala:72.45-72.48: error: The symbol `Peas' could not be found
+   72 |         public signal void extension_added (Peas.PluginInfo info);
+      |                                             ^~~~                  
+../src/Services/PluginManager.vala:73.47-73.50: error: The symbol `Peas' could not be found
+   73 |         public signal void extension_removed (Peas.PluginInfo info);
+      |                   ../src/Services/PluginManager.vala:55.9-55.12: error: The symbol `Peas' could not be found
+   55 |         Peas.Engine engine;
+      |         ^~~~               
+../src/Services/PluginManager.vala:56.9-56.12: error: The symbol `Peas' could not be found
+   56 |         Peas.ExtensionSet exts;
+      |         ^~~~                   
+../src/Services/PluginManager.vala:89.59-89.62: error: The symbol `Peas' could not be found
+   89 |             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
+      |                                                           ^~~~                                             
+../src/Services/PluginManager.vala:92.19-92.22: error: The symbol `Peas' could not be found
+   92 |                 ((Peas.Activatable)ext).activate ();
+      |                   ^~~~                              
+../src/Services/PluginManager.vala:97.19-97.22: error: The symbol `Peas' could not be found
+   97 |                 ((Peas.Activatable)ext).deactivate ();
+      |                   ^~~~                                
+../src/Services/PluginManager.vala:129.36-129.39: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                    ^~~~                                                                    
+../src/Services/PluginManager.vala:129.59-129.62: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                                           ^~~~                                             
+../src/Services/PluginManager.vala:129.81-129.84: error: The symbol `Peas' could not be found
+  129 |         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+      |                                                                                 ^~~~                       
+../src/Services/PluginManager.vala:130.15-130.18: error: The symbol `Peas' could not be found
+  130 |             ((Peas.Activatable)extension).activate ();
+      |               ^~~~                                    
+../src/Services/PluginManager.vala:72.45-72.48: error: The symbol `Peas' could not be found
+   72 |         public signal void extension_added (Peas.PluginInfo info);
+      |                                             ^~~~                  
+../src/Services/PluginManager.vala:73.47-73.50: error: The symbol `Peas' could not be found
+   73 |         public signal void extension_removed (Peas.PluginInfo info);
+      |                                               ^~~~                                              ^~~~                  
+
+
+
+
+
+                GTK DRAG AND DROP OR WIDGETS
+
+
+
+
+
+
+../src/Widgets/DocumentView.vala:650.33-650.47: error: The type name `Gdk.DragContext' could not be found
+  650 |                                 Gdk.DragContext ctx,
+      |                                 ^~~~~~~~~~~~~~~     
+../src/Widgets/DocumentView.vala:653.33-653.49: error: The type name `Gtk.SelectionData' could not be found
+  653 |                                 Gtk.SelectionData sel,
+      |                                 ^~~~~~~~~~~~~~~~~     
+../src/Widgets/DocumentView.vala:168.9-168.23: error: The type name `Gtk.TargetEntry' could not be found
+  168 |         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+      |         ^~~~~~~~~~~~~~~                                                  
+../src/Widgets/SearchBar.vala:343.50-343.63: error: The type name `Gdk.EventFocus' could not be found
+  343 |         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+      |                                                  ^~~~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:480.49-480.60: error: The type name `Gdk.EventKey' could not be found
+  480 |         private bool on_search_entry_key_press (Gdk.EventKey event) {
+      |                                                 ^~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:511.50-511.61: error: The type name `Gdk.EventKey' could not be found
+  511 |         private bool on_replace_entry_key_press (Gdk.EventKey event) {
+      |                                                  ^~~~~~~~~~~~         
+../src/MainWindow.vala:53.16-53.28: error: The type name `Gtk.Clipboard' could not be found
+   53 |         public Gtk.Clipboard clipboard;
+      |                ^~~~~~~~~~~~~           
+../src/MainWindow.vala:456.13-456.27: error: The type name `Gtk.TargetEntry' could not be found
+  456 |             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+      |             ^~~~~~~~~~~~~~~                                  
+../src/MainWindow.vala:724.47-724.58: error: The type name `Gdk.EventAny' could not be found
+  724 |         protected override bool delete_event (Gdk.EventAny event) {
+      |                                               ^~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2767.37-2767.51: error: The type name `Gtk.TargetEntry' could not be found
+ 2767 |     public void enable_drag_source (Gtk.TargetEntry[] src_entries) {
+      |                                     ^~~~~~~~~~~~~~~                 
+../src/Widgets/SourceList/SourceList.vala:2794.35-2794.49: error: The type name `Gtk.TargetEntry' could not be found
+ 2794 |     public void enable_drag_dest (Gtk.TargetEntry[] dest_entries, Gdk.DragAction actions) {
+      |                                   ^~~~~~~~~~~~~~~                                          
+../src/Widgets/SourceList/SourceList.vala:1206.60-1206.76: error: The type name `Gtk.SelectionData' could not be found
+ 1206 |         public bool drag_data_received (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+      |                                                            ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1310.59-1310.75: error: The type name `Gtk.SelectionData' could not be found
+ 1310 |         public bool row_drop_possible (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+      |                                                           ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1421.55-1421.71: error: The type name `Gtk.SelectionData' could not be found
+ 1421 |         public bool drag_data_get (Gtk.TreePath path, Gtk.SelectionData selection_data) {
+      |                                                       ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1730.43-1730.57: error: The type name `Gdk.DragContext' could not be found
+ 1730 |         public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
+      |                                           ^~~~~~~~~~~~~~~                                    
+../src/Widgets/SourceList/SourceList.vala:1795.13-1795.27: error: The type name `Gdk.DragContext' could not be found
+ 1795 |             Gdk.DragContext context,
+      |             ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:1798.13-1798.29: error: The type name `Gtk.SelectionData' could not be found
+ 1798 |             Gtk.SelectionData selection_data,
+      |             ^~~~~~~~~~~~~~~~~                
+../src/Widgets/SourceList/SourceList.vala:1853.44-1853.58: error: The type name `Gtk.TargetEntry' could not be found
+ 1853 |         public void configure_drag_source (Gtk.TargetEntry[]? src_entries) {
+      |                                            ^~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1861.42-1861.56: error: The type name `Gtk.TargetEntry' could not be found
+ 1861 |         public void configure_drag_dest (Gtk.TargetEntry[]? dest_entries, Gdk.DragAction actions) {
+      |                                          ^~~~~~~~~~~~~~~                                           
+../src/Widgets/SourceList/SourceList.vala:1918.24-1918.38: error: The type name `Gtk.TargetEntry' could not be found
+ 1918 |         private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
+      |                        ^~~~~~~~~~~~~~~                                                      
+../src/Widgets/SourceList/SourceList.vala:1918.67-1918.81: error: The type name `Gtk.TargetEntry' could not be found
+ 1918 |         private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
+      |                                                                   ^~~~~~~~~~~~~~~           
+../src/Widgets/SourceList/SourceList.vala:1919.19-1919.33: error: The type name `Gtk.TargetEntry' could not be found
+ 1919 |             const Gtk.TargetEntry row_target_entry = { // vala-lint=naming-convention
+      |                   ^~~~~~~~~~~~~~~                                                    
+../src/Widgets/SourceList/SourceList.vala:1925.31-1925.45: error: The type name `Gtk.TargetEntry' could not be found
+ 1925 |             var entries = new Gtk.TargetEntry[0];
+      |                               ^~~~~~~~~~~~~~~    
+../src/Widgets/SourceList/SourceList.vala:2235.49-2235.60: error: The type name `Gdk.EventKey' could not be found
+ 2235 |         public override bool key_release_event (Gdk.EventKey event) {
+      |                                                 ^~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2250.52-2250.66: error: The type name `Gdk.EventButton' could not be found
+ 2250 |         public override bool button_release_event (Gdk.EventButton event) {
+      |                                                    ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2271.50-2271.64: error: The type name `Gdk.EventButton' could not be found
+ 2271 |         public override bool button_press_event (Gdk.EventButton event) {
+      |                                                  ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2396.54-2396.69: error: The type name `Gdk.EventButton' could not be found
+ 2396 |         private bool popup_context_menu (Item? item, Gdk.EventButton? event) {
+      |                                                      ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:93.50-93.66: error: The type name `Gtk.SelectionData' could not be found
+   93 |     public abstract void prepare_selection_data (Gtk.SelectionData selection_data);
+      |                                                  ^~~~~~~~~~~~~~~~~                 
+../src/Widgets/SourceList/SourceList.vala:110.46-110.60: error: The type name `Gdk.DragContext' could not be found
+  110 |     public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                              ^~~~~~~~~~~~~~~                                  
+../src/Widgets/SourceList/SourceList.vala:110.71-110.87: error: The type name `Gtk.SelectionData' could not be found
+  110 |     public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                                       ^~~~~~~~~~~~~~~~~       
+../src/Widgets/SourceList/SourceList.vala:122.51-122.65: error: The type name `Gdk.DragContext' could not be found
+  122 |     public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                   ^~~~~~~~~~~~~~~                                  
+../src/Widgets/SourceList/SourceList.vala:122.76-122.92: error: The type name `Gtk.SelectionData' could not be found
+  122 |     public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                                            ^~~~~~~~~~~~~~~~~       
+../src/Widgets/ChooseProjectButton.vala:23.12-23.35: error: The type name `Gtk.RadioButton' could not be found
+   23 |     public unowned Gtk.RadioButton? group_source {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~               
+../src/Widgets/ChooseProjectButton.vala:23.12-23.35: error: The type name `Gtk.RadioButton' could not be found
+   23 |     public unowned Gtk.RadioButton? group_source {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~               
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:193.49-193.64: error: The type name `Gtk.RadioButton' could not be found
+  193 |         public ProjectRow (string project_path, Gtk.RadioButton? group_source ) {
+      |                                                 ^~~~~~~~~~~~~~~~                 
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/FormatBar.vala:34.13-34.37: error: The type name `Gtk.SourceLanguageManager' could not be found
+   34 |     private Gtk.SourceLanguageManager manager;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/FormatBar.vala:103.23-103.37: error: The type name `Gtk.RadioButton' could not be found
+  103 |         unowned SList<Gtk.RadioButton> group = null;
+      |                       ^~~~~~~~~~~~~~~               
+../src/Widgets/FormatBar.vala:105.13-105.35: error: The type name `Gtk.SourceLanguage' could not be found
+  105 |             weak Gtk.SourceLanguage lang = manager.get_language (id);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~                                  
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:378.17-378.31: error: The type name `Gtk.RadioButton' could not be found
+  378 |         private Gtk.RadioButton lang_radio;
+      |                 ^~~~~~~~~~~~~~~            
+../src/Widgets/FormatBar.vala:379.68-379.82: error: The type name `Gtk.RadioButton' could not be found
+  379 |         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
+      |                                                                    ^~~~~~~~~~~~~~~          
+../src/Widgets/FormatBar.vala:400.30-400.44: error: The type name `Gtk.RadioButton' could not be found
+  400 |         public unowned SList<Gtk.RadioButton> get_radio_group () {
+      |                              ^~~~~~~~~~~~~~~                      
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/Sidebar.vala:120.33-120.47: error: The type name `Gdk.DragContext' could not be found
+  120 |                                 Gdk.DragContext ctx,
+      |                                 ^~~~~~~~~~~~~~~     
+../src/Widgets/Sidebar.vala:123.33-123.49: error: The type name `Gtk.SelectionData' could not be found
+  123 |                                 Gtk.SelectionData sel,
+      |                                 ^~~~~~~~~~~~~~~~~     
+../src/Widgets/Sidebar.vala:114.9-114.23: error: The type name `Gtk.TargetEntry' could not be found
+  114 |         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+      |         ^~~~~~~~~~~~~~~                                                  
+../src/Widgets/Terminal.vala:22.13-22.25: error: The type name `Gtk.Clipboard' could not be found
+   22 |     private Gtk.Clipboard current_clipboard;
+      |             ^~~~~~~~~~~~~                   
+../src/Widgets/DocumentView.vala:650.33-650.47: error: The type name `Gdk.DragContext' could not be found
+  650 |                                 Gdk.DragContext ctx,
+      |                                 ^~~~~~~~~~~~~~~     
+../src/Widgets/DocumentView.vala:653.33-653.49: error: The type name `Gtk.SelectionData' could not be found
+  653 |                                 Gtk.SelectionData sel,
+      |                                 ^~~~~~~~~~~~~~~~~     
+../src/Widgets/DocumentView.vala:168.9-168.23: error: The type name `Gtk.TargetEntry' could not be found
+  168 |         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+      |         ^~~~~~~~~~~~~~~                                                  
+../src/Widgets/SearchBar.vala:343.50-343.63: error: The type name `Gdk.EventFocus' could not be found
+  343 |         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+      |                                                  ^~~~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:480.49-480.60: error: The type name `Gdk.EventKey' could not be found
+  480 |         private bool on_search_entry_key_press (Gdk.EventKey event) {
+      |                                                 ^~~~~~~~~~~~         
+../src/Widgets/SearchBar.vala:511.50-511.61: error: The type name `Gdk.EventKey' could not be found
+  511 |         private bool on_replace_entry_key_press (Gdk.EventKey event) {
+      |                                                  ^~~~~~~~~~~~         
+../src/MainWindow.vala:53.16-53.28: error: The type name `Gtk.Clipboard' could not be found
+   53 |         public Gtk.Clipboard clipboard;
+      |                ^~~~~~~~~~~~~           
+../src/MainWindow.vala:456.13-456.27: error: The type name `Gtk.TargetEntry' could not be found
+  456 |             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+      |             ^~~~~~~~~~~~~~~                                  
+../src/MainWindow.vala:724.47-724.58: error: The type name `Gdk.EventAny' could not be found
+  724 |         protected override bool delete_event (Gdk.EventAny event) {
+      |                                               ^~~~~~~~~~~~         
+../src/MainWindow.vala:1321.27-1321.42: error: The type name `Gtk.SourceBuffer' could not be found
+ 1321 |             if (buffer is Gtk.SourceBuffer) {
+      |                           ^~~~~~~~~~~~~~~~   
+../src/MainWindow.vala:1322.58-1322.73: error: The type name `Gtk.SourceBuffer' could not be found
+ 1322 |                 CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+      |                                                          ^~~~~~~~~~~~~~~~  
+../src/Services/CommentToggler.vala:27.59-27.76: error: The type name `Gtk.SourceLanguage' could not be found
+   27 |     private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
+      |                                                           ^~~~~~~~~~~~~~~~~~      
+../src/Services/CommentToggler.vala:67.47-67.65: error: The type name `Gtk.SourceLanguage' could not be found
+   67 |     public static bool language_has_comments (Gtk.SourceLanguage? lang) {
+      |                                               ^~~~~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:80.57-80.72: error: The type name `Gtk.SourceBuffer' could not be found
+   80 |     private static CommentType lines_already_commented (Gtk.SourceBuffer buffer,
+      |                                                         ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:84.57-84.74: error: The type name `Gtk.SourceLanguage' could not be found
+   84 |                                                         Gtk.SourceLanguage lang) {
+      |                                                         ^~~~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:121.42-121.57: error: The type name `Gtk.SourceBuffer' could not be found
+  121 |     private static void remove_comments (Gtk.SourceBuffer buffer,
+      |                                          ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:202.39-202.54: error: The type name `Gtk.SourceBuffer' could not be found
+  202 |     private static void add_comments (Gtk.SourceBuffer buffer,
+      |                                       ^~~~~~~~~~~~~~~~        
+../src/Services/CommentToggler.vala:300.40-300.56: error: The type name `Gtk.SourceBuffer' could not be found
+  300 |     public static void toggle_comment (Gtk.SourceBuffer? buffer) {
+      |                                        ^~~~~~~~~~~~~~~~~          
+../src/Widgets/SourceList/SourceList.vala:2767.37-2767.51: error: The type name `Gtk.TargetEntry' could not be found
+ 2767 |     public void enable_drag_source (Gtk.TargetEntry[] src_entries) {
+      |                                     ^~~~~~~~~~~~~~~                 
+../src/Widgets/SourceList/SourceList.vala:2794.35-2794.49: error: The type name `Gtk.TargetEntry' could not be found
+ 2794 |     public void enable_drag_dest (Gtk.TargetEntry[] dest_entries, Gdk.DragAction actions) {
+      |                                   ^~~~~~~~~~~~~~~                                          
+../src/Widgets/SourceList/SourceList.vala:1206.60-1206.76: error: The type name `Gtk.SelectionData' could not be found
+ 1206 |         public bool drag_data_received (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+      |                                                            ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1310.59-1310.75: error: The type name `Gtk.SelectionData' could not be found
+ 1310 |         public bool row_drop_possible (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+      |                                                           ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1421.55-1421.71: error: The type name `Gtk.SelectionData' could not be found
+ 1421 |         public bool drag_data_get (Gtk.TreePath path, Gtk.SelectionData selection_data) {
+      |                                                       ^~~~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1730.43-1730.57: error: The type name `Gdk.DragContext' could not be found
+ 1730 |         public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
+      |                                           ^~~~~~~~~~~~~~~                                    
+../src/Widgets/SourceList/SourceList.vala:1795.13-1795.27: error: The type name `Gdk.DragContext' could not be found
+ 1795 |             Gdk.DragContext context,
+      |             ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:1798.13-1798.29: error: The type name `Gtk.SelectionData' could not be found
+ 1798 |             Gtk.SelectionData selection_data,
+      |             ^~~~~~~~~~~~~~~~~                
+../src/Widgets/SourceList/SourceList.vala:1853.44-1853.58: error: The type name `Gtk.TargetEntry' could not be found
+ 1853 |         public void configure_drag_source (Gtk.TargetEntry[]? src_entries) {
+      |                                            ^~~~~~~~~~~~~~~                  
+../src/Widgets/SourceList/SourceList.vala:1861.42-1861.56: error: The type name `Gtk.TargetEntry' could not be found
+ 1861 |         public void configure_drag_dest (Gtk.TargetEntry[]? dest_entries, Gdk.DragAction actions) {
+      |                                          ^~~~~~~~~~~~~~~                                           
+../src/Widgets/SourceList/SourceList.vala:1918.24-1918.38: error: The type name `Gtk.TargetEntry' could not be found
+ 1918 |         private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
+      |                        ^~~~~~~~~~~~~~~                                                      
+../src/Widgets/SourceList/SourceList.vala:1918.67-1918.81: error: The type name `Gtk.TargetEntry' could not be found
+ 1918 |         private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
+      |                                                                   ^~~~~~~~~~~~~~~           
+../src/Widgets/SourceList/SourceList.vala:1919.19-1919.33: error: The type name `Gtk.TargetEntry' could not be found
+ 1919 |             const Gtk.TargetEntry row_target_entry = { // vala-lint=naming-convention
+      |                   ^~~~~~~~~~~~~~~                                                    
+../src/Widgets/SourceList/SourceList.vala:1925.31-1925.45: error: The type name `Gtk.TargetEntry' could not be found
+ 1925 |             var entries = new Gtk.TargetEntry[0];
+      |                               ^~~~~~~~~~~~~~~    
+../src/Widgets/SourceList/SourceList.vala:2235.49-2235.60: error: The type name `Gdk.EventKey' could not be found
+ 2235 |         public override bool key_release_event (Gdk.EventKey event) {
+      |                                                 ^~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2250.52-2250.66: error: The type name `Gdk.EventButton' could not be found
+ 2250 |         public override bool button_release_event (Gdk.EventButton event) {
+      |                                                    ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2271.50-2271.64: error: The type name `Gdk.EventButton' could not be found
+ 2271 |         public override bool button_press_event (Gdk.EventButton event) {
+      |                                                  ^~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:2396.54-2396.69: error: The type name `Gdk.EventButton' could not be found
+ 2396 |         private bool popup_context_menu (Item? item, Gdk.EventButton? event) {
+      |                                                      ^~~~~~~~~~~~~~~~         
+../src/Widgets/SourceList/SourceList.vala:93.50-93.66: error: The type name `Gtk.SelectionData' could not be found
+   93 |     public abstract void prepare_selection_data (Gtk.SelectionData selection_data);
+      |                                                  ^~~~~~~~~~~~~~~~~                 
+../src/Widgets/SourceList/SourceList.vala:110.46-110.60: error: The type name `Gdk.DragContext' could not be found
+  110 |     public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                              ^~~~~~~~~~~~~~~                                  
+../src/Widgets/SourceList/SourceList.vala:110.71-110.87: error: The type name `Gtk.SelectionData' could not be found
+  110 |     public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                                       ^~~~~~~~~~~~~~~~~       
+../src/Widgets/SourceList/SourceList.vala:122.51-122.65: error: The type name `Gdk.DragContext' could not be found
+  122 |     public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                   ^~~~~~~~~~~~~~~                                  
+../src/Widgets/SourceList/SourceList.vala:122.76-122.92: error: The type name `Gtk.SelectionData' could not be found
+  122 |     public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+      |                                                                            ^~~~~~~~~~~~~~~~~       
+../src/Widgets/ChooseProjectButton.vala:23.12-23.35: error: The type name `Gtk.RadioButton' could not be found
+   23 |     public unowned Gtk.RadioButton? group_source {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~               
+../src/Widgets/ChooseProjectButton.vala:23.12-23.35: error: The type name `Gtk.RadioButton' could not be found
+   23 |     public unowned Gtk.RadioButton? group_source {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~               
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:193.49-193.64: error: The type name `Gtk.RadioButton' could not be found
+  193 |         public ProjectRow (string project_path, Gtk.RadioButton? group_source ) {
+      |                                                 ^~~~~~~~~~~~~~~~                 
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/ChooseProjectButton.vala:191.16-191.30: error: The type name `Gtk.RadioButton' could not be found
+  191 |         public Gtk.RadioButton project_radio { get; construct; }
+      |                ^~~~~~~~~~~~~~~                                  
+../src/Widgets/FormatBar.vala:34.13-34.37: error: The type name `Gtk.SourceLanguageManager' could not be found
+   34 |     private Gtk.SourceLanguageManager manager;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~         
+../src/Widgets/FormatBar.vala:103.23-103.37: error: The type name `Gtk.RadioButton' could not be found
+  103 |         unowned SList<Gtk.RadioButton> group = null;
+      |                       ^~~~~~~~~~~~~~~               
+../src/Widgets/FormatBar.vala:105.13-105.35: error: The type name `Gtk.SourceLanguage' could not be found
+  105 |             weak Gtk.SourceLanguage lang = manager.get_language (id);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~                                  
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:378.17-378.31: error: The type name `Gtk.RadioButton' could not be found
+  378 |         private Gtk.RadioButton lang_radio;
+      |                 ^~~~~~~~~~~~~~~            
+../src/Widgets/FormatBar.vala:379.68-379.82: error: The type name `Gtk.RadioButton' could not be found
+  379 |         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
+      |                                                                    ^~~~~~~~~~~~~~~          
+../src/Widgets/FormatBar.vala:400.30-400.44: error: The type name `Gtk.RadioButton' could not be found
+  400 |         public unowned SList<Gtk.RadioButton> get_radio_group () {
+      |                              ^~~~~~~~~~~~~~~                      
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/FormatBar.vala:354.30-354.44: error: The type name `Gtk.RadioButton' could not be found
+  354 |         public unowned SList<Gtk.RadioButton> group { get; construct; }
+      |                              ^~~~~~~~~~~~~~~                           
+../src/Widgets/Sidebar.vala:120.33-120.47: error: The type name `Gdk.DragContext' could not be found
+  120 |                                 Gdk.DragContext ctx,
+      |                                 ^~~~~~~~~~~~~~~     
+../src/Widgets/Sidebar.vala:123.33-123.49: error: The type name `Gtk.SelectionData' could not be found
+  123 |                                 Gtk.SelectionData sel,
+      |                                 ^~~~~~~~~~~~~~~~~     
+../src/Widgets/Sidebar.vala:114.9-114.23: error: The type name `Gtk.TargetEntry' could not be found
+  114 |         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+      |         ^~~~~~~~~~~~~~~                                                  
+../src/Widgets/Terminal.vala:22.13-22.25: error: The type name `Gtk.Clipboard' could not be found
+   22 |     private Gtk.Clipboard current_clipboard;
+      |             ^~~~~~~~~~~~~                   
+
+
+
+
+             GRANITE
+
+
+
+../src/Widgets/WelcomeView.vala:20.33-20.55: error: The type name `Granite.Widgets.Welcome' could not be found
+   20 | public class Code.WelcomeView : Granite.Widgets.Welcome {
+../src/Widgets/WelcomeView.vala:20.33-20.55: error: The type name `Granite.Widgets.Welcome' could not be found
+   20 | public class Code.WelcomeView : Granite.Widgets.Welcome {
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~  
+Compilation failed: 109 error(s), 0 warning(s)
+ninja: build stopped: subcommand failed.
