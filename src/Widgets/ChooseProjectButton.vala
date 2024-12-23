@@ -16,11 +16,13 @@
  *
  */
 
+// TODO: make CheckButton radio buttons
+
 public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
-    public unowned Gtk.RadioButton? group_source {
+    public unowned Gtk.CheckButton? group_source {
         get {
             var first_row = project_listbox.get_row_at_index (0);
             if (first_row != null) {
@@ -188,12 +190,12 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         }
 
-        public Gtk.RadioButton project_radio { get; construct; }
+        public Gtk.CheckButton project_radio { get; construct; }
 
-        public ProjectRow (string project_path, Gtk.RadioButton? group_source ) {
+        public ProjectRow (string project_path, Gtk.CheckButton? group_source ) {
             Object (
                 project_path: project_path,
-                project_radio: new Gtk.RadioButton.with_label_from_widget (group_source, Path.get_basename (project_path))
+                project_radio: new Gtk.CheckButton.with_label_from_widget (group_source, Path.get_basename (project_path))
             );
         }
 
