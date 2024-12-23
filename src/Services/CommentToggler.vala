@@ -77,7 +77,7 @@ public class Scratch.CommentToggler {
     // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
     // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
     // a couple of comments. In that case, we still want to insert comments.
-    private static CommentType lines_already_commented (Gtk.SourceBuffer buffer,
+    private static CommentType lines_already_commented (GtkSource.Buffer buffer,
                                                         Gtk.TextIter start,
                                                         Gtk.TextIter end,
                                                         uint num_lines,
@@ -118,7 +118,7 @@ public class Scratch.CommentToggler {
         return CommentType.NONE;
     }
 
-    private static void remove_comments (Gtk.SourceBuffer buffer,
+    private static void remove_comments (GtkSource.Buffer buffer,
                                          Gtk.TextIter start,
                                          Gtk.TextIter end,
                                          uint num_lines,
@@ -199,7 +199,7 @@ public class Scratch.CommentToggler {
         buffer.end_user_action ();
     }
 
-    private static void add_comments (Gtk.SourceBuffer buffer,
+    private static void add_comments (GtkSource.Buffer buffer,
                                       Gtk.TextIter start,
                                       Gtk.TextIter end,
                                       uint num_lines,
@@ -297,7 +297,7 @@ public class Scratch.CommentToggler {
         buffer.delete_mark (emark);
     }
 
-    public static void toggle_comment (Gtk.SourceBuffer? buffer) {
+    public static void toggle_comment (GtkSource.Buffer? buffer) {
         if (buffer != null) {
             Gtk.TextIter start, end;
             var sel = buffer.get_selection_bounds (out start, out end);

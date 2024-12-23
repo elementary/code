@@ -50,10 +50,10 @@ namespace Scratch.Widgets {
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
             set {
-                ((Gtk.SourceBuffer) buffer).language = value;
+                ((GtkSource.Buffer) buffer).language = value;
             }
             get {
-                return ((Gtk.SourceBuffer) buffer).language;
+                return ((GtkSource.Buffer) buffer).language;
             }
         }
 
@@ -96,7 +96,7 @@ namespace Scratch.Widgets {
             font_css_provider = new Gtk.CssProvider ();
             get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            var source_buffer = new Gtk.SourceBuffer (null);
+            var source_buffer = new GtkSource.Buffer (null);
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
@@ -242,7 +242,7 @@ namespace Scratch.Widgets {
             show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
             right_margin_position = Scratch.settings.get_int ("right-margin-position");
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-            var source_buffer = (Gtk.SourceBuffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
@@ -507,7 +507,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_text (string text, bool opening = true) {
-            var source_buffer = (Gtk.SourceBuffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             if (opening) {
                 source_buffer.begin_not_undoable_action ();
             }
@@ -562,8 +562,8 @@ namespace Scratch.Widgets {
 
             menu.add (sort_item);
 
-            if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+            if (buffer is GtkSource.Buffer) {
+                var can_comment = CommentToggler.language_has_comments (((GtkSource.Buffer) buffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = can_comment;
@@ -572,7 +572,7 @@ namespace Scratch.Widgets {
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
                 ));
                 comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
+                    CommentToggler.toggle_comment ((GtkSource.Buffer) buffer);
                 });
 
                 menu.add (comment_item);

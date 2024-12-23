@@ -1318,8 +1318,8 @@ namespace Scratch {
             }
 
             var buffer = doc.source_view.buffer;
-            if (buffer is Gtk.SourceBuffer) {
-                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+            if (buffer is GtkSource.Buffer) {
+                CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
             }
         }
 

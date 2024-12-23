@@ -240,7 +240,7 @@ namespace Scratch.Widgets {
             this.text_view.selection_changed.connect (on_selection_changed);
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
-            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+            this.search_context = new Gtk.SourceSearchContext (text_buffer as GtkSource.Buffer, null);
             search_context.settings.wrap_around = cycle_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
             search_context.settings.search_text = search_entry.text;
