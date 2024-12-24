@@ -514,25 +514,44 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
-        this.root.add (folder_root);
-        rename_items_with_same_name (folder_root);
-
-        folder_root.expanded = expand;
-        folder_root.closed.connect (() => {
-            toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
-            root.remove (folder_root);
-            foreach (var child in root.children) {
-                var child_folder = (ProjectFolderItem) child;
-                if (child_folder.name != child_folder.file.name) {
-                    rename_items_with_same_name (child_folder);
-                }
+        var add_file = folder.file;
+        // Need to deal with case where folder is parent or child of an existing project
+        foreach (var child in root.children) {
+            var item = (ProjectFolderItem) child;
+            if (add_file.get_relative_path (item.file.file) != null) {
+                critical ("Trying to add parent of existing project");
+                item.closed ();
+            } else if (item.file.file.get_relative_path (add_file) != null) {
+                critical ("Trying to add child of existing project");
+                return;
             }
-            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-            write_settings ();
-        });
+        }
 
-        write_settings ();
+        //TODO Throw warning dialog?
+
+        // Process any closed signals emitted before proceeding
+        Idle.add (() => {
+            var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
+            this.root.add (folder_root);
+            rename_items_with_same_name (folder_root);
+
+            folder_root.expanded = expand;
+            folder_root.closed.connect (() => {
+                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
+                root.remove (folder_root);
+                foreach (var child in root.children) {
+                    var child_folder = (ProjectFolderItem) child;
+                    if (child_folder.name != child_folder.file.name) {
+                        rename_items_with_same_name (child_folder);
+                    }
+                }
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+                write_settings ();
+            });
+
+            write_settings ();
+            return Source.REMOVE;
+        });
     }
 
     private bool is_open (File folder) {
