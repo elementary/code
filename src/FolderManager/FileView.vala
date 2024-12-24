@@ -516,18 +516,46 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
         var add_file = folder.file;
         // Need to deal with case where folder is parent or child of an existing project
+        var parents = new List<ProjectFolderItem> ();
+        var children = new List<ProjectFolderItem> ();
+
         foreach (var child in root.children) {
             var item = (ProjectFolderItem) child;
             if (add_file.get_relative_path (item.file.file) != null) {
                 critical ("Trying to add parent of existing project");
-                item.closed ();
+                children.append (item);
             } else if (item.file.file.get_relative_path (add_file) != null) {
                 critical ("Trying to add child of existing project");
-                return;
+                parents.append (item);
             }
         }
 
-        //TODO Throw warning dialog?
+        if (parents.length () > 0 || children.length () > 0) {
+            var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog ((MainWindow) get_toplevel ());
+
+            var close_projects = false;
+            dialog.response.connect ((res) => {
+                dialog.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    close_projects = true;
+                }
+            });
+
+            dialog.run ();
+
+            if (close_projects) {
+                foreach (var item in parents) {
+                    item.closed ();
+                }
+
+                foreach (var item in children) {
+                    item.closed ();
+                }
+            } else {
+                return;
+            }
+
+        }
 
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
