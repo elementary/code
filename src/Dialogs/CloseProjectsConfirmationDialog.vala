@@ -18,22 +18,50 @@
 
 public class Scratch.Dialogs.CloseProjectsConfirmationDialog : Granite.MessageDialog {
 
-    public CloseProjectsConfirmationDialog (MainWindow parent) {
+    public uint n_parents { get; construct; }
+    public uint n_children { get; construct; }
+
+    public CloseProjectsConfirmationDialog (MainWindow parent, uint n_parents, uint n_children) {
         Object (
             buttons: Gtk.ButtonsType.NONE,
-            transient_for: parent
+            transient_for: parent,
+            n_parents: n_parents,
+            n_children: n_children
         );
     }
 
     construct {
         image_icon = new ThemedIcon ("dialog-warning");
+        var button_label = "";
+        // We can assume that either n_parents or n_children is zero (but not both).
+        // We can assume n_parents is either zero or one
+        if (n_children > 0) {
+            primary_text = ngettext (
+                _("This folder is the parent of an open project"),
+                _("This folder is the parent of %u open projects").printf (n_children),
+                (ulong) n_children
+            );
+                ;
+            secondary_text = ngettext (
+                _("Opening this folder will close the child project"),
+                _("Opening this folder will close all child projects"),
+                (ulong) n_children
+            );
 
-        primary_text = _("This folder is a parent or child of an existing open project");
-        secondary_text = _("Opening this folder will close all parent or child projects");
+            button_label = ngettext (
+                _("Close Child Project"),
+                _("Close Child Projects"),
+                (ulong) n_children
+            );
+        } else {
+            primary_text = _("This folder is a child of an open project");
+            secondary_text = _("Opening this folder will close the parent project");
+            button_label = _("Close Parent Project");
+        }
 
         add_button (_("Don't Open"), Gtk.ResponseType.REJECT);
 
-        var ignore_button = (Gtk.Button) add_button (_("Close Other Projects"), Gtk.ResponseType.ACCEPT);
+        var ignore_button = (Gtk.Button) add_button (button_label, Gtk.ResponseType.ACCEPT);
         ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

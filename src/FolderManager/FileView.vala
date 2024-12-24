@@ -522,16 +522,22 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var item = (ProjectFolderItem) child;
             if (add_file.get_relative_path (item.file.file) != null) {
-                critical ("Trying to add parent of existing project");
+                debug ("Trying to add parent of existing project");
                 children.append (item);
             } else if (item.file.file.get_relative_path (add_file) != null) {
-                critical ("Trying to add child of existing project");
+                debug ("Trying to add child of existing project");
                 parents.append (item);
             }
         }
 
         if (parents.length () > 0 || children.length () > 0) {
-            var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog ((MainWindow) get_toplevel ());
+            assert (parents.length () <= 1);
+            assert (parents.length () == 0 || children.length () == 0);
+            var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
+                (MainWindow) get_toplevel (),
+                parents.length (),
+                children.length ()
+            );
 
             var close_projects = false;
             dialog.response.connect ((res) => {
@@ -554,7 +560,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             } else {
                 return;
             }
-
         }
 
         // Process any closed signals emitted before proceeding
