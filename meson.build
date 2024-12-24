@@ -31,7 +31,7 @@ gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk4', version: '>=4.14.2')
 granite_dep = dependency('granite-7', version: '>=7.0.0')
-handy_dep = dependency('libadwaita-1', version: '>=1.0.0')
+adwaita_dep = dependency('libadwaita-1', version: '>=1.0.0')
 gtksourceview_dep = dependency('gtksourceview-5')
 git_dep = dependency('libgit2-glib-1.0')
 fontconfig_dep = dependency('fontconfig')
@@ -54,7 +54,7 @@ dependencies = [
     gee_dep,
     gtk_dep,
     granite_dep,
-    handy_dep,
+    adwaita_dep,
     gtksourceview_dep,
     git_dep,
     fontconfig_dep,
