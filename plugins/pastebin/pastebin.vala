@@ -68,7 +68,7 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
     public Object object { owned get; construct; }
@@ -147,6 +147,6 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Scratch.Plugins.Pastebin));
 }

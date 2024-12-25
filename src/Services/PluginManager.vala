@@ -19,10 +19,17 @@
 ***/
 
 namespace Scratch.Services {
+    // Interface implemented by all plugins
+    public interface ActivatablePlugin : Object {
+        // Migrated from Peas.Activatable
+        public virtual void activate () {}
+        public virtual void deactivate () {}
+        public virtual void update_state () {}
+        public abstract GLib.Object object { owned get; construct; }
+    }
+
+    // Object shared with plugins providing signals and methods to interface with application
     public class Interface : GLib.Object {
-
-        public PluginsManager manager;
-
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (GLib.MenuModel menu);
@@ -32,6 +39,7 @@ namespace Scratch.Services {
         public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
         public Scratch.TemplateManager template_manager { private set; get; }
+        public Scratch.Services.PluginsManager manager { private set; get; }
 
         public Interface (PluginsManager manager) {
             this.manager = manager;
@@ -49,7 +57,6 @@ namespace Scratch.Services {
             manager.window.close_document (doc);
         }
     }
-
 
     public class PluginsManager : GLib.Object {
         Peas.Engine engine;
@@ -86,19 +93,24 @@ namespace Scratch.Services {
             Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
-            exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
+            exts = new Peas.ExtensionSet.with_properties (
+                engine,
+                typeof (ActivatablePlugin),
+                {"object"},
+                {plugin_iface}
+            );
 
             exts.extension_added.connect ((info, ext) => {
-                ((Peas.Activatable)ext).activate ();
+                ((ActivatablePlugin)ext).activate ();
                 extension_added (info);
             });
 
             exts.extension_removed.connect ((info, ext) => {
-                ((Peas.Activatable)ext).deactivate ();
+                ((ActivatablePlugin)ext).deactivate ();
                 extension_removed (info);
             });
 
-            exts.foreach (on_extension_foreach);
+            exts.@foreach ((Peas.ExtensionSetForeachFunc) on_extension_foreach, null);
 
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
@@ -126,15 +138,41 @@ namespace Scratch.Services {
             });
         }
 
-        void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-            ((Peas.Activatable)extension).activate ();
+        void on_extension_foreach (Peas.ExtensionSet exts, Peas.PluginInfo info, Object ext, void* data) {
+            ((ActivatablePlugin)ext).activate ();
         }
 
         public Gtk.Widget get_view () {
-            var view = new PeasGtk.PluginManager (engine);
-            var bottom_box = view.get_children ().nth_data (1);
-            bottom_box.no_show_all = true;
-            return view;
+            // var view = new PeasGtk.PluginManager (engine);
+            // var bottom_box = view.get_children ().nth_data (1);
+            // bottom_box.no_show_all = true;
+            // return view;
+            var list_box = new Gtk.ListBox ();
+            var index = 0;
+            while (index < engine.get_n_items ()) {
+                var info = (Peas.PluginInfo) engine.get_item (index);
+                var row = new Gtk.ListBoxRow ();
+                var content = new Gtk.Box (HORIZONTAL, 6);
+                var checkbox = new Gtk.CheckButton ();
+                var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU);
+                var description_box = new Gtk.Box (VERTICAL, 0);
+                var name_label = new Gtk.Label (info.get_name ());
+                var description_label = new Gtk.Label (info.get_description ());
+                description_box.add (name_label);
+                description_box.add (description_label);
+                content.add (checkbox);
+                content.add (image);
+                content.add (description_box);
+                row.child = content;
+
+                index++;
+            }
+
+            return list_box;
+        }
+
+        public uint get_n_plugins () {
+            return engine.get_n_items ();
         }
     }
 }
