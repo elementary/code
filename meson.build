@@ -26,7 +26,7 @@ pluginsdir = get_option('prefix') / get_option('libdir') / meson.project_name() 
 gnome = import('gnome')
 i18n = import('i18n')
 
-glib_dep = dependency('glib-2.0', version: '>=2.30.0')
+glib_dep = dependency('glib-2.0', version: '>=2.74.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
