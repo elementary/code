@@ -142,33 +142,57 @@ namespace Scratch.Services {
             ((ActivatablePlugin)ext).activate ();
         }
 
+        // Return an emulation of the discontinued libpeas-1.0 widget
         public Gtk.Widget get_view () {
-            // var view = new PeasGtk.PluginManager (engine);
-            // var bottom_box = view.get_children ().nth_data (1);
-            // bottom_box.no_show_all = true;
-            // return view;
             var list_box = new Gtk.ListBox ();
+            var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = NEVER,
+                vscrollbar_policy = AUTOMATIC,
+                max_content_height = 300,
+                child = list_box
+            };
+            var frame = new Gtk.Frame (null) {
+                child = scrolled_window
+            };
+
             var index = 0;
             while (index < engine.get_n_items ()) {
                 var info = (Peas.PluginInfo) engine.get_item (index);
-                var row = new Gtk.ListBoxRow ();
+                var row = new Gtk.ListBoxRow () {
+                    margin_start = 6,
+                    margin_end = 6
+                };
                 var content = new Gtk.Box (HORIZONTAL, 6);
-                var checkbox = new Gtk.CheckButton ();
-                var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU);
+                var checkbox = new Gtk.CheckButton () {
+                    valign = Gtk.Align.CENTER
+                };
+                var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU) {
+                    valign = Gtk.Align.CENTER
+                };
                 var description_box = new Gtk.Box (VERTICAL, 0);
-                var name_label = new Gtk.Label (info.get_name ());
-                var description_label = new Gtk.Label (info.get_description ());
+                var name_label = new Granite.HeaderLabel (info.name);
+                //TODO In Granite-7 we can use secondary text property but emulate for now
+                var description_label = new Gtk.Label (info.get_description ()) {
+                    use_markup = true,
+                    wrap = true,
+                    xalign = 0,
+                    margin_start = 6
+                };
+                description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+                description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
                 description_box.add (name_label);
                 description_box.add (description_label);
+                content.add (name_label);
                 content.add (checkbox);
                 content.add (image);
                 content.add (description_box);
                 row.child = content;
-
+                list_box.add (row);
                 index++;
             }
 
-            return list_box;
+            frame.show_all ();
+            return frame;
         }
 
         public uint get_n_plugins () {
