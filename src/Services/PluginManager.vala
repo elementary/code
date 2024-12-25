@@ -164,7 +164,8 @@ namespace Scratch.Services {
                 };
                 var content = new Gtk.Box (HORIZONTAL, 6);
                 var checkbox = new Gtk.CheckButton () {
-                    valign = Gtk.Align.CENTER
+                    valign = Gtk.Align.CENTER,
+                    active = info.is_loaded ()
                 };
                 var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU) {
                     valign = Gtk.Align.CENTER
