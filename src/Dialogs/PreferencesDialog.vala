@@ -160,6 +160,11 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         close_button.clicked.connect (() => {
             destroy ();
         });
+
+        //Ensure appearance correct after using libpeas-2
+        realize.connect (() => {
+            stack.set_visible_child_name ("behavior");
+        });
     }
 
     private class SettingSwitch : Gtk.Grid {
