@@ -24,8 +24,8 @@ namespace Scratch.Services {
     // Interface implemented by all plugins
     public interface ActivatablePlugin : Object {
         // Migrated from Peas.Activatable
-        public virtual void activate () {}
-        public virtual void deactivate () {}
+        public abstract void activate ();
+        public abstract void deactivate ();
         public virtual void update_state () {}
         public abstract GLib.Object object { owned get; construct; }
     }
