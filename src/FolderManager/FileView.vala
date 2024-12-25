@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 - 2022 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017 - 2024 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
