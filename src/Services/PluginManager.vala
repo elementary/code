@@ -2,7 +2,9 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
+  Copyright (C) 2019–2024 elementary, Inc. <https://elementary.io>
+                2013 Mario Guerriero <mario@elementaryos.org>
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -38,12 +40,16 @@ namespace Scratch.Services {
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
         public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-        public Scratch.TemplateManager template_manager { private set; get; }
-        public Scratch.Services.PluginsManager manager { private set; get; }
+        public Scratch.TemplateManager template_manager { get; construct; }
+        public Scratch.Services.PluginsManager manager { get; construct; }
 
-        public Interface (PluginsManager manager) {
-            this.manager = manager;
+        public Interface (PluginsManager _manager) {
+            Object (
+                manager: _manager
+            );
+        }
 
+        construct {
             template_manager = new Scratch.TemplateManager ();
         }
 
@@ -63,8 +69,7 @@ namespace Scratch.Services {
         Peas.ExtensionSet exts;
 
         public Interface plugin_iface { private set; public get; }
-
-        public weak MainWindow window;
+        public weak MainWindow window {get; construct; }
 
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
@@ -77,10 +82,13 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
 
-        public PluginsManager (MainWindow window) {
-            this.window = window;
+        public PluginsManager (MainWindow _window) {
+            Object (
+                window: _window
+            );
+        }
 
-
+        construct {
             plugin_iface = new Interface (this);
 
             /* Let's init the engine */
