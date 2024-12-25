@@ -162,7 +162,10 @@ namespace Scratch.Services {
 
             // Bind the engine ListModel and use a row factory
             list_box.bind_model (engine, get_widget_for_plugin_info);
-            //Cannot sort a ListModel so sort the ListBox (is there a better way?)
+            // Cannot sort a ListModel so sort the ListBox (is there a better way?)
+            // Gtk warns the function will be ignored but it does in fact work, at least
+            // on initial display. We know the model will not change while the view is used
+            // In Gtk4 could use SortListModel
             list_box.set_sort_func ((r1, r2) => {
                 return strcmp (
                     r1.get_child ().get_data<string> ("name"),

@@ -144,7 +144,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         main_box.add (stackswitcher);
         main_box.add (stack);
 
-        plugins.hook_preferences_dialog (this);
+        plugins.hook_preferences_dialog (this); // Unused?
 
         if (plugins.get_n_plugins () > 0) {
             var pbox = plugins.get_view ();
