@@ -156,55 +156,57 @@ namespace Scratch.Services {
             };
 
             var index = 0;
-            while (index < engine.get_n_items ()) {
-                var info = (Peas.PluginInfo) engine.get_item (index);
-                var row = new Gtk.ListBoxRow () {
-                    margin_start = 6,
-                    margin_end = 6
-                };
-                var content = new Gtk.Box (HORIZONTAL, 6);
-                var checkbox = new Gtk.CheckButton () {
-                    valign = Gtk.Align.CENTER,
-                    active = info.is_loaded ()
-                };
-                checkbox.toggled.connect (() => {
-                    if (checkbox.active) {
-                        engine.load_plugin (info);
-                    } else {
-                        engine.unload_plugin (info);
-                    }
-                });
-                var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU) {
-                    valign = Gtk.Align.CENTER
-                };
-                var description_box = new Gtk.Box (VERTICAL, 0);
-                var name_label = new Granite.HeaderLabel (info.name);
-                //TODO In Granite-7 we can use secondary text property but emulate for now
-                var description_label = new Gtk.Label (info.get_description ()) {
-                    use_markup = true,
-                    wrap = true,
-                    xalign = 0,
-                    margin_start = 6
-                };
-                description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
-                description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-                description_box.add (name_label);
-                description_box.add (description_label);
-                content.add (checkbox);
-                content.add (image);
-                content.add (description_box);
-                row.child = content;
-                row.set_data<string> ("name", info.name);
-                list_box.add (row);
-                index++;
-            }
-
-            list_box.set_sort_func ((row1, row2) => {
-                return strcmp (row1.get_data<string> ("name"), row2.get_data<string> ("name"));
+            // Bind the engine ListModel and use a row factory
+            list_box.bind_model (engine, get_widget_for_plugin_info);
+            //Cannot sort a ListModel so sort the ListBox (is there a better way?)
+            list_box.set_sort_func ((r1, r2) => {
+                return strcmp (
+                    r1.get_child ().get_data<string> ("name"),
+                    r2.get_child ().get_data<string> ("name")
+                );
             });
-
             frame.show_all ();
             return frame;
+        }
+
+        private Gtk.Widget get_widget_for_plugin_info (Object obj) {
+            var info = (Peas.PluginInfo)obj;
+            var content = new Gtk.Box (HORIZONTAL, 6);
+            var checkbox = new Gtk.CheckButton () {
+                valign = Gtk.Align.CENTER,
+                active = info.is_loaded (),
+                margin_start = 6
+            };
+            checkbox.toggled.connect (() => {
+                if (checkbox.active) {
+                    engine.load_plugin (info);
+                } else {
+                    engine.unload_plugin (info);
+                }
+            });
+            var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
+                valign = Gtk.Align.CENTER
+            };
+            var description_box = new Gtk.Box (VERTICAL, 0);
+            var name_label = new Granite.HeaderLabel (info.name);
+            //TODO In Granite-7 we can use secondary text property but emulate for now
+            var description_label = new Gtk.Label (info.get_description ()) {
+                use_markup = true,
+                wrap = true,
+                xalign = 0,
+                margin_start = 6,
+                margin_bottom = 6
+            };
+            description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+            description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            description_box.add (name_label);
+            description_box.add (description_label);
+            content.add (checkbox);
+            content.add (image);
+            content.add (description_box);
+            content.set_data<string> ("name", info.get_name ());
+
+            return content;
         }
 
         public uint get_n_plugins () {
