@@ -167,6 +167,13 @@ namespace Scratch.Services {
                     valign = Gtk.Align.CENTER,
                     active = info.is_loaded ()
                 };
+                checkbox.toggled.connect (() => {
+                    if (checkbox.active) {
+                        engine.load_plugin (info);
+                    } else {
+                        engine.unload_plugin (info);
+                    }
+                });
                 var image = new Gtk.Image.from_icon_name (info.get_icon_name (), MENU) {
                     valign = Gtk.Align.CENTER
                 };
