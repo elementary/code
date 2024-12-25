@@ -62,8 +62,6 @@ namespace Scratch.Services {
         Peas.Engine engine;
         Peas.ExtensionSet exts;
 
-        string settings_field;
-
         public Interface plugin_iface { private set; public get; }
 
         public weak MainWindow window;
@@ -82,7 +80,6 @@ namespace Scratch.Services {
         public PluginsManager (MainWindow window) {
             this.window = window;
 
-            settings_field = "plugins-enabled";
 
             plugin_iface = new Interface (this);
 
@@ -155,7 +152,6 @@ namespace Scratch.Services {
                 child = scrolled_window
             };
 
-            var index = 0;
             // Bind the engine ListModel and use a row factory
             list_box.bind_model (engine, get_widget_for_plugin_info);
             //Cannot sort a ListModel so sort the ListBox (is there a better way?)
