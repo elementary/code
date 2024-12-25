@@ -194,9 +194,14 @@ namespace Scratch.Services {
                 content.add (image);
                 content.add (description_box);
                 row.child = content;
+                row.set_data<string> ("name", info.name);
                 list_box.add (row);
                 index++;
             }
+
+            list_box.set_sort_func ((row1, row2) => {
+                return strcmp (row1.get_data<string> ("name"), row2.get_data<string> ("name"));
+            });
 
             frame.show_all ();
             return frame;
