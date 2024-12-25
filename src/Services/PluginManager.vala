@@ -190,7 +190,6 @@ namespace Scratch.Services {
                 description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
                 description_box.add (name_label);
                 description_box.add (description_label);
-                content.add (name_label);
                 content.add (checkbox);
                 content.add (image);
                 content.add (description_box);
