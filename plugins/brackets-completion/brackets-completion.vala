@@ -58,7 +58,7 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
         plugins.hook_document.connect (on_hook_document);
     }
 
-    protected override  void deactivate_internal () {
+    protected override void deactivate_internal () {
         plugins.hook_document.disconnect (on_hook_document);
     }
 

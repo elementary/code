@@ -28,17 +28,17 @@ public abstract class Scratch.Plugins.PluginBase : GLib.Object {
         is_active = true;
         activate_internal ();
     }
-    
+
 
     public void deactivate () {
         is_active = false;
         deactivate_internal ();
     }
-    
+
     protected abstract void activate_internal ();
     protected virtual void deactivate_internal () {} // Not implemented by some plugins
     public virtual void update_state () {} // Not currently used
-    
+
     protected PluginBase (PluginInfo info, Interface iface) {
         Object (
             plugin_info: info,
@@ -158,9 +158,8 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     private void activate_plugin (Scratch.Plugins.PluginBase plugin) {
         var info = plugin.plugin_info;
-        if (!info.is_active) {
+        if (!plugin.is_active) {
             plugin.activate ();
-            info.is_active = true;
             active_plugin_set.add (info.name);
             extension_added (); // Signals Window to run initial hook function
             update_active_plugin_settings ();
@@ -169,9 +168,8 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     private void deactivate_plugin (Scratch.Plugins.PluginBase plugin) {
         var info = plugin.plugin_info;
-        if (info.is_active) {
+        if (plugin.is_active) {
             plugin.deactivate ();
-            info.is_active = false;
             active_plugin_set.remove (info.name);
             extension_removed (info);
             update_active_plugin_settings ();
@@ -262,7 +260,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
         if (plug != null) {
             plugin_hash.set (info.name, plug);
-            info.is_active = false;
+            plug.is_active = false;
             // Plugins only become active via initial settings or preferences dialog
             return true;
         } else {

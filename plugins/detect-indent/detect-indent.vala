@@ -25,7 +25,7 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    protected override  void activate_internal () {
+    protected override void activate_internal () {
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
