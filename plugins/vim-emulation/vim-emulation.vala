@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.VimEmulation : PluginBase {
+public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
     public enum Mode {
         COMMAND,
         INSERT,
@@ -36,6 +36,10 @@ public class Scratch.Plugins.VimEmulation : PluginBase {
     Scratch.Plugins.Interface plugins;
     // public Object object { owned get; construct; }
 
+    public VimEmulation (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
     construct {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
     }
@@ -44,8 +48,8 @@ public class Scratch.Plugins.VimEmulation : PluginBase {
 
     // }
 
-    public void activate () {
-        plugins = (Scratch.Plugins.Interface) object;
+    public override void activate () {
+        // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
             this.view = doc.source_view;
             this.view.key_press_event.disconnect (handle_key_press);
@@ -54,7 +58,7 @@ public class Scratch.Plugins.VimEmulation : PluginBase {
         });
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         foreach (var v in views) {
             v.key_press_event.disconnect (handle_key_press);
         }
@@ -295,9 +299,13 @@ public class Scratch.Plugins.VimEmulation : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.VimEmulation (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.VimEmulation (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {

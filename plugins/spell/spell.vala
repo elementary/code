@@ -13,14 +13,10 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.Spell: PluginBase {
-
+public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
     Scratch.Plugins.Interface plugins;
-
     private GLib.Settings settings;
-
     MainWindow window = null;
-
     private string lang_dict;
 
 #if SPELLLEGACY
@@ -29,12 +25,15 @@ public class Scratch.Plugins.Spell: PluginBase {
     GtkSpell.Checker spell = null;
 #endif
 
+    public Spell (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
     // public Object object {owned get; construct;}
 
     // public void update_state () {
     // }
 
-    public void activate () {
+    public override void activate () {
         settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
 
         // Restore the last dictionary used.
@@ -93,7 +92,7 @@ public class Scratch.Plugins.Spell: PluginBase {
 #endif
                 // Deactivate Spell checker when it is no longer needed
                 plugins.manager.extension_removed.connect ((info) => {
-                    if (info.get_module_name () == "spell")
+                    if (info.module_name == "spell")
                         spell.detach ();
                 });
 
@@ -126,7 +125,7 @@ public class Scratch.Plugins.Spell: PluginBase {
 
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         save_settings ();
         window.destroy.disconnect (save_settings);
     }
@@ -154,9 +153,13 @@ public class Scratch.Plugins.Spell: PluginBase {
 
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.Spell (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.Spell (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {

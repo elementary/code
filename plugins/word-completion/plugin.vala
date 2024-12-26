@@ -18,7 +18,7 @@
  *
  */
 
-public class Scratch.Plugins.Completion : PluginBase {
+public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
@@ -42,8 +42,12 @@ public class Scratch.Plugins.Completion : PluginBase {
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
 
     private uint timeout_id = 0;
-
-    public void activate () {
+    
+    public Completion (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         // plugins = (Scratch.Services.Interface) object;
         parser = new Euclide.Completion.Parser ();
         plugins.hook_window.connect ((w) => {
@@ -55,10 +59,6 @@ public class Scratch.Plugins.Completion : PluginBase {
 
     public override void deactivate () {
         text_view_list.@foreach (cleanup);
-    }
-
-    public void update_state () {
-
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
@@ -182,9 +182,13 @@ public class Scratch.Plugins.Completion : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.Completion (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.Completion (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {

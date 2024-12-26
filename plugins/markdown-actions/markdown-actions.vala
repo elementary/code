@@ -18,15 +18,18 @@
   END LICENSE
 ***/
 
-public class Code.Plugins.MarkdownActions : PluginBase {
+public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
     Scratch.Widgets.SourceView current_source;
     Scratch.Plugins.Interface plugins;
 
     // public Object object { owned get; construct; }
 
     // public void update_state () {}
-
-    public void activate () {
+    public MarkdownActions (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
@@ -40,7 +43,7 @@ public class Code.Plugins.MarkdownActions : PluginBase {
         });
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         if (current_source != null) {
             current_source.key_press_event.disconnect (shortcut_handler);
             current_source.notify["language"].disconnect (configure_shortcuts);
@@ -239,9 +242,13 @@ public class Code.Plugins.MarkdownActions : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.MarkdownActions (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.MarkdownActions (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (TypeModule module) {

@@ -1,11 +1,15 @@
-public class Scratch.Plugins.DetectIndent: PluginBase {
+public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
     const int MAX_LINES = 500;
 
     Scratch.Plugins.Interface plugins;
     // public Object object {owned get; construct;}
 
-    public void activate () {
-        plugins = (Scratch.Plugins.Interface) object;
+    public DetectIndent (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
+        // plugins = (Scratch.Plugins.Interface) object;
 
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
@@ -66,15 +70,19 @@ public class Scratch.Plugins.DetectIndent: PluginBase {
         });
     }
 
-    public void deactivate () {
+    public override void deactivate () {
 
     }
 
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.DetectIndent (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.DetectIndent (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {

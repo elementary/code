@@ -18,63 +18,15 @@
   END LICENSE
 ***/
 
-namespace Scratch.Plugins {
-    public class PasteBin : GLib.Object {
-        public const string NEVER = "N";
-        public const string TEN_MINUTES = "10M";
-        public const string HOUR = "1H";
-        public const string DAY = "1D";
-        public const string MONTH = "1M";
-
-        public const string PRIVATE = "1";
-        public const string PUBLIC = "0";
 
 
-        public static bool submit (out string link, string paste_code, string paste_name,
-                                     string paste_private, string paste_expire_date,
-                                     string paste_format) {
-
-            if (paste_code.length == 0) { link = "No text to paste"; return false; }
-
-            string api_url = "https://pastebin.com/api/api_post.php";
-
-            var session = new Soup.Session ();
-            var message = new Soup.Message ("POST", api_url);
-
-            string request = Soup.Form.encode (
-                "api_option", "paste",
-                "api_dev_key", "67480801fa55fc0977f7561cf650a339",
-                "api_paste_code", paste_code,
-                "api_paste_name", paste_name,
-                "api_paste_private", paste_private,
-                "api_paste_expire_date", paste_expire_date,
-                "api_paste_format", paste_format);
-
-            message.set_request ("application/x-www-form-urlencoded", Soup.MemoryUse.COPY, request.data);
-            message.set_flags (Soup.MessageFlags.NO_REDIRECT);
-
-            session.send_message (message);
-
-            var output = (string) message.response_body.data;
-            link = output;
-
-            if (Uri.parse_scheme (output) == null || message.status_code != 200) {
-                // A URI was not returned
-                return false;
-            }
-
-            return true;
-        }
-    }
-}
-
-public class Scratch.Plugins.Pastebin : PluginBase {
+public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
     // public Object object { owned get; construct; }
 
     Scratch.Services.Document? doc = null;
-    Scratch.Services.Interface plugins;
+    Scratch.Plugins.Interface plugins;
 
     const string ACTION_GROUP = "pastebin";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
@@ -87,8 +39,11 @@ public class Scratch.Plugins.Pastebin : PluginBase {
 
     // public void update_state () {
     // }
-
-    public void activate () {
+    public Pastebin (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         // plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_document.connect ((doc) => {
@@ -98,7 +53,7 @@ public class Scratch.Plugins.Pastebin : PluginBase {
         plugins.hook_share_menu.connect (on_hook_share_menu);
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         remove_actions ();
     }
 
@@ -144,9 +99,13 @@ public class Scratch.Plugins.Pastebin : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.Pastebin (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.Pastebin (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {

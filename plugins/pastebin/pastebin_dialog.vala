@@ -21,7 +21,53 @@
 using Scratch.Services;
 
 namespace Scratch.Dialogs {
+    public class PasteBinSubmitter : GLib.Object {
+        public const string NEVER = "N";
+        public const string TEN_MINUTES = "10M";
+        public const string HOUR = "1H";
+        public const string DAY = "1D";
+        public const string MONTH = "1M";
 
+        public const string PRIVATE = "1";
+        public const string PUBLIC = "0";
+
+
+        public static bool submit (out string link, string paste_code, string paste_name,
+                                     string paste_private, string paste_expire_date,
+                                     string paste_format) {
+
+            if (paste_code.length == 0) { link = "No text to paste"; return false; }
+
+            string api_url = "https://pastebin.com/api/api_post.php";
+
+            var session = new Soup.Session ();
+            var message = new Soup.Message ("POST", api_url);
+
+            string request = Soup.Form.encode (
+                "api_option", "paste",
+                "api_dev_key", "67480801fa55fc0977f7561cf650a339",
+                "api_paste_code", paste_code,
+                "api_paste_name", paste_name,
+                "api_paste_private", paste_private,
+                "api_paste_expire_date", paste_expire_date,
+                "api_paste_format", paste_format);
+
+            message.set_request ("application/x-www-form-urlencoded", Soup.MemoryUse.COPY, request.data);
+            message.set_flags (Soup.MessageFlags.NO_REDIRECT);
+
+            session.send_message (message);
+
+            var output = (string) message.response_body.data;
+            link = output;
+
+            if (Uri.parse_scheme (output) == null || message.status_code != 200) {
+                // A URI was not returned
+                return false;
+            }
+
+            return true;
+        }
+    }
     public class PasteBinDialog : Granite.Dialog {
 
         public string[,] languages = {
@@ -457,18 +503,18 @@ namespace Scratch.Dialogs {
             string paste_code = this.doc.get_text ();
             string paste_name = name_entry.text;
             string paste_format = format_combo.get_active_id ();
-            string paste_private = private_check.get_active () == true ? PasteBin.PRIVATE : PasteBin.PUBLIC;
+            string paste_private = private_check.get_active () == true ? PasteBinSubmitter.PRIVATE : PasteBinSubmitter.PUBLIC;
             string paste_expire_date = expiry_combo.get_active_id ();
 
-            return PasteBin.submit (out link, paste_code, paste_name, paste_private, paste_expire_date, paste_format);
+            return PasteBinSubmitter.submit (out link, paste_code, paste_name, paste_private, paste_expire_date, paste_format);
         }
 
         private void populate_expiry_combo () {
-            expiry_combo.append (PasteBin.NEVER, _("Never"));
-            expiry_combo.append (PasteBin.TEN_MINUTES, _("Ten minutes"));
-            expiry_combo.append (PasteBin.HOUR, _("One hour"));
-            expiry_combo.append (PasteBin.DAY, _("One day"));
-            expiry_combo.append (PasteBin.MONTH, _("One month"));
+            expiry_combo.append (PasteBinSubmitter.NEVER, _("Never"));
+            expiry_combo.append (PasteBinSubmitter.TEN_MINUTES, _("Ten minutes"));
+            expiry_combo.append (PasteBinSubmitter.HOUR, _("One hour"));
+            expiry_combo.append (PasteBinSubmitter.DAY, _("One day"));
+            expiry_combo.append (PasteBinSubmitter.MONTH, _("One month"));
         }
      }
 }

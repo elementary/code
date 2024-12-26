@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.BracketsCompletion : PluginBase {
+public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
     const string[] VALID_NEXT_CHARS = {
@@ -33,7 +33,11 @@ public class Scratch.Plugins.BracketsCompletion : PluginBase {
     Scratch.Plugins.Interface plugins;
     // public Object object { owned get; construct; }
 
-    public void activate () {
+    public BracketsCompletion (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+
+    public override void activate () {
         brackets = new Gee.HashMap<string, string> ();
         brackets["("] = ")";
         brackets["["] = "]";
@@ -57,7 +61,7 @@ public class Scratch.Plugins.BracketsCompletion : PluginBase {
         plugins.hook_document.connect (on_hook_document);
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         plugins.hook_document.disconnect (on_hook_document);
     }
 
@@ -273,8 +277,11 @@ public class Scratch.Plugins.BracketsCompletion : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.BracketsCompletion (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.BracketsCompletion (info, iface);
 }
 
 // [ModuleInit]

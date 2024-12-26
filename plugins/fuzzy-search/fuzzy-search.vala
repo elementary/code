@@ -6,7 +6,7 @@
  */
 
 
-public class Scratch.Plugins.FuzzySearch: PluginBase {
+public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
     // public Object object { owned get; construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
@@ -36,8 +36,11 @@ public class Scratch.Plugins.FuzzySearch: PluginBase {
     // public void update_state () {
 
     // }
-
-    public void activate () {
+    public FuzzySearch (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
 
         plugins.hook_window.connect ((w) => {
@@ -68,7 +71,7 @@ public class Scratch.Plugins.FuzzySearch: PluginBase {
         });
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         folder_settings.changed["opened-folders"].disconnect (handle_opened_projects_change);
         remove_actions ();
         if (cancellable != null) {
@@ -153,8 +156,11 @@ public class Scratch.Plugins.FuzzySearch: PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.FuzzySearch (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.FuzzySearch (info, iface);
 }
 
 // [ModuleInit]

@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.HighlightSelectedWords : PluginBase {
+public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase {
     Scratch.Widgets.SourceView current_source;
     Scratch.MainWindow? main_window = null;
     Gtk.SourceSearchContext? current_search_context = null;
@@ -31,8 +31,11 @@ public class Scratch.Plugins.HighlightSelectedWords : PluginBase {
     // public Object object { owned get; construct; }
 
     // public void update_state () {}
-
-    public void activate () {
+    public HighlightSelectedWords (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
@@ -51,7 +54,7 @@ public class Scratch.Plugins.HighlightSelectedWords : PluginBase {
     }
 
 
-    public void deactivate () {
+    public override void deactivate () {
         if (current_source != null) {
             current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);
@@ -149,8 +152,11 @@ public class Scratch.Plugins.HighlightSelectedWords : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.FuzzySearch (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.HighlightSelectedWords (info, iface);
 }
 
 // [ModuleInit]

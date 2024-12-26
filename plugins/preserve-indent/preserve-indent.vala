@@ -18,17 +18,19 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.PreserveIndent : PluginBase {
-
-    private Scratch.Services.Interface plugins;
+public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
+    private Scratch.Plugins.Interface plugins;
     private Gee.TreeSet<weak Services.Document> documents;
     private Services.Document active_document;
     private int last_clipboard_indent_level = 0;
     private bool waiting_for_clipboard_text = false;
 
     // public Object object { owned get; construct; }
-
-    public void activate () {
+    public PreserveIndent (PluginInfo info, Interface iface) {
+        base (info, iface);
+    }
+    
+    public override void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
         // plugins = (Scratch.Services.Interface) object;
 
@@ -48,11 +50,8 @@ public class Scratch.Plugins.PreserveIndent : PluginBase {
         });
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         this.documents.clear ();
-    }
-
-    public void update_state () {
     }
 
     // determine how many characters precede a given iterator position
@@ -241,9 +240,13 @@ public class Scratch.Plugins.PreserveIndent : PluginBase {
     }
 }
 
-public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
-    return new Scratch.Plugins.PreserveIndent (info);
+public Scratch.Plugins.PluginBase module_init (
+    Scratch.Plugins.PluginInfo info,
+    Scratch.Plugins.Interface iface
+) {
+    return new Scratch.Plugins.PreserveIndent (info, iface);
 }
+
 
 // [ModuleInit]
 // public void peas_register_types (GLib.TypeModule module) {
