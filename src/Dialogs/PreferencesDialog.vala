@@ -8,9 +8,9 @@
  */
 
 public class Scratch.Dialogs.Preferences : Granite.Dialog {
-    public Services.PluginsManager plugins { get; construct; }
+    public Scratch.Services.PluginsManager plugins { get; construct; }
 
-    public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
+    public Preferences (Gtk.Window? parent, Scratch.Services.PluginsManager plugins) {
         Object (
             title: _("Preferences"),
             transient_for: parent,

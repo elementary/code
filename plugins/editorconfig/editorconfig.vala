@@ -17,15 +17,15 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activatable {
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+public class Scratch.Plugins.EditorConfigPlugin: PluginBase {
+    Scratch.Plugins.Interface plugins;
+    // public Object object { owned get; construct; }
     private Code.FormatBar format_bar;
 
-    public void update_state () { }
+    // public void update_state () { }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Scratch.Plugins.Interface) object;
 
         plugins.hook_toolbar.connect ((tb) => {
             format_bar = tb.format_bar;
@@ -88,8 +88,12 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
     public void deactivate () { }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.EditorConfigPlugin));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.EditorConfigPlugin (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.EditorConfigPlugin));
+// }

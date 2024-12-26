@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.BracketsCompletion : PluginBase {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
     const string[] VALID_NEXT_CHARS = {
@@ -30,10 +30,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
 
     private string previous_selection = "";
 
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
-
-    public void update_state () {}
+    Scratch.Plugins.Interface plugins;
+    // public Object object { owned get; construct; }
 
     public void activate () {
         brackets = new Gee.HashMap<string, string> ();
@@ -55,7 +53,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         keys[Gdk.Key.quotedbl] = "\"";
         keys[Gdk.Key.grave] = "`";
 
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect (on_hook_document);
     }
 
@@ -275,9 +273,13 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
     }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BracketsCompletion));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.BracketsCompletion (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                      typeof (Scratch.Plugins.BracketsCompletion));
+// }

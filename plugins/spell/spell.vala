@@ -13,9 +13,9 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Spell: PluginBase {
 
-    Scratch.Services.Interface plugins;
+    Scratch.Plugins.Interface plugins;
 
     private GLib.Settings settings;
 
@@ -29,10 +29,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     GtkSpell.Checker spell = null;
 #endif
 
-    public Object object {owned get; construct;}
+    // public Object object {owned get; construct;}
 
-    public void update_state () {
-    }
+    // public void update_state () {
+    // }
 
     public void activate () {
         settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
@@ -42,7 +42,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
         settings.changed.connect (settings_changed);
 
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
@@ -126,7 +126,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     }
 
-
+    public void deactivate () {
+        save_settings ();
+        window.destroy.disconnect (save_settings);
+    }
 
     private void language_changed_spell (Scratch.Widgets.SourceView view) {
         if (view.language != null)
@@ -149,18 +152,17 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
         settings.set_string ("language", lang_dict);
     }
 
-    public void deactivate () {
-        save_settings ();
-        window.destroy.disconnect (save_settings);
-    }
-
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (
-        typeof (Peas.Activatable),
-        typeof (Scratch.Plugins.Spell)
-    );
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.Spell (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (
+//         typeof (Peas.Activatable),
+//         typeof (Scratch.Plugins.Spell)
+//     );
+// }

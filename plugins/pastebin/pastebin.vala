@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Services {
+namespace Scratch.Plugins {
     public class PasteBin : GLib.Object {
         public const string NEVER = "N";
         public const string TEN_MINUTES = "10M";
@@ -68,10 +68,10 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Pastebin : PluginBase {
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
-    public Object object { owned get; construct; }
+    // public Object object { owned get; construct; }
 
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
@@ -85,17 +85,21 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
         {ACTION_SHOW, show_paste_bin_upload_dialog }
     };
 
-    public void update_state () {
-    }
+    // public void update_state () {
+    // }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_document.connect ((doc) => {
             this.doc = doc;
         });
 
         plugins.hook_share_menu.connect (on_hook_share_menu);
+    }
+
+    public void deactivate () {
+        remove_actions ();
     }
 
     void on_hook_share_menu (GLib.MenuModel menu) {
@@ -138,15 +142,15 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
         MainWindow window = plugins.manager.window;
         new Dialogs.PasteBinDialog (window, doc);
     }
-
-    public void deactivate () {
-        remove_actions ();
-    }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.Pastebin));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.Pastebin (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                      typeof (Scratch.Plugins.Pastebin));
+// }

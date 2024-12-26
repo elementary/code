@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.PreserveIndent : PluginBase {
 
     private Scratch.Services.Interface plugins;
     private Gee.TreeSet<weak Services.Document> documents;
@@ -26,11 +26,11 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
     private int last_clipboard_indent_level = 0;
     private bool waiting_for_clipboard_text = false;
 
-    public Object object { owned get; construct; }
+    // public Object object { owned get; construct; }
 
     public void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_document.connect ((d) => {
             this.active_document = d;
@@ -241,9 +241,13 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
     }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.PreserveIndent));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.PreserveIndent (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                      typeof (Scratch.Plugins.PreserveIndent));
+// }

@@ -6,14 +6,14 @@
  */
 
 
-public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
+public class Scratch.Plugins.FuzzySearch: PluginBase {
+    // public Object object { owned get; construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 
     private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
-    private Scratch.Services.Interface plugins;
+    private Scratch.Plugins.Interface plugins;
     private GLib.MenuItem fuzzy_menuitem;
     private GLib.Cancellable cancellable;
 
@@ -33,12 +33,12 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         action_accelerators.set (ACTION_SHOW, @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))");
     }
 
-    public void update_state () {
+    // public void update_state () {
 
-    }
+    // }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Plugins.Interface) object;
 
         plugins.hook_window.connect ((w) => {
             if (window != null) {
@@ -66,6 +66,14 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
             indexer.handle_folder_item_change (src, dest, event);
         });
+    }
+
+    public void deactivate () {
+        folder_settings.changed["opened-folders"].disconnect (handle_opened_projects_change);
+        remove_actions ();
+        if (cancellable != null) {
+            cancellable.cancel ();
+        }
     }
 
     private void add_actions () {
@@ -138,15 +146,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
         popover.popup ();
     }
 
-    public void deactivate () {
-        folder_settings.changed["opened-folders"].disconnect (handle_opened_projects_change);
-        remove_actions ();
-        if (cancellable != null) {
-            cancellable.cancel ();
-        }
-    }
-
-
     private void handle_opened_projects_change () {
         var show_action = Utils.action_from_group (ACTION_SHOW, actions);
         string[] opened_folders = folder_settings.get_strv ("opened-folders");
@@ -154,11 +153,15 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (
-        typeof (Peas.Activatable),
-        typeof (Scratch.Plugins.FuzzySearch)
-    );
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.FuzzySearch (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (
+//         typeof (Peas.Activatable),
+//         typeof (Scratch.Plugins.FuzzySearch)
+//     );
+// }

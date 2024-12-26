@@ -18,7 +18,7 @@
  *
  */
 
-public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Completion : PluginBase {
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
@@ -27,7 +27,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     public Scratch.Services.Document current_document {get; private set;}
 
     private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
+    private Scratch.Plugins.Interface plugins;
     private bool completion_in_progress = false;
 
     private const uint [] ACTIVATE_KEYS = {
@@ -44,7 +44,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private uint timeout_id = 0;
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Services.Interface) object;
         parser = new Euclide.Completion.Parser ();
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
@@ -53,7 +53,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         plugins.hook_document.connect (on_new_source_view);
     }
 
-    public void deactivate () {
+    public override void deactivate () {
         text_view_list.@foreach (cleanup);
     }
 
@@ -182,9 +182,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 }
 
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                       typeof (Scratch.Plugins.Completion));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.Completion (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (GLib.TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                        typeof (Scratch.Plugins.Completion));
+// }

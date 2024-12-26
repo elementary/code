@@ -18,16 +18,15 @@
   END LICENSE
 ***/
 
-public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.MarkdownActions : PluginBase {
     Scratch.Widgets.SourceView current_source;
-    Scratch.Services.Interface plugins;
+    Scratch.Plugins.Interface plugins;
 
-    public Object object { owned get; construct; }
+    // public Object object { owned get; construct; }
 
-    public void update_state () {}
+    // public void update_state () {}
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
@@ -39,6 +38,13 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 
             current_source.notify["language"].connect (configure_shortcuts);
         });
+    }
+
+    public void deactivate () {
+        if (current_source != null) {
+            current_source.key_press_event.disconnect (shortcut_handler);
+            current_source.notify["language"].disconnect (configure_shortcuts);
+        }
     }
 
     private void configure_shortcuts () {
@@ -231,18 +237,15 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         current_buffer.end_user_action ();
         go_back_n_chars (tag.length);
     }
-
-    public void deactivate () {
-        if (current_source != null) {
-            current_source.key_press_event.disconnect (shortcut_handler);
-            current_source.notify["language"].disconnect (configure_shortcuts);
-        }
-    }
 }
 
-[ModuleInit]
-public void peas_register_types (TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Code.Plugins.MarkdownActions));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.MarkdownActions (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                      typeof (Code.Plugins.MarkdownActions));
+// }

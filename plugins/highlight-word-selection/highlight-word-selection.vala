@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.HighlightSelectedWords : PluginBase {
     Scratch.Widgets.SourceView current_source;
     Scratch.MainWindow? main_window = null;
     Gtk.SourceSearchContext? current_search_context = null;
@@ -27,13 +27,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
 
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+    Scratch.Plugins.Interface plugins;
+    // public Object object { owned get; construct; }
 
-    public void update_state () {}
+    // public void update_state () {}
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.deselected.disconnect (on_deselection);
@@ -48,6 +48,14 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         plugins.hook_window.connect ((w) => {
             main_window = w;
         });
+    }
+
+
+    public void deactivate () {
+        if (current_source != null) {
+            current_source.deselected.disconnect (on_deselection);
+            current_source.selection_changed.disconnect (on_selection_changed);
+        }
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
@@ -139,18 +147,15 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             current_search_context = null;
         }
     }
-
-    public void deactivate () {
-        if (current_source != null) {
-            current_source.deselected.disconnect (on_deselection);
-            current_source.selection_changed.disconnect (on_selection_changed);
-        }
-    }
 }
 
-[ModuleInit]
-public void peas_register_types (TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.HighlightSelectedWords));
+public Scratch.Plugins.PluginBase module_init (Scratch.Plugins.PluginInfo info) {
+    return new Scratch.Plugins.FuzzySearch (info);
 }
+
+// [ModuleInit]
+// public void peas_register_types (TypeModule module) {
+//     var objmodule = module as Peas.ObjectModule;
+//     objmodule.register_extension_type (typeof (Peas.Activatable),
+//                                      typeof (Scratch.Plugins.HighlightSelectedWords));
+// }
