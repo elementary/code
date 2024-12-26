@@ -1,8 +1,9 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
+  Copyright (C) 2024 elementary, Inc. <https://elementary.io>
+                2013 Mario Guerriero <mario@elementaryos.org>
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -34,7 +35,6 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
     Scratch.Widgets.SourceView? view = null;
 
     Scratch.Plugins.Interface plugins;
-    // public Object object { owned get; construct; }
 
     public VimEmulation (PluginInfo info, Interface iface) {
         base (info, iface);
@@ -44,12 +44,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
     }
 
-    // public void update_state () {
-
-    // }
-
     public override void activate () {
-        // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
             this.view = doc.source_view;
             this.view.key_press_event.disconnect (handle_key_press);
@@ -305,11 +300,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.VimEmulation (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Scratch.Plugins.VimEmulation));
-// }

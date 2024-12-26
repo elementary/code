@@ -1,16 +1,33 @@
+// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
+/***
+  BEGIN LICENSE
+
+  Copyright (C) 2019-24 elementary, Inc. <https://elementary.io>
+                2013 LemonBoy <thatlemon@gmail.com>
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
+  by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+  PURPOSE.  See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
+***/
 public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
     const int MAX_LINES = 500;
 
     Scratch.Plugins.Interface plugins;
-    // public Object object {owned get; construct;}
 
     public DetectIndent (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
     public override void activate () {
-        // plugins = (Scratch.Plugins.Interface) object;
-
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
@@ -82,13 +99,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.DetectIndent (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (
-//         typeof (Peas.Activatable),
-//         typeof (Scratch.Plugins.DetectIndent)
-//     );
-// }

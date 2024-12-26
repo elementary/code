@@ -1,8 +1,9 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2024 elementary, Inc. <https://elementary.io>
+                2011-2012 Giulio Collura <random.cpp@gmail.com>
+                
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -37,15 +38,11 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
         {ACTION_SHOW, show_paste_bin_upload_dialog }
     };
 
-    // public void update_state () {
-    // }
     public Pastebin (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
     public override void activate () {
-        // plugins = (Scratch.Services.Interface) object;
-
         plugins.hook_document.connect ((doc) => {
             this.doc = doc;
         });
@@ -105,11 +102,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.Pastebin (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Scratch.Plugins.Pastebin));
-// }

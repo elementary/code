@@ -1,8 +1,9 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-
-  Copyright (C) 2013 Madelynn May <madelynnmay@madelynnmay.com>
+  Copyright (C) 2019-24 elementary, Inc. <https://elementary.io>
+                2013 Madelynn May <madelynnmay@madelynnmay.com>
+                
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -28,9 +29,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
 
     Scratch.Plugins.Interface plugins;
-    // public Object object { owned get; construct; }
 
-    // public void update_state () {}
     public HighlightSelectedWords (PluginInfo info, Interface iface) {
         base (info, iface);
     }
@@ -158,10 +157,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.HighlightSelectedWords (info, iface);
 }
-
-// [ModuleInit]
-// public void peas_register_types (TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Scratch.Plugins.HighlightSelectedWords));
-// }

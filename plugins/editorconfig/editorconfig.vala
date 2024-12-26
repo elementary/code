@@ -1,35 +1,32 @@
-/*
-* Copyright (c) 2018 elementary LLC. (https://github.com/elementary)
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* General Public License for more details.
-*
-* You should have received a copy of the GNU General Public
-* License along with this program; if not, write to the
-* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301 USA
-*/
+// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
+/***
+  BEGIN LICENSE
+
+  Copyright (C) 2018-24 elementary, Inc. <https://elementary.io>
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
+  by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+  PURPOSE.  See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
+***/
 
 public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
     Scratch.Plugins.Interface plugins;
-    // public Object object { owned get; construct; }
     private Code.FormatBar format_bar;
 
-    // public void update_state () { }
     public EditorConfigPlugin (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
     public override void activate () {
-        // plugins = (Scratch.Plugins.Interface) object;
-
         plugins.hook_toolbar.connect ((tb) => {
             format_bar = tb.format_bar;
         });
@@ -97,10 +94,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.EditorConfigPlugin (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.EditorConfigPlugin));
-// }

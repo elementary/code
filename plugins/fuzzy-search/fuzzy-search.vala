@@ -1,13 +1,12 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
+ * SPDX-FileCopyrightText: 2023-24 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
  */
 
 
 public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
-    // public Object object { owned get; construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 
@@ -33,16 +32,11 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         action_accelerators.set (ACTION_SHOW, @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))");
     }
 
-    // public void update_state () {
-
-    // }
     public FuzzySearch (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
     public override void activate () {
-        // plugins = (Scratch.Plugins.Interface) object;
-
         plugins.hook_window.connect ((w) => {
             if (window != null) {
                 return;
@@ -162,12 +156,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.FuzzySearch (info, iface);
 }
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (
-//         typeof (Peas.Activatable),
-//         typeof (Scratch.Plugins.FuzzySearch)
-//     );
-// }

@@ -1,6 +1,7 @@
-/*
- * Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com> This program
- * is free software: you can redistribute it and/or modify it under the
+/* Copyright (C) 2024 elementary, Inc. <https://elementary.io>
+ *               2011-2012 Mario Guerriero <mefrio.g@gmail.com> 
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License version 3, as published by
  * the Free Software Foundation.
  *
@@ -28,10 +29,6 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
     public Spell (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    // public Object object {owned get; construct;}
-
-    // public void update_state () {
-    // }
 
     public override void activate () {
         settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
@@ -41,7 +38,6 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
 
         settings.changed.connect (settings_changed);
 
-        // plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
@@ -159,13 +155,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.Spell (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (
-//         typeof (Peas.Activatable),
-//         typeof (Scratch.Plugins.Spell)
-//     );
-// }

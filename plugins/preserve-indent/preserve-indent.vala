@@ -1,8 +1,9 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-
-  Copyright (C) 2015 James Morgan <james.harmonic@gmail.com>
+  Copyright (C) 2024 elementary, Inc. <https://elementary.io>
+                2015 James Morgan <james.harmonic@gmail.com>
+                
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -25,14 +26,12 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
     private int last_clipboard_indent_level = 0;
     private bool waiting_for_clipboard_text = false;
 
-    // public Object object { owned get; construct; }
     public PreserveIndent (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
     public override void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
-        // plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_document.connect ((d) => {
             this.active_document = d;
@@ -246,11 +245,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.PreserveIndent (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Scratch.Plugins.PreserveIndent));
-// }

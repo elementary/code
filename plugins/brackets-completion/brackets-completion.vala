@@ -2,7 +2,8 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
+  Copyright (C) 2019-24 elementary, Inc. <https://elementary.io>
+                2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -31,7 +32,6 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
     private string previous_selection = "";
 
     Scratch.Plugins.Interface plugins;
-    // public Object object { owned get; construct; }
 
     public BracketsCompletion (PluginInfo info, Interface iface) {
         base (info, iface);
@@ -57,7 +57,6 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
         keys[Gdk.Key.quotedbl] = "\"";
         keys[Gdk.Key.grave] = "`";
 
-        // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect (on_hook_document);
     }
 
@@ -283,10 +282,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.BracketsCompletion (info, iface);
 }
-
-// [ModuleInit]
-// public void peas_register_types (GLib.TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Scratch.Plugins.BracketsCompletion));
-// }

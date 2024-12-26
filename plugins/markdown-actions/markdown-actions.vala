@@ -1,8 +1,9 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
+  Copyright (C) 2024 elementary, Inc. <https://elementary.io>
+                2020 Igor Montagner <igordsm@gmail.com>
 
-  Copyright (C) 2020 Igor Montagner <igordsm@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -22,9 +23,6 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
     Scratch.Widgets.SourceView current_source;
     Scratch.Plugins.Interface plugins;
 
-    // public Object object { owned get; construct; }
-
-    // public void update_state () {}
     public MarkdownActions (PluginInfo info, Interface iface) {
         base (info, iface);
     }
@@ -248,11 +246,3 @@ public Scratch.Plugins.PluginBase module_init (
 ) {
     return new Scratch.Plugins.MarkdownActions (info, iface);
 }
-
-
-// [ModuleInit]
-// public void peas_register_types (TypeModule module) {
-//     var objmodule = module as Peas.ObjectModule;
-//     objmodule.register_extension_type (typeof (Peas.Activatable),
-//                                      typeof (Code.Plugins.MarkdownActions));
-// }
