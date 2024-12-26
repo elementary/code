@@ -275,7 +275,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
                 plugin_info.icon_name = "extension";
             }
             // Should we expose the author(s)?
-            load_module (plugin_file.get_parent (), plugin_info);
+            load_module (keyfile_file.get_parent (), plugin_info);
         } catch (Error e) {
             warning ("Couldn't open the keyfile '%s': %s", keyfile_file.get_path (), e.message);
 
