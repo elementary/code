@@ -20,15 +20,12 @@
  */
 
 public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
-    public Object object { owned get; construct; }
-
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
     public Euclide.Completion.Parser parser {get; private set;}
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
     private MainWindow main_window;
-    private Scratch.Plugins.Interface plugins;
     private bool completion_in_progress = false;
 
     private const uint [] ACTIVATE_KEYS = {
@@ -48,8 +45,7 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    public override void activate () {
-        // plugins = (Scratch.Services.Interface) object;
+    protected override void activate_internal () {
         parser = new Euclide.Completion.Parser ();
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
@@ -58,7 +54,7 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
         plugins.hook_document.connect (on_new_source_view);
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         text_view_list.@foreach (cleanup);
     }
 

@@ -20,7 +20,6 @@
 ***/
 
 public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
-    private Scratch.Plugins.Interface plugins;
     private Gee.TreeSet<weak Services.Document> documents;
     private Services.Document active_document;
     private int last_clipboard_indent_level = 0;
@@ -30,7 +29,7 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
 
         plugins.hook_document.connect ((d) => {
@@ -49,7 +48,7 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
         });
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         this.documents.clear ();
     }
 

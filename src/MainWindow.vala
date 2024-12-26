@@ -573,6 +573,7 @@ namespace Scratch {
                 };
 
                 plugins.extension_added.connect (() => {
+                    warning ("hook func");
                     hook_func ();
                 });
 

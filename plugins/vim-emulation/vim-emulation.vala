@@ -34,8 +34,6 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
     Gee.TreeSet<Scratch.Widgets.SourceView> views;
     Scratch.Widgets.SourceView? view = null;
 
-    Scratch.Plugins.Interface plugins;
-
     public VimEmulation (PluginInfo info, Interface iface) {
         base (info, iface);
     }
@@ -44,7 +42,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         plugins.hook_document.connect ((doc) => {
             this.view = doc.source_view;
             this.view.key_press_event.disconnect (handle_key_press);
@@ -53,7 +51,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         });
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         foreach (var v in views) {
             v.key_press_event.disconnect (handle_key_press);
         }

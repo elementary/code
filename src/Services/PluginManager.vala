@@ -21,15 +21,28 @@
 // namespace Scratch.Plugins {
 public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     public PluginInfo plugin_info { get; construct; }
-    public Interface plugin_iface { get; construct; }
-    public abstract void activate ();
-    public abstract void deactivate ();
-    public virtual void update_state () {}
+    public Interface plugins { get; construct; }
+    public bool is_active { get; set; }
+    public void activate () {
+    warning ("plugin base activate");
+        is_active = true;
+        activate_internal ();
+    }
+    
 
+    public void deactivate () {
+        is_active = false;
+        deactivate_internal ();
+    }
+    
+    protected abstract void activate_internal ();
+    protected virtual void deactivate_internal () {} // Not implemented by some plugins
+    public virtual void update_state () {} // Not currently used
+    
     protected PluginBase (PluginInfo info, Interface iface) {
         Object (
             plugin_info: info,
-            plugin_iface: iface
+            plugins: iface
         );
     }
 }
@@ -39,7 +52,6 @@ public struct Scratch.Plugins.PluginInfo {
     string module_name;
     string description;
     string icon_name;
-    bool is_active;
 }
 
 public class Scratch.Plugins.Interface : GLib.Object {
@@ -320,7 +332,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         var content = new Gtk.Box (HORIZONTAL, 6);
         var checkbox = new Gtk.CheckButton () {
             valign = Gtk.Align.CENTER,
-            active = info.is_active,
+            active = plugin.is_active,
             margin_start = 6
         };
 

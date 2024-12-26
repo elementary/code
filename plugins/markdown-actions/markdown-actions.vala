@@ -21,13 +21,12 @@
 
 public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
     Scratch.Widgets.SourceView current_source;
-    Scratch.Plugins.Interface plugins;
 
     public MarkdownActions (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
@@ -41,7 +40,7 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
         });
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         if (current_source != null) {
             current_source.key_press_event.disconnect (shortcut_handler);
             current_source.notify["language"].disconnect (configure_shortcuts);

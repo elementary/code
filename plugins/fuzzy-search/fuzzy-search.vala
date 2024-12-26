@@ -12,7 +12,6 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
 
     private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
-    private Scratch.Plugins.Interface plugins;
     private GLib.MenuItem fuzzy_menuitem;
     private GLib.Cancellable cancellable;
 
@@ -36,7 +35,7 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         plugins.hook_window.connect ((w) => {
             if (window != null) {
                 return;
@@ -65,7 +64,7 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         });
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         folder_settings.changed["opened-folders"].disconnect (handle_opened_projects_change);
         remove_actions ();
         if (cancellable != null) {

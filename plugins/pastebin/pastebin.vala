@@ -27,7 +27,6 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
     // public Object object { owned get; construct; }
 
     Scratch.Services.Document? doc = null;
-    Scratch.Plugins.Interface plugins;
 
     const string ACTION_GROUP = "pastebin";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
@@ -42,7 +41,7 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         plugins.hook_document.connect ((doc) => {
             this.doc = doc;
         });
@@ -50,7 +49,7 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
         plugins.hook_share_menu.connect (on_hook_share_menu);
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         remove_actions ();
     }
 

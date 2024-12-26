@@ -15,7 +15,6 @@
  */
 
 public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
-    Scratch.Plugins.Interface plugins;
     private GLib.Settings settings;
     MainWindow window = null;
     private string lang_dict;
@@ -30,7 +29,7 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
 
         // Restore the last dictionary used.
@@ -121,7 +120,7 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
 
     }
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         save_settings ();
         window.destroy.disconnect (save_settings);
     }

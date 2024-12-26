@@ -21,13 +21,11 @@
 public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
     const int MAX_LINES = 500;
 
-    Scratch.Plugins.Interface plugins;
-
     public DetectIndent (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override  void activate_internal () {
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
@@ -86,11 +84,6 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
             }
         });
     }
-
-    public override void deactivate () {
-
-    }
-
 }
 
 public Scratch.Plugins.PluginBase module_init (

@@ -19,17 +19,13 @@
 ***/
 
 public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
-    Scratch.Plugins.Interface plugins;
     private Code.FormatBar format_bar;
 
     public EditorConfigPlugin (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
-    public override void activate () {
-        plugins.hook_toolbar.connect ((tb) => {
-            format_bar = tb.format_bar;
-        });
+    protected override void activate_internal () {
 
         plugins.hook_document.connect ((d) => {
             // Ensure use global settings by default
@@ -84,8 +80,6 @@ public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
             }
         });
     }
-
-    public override void deactivate () { }
 }
 
 public Scratch.Plugins.PluginBase module_init (

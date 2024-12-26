@@ -31,13 +31,11 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
 
     private string previous_selection = "";
 
-    Scratch.Plugins.Interface plugins;
-
     public BracketsCompletion (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         brackets = new Gee.HashMap<string, string> ();
         brackets["("] = ")";
         brackets["["] = "]";
@@ -60,7 +58,7 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
         plugins.hook_document.connect (on_hook_document);
     }
 
-    public override void deactivate () {
+    protected override  void deactivate_internal () {
         plugins.hook_document.disconnect (on_hook_document);
     }
 

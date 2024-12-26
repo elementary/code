@@ -28,13 +28,11 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
 
-    Scratch.Plugins.Interface plugins;
-
     public HighlightSelectedWords (PluginInfo info, Interface iface) {
         base (info, iface);
     }
 
-    public override void activate () {
+    protected override void activate_internal () {
         // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
@@ -53,7 +51,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
     }
 
 
-    public override void deactivate () {
+    protected override void deactivate_internal () {
         if (current_source != null) {
             current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);
