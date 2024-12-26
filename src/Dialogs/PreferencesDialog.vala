@@ -146,7 +146,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
 
         plugins.hook_preferences_dialog (this);
 
-        if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
+        if (plugins.get_n_plugins () > 0) {
             var pbox = plugins.get_view ();
             pbox.vexpand = true;
 

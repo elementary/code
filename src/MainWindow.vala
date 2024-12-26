@@ -281,6 +281,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
+            warning ("creating new plugin manager");
             plugins = new Scratch.Services.PluginsManager (this);
 
             key_controller = new Gtk.EventControllerKey (this) {

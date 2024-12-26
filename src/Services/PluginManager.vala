@@ -40,6 +40,7 @@ public struct Scratch.Plugins.PluginInfo {
     string module_name;
     string description;
     string icon_name;
+    bool is_active;
 }
 
 public class Scratch.Plugins.Interface : GLib.Object {
@@ -72,18 +73,16 @@ public class Scratch.Plugins.Interface : GLib.Object {
 }
 
 delegate Scratch.Plugins.PluginBase ModuleInitFunc (
-    Scratch.Plugins.PluginInfo info, 
+    Scratch.Plugins.PluginInfo info,
     Scratch.Plugins.Interface iface
 );
-    
-public class Scratch.Services.PluginsManager : GLib.Object {
-    // Peas.Engine engine;
-    // Peas.ExtensionSet exts;
 
-    // string settings_field;
+public class Scratch.Services.PluginsManager : GLib.Object {
+    public const string ACTIVE_PLUGINS_KEY = "plugins-enabled";
+    public const string PLUGIN_FILE_EXTENSION = ".plugin";
+    public const string MODULE_FILE_EXTENSION = ".so";
 
     public Scratch.Plugins.Interface plugin_iface { private set; public get; }
-
     public weak MainWindow window;
 
     // Signals
@@ -94,143 +93,93 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
     public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-    public signal void extension_added (Scratch.Plugins.PluginInfo info);
+    public signal void extension_added ();
     public signal void extension_removed (Scratch.Plugins.PluginInfo info);
 
     /* FROM FILES PLUGIN SYSTEM */
-
-
-    Gee.HashMap<string,Scratch.Plugins.PluginBase> plugin_hash;
-    Gee.List<string> names;
-    // bool in_available = false;
-    bool update_queued = false;
-    // bool is_admin = false;
+    Gee.HashMap<string,Scratch.Plugins.PluginBase> plugin_hash; // all plugins
+    public Gee.HashSet<string> active_plugin_set; //active plugin names
     public Gee.List<Gtk.Widget> menuitem_references { get; private set; }
 
     public PluginsManager (MainWindow window) {
+    warning ("PluginsManager new");
         this.window = window;
-
-        // settings_field = "plugins-enabled";
-
         plugin_iface = new Scratch.Plugins.Interface (this);
 
         /* From Files PluginManager construct */
         plugin_hash = new Gee.HashMap<string, Scratch.Plugins.PluginBase> ();
-        names = new Gee.ArrayList<string> ();
+        active_plugin_set = new Gee.HashSet<string> ();
+        // names = new Gee.ArrayList<string> ();
         menuitem_references = new Gee.LinkedList<Gtk.Widget> ();
-
         // Code has only one plugin directory.
 
-        // if (!is_admin) {
-        // plugin_dirs += Path.build_filename (plugin_dir, "core");
-        // plugin_dirs += plugin_dir;
-
-        // load_plugins ();
         load_modules_from_dir (Constants.PLUGINDIR);
 
-        // No need to monitor plugin directory - we do not allow third party plugins
-
-        // /* Monitor plugin dirs */
-        // foreach (string path in plugin_dirs) {
-        //     set_directory_monitor (path);
-        // }
-        // }
-
-        // /* Let's init the engine */
-        // engine = Peas.Engine.get_default ();
-        // engine.enable_loader ("python");
-        // engine.add_search_path (Constants.PLUGINDIR, null);
-        // Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
-
-        // /* Our extension set */
-        // exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
-
-        // exts.extension_added.connect ((info, ext) => {
-        //     ((Peas.Activatable)ext).activate ();
-        //     extension_added (info);
-        // });
-
-        // exts.extension_removed.connect ((info, ext) => {
-        //     ((Peas.Activatable)ext).deactivate ();
-        //     extension_removed (info);
-        // });
-
-        // exts.foreach (on_extension_foreach);
-
         // // Connect managers signals to interface's signals
-        // this.hook_window.connect ((w) => {
-        //     plugin_iface.hook_window (w);
-        // });
+        this.hook_window.connect ((w) => {
+            plugin_iface.hook_window (w);
+        });
 
-        // this.hook_share_menu.connect ((m) => {
-        //     plugin_iface.hook_share_menu (m);
-        // });
+        this.hook_share_menu.connect ((m) => {
+            plugin_iface.hook_share_menu (m);
+        });
 
-        // this.hook_toolbar.connect ((t) => {
-        //     plugin_iface.hook_toolbar (t);
-        // });
+        this.hook_toolbar.connect ((t) => {
+            plugin_iface.hook_toolbar (t);
+        });
 
-        // this.hook_document.connect ((d) => {
-        //     plugin_iface.hook_document (d);
-        // });
+        this.hook_document.connect ((d) => {
+            plugin_iface.hook_document (d);
+        });
 
-        // this.hook_preferences_dialog.connect ((d) => {
-        //     plugin_iface.hook_preferences_dialog (d);
-        // });
+        this.hook_preferences_dialog.connect ((d) => {
+            plugin_iface.hook_preferences_dialog (d);
+        });
 
-        // this.hook_folder_item_change.connect ((source, dest, event) => {
-        //     plugin_iface.hook_folder_item_change (source, dest, event);
-        // });
+        this.hook_folder_item_change.connect ((source, dest, event) => {
+            plugin_iface.hook_folder_item_change (source, dest, event);
+        });
+
+        string[] active_plugins = settings.get_strv (ACTIVE_PLUGINS_KEY);
+
+        // Activate plugins according to setting
+        foreach (var plugin_name in active_plugins) {
+            if (plugin_hash.has_key (plugin_name)) {
+                var plugin = plugin_hash.@get (plugin_name);
+                activate_plugin (plugin);
+                active_plugin_set.add (plugin_name);
+            }
+        }
     }
 
+    private void activate_plugin (Scratch.Plugins.PluginBase plugin) {
+        var info = plugin.plugin_info;
+        if (!info.is_active) {
+            plugin.activate ();
+            info.is_active = true;
+            active_plugin_set.add (info.name);
+            extension_added (); // Signals Window to run initial hook function
+            update_active_plugin_settings ();
+        }
+    }
+
+    private void deactivate_plugin (Scratch.Plugins.PluginBase plugin) {
+        var info = plugin.plugin_info;
+        if (info.is_active) {
+            plugin.deactivate ();
+            info.is_active = false;
+            active_plugin_set.remove (info.name);
+            extension_removed (info);
+            update_active_plugin_settings ();
+        }
+    }
+
+    private void update_active_plugin_settings () {
+        settings.set_strv (ACTIVE_PLUGINS_KEY, active_plugin_set.to_array ());
+    }
     // void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
     //     ((Peas.Activatable)extension).activate ();
     // }
-
-    public Gtk.Widget get_view () {
-        // var view = new PeasGtk.PluginManager (engine);
-        // var bottom_box = view.get_children ().nth_data (1);
-        // bottom_box.no_show_all = true;
-        return new Gtk.Frame (null);
-    }
-
-
-
-// [Version (deprecated = true, deprecated_since = "0.2", replacement = "Files.PluginManager.menuitem_references")]
-// public GLib.List<Gtk.Widget>? menus; /* this doesn't manage GObject references properly */
-
-
-// private void load_plugins () {
-//     in_available = true;
-//     load_modules_from_dir (plugin_dirs[1]);
-//     in_available = false;
-// }
-
-// private void set_directory_monitor (string path) {
-//     var dir = GLib.File.new_for_path (path);
-
-//     try {
-//         var monitor = dir.monitor_directory (FileMonitorFlags.NONE, null);
-//         monitor.changed.connect (on_plugin_directory_change);
-//         monitor.ref (); /* keep alive */
-//     } catch (IOError e) {
-//         critical ("Could not setup monitor for '%s': %s", dir.get_path (), e.message);
-//     }
-// }
-
-// private async void on_plugin_directory_change (GLib.File file, GLib.File? other_file, FileMonitorEvent event) {
-//     if (update_queued) {
-//         return;
-//     }
-
-//     update_queued = true;
-
-//     Idle.add_full (Priority.LOW, on_plugin_directory_change.callback);
-//     yield;
-
-//     load_plugins ();
-//     update_queued = false;
-// }
 
     private void load_modules_from_dir (string path) {
         string attributes = FileAttribute.STANDARD_NAME + "," +
@@ -238,7 +187,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
         FileInfo info;
         FileEnumerator enumerator;
-
+warning ("load modules from %s", path);
         try {
             var dir = GLib.File.new_for_path (path);
 
@@ -249,11 +198,16 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             info = enumerator.next_file ();
 
             while (info != null) {
-                string file_name = info.get_name ();
-                var plugin_file = dir.get_child_for_display_name (file_name);
+                if (info.get_file_type () == DIRECTORY) {
+                    load_modules_from_dir (Path.build_filename (path, info.get_name ()));
+                } else {
+                    string file_name = info.get_name ();
+                    warning ("file name %s", file_name);
+                    var plugin_file = dir.get_child_for_display_name (file_name);
 
-                if (file_name.has_suffix (".plug")) {
-                    load_plugin_keyfile (plugin_file.get_path (), path);
+                    if (file_name.has_suffix (PLUGIN_FILE_EXTENSION)) {
+                        load_plugin_keyfile (plugin_file, path);
+                    }
                 }
 
                 info = enumerator.next_file ();
@@ -263,13 +217,14 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         }
     }
 
-    private bool load_module (string file_path, Scratch.Plugins.PluginInfo plugin_info) {
-        if (plugin_hash.has_key (file_path)) {
-            debug ("plugin for %s already loaded. Not adding again", file_path);
+    private bool load_module (File dir, Scratch.Plugins.PluginInfo info) {
+        if (plugin_hash.has_key (info.name)) {
+            warning ("plugin for %s already loaded. Not adding again", info.name);
             return false;
         }
 
-        debug ("Loading plugin for %s", file_path);
+        var file_path = dir.get_path ().concat (Path.DIR_SEPARATOR_S, "lib", info.module_name, MODULE_FILE_EXTENSION);
+        warning ("Loading plugin for %s", file_path);
 
         Module module = Module.open (file_path, ModuleFlags.LOCAL);
         if (module == null) {
@@ -293,44 +248,121 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         assert (module_init != null);
 
         //TODO Reconsider for Code plugins
-        /* We don't want our modules to ever unload */
-        module.make_resident ();
-        Scratch.Plugins.PluginBase plug = module_init (plugin_info, plugin_iface);
-        
-        debug ("Loaded module source: '%s'", module.name ());
+        // /* We don't want our modules to ever unload */
+        // module.make_resident ();
+        Scratch.Plugins.PluginBase plug = module_init (info, plugin_iface);
+
+        warning ("Loaded module source: '%s'", module.name ());
 
         if (plug != null) {
-            plugin_hash.set (file_path, plug);
+            warning ("add plugin %s to hash", info.name);
+            plugin_hash.set (info.name, plug);
+            info.is_active = false;
+            // Plugins only become active via initial settings or preferences dialog
             return true;
         }
 
-        // if (in_available) {
-        //     names.add (name);
-        // }
         return false;
     }
 
     // Load the .plugin file from each plugin folder
-    private void load_plugin_keyfile (string path, string parent) {
+    private void load_plugin_keyfile (File plugin_file, string parent) {
         var keyfile = new KeyFile ();
         var plugin_info = Scratch.Plugins.PluginInfo ();
         try {
-            keyfile.load_from_file (path, KeyFileFlags.NONE);
+            keyfile.load_from_file (plugin_file.get_path (), KeyFileFlags.NONE);
             plugin_info.name = keyfile.get_string ("Plugin", "Name");
             plugin_info.module_name = keyfile.get_string ("Plugin", "Module");
             plugin_info.description = keyfile.get_string ("Plugin", "Description");
-            plugin_info.icon_name = keyfile.get_string ("Plugin", "Icon");
+            if (keyfile.has_key ("Plugin", "Icon")) {
+                plugin_info.icon_name = keyfile.get_string ("Plugin", "Icon");
+            } else {
+                plugin_info.icon_name = "extension"; 
+            }
             // Should we expose the author(s)?
-            var plug_path = Path.build_filename (parent, keyfile.get_string ("Plugin", "File"));
-            load_module (plug_path, plugin_info);
+            load_module (plugin_file.get_parent (), plugin_info);
         } catch (Error e) {
-            warning ("Couldn't open the keyfile '%s': %s", path, e.message);
+            warning ("Couldn't open the keyfile '%s': %s", plugin_file.get_path (), e.message);
 
         }
     }
+    // Return an emulation of the discontinued libpeas-1.0 widget
+    public Gtk.Widget get_view () {
+        var list_box = new Gtk.ListBox ();
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            hscrollbar_policy = NEVER,
+            vscrollbar_policy = AUTOMATIC,
+            max_content_height = 300,
+            child = list_box
+        };
+        var frame = new Gtk.Frame (null) {
+            child = scrolled_window
+        };
 
-    public Gee.List<string> get_available_plugins () {
-        return names;
+        foreach (var plugin in plugin_hash.values) {
+            var content = get_widget_for_plugin (plugin);
+            var row = new Gtk.ListBoxRow () {
+                child = content
+            };
+
+            list_box.add (row);
+        }
+
+        // Could use a TreeMap (sortable)
+        list_box.set_sort_func ((r1, r2) => {
+            return strcmp (
+                r1.get_child ().get_data<string> ("name"),
+                r2.get_child ().get_data<string> ("name")
+            );
+        });
+        frame.show_all ();
+        return frame;
+    }
+
+    private Gtk.Widget get_widget_for_plugin (Scratch.Plugins.PluginBase plugin) {
+        var info = plugin.plugin_info;
+        var content = new Gtk.Box (HORIZONTAL, 6);
+        var checkbox = new Gtk.CheckButton () {
+            valign = Gtk.Align.CENTER,
+            active = info.is_active,
+            margin_start = 6
+        };
+
+        checkbox.toggled.connect (() => {
+            if (checkbox.active) {
+                activate_plugin (plugin);
+            } else {
+                deactivate_plugin (plugin);
+            }
+        });
+        var image = new Gtk.Image.from_icon_name (info.icon_name, LARGE_TOOLBAR) {
+            valign = Gtk.Align.CENTER
+        };
+        var description_box = new Gtk.Box (VERTICAL, 0);
+        var name_label = new Granite.HeaderLabel (info.name);
+        //TODO In Granite-7 we can use secondary text property but emulate for now
+        var description_label = new Gtk.Label (info.description) {
+            use_markup = true,
+            wrap = true,
+            xalign = 0,
+            margin_start = 6,
+            margin_bottom = 6
+        };
+        description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        description_box.add (name_label);
+        description_box.add (description_label);
+        content.add (checkbox);
+        content.add (image);
+        content.add (description_box);
+        content.set_data<string> ("name", info.name);
+
+        return content;
+    }
+
+    public uint get_n_plugins () {
+        warning ("get n plugins  %u", plugin_hash.size);
+        return plugin_hash.size;
     }
 }
 // }
