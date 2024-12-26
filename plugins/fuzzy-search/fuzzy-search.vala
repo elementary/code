@@ -39,7 +39,7 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
     public FuzzySearch (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
 

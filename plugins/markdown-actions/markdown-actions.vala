@@ -28,7 +28,7 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
     public MarkdownActions (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {

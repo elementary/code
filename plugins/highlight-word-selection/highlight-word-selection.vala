@@ -34,7 +34,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
     public HighlightSelectedWords (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
         plugins.hook_document.connect ((doc) => {
@@ -67,7 +67,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
         if (window_search_context == null ||
             window_search_context.settings.search_text == "" ||
             window_search_context.get_occurrences_count () == 0) {
-            // Perform plugin selection when there is no ongoing and successful search 
+            // Perform plugin selection when there is no ongoing and successful search
             current_search_context = new Gtk.SourceSearchContext (
                 (Gtk.SourceBuffer)current_source.buffer,
                 null

@@ -29,7 +29,7 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
     public PreserveIndent (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
         // plugins = (Scratch.Services.Interface) object;

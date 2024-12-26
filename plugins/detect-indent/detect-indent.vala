@@ -7,7 +7,7 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
     public DetectIndent (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
 

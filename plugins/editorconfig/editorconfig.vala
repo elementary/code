@@ -26,7 +26,7 @@ public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
     public EditorConfigPlugin (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Plugins.Interface) object;
 

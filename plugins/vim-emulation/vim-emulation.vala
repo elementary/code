@@ -39,7 +39,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
     public VimEmulation (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     construct {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
     }

@@ -24,7 +24,6 @@ public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     public Interface plugin_iface { get; construct; }
     public abstract void activate ();
     public abstract void deactivate ();
-    // public abstract PluginBase module_init (PluginInfo plugin_info);
     public virtual void update_state () {}
 
     protected PluginBase (PluginInfo info, Interface iface) {
@@ -79,7 +78,7 @@ delegate Scratch.Plugins.PluginBase ModuleInitFunc (
 
 public class Scratch.Services.PluginsManager : GLib.Object {
     public const string ACTIVE_PLUGINS_KEY = "plugins-enabled";
-    public const string PLUGIN_FILE_EXTENSION = ".plugin";
+    public const string KEYFILE_FILE_EXTENSION = ".plugin";
     public const string MODULE_FILE_EXTENSION = ".so";
 
     public Scratch.Plugins.Interface plugin_iface { private set; public get; }
@@ -96,26 +95,22 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     public signal void extension_added ();
     public signal void extension_removed (Scratch.Plugins.PluginInfo info);
 
-    /* FROM FILES PLUGIN SYSTEM */
     Gee.HashMap<string,Scratch.Plugins.PluginBase> plugin_hash; // all plugins
     public Gee.HashSet<string> active_plugin_set; //active plugin names
     public Gee.List<Gtk.Widget> menuitem_references { get; private set; }
 
     public PluginsManager (MainWindow window) {
-    warning ("PluginsManager new");
         this.window = window;
         plugin_iface = new Scratch.Plugins.Interface (this);
 
         /* From Files PluginManager construct */
         plugin_hash = new Gee.HashMap<string, Scratch.Plugins.PluginBase> ();
         active_plugin_set = new Gee.HashSet<string> ();
-        // names = new Gee.ArrayList<string> ();
         menuitem_references = new Gee.LinkedList<Gtk.Widget> ();
         // Code has only one plugin directory.
-
         load_modules_from_dir (Constants.PLUGINDIR);
 
-        // // Connect managers signals to interface's signals
+        // Connect managers signals to interface's signals
         this.hook_window.connect ((w) => {
             plugin_iface.hook_window (w);
         });
@@ -140,14 +135,11 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             plugin_iface.hook_folder_item_change (source, dest, event);
         });
 
-        string[] active_plugins = settings.get_strv (ACTIVE_PLUGINS_KEY);
-
         // Activate plugins according to setting
-        foreach (var plugin_name in active_plugins) {
+        foreach (var plugin_name in settings.get_strv (ACTIVE_PLUGINS_KEY)) {
             if (plugin_hash.has_key (plugin_name)) {
                 var plugin = plugin_hash.@get (plugin_name);
                 activate_plugin (plugin);
-                active_plugin_set.add (plugin_name);
             }
         }
     }
@@ -177,35 +169,29 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     private void update_active_plugin_settings () {
         settings.set_strv (ACTIVE_PLUGINS_KEY, active_plugin_set.to_array ());
     }
-    // void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-    //     ((Peas.Activatable)extension).activate ();
-    // }
 
     private void load_modules_from_dir (string path) {
-        string attributes = FileAttribute.STANDARD_NAME + "," +
-                            FileAttribute.STANDARD_TYPE;
+
 
         FileInfo info;
         FileEnumerator enumerator;
-warning ("load modules from %s", path);
         try {
+            string attributes = FileAttribute.STANDARD_NAME + "," +
+                                FileAttribute.STANDARD_TYPE;
             var dir = GLib.File.new_for_path (path);
-
-            enumerator = dir.enumerate_children
-                                        (attributes,
-                                         FileQueryInfoFlags.NONE);
+            enumerator = dir.enumerate_children (
+                attributes,
+                FileQueryInfoFlags.NONE
+            );
 
             info = enumerator.next_file ();
-
             while (info != null) {
                 if (info.get_file_type () == DIRECTORY) {
                     load_modules_from_dir (Path.build_filename (path, info.get_name ()));
                 } else {
                     string file_name = info.get_name ();
-                    warning ("file name %s", file_name);
                     var plugin_file = dir.get_child_for_display_name (file_name);
-
-                    if (file_name.has_suffix (PLUGIN_FILE_EXTENSION)) {
+                    if (file_name.has_suffix (KEYFILE_FILE_EXTENSION)) {
                         load_plugin_keyfile (plugin_file, path);
                     }
                 }
@@ -223,70 +209,80 @@ warning ("load modules from %s", path);
             return false;
         }
 
-        var file_path = dir.get_path ().concat (Path.DIR_SEPARATOR_S, "lib", info.module_name, MODULE_FILE_EXTENSION);
-        warning ("Loading plugin for %s", file_path);
+        //TODO Add a File key in the same way that Files does so we do not
+        // have to construct the module path
+        var file_path = dir.get_path ().concat (
+            Path.DIR_SEPARATOR_S,
+            "lib",
+            info.module_name,
+            MODULE_FILE_EXTENSION
+        );
+        debug ("Loading plugin for %s", file_path);
 
         Module module = Module.open (file_path, ModuleFlags.LOCAL);
         if (module == null) {
-            warning ("Failed to load module from path '%s': %s",
-                     file_path,
-                     Module.error ());
+            warning (
+                "Failed to load module from path '%s': %s",
+                file_path,
+                Module.error ()
+            );
             return false;
         }
 
         void* function;
-
         if (!module.symbol ("module_init", out function)) {
-            warning ("Failed to find entry point function '%s' in '%s': %s",
-                     "module_init",
-                     file_path,
-                     Module.error ());
+            warning (
+                "Failed to find entry point function '%s' in '%s': %s",
+                "module_init",
+                file_path,
+                Module.error ()
+            );
             return false;
         }
 
         unowned ModuleInitFunc module_init = (ModuleInitFunc) function;
         assert (module_init != null);
 
-        //TODO Reconsider for Code plugins
-        // /* We don't want our modules to ever unload */
-        // module.make_resident ();
+        //TODO Reconsider making all plugins resident for Code
+        module.make_resident ();
         Scratch.Plugins.PluginBase plug = module_init (info, plugin_iface);
-
-        warning ("Loaded module source: '%s'", module.name ());
+        debug ("Loaded module source: '%s'", module.name ());
 
         if (plug != null) {
-            warning ("add plugin %s to hash", info.name);
             plugin_hash.set (info.name, plug);
             info.is_active = false;
             // Plugins only become active via initial settings or preferences dialog
             return true;
+        } else {
+            critical ("Module init failed for %s, it will not be available", module.name ());
         }
 
         return false;
     }
 
-    // Load the .plugin file from each plugin folder
-    private void load_plugin_keyfile (File plugin_file, string parent) {
+    // Load the keyfile from specified location
+    private void load_plugin_keyfile (File keyfile_file, string parent) {
         var keyfile = new KeyFile ();
         var plugin_info = Scratch.Plugins.PluginInfo ();
         try {
-            keyfile.load_from_file (plugin_file.get_path (), KeyFileFlags.NONE);
+            keyfile.load_from_file (keyfile_file.get_path (), KeyFileFlags.NONE);
             plugin_info.name = keyfile.get_string ("Plugin", "Name");
             plugin_info.module_name = keyfile.get_string ("Plugin", "Module");
             plugin_info.description = keyfile.get_string ("Plugin", "Description");
             if (keyfile.has_key ("Plugin", "Icon")) {
                 plugin_info.icon_name = keyfile.get_string ("Plugin", "Icon");
             } else {
-                plugin_info.icon_name = "extension"; 
+                plugin_info.icon_name = "extension";
             }
             // Should we expose the author(s)?
             load_module (plugin_file.get_parent (), plugin_info);
         } catch (Error e) {
-            warning ("Couldn't open the keyfile '%s': %s", plugin_file.get_path (), e.message);
+            warning ("Couldn't open the keyfile '%s': %s", keyfile_file.get_path (), e.message);
 
         }
     }
-    // Return an emulation of the discontinued libpeas-1.0 widget
+
+    // Return an emulation of the libpeas-1.0 widget
     public Gtk.Widget get_view () {
         var list_box = new Gtk.ListBox ();
         var scrolled_window = new Gtk.ScrolledWindow (null, null) {
@@ -365,4 +361,3 @@ warning ("load modules from %s", path);
         return plugin_hash.size;
     }
 }
-// }

@@ -42,11 +42,11 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
 
     private uint timeout_id = 0;
-    
+
     public Completion (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Services.Interface) object;
         parser = new Euclide.Completion.Parser ();

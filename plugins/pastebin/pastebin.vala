@@ -42,7 +42,7 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
     public Pastebin (PluginInfo info, Interface iface) {
         base (info, iface);
     }
-    
+
     public override void activate () {
         // plugins = (Scratch.Services.Interface) object;
 
