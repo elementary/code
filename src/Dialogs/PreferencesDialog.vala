@@ -160,6 +160,11 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         close_button.clicked.connect (() => {
             destroy ();
         });
+        
+        // Always start with Behaviour page
+        realize.connect (() => {
+            stack.visible_child_name = "behavior";
+        });
     }
 
     private class SettingSwitch : Gtk.Grid {
