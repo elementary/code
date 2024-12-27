@@ -87,7 +87,7 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
     }
 
     protected override void deactivate_internal () {
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 }
 

@@ -56,11 +56,11 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
         keys[Gdk.Key.quotedbl] = "\"";
         keys[Gdk.Key.grave] = "`";
 
-        iface.hook_document.connect (on_hook_document);
+        doc_hook_handler = iface.hook_document.connect (on_hook_document);
     }
 
     protected override void deactivate_internal () {
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     void on_hook_document (Scratch.Services.Document doc) {

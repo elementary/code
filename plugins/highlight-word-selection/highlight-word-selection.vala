@@ -3,7 +3,7 @@
   BEGIN LICENSE
   Copyright (C) 2019-24 elementary, Inc. <https://elementary.io>
                 2013 Madelynn May <madelynnmay@madelynnmay.com>
-                
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -57,8 +57,8 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
             current_source.selection_changed.disconnect (on_selection_changed);
         }
 
-        this.disconnect (window_hook_handler);
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (window_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {

@@ -47,7 +47,7 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
             current_source.notify["language"].disconnect (configure_shortcuts);
         }
 
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     private void configure_shortcuts () {

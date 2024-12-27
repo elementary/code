@@ -58,8 +58,8 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
 
     protected override void deactivate_internal () {
         text_view_list.@foreach (cleanup);
-        this.disconnect (window_hook_handler);
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (window_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {

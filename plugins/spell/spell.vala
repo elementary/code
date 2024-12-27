@@ -123,8 +123,8 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
     protected override void deactivate_internal () {
         save_settings ();
         window.destroy.disconnect (save_settings);
-        this.disconnect (window_hook_handler);
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (window_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     private void language_changed_spell (Scratch.Widgets.SourceView view) {

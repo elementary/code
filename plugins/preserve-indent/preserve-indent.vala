@@ -51,7 +51,7 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
 
     protected override void deactivate_internal () {
         this.documents.clear ();
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     // determine how many characters precede a given iterator position

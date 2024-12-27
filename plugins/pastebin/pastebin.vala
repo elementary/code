@@ -52,8 +52,8 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
 
     protected override void deactivate_internal () {
         remove_actions ();
-        this.disconnect (menu_hook_handler);
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (menu_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     void on_hook_share_menu (GLib.MenuModel menu) {

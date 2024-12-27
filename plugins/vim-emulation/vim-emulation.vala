@@ -57,7 +57,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
             v.key_press_event.disconnect (handle_key_press);
         }
 
-        this.disconnect (doc_hook_handler);
+        iface.disconnect (doc_hook_handler);
     }
 
     private bool handle_key_press (Gdk.EventKey event) {
