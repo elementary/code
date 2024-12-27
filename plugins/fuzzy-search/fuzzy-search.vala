@@ -35,8 +35,11 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong window_hook_handler = 0;
+    ulong folder_hook_handler = 0;
     protected override void activate_internal () {
-        plugins.hook_window.connect ((w) => {
+        window_hook_handler = iface.hook_window.connect ((w) => {
+        warning ("fuzzy search - hook window");
             if (window != null) {
                 return;
             }
@@ -55,7 +58,7 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
             folder_settings.changed["opened-folders"].connect (handle_opened_projects_change);
         });
 
-        plugins.hook_folder_item_change.connect ((src, dest, event) => {
+        folder_hook_handler = iface.hook_folder_item_change.connect ((src, dest, event) => {
             if (indexer == null) {
                 return;
             }
@@ -70,6 +73,9 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         if (cancellable != null) {
             cancellable.cancel ();
         }
+        
+        this.disconnect (window_hook_handler);
+        this.disconnect (folder_hook_handler);
     }
 
     private void add_actions () {

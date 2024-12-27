@@ -29,6 +29,8 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong window_hook_handler = 0;
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
         settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
 
@@ -37,7 +39,16 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
 
         settings.changed.connect (settings_changed);
 
-        plugins.hook_document.connect ((d) => {
+        window_hook_handler = iface.hook_window.connect ((w) => {
+            if (window != null) {
+                return;
+            }
+
+            window = w;
+            window.destroy.connect (save_settings);
+        });
+
+        doc_hook_handler = iface.hook_document.connect ((d) => {
             var view = d.source_view;
 
             // Create spell object
@@ -86,7 +97,7 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
                 }
 #endif
                 // Deactivate Spell checker when it is no longer needed
-                plugins.manager.extension_removed.connect ((info) => {
+                iface.manager.extension_removed.connect ((info) => {
                     if (info.module_name == "spell")
                         spell.detach ();
                 });
@@ -105,24 +116,15 @@ public class Scratch.Plugins.Spell: Scratch.Plugins.PluginBase {
                 spell.language_changed.connect ((lang_dict) => {
                     this.lang_dict = lang_dict;
                 });
-
             }
         });
-
-        plugins.hook_window.connect ((w) => {
-            if (window != null) {
-                return;
-            }
-
-            window = w;
-            window.destroy.connect (save_settings);
-        });
-
     }
 
     protected override void deactivate_internal () {
         save_settings ();
         window.destroy.disconnect (save_settings);
+        this.disconnect (window_hook_handler);
+        this.disconnect (doc_hook_handler);
     }
 
     private void language_changed_spell (Scratch.Widgets.SourceView view) {

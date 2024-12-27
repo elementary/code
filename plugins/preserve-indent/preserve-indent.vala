@@ -29,10 +29,11 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
 
-        plugins.hook_document.connect ((d) => {
+        doc_hook_handler = iface.hook_document.connect ((d) => {
             this.active_document = d;
 
             if (documents.add (d)) {
@@ -50,6 +51,7 @@ public class Scratch.Plugins.PreserveIndent : Scratch.Plugins.PluginBase {
 
     protected override void deactivate_internal () {
         this.documents.clear ();
+        this.disconnect (doc_hook_handler);
     }
 
     // determine how many characters precede a given iterator position

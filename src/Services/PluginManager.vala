@@ -21,10 +21,17 @@
 // namespace Scratch.Plugins {
 public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     public PluginInfo plugin_info { get; construct; }
-    public Interface plugins { get; construct; }
+    public Interface iface { get; construct; }
     public bool is_active { get; set; }
+
+    protected PluginBase (PluginInfo info, Interface iface) {
+        Object (
+            plugin_info: info,
+            iface: iface
+        );
+    }
+
     public void activate () {
-    warning ("plugin base activate");
         is_active = true;
         activate_internal ();
     }
@@ -38,13 +45,6 @@ public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     protected abstract void activate_internal ();
     protected virtual void deactivate_internal () {} // Not implemented by some plugins
     public virtual void update_state () {} // Not currently used
-
-    protected PluginBase (PluginInfo info, Interface iface) {
-        Object (
-            plugin_info: info,
-            plugins: iface
-        );
-    }
 }
 
 public struct Scratch.Plugins.PluginInfo {
@@ -72,15 +72,15 @@ public class Scratch.Plugins.Interface : GLib.Object {
         template_manager = new Scratch.TemplateManager ();
     }
 
-    public Scratch.Services.Document open_file (File file) {
-        var doc = new Scratch.Services.Document (manager.window.actions, file);
-        manager.window.open_document (doc);
-        return doc;
-    }
+    // public Scratch.Services.Document open_file (File file) {
+    //     var doc = new Scratch.Services.Document (manager.window.actions, file);
+    //     manager.window.open_document (doc);
+    //     return doc;
+    // }
 
-    public void close_document (Scratch.Services.Document doc) {
-        manager.window.close_document (doc);
-    }
+    // public void close_document (Scratch.Services.Document doc) {
+    //     manager.window.close_document (doc);
+    // }
 }
 
 delegate Scratch.Plugins.PluginBase ModuleInitFunc (
@@ -158,6 +158,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     private void activate_plugin (Scratch.Plugins.PluginBase plugin) {
         var info = plugin.plugin_info;
+        warning ("activate plugin %s, active %s", info.name, plugin.is_active.to_string ());
         if (!plugin.is_active) {
             plugin.activate ();
             active_plugin_set.add (info.name);

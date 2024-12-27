@@ -25,8 +25,9 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-        plugins.hook_document.connect ((d) => {
+        doc_hook_handler = iface.hook_document.connect ((d) => {
             var view = d.source_view;
 
             if (!view.get_editable ()) {
@@ -83,6 +84,10 @@ public class Scratch.Plugins.DetectIndent: Scratch.Plugins.PluginBase {
                 view.set_insert_spaces_instead_of_tabs (sr > tr);
             }
         });
+    }
+    
+    protected override void deactivate_internal () {
+        this.disconnect (doc_hook_handler);
     }
 }
 

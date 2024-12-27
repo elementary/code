@@ -25,9 +25,9 @@ public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-
-        plugins.hook_document.connect ((d) => {
+        doc_hook_handler = iface.hook_document.connect ((d) => {
             // Ensure use global settings by default
             format_bar.tab_style_set_by_editor_config = false;
             format_bar.tab_width_set_by_editor_config = false;
@@ -79,6 +79,10 @@ public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
                 }
             }
         });
+    }
+    
+    protected override void deactivate_internal () {
+        this.disconnect (doc_hook_handler);
     }
 }
 

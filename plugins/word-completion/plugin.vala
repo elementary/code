@@ -45,17 +45,24 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong window_hook_handler = 0;
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
+        if (window_hook_handler > 0) {
+            return;
+        }
         parser = new Euclide.Completion.Parser ();
-        plugins.hook_window.connect ((w) => {
+        window_hook_handler = iface.hook_window.connect ((w) => {
             this.main_window = w;
         });
 
-        plugins.hook_document.connect (on_new_source_view);
+        doc_hook_handler = iface.hook_document.connect (on_new_source_view);
     }
 
     protected override void deactivate_internal () {
         text_view_list.@foreach (cleanup);
+        this.disconnect (window_hook_handler);
+        this.disconnect (doc_hook_handler);
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {

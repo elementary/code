@@ -42,8 +42,9 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-        plugins.hook_document.connect ((doc) => {
+        doc_hook_handler = iface.hook_document.connect ((doc) => {
             this.view = doc.source_view;
             this.view.key_press_event.disconnect (handle_key_press);
             this.view.key_press_event.connect (handle_key_press);
@@ -55,6 +56,8 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         foreach (var v in views) {
             v.key_press_event.disconnect (handle_key_press);
         }
+        
+        this.disconnect (doc_hook_handler);
     }
 
     private bool handle_key_press (Gdk.EventKey event) {

@@ -26,8 +26,9 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-        plugins.hook_document.connect ((doc) => {
+        doc_hook_handler = iface.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
                 current_source.notify["language"].disconnect (configure_shortcuts);
@@ -45,6 +46,8 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
             current_source.key_press_event.disconnect (shortcut_handler);
             current_source.notify["language"].disconnect (configure_shortcuts);
         }
+        
+        this.disconnect (doc_hook_handler);
     }
 
     private void configure_shortcuts () {

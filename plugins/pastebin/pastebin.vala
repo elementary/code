@@ -41,16 +41,20 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
+    ulong menu_hook_handler = 0;
     protected override void activate_internal () {
-        plugins.hook_document.connect ((doc) => {
+        doc_hook_handler = iface.hook_document.connect ((doc) => {
             this.doc = doc;
         });
 
-        plugins.hook_share_menu.connect (on_hook_share_menu);
+        menu_hook_handler = iface.hook_share_menu.connect (on_hook_share_menu);
     }
 
     protected override void deactivate_internal () {
         remove_actions ();
+        this.disconnect (menu_hook_handler);
+        this.disconnect (doc_hook_handler);
     }
 
     void on_hook_share_menu (GLib.MenuModel menu) {
@@ -67,7 +71,7 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
             actions.add_action_entries (ACTION_ENTRIES, this);
         }
 
-        plugins.manager.window.insert_action_group (ACTION_GROUP, actions);
+        iface.manager.window.insert_action_group (ACTION_GROUP, actions);
         share_menu = (GLib.Menu) menu;
         menuitem = new GLib.MenuItem (_("Upload to Pastebin"), ACTION_PREFIX + ACTION_SHOW);
         share_menu.append_item (menuitem);
@@ -86,11 +90,11 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.PluginBase {
             }
         }
 
-        plugins.manager.window.insert_action_group (ACTION_GROUP, null);
+        iface.manager.window.insert_action_group (ACTION_GROUP, null);
     }
 
     void show_paste_bin_upload_dialog () {
-        MainWindow window = plugins.manager.window;
+        MainWindow window = iface.manager.window;
         new Dialogs.PasteBinDialog (window, doc);
     }
 }

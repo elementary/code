@@ -32,9 +32,11 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
         base (info, iface);
     }
 
+    ulong window_hook_handler = 0;
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
         // plugins = (Scratch.Plugins.Interface) object;
-        plugins.hook_document.connect ((doc) => {
+        doc_hook_handler = iface.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.deselected.disconnect (on_deselection);
                 current_source.selection_changed.disconnect (on_selection_changed);
@@ -45,17 +47,19 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
             current_source.selection_changed.connect (on_selection_changed);
         });
 
-        plugins.hook_window.connect ((w) => {
+        window_hook_handler = iface.hook_window.connect ((w) => {
             main_window = w;
         });
     }
-
 
     protected override void deactivate_internal () {
         if (current_source != null) {
             current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);
         }
+
+        this.disconnect (window_hook_handler);
+        this.disconnect (doc_hook_handler);
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
