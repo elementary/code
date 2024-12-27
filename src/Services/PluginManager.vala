@@ -51,7 +51,7 @@ public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     }
 
     protected abstract void activate_internal ();
-    protected virtual void deactivate_internal () {} // Not implemented by some plugins
+    protected abstract void deactivate_internal ();
     public virtual void update_state () {} // Not currently used
 }
 
