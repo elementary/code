@@ -79,6 +79,10 @@ public class Scratch.Plugins.EditorConfigPlugin: Scratch.Plugins.PluginBase {
                 }
             }
         });
+
+        iface.hook_toolbar.connect ((tb) => {
+            format_bar = tb.format_bar;
+        });
     }
 
     protected override void deactivate_internal () {
