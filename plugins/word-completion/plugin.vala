@@ -48,9 +48,6 @@ public class Scratch.Plugins.Completion : Scratch.Plugins.PluginBase {
     ulong window_hook_handler = 0;
     ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-        if (window_hook_handler > 0) {
-            return;
-        }
         parser = new Euclide.Completion.Parser ();
         window_hook_handler = iface.hook_window.connect ((w) => {
             this.main_window = w;

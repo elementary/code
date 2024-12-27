@@ -32,12 +32,20 @@ public abstract class Scratch.Plugins.PluginBase : GLib.Object {
     }
 
     public void activate () {
+        if (is_active) {
+            return;
+        }
+
         is_active = true;
         activate_internal ();
     }
 
 
     public void deactivate () {
+        if (!is_active) {
+            return;
+        }
+
         is_active = false;
         deactivate_internal ();
     }

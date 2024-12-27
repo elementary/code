@@ -35,6 +35,7 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
         base (info, iface);
     }
 
+    ulong doc_hook_handler = 0;
     protected override void activate_internal () {
         brackets = new Gee.HashMap<string, string> ();
         brackets["("] = ")";
@@ -59,7 +60,7 @@ public class Scratch.Plugins.BracketsCompletion : Scratch.Plugins.PluginBase {
     }
 
     protected override void deactivate_internal () {
-        iface.hook_document.disconnect (on_hook_document);
+        this.disconnect (doc_hook_handler);
     }
 
     void on_hook_document (Scratch.Services.Document doc) {

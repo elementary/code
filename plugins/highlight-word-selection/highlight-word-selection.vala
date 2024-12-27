@@ -35,7 +35,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Scratch.Plugins.PluginBase
     ulong window_hook_handler = 0;
     ulong doc_hook_handler = 0;
     protected override void activate_internal () {
-        // plugins = (Scratch.Plugins.Interface) object;
         doc_hook_handler = iface.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.deselected.disconnect (on_deselection);
