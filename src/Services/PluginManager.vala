@@ -106,7 +106,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     Gee.HashMap<string,Scratch.Plugins.PluginBase> plugin_hash; // all plugins
     public Gee.HashSet<string> active_plugin_set; //active plugin names
-    public Gee.List<Gtk.Widget> menuitem_references { get; private set; }
 
     public PluginsManager (MainWindow window) {
         this.window = window;
@@ -115,7 +114,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         /* From Files PluginManager construct */
         plugin_hash = new Gee.HashMap<string, Scratch.Plugins.PluginBase> ();
         active_plugin_set = new Gee.HashSet<string> ();
-        menuitem_references = new Gee.LinkedList<Gtk.Widget> ();
         // Code has only one plugin directory.
         load_modules_from_dir (Constants.PLUGINDIR);
 
