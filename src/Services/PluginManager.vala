@@ -76,19 +76,8 @@ public class Scratch.Plugins.Interface : GLib.Object {
 
     public Interface (Scratch.Services.PluginsManager manager) {
         this.manager = manager;
-
         template_manager = new Scratch.TemplateManager ();
     }
-
-    // public Scratch.Services.Document open_file (File file) {
-    //     var doc = new Scratch.Services.Document (manager.window.actions, file);
-    //     manager.window.open_document (doc);
-    //     return doc;
-    // }
-
-    // public void close_document (Scratch.Services.Document doc) {
-    //     manager.window.close_document (doc);
-    // }
 }
 
 delegate Scratch.Plugins.PluginBase ModuleInitFunc (
@@ -380,7 +369,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     }
 
     public uint get_n_plugins () {
-        warning ("get n plugins  %u", plugin_hash.size);
         return plugin_hash.size;
     }
 }
