@@ -33,17 +33,6 @@ modules:
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: '4.8.4'
 
-  - name: peas
-    buildsystem: meson
-    config-opts:
-      - '-Dgtk_doc=false'
-      - '-Ddemos=false'
-      - '-Dvapi=true'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libpeas.git
-        tag: libpeas-1.34.0
-
   - name: git2-glib
     buildsystem: meson
     builddir: true

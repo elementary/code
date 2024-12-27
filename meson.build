@@ -27,14 +27,13 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 glib_dep = dependency('glib-2.0', version: '>=2.30.0')
+gmodule_dep = dependency('gmodule-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 granite_dep = dependency('granite', version: '>=6.0.0')
 handy_dep = dependency('libhandy-1', version: '>=0.90.0')
 gtksourceview_dep = dependency('gtksourceview-4')
-peas_dep = dependency('libpeas-1.0')
-peasgtk_dep = dependency('libpeas-gtk-1.0')
 git_dep = dependency('libgit2-glib-1.0')
 fontconfig_dep = dependency('fontconfig')
 pangofc_dep = dependency('pangoft2')
@@ -52,14 +51,13 @@ vala_dep = dependency('libvala-@0@'.format(vala_version))
 
 dependencies = [
     glib_dep,
+    gmodule_dep,
     gio_unix_dep,
     gee_dep,
     gtk_dep,
     granite_dep,
     handy_dep,
     gtksourceview_dep,
-    peas_dep,
-    peasgtk_dep,
     git_dep,
     fontconfig_dep,
     pangofc_dep,
