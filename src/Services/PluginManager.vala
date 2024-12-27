@@ -158,12 +158,10 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     private void activate_plugin (Scratch.Plugins.PluginBase plugin) {
         var info = plugin.plugin_info;
-        warning ("activate plugin %s, active %s", info.name, plugin.is_active.to_string ());
         if (!plugin.is_active) {
             plugin.activate ();
             active_plugin_set.add (info.name);
             extension_added (); // Signals Window to run initial hook function
-            update_active_plugin_settings ();
         }
     }
 
@@ -173,17 +171,21 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             plugin.deactivate ();
             active_plugin_set.remove (info.name);
             extension_removed (info);
-            update_active_plugin_settings ();
         }
     }
 
     private void update_active_plugin_settings () {
-        settings.set_strv (ACTIVE_PLUGINS_KEY, active_plugin_set.to_array ());
+        // For some reason using active_plugin_set.to_array () does not work (crashes)
+        // So construct the string array ourselves
+        string[] plugins = {};
+        foreach (string s in active_plugin_set) {
+            plugins += s;
+        }
+
+        settings.set_strv (ACTIVE_PLUGINS_KEY, plugins);
     }
 
     private void load_modules_from_dir (string path) {
-
-
         FileInfo info;
         FileEnumerator enumerator;
         try {
@@ -341,6 +343,8 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             } else {
                 deactivate_plugin (plugin);
             }
+
+            update_active_plugin_settings ();
         });
         var image = new Gtk.Image.from_icon_name (info.icon_name, LARGE_TOOLBAR) {
             valign = Gtk.Align.CENTER

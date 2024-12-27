@@ -56,7 +56,7 @@ public class Scratch.Plugins.VimEmulation : Scratch.Plugins.PluginBase {
         foreach (var v in views) {
             v.key_press_event.disconnect (handle_key_press);
         }
-        
+
         this.disconnect (doc_hook_handler);
     }
 

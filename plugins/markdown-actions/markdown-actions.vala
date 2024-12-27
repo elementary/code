@@ -46,7 +46,7 @@ public class Scratch.Plugins.MarkdownActions : Scratch.Plugins.PluginBase {
             current_source.key_press_event.disconnect (shortcut_handler);
             current_source.notify["language"].disconnect (configure_shortcuts);
         }
-        
+
         this.disconnect (doc_hook_handler);
     }
 

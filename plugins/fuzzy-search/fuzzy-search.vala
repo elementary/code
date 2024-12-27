@@ -73,7 +73,7 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
         if (cancellable != null) {
             cancellable.cancel ();
         }
-        
+
         this.disconnect (window_hook_handler);
         this.disconnect (folder_hook_handler);
     }
