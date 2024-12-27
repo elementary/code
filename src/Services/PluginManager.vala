@@ -143,9 +143,9 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         });
 
         // Activate plugins according to setting
-        foreach (var plugin_name in settings.get_strv (ACTIVE_PLUGINS_KEY)) {
-            if (plugin_hash.has_key (plugin_name)) {
-                var plugin = plugin_hash.@get (plugin_name);
+        foreach (var module_name in settings.get_strv (ACTIVE_PLUGINS_KEY)) {
+            if (plugin_hash.has_key (module_name)) {
+                var plugin = plugin_hash.@get (module_name);
                 activate_plugin (plugin);
             }
         }
@@ -155,7 +155,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         var info = plugin.plugin_info;
         if (!plugin.is_active) {
             plugin.activate ();
-            active_plugin_set.add (info.name);
+            active_plugin_set.add (info.module_name);
             extension_added (); // Signals Window to run initial hook function
         }
     }
@@ -164,7 +164,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         var info = plugin.plugin_info;
         if (plugin.is_active) {
             plugin.deactivate ();
-            active_plugin_set.remove (info.name);
+            active_plugin_set.remove (info.module_name);
             extension_removed (info);
         }
     }
@@ -172,12 +172,12 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     private void update_active_plugin_settings () {
         // For some reason using active_plugin_set.to_array () does not work (crashes)
         // So construct the string array ourselves
-        string[] plugins = {};
-        foreach (string s in active_plugin_set) {
-            plugins += s;
+        string[] module_names = {};
+        foreach (string module in active_plugin_set) {
+            module_names += module;
         }
 
-        settings.set_strv (ACTIVE_PLUGINS_KEY, plugins);
+        settings.set_strv (ACTIVE_PLUGINS_KEY, module_names);
     }
 
     private void load_modules_from_dir (string path) {
@@ -212,7 +212,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     }
 
     private bool load_module (File dir, Scratch.Plugins.PluginInfo info) {
-        if (plugin_hash.has_key (info.name)) {
+        if (plugin_hash.has_key (info.module_name)) {
             warning ("plugin for %s already loaded. Not adding again", info.name);
             return false;
         }
@@ -257,7 +257,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         debug ("Loaded module source: '%s'", module.name ());
 
         if (plug != null) {
-            plugin_hash.set (info.name, plug);
+            plugin_hash.set (info.module_name, plug);
             plug.is_active = false;
             // Plugins only become active via initial settings or preferences dialog
             return true;
