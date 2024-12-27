@@ -39,7 +39,6 @@ public class Scratch.Plugins.FuzzySearch: Scratch.Plugins.PluginBase {
     ulong folder_hook_handler = 0;
     protected override void activate_internal () {
         window_hook_handler = iface.hook_window.connect ((w) => {
-        warning ("fuzzy search - hook window");
             if (window != null) {
                 return;
             }
