@@ -453,7 +453,7 @@ namespace Scratch {
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen
-            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            GLib.Value target = {"text/uri-list", 0, 0};
             Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
             welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {

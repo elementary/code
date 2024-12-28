@@ -107,7 +107,7 @@ public interface SourceListDragDest : SourceList.Item {
      * @return //true// if the drop is possible; //false// otherwise.
      * @since 0.3
      */
-    public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+    public abstract bool data_drop_possible (Gdk.Drag drag, Gtk.SelectionData data);
 
     /**
      * If a data drop is deemed possible, then this method is called
@@ -119,7 +119,7 @@ public interface SourceListDragDest : SourceList.Item {
      * @return The action taken, or //0// to indicate that the dropped data was not accepted.
      * @since 0.3
      */
-    public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+    public abstract Gdk.DragAction data_received (Gdk.Drag drag, Gtk.SelectionData data);
 }
 
 /**
@@ -1727,7 +1727,7 @@ public class SourceList : Gtk.ScrolledWindow {
             disable_item_property_monitor ();
         }
 
-        public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
+        public override bool drag_motion (Gdk.Drag drag) {
             // call the base signal to get rows with children to spring open
             if (!base.drag_motion (context, x, y, time))
                 return false;
@@ -1791,14 +1791,7 @@ public class SourceList : Gtk.ScrolledWindow {
             return true;
         }
 
-        public override void drag_data_received (
-            Gdk.DragContext context,
-            int x,
-            int y,
-            Gtk.SelectionData selection_data,
-            uint info,
-            uint time
-        ) {
+        public override void drag_data_received (Gdk.Drag drag) {
             var target_list = Gtk.drag_dest_get_target_list (this);
             var target = Gtk.drag_dest_find_target (this, context, target_list);
 
@@ -1850,7 +1843,7 @@ public class SourceList : Gtk.ScrolledWindow {
             }
         }
 
-        public void configure_drag_source (Gtk.TargetEntry[]? src_entries) {
+        public void configure_drag_source (GLib.Value[]? src_entries) {
             // Append GTK_TREE_MODEL_ROW to src_entries and src_entries to enable row DnD.
             var entries = append_row_target_entry (src_entries);
 
@@ -1858,7 +1851,7 @@ public class SourceList : Gtk.ScrolledWindow {
             enable_model_drag_source (Gdk.ModifierType.BUTTON1_MASK, entries, Gdk.DragAction.MOVE);
         }
 
-        public void configure_drag_dest (Gtk.TargetEntry[]? dest_entries, Gdk.DragAction actions) {
+        public void configure_drag_dest (GLib.Value[]? dest_entries, Gdk.DragAction actions) {
             // Append GTK_TREE_MODEL_ROW to dest_entries and dest_entries to enable row DnD.
             var entries = append_row_target_entry (dest_entries);
 
@@ -1915,14 +1908,14 @@ public class SourceList : Gtk.ScrolledWindow {
             return false;
         }
 
-        private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
-            const Gtk.TargetEntry row_target_entry = { // vala-lint=naming-convention
+        private static GLib.Value[] append_row_target_entry (GLib.Value[]? orig) {
+            const GLib.Value row_target_entry = { // vala-lint=naming-convention
                 "GTK_TREE_MODEL_ROW",
                 Gtk.TargetFlags.SAME_WIDGET,
                 0
             };
 
-            var entries = new Gtk.TargetEntry[0];
+            var entries = new GLib.Value[0];
             entries += row_target_entry;
 
             if (orig != null) {
@@ -2758,13 +2751,13 @@ public class SourceList : Gtk.ScrolledWindow {
      * This enables items that implement {@link Code.Widgets.SourceListDragSource}
      * to be dragged outside the Source List and drop data into external widgets.
      *
-     * @param src_entries an array of {@link Gtk.TargetEntry}s indicating the targets
+     * @param src_entries an array of {@link GLib.Value}s indicating the targets
      * that the drag will support.
      * @see Code.Widgets.SourceListDragSource
      * @see Code.Widgets.SourceList.disable_drag_source
      * @since 0.3
      */
-    public void enable_drag_source (Gtk.TargetEntry[] src_entries) {
+    public void enable_drag_source (GLib.Value[] src_entries) {
         tree.configure_drag_source (src_entries);
     }
 
@@ -2784,14 +2777,14 @@ public class SourceList : Gtk.ScrolledWindow {
      * This enables items that implement {@link Code.Widgets.SourceListDragDest}
      * to receive data from external widgets via drag-and-drop.
      *
-     * @param dest_entries an array of {@link Gtk.TargetEntry}s indicating the drop
+     * @param dest_entries an array of {@link GLib.Value}s indicating the drop
      * types that Source List items will accept.
      * @param actions a bitmask of possible actions for a drop onto Source List items.
      * @see Code.Widgets.SourceListDragDest
      * @see Code.Widgets.SourceList.disable_drag_dest
      * @since 0.3
      */
-    public void enable_drag_dest (Gtk.TargetEntry[] dest_entries, Gdk.DragAction actions) {
+    public void enable_drag_dest (GLib.Value[] dest_entries, Gdk.DragAction actions) {
         tree.configure_drag_dest (dest_entries, actions);
     }
 
