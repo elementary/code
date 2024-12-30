@@ -1,6 +1,6 @@
 app-id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: "7.1"
+runtime-version: 'daily'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
@@ -31,7 +31,22 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
-        tag: "4.8.4"
+        tag: '4.8.4'
+
+  - name: libpeas
+    buildsystem: meson
+    config-opts:
+      - -Dlua51=false
+      - -Dgjs=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz
+        sha256: 376f2f73d731b54e13ddbab1d91b6382cf6a980524def44df62add15489de6dd
+        x-checker-data:
+          type: gnome
+          versions:
+            <: '2.0.6'
+          name: libpeas
 
   - name: git2-glib
     buildsystem: meson
