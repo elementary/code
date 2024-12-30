@@ -723,7 +723,7 @@ namespace Code.Widgets.SourceList {
     //         return base.drag_data_get (path, selection_data);
 
     //     // check if the item at path provides DnD source data
-    //     var drag_source_item = get_item_from_path (path) as SourceListDragSource;
+    //     var drag_source_item = get_item_from_path (path) as DragSource;
     //     if (drag_source_item != null && drag_source_item.draggable ()) {
     //         drag_source_item.prepare_selection_data (selection_data);
     //         return true;
@@ -747,7 +747,7 @@ namespace Code.Widgets.SourceList {
 
             // Since the parent item does not allow DnD sorting, there's no
             // reason to allow dragging it unless the row is actually draggable.
-            var drag_source_item = item as SourceListDragSource;
+            var drag_source_item = item as DragSource;
 
             if (drag_source_item != null && drag_source_item.draggable ())
                 return true;

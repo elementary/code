@@ -239,7 +239,7 @@ private class Tree : Gtk.TreeView {
                         set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.INTO_OR_AFTER);
 
                     // determine if external DnD is supported by the item at destination
-                    var dest = data_model.get_item_from_path (current_path) as SourceListDragDest;
+                    var dest = data_model.get_item_from_path (current_path) as DragDest;
 
                     if (dest != null) {
                         var target_list = Gtk.drag_dest_get_target_list (this);
@@ -283,7 +283,7 @@ private class Tree : Gtk.TreeView {
 
             if (path != null) {
                 // determine if external DnD is allowed by the item at destination
-                var dest = data_model.get_item_from_path (path) as SourceListDragDest;
+                var dest = data_model.get_item_from_path (path) as DragDest;
 
                 if (dest == null || !dest.data_drop_possible (context, selection_data)) {
                     // dropping data here is not allowed. unset any previously
@@ -302,7 +302,7 @@ private class Tree : Gtk.TreeView {
                 // we're dealing with a DnD not originated within the Source List tree.
                 // Let's pass the data to the corresponding item, if there's a handler.
 
-                var drag_dest = data_model.get_item_from_path (path) as SourceListDragDest;
+                var drag_dest = data_model.get_item_from_path (path) as DragDest;
 
                 if (drag_dest != null) {
                     var action = drag_dest.data_received (context, selection_data);
