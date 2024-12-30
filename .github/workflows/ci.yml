@@ -23,6 +23,7 @@ jobs:
       run: |
         apt update
         apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgranite-7-dev libgtk-4-dev libgtksourceview-5-dev libgtkspell3-3-dev libadwaita-1-dev libpeas-2-dev libsoup2.4-dev libvala-dev libvte-2.91-gtk4-dev meson valac polkitd libpolkit-gobject-1-dev libgit2-glib-1.0-dev
+
     - name: Build
       env:
         DESTDIR: out
