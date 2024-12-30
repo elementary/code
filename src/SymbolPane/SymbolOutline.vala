@@ -75,7 +75,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
     protected Gee.HashMap<SymbolType, SimpleAction> checks;
     protected Gtk.SearchEntry search_entry;
-    protected Code.Widgets.SourceList store;
+    protected Code.Widgets.SourceList.Window store;
     protected Code.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return this; }
