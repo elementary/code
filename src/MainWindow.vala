@@ -335,6 +335,8 @@ namespace Scratch {
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
+
+            close_request.connect (on_delete_event);
         }
 
         private void update_style () {
@@ -721,7 +723,7 @@ namespace Scratch {
             return false;
         }
 
-        protected override bool delete_event (Gdk.EventAny event) {
+        protected override bool delete_event () {
             action_quit ();
             return true;
         }
