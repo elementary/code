@@ -316,59 +316,6 @@ public class Window : Gtk.Widget {
     }
 
     /**
-     * Turns Source List into a //drag source//.
-     *
-     * This enables items that implement {@link Code.Widgets.SourceListDragSource}
-     * to be dragged outside the Source List and drop data into external widgets.
-     *
-     * @param src_entries an array of {@link GLib.Value}s indicating the targets
-     * that the drag will support.
-     * @see Code.Widgets.SourceListDragSource
-     * @see Code.Widgets.SourceList.disable_drag_source
-     * @since 0.3
-     */
-    public void enable_drag_source (GLib.Value[] src_entries) {
-        tree.configure_drag_source (src_entries);
-    }
-
-    /**
-     * Undoes the effect of {@link Code.Widgets.SourceList.enable_drag_source}
-     *
-     * @see Code.Widgets.SourceList.enable_drag_source
-     * @since 0.3
-     */
-    public void disable_drag_source () {
-        tree.configure_drag_source (null);
-    }
-
-    /**
-     * Turns Source List into a //drop destination//.
-     *
-     * This enables items that implement {@link Code.Widgets.SourceListDragDest}
-     * to receive data from external widgets via drag-and-drop.
-     *
-     * @param dest_entries an array of {@link GLib.Value}s indicating the drop
-     * types that Source List items will accept.
-     * @param actions a bitmask of possible actions for a drop onto Source List items.
-     * @see Code.Widgets.SourceListDragDest
-     * @see Code.Widgets.SourceList.disable_drag_dest
-     * @since 0.3
-     */
-    public void enable_drag_dest (GLib.Value[] dest_entries, Gdk.DragAction actions) {
-        tree.configure_drag_dest (dest_entries, actions);
-    }
-
-    /**
-     * Undoes the effect of {@link Code.Widgets.SourceList.enable_drag_dest}
-     *
-     * @see Code.Widgets.SourceList.enable_drag_dest
-     * @since 0.3
-     */
-    public void disable_drag_dest () {
-        tree.configure_drag_dest (null, 0);
-    }
-
-    /**
      * Scrolls the source list tree to make //item// visible.
      *
      * {@link Code.Widgets.SourceList.ExpandableItem.expand_with_parents} is called
