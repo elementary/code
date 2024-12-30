@@ -190,7 +190,13 @@ private class Tree : Gtk.TreeView {
 
         unset_rows_drag_dest ();
         unset_rows_drag_source ();
-        
+
+        var key_controller = new Gtk.EventControllerKey () {
+            propagation_phase = CAPTURE
+        };
+        add_controller (key_controller);
+        key_controller.key_released.connect (on_key_release_event);
+
         query_tooltip.connect_after (on_query_tooltip);
         has_tooltip = true;
     }
@@ -563,7 +569,7 @@ private class Tree : Gtk.TreeView {
         }
     }
 
-    public override bool key_release_event (Gdk.EventKey event) {
+    public bool on_key_release_event (uint keyval, uint keycode, Gdk.ModifierType state) {
        if (selected_item != null) {
             switch (event.keyval) {
                 case Gdk.Key.F2:
@@ -575,7 +581,8 @@ private class Tree : Gtk.TreeView {
             }
         }
 
-        return base.key_release_event (event);
+        return Gdk.EVENT_PROPAGATE;
+        // return base.key_release_event (event);
     }
 
     public override bool button_release_event (Gdk.EventButton event) {
