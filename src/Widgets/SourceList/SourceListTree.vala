@@ -197,6 +197,12 @@ private class Tree : Gtk.TreeView {
         add_controller (key_controller);
         key_controller.key_released.connect (on_key_release_event);
 
+        var button_controller = new Gtk.GestureClick () {
+            propagation_phase = CAPTURE
+        };
+        add_controller (button_controller);
+        button_controller.pressed.connect (on_button_press_event);
+        button_controller.released.connect (on_button_release_event);
         query_tooltip.connect_after (on_query_tooltip);
         has_tooltip = true;
     }
@@ -585,7 +591,7 @@ private class Tree : Gtk.TreeView {
         // return base.key_release_event (event);
     }
 
-    public override bool button_release_event (Gdk.EventButton event) {
+    public void on_button_release_event (uint n_press, double x, double y) {
         if (unselectable_item_clicked && event.window == get_bin_window ()) {
             unselectable_item_clicked = false;
 
@@ -602,14 +608,9 @@ private class Tree : Gtk.TreeView {
                 }
             }
         }
-
-        return base.button_release_event (event);
     }
 
-    public override bool button_press_event (Gdk.EventButton event) {
-        if (event.window != get_bin_window ())
-            return base.button_press_event (event);
-
+    public void on_button_press_event (uint n_press, double x, double y) {
         Gtk.TreePath path;
         Gtk.TreeViewColumn column;
         int x = (int) event.x, y = (int) event.y, cell_x, cell_y;
@@ -663,8 +664,6 @@ private class Tree : Gtk.TreeView {
                 }
             }
         }
-
-        return base.button_press_event (event);
     }
 
     private bool over_primary_expander (Gtk.TreeViewColumn col, Gtk.TreePath path, int x) {
