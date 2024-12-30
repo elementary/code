@@ -28,7 +28,7 @@ jobs:
         DESTDIR: out
       run: |
         meson build
-        ninja -C build install.
+        ninja -C build install
 
   flatpak:
     name: Flatpak
