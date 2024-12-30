@@ -584,6 +584,22 @@ private class Tree : Gtk.TreeView {
                     if ((event.state & modifiers) == 0 && selected_item.editable)
                         start_editing_item (selected_item);
                 break;
+
+                case Gdk.Key.Menu:
+                    Gtk.TreePath? path;
+                    int ix = (int) x;
+                    int iy = (int) y;
+                    if (get_treepath_at_pos (
+                        ix,
+                        iy,
+                        out path,
+                        null, null, null
+                    )) {
+                        var item = data_model.get_item_from_path (path);
+                        popup_context_menu ((ExpandableItem) item, ix, iy);
+                    }
+
+                    break;
             }
         }
 
@@ -610,12 +626,12 @@ private class Tree : Gtk.TreeView {
         }
     }
 
-    public void on_button_press_event (uint n_press, double x, double y) {
+    public void on_button_press_event (Gtk.GestureClick controller, uint n_press, double x, double y) {
         Gtk.TreePath path;
         Gtk.TreeViewColumn column;
-        int x = (int) event.x, y = (int) event.y, cell_x, cell_y;
+        int ix = (int) x, iy = (int) y, cell_x, cell_y;
 
-        if (get_path_at_pos (x, y, out path, out column, out cell_x, out cell_y)) {
+        if (get_path_at_pos (ix, iy, out path, out column, out cell_x, out cell_y)) {
             var item = data_model.get_item_from_path (path);
 
             // This is needed because the treeview adds an offset at the beginning of every level
@@ -627,15 +643,15 @@ private class Tree : Gtk.TreeView {
                 // Cancel any editing operation going on
                 stop_editing ();
 
-                if (event.button == Gdk.BUTTON_SECONDARY) {
-                    popup_context_menu (item, event);
+                if (controller.button == Gdk.BUTTON_SECONDARY) {
+                    popup_context_menu (item, ix, iy);
                     return true;
-                } else if (event.button == Gdk.BUTTON_PRIMARY) {
+                } else if (controller.button == Gdk.BUTTON_PRIMARY) {
                     // Check whether an expander (or an equivalent area) was clicked.
                     bool is_expandable = item is ExpandableItem;
                     bool is_category = is_expandable && data_model.is_category (item, null, path);
 
-                    if (event.type == Gdk.EventType.BUTTON_PRESS) {
+                    if (n_press == 1) {
                         if (is_expandable) {
                             // Checking for secondary_expander_cell is not necessary because the entire row
                             // serves for this purpose when the item is a category or when the item is a
@@ -651,7 +667,7 @@ private class Tree : Gtk.TreeView {
                                 return true;
                         }
                     } else if (
-                        event.type == Gdk.EventType.2BUTTON_PRESS
+                        n_press == 2
                         && !is_category // Main categories are *not* editable
                         && item.editable
                         && item.selectable
@@ -726,25 +742,23 @@ private class Tree : Gtk.TreeView {
         return min_req.width;
     }
 
-    public override bool popup_menu () {
-        return popup_context_menu (null, null);
-    }
-
-    private bool popup_context_menu (Item? item, Gdk.EventButton? event) {
+    private bool popup_context_menu (Item? item, int x, int y) {
         if (item == null)
             item = selected_item;
 
         if (item != null) {
-            var menu = item.get_context_menu ();
-            if (menu != null) {
-                menu.attach_widget = this;
-                menu.popup_at_pointer (event);
-                if (event == null) {
-                    menu.select_first (false);
-                }
-
-                return true;
+            var menu = item.get_context_menu (); // GLib.Menu
+            if (menu == null) {
+                return;
             }
+            // Taken from Terminal code
+            var new_context_menu = new Gtk.PopoverMenu.from_model (menu) {
+                has_arrow = false
+            };
+            new_context_menu.set_parent (this);
+            new_context_menu.set_pointing_to ({x, y, 1, 1});
+            new_context_menu.closed.connect (() => new_context_menu.destroy ());
+            new_context_menu.popup ();
         }
 
         return false;
