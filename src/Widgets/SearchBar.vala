@@ -215,6 +215,9 @@ namespace Scratch.Widgets {
             replace_entry.add_controller (replace_key_controller);
             replace_key_controller.key_pressed.connect (on_replace_entry_key_press);
 
+            var focus_controller = new Gtk.EventControllerFocus ();
+            add_controller (focus_controller);
+            focus_controller.enter.connect (on_search_entry_focused_in);
             var entry_path = new Gtk.WidgetPath ();
             entry_path.append_type (typeof (Gtk.Widget));
 
@@ -353,13 +356,12 @@ namespace Scratch.Widgets {
             }
         }
 
-        private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+        private void on_search_entry_focused_in () {
             if (text_buffer == null) {
-                return false;
+                return;
             }
 
             update_search_widgets ();
-            return false;
         }
 
         public bool search () {
