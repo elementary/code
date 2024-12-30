@@ -647,13 +647,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void drag_begin (Gdk.Drag drag) {
-								/*
-                                Gdk.DragSource ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time*/
         if (info == GLib.Value.URI_LIST) {
             var uris = sel.get_uris ();
             foreach (var filename in uris) {
