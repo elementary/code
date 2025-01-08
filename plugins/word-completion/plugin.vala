@@ -19,16 +19,10 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
 
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
-
-    private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
+    public const int MAX_TOKENS = 1000000;
+    public const uint INTERACTIVE_DELAY = 500;
+    public const int INITIAL_PARSE_DELAY_MSEC = 1000;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -40,6 +34,19 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     };
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
+
+
+    public Object object { owned get; construct; }
+
+    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
+    private Euclide.Completion.Parser parser;
+    private Gtk.SourceView? current_view;
+    private Gtk.SourceCompletion? current_completion;
+    private Scratch.Plugins.CompletionProvider current_provider;
+    private Scratch.Services.Document current_document {get; private set;}
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
 
     private uint timeout_id = 0;
 
@@ -62,123 +69,156 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void on_new_source_view (Scratch.Services.Document doc) {
+        debug ("new source_view %s", doc != null ? doc.title : "null");
         if (current_view != null) {
-            if (current_view == doc.source_view)
+            if (current_view == doc.source_view) {
                 return;
+            }
 
             parser.cancel_parsing ();
-
-            if (timeout_id > 0)
-                GLib.Source.remove (timeout_id);
-
-            cleanup (current_view);
+            cleanup ();
         }
 
         current_document = doc;
         current_view = doc.source_view;
-        current_view.key_press_event.connect (on_key_press);
-        current_view.completion.show.connect (() => {
-            completion_in_progress = true;
-        });
-        current_view.completion.hide.connect (() => {
-            completion_in_progress = false;
-        });
+        current_completion = current_view.completion;
 
-
-        if (text_view_list.find (current_view) == null)
+        if (text_view_list.find (current_view) == null) {
             text_view_list.append (current_view);
-
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
-
-        try {
-            current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
-            current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load then run parser*/
-            timeout_id = Timeout.add (1000, on_timeout_update);
-
-        } catch (Error e) {
-            warning (e.message);
         }
-    }
 
-    private bool on_timeout_update () {
+        current_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
+
         try {
-            new Thread<void*>.try ("word-completion-thread", () => {
-                if (current_view != null)
-                    parser.parse_text_view (current_view as Gtk.TextView);
+            current_completion.add_provider (current_provider);
+            current_completion.show_headers = true;
+            current_completion.show_icons = true;
+            current_completion.accelerators = 9;
+            current_completion.select_on_show = true;
+        } catch (Error e) {
+            critical (
+                "Could not add completion provider to %s. %s\n",
+                current_document.title,
+                e.message
+            );
+            cleanup ();
+            return;
+        }
 
-                return null;
+        // Check whether there is already a parsed tree
+        if (!parser.select_current_tree (current_view)) {
+            // If not, start initial parsing  after timeout to ensure text loaded
+            var view_to_parse = current_view;
+            timeout_id = Timeout.add (INITIAL_PARSE_DELAY_MSEC, () => {
+                timeout_id = 0;
+                // Check view has not been switched
+                if (view_to_parse == current_view) {
+                    try {
+                        new Thread<void*>.try ("word-completion-thread", () => {
+                            // The initial parse gets cancelled if view switched before complete
+                            parser.initial_parse_buffer_text (view_to_parse.buffer.text);
+                            return null;
+                        });
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                }
+
+                return Source.REMOVE;
             });
-        } catch (Error e) {
-            warning (e.message);
         }
 
-        timeout_id = 0;
-        return false;
+        // Always connect signals - they are disconnected in cleanup
+        connect_signals ();
     }
 
-    private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
-        var kv = event.keyval;
-        /* Pass through any modified keypress except Shift or Capslock */
-        Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
-                                            & ~Gdk.ModifierType.SHIFT_MASK
-                                            & ~Gdk.ModifierType.LOCK_MASK;
-        if (mods > 0 ) {
-            /* Default key for USER_REQUESTED completion is ControlSpace
-             * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
-             * alternative and also purges spelling mistakes and unused words from the list.
-             * If used when a word or part of a word is selected, the selection will be
-             * used as the word to find. */
+    // Runs before default handler so buffer text not yet modified. @pos must not be invalidated
+    private void on_insert_text (Gtk.TextIter iter, string new_text, int new_text_length) {
+        if (!parser.get_initial_parsing_completed ()) {
+            return;
+        }
+        // Determine whether insertion point ends and/or starts a word
+        var word_before = parser.get_word_immediately_before (iter);
+        var word_after = parser.get_word_immediately_after (iter);
+        var text_to_add = (word_before + new_text + word_after);
+        var text_to_remove = (word_before + word_after);
+        // Only update if words have changed
+        debug ("insert text - add '%s' + '%s' + '%s'", word_before, new_text, word_after);
+        if (text_to_add != text_to_remove) {
+            parser.parse_text_and_add (text_to_add);
+            parser.remove_word (text_to_remove);
+        }
+    }
 
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
-                (kv == REFRESH_SHORTCUT)) {
-
-                parser.rebuild_word_list (current_view);
-                current_view.show_completion ();
-                return true;
-            }
+    private void on_delete_range (Gtk.TextIter del_start_iter, Gtk.TextIter del_end_iter) {
+        if (!parser.get_initial_parsing_completed ()) {
+            return;
         }
 
-        var uc = (unichar)(Gdk.keyval_to_unicode (kv));
-        if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
-            (uc.isprint () || uc.isspace ())) {
+        var del_text = del_start_iter.get_text (del_end_iter);
+        var word_before = parser.get_word_immediately_before (del_start_iter);
+        var word_after = parser.get_word_immediately_after (del_end_iter);
+        var to_remove = word_before + del_text + word_after;
+        var to_add = word_before + word_after;
 
-            var buffer = current_view.buffer;
-            var mark = buffer.get_insert ();
-            Gtk.TextIter cursor_iter;
-            buffer.get_iter_at_mark (out cursor_iter, mark);
+        // More than one word could be deleted so parse.
+        debug ("delete range - remove '%s' + '%s' + '%s'", word_before, del_text, word_after);
+        parser.parse_text_and_remove (to_remove);
+        // Only one at most new words
+        parser.add_word (to_add);
 
-            var word_start = cursor_iter;
-            Euclide.Completion.Parser.back_to_word_start (ref word_start);
+        // Completions not usually shown after deletions so trigger it ourselves
+        if (del_text.length == 1) {
+            schedule_completion ();
+        }
+    }
 
-            string word = buffer.get_text (word_start, cursor_iter, false);
-            parser.add_word (word);
+    uint completion_timeout_id = 0;
+    bool wait = true;
+    // Wait until after buffer has finished being amended then trigger completion
+    private void schedule_completion () {
+        if (completion_timeout_id == 0) {
+            completion_timeout_id = Timeout.add (current_provider.interactive_delay, () => {
+                if (wait) {
+                    wait = false;
+                    return Source.CONTINUE;
+                } else {
+                    completion_timeout_id = 0;
+                    wait = true;
+                    current_view.show_completion ();
+                    return Source.REMOVE;
+                }
+            });
+        } else {
+            wait = true;
+        }
+    }
+
+    private void cleanup () {
+        if (timeout_id > 0) {
+            GLib.Source.remove (timeout_id);
         }
 
-        return false;
-    }
+        disconnect_signals ();
 
-    private string provider_name_from_document (Scratch.Services.Document doc) {
-        return _("%s - Word Completion").printf (doc.get_basename ());
-    }
-
-    private void cleanup (Gtk.SourceView view) {
-        current_view.key_press_event.disconnect (on_key_press);
-
-        current_view.completion.get_providers ().foreach ((p) => {
+        current_completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
-                if (p.get_name () == provider_name_from_document (current_document)) {
-                    debug ("removing provider %s", p.get_name ());
-                    current_view.completion.remove_provider (p);
-                }
+                current_completion.remove_provider (current_provider);
             } catch (Error e) {
                 warning (e.message);
             }
         });
+    }
+
+    private void connect_signals () {
+        current_view.buffer.insert_text.connect (on_insert_text);
+        current_view.buffer.delete_range.connect (on_delete_range);
+    }
+
+    private void disconnect_signals () {
+        current_view.buffer.insert_text.disconnect (on_insert_text);
+        current_view.buffer.delete_range.disconnect (on_delete_range);
     }
 }
 
