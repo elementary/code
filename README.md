@@ -11,14 +11,13 @@ You'll need the following dependencies:
 * libgail-3-dev
 * libgee-0.8-dev
 * libgit2-glib-1.0-dev
-* libgtksourceview-4-dev
+* libgtksourceview-5-dev
 * libgtkspell3-3-dev
-* libgranite-dev >= 6.0.0
-* libhandy-1-dev >= 0.90.0
-* libpeas-dev
+* libgranite-7-dev >= 6.0.0
+* libadwaita-1-dev >= 1.0.0
 * libsoup2.4-dev
-* libvala-0.48-dev (or higher)
-* libvte-2.91-dev
+* libvala-0.56-dev (or higher)
+* libvte-2.91-gtk4-dev
 * valac
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build
