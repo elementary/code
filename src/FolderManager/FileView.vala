@@ -75,7 +75,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         icon_name = "folder-symbolic";
         title = _("Folders");
 
-        settings = new GLib.Settings ("io.elementary.code.folder-manager");
+        settings = new GLib.Settings ("com.github.jeremypw.dogfood-code-7.folder-manager");
 
         git_manager = Scratch.Services.GitManager.get_instance ();
 

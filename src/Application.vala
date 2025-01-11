@@ -91,7 +91,7 @@ namespace Scratch {
             /* Only allow running with root privileges using pkexec, not using sudo */
             if (Posix.getuid () == 0 && GLib.Environment.get_variable ("PKEXEC_UID") == null) {
 #if HAVE_PKEXEC
-                warning ("Running Code using sudo is not possible. Use: pkexec io.elementary.code");
+                warning ("Running Code using sudo is not possible. Use: pkexec com.github.jeremypw.dogfood-code-7");
 #endif
                 quit ();
                 return 1;

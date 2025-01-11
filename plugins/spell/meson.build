@@ -7,7 +7,7 @@ module_files = [
 spell_dep = dependency('gtkspell3-3.0')
 
 module_deps = [
-    codecore_dep,
+    dogfood_code_core_dep,
     spell_dep
 ]
 

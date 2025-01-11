@@ -1,6 +1,6 @@
 conf_data = configuration_data()
-conf_data.set_quoted('PROJECT_NAME', meson.project_name())
-conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf_data.set_quoted('PROJECT_NAME', install_name)
+conf_data.set_quoted('GETTEXT_PACKAGE', install_name)
 conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
@@ -65,7 +65,7 @@ code_files = files(
 )
 
 executable(
-    meson.project_name(),
+    install_name,
     code_files,
     code_resources,
     config_header,
@@ -73,8 +73,8 @@ executable(
     install: true
 )
 
-codecore = library(
-    'codecore',
+dogfood_code_core = library(
+    'dogfood_code_core',
     code_files,
     config_header,
     dependencies: dependencies,
@@ -87,16 +87,16 @@ pkg = import('pkgconfig')
 
 pkg.generate(
     version: '0.1',
-    libraries: codecore,
-    description: 'elementary Code headers',
-    name: 'codecore',
-    filebase: 'codecore'
+    libraries: dogfood_code_core,
+    description: 'experimental Code headers',
+    name: 'dogfood_code_core',
+    filebase: 'dogfood_code_core'
 )
 
-install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
+install_data ('dogfood_code_core.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
 
-codecore_dep = declare_dependency(
-    link_with: codecore,
+dogfood_code_core_dep = declare_dependency(
+    link_with: dogfood_code_core,
     dependencies: dependencies,
     include_directories: [include_directories('.')]
 )

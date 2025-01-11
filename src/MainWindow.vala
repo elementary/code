@@ -235,9 +235,9 @@ namespace Scratch {
             );
 
             if (Constants.BRANCH != "") {
-                base_title = _("Code (%s)").printf (Constants.BRANCH);
+                base_title = _("Dogfood Code 7 (%s)").printf (Constants.BRANCH);
             } else {
-                base_title = _("Code");
+                base_title = _("Dogfood Code 7");
             }
 
             Hdy.init ();
