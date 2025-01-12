@@ -48,7 +48,12 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         resolver = new Code.Plugins.ValaSymbolResolver ();
 
         store.item_selected.connect ((selected) => {
+            if (selected == null) {
+                return;
+            }
+
             doc.goto (((ValaSymbolItem)selected).symbol.source_reference.begin.line);
+            store.selected = null;
         });
 
         doc.doc_closed.connect (doc_closed);
