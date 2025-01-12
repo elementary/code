@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-08-04 00:16+0000\n"
+"PO-Revision-Date: 2025-01-11 23:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -483,10 +483,9 @@ msgstr ""
 "ファイル“%s”を含む場所はアンマウントされていて、未保存の変更があります。"
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "ファイル“%s”は削除されていて、未保存の変更があります。"
+msgstr "ファイル“%s”は削除、名称変更、または移動されていて、未保存の変更があります。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
