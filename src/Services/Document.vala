@@ -65,6 +65,16 @@ namespace Scratch.Services {
             }
         }
 
+        public string project_path {
+            owned get {
+                if (source_view.project != null) {
+                    return source_view.project.path;
+                } else {
+                    return "";
+                }
+            }
+        }
+
         private string _title = "";
         public string title {
             get { return _title; }
