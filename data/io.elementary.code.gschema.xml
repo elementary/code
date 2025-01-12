@@ -17,7 +17,7 @@
     <value nick="always" value="2" />
   </enum>
 
-  <schema path="/io/elementary/code/saved-state/" id="com.github.jeremypw.dogfood-code-7.saved-state" gettext-domain="com.github.jeremypw.dogfood-code-7">
+  <schema path="/com/github/jeremypw/dogfood-code-7/saved-state/" id="com.github.jeremypw.dogfood-code-7.saved-state" gettext-domain="com.github.jeremypw.dogfood-code-7">
     <key name="window-state" enum="com.github.jeremypw.dogfood-code-7.window-states">
       <default>"Normal"</default>
       <summary>The saved state of the window.</summary>
@@ -65,7 +65,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/settings/" id="com.github.jeremypw.dogfood-code-7.settings" gettext-domain="com.github.jeremypw.dogfood-code-7">
+  <schema path="/com/github/jeremypw/dogfood-code-7/" id="com.github.jeremypw.dogfood-code-7.settings" gettext-domain="com.github.jeremypw.dogfood-code-7">
     <key type="as" name="plugins-enabled">
       <default>['brackets-completion', 'detect-indent', 'editorconfig']</default>
       <summary>Enabled Plugins</summary>
@@ -199,7 +199,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/services/" id="com.github.jeremypw.dogfood-code-7.services" gettext-domain="com.github.jeremypw.dogfood-code-7">
+  <schema path="/com/github/jeremypw/dogfood-code-7/services/" id="com.github.jeremypw.dogfood-code-7.services" gettext-domain="com.github.jeremypw.dogfood-code-7">
     <key name="paste-format-code" type="s">
       <default>'None'</default>
       <summary>Default PasteBin text highlight</summary>
@@ -217,7 +217,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/folder-manager/" id="com.github.jeremypw.dogfood-code-7.folder-manager">
+  <schema path="/com/github/jeremypw/dogfood-code-7/folder-manager/" id="com.github.jeremypw.dogfood-code-7.folder-manager">
     <key name="opened-folders" type="as">
       <default>[]</default>
       <summary>Opened folders.</summary>
