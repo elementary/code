@@ -8,7 +8,7 @@ module_files = [
 soup_dep = dependency('libsoup-2.4')
 
 module_deps = [
-    codecore_dep,
+    dogfood_code_core_dep,
     soup_dep
 ]
 

@@ -5,7 +5,7 @@ module_files = [
 ]
 
 module_deps = [
-    codecore_dep
+    dogfood_code_core_dep
 ]
 
 shared_module(

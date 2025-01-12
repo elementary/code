@@ -54,7 +54,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 
             window = w;
 
-            folder_settings = new GLib.Settings ("io.elementary.code.folder-manager");
+            folder_settings = new GLib.Settings ("com.github.jeremypw.dogfood-code-7.folder-manager");
             add_actions ();
             folder_settings.changed["opened-folders"].connect (handle_opened_projects_change);
         });
@@ -118,7 +118,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
     }
 
     private void fuzzy_find () {
-        var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+        var settings = new GLib.Settings ("com.github.jeremypw.dogfood-code-7.folder-manager");
 
         string[] opened_folders = settings.get_strv ("opened-folders");
         if (opened_folders == null || opened_folders.length < 1) {

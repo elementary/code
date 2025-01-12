@@ -1,8 +1,8 @@
-app-id: io.elementary.code
+app-id: com.github.jeremypw.dogfood-code-7
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
 runtime-version: '7.1'
 sdk: io.elementary.Sdk
-command: io.elementary.code
+command: com.github.jeremypw.dogfood-code-7
 finish-args:
   - '--filesystem=xdg-run/gvfsd'
   - '--filesystem=host'

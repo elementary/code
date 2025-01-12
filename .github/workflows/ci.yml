@@ -58,7 +58,7 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: code.flatpak
-          manifest-path: io.elementary.code.yml
+          manifest-path: com.github.jeremypw.dogfood-code-7.yml
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
