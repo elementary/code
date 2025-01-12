@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 22:46+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nowo karta"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "Nowe ôkno"
 
@@ -317,29 +317,29 @@ msgstr "Niy prziwrocej"
 msgid "Restore Anyway"
 msgstr "Prziwrōć i tak"
 
-#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
 msgstr "Inksze akcyje"
 
-#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr "Przemianuj"
 
-#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
 #: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr "Przeniyś do hasioka"
 
-#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
 msgstr "Inkszy program…"
 
-#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
 msgstr "Ôtwōrz we"
 
@@ -369,11 +369,11 @@ msgstr "Prōzny zbiōr"
 msgid "New"
 msgstr "Nowy"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
 msgstr "katalog bez miana"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "new file"
 msgstr "nowy zbiōr"
 
@@ -543,7 +543,7 @@ msgstr ""
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid "File “%s” was deleted and there are unsaved changes."
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
 "Zbiōr „%s” bōł zmodyfikowany ôd inkszego programu. Chcesz go zaladować na "
 "nowo abo chcesz kōntynuować edytowanie?"

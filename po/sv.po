@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 22:46+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Ny flik"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "Nytt fönster"
 
@@ -321,29 +321,29 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Ladda ändå"
 
-#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
 msgstr "Andra åtgärder"
 
-#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr "Byt namn"
 
-#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
 #: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr "Flytta till papperskorgen"
 
-#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
 msgstr "Annat program…"
 
-#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
 msgstr "Öppna i"
 
@@ -373,11 +373,11 @@ msgstr "Tom fil"
 msgid "New"
 msgstr "Nytt"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
 msgstr "namnlös mapp"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "new file"
 msgstr "ny fil"
 
@@ -549,7 +549,7 @@ msgstr ""
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
 #| "it again or continue your editing?"
-msgid "File “%s” was deleted and there are unsaved changes."
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
 "Filen \"%s\" ändrades av extern applikation. Vill du ladda den igen eller "
 "fortsätta redigeringen?"
