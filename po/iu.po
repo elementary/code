@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 22:46+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2015-12-18 20:01+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 msgid "New Tab"
 msgstr ""
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr ""
 
@@ -278,29 +278,29 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
 #: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
 msgstr ""
 
@@ -328,11 +328,11 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "new file"
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr ""
 
 #: src/Services/Document.vala:876
 #, c-format
-msgid "File “%s” was deleted and there are unsaved changes."
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
 
 #. Check external changes after loading
