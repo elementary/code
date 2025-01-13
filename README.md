@@ -1,6 +1,4 @@
-# Code
-[![Translation status](https://l10n.elementary.io/widgets/code/-/svg-badge.svg)](https://l10n.elementary.io/projects/code/?utm_source=widget)
-
+# Dogfood-code-7
 ![Screenshot](data/screenshot.png?raw=true)
 
 ## Building, Testing, and Installation
@@ -27,7 +25,7 @@ Run `meson build` to configure the build environment. Change to the build direct
     cd build
     ninja test
 
-To install, use `ninja install`, then execute with `io.elementary.code`
+To install, use `ninja install`, then execute with `com.github.jeremypw.dogfood-code-7`
 
     sudo ninja install
-    io.elementary.code
+    com.github.jeremypw.dogfood-code-7

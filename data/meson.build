@@ -4,12 +4,12 @@ foreach i : icon_sizes
     install_data(
         'icons' / i + '.svg',
         install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i / 'apps',
-        rename: meson.project_name() + '.svg'
+        rename: install_name + '.svg'
     )
     install_data(
         'icons' / i + '.svg',
         install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i + '@2' / 'apps',
-        rename: meson.project_name() + '.svg'
+        rename: install_name + '.svg'
     )
 endforeach
 
@@ -20,7 +20,7 @@ install_data([
 
 install_data([
   'fonts/BuilderBlocks.ttf',
-], install_dir: get_option('datadir') / meson.project_name() / 'fonts')
+], install_dir: get_option('datadir') / install_name / 'fonts')
 
 install_data(
     'io.elementary.code.gschema.xml',
@@ -29,12 +29,12 @@ install_data(
 )
 
 config_data = configuration_data()
-config_data.set('EXEC_NAME', meson.project_name())
+config_data.set('EXEC_NAME', install_name)
 
 if (branch != '')
-    config_data.set('NAME', 'Code - ' + branch)
+    config_data.set('NAME', 'Dogfood Code 7 - ' + branch)
 else
-    config_data.set('NAME', 'Code')
+    config_data.set('NAME', 'Dogfood Code 7')
 endif
 
 # Set the executable name and translate the desktop files
@@ -46,7 +46,7 @@ desktop_in_file = configure_file(
 
 desktop_file = i18n.merge_file(
     input: desktop_in_file,
-    output: 'io.elementary.code.desktop',
+    output: install_name + '.desktop',
     po_dir: meson.project_source_root () / 'po' / 'extra',
     type: 'desktop',
     install_dir: get_option('datadir') / 'applications',
@@ -55,7 +55,7 @@ desktop_file = i18n.merge_file(
 
 i18n.merge_file(
     input: 'code.metainfo.xml.in',
-    output: meson.project_name() + '.metainfo.xml',
+    output: install_name + '.metainfo.xml',
     po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'xml',
     install: true,
@@ -65,19 +65,19 @@ i18n.merge_file(
 config_data = configuration_data()
 config_data.set('install_prefix', get_option('prefix'))
 config_data.set('bin_dir', get_option('bindir'))
-config_data.set('exec_name', meson.project_name())
+config_data.set('exec_name', install_name)
 
 if get_option ('have_pkexec')
     policy_in = configure_file(
         input: 'code.policy.in.in',
-        output:  meson.project_name() + '.policy.in',
+        output:  install_name + '.policy.in',
         configuration: config_data,
         install: false,
     )
 
     i18n.merge_file(
         input: policy_in,
-        output: meson.project_name() + '.policy',
+        output: install_name + '.policy',
         po_dir: meson.project_source_root () / 'po' / 'extra',
         install: true,
         install_dir: get_option('datadir') / 'polkit-1' / 'actions',

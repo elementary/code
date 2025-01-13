@@ -44,9 +44,10 @@ namespace Scratch.Services {
             return instance;
         }
 
-        private GitManager () {
+        construct {
             // Used to populate the ChooseProject popover in sorted order
             project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
+            settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
@@ -72,8 +73,7 @@ namespace Scratch.Services {
                 );
             }
 
-            //Ensure active_project_path always set
-            active_project_path = root_path;
+            // No longer need to set default project (restored from settings or left unset)
             return project_gitrepo_map.@get (root_path);
         }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema path="/io/elementary/code/plugins/spell/" id="io.elementary.code.plugins.spell">
+  <schema path="/com/github/jeremypw/dogfood-code-7/plugins/spell/" id="com.github.jeremypw.dogfood-code-7.plugins.spell">
     <key name="language" type="s">
       <default>'en_US'</default>
       <summary>Selected Spellcheck Language</summary>
