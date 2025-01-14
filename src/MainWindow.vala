@@ -73,7 +73,6 @@ namespace Scratch {
         public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
-
         public const string ACTION_ADD_MARK = "action_add_mark";
         public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
         public const string ACTION_NEXT_MARK = "action_next_mark";

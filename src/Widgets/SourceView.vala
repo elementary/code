@@ -40,6 +40,7 @@ namespace Scratch.Widgets {
         private NavMarkGutterRenderer navmark_gutter_renderer;
         private Gtk.TextMark? current_edit_point = null;
         private int last_edit_point_line = 0;
+
         private const uint THROTTLE_MS = 400;
         private double total_delta = 0;
         private const double SCROLL_THRESHOLD = 1.0;
