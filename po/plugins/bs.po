@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/plugins/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
@@ -44,6 +44,14 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Učitaj podešavanja iz datoteke EditorConfig"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Istakni odabranu riječ"
@@ -59,14 +67,6 @@ msgstr ""
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Obris"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Obris simbola u Vašoj trenutnoj datoteci za Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -92,23 +92,6 @@ msgstr "Provjera pravopisa"
 msgid "Checks the spelling of your documents"
 msgstr "Provjerava pravopis Vaših dokumenata"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Ukloni bjeline na kraju retka"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Ukloni bjeline na kraju retka prilikom pohrane datoteke"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "Terminal u Vašem uređivaču teksta"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emulacija"
@@ -126,6 +109,25 @@ msgstr "Dovršavanje riječi"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Prikaži dijalog dovršavanja s najčešće korištenim riječima iz Vaših datoteka"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminal u Vašem uređivaču teksta"
+
+#~ msgid "Outline"
+#~ msgstr "Obris"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Obris simbola u Vašoj trenutnoj datoteci za Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Ukloni bjeline na kraju retka"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Ukloni bjeline na kraju retka prilikom pohrane datoteke"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Pretpregled u web pregledniku"

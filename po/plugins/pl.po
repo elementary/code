@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-09-27 22:37+0000\n"
-"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2024-07-15 08:16+0000\n"
+"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/plugins/pl/"
 ">\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -44,6 +44,16 @@ msgstr "Konfiguracja edytora"
 msgid "Load settings from an EditorConfig file"
 msgstr "Wczytaj ustawienia z pliku Konfiguracji edytora"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "Znajdź pliki projektu"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+"Rozmyte wyszukiwanie we wszystkich otwartych projektach (Wywołaj przy użyciu "
+"ALT + F)"
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Zakreślające zaznaczanie słów"
@@ -59,14 +69,6 @@ msgstr "Czynności Markdown"
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Dodaje skróty klawiszowe do szybkiego edytowania plików Markdown"
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Podkreślanie"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Podkreśl symbole w Twoim bieżącym pliku Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -92,22 +94,6 @@ msgstr "Sprawdzanie pisowni"
 msgid "Checks the spelling of your documents"
 msgstr "Sprawdzanie pisowni w Twoich dokumentach"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Usuń białe spacje"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Usuń końcowe białe znaki przy zapisywaniu"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Terminal w Twoim edytorze kodu"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulacja Vim"
@@ -124,6 +110,24 @@ msgstr "Uzupełnianie słów"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Wyświetla okno uzupełniania z najczęściej używanymi słowami z Twoich plików"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminal w Twoim edytorze kodu"
+
+#~ msgid "Outline"
+#~ msgstr "Podkreślanie"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Podkreśl symbole w Twoim bieżącym pliku Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Usuń białe spacje"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Usuń końcowe białe znaki przy zapisywaniu"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Podgląd przeglądarki"

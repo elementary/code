@@ -18,11 +18,31 @@
  */
 
 public class Code.Sidebar : Gtk.Grid {
+    public enum TargetType {
+        URI_LIST
+    }
+
     public Gtk.Stack stack { get; private set; }
+    public Code.ChooseProjectButton choose_project_button { get; private set; }
+    public Hdy.HeaderBar headerbar { get; private set; }
+    public GLib.MenuModel project_menu_model { get; construct; }
+
     private Gtk.StackSwitcher stack_switcher;
+
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
+        choose_project_button = new Code.ChooseProjectButton () {
+            hexpand = true,
+            valign = Gtk.Align.CENTER
+        };
+
+        headerbar = new Hdy.HeaderBar () {
+            custom_title = choose_project_button,
+            show_close_button = true
+        };
+        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -38,31 +58,32 @@ public class Code.Sidebar : Gtk.Grid {
 
         var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
+            action_target = new Variant.string (""),
             always_show_image = true,
-            label = _("Open Project Folder…")
+            label = _("Open Folder…")
         };
 
-        var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
-        collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX +
-                                             Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
+        var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
+        + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
 
-        var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize"));
-        order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX +
-                                               Scratch.MainWindow.ACTION_ORDER_FOLDERS;
+        var order_projects_menu_item = new GLib.MenuItem (_("Alphabetize"), Scratch.MainWindow.ACTION_PREFIX
+                + Scratch.MainWindow.ACTION_ORDER_FOLDERS);
 
-        var project_menu = new Gtk.Menu ();
-        project_menu.append (collapse_all_menu_item);
-        project_menu.append (order_projects_menu_item);
-        project_menu.show_all ();
+        var project_menu = new GLib.Menu ();
+        project_menu.append_item (collapse_all_menu_item);
+        project_menu.append_item (order_projects_menu_item);
+        project_menu_model = project_menu;
 
         var project_more_button = new Gtk.MenuButton ();
         project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        project_more_button.popup = project_menu;
+        project_more_button.use_popover = false;
+        project_more_button.menu_model = project_menu_model;
         project_more_button.tooltip_text = _("Manage project folders");
 
         actionbar.add (add_folder_button);
         actionbar.pack_end (project_more_button);
 
+        add (headerbar);
         add (stack_switcher);
         add (stack);
         add (actionbar);
@@ -89,6 +110,42 @@ public class Code.Sidebar : Gtk.Grid {
                     break;
             }
         });
+
+        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        drag_data_received.connect (drag_received);
+    }
+
+    private void drag_received (Gtk.Widget w,
+                                Gdk.DragContext ctx,
+                                int x,
+                                int y,
+                                Gtk.SelectionData sel,
+                                uint info,
+                                uint time) {
+
+        if (info == TargetType.URI_LIST) {
+            var uri_list = sel.get_uris ();
+            GLib.List<GLib.File> folder_list = null;
+            foreach (unowned var uri in uri_list) {
+                var file = GLib.File.new_for_uri (uri);
+                // Blocking but for simplicity omit cancellable for now
+                var ftype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
+                if (ftype == GLib.FileType.DIRECTORY) {
+                  folder_list.prepend (file);
+                }
+            }
+
+            foreach (var folder in folder_list) {
+                var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+                win_group.activate_action (
+                    Scratch.MainWindow.ACTION_OPEN_FOLDER,
+                    new Variant.string (folder.get_path ())
+                );
+            }
+
+            Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
+        }
     }
 
     public void add_tab (Code.PaneSwitcher tab) {

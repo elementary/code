@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-07-27 15:57+0000\n"
-"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2024-09-20 09:43+0000\n"
+"Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/plugins/tr/"
 ">\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -43,6 +43,16 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Ayarları bir EditorConfig dosyasından yükle"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "Proje Dosyalarını Bul"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+"Tüm açık projelerdeki dosyalar için yaklaşık arama (ALT + F kullanarak "
+"göster)"
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Kelime Seçimini Vurgula"
@@ -60,14 +70,6 @@ msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 "Markdown dosyalarını hızlı bir şekilde düzenlemek için klavye kısayolları "
 "ekler"
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Outline"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Vala dosyalarınızdaki sembolleri kenar çubuğunda gösterir"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -93,22 +95,6 @@ msgstr "Yazım Denetleyicisi"
 msgid "Checks the spelling of your documents"
 msgstr "Belgelerinizde yazım denetimi yapar"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Sondaki boşlukları temizle"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Kaydederken sondaki boşlukları temizler"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Kod düzenleyicinizdeki terminal"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim Emülasyonu"
@@ -126,6 +112,24 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Dosyalarınızdaki en çok kullanılan kelimeler için bir tamamlama iletişim "
 "kutusu göster"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Kod düzenleyicinizdeki terminal"
+
+#~ msgid "Outline"
+#~ msgstr "Outline"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Vala dosyalarınızdaki sembolleri kenar çubuğunda gösterir"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Sondaki boşlukları temizle"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Kaydederken sondaki boşlukları temizler"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Tarayıcı Önizlemesi"

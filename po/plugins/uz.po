@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2020-09-26 13:14+0000\n"
 "Last-Translator: Shukrullo <shukrullo@umail.uz>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/plugins/uz/>\n"
@@ -42,6 +42,14 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Fayl sozlamalarini EditorConfig faylidan yuklab olish"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Belgilangan so'zlarni ranglarda ajratish"
@@ -57,14 +65,6 @@ msgstr ""
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Tagchiziq"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Sizning Vala faylingizda belgilarni avtomatik chiziqqa o'rash"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -90,22 +90,6 @@ msgstr "Orfografik tekshiruv"
 msgid "Checks the spelling of your documents"
 msgstr "Hujjatlaringizda to'g'ri yozishga tekshirish"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Qator oxirida bo'shliqlarni tozalash"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Saqlayotgan vaqtda qator oxiridagi bo'shliqlarni tozalash"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Tahrirlovchi ichida terminal"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim emulyatsiyasi"
@@ -123,3 +107,21 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Fayllarda eng ko'p ishlatiladigan so'zlar bilan tugaydiganlarni dialogda "
 "ko'rsatish"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Tahrirlovchi ichida terminal"
+
+#~ msgid "Outline"
+#~ msgstr "Tagchiziq"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Sizning Vala faylingizda belgilarni avtomatik chiziqqa o'rash"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Qator oxirida bo'shliqlarni tozalash"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Saqlayotgan vaqtda qator oxiridagi bo'shliqlarni tozalash"

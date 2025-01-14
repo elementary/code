@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,92 +13,135 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Application.vala:41
+#: src/Application.vala:40
 msgid "Print version info and exit"
 msgstr "ভার্সন এর তথ্য মুদ্রণ করে প্রস্থান করুন"
 
-#: src/Application.vala:42
-msgid "Set of plugins"
-msgstr "প্লাগিন এর সেট"
+#: src/Application.vala:41
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
 #: src/Application.vala:42
-#, fuzzy
-msgid "plugin"
-msgstr "প্লাগিন এর সেট"
-
-#: src/Application.vala:43
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:238
+#, c-format
+msgid "Code (%s)"
+msgstr ""
+
+#: src/MainWindow.vala:240
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "খুঁজুন..."
-
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:377
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find on Page…"
+msgstr "একটি ফোল্ডার খুলুন"
+
+#: src/MainWindow.vala:393
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
+
+#: src/MainWindow.vala:398
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "প্রিভিউ দেখান"
+
+#: src/MainWindow.vala:407
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:412
+#, fuzzy
+#| msgid "Symbols"
+msgid "Show Symbol Outline"
+msgstr "চিহ্নসমূহ"
+
+#: src/MainWindow.vala:421
+msgid "Hide Terminal"
+msgstr "টার্মিনাল লুকিয়ে রাখুন"
+
+#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "টার্মিনাল দেখান"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:618
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:946 src/Services/Document.vala:651
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:950 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:954
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:957
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:998
 msgid "_Open"
 msgstr "_খুলুন"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:999
 msgid "_Cancel"
 msgstr "_বাতিল"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:74
+#: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
+#: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
+#: src/Dialogs/GlobalSearchDialog.vala:111
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
@@ -119,94 +162,136 @@ msgstr ""
 msgid "Create Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "সাধারন"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "ফাইল সংরক্ষণ করুন যখনঃ"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+#, fuzzy
+#| msgid "Strip trailing whitespace on save"
+msgid "Strip trailing whitespace on save"
+msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস অন সেভ"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid "Smart cut/copy lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:55
-msgid "General"
-msgstr "সাধারন"
-
-#: src/Dialogs/PreferencesDialog.vala:56
-msgid "Save files when changed:"
-msgstr "ফাইল সংরক্ষণ করুন যখনঃ"
-
-#: src/Dialogs/PreferencesDialog.vala:58
-msgid "Smart cut/copy lines:"
+#: src/Dialogs/PreferencesDialog.vala:35
+msgid "Indentation width"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
-msgid "Tabs"
-msgstr "ট্যাবসমূহ"
-
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
-msgid "Automatic indentation:"
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
 msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
-msgid "Insert spaces instead of tabs:"
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
+
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
 msgstr "ট্যাব এর বদলে স্পেস ব্যবহার করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
-msgid "Tab width:"
-msgstr "ট্যাব এর প্রস্থঃ"
+#: src/Dialogs/PreferencesDialog.vala:57
+msgid "Default build directory"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Behavior"
-msgstr "বৈশিষ্ট্য"
+#: src/Dialogs/PreferencesDialog.vala:67
+#, fuzzy
+#| msgid "Project"
+msgid "Projects"
+msgstr "প্রজেক্ট"
 
-#: src/Dialogs/PreferencesDialog.vala:73
-msgid "Interface"
-msgstr "ইন্টারফেস"
+#: src/Dialogs/PreferencesDialog.vala:78
+msgid "None"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:88
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "বন্ধ করুন"
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "বর্তমান ভিউ সরিয়ে দিন"
 
-#: src/Dialogs/PreferencesDialog.vala:102
-msgid "Extensions"
-msgstr "এক্সটেনশানসমূহ"
+#: src/Dialogs/PreferencesDialog.vala:80
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "সম্পাদক"
 
-#: src/Dialogs/PreferencesDialog.vala:113
-msgid "Highlight matching brackets:"
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
 msgstr "একই ধরনের ব্র্যাকেট হাইলাইট করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:116
-msgid "Line wrap:"
-msgstr "লাইন মোড়ানোঃ"
-
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:114
 #, fuzzy
-#| msgid "Strip trailing whitespace"
-msgid "Visible whitespace:"
-msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস"
-
-#: src/Dialogs/PreferencesDialog.vala:125
-msgid "Show Mini Map:"
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
 msgstr "ছোট ম্যাপ দেখানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Line width guide:"
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:116
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
 msgstr "লাইন এর প্রস্থ নির্দেশিকাঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:138
-msgid "Custom font:"
-msgstr "কাস্টম ফন্টঃ"
+#: src/Dialogs/PreferencesDialog.vala:125
+msgid "Use system font"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "বৈশিষ্ট্য"
+
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+msgid "Interface"
+msgstr "ইন্টারফেস"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "এক্সটেনশানসমূহ"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "বন্ধ করুন"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -224,224 +309,372 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
-msgid "Other Application…"
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/ProjectFolderItem.vala:138
+msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
-#, fuzzy
-msgid "Open In"
-msgstr "খুলুন"
-
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 #, fuzzy
 msgid "Other Actions"
 msgstr "অন্যান্য ফরম্যাটসমূহ"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#, fuzzy
+msgid "Open In"
+msgstr "খুলুন"
+
+#: src/FolderManager/FileView.vala:76
 msgid "Folders"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:106
+#: src/FolderManager/FolderItem.vala:128
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "একটি ফোল্ডার খুলুন"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:184
 #, fuzzy
 msgid "Folder"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/ProjectFolderItem.vala:382
+#: src/FolderManager/ProjectFolderItem.vala:388
 #, fuzzy
 msgid "New"
 msgstr "নতুন ট্যাব"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:361
 #, fuzzy
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
+#: src/FolderManager/ProjectFolderItem.vala:175
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:192
+#, c-format
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:204
+#, fuzzy, c-format
+#| msgid "New Document"
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "নতুন ডকুমেন্ট"
+msgstr[1] "নতুন ডকুমেন্ট"
+
+#: src/FolderManager/ProjectFolderItem.vala:227
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "একটি ফোল্ডার খুলুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:196
-msgid "Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:234
-#, c-format
-msgid "Error while creating new branch: “%s”"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:515
+#: src/FolderManager/ProjectFolderItem.vala:321
 #, fuzzy
 msgid "New Branch…"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:528
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
-#: src/Services/Document.vala:264
+#: src/FolderManager/ProjectFolderItem.vala:388
+msgid "Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:426
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr ""
+
+#. Empty files are valid text files
+#: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:265
+#: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:372
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:288
+#: src/Services/Document.vala:393
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:289
+#: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:396
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:483
 #, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:484
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:490
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:495
+#: src/Services/Document.vala:621
+#, fuzzy, c-format
+msgid "Saving to “%s” failed."
+msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
+
+#: src/Services/Document.vala:659
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
 msgid "New Document"
 msgstr "নতুন ডকুমেন্ট"
 
-#. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Read"
+#. No path for a new document
+#: src/Services/Document.vala:766
+#, c-format
+msgid "Cannot save this document to %s"
 msgstr ""
-"\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
-"%s"
 
-#: src/Services/Document.vala:705
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:832
+#, c-format
+msgid "Cannot read text in file “%s”"
+msgstr ""
+
+#: src/Services/Document.vala:835
 #, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
 msgstr ""
 "\"%s\" ফাইলটি নির্ণয় করে যাচ্ছেনা।  হয়ত এটি নষ্ট\n"
 "অথবা আপনার প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Services/Document.vala:718
-#, c-format
+#: src/Services/Document.vala:837
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:843
+msgid "Show Anyway"
+msgstr ""
+
+#: src/Services/Document.vala:874
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
 msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
 msgstr ""
 "\"%s\" ফাইলটি যে অবস্থা এ ছিল সে লোকেশানটি সরিয়ে নেয়া হয়েছে। আপনি কী অন্য "
 "কোথায় সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "নতুনভাবে সংরক্ষণ করুন..."
-
-#: src/Services/Document.vala:727
-#, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
-
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:876
 #, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
-"লোকেশনে সংরক্ষণ করতে চান?"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
-
-#: src/Services/Document.vala:781
-#, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
 "\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
 "পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
 
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "লোড"
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:890
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:936
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was modified by an external application"
+msgstr ""
+"\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
+"পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
+
+#: src/Services/Document.vala:941
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:945
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:961
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:970
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:972
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:1021
 msgid "Continue"
 msgstr "পরবর্তী"
 
-#: src/Services/TemplateManager.vala:192
+#: src/Services/Document.vala:1023
+#, fuzzy
+#| msgid "Upload"
+msgid "Reload"
+msgstr "আপলোড"
+
+#: src/Services/Document.vala:1026
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:1029
+#, fuzzy
+#| msgid "Save changes elsewhere"
+msgid "Save Document elsewhere"
+msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
+
+#: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "টেমপ্লেট"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
+msgid "Symbols"
+msgstr "চিহ্নসমূহ"
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+#, fuzzy
+msgid "Other"
+msgstr "অন্যান্য..."
+
+#: src/SymbolPane/SymbolOutline.vala:96
+#, fuzzy
+#| msgid "Symbols"
+msgid "Find Symbol"
+msgstr "চিহ্নসমূহ"
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+msgid "Select All"
+msgstr "ফরম্যাটঃ "
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
+msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:20
 #, fuzzy
@@ -449,166 +682,260 @@ msgstr "টেমপ্লেট"
 msgid "No Project Selected"
 msgstr "প্রজেক্ট টেম্পলেটসমূহ"
 
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
 #, c-format
 msgid "Active Git project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:53
+#: src/Widgets/ChooseProjectButton.vala:62
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:126
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "বন্ধ করুন"
+
+#: src/Widgets/DocumentView.vala:449
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "টেক্সট ফাইল এখান থেকে "
 
-#: src/Widgets/FormatBar.vala:48
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Tabs"
+msgstr "ফোল্ডার বন্ধ করুন"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "বন্ধ করুন"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "নতুন উইন্ডো"
+
+#: src/Widgets/DocumentView.vala:642
+msgid "Duplicate Tab"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
 msgstr "বাক্যরীতি হাইলাইট করা"
 
-#: src/Widgets/FormatBar.vala:56
+#: src/Widgets/FormatBar.vala:60
 #, fuzzy
 msgid "Line number"
 msgstr "লাইন নাম্বার দেখানঃ"
 
-#: src/Widgets/FormatBar.vala:83
+#: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:107
+#: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:189
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:152
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
+
+#: src/Widgets/FormatBar.vala:154
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "ট্যাব এর বদলে স্পেস ব্যবহার করুনঃ"
+
+#: src/Widgets/FormatBar.vala:156
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "ট্যাব এর প্রস্থঃ"
+
+#: src/Widgets/FormatBar.vala:236
+msgid "Go To Line:"
+msgstr "লাইন এ যানঃ"
+
+#: src/Widgets/FormatBar.vala:287
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "ফাঁকা স্থান বসানঃ"
 msgstr[1] "ফাঁকা স্থান বসানঃ"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:289
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "নতুন ট্যাব"
 msgstr[1] "নতুন ট্যাব"
 
-#: src/Widgets/FormatBar.vala:207
-msgid "Go To Line:"
-msgstr "লাইন এ যানঃ"
-
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "একটি ফাইল খুলুন"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
 msgstr "প্রজেক্ট টেম্পলেটসমূহ"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "এই ফাইলটি সংরক্ষণ করুন"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "এই ফাইলটি ভিন্ন নামে সংরক্ষণ করুন"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "ফাইলটি পূর্বাবস্থায় নিয়ে যান"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "শেয়ার করুন"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:84
 #, fuzzy
 msgid "Zoom Out"
 msgstr "বড় আকারে প্রদর্শন"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
 msgstr "১:১ অনুপাতে বড় করে প্রদর্শন"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:100
 #, fuzzy
 msgid "Zoom In"
 msgstr "বড় আকারে প্রদর্শন"
 
-#: src/Widgets/HeaderBar.vala:151
-msgid "Toggle Sidebar"
+#: src/Widgets/HeaderBar.vala:145
+msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
-#| msgid "Open a folder"
-msgid "Open Project Folder…"
+msgid "Open Folder…"
 msgstr "একটি ফোল্ডার খুলুন"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "খুঁজুন"
 
 #: src/Widgets/SearchBar.vala:74
+msgid "No Results"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "পরবর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "পূর্ববর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "সাইক্লিক অনুসন্ধান"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "কখনো নয়"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
-msgid "Case Insensitive"
+#: src/Widgets/SearchBar.vala:114
+msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "পূর্ববর্তী খুঁজুন"
+
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "প্রতিস্থাপক শব্দ/শব্দগুচ্ছ"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "প্রতিস্থাপন"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
 
-#: src/Widgets/SourceView.vala:512
+#: src/Widgets/SearchBar.vala:569
+#, c-format
+msgid "%d of %d"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:574
+msgid "no results"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:558
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
 msgstr ""
+
+#: src/Widgets/Terminal.vala:59
+msgid "Copy"
+msgstr "অনুলিপি"
+
+#: src/Widgets/Terminal.vala:60
+msgid "Paste"
+msgstr "প্রতিলেপন"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -646,7 +973,7 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
 msgstr "পেস্টবিন এ আপলোড করুন"
 
@@ -682,10 +1009,6 @@ msgstr ""
 msgid "Select Format"
 msgstr "ফরম্যাটঃ "
 
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr "কখনো নয়"
-
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "দশ মিনিট"
@@ -702,44 +1025,6 @@ msgstr "এক দিন"
 msgid "One month"
 msgstr "এক মাস"
 
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr "চিহ্নসমূহ"
-
-#: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
-msgid "No Symbols Found"
-msgstr "চিহ্নসমূহ"
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr "টার্মিনাল দেখান"
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr "টার্মিনাল লুকিয়ে রাখুন"
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr "টার্মিনাল"
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr "অনুলিপি"
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr "প্রতিলেপন"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -751,10 +1036,79 @@ msgstr ""
 "কোন উপযুক্ত অভিধান পাওয়া যায়নি।\n"
 "অনুগ্রহপূর্বক অন্ততঃ একটি [aspell] অভিধান ইন্সটল করুন"
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - শব্দ পরিপূরণ"
+
+#~ msgid "Tabs"
+#~ msgstr "ট্যাবসমূহ"
+
+#~ msgid "Tab width:"
+#~ msgstr "ট্যাব এর প্রস্থঃ"
+
+#~ msgid "Line wrap:"
+#~ msgstr "লাইন মোড়ানোঃ"
+
+#~ msgid "Custom font:"
+#~ msgstr "কাস্টম ফন্টঃ"
+
+#, fuzzy
+#~| msgid "Strip trailing whitespace"
+#~ msgid "Visible whitespace:"
+#~ msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস"
+
+#, fuzzy, c-format
+#~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#~ msgid "File “%s” was deleted."
+#~ msgstr ""
+#~ "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
+
+#~ msgid "Set of plugins"
+#~ msgstr "প্লাগিন এর সেট"
+
+#, fuzzy
+#~ msgid "plugin"
+#~ msgstr "প্লাগিন এর সেট"
+
+#~ msgid "Save As…"
+#~ msgstr "নতুনভাবে সংরক্ষণ করুন..."
+
+#~ msgid "Load"
+#~ msgstr "লোড"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
+#~ "লোকেশনে সংরক্ষণ করতে চান?"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
+#~ "লোকেশনে সংরক্ষণ করতে চান?"
+
+#, fuzzy, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr ""
+#~ "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
+#~ "%s"
+
+#, fuzzy
+#~| msgid "Open a folder"
+#~ msgid "Open Project Folder…"
+#~ msgstr "একটি ফোল্ডার খুলুন"
+
+#~ msgid "Terminal"
+#~ msgstr "টার্মিনাল"
+
+#~ msgid "Find…"
+#~ msgstr "খুঁজুন..."
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "ফাঁকা স্থান বসানঃ"
@@ -809,9 +1163,6 @@ msgstr "%s - শব্দ পরিপূরণ"
 #~ msgid "Web Preview"
 #~ msgstr "ওয়েব প্রিভিউ"
 
-#~ msgid "Show Preview"
-#~ msgstr "প্রিভিউ দেখান"
-
 #~ msgid "Hide Preview"
 #~ msgstr "প্রিভিউ লুকিয়ে রাখুন"
 
@@ -819,21 +1170,11 @@ msgstr "%s - শব্দ পরিপূরণ"
 #~ msgid "Share via Pastebin"
 #~ msgstr "পেস্টবিন এর মাধ্যমে শেয়ার করুন"
 
-#, fuzzy
-#~ msgid "Others…"
-#~ msgstr "অন্যান্য..."
-
-#~ msgid "Upload"
-#~ msgstr "আপলোড"
-
 #~ msgid "Other formats"
 #~ msgstr "অন্যান্য ফরম্যাটসমূহ"
 
 #~ msgid "Add New View"
 #~ msgstr "নতুন ভিউ যোগ করুন"
-
-#~ msgid "Remove Current View"
-#~ msgstr "বর্তমান ভিউ সরিয়ে দিন"
 
 #, fuzzy
 #~ msgid "new file %d"
@@ -986,9 +1327,6 @@ msgstr "%s - শব্দ পরিপূরণ"
 #~ msgid "A terminal in your text editor"
 #~ msgstr "আপনার টেক্সট ইডিটর এ একটি টার্মিনাল"
 
-#~ msgid "Strip trailing whitespace on save"
-#~ msgstr "স্ট্রিপ ট্রেইলিং হোয়াইটস্পেস অন সেভ"
-
 #~ msgid "Highlight Selected Words"
 #~ msgstr "নির্বাচিত শব্দগুচ্ছ হাইলাইট করুন"
 
@@ -1015,9 +1353,6 @@ msgstr "%s - শব্দ পরিপূরণ"
 
 #~ msgid "Files"
 #~ msgstr "ফাইলসমূহ"
-
-#~ msgid "Project"
-#~ msgstr "প্রজেক্ট"
 
 #~ msgid "Bookmarks"
 #~ msgstr "বুকমার্কসমূহ"

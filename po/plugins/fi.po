@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-08-04 08:28+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2024-12-01 18:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/plugins/fi/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -43,6 +43,15 @@ msgstr "Editorin määritys"
 msgid "Load settings from an EditorConfig file"
 msgstr "Lataa asetukset EditorConfig-tiedostosta"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "Etsi projektitiedostoja"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+"Sumea haku kaikille avointen projektien tiedostoille (Näytä käyttäen ALT + F)"
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Korosta sanavalinta"
@@ -58,14 +67,6 @@ msgstr "Markdown-toiminnot"
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Lisää pikanäppäimet Markdown-tiedostojen nopeaan muokkaukseen"
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Yhteenveto"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Alleviivaa symboolit nykyisessä tiedostossasi Vala:aa varten"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -91,24 +92,6 @@ msgstr "Oikoluku"
 msgid "Checks the spelling of your documents"
 msgstr "Oikolukee asiakirjasi"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr ""
-"Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit tallennuksen "
-"yhteydessä"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Pääte"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Pääte tekstimuokkaimessasi"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-emulaatio"
@@ -124,6 +107,26 @@ msgstr "Sanojen täydennys"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Näytä täydennysikkuna tiedostojesi käytetyimmistä sanoista"
+
+#~ msgid "Terminal"
+#~ msgstr "Pääte"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Pääte tekstimuokkaimessasi"
+
+#~ msgid "Outline"
+#~ msgstr "Yhteenveto"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Alleviivaa symboolit nykyisessä tiedostossasi Vala:aa varten"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr ""
+#~ "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit tallennuksen "
+#~ "yhteydessä"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Esikatselu selaimessa"

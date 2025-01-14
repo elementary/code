@@ -79,7 +79,7 @@ namespace Scratch.FolderManager {
 
         // Checks if we're dealing with a non-backup directory
         // Hidden subfolders are not shown by default, but we need to allow hidden top-level folder
-        public bool is_valid_directory (bool allow_hidden = false) {
+        public bool is_valid_directory (bool allow_hidden = true) {
             if ((!allow_hidden && name.has_prefix (".")) || // If parent is hidden then inherit validity from parent
                  info.get_is_backup ()) {
 
@@ -102,16 +102,7 @@ namespace Scratch.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
-                if (info.get_is_backup ()) {
-                    return false;
-                }
-
-                if (info.get_file_type () == FileType.REGULAR &&
-                    ContentType.is_a (info.get_content_type (), "text/*")) {
-                    return true;
-                }
-
-                return false;
+                return Utils.check_if_valid_text_file (path, info);
             }
         }
 
@@ -146,7 +137,10 @@ namespace Scratch.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
-                        _children.add (new File (child.get_path ()));
+                        var child_file = new File (child.get_path ());
+                        if (child_file.is_valid_directory () || child_file.is_valid_textfile) {
+                            _children.add (child_file);
+                        }
                     }
 
                     children_valid = true;

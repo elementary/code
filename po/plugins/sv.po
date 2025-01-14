@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2018-10-21 10:19+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/plugins/"
@@ -43,6 +43,14 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Ladda inställningar från en EditorConfig-fil"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Markera ordval"
@@ -58,14 +66,6 @@ msgstr ""
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Kontur"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Se överblick över symboler i din nuvarande Vala-fil"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -91,23 +91,6 @@ msgstr "Stavningskontroll"
 msgid "Checks the spelling of your documents"
 msgstr "Kontrollera stavning i dina dokument"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Rensa efterföljande mellanslag"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Rensa efterföljande mellanslag vid sparning"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-#, fuzzy
-msgid "A terminal in your code editor"
-msgstr "En terminal i din textredigerare"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim-emulering"
@@ -124,6 +107,25 @@ msgstr "Ordifyllning"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Visa en ifyllningsdialog med de vanligaste orden från dina filer"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#, fuzzy
+#~ msgid "A terminal in your code editor"
+#~ msgstr "En terminal i din textredigerare"
+
+#~ msgid "Outline"
+#~ msgstr "Kontur"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Se överblick över symboler i din nuvarande Vala-fil"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Rensa efterföljande mellanslag"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Rensa efterföljande mellanslag vid sparning"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Webbläsarförhandsvisning"

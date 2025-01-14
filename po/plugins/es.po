@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-08-27 10:19+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2024-07-15 08:16+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/plugins/es/"
 ">\n"
 "Language: es\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr "Compleción de paréntesis y corchetes"
+msgstr "Compleción de signos de puntuación dobles"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr "Completar corchetes mientras escribe"
+msgstr "Completar comillas, paréntesis, corchetes y llaves mientras escribe"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -43,9 +43,19 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Cargar configuraciones desde un archivo EditorConfig"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "Buscar archivos en proyecto"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+"Búsqueda aproximada de archivos en todos los proyectos abiertos (desplegar "
+"con Alt + F)"
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr "Resalta la palabra seleccionada"
+msgstr "Resaltar la palabra seleccionada"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
@@ -58,14 +68,6 @@ msgstr "Acciones de Markdown"
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Añade atajos de teclado para editar archivos Markdown rápidamente"
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Contorno"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Vista previa de símbolos en su archivo actual de Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -91,29 +93,13 @@ msgstr "Corrector ortográfico"
 msgid "Checks the spelling of your documents"
 msgstr "Verifica la ortografía de sus documentos"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Eliminar espacios al final de las líneas"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Eliminar espacios al final de la línea para guardar"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Una terminal en su editor de código"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulación de Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
-msgstr "Utilice órdenes de Vim en Code"
+msgstr "Utilice comandos de Vim en Code"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
@@ -122,7 +108,25 @@ msgstr "Compleción de palabras"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Mostrar un diálogo de terminación con las palabras más usadas de sus archivos"
+"Mostrar un diálogo de compleción con las palabras más usadas de sus archivos"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Una terminal en su editor de código"
+
+#~ msgid "Outline"
+#~ msgstr "Contorno"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Vista previa de símbolos en su archivo actual de Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Eliminar espacios al final de las líneas"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Eliminar espacios al final de la línea para guardar"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Previsualización en navegador"

@@ -2,599 +2,930 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2016-09-11 11:53+0000\n"
-"Last-Translator: Hiwa <hiwa24@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2022-07-31 11:42+0000\n"
+"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
+"code/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:39
+#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
-msgstr ""
+msgstr "تابی نوێ"
 
-#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
-msgstr "پەنجەرەیەکی نوێ"
+msgstr "پەنجەرەی نوێ"
+
+#: src/Application.vala:40
+msgid "Print version info and exit"
+msgstr "پرێنت کردنی زانیاری وەشان و داخستن"
 
 #: src/Application.vala:41
-msgid "Print version info and exit"
+msgid "Open file at specified selection range"
+msgstr ""
+
+#: src/Application.vala:41
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 
 #: src/Application.vala:42
-msgid "Set of plugins"
-msgstr ""
-
-#: src/Application.vala:42
-msgid "plugin"
-msgstr ""
-
-#: src/Application.vala:43
 msgid "[FILE…]"
-msgstr ""
+msgstr "[پەڕگە...]"
 
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:238
+#, fuzzy, c-format
+#| msgid "Code"
+msgid "Code (%s)"
+msgstr "كۆد"
+
+#: src/MainWindow.vala:240
 msgid "Code"
-msgstr ""
+msgstr "كۆد"
 
-#: src/MainWindow.vala:202 src/Widgets/HeaderBar.vala:92
-msgid "Find…"
-msgstr "گەڕان..."
-
-#: src/MainWindow.vala:207
+#: src/MainWindow.vala:377
 msgid "Hide search bar"
 msgstr "شاردنەوەی شریتی گەڕان"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:487
+#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find on Page…"
+msgstr "دۆزینەوە لە پرۆژەدا…"
+
+#: src/MainWindow.vala:393
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "شاردنەوەی شریتی گەڕان"
+
+#: src/MainWindow.vala:398
+#, fuzzy
+#| msgid "No Project Selected"
+msgid "Show Projects Sidebar"
+msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
+
+#: src/MainWindow.vala:407
+msgid "Hide Symbol Outline"
+msgstr ""
+
+#: src/MainWindow.vala:412
+#, fuzzy
+#| msgid "No Symbols Found"
+msgid "Show Symbol Outline"
+msgstr "هیچ سمبولێک نەدۆزرایەوە"
+
+#: src/MainWindow.vala:421
+msgid "Hide Terminal"
+msgstr "شاردنەوەی تێرمیناڵ"
+
+#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+msgid "Show Terminal"
+msgstr "پیشاندانی تێرمیناڵ"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:618
+#, c-format
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:946 src/Services/Document.vala:651
 msgid "All files"
-msgstr ""
+msgstr "هەموو پەڕگەکان"
 
-#: src/MainWindow.vala:734 src/Services/Document.vala:491
+#: src/MainWindow.vala:950 src/Services/Document.vala:655
 msgid "Text files"
-msgstr ""
+msgstr "پەڕگە دەقییەکان"
 
-#: src/MainWindow.vala:738
+#: src/MainWindow.vala:954
 msgid "Open some files"
 msgstr "کردنەوەی چەند پەڕگەیەک"
 
-#: src/MainWindow.vala:741
+#: src/MainWindow.vala:957
 msgid "Open"
 msgstr "كردنەوە"
 
-#: src/MainWindow.vala:742 src/Dialogs/GlobalSearchDialog.vala:100
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:394
-#: src/Services/Document.vala:499 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
+#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
-msgstr "داخستن"
+msgstr "هەڵوەشاندنەوە"
 
-#: src/MainWindow.vala:767
+#: src/MainWindow.vala:998
 msgid "_Open"
-msgstr ""
+msgstr "_کردنەوە"
 
-#: src/MainWindow.vala:768
+#: src/MainWindow.vala:999
 msgid "_Cancel"
-msgstr ""
+msgstr "_هەڵوەشاندنەوە"
 
-#: src/Dialogs/GlobalSearchDialog.vala:60
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "گەڕان بۆ دەق لە \"%s\""
 
-#: src/Dialogs/GlobalSearchDialog.vala:61
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:74
-msgid "Case sensitive:"
-msgstr ""
+msgstr "وشەی گەڕان دەبێت لانیەک ٣ پیت ببێت."
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Use regular expressions:"
-msgstr ""
+msgid "Case sensitive:"
+msgstr "هەستیاری کەیس:"
 
-#: src/Dialogs/GlobalSearchDialog.vala:102
-#, fuzzy
-#| msgid "Search next"
+#: src/Dialogs/GlobalSearchDialog.vala:92
+msgid "Use regular expressions:"
+msgstr "دەستەواژە ئاساییەکان بەکاربهێنە:"
+
+#: src/Dialogs/GlobalSearchDialog.vala:111
 msgid "Search"
-msgstr "گەڕان بۆ دواتر"
+msgstr "گەڕان"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr ""
+msgstr "دروستکردنی لقێکی نوێی “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "ناوی لق دەبێت بێ هاوتا بێت و شوێن یاساکانی ناونای گیت بکەوێت."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "گۆڕینی ڕێکخستنەکانی (بنەڕەت)"
+msgstr "دروستکردنی لق"
 
-#: src/Dialogs/PreferencesDialog.vala:37 src/Widgets/HeaderBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
 msgstr "هەڵبژاردەکان"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:23
+msgid "General"
+msgstr "گشتی"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+#, fuzzy
+#| msgid "Save files when changed:"
+msgid "Save files when changed"
+msgstr "پەڕگەکان پاشەکەوت بکە کاتێک کە گۆڕدران:"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+#, fuzzy
+#| msgid "Visible whitespace:"
+msgid "Strip trailing whitespace on save"
+msgstr "بۆشایی سپی بەرچاو:"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
+#| msgid "Smart cut/copy lines:"
+msgid "Smart cut/copy lines"
+msgstr "بڕین/لەبەرگرتنەوەی زیرەکی هێڵەکان:"
+
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"بڕین یان لەبەرگرتنەوە بەبێ دیاریکردنێکی چالاک، بۆ تەواوی هێڵەکە ئەنجام دەدرێت"
 
-#: src/Dialogs/PreferencesDialog.vala:55
-msgid "General"
-msgstr "گشتی"
-
-#: src/Dialogs/PreferencesDialog.vala:56
-msgid "Save files when changed:"
-msgstr "پەڕگەکان پاشەکەوت بکە کاتێک کە گۆڕدران:"
-
-#: src/Dialogs/PreferencesDialog.vala:58
-msgid "Smart cut/copy lines:"
+#: src/Dialogs/PreferencesDialog.vala:35
+msgid "Indentation width"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:44
-msgid "Tabs"
-msgstr "پەنجەرەکان"
+#: src/Dialogs/PreferencesDialog.vala:46
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Indentation"
+msgstr "دانانی خۆکارانەی بۆشایی سەرەتای دێڕ:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:145
-msgid "Automatic indentation:"
-msgstr "خۆکارانە  شوێن واڵا بکە له دەستپێکی دێرێ نوێدا:"
+#: src/Dialogs/PreferencesDialog.vala:47
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic indentation"
+msgstr "دانانی خۆکارانەی بۆشایی سەرەتای دێڕ:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:139
-msgid "Insert spaces instead of tabs:"
-msgstr "لەجیاتی پەنجەرەکان بۆشاییەکان دابنێ:"
+#: src/Dialogs/PreferencesDialog.vala:48
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert spaces instead of tabs"
+msgstr "لەجیاتی تابەکان بۆشاییەکان دابنێ:"
 
-#: src/Dialogs/PreferencesDialog.vala:66 src/Widgets/FormatBar.vala:142
-msgid "Tab width:"
-msgstr "پانایی پەنجەرەکان"
+#: src/Dialogs/PreferencesDialog.vala:57
+msgid "Default build directory"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:72
-msgid "Behavior"
-msgstr "هەڵسوکەوت"
+#: src/Dialogs/PreferencesDialog.vala:67
+#, fuzzy
+#| msgid "Project templates"
+msgid "Projects"
+msgstr "پڕۆژەی داڕێژراوەکان"
 
-#: src/Dialogs/PreferencesDialog.vala:73
-msgid "Interface"
-msgstr "ڕووكار"
+#: src/Dialogs/PreferencesDialog.vala:78
+msgid "None"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:88
-#: plugins/pastebin/pastebin_dialog.vala:434
-msgid "Close"
-msgstr "داخستن"
+#: src/Dialogs/PreferencesDialog.vala:79
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Current Line"
+msgstr "لابردنی پیشاندانی هەنووکەیی"
 
-#: src/Dialogs/PreferencesDialog.vala:102
-msgid "Extensions"
-msgstr "زیادکراوەکان"
+#: src/Dialogs/PreferencesDialog.vala:80
+msgid "All"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:96
+msgid "Whitespace visible when not selected"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "دەستکاریکەر"
 
-#: src/Dialogs/PreferencesDialog.vala:113
-msgid "Highlight matching brackets:"
-msgstr "بەرچاوکردنی کەوانە لەیەکچووەکان"
+#: src/Dialogs/PreferencesDialog.vala:112
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Highlight matching brackets"
+msgstr "بەرچاوکردنی کەوانە لەیەکچووەکان:"
+
+#: src/Dialogs/PreferencesDialog.vala:114
+#, fuzzy
+#| msgid "Show Mini Map:"
+msgid "Mini Map"
+msgstr "پیشاندانی نەخشۆکە:"
+
+#: src/Dialogs/PreferencesDialog.vala:115
+msgid "Wrap lines"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:116
-msgid "Line wrap:"
-msgstr "پێچانەوەی دێڕ"
+#, fuzzy
+#| msgid "Line width guide:"
+msgid "Line width guide"
+msgstr "ڕێبەری پانایی دێڕەکان:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
-msgid "Visible whitespace:"
-msgstr ""
+#: src/Dialogs/PreferencesDialog.vala:124
+msgid "Font"
+msgstr "فۆنت"
 
 #: src/Dialogs/PreferencesDialog.vala:125
-msgid "Show Mini Map:"
-msgstr "پیشاندانی نەخشۆکە"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-msgid "Line width guide:"
-msgstr "ڕابەری پانایی دێڕەکان"
-
-#: src/Dialogs/PreferencesDialog.vala:136
-msgid "Font"
+msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:138
-msgid "Custom font:"
-msgstr "فۆنتی راسپێردراو"
+#: src/Dialogs/PreferencesDialog.vala:136
+msgid "Behavior"
+msgstr "هەڵسوکەوت"
+
+#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+msgid "Interface"
+msgstr "ڕووكار"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Extensions"
+msgstr "زیادکراوەکان"
+
+#: src/Dialogs/PreferencesDialog.vala:159
+#: plugins/pastebin/pastebin_dialog.vala:434
+msgid "Close"
+msgstr "داخستن"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "دڵنیایت لە گەڕاندنەوەی ئەم پەڕگەیە؟"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"گەڕاندنەوەی پەڕگەیەک گۆڕانکاییەکان هەڵدەوەشێنتەوە کە ئەنجامت داون لەو "
+"کاتەوەی کە کردوتەوە"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "مەیگەڕێنەوە"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
+msgstr "هەرچۆنێک بێت بیگەڕێنەوە"
+
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/ProjectFolderItem.vala:138
+msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:126
-msgid "Other Application…"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:166
-#, fuzzy
-msgid "Open In"
-msgstr "كردنەوە"
-
-#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:94
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
-msgstr ""
+msgstr "کردارەکانی تر"
 
-#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:97
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
-msgstr ""
+msgstr "ناوگۆڕین"
 
-#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:103
-#: src/FolderManager/ProjectFolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
-msgstr ""
+msgstr "ناردنی بۆ تەنەکە"
 
-#: src/FolderManager/FileView.vala:39
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+msgid "Other Application…"
+msgstr "ئەپڵیکەیشنەکانی تر…"
+
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+msgid "Open In"
+msgstr "كردنەوە لە"
+
+#: src/FolderManager/FileView.vala:76
 msgid "Folders"
-msgstr ""
+msgstr "بوخچەکان"
 
-#: src/FolderManager/FolderItem.vala:106
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:128
 msgid "Find in Folder…"
-msgstr "کردنەوەی فایل"
+msgstr "دۆزینەوە لە بوخچەدا…"
 
-#: src/FolderManager/FolderItem.vala:173
+#: src/FolderManager/FolderItem.vala:184
 msgid "Folder"
-msgstr ""
+msgstr "بوخچە"
 
-#: src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
-msgstr ""
+msgstr "پەڕگەی بەتاڵ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:183
-#: src/FolderManager/ProjectFolderItem.vala:190
-#: src/FolderManager/ProjectFolderItem.vala:196
+#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/ProjectFolderItem.vala:382
+#: src/FolderManager/ProjectFolderItem.vala:388
 msgid "New"
-msgstr ""
+msgstr "نوێ"
 
-#: src/FolderManager/FolderItem.vala:344
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
-msgstr ""
+msgstr "بوخچەی بێ ناو"
 
-#: src/FolderManager/FolderItem.vala:344
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:361
 msgid "new file"
 msgstr "پەڕگەیەکی نوێ"
 
-#: src/FolderManager/ProjectFolderItem.vala:111
+#: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
-msgstr ""
+msgstr "داخستنی بوخچە"
 
-#: src/FolderManager/ProjectFolderItem.vala:116
-#, fuzzy
+#: src/FolderManager/ProjectFolderItem.vala:175
 msgid "Close Other Folders"
-msgstr "کردنەوەی فایل"
+msgstr "داخستنی بوخچەکانی تر"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-msgid "Find in Project…"
-msgstr "کردنەوەی فایل"
-
-#: src/FolderManager/ProjectFolderItem.vala:196
-msgid "Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:234
+#: src/FolderManager/ProjectFolderItem.vala:192
 #, c-format
-msgid "Error while creating new branch: “%s”"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:515
-#, fuzzy
-msgid "New Branch…"
-msgstr "گۆڕینی ڕێکخستنەکانی (بنەڕەت)"
-
-#: src/FolderManager/ProjectFolderItem.vala:528
-#, fuzzy
-msgid "Branch"
-msgstr "گۆڕینی ڕێکخستنەکانی (بنەڕەت)"
-
-#: src/Services/Document.vala:264
-#, c-format
-msgid "%s Is Not a Text File"
-msgstr ""
-
-#: src/Services/Document.vala:265
-msgid "Code will not load this type of file."
-msgstr ""
-
-#: src/Services/Document.vala:267
-msgid "Load Anyway"
-msgstr ""
-
-#: src/Services/Document.vala:288
-#, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
-
-#: src/Services/Document.vala:289
-msgid "Please wait while Code is loading the file."
-msgstr ""
-
-#: src/Services/Document.vala:291
-#, fuzzy
-msgid "Cancel Loading"
-msgstr "داخستن"
-
-#: src/Services/Document.vala:384
-#, fuzzy, c-format
-msgid "Save changes to \"%s\" before closing?"
-msgstr "دەتەوێت گۆڕانکارییەکانی پەڕگەی s% پاشەکەوت بکرێن؟"
-
-#: src/Services/Document.vala:385
-#, fuzzy
-msgid "If you don't save, changes will be permanently lost."
-msgstr "ئەگەر پاشەکەوتی نەکەیت، گۆڕانکارییەکانی پێش 4 چرکەت لەدەست دەدەیت."
-
-#: src/Services/Document.vala:391
-#, fuzzy
-msgid "Close Without Saving"
-msgstr "داخستن بەبێ پاشەکەوتکردن"
-
-#: src/Services/Document.vala:395 src/Services/Document.vala:498
-#: src/Services/Document.vala:730
-msgid "Save"
-msgstr "پاشه‌كه‌وت كردن"
-
-#: src/Services/Document.vala:495
-msgid "Save File"
-msgstr "پاشەکەوتکردنی پەڕگە"
-
-#: src/Services/Document.vala:572 src/Services/Document.vala:581
-msgid "New Document"
-msgstr "پەڕگەیەکی نوێ"
-
-#. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:704
-#, c-format
-msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-
-#: src/Services/Document.vala:705
-#, fuzzy
-msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"پەڕگەی s% ناخوێندرێتەوە. لەوانەیە تێکچووبێت\n"
-"یاخود مۆڵەتی کردنەوەیت نەبێت."
-
-#: src/Services/Document.vala:718
-#, fuzzy, c-format
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"شوێنی هەڵگری پەڕگەی \"s%\" ناجێگیر کرا. ئایا دەتەوێت شوێنێکی تر پاشەکەوت "
-"بکەیت؟"
-
-#: src/Services/Document.vala:721
-msgid "Save As…"
-msgstr "پاشەکەوتکردن وەک..."
-
-#: src/Services/Document.vala:727
-#, fuzzy, c-format
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "پەڕگەی s% سڕدرایەوە. دەتەوێت هێشتا پاشەکەوتی بکەیت؟"
-
-#: src/Services/Document.vala:744
-#, fuzzy, c-format
-msgid ""
-"You cannot save changes to the file \"%s\". Do you want to save the changes "
-"somewhere else?"
-msgstr ""
-"ناتوانی گۆڕانکارییەکانی پەڕگەی \"s%\" پاشەکەوت بکەیت. دەتەوێت "
-"گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
-
-#: src/Services/Document.vala:747
-msgid "Save changes elsewhere"
-msgstr "پاشەکەوتکردنی گۆڕانکارییەکان لەشوێنێکی دی"
-
-#: src/Services/Document.vala:781
-#, fuzzy, c-format
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-"پەڕگەی \"s%\" لەلایەن نەرمەکاڵایەکی دەرەکییەوە گۆڕدراوە. ئایا دەتەوێت "
-"دووبارە بیکەیتەوە یاخود دەتەوێت بەردەوامبیت لە دەستکاریکردنی پەڕەی دیاریکراو؟"
-
-#: src/Services/Document.vala:784
-msgid "Load"
-msgstr "بارکردن"
-
-#: src/Services/Document.vala:787
-msgid "Continue"
-msgstr "به‌رده‌وام به‌"
-
-#: src/Services/TemplateManager.vala:192
-msgid "Templates"
-msgstr "داڕێژەکان"
-
-#: src/Widgets/ChooseProjectButton.vala:20
-#, fuzzy
-#| msgid "Project templates"
-msgid "No Project Selected"
-msgstr "پڕۆژەی داڕێژەکان"
-
-#: src/Widgets/ChooseProjectButton.vala:38
-#: src/Widgets/ChooseProjectButton.vala:100
-#: src/Widgets/ChooseProjectButton.vala:137
-#, c-format
-msgid "Active Git project: %s"
-msgstr ""
-
-#: src/Widgets/ChooseProjectButton.vala:53
-msgid "Filter projects"
-msgstr ""
-
-#: src/Widgets/DocumentView.vala:126
-#, fuzzy, c-format
-msgid "Text file from %s:%d"
-msgstr "پەڕگە بنووسە لە "
-
-#: src/Widgets/FormatBar.vala:48
-msgid "Syntax Highlighting"
-msgstr "بەرچاوکردنی ڕستەکار"
-
-#: src/Widgets/FormatBar.vala:56
-#, fuzzy
-msgid "Line number"
-msgstr "پیشاندانی ژمارەی دێڕەکان"
-
-#: src/Widgets/FormatBar.vala:83
-msgid "Filter languages"
-msgstr ""
-
-#: src/Widgets/FormatBar.vala:107
-msgid "Plain Text"
-msgstr ""
-
-#: src/Widgets/FormatBar.vala:189
-#, fuzzy, c-format
-msgid "%d Space"
-msgid_plural "%d Spaces"
-msgstr[0] "بۆشاییە یەکسانەکان:"
-msgstr[1] "بۆشاییە یەکسانەکان:"
-
-#: src/Widgets/FormatBar.vala:191
-#, c-format
-msgid "%d Tab"
-msgid_plural "%d Tabs"
+msgid "Close %u Open Document"
+msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:207
+#: src/FolderManager/ProjectFolderItem.vala:204
+#, fuzzy, c-format
+#| msgid "New Document"
+msgid "Hide %u Open Document"
+msgid_plural "Hide %u Open Documents"
+msgstr[0] "پەڕگەیەکی نوێ"
+msgstr[1] "پەڕگەیەکی نوێ"
+
+#: src/FolderManager/ProjectFolderItem.vala:227
+#, c-format
+msgid "Restore %u Hidden Document"
+msgid_plural "Restore %u Hidden Documents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
+msgid "Find in Project…"
+msgstr "دۆزینەوە لە پرۆژەدا…"
+
+#: src/FolderManager/ProjectFolderItem.vala:321
+msgid "New Branch…"
+msgstr "برانچی نوێ…"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
+msgid "Branch"
+msgstr "برانچ"
+
+#: src/FolderManager/ProjectFolderItem.vala:388
+msgid "Modified"
+msgstr "دەستکاریکراو"
+
+#: src/FolderManager/ProjectFolderItem.vala:426
+#, c-format
+msgid "Error while creating new branch: “%s”"
+msgstr "هەڵەیەک ڕوویدا لە کاتی دروستکردنی برانچێکی نوێ: \"%s\""
+
+#. Empty files are valid text files
+#: src/Services/Document.vala:369
+#, c-format
+msgid "%s Is Not a Text File"
+msgstr "%s پەڕگەیەکی دەقی نییە"
+
+#: src/Services/Document.vala:370
+msgid "Code will not load this type of file."
+msgstr "کۆد ئەم جۆری پەڕگەیە ناکاتەوە."
+
+#: src/Services/Document.vala:372
+msgid "Load Anyway"
+msgstr "هەرچۆنێک بێت بیکەوە"
+
+#: src/Services/Document.vala:393
+#, fuzzy, c-format
+#| msgid "Loading File \"%s\" Is Taking a Long Time"
+msgid "Loading File “%s” Is Taking a Long Time"
+msgstr "کردنەوەی پەڕگەی \"%s\" کاتێکی زۆری دەوێت"
+
+#: src/Services/Document.vala:394
+msgid "Please wait while Code is loading the file."
+msgstr "تکایە چاوەڕێ بکە کاتێک کۆد خەریکی کردنەوەی پەڕگەکەیە."
+
+#: src/Services/Document.vala:396
+msgid "Cancel Loading"
+msgstr "هەڵوەشاندنەوەی کردنەوە"
+
+#: src/Services/Document.vala:483
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Save changes to “%s” before closing?"
+msgstr "دەتەوێت گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکرێن؟"
+
+#: src/Services/Document.vala:484
+msgid "If you don't save, changes will be permanently lost."
+msgstr "ئەگەر پاشەکەوتی نەکەیت، گۆڕانکارییەکان بۆ هەمیشە لە دەست دەدەیت."
+
+#: src/Services/Document.vala:490
+msgid "Close Without Saving"
+msgstr "داخستن بەبێ پاشەکەوت کردن"
+
+#: src/Services/Document.vala:494 src/Services/Document.vala:662
+msgid "Save"
+msgstr "پاشه‌كه‌وت كردن"
+
+#: src/Services/Document.vala:621
+#, fuzzy, c-format
+#| msgid "Save changes to \"%s\" before closing?"
+msgid "Saving to “%s” failed."
+msgstr "دەتەوێت گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکرێن؟"
+
+#: src/Services/Document.vala:659
+msgid "Save File"
+msgstr "پاشەکەوتکردنی پەڕگە"
+
+#: src/Services/Document.vala:746 src/Services/Document.vala:764
+msgid "New Document"
+msgstr "پەڕگەیەکی نوێ"
+
+#. No path for a new document
+#: src/Services/Document.vala:766
+#, c-format
+msgid "Cannot save this document to %s"
+msgstr ""
+
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:832
+#, fuzzy, c-format
+#| msgid "Search for text in “%s”"
+msgid "Cannot read text in file “%s”"
+msgstr "گەڕان بۆ دەق لە \"%s\""
+
+#: src/Services/Document.vala:835
+#, fuzzy
+#| msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may not have permission to read the file."
+msgstr "لەوانەیە تێکچوو بێت یاخود مۆڵەتی کردنەوەیت نەبێت."
+
+#: src/Services/Document.vala:837
+msgid "The file may be corrupt or may not be a text file"
+msgstr ""
+
+#. Lack of read permission results in empty content string. Do not give option to open
+#. in new document in that case.
+#: src/Services/Document.vala:843
+#, fuzzy
+#| msgid "Load Anyway"
+msgid "Show Anyway"
+msgstr "هەرچۆنێک بێت بیکەوە"
+
+#: src/Services/Document.vala:874
+#, fuzzy, c-format
+#| msgid ""
+#| "The location containing the file \"%s\" was unmounted. Do you want to "
+#| "save somewhere else?"
+msgid ""
+"The location containing the file “%s” was unmounted and there are unsaved "
+"changes."
+msgstr ""
+"شوێنی هەڵگری پەڕگەی \"%s\" ناجێگیر کرا. ئایا دەتەوێت لە شوێنێکی تر پاشەکەوتی "
+"بکەیت؟"
+
+#: src/Services/Document.vala:876
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
+msgstr ""
+"پەڕگەی \"%s\" لەلایەن نەرمەکاڵایەکی دەرەکییەوە گۆڕدراوە. ئایا دەتەوێت "
+"دووبارە بیکەیتەوە یاخود دەتەوێت بەردەوامبیت لە دەستکاریکردنی پەڕەی دیاریکراو؟"
+
+#. Check external changes after loading
+#. The file has become unwritable while changes are pending
+#: src/Services/Document.vala:890
+#, fuzzy, c-format
+#| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgid "File “%s” does not have write permission."
+msgstr "پەڕگەی \"%s\" سڕدرایەوە. دەتەوێت هێشتا پاشەکەوتی بکەیت؟"
+
+#: src/Services/Document.vala:936
+#, fuzzy, c-format
+#| msgid ""
+#| "File \"%s\" was modified by an external application. Do you want to load "
+#| "it again or continue your editing?"
+msgid "File “%s” was modified by an external application"
+msgstr ""
+"پەڕگەی \"%s\" لەلایەن نەرمەکاڵایەکی دەرەکییەوە گۆڕدراوە. ئایا دەتەوێت "
+"دووبارە بیکەیتەوە یاخود دەتەوێت بەردەوامبیت لە دەستکاریکردنی پەڕەی دیاریکراو؟"
+
+#: src/Services/Document.vala:941
+msgid ""
+"There are also unsaved changes. Reloading the document will overwrite the "
+"unsaved changes."
+msgstr ""
+
+#: src/Services/Document.vala:945
+msgid "The document changed externally since you last saved it."
+msgstr ""
+
+#: src/Services/Document.vala:961
+#, c-format
+msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
+msgstr ""
+
+#: src/Services/Document.vala:970
+msgid "Ignore"
+msgstr ""
+
+#: src/Services/Document.vala:972
+msgid "Save Duplicate…"
+msgstr ""
+
+#: src/Services/Document.vala:1021
+msgid "Continue"
+msgstr "به‌رده‌وام به‌"
+
+#: src/Services/Document.vala:1023
+msgid "Reload"
+msgstr ""
+
+#: src/Services/Document.vala:1026
+msgid "Overwrite"
+msgstr ""
+
+#: src/Services/Document.vala:1029
+#, fuzzy
+#| msgid "Save changes elsewhere"
+msgid "Save Document elsewhere"
+msgstr "پاشەکەوتکردنی گۆڕانکارییەکان لەشوێنێکی دی"
+
+#: src/Services/TemplateManager.vala:198
+msgid "Templates"
+msgstr "داڕێژراوەکان"
+
+#. Remove fake fields created by the vala parser.
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:92
+msgid "Symbols"
+msgstr "سمبولەکان"
+
+#: src/SymbolPane/SymbolOutline.vala:35
+msgid "Class"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:37
+msgid "Property"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:39
+msgid "Signal"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:41
+msgid "Method"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:43
+msgid "Struct"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:45
+msgid "Enum"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:47
+msgid "Constant"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:49
+msgid "Constructor"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:53
+msgid "Namespace"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:55
+msgid "Other"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:96
+#, fuzzy
+#| msgid "Symbols"
+msgid "Find Symbol"
+msgstr "سمبولەکان"
+
+#: src/SymbolPane/SymbolOutline.vala:105
+msgid "Filter symbol type"
+msgstr ""
+
+#: src/SymbolPane/SymbolOutline.vala:125
+#, fuzzy
+#| msgid "Select Format"
+msgid "Select All"
+msgstr "فۆڕمات دیاریبکە"
+
+#: src/SymbolPane/SymbolOutline.vala:131
+msgid "Deselect All"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:20
+msgid "No Project Selected"
+msgstr "هیچ پڕۆژەیەک دیارینەکراوە"
+
+#: src/Widgets/ChooseProjectButton.vala:47
+#: src/Widgets/ChooseProjectButton.vala:127
+#: src/Widgets/ChooseProjectButton.vala:136
+#, c-format
+msgid "Active Git project: %s"
+msgstr "پڕۆژەی کارای گیت: %s"
+
+#: src/Widgets/ChooseProjectButton.vala:62
+msgid "Filter projects"
+msgstr "فلتەرکردنی پڕۆژەکان"
+
+#: src/Widgets/DocumentView.vala:109
+#, fuzzy
+#| msgid "Close"
+msgid "Closed Tabs"
+msgstr "داخستن"
+
+#: src/Widgets/DocumentView.vala:449
+#, c-format
+msgid "Text file from %s:%d"
+msgstr "پەڕگەی دەقی لە %s:%d"
+
+#: src/Widgets/DocumentView.vala:636
+msgid "Close Tabs to the Right"
+msgstr ""
+
+#: src/Widgets/DocumentView.vala:637
+#, fuzzy
+#| msgid "Close Other Folders"
+msgid "Close Other Tabs"
+msgstr "داخستنی بوخچەکانی تر"
+
+#: src/Widgets/DocumentView.vala:638
+#, fuzzy
+#| msgid "Close"
+msgid "Close Tab"
+msgstr "داخستن"
+
+#: src/Widgets/DocumentView.vala:641
+#, fuzzy
+#| msgid "New Window"
+msgid "Open in New Window"
+msgstr "پەنجەرەی نوێ"
+
+#: src/Widgets/DocumentView.vala:642
+msgid "Duplicate Tab"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:50
+msgid "Syntax Highlighting"
+msgstr "بەرچاوکردنی ڕستەکار"
+
+#: src/Widgets/FormatBar.vala:60
+msgid "Line number"
+msgstr "ژمارەی دێڕ"
+
+#: src/Widgets/FormatBar.vala:87
+msgid "Filter languages"
+msgstr "فلتەرکردنی زمانەکان"
+
+#: src/Widgets/FormatBar.vala:111
+msgid "Plain Text"
+msgstr "دەقی خاو"
+
+#: src/Widgets/FormatBar.vala:149
+msgid "Some settings set by EditorConfig file"
+msgstr ""
+
+#: src/Widgets/FormatBar.vala:152
+#, fuzzy
+#| msgid "Automatic indentation:"
+msgid "Automatic Indentation"
+msgstr "دانانی خۆکارانەی بۆشایی سەرەتای دێڕ:"
+
+#: src/Widgets/FormatBar.vala:154
+#, fuzzy
+#| msgid "Insert spaces instead of tabs:"
+msgid "Insert Spaces Instead Of Tabs"
+msgstr "لەجیاتی تابەکان بۆشاییەکان دابنێ:"
+
+#: src/Widgets/FormatBar.vala:156
+#, fuzzy
+#| msgid "Tab width:"
+msgid "Tab width"
+msgstr "پانایی تابەکان:"
+
+#: src/Widgets/FormatBar.vala:236
 msgid "Go To Line:"
 msgstr "بڕۆ بۆ دێڕی:"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/FormatBar.vala:287
+#, c-format
+msgid "%d Space"
+msgid_plural "%d Spaces"
+msgstr[0] "%d بۆشایی"
+msgstr[1] "%d بۆشایی"
+
+#: src/Widgets/FormatBar.vala:289
+#, c-format
+msgid "%d Tab"
+msgid_plural "%d Tabs"
+msgstr[0] "%d تاب"
+msgstr[1] "%d تاب"
+
+#: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
 msgstr "کردنەوەی پەڕگەیەک"
 
-#: src/Widgets/HeaderBar.vala:64
+#: src/Widgets/HeaderBar.vala:44
 msgid "Project templates"
-msgstr "پڕۆژەی داڕێژەکان"
+msgstr "پڕۆژەی داڕێژراوەکان"
 
-#: src/Widgets/HeaderBar.vala:70
+#: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
 msgstr "پاشەکەوتکردنی ئەم پەڕگەیە"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
 msgstr "پاشەکەوتکردنی ئەم پەڕگەیە بەناوێکی جیاواز"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
 msgstr "هێنانەوەی ئەم پەڕگەیە"
 
-#: src/Widgets/HeaderBar.vala:99
+#: src/Widgets/HeaderBar.vala:76
 msgid "Share"
 msgstr "هاوبەشیکردن"
 
-#: src/Widgets/HeaderBar.vala:106
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
-msgstr "دوورپێش"
+msgstr "بردنە دوا (زووم)"
 
-#: src/Widgets/HeaderBar.vala:113
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
-msgstr "دوورپێشی 1:1"
+msgstr "وردبیناندن (زووم) 1:1"
 
-#: src/Widgets/HeaderBar.vala:120
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:100
 msgid "Zoom In"
-msgstr "دوورپێش"
+msgstr "هێنانەپێش (زووم)"
 
-#: src/Widgets/HeaderBar.vala:151
-msgid "Toggle Sidebar"
-msgstr ""
+#: src/Widgets/HeaderBar.vala:145
+msgid "Follow System Style"
+msgstr "هەمان ستایلی سیستەم هەڵگرە"
 
-#: src/Widgets/HeaderBar.vala:182
+#: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
-msgstr ""
+msgstr "لیست"
 
-#: src/Widgets/Sidebar.vala:42
+#: src/Widgets/Sidebar.vala:63
 #, fuzzy
-msgid "Open Project Folder…"
-msgstr "کردنەوەی فایل"
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "کردنەوەی بوخچە"
 
-#: src/Widgets/Sidebar.vala:45
+#: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
-msgstr ""
+msgstr "کۆکردنەوەی هەموو"
 
-#: src/Widgets/Sidebar.vala:49
+#: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
-msgstr ""
+msgstr "ئەلفبێکردن"
 
-#: src/Widgets/Sidebar.vala:61
+#: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
-msgstr ""
+msgstr "بەڕێوەبردنی بوخچەکانی پڕۆژە"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:71
 msgid "Find"
 msgstr "دۆزینه‌وه‌"
 
 #: src/Widgets/SearchBar.vala:74
+#, fuzzy
+#| msgid "no results"
+msgid "No Results"
+msgstr "هیچ ئەنجامێک نییە"
+
+#: src/Widgets/SearchBar.vala:86
 msgid "Search next"
 msgstr "گەڕان بۆ دواتر"
 
-#: src/Widgets/SearchBar.vala:84
+#: src/Widgets/SearchBar.vala:96
 msgid "Search previous"
 msgstr "گەڕان بۆ پێشتر"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:99
 msgid "Cyclic Search"
 msgstr "گەڕانی خولی"
 
-#. Need to SYNC_CREATE so tooltip present before toggled
-#. tooltip_val.set_string () does not work (?)
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "هەرگیز"
+
+#: src/Widgets/SearchBar.vala:103
+msgid "Mixed Case"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:104
+msgid "Always"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
+msgstr "هەستیارە کەیس"
+
+#: src/Widgets/SearchBar.vala:114
+#, fuzzy
+#| msgid "Use regular expressions"
+msgid "Use Regular Expressions"
+msgstr "بەکارهێنانی دەستەواژەی ئاسایی"
+
+#: src/Widgets/SearchBar.vala:115
+msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
-msgid "Case Insensitive"
-msgstr ""
+#: src/Widgets/SearchBar.vala:136
+#, fuzzy
+#| msgid "Search previous"
+msgid "Search Options"
+msgstr "گەڕان بۆ پێشتر"
 
-#: src/Widgets/SearchBar.vala:122
+#: src/Widgets/SearchBar.vala:168
 msgid "Replace With"
 msgstr "جێ گۆڕینەوە لەگەڵ"
 
-#: src/Widgets/SearchBar.vala:125
+#: src/Widgets/SearchBar.vala:171
 msgid "Replace"
 msgstr "جێ گۆڕینەوە"
 
-#: src/Widgets/SearchBar.vala:128
+#: src/Widgets/SearchBar.vala:174
 msgid "Replace all"
 msgstr "جێ گۆڕینەوەی هەموویان"
 
-#: src/Widgets/SourceView.vala:512
-msgid "Sort Selected Lines"
-msgstr ""
+#: src/Widgets/SearchBar.vala:569
+#, c-format
+msgid "%d of %d"
+msgstr "%d ی %d"
 
-#: src/Widgets/SourceView.vala:525
+#: src/Widgets/SearchBar.vala:574
+msgid "no results"
+msgstr "هیچ ئەنجامێک نییە"
+
+#: src/Widgets/SourceView.vala:558
+msgid "Sort Selected Lines"
+msgstr "ڕیزکردنی هێڵە دیاریکراوەکان"
+
+#: src/Widgets/SourceView.vala:571
 msgid "Toggle Comment"
-msgstr ""
+msgstr "کردنەوەی/داخستنی کۆمێنت"
+
+#: src/Widgets/Terminal.vala:59
+msgid "Copy"
+msgstr "لەبەرگرتنەوە"
+
+#: src/Widgets/Terminal.vala:60
+msgid "Paste"
+msgstr "لکاندن"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -605,133 +936,163 @@ msgid "Open a file to begin editing."
 msgstr "پەڕگەیەک بکەرەوە تاوەکوو دەست بە نووسینی بکەیت."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "پەڕگەیەکی نوێ"
+msgstr "پەڕگەی نوێ"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "پەڕگەیەکی نوێی بەتاڵ درووست بکە."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
-msgstr "کردنەوەی فایل"
+msgstr "کردنەوەی پەڕگە"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "کردنەوەی پەڕگەی پاشەکەوتکراو."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
-msgstr "کردنەوەی فایل"
+msgstr "کردنەوەی بوخچە"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "زیادکردنی بوخچەی پڕۆژەیەک بۆ سایدباڕ."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:96
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "بارکردنی بۆ پەیست بین"
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
-msgstr ""
+msgstr "ناو:"
 
 #: plugins/pastebin/pastebin_dialog.vala:261
 msgid "Format:"
-msgstr ""
+msgstr "فۆڕمات:"
 
 #: plugins/pastebin/pastebin_dialog.vala:268
 msgid "Choose different format"
-msgstr ""
+msgstr "فۆڕماتێکی جیاواز هەڵبژێرە"
 
 #: plugins/pastebin/pastebin_dialog.vala:290
 msgid "Expiration:"
-msgstr ""
+msgstr "بەسەرچوون:"
 
 #: plugins/pastebin/pastebin_dialog.vala:297
 msgid "Keep this paste private"
-msgstr ""
+msgstr "ئەم لکاندنە بە نهێنی بهێڵەوە"
 
 #: plugins/pastebin/pastebin_dialog.vala:354
 msgid "Available Formats"
-msgstr ""
+msgstr "فۆڕماتە بەردەستەکان"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
 msgid "Select Format"
-msgstr ""
-
-#: plugins/pastebin/pastebin_dialog.vala:467
-msgid "Never"
-msgstr ""
+msgstr "فۆڕمات دیاریبکە"
 
 #: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
-msgstr ""
+msgstr "١٠ خولەک"
 
 #: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
-msgstr ""
+msgstr "یەک کاتژمێر"
 
 #: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
-msgstr ""
+msgstr "یەک ڕۆژ"
 
 #: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
-msgstr ""
-
-#. Remove fake fields created by the vala parser.
-#: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:71
-#: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:120
-#: plugins/outline/OutlinePane.vala:27
-msgid "Symbols"
-msgstr ""
-
-#: plugins/outline/OutlinePlugin.vala:34
-msgid "No Symbols Found"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:171 plugins/terminal/terminal.vala:187
-msgid "Show Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:174
-msgid "Hide Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:184
-msgid "Terminal"
-msgstr ""
-
-#. Popup menu
-#. COPY
-#: plugins/terminal/terminal.vala:245
-msgid "Copy"
-msgstr ""
-
-#. PASTE
-#: plugins/terminal/terminal.vala:252
-msgid "Paste"
-msgstr ""
+msgstr "یەک مانگ"
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "هیچ فەرهەنگێکی گونجاو نەدۆزرایەوە"
 
 #: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
+msgstr "تکایە لانیەکم یەک فەرهەنگی [aspell] دابمەزرێنە."
 
-#: plugins/word-completion/plugin.vala:173
+#: plugins/word-completion/plugin.vala:165
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - تەواوکاری وشە"
+
+#~ msgid "Tabs"
+#~ msgstr "تابەکان"
+
+#~ msgid "Tab width:"
+#~ msgstr "پانایی تابەکان:"
+
+#~ msgid "Line wrap:"
+#~ msgstr "پێچانەوەی دێڕ:"
+
+#~ msgid "Custom font:"
+#~ msgstr "فۆنتی تایبەت:"
+
+#~ msgid "Visible whitespace:"
+#~ msgstr "بۆشایی سپی بەرچاو:"
+
+#, fuzzy, c-format
+#~| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#~ msgid "File “%s” was deleted."
+#~ msgstr "پەڕگەی \"%s\" سڕدرایەوە. دەتەوێت هێشتا پاشەکەوتی بکەیت؟"
+
+#~ msgid "Set of plugins"
+#~ msgstr "دەستەی پێوەکراوەکان"
+
+#~ msgid "plugin"
+#~ msgstr "پێوەکراو"
+
+#~ msgid "Save As…"
+#~ msgstr "پاشەکەوتکردن وەکو…"
+
+#~ msgid "Load"
+#~ msgstr "بارکردن"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save the document to “%s”. Do you want to save the file "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
+#~ "گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "You cannot save changes to the file \"%s\". Do you want to save the "
+#~| "changes somewhere else?"
+#~ msgid ""
+#~ "You cannot save changes to the file “%s”. Do you want to save the changes "
+#~ "somewhere else?"
+#~ msgstr ""
+#~ "ناتوانی گۆڕانکارییەکانی پەڕگەی \"%s\" پاشەکەوت بکەیت. دەتەوێت "
+#~ "گۆڕانکارییەکانی ئەم پەڕگەیە لەشوێنێکی تر پاشەکەوت بکەیت؟"
+
+#, c-format
+#~ msgid "File \"%s\" Cannot Be Read"
+#~ msgstr "پەڕگەی \"%s\" ناخوێندرێتەوە"
+
+#~ msgid "Case Insensitive"
+#~ msgstr "ناهەستیارە کەیس"
+
+#~ msgid "Open Project Folder…"
+#~ msgstr "کردنەوەی بوخچەی پڕۆژە…"
+
+#~ msgid "Terminal"
+#~ msgstr "تێرمیناڵ"
+
+#~ msgid "Toggle Sidebar"
+#~ msgstr "کردنەوەی/داخستنی سایدباڕ"
+
+#~ msgid "Find…"
+#~ msgstr "دۆزینەوە…"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "بۆشاییە یەکسانەکان:"
@@ -758,9 +1119,6 @@ msgstr ""
 
 #~ msgid "Add New View"
 #~ msgstr "زیادکردنی پیشاندانی نوێ"
-
-#~ msgid "Remove Current View"
-#~ msgstr "لابردنی پیشاندانی هەنووکەیی"
 
 #, fuzzy
 #~ msgid "new file %d"

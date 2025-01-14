@@ -13,7 +13,7 @@ shared_module(
     module_files,
     dependencies: module_deps,
     install: true,
-    install_dir: join_paths(pluginsdir, module_name),
+    install_dir: pluginsdir / module_name,
 )
 
 custom_target(module_name + '.plugin_merge',
@@ -23,10 +23,10 @@ custom_target(module_name + '.plugin_merge',
                '--desktop',
                '--keyword=Description',
                '--keyword=Name',
-               '-d' + join_paths(meson.source_root (), 'po', 'plugins'),
+               '-d' + meson.project_source_root () / 'po' / 'plugins',
                '--template=@INPUT@',
                '-o@OUTPUT@',
                ],
     install : true,
-    install_dir: join_paths(pluginsdir, module_name),
+    install_dir: pluginsdir / module_name,
 )

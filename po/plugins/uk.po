@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
-"PO-Revision-Date: 2021-07-27 21:21+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2024-07-21 11:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/plugins/"
 "uk/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -44,6 +44,15 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Завантаження налаштувань з файлу EditorConfig"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr "Пошук файлів проєкту"
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+"Неточний пошук файлів у всіх відкритих проєктах (Показ натисканням ALT + F)"
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Підсвічування виділення слів"
@@ -59,14 +68,6 @@ msgstr "Дії markdown"
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Додає комбінації клавіш для швидкого редагування файлів Markdown"
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Контур"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Окреслює символи у вашому поточному файлі для Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -92,22 +93,6 @@ msgstr "Перевірка правопису"
 msgid "Checks the spelling of your documents"
 msgstr "Перевіряє правопис ваших документів"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Видалення пробілів у кінці рядка"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Прибирає пробіли в кінці рядка під час збереження"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Термінал"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Термінал у вашому редакторі коду"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Емуляція Vim"
@@ -124,3 +109,21 @@ msgstr "Завершення слів"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Показ діалогового вікна завершення з найвживанішими словами з ваших файлів"
+
+#~ msgid "Terminal"
+#~ msgstr "Термінал"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Термінал у вашому редакторі коду"
+
+#~ msgid "Outline"
+#~ msgstr "Контур"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Окреслює символи у вашому поточному файлі для Vala"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Видалення пробілів у кінці рядка"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Прибирає пробіли в кінці рядка під час збереження"

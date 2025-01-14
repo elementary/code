@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2020-09-22 14:14+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/code/plugins/oc/"
@@ -43,6 +43,14 @@ msgstr ""
 msgid "Load settings from an EditorConfig file"
 msgstr ""
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Subrelinhar lo mot seleccionat"
@@ -57,14 +65,6 @@ msgstr ""
 
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
-msgstr ""
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Apercebut"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
 msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -91,22 +91,6 @@ msgstr ""
 msgid "Checks the spelling of your documents"
 msgstr ""
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr ""
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr ""
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr ""
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr ""
@@ -122,3 +106,6 @@ msgstr ""
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+
+#~ msgid "Outline"
+#~ msgstr "Apercebut"

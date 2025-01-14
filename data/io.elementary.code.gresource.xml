@@ -3,5 +3,35 @@
   <gresource prefix="/io/elementary/code">
     <file alias="Application.css" compressed="true">Application.css</file>
     <file alias="git.svg" compressed="true" preprocess="xml-stripblanks">icons/48/git.svg</file>
+    <file alias="lang-class-abstract.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/abstractclass.svg</file>
+    <file alias="lang-method-abstract.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/abstractmethod.svg</file>
+    <file alias="lang-property-abstract.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/abstractproperty.svg</file>
+    <file alias="lang-class.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/class.svg</file>
+    <file alias="lang-constant.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/constant.svg</file>
+    <file alias="lang-constructor.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/constructor.svg</file>
+    <file alias="lang-delegate.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/delegate.svg</file>
+    <file alias="lang-enum.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/enum.svg</file>
+    <file alias="lang-error-domain.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/errordomain.svg</file>
+    <file alias="lang-interface.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/interface.svg</file>
+    <file alias="lang-method.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/method.svg</file>
+    <file alias="lang-namespace.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/namespace.svg</file>
+    <file alias="lang-property.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/property.svg</file>
+    <file alias="lang-signal.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/signal.svg</file>
+    <file alias="lang-method-static.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/staticmethod.svg</file>
+    <file alias="lang-struct.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/struct.svg</file>
+    <file alias="lang-method-virtual.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/virtualmethod.svg</file>
+    <file alias="lang-property-virtual.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/virtualproperty.svg</file>
+    <file alias="plugin-outline-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/SymbolOutline/plugin-outline-symbolic.svg</file>
+    <file alias="scalable/actions/edit-find-on-page-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/find-on-page-symbolic.svg</file>
+    <file alias="scalable/actions/panel-bottom-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-bottom-symbolic.svg</file>
+    <file alias="scalable/actions/panel-left-rtl-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-left-rtl-symbolic.svg</file>
+    <file alias="scalable/actions/panel-left-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-left-symbolic.svg</file>
+    <file alias="scalable/actions/panel-right-rtl-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-right-rtl-symbolic.svg</file>
+    <file alias="scalable/actions/panel-right-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/panel-right-symbolic.svg</file>
+  </gresource>
+  <gresource prefix="/io/elementary/code/icons">
+    <file alias="scalable/actions/filter-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/filter-symbolic.svg</file>
+    <file alias="scalable/emblems/emblem-git-modified-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/emblem-git-modified-symbolic.svg</file>
+    <file alias="scalable/emblems/emblem-git-new-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/emblem-git-new-symbolic.svg</file>
   </gresource>
 </gresources>

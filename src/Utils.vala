@@ -137,7 +137,7 @@ namespace Scratch.Utils {
     public string replace_home_with_tilde (string path) {
         var home_dir = Environment.get_home_dir ();
         if (path.has_prefix (home_dir)) {
-            return "~" + path[home_dir.length:-1];
+            return "~" + path.substring (home_dir.length);
         } else {
             return path;
         }
@@ -150,10 +150,27 @@ namespace Scratch.Utils {
             return false;
         }
 
+        if (!f1.has_parent (null) || !f2.has_parent (null)) {
+            path1 = f1.get_basename ();
+            path2 = f2.get_basename ();
+            return true;
+        }
+
         var f1_parent = f1.get_parent ();
         var f2_parent = f2.get_parent ();
 
         while (f1_parent.get_relative_path (f1) == f2_parent.get_relative_path (f2)) {
+            // If f1 == /a/b and f2 == /.../a/b we still need to disambiguate with
+            // the one parent name that we have
+            // Both conditions cannot simultaneously be true
+            if (!f1_parent.has_parent (null)) {
+                f2_parent = f2_parent.get_parent ();
+                break;
+            }
+            if (!f2_parent.has_parent (null)) {
+                f1_parent = f1_parent.get_parent ();
+                break;
+            }
             f1_parent = f1_parent.get_parent ();
             f2_parent = f2_parent.get_parent ();
         }
@@ -163,4 +180,124 @@ namespace Scratch.Utils {
         return true;
     }
 
+    public bool check_if_valid_text_file (string path, FileInfo info) {
+        if (path.has_prefix (".goutputstream")) {
+            return false;
+        }
+
+        if (info.get_is_backup ()) {
+            return false;
+        }
+
+        var content_type = info.get_content_type ();
+        if (info.get_file_type () == FileType.REGULAR &&
+            ContentType.is_a (content_type, "text/*") ||
+            ContentType.is_a (content_type, "application/x-zerosize")
+            ) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public GLib.Menu create_executable_app_items_for_file (GLib.File file, string file_type) {
+        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
+        var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+        external_apps.prepend (files_appinfo);
+
+        string this_id = GLib.Application.get_default ().application_id + ".desktop";
+        var menu = new GLib.Menu ();
+
+        foreach (AppInfo app_info in external_apps) {
+            string app_id = app_info.get_id ();
+            if (app_id == this_id) {
+                continue;
+            }
+
+            var menu_item = new MenuItem (
+                app_info.get_name (),
+                GLib.Action.print_detailed_name (
+                    Scratch.FolderManager.FileView.ACTION_PREFIX
+                    + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
+                    new GLib.Variant.array (
+                        GLib.VariantType.STRING,
+                        { file.get_path (), app_id }
+                    )
+                )
+            );
+            menu_item.set_icon (app_info.get_icon ());
+            menu.append_item (menu_item);
+        }
+
+        return menu;
+    }
+
+    public void launch_app_with_file (AppInfo app_info, GLib.File file) {
+        var file_list = new List<GLib.File> ();
+        file_list.append (file);
+
+        try {
+            app_info.launch (file_list, null);
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
+
+    public GLib.Menu create_contract_items_for_file (GLib.File file) {
+        var menu = new GLib.Menu ();
+
+        try {
+            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
+            foreach (var contract in contracts) {
+                string contract_name = contract.get_display_name ();
+                var menu_item = new GLib.MenuItem (
+                    contract_name,
+                    GLib.Action.print_detailed_name (
+                        Scratch.FolderManager.FileView.ACTION_PREFIX
+                        + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
+                        new GLib.Variant.array (
+                            GLib.VariantType.STRING,
+                            { file.get_path (), contract_name }
+                        )
+                    )
+                );
+
+                menu.append_item (menu_item);
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        return menu;
+    }
+
+    public void execute_contract_with_file_path (string path, string contract_name) {
+        var file = GLib.File.new_for_path (path);
+
+        try {
+            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
+            int length = contracts.size;
+            for (int i = 0; i < length; i++) {
+                var contract = contracts[i];
+                if (contract.get_display_name () == contract_name) {
+                    contract.execute_with_file (file);
+                    break;
+                }
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
+
+    public string get_accel_for_action (string detailed_action_name) {
+        var app_instance = (Gtk.Application) GLib.Application.get_default ();
+        string[] accels = app_instance.get_accels_for_action (detailed_action_name);
+        if (accels.length > 0) {
+            return accels[0];
+        }
+
+        warning ("Accelerators were not found for the action: %s", detailed_action_name);
+        return "";
+    }
 }

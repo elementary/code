@@ -69,12 +69,21 @@ namespace Scratch.Services {
 }
 
 public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
-    Gtk.MenuItem? menuitem = null;
-
+    GLib.MenuItem? menuitem = null;
+    GLib.Menu? share_menu = null;
     public Object object { owned get; construct; }
 
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
+
+    const string ACTION_GROUP = "pastebin";
+    const string ACTION_PREFIX = ACTION_GROUP + ".";
+    const string ACTION_SHOW = "action-show";
+    SimpleActionGroup actions;
+
+    const ActionEntry[] ACTION_ENTRIES = {
+        {ACTION_SHOW, show_paste_bin_upload_dialog }
+    };
 
     public void update_state () {
     }
@@ -89,21 +98,49 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
         plugins.hook_share_menu.connect (on_hook_share_menu);
     }
 
-    void on_hook_share_menu (Gtk.Menu menu) {
-        if (menuitem != null)
+    void on_hook_share_menu (GLib.MenuModel menu) {
+        if (menuitem != null) {
             return;
+        }
 
-        menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
-        menuitem.activate.connect (() => {
-            MainWindow window = plugins.manager.window;
-            new Dialogs.PasteBinDialog (window, doc);
-        });
-        menu.append (menuitem);
-        menuitem.show_all ();
+        add_actions (menu);
+    }
+
+    void add_actions (GLib.MenuModel menu) {
+        if (actions == null) {
+            actions = new SimpleActionGroup ();
+            actions.add_action_entries (ACTION_ENTRIES, this);
+        }
+
+        plugins.manager.window.insert_action_group (ACTION_GROUP, actions);
+        share_menu = (GLib.Menu) menu;
+        menuitem = new GLib.MenuItem (_("Upload to Pastebin"), ACTION_PREFIX + ACTION_SHOW);
+        share_menu.append_item (menuitem);
+    }
+
+    void remove_actions () {
+        int length = share_menu.get_n_items ();
+        for (var i = length - 1; i >= 0; i--) {
+            var action_name = share_menu.get_item_attribute_value (
+                i,
+                GLib.Menu.ATTRIBUTE_ACTION,
+                GLib.VariantType.STRING
+            ).get_string ();
+            if (action_name.has_prefix (ACTION_PREFIX)) {
+                share_menu.remove (i);
+            }
+        }
+
+        plugins.manager.window.insert_action_group (ACTION_GROUP, null);
+    }
+
+    void show_paste_bin_upload_dialog () {
+        MainWindow window = plugins.manager.window;
+        new Dialogs.PasteBinDialog (window, doc);
     }
 
     public void deactivate () {
-        menuitem.destroy ();
+        remove_actions ();
     }
 }
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 18:22+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
 "PO-Revision-Date: 2020-01-07 16:31+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/plugins/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
@@ -44,6 +44,14 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Naloži nastavitve z EditorConfig datoteke"
 
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
+msgid "Find Project Files"
+msgstr ""
+
+#: plugins/fuzzy-search/fuzzy-search.plugin:7
+msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
+msgstr ""
+
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
 msgstr "Označevanje izbrane besede"
@@ -59,14 +67,6 @@ msgstr ""
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
-
-#: plugins/outline/outline.plugin:6
-msgid "Outline"
-msgstr "Oris"
-
-#: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for Vala"
-msgstr "Oris simbolov v trenutni datoteki"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -92,22 +92,6 @@ msgstr "Črkovanje"
 msgid "Checks the spelling of your documents"
 msgstr "Preverjanje črkovanja in slovničnih napak v dokumentu"
 
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
-msgid "Strip trailing whitespace"
-msgstr "Odstrani končne presledke"
-
-#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
-msgid "Strip trailing whitespace on save"
-msgstr "Odstrani presledke na koncu datoteke ob shranjevanju"
-
-#: plugins/terminal/terminal.plugin:6
-msgid "Terminal"
-msgstr "Terminal"
-
-#: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your code editor"
-msgstr "Terminal v vašem urejevalniku besedil"
-
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Emulacija Vim"
@@ -123,6 +107,24 @@ msgstr "Dokončevanje besed"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Pokaže dialog za dokončevanje najbolj pogostih besed iz vaših datotek"
+
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
+
+#~ msgid "A terminal in your code editor"
+#~ msgstr "Terminal v vašem urejevalniku besedil"
+
+#~ msgid "Outline"
+#~ msgstr "Oris"
+
+#~ msgid "Outline symbols in your current file for Vala"
+#~ msgstr "Oris simbolov v trenutni datoteki"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Odstrani končne presledke"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Odstrani presledke na koncu datoteke ob shranjevanju"
 
 #~ msgid "Browser Preview"
 #~ msgstr "Predogled v brskalniku"
