@@ -123,7 +123,6 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
         Gtk.TextIter? iter = null;
         buffer.get_iter_at_line_offset (out iter, line, 0);
         var mark = buffer.create_mark ("NavMark%i".printf (get_next_navmark_number ()), iter, true);
-        mark.set_visible (true);
         add_mark (mark);
         queue_draw ();
     }
