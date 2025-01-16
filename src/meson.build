@@ -4,8 +4,8 @@ conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
-conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
-conf_data.set_quoted('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
+conf_data.set_quoted('DATADIR', get_option('prefix') / get_option('datadir'))
+conf_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 conf_data.set_quoted('BRANCH', branch)
 
 config_header = configure_file(
@@ -22,7 +22,6 @@ code_files = files(
     'Dialogs/RestoreConfirmationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
     'Dialogs/NewBranchDialog.vala',
-    'FolderManager/ContractMenuItem.vala',
     'FolderManager/File.vala',
     'FolderManager/FileItem.vala',
     'FolderManager/FileView.vala',
@@ -34,8 +33,10 @@ code_files = files(
     'Services/DocumentManager.vala',
     'Services/FileHandler.vala',
     'Services/GitManager.vala',
+    'Services/LocationJumpManager.vala',
     'Services/MonitoredRepository.vala',
     'Services/PluginManager.vala',
+    'Services/RestoreOverride.vala',
     'Services/Settings.vala',
     'Services/TemplateManager.vala',
     'Widgets/ChooseProjectButton.vala',
@@ -46,6 +47,9 @@ code_files = files(
     'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
+    'Widgets/SourceList/CellRendererBadge.vala',
+    'Widgets/SourceList/CellRendererExpander.vala',
+    'Widgets/SourceList/SourceList.vala',
     'Widgets/SourceView.vala',
     'Widgets/Terminal.vala',
     'Widgets/WelcomeView.vala',
@@ -57,7 +61,7 @@ code_files = files(
     'SymbolPane/C/CtagsSymbol.vala',
     'SymbolPane/C/CtagsSymbolIter.vala',
     'SymbolPane/C/CtagsSymbolOutline.vala',
-
+    'Structs/SelectionRange.vala'
 )
 
 executable(
@@ -89,7 +93,7 @@ pkg.generate(
     filebase: 'codecore'
 )
 
-install_data ('codecore.deps', install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'vala', 'vapi'))
+install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
 
 codecore_dep = declare_dependency(
     link_with: codecore,

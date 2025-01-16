@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
      */
-    public abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+    public abstract class Item: Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
         public File file { get; construct; }
 
         public FileView view { get; construct; }
@@ -51,11 +51,11 @@ namespace Scratch.FolderManager {
             file.rename (new_name);
         }
 
-        protected void trash () {
+        public void trash () {
             file.trash ();
         }
 
-        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+        public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
             if (a is RenameItem) {
                 return -1;
             } else if (b is RenameItem) {
@@ -77,32 +77,7 @@ namespace Scratch.FolderManager {
             return false;
         }
 
-        public void show_app_chooser (File file) {
-            var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
-            dialog.deletable = false;
-
-            if (dialog.run () == Gtk.ResponseType.OK) {
-                var app_info = dialog.get_app_info ();
-                if (app_info != null) {
-                    launch_app_with_file (app_info, file.file);
-                }
-            }
-
-            dialog.destroy ();
-        }
-
-        public void launch_app_with_file (AppInfo app_info, GLib.File file) {
-            var file_list = new List<GLib.File> ();
-            file_list.append (file);
-
-            try {
-                app_info.launch (file_list, null);
-            } catch (Error e) {
-                warning (e.message);
-            }
-        }
-
-        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+        public ProjectFolderItem? get_root_folder (Code.Widgets.SourceList.ExpandableItem? start = null) {
             if (start == null) {
                 start = this;
             }

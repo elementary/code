@@ -32,6 +32,10 @@ namespace Scratch.Services {
             project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
         }
 
+        public static MonitoredRepository? get_monitored_repository (string root_path) {
+            return project_gitrepo_map[root_path];
+        }
+
         public static GitManager get_instance () {
             if (instance == null) {
                 instance = new GitManager ();
@@ -51,9 +55,9 @@ namespace Scratch.Services {
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (!project_gitrepo_map.has_key (root_path)) {
-
                     monitored_repo = new MonitoredRepository (git_repo);
                     project_gitrepo_map.@set (root_path, monitored_repo);
+                    return project_gitrepo_map.@get (root_path);
                 }
             } catch (Error e) {
                 debug (
@@ -93,6 +97,20 @@ namespace Scratch.Services {
             if (project_gitrepo_map.has_key (root_path)) {
                 project_gitrepo_map.unset (root_path);
             }
+        }
+
+        // @project_path is the root of a project or null
+        public string get_default_build_dir (string? project_path) {
+            string build_path = project_path != null ? project_path : active_project_path;
+            var default_build_dir = Scratch.settings.get_string ("default-build-directory");
+            var build_file = GLib.File.new_for_path (Path.build_filename (build_path, default_build_dir));
+            if (build_file.query_exists ()) {
+                build_path = build_file.get_path ();
+            } else {
+                warning ("build path not found %s", build_file.get_path ());
+            }
+
+            return build_path;
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Scratch.Widgets {
             MIXED,
             ALWAYS
         }
-
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -51,7 +50,7 @@ namespace Scratch.Widgets {
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext search_context = null;
+        public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
 
         public signal void search_empty ();
 
@@ -228,15 +227,17 @@ namespace Scratch.Widgets {
 
             cancel_update_search_widgets ();
             this.text_view = text_view;
-
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
                 search_context = null;
                 return;
             } else if (this.text_buffer != null) {
                 this.text_buffer.changed.disconnect (on_text_buffer_changed);
+                this.text_view.selection_changed.disconnect (on_selection_changed);
             }
 
+            this.text_view = text_view;
+            this.text_view.selection_changed.connect (on_selection_changed);
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
@@ -248,6 +249,21 @@ namespace Scratch.Widgets {
 
         private void on_text_buffer_changed () {
             update_search_widgets ();
+        }
+
+        private void on_selection_changed () {
+
+            var selected_text = text_view.get_selected_text ();
+            bool clear_required;
+            if (search_context.settings.case_sensitive) {
+                clear_required = selected_text != search_entry.text;
+            } else {
+                clear_required = selected_text.down () != search_entry.text.down ();
+            }
+
+            if (clear_required) {
+                search_entry.text = "";
+            }
         }
 
         private void on_replace_entry_activate () {
@@ -481,9 +497,6 @@ namespace Scratch.Widgets {
                 case "Down":
                     search_next ();
                     return true;
-                case "Escape":
-                    text_view.grab_focus ();
-                    return true;
                 case "Tab":
                     if (search_entry.is_focus) {
                         replace_entry.grab_focus ();
@@ -507,9 +520,6 @@ namespace Scratch.Widgets {
                     return true;
                 case "Down":
                     search_next ();
-                    return true;
-                case "Escape":
-                    text_view.grab_focus ();
                     return true;
                 case "Tab":
                     if (replace_entry.is_focus) {

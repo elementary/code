@@ -38,7 +38,11 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
     }
 
     private async void update_config (Scratch.Services.Document d) {
-        format_bar.tab_set_by_editor_config = false;
+        // Ensure use global settings by default
+        format_bar.tab_style_set_by_editor_config = false;
+        format_bar.tab_width_set_by_editor_config = false;
+        format_bar.set_document (d);
+
         Scratch.Widgets.SourceView view = d.source_view;
         File file = d.file;
 
@@ -58,13 +62,13 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
             /* These are all properties (https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties) */
             switch (name) {
                 case "indent_style":
-                    format_bar.tab_set_by_editor_config = true;
+                    format_bar.tab_style_set_by_editor_config = true;
                     var use_spaces = (val != "tab");
                     format_bar.set_insert_spaces_instead_of_tabs (use_spaces);
                     break;
                 case "indent_size":
                 case "tab_width":
-                    format_bar.tab_set_by_editor_config = true;
+                    format_bar.tab_width_set_by_editor_config = true;
                     var indent_width = (int.parse (val)).clamp (2, 16);
                     format_bar.set_tab_width (indent_width);
                     break;
@@ -79,11 +83,14 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
                 case "max_line_length":
                     view.right_margin_position = int.parse (val);
                     break;
+                default:
+                    warning ("unrecognised name/value %s/%s", name, val);
+                    break;
             }
         }
     }
 
-    public void deactivate () { warning ("Editor config deactivate");}
+    public void deactivate () { debug ("Editor config deactivate");}
 }
 
 [ModuleInit]

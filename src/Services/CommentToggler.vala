@@ -138,47 +138,52 @@ public class Scratch.CommentToggler {
             buffer.get_iter_at_mark (out head_iter, imark);
             head_iter.forward_char ();
 
-            while (!iter.ends_line ()) {
-                if (buffer.get_slice (iter, head_iter, true).chomp () != "") {
-                    break;
-                }
-
-                iter.forward_char ();
-                head_iter.forward_char ();
-            }
-
-            if (!iter.ends_line ()) {
-                head_iter.forward_chars (start_tag.length);
-                if (buffer.get_slice (iter, head_iter, true) == start_tag + " ") {
-                    buffer.delete (ref iter, ref head_iter);
-                } else {
-                    head_iter.backward_char ();
-
-                    if (buffer.get_slice (iter, head_iter, true) == start_tag) {
-                        buffer.delete (ref iter, ref head_iter);
-                    }
-                }
-            }
-
-            if (type == CommentType.BLOCK) {
-                buffer.get_iter_at_mark (out iter, imark);
-                iter.forward_to_line_end ();
-                head_iter = iter;
-                head_iter.backward_char ();
-
-                while (!iter.starts_line ()) {
-                    if (buffer.get_slice (head_iter, iter, true).chomp () != "") {
+            var end_line_iter = iter.copy ();
+            end_line_iter.forward_to_line_end ();
+            var line_text = iter.get_slice (end_line_iter).strip ();
+            if (line_text != "") {
+                while (!iter.ends_line ()) {
+                    if (buffer.get_slice (iter, head_iter, true).chomp () != "") {
                         break;
                     }
 
-                    iter.backward_char ();
-                    head_iter.backward_char ();
+                    iter.forward_char ();
+                    head_iter.forward_char ();
                 }
 
-                if (!iter.starts_line ()) {
-                    head_iter.backward_chars (end_tag.length - 1);
-                    if (buffer.get_slice (head_iter, iter, true) == end_tag) {
-                        buffer.delete (ref head_iter, ref iter);
+                if (!iter.ends_line ()) {
+                    head_iter.forward_chars (start_tag.length);
+                    if (buffer.get_slice (iter, head_iter, true) == start_tag + " ") {
+                        buffer.delete (ref iter, ref head_iter);
+                    } else {
+                        head_iter.backward_char ();
+
+                        if (buffer.get_slice (iter, head_iter, true) == start_tag) {
+                            buffer.delete (ref iter, ref head_iter);
+                        }
+                    }
+
+                    if (type == CommentType.BLOCK) {
+                        buffer.get_iter_at_mark (out iter, imark);
+                        iter.forward_to_line_end ();
+                        head_iter = iter;
+                        head_iter.backward_char ();
+
+                        while (!iter.starts_line ()) {
+                            if (buffer.get_slice (head_iter, iter, true).chomp () != "") {
+                                break;
+                            }
+
+                            iter.backward_char ();
+                            head_iter.backward_char ();
+                        }
+
+                        if (!iter.starts_line ()) {
+                            head_iter.backward_chars (end_tag.length - 1);
+                            if (buffer.get_slice (head_iter, iter, true) == end_tag) {
+                                buffer.delete (ref head_iter, ref iter);
+                            }
+                        }
                     }
                 }
             }
@@ -254,13 +259,17 @@ public class Scratch.CommentToggler {
 
         for (int i = 0; i < num_lines; i++) {
             if (!iter.ends_line ()) {
-                iter.forward_chars (min_indent);
-                buffer.insert (ref iter, formatted_start_tag, -1);
-            }
-
-            if (type == CommentType.BLOCK) {
-                iter.forward_to_line_end ();
-                buffer.insert (ref iter, end_tag, -1);
+                var copy_iter = iter.copy ();
+                copy_iter.forward_to_line_end ();
+                var line_text = iter.get_slice (copy_iter).strip ();
+                if (line_text != "") {
+                    iter.forward_chars (min_indent);
+                    buffer.insert (ref iter, formatted_start_tag, -1);
+                    if (type == CommentType.BLOCK) {
+                        iter.forward_to_line_end ();
+                        buffer.insert (ref iter, end_tag, -1);
+                    }
+                }
             }
 
             buffer.get_iter_at_mark (out iter, imark);

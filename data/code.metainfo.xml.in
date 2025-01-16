@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/7.1.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/7.1.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -61,12 +61,97 @@
   <url type="help">https://github.com/elementary/code/discussions/categories/q-a</url>
   <url type="translate">https://l10n.elementary.io/projects/code</url>
 
-  <developer_name>elementary, Inc.</developer_name>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
   <project_group>elementary</project_group>
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="7.1.0" date="2023-04-06" urgency="medium">
+    <release version="7.4.0" date="2024-10-21" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Add symbol filter to Outline pane</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1281">Editing a file does not update Recent in Files</issue>
+        <issue url="https://github.com/elementary/code/issues/1466">improper markdown auto comment on empty lines</issue>
+        <issue url="https://github.com/elementary/code/issues/1462">Git status icons use user-namespace icons</issue>
+        <issue url="https://github.com/elementary/code/issues/1440">Opening folders with same name and on different partitions as projects causes Code to crash</issue>
+      </issues>
+    </release>
+
+    <release version="7.3.0" date="2024-07-11" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The Terminal pane now has a settable default directory</li>
+          <li>New Tab Bar with improved animations and Drag-n-Drop</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1299">Highlight selection plugin highlights neighbouring words when whitespace selected</issue>
+        <issue url="https://github.com/elementary/code/issues/1368">Project chooser not updated after closing folders</issue>
+        <issue url="https://github.com/elementary/code/issues/1385">Click on sidebar item after cancelled rename does not open document</issue>
+        <issue url="https://github.com/elementary/code/issues/1412">New document is not a text file</issue>
+        <issue url="https://github.com/elementary/code/issues/1413">ProjectChooser: More than one active project selected under some circumstances</issue>
+        <issue url="https://github.com/elementary/code/issues/1416">Code hangs when choosing active project when two project starting with the same string are loaded</issue>
+        <issue url="https://github.com/elementary/code/issues/1418">Duplicated items in "Find In Project Popover"</issue>
+        <issue url="https://github.com/elementary/code/issues/1429">Extensions dialogue MUST be resizable</issue>
+        <issue url="https://github.com/elementary/code/issues/1436">Cancelling new folder creation in project causes parent folder to disappear from sidebar</issue>
+        <issue url="https://github.com/elementary/code/issues/570">Draw Spaces On Current Line</issue>
+        <issue url="https://github.com/elementary/code/issues/574">git branch not readable if dir name is too long</issue>
+        <issue url="https://github.com/elementary/code/pull/1446">Fix "go to line" behaviour when column number is not explicitly set</issue>
+      </issues>
+    </release>
+
+    <release version="7.2.0" date="2024-01-18" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>When opening a file in Code from the commandline or another app, a line/char position or selection range may be specified</li>
+          <li>Add a fuzzy-find plugin which finds files in all open projects</li>
+          <li>Save and restore the state of the terminal pane</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>"Find in Folder" now works for all folders and text files, not only ".vala" files</li>
+          <li>"Follow System Style" is now fully respected</li>
+          <li>The "--new-tab" commandline option now works</li>
+          <li>The symbol pane width is now synchronised and saved</li>
+          <li>Project folders are automatically closed if they are externally renamed, moved or deleted</li>
+          <li>Fixed temporary backup files persisting under some circumstances</li>
+          <li>The Show-Replace action has been improved</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/58">Terminal extension open in current directory</issue>
+        <issue url="https://github.com/elementary/code/issues/134">Add fuzzy-finder-like way of opening documents within the active project </issue>
+        <issue url="https://github.com/elementary/code/issues/283">Leave terminal open when all tabs are closed </issue>
+        <issue url="https://github.com/elementary/code/issues/415">Expose "Go To Line" feature externally</issue>
+        <issue url="https://github.com/elementary/code/issues/600">Terminal automatically "cd" to project folder in the sidebar</issue>
+        <issue url="https://github.com/elementary/code/issues/818">Sidebar may show incorrect project structure</issue>
+        <issue url="https://github.com/elementary/code/issues/1189">Searching within a folder should ignore global filters</issue>
+        <issue url="https://github.com/elementary/code/issues/1198">New Document tab label changes when another tab is closed </issue>
+        <issue url="https://github.com/elementary/code/issues/1329">Synchronise and save symbol outline width</issue>
+        <issue url="https://github.com/elementary/code/issues/1343">A backup file remains after closing a document that has trailing spaces</issue>
+        <issue url="https://github.com/elementary/code/issues/1364">System theme change not fully respected if Code already running</issue>
+        <issue url="https://github.com/elementary/code/issues/1371">Highlighted text isn't used with Ctrl-R shortcut</issue>
+        <issue url="https://github.com/elementary/code/issues/1380">"new-tab" command line option not working</issue>
+        <issue url="https://github.com/elementary/code/issues/1387">Text view not refocused after pressing Escape in Search bar</issue>
+        <issue url="https://github.com/elementary/code/issues/1406">Open Folder Button in Welcome View doesn't work</issue>
+      </issues>
+    </release>
+
+    <release version="7.1.0" date="2023-07-28" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
@@ -84,27 +169,33 @@
           <li>Now there is always an active project at startup if there are projects in the sidebar</li>
           <li>If a development branch is running this shows in the window title and in the dock tooltip</li>
           <li>Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs</li>
+          <li>Ensure active project at startup (include non-git folders)</li>
           <li>Updated translations</li>
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/code/issues/739">No expander on folders that contain no text files</issue>
         <issue url="https://github.com/elementary/code/issues/933">Add whole word search</issue>
+        <issue url="https://github.com/elementary/code/issues/965">Undo-ing sometimes deletes the entire contents of a file</issue>
         <issue url="https://github.com/elementary/code/issues/1175">Search occurence label does not update when active document changed</issue>
+        <issue url="https://github.com/elementary/code/issues/1183">Autosave of unsaved buffers not reliable</issue>
+        <issue url="https://github.com/elementary/code/issues/1208">Slow to close multiple documents</issue>
+        <issue url="https://github.com/elementary/code/issues/1210">Unexpected closing on pressing Global Search accelerator with no open documents</issue>
+        <issue url="https://github.com/elementary/code/issues/1248">Clicking "Find in Project…" in the welcome screen causes the app crashing</issue>
+        <issue url="https://github.com/elementary/code/issues/1256">Cancelling saving does not work as expected when closing project folder resulting in data loss</issue>
         <issue url="https://github.com/elementary/code/issues/1261">Saving new document to an unwritable location gives unexpected behaviour and possible data loss</issue>
         <issue url="https://github.com/elementary/code/issues/1263">Symbol outline does not respect system style</issue>
+        <issue url="https://github.com/elementary/code/issues/1266">"Replace All" should not disable the "Replace" and "Replace All" buttons</issue>
         <issue url="https://github.com/elementary/code/issues/1270">Does not follow system color scheme when launching with no files open</issue>
+        <issue url="https://github.com/elementary/code/issues/1272">Secure WebDav files opened from Files cannot save</issue>
         <issue url="https://github.com/elementary/code/issues/1275">Case sensitive/insensitive search does not work as expected with mixed case search term</issue>
         <issue url="https://github.com/elementary/code/issues/1282">Cannot open files with unknown characters</issue>
         <issue url="https://github.com/elementary/code/issues/1293">Search results change when document focused in</issue>
-        <issue url="https://github.com/elementary/code/pull/1254">Ensure active project at startup (include non-git folders)</issue>
-        <issue url="https://github.com/elementary/code/pull/1248">Clicking "Find in Project…" in the welcome screen causes the app crashing</issue>
-        <issue url="https://github.com/elementary/code/pull/1210">Unexpected closing on pressing Global Search accelerator with no open documents</issue>
-        <issue url="https://github.com/elementary/code/pull/1266">"Replace All" should not disable the "Replace" and "Replace All" buttons</issue>
-        <issue url="https://github.com/elementary/code/pull/1272">Secure WebDav files opened from Files cannot save</issue>
-        <issue url="https://github.com/elementary/code/pull/1256">Cancelling saving does not work as expected when closing project folder resulting in data loss</issue>
-        <issue url="https://github.com/elementary/code/pull/1183">Autosave of unsaved buffers not reliable</issue>
-        <issue url="https://github.com/elementary/code/pull/1282">Cannot open files with unknown characters</issue>
-        <issue url="https://github.com/elementary/code/pull/1252">No expander on folders that contain no text files</issue>
+        <issue url="https://github.com/elementary/code/issues/1319">Document does not open when sidebar entry clicked if it is already focused</issue>
+        <issue url="https://github.com/elementary/code/issues/1327">Git branch change can result in unwanted warnings</issue>
+        <issue url="https://github.com/elementary/code/issues/1335">Search entry reverts to previous term after editing and pressing Control+f</issue>
+        <issue url="https://github.com/elementary/code/issues/1340">Tab width menu does not work</issue>
+        <issue url="https://github.com/elementary/code/issues/1341">Line numbers should start from one not zero</issue>
       </issues>
     </release>
 
@@ -164,48 +255,8 @@
       </description>
     </release>
 
-    <release version="6.1.0" date="2021-11-23" urgency="medium">
-      <description>
-        <p>Improvements:</p>
-        <ul>
-          <li>Projects with the same name now include their parent folder name as well</li>
-          <li>When scrolling to search results, overshoot slightly for better visibility</li>
-          <li>Use the FileChooser portal instead of the one from GTK</li>
-          <li>Center the global search dialog over the main Code window</li>
-        </ul>
-        <p>Fixes:</p>
-        <ul>
-          <li>Fix visibility of Terminal button on Welcome page</li>
-          <li>Fix some keyboard shortcuts affecting unfocused Document instead of focused Terminal</li>
-          <li>Close Terminal if shell exited and create new Terminal if re-opened with no shell</li>
-        </ul>
-        <p>Minor updates:</p>
-        <ul>
-          <li>"Visible whitespace" combobox is now a switch</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-
-    <release version="6.0.1" date="2021-08-28" urgency="medium">
-      <description>
-        <p>Fixes:</p>
-        <ul>
-          <li>Fix crash when creating new window from tab drop</li>
-          <li>Ensure files created from the sidebar are automatically opened</li>
-        </ul>
-        <p>Improvements:</p>
-        <ul>
-          <li>Hide project chooser button when hiding sidebar</li>
-        </ul>
-        <p>Minor updates:</p>
-        <ul>
-          <li>Ensure all copy is translatable</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-
+    <release version="6.1.0" date="2021-11-23"/>
+    <release version="6.0.1" date="2021-08-28"/>
     <release version="6.0.0" date="2021-07-15"/>
   </releases>
 </component>

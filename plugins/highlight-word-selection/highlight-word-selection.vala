@@ -20,7 +20,8 @@
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
     Scratch.Widgets.SourceView current_source;
-    Gtk.SourceSearchContext current_search_context;
+    Scratch.MainWindow? main_window = null;
+    Gtk.SourceSearchContext? current_search_context = null;
 
     // Consts
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
@@ -43,33 +44,99 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             current_source.deselected.connect (on_deselection);
             current_source.selection_changed.connect (on_selection_changed);
         });
+
+        plugins.hook_window.connect ((w) => {
+            main_window = w;
+        });
     }
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
-        if (!start.equal (end)) {
-            // Expand highlight to current word
-            if (!start.starts_word ()) {
-                start.backward_word_start ();
+        var window_search_context = main_window != null ? main_window.search_bar.search_context : null;
+
+        if (window_search_context == null ||
+            window_search_context.settings.search_text == "" ||
+            window_search_context.get_occurrences_count () == 0) {
+            // Perform plugin selection when there is no ongoing and successful search 
+            current_search_context = new Gtk.SourceSearchContext (
+                (Gtk.SourceBuffer)current_source.buffer,
+                null
+            );
+            current_search_context.settings.search_text = "";
+            current_search_context.set_highlight (false);
+
+            var original_start = start.copy ();
+
+            // Ignore leading space
+            start.forward_find_char (
+                (uc) => {
+                    return !uc.isspace ();
+                },
+                end
+            );
+
+            // Extend backwards to start of word
+            start.backward_find_char (
+                (uc) => {
+                    var break_type = uc.break_type ();
+                    if (break_type == UnicodeBreakType.ALPHABETIC ||
+                        break_type == UnicodeBreakType.WORD_JOINER) {
+
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                null
+            );
+
+            // Do not include leading punctuation unless originally selected by user
+            if (start.compare (original_start) < 0) {
+                start.forward_char ();
             }
 
-            if (!end.ends_word ()) {
-                end.forward_word_end ();
-            }
+            // Ignore trailing spaces
+            end.backward_find_char (
+                (uc) => {
+                    return !uc.isspace ();
+                },
+                start
+            );
 
-            string selected_text = start.get_buffer ().get_text (start, end, false);
+            // Extend forward to end of word
+            end.forward_find_char (
+                (uc) => {
+                    var break_type = uc.break_type ();
+                    if (break_type == UnicodeBreakType.ALPHABETIC ||
+                        break_type == UnicodeBreakType.WORD_JOINER) {
+
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                null
+            );
+
+            // Ensure no leading or trailing space
+            var selected_text = start.get_text (end).strip ();
+
             if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
                 return;
             }
 
-            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
             current_search_context.settings.search_text = selected_text;
             current_search_context.set_highlight (true);
+        } else if (current_search_context != null) {
+            // Cancel existing search
+            current_search_context.set_highlight (false);
+            current_search_context = null;
         }
     }
 
     public void on_deselection () {
         if (current_search_context != null) {
-            current_search_context.settings.search_text = null;
+            current_search_context.set_highlight (false);
+            current_search_context = null;
         }
     }
 
