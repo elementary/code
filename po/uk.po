@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-08-04 00:16+0000\n"
+"PO-Revision-Date: 2025-01-13 12:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
+"\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -491,10 +491,10 @@ msgid ""
 msgstr "Попереднє розташування файлу «%s» від'єднано, але є незбережені зміни."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "Файл «%s» було видалено, але є незбережені зміни."
+msgstr ""
+"Файл «%s» видалено, перейменовано або переміщено, але є незбережені зміни."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
