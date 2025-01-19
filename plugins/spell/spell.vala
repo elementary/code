@@ -13,7 +13,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
 
     Scratch.Services.Interface plugins;
 
@@ -98,7 +98,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 });
 
                 // Deactivate Spell checker when we are editing a code file
-                var source_buffer = (Gtk.SourceBuffer) d.source_view.buffer;
+                var source_buffer = (GtkSource.Buffer) d.source_view.buffer;
                 var lang = source_buffer.language;
                 if (lang != null && lang.id != "markdown") {
                     spell.detach ();
@@ -160,7 +160,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
-        typeof (Peas.Activatable),
+        typeof (Scratch.Services.ActivatablePlugin),
         typeof (Scratch.Plugins.Spell)
     );
 }
