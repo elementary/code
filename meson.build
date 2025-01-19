@@ -1,3 +1,4 @@
+# Original project from which fork was made
 project(
     'io.elementary.code',
     'vala', 'c',
@@ -5,8 +6,11 @@ project(
     version: '7.4.0'
 )
 
+# Install under different name so may be run alongside original
+install_name = 'com.github.jeremypw.dogfood-code-7'
+
 add_project_arguments([
-        '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
+        '-DGETTEXT_PACKAGE="@0@"'.format(install_name)
     ],
     language: 'c',
 )
@@ -20,8 +24,8 @@ if get_option('have_pkexec')
     add_project_arguments('--define=HAVE_PKEXEC', language: 'vala')
 endif
 
-libexecdir = get_option('prefix') / get_option('libexecdir') / meson.project_name()
-pluginsdir = get_option('prefix') / get_option('libdir') / meson.project_name() / 'plugins'
+libexecdir = get_option('prefix') / get_option('libexecdir') / install_name
+pluginsdir = get_option('prefix') / get_option('libdir') / install_name / 'plugins'
 
 gnome = import('gnome')
 i18n = import('i18n')
