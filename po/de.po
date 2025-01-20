@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 22:46+0000\n"
-"PO-Revision-Date: 2024-08-17 19:16+0000\n"
+"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"PO-Revision-Date: 2025-01-13 12:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Neuer Tab"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
+#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "Neues Fenster"
 
@@ -289,29 +289,29 @@ msgstr "Nicht wiederherstellen"
 msgid "Restore Anyway"
 msgstr "Trotzdem wiederherstellen"
 
-#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
 msgstr "In Terminal-Pane öffnen"
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
 msgstr "Andere Aktionen"
 
-#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
 msgstr "Umbenennen"
 
-#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
 #: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
-#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
 msgstr "Andere Anwendung…"
 
-#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
 msgstr "Öffnen in"
 
@@ -339,11 +339,11 @@ msgstr "Leere Datei"
 msgid "New"
 msgstr "Neu"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
 msgstr "unbenannter Ordner"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:361
 msgid "new file"
 msgstr "neue Datei"
 
@@ -489,14 +489,15 @@ msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr ""
-"Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt; es sind "
-"ungespeicherte Änderungen vorhanden."
+"Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt; es gibt noch "
+"nicht gespeicherte Änderungen."
 
 #: src/Services/Document.vala:876
 #, c-format
-msgid "File “%s” was deleted and there are unsaved changes."
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
-"Die Datei »%s« wurde gelöscht; es sind ungespeicherte Änderungen vorhanden."
+"Die Datei »%s« wurde gelöscht, umbenannt oder verschoben; es gibt noch nicht "
+"gespeicherte Änderungen."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -515,8 +516,8 @@ msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
-"Es sind außerdem ungespeicherte Ändeungen vorhanden. Ein erneutes Laden des "
-"Dokuments wird diese Änderungen überschreiben."
+"Es gibt außerdem nicht gespeicherte Änderungen. Ein erneutes Laden des "
+"Dokuments überschreibt diese Änderungen."
 
 #: src/Services/Document.vala:945
 msgid "The document changed externally since you last saved it."
@@ -584,11 +585,11 @@ msgstr "Methode"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr ""
+msgstr "Struct"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
-msgstr ""
+msgstr "Enum"
 
 #: src/SymbolPane/SymbolOutline.vala:47
 msgid "Constant"
@@ -596,7 +597,7 @@ msgstr "Konstante"
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Constructor"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
