@@ -873,7 +873,7 @@ namespace Scratch.Services {
                     if (mounted == false) {
                         details = _("The location containing the file “%s” was unmounted and there are unsaved changes.");
                     } else {
-                        details = _("File “%s” was deleted and there are unsaved changes.");
+                        details = _("File “%s” was deleted, renamed or moved and there are unsaved changes.");
                     }
 
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
