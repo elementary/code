@@ -408,20 +408,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {
         var params = param.get_strv ();
-        var path = params[0];
-        if (path == null || path == "") {
-            return;
-        }
-
-        var app_id = params[1];
-        if (app_id == null || app_id == "") {
-            return;
-        }
-
-        var app_info = new GLib.DesktopAppInfo (app_id);
-        var file = GLib.File.new_for_path (path);
-
-        Utils.launch_app_with_file (app_info, file);
+        Utils.launch_app_with_file (params[1], params[0]);
     }
 
     private void action_show_app_chooser (SimpleAction action, Variant? param) {
@@ -438,7 +425,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         if (dialog.run () == Gtk.ResponseType.OK) {
             var app_info = dialog.get_app_info ();
             if (app_info != null) {
-                Utils.launch_app_with_file (app_info, file);
+                Utils.launch_app_with_file (app_info.get_id (), path);
             }
         }
 

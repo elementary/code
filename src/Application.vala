@@ -29,9 +29,12 @@ namespace Scratch {
     public class Application : Gtk.Application {
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
+        public bool is_running_in_flatpak { get; construct; }
+
         private static string _data_home_folder_unsaved;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
+
         private LocationJumpManager location_jump_manager;
 
         const OptionEntry[] ENTRIES = {
@@ -48,7 +51,6 @@ namespace Scratch {
             _data_home_folder_unsaved = Path.build_filename (
                                             Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved"
                                         );
-
         }
 
         construct {
@@ -60,6 +62,7 @@ namespace Scratch {
                 application_id += "." + Constants.BRANCH.replace ("/", ".").replace ("-", "_");
             }
 
+            is_running_in_flatpak = FileUtils.test ("/.flatpak-info", FileTest.IS_REGULAR);
             add_main_option_entries (ENTRIES);
 
             // Init settings
