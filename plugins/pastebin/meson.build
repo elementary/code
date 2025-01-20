@@ -5,7 +5,7 @@ module_files = [
     'pastebin.vala'
 ]
 
-soup_dep = dependency('libsoup-2.4')
+soup_dep = dependency('libsoup-3.0')
 
 module_deps = [
     codecore_dep,

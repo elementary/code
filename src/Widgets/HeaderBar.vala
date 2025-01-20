@@ -4,7 +4,9 @@
  *                         2013 Mario Guerriero <mefrio.g@gmail.com>
  */
 
-public class Scratch.HeaderBar : Hdy.HeaderBar {
+// TODO: make CheckButton radio buttons
+
+public class Scratch.HeaderBar : Adw.HeaderBar {
     // Plugins segfault without full access
     public Code.FormatBar format_bar;
     public GLib.Menu share_menu;
@@ -147,19 +149,19 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         };
 
         // Intentionally never attached so we can have a non-selected state
-        var color_button_none = new Gtk.RadioButton (null);
+        var color_button_none = new Gtk.CheckButton (null);
 
-        var color_button_white = new Gtk.RadioButton.from_widget (color_button_none) {
+        var color_button_white = new Gtk.CheckButton.from_widget (color_button_none) {
             halign = Gtk.Align.CENTER
         };
         style_color_button (color_button_white, STYLE_SCHEME_HIGH_CONTRAST);
 
-        var color_button_light = new Gtk.RadioButton.from_widget (color_button_none) {
+        var color_button_light = new Gtk.CheckButton.from_widget (color_button_none) {
             halign = Gtk.Align.CENTER
         };
         style_color_button (color_button_light, STYLE_SCHEME_LIGHT);
 
-        var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none) {
+        var color_button_dark = new Gtk.CheckButton.from_widget (color_button_none) {
             halign = Gtk.Align.CENTER
         };
         style_color_button (color_button_dark, STYLE_SCHEME_DARK);
@@ -324,7 +326,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         string background = "#FFF";
         string foreground = "#333";
 
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var sssm = GtkSourceStyleSchemeManager.get_default ();
         if (style_id in sssm.scheme_ids) {
             var scheme = sssm.get_scheme (style_id);
             color_button.tooltip_text = scheme.name;
