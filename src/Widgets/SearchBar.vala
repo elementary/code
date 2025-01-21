@@ -52,7 +52,7 @@ namespace Scratch.Widgets {
         private Gtk.TextBuffer? text_buffer = null;
         public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
 
-        public signal void search_empty ();
+        public signal void search_changed (string search_term);
 
         private uint update_search_label_timeout_id = 0;
 
@@ -320,10 +320,6 @@ namespace Scratch.Widgets {
             search_context.settings.regex_enabled = regex_search_button.active;
 
             update_search_widgets ();
-
-            if (search_entry.text == "") {
-                search_empty ();
-            }
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {

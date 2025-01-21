@@ -116,7 +116,7 @@ namespace Scratch {
         private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_fetch, "s" },
+            { ACTION_FIND, action_fetch},
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
@@ -183,7 +183,7 @@ namespace Scratch {
         }
 
         static construct {
-            action_accelerators.set (ACTION_FIND + "::", "<Control>f");
+            action_accelerators.set (ACTION_FIND, "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
@@ -446,7 +446,8 @@ namespace Scratch {
                 search_bar.search_entry.text = "";
                 search_bar.highlight_none ();
             });
-            search_bar.search_empty.connect (() => {
+            search_bar.search_changed.connect ((search_term) => {
+                current_search_term = search_term;
                 folder_manager_view.clear_badges ();
             });
 
@@ -1162,8 +1163,7 @@ namespace Scratch {
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private string current_search_term = "";
-        private void action_fetch (SimpleAction action, Variant? param) {
-            current_search_term = param != null ? param.get_string () : "";
+        private void action_fetch () {
             if (!search_revealer.child_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
@@ -1178,7 +1178,7 @@ namespace Scratch {
         }
 
         private void action_show_replace (SimpleAction action) {
-            action_fetch (action, null);
+            action_fetch ();
             // May have to wait for the search bar to be revealed before we can grab focus
             if (search_revealer.child_revealed) {
                 search_bar.replace_entry.grab_focus ();
@@ -1242,7 +1242,7 @@ namespace Scratch {
         private void set_search_text () {
             var current_doc = get_current_document ();
             // This is also called when all documents are closed.
-            if (current_doc != null) {
+            if (current_search_term == "" && current_doc != null) {
                 var selected_text = current_doc.get_selected_text (false);
                 if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                     current_search_term = selected_text.split ("\n", 2)[0];
