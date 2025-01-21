@@ -48,6 +48,7 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public bool get_for_word (string to_find, out List<string> list) {
         list = prefix_tree.get_all_matches (to_find);
+        list.remove_link (list.find_custom (to_find, strcmp));
         return list.first () != null;
     }
 
@@ -86,7 +87,7 @@ public class Euclide.Completion.Parser : GLib.Object {
         parsing_cancelled = true;
     }
 
-    private bool parse_string (string text) {
+    public bool parse_string (string text) {
         parsing_cancelled = false;
         string [] word_array = text.split_set (DELIMITERS, MAX_TOKENS);
         foreach (var current_word in word_array ) {
@@ -97,5 +98,44 @@ public class Euclide.Completion.Parser : GLib.Object {
             add_word (current_word);
         }
         return true;
+    }
+
+    public void delete_word (string word, string text) requires (word.length > 0) {
+        bool match_found = false;
+        uint word_end_index = word.length - 1;
+
+        // Figure out if another instance of a word in another position before trying to delete it
+        // from the prefix tree
+        while (word_end_index > -1 && !match_found) {
+            match_found = prefix_in_text (word[0:word_end_index], text);
+            word_end_index--;
+        }
+
+        // All possible prefixes of the word exist in the source view
+        if (match_found && word_end_index == word.length - 1) {
+            return;
+        }
+
+        uint min_deletion_index = word_end_index + 1;
+
+        lock (prefix_tree) {
+            prefix_tree.remove (word, (int) min_deletion_index);
+        }
+    }
+
+    private bool prefix_in_text (string word, string text) {
+        // If there are at least two matches then the prefix
+        // still exists after the modifications made to the source view
+
+        try {
+            var search_regex = new Regex ("\\b$word\\b");
+            GLib.MatchInfo match_info;
+            search_regex.match_all (text, 0, out match_info);
+            return match_info.get_match_count () > 1;
+        } catch (GLib.Error err) {
+            critical ("Error while attempting regex search of prefix in document text: %s", err.message);
+        }
+
+        return false;
     }
 }
