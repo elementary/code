@@ -30,6 +30,8 @@ namespace Scratch.Services {
 
     public class MonitoredRepository : Object {
         public Ggit.Repository git_repo { get; set construct; }
+        public Ggit.Remote? remote_origin { get; set construct; }
+        public Ggit.Repository? remote_origin_repo { get; set construct; }
         public string branch_name {
             get {
                 return _branch_name;
@@ -127,6 +129,13 @@ namespace Scratch.Services {
                     warning ("An error occurred setting up a file monitor on the gitignore file: %s", e.message);
                 }
             }
+
+            remote_origin = git_repo.lookup_remote ("origin");
+            if (remote_origin != null) {
+                remote_origin_repo = remote_origin.get_owner ();
+            } else {
+                warning ("No remote");
+            }
         }
 
         ~MonitoredRepository () {
@@ -168,6 +177,26 @@ namespace Scratch.Services {
             return branches;
         }
 
+        public unowned List<string> get_remote_branches () {
+            unowned List<string> branches = null;
+            var offset = "origin/".length;
+            try {
+                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
+
+                foreach (Ggit.Ref branch_ref in branch_enumerator) {
+                    var remote_name = branch_ref.get_shorthand ();
+                    if (!remote_name.has_suffix ("HEAD") && !has_local_branch_name (remote_name.substring (offset))) {
+                        branches.append (branch_ref.get_shorthand ());
+                    }
+
+                }
+            } catch (Error e) {
+                warning ("Could not enumerate branches %s", e.message);
+            }
+
+            return branches;
+        }
+
         public bool has_local_branch_name (string name) {
             try {
                 git_repo.lookup_branch (name, Ggit.BranchType.LOCAL);
@@ -187,13 +216,24 @@ namespace Scratch.Services {
         }
 
         public void change_branch (string new_branch_name) throws Error {
-            var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
+            Ggit.Ref? branch;
+            if (new_branch_name.contains ("refs/remote")) {
+                warning ("Looking up remote branch %s", new_branch_name);
+                branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.REMOTE);
+            } else {
+                warning ("Looking up local branch %s", new_branch_name);
+                branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
+            }
+
+            if (branch == null) {
+                throw new IOError.NOT_FOUND ("Branch %s not found in this repository".printf (new_branch_name));
+            }
+
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
             var options = new Ggit.CheckoutOptions () {
                 //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
                 strategy = Ggit.CheckoutStrategy.FORCE
             };
-
             git_repo.checkout_head (options);
 
             branch_name = new_branch_name;

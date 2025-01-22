@@ -316,6 +316,19 @@ namespace Scratch.FolderManager {
                 );
             }
 
+            var remote_branch_submenu = new Menu ();
+            var remote_branch_menu = new Menu ();
+            remote_branch_submenu.append_submenu (_("Remote Branches"), remote_branch_menu);
+
+            foreach (unowned var branch_name in monitored_repo.get_remote_branches ()) {
+                remote_branch_menu.append (
+                    branch_name,
+                    GLib.Action.print_detailed_name (
+                        FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
+                        branch_name
+                    )
+                );
+            }
 
             var new_branch_item = new GLib.MenuItem (
                 _("New Branch…"),
@@ -340,14 +353,15 @@ namespace Scratch.FolderManager {
 
             var menu = new GLib.Menu ();
             menu.append_section (null, branch_selection_menu);
+            menu.append_section (null, remote_branch_submenu);
             menu.append_section (null, bottom_section);
 
             var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
             return menu_item;
         }
 
-        private void handle_change_branch_action (GLib.Variant? parameter) {
-            var branch_name = parameter.get_string ();
+        private void handle_change_branch_action (GLib.Variant? param) {
+            var branch_name = param != null ? param.get_string () : "";
             try {
                 monitored_repo.change_branch (branch_name);
             } catch (GLib.Error e) {
