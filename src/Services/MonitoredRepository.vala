@@ -29,6 +29,7 @@ namespace Scratch.Services {
     }
 
     public class MonitoredRepository : Object {
+        public const string ORIGIN_PREFIX = "origin/";
         public Ggit.Repository git_repo { get; set construct; }
         public Ggit.Remote? remote_origin { get; set construct; }
         public Ggit.Repository? remote_origin_repo { get; set construct; }
@@ -217,22 +218,40 @@ namespace Scratch.Services {
 
         public void change_branch (string new_branch_name) throws Error {
             Ggit.Ref? branch;
-            if (new_branch_name.contains ("refs/remote")) {
-                warning ("Looking up remote branch %s", new_branch_name);
-                branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.REMOTE);
-            } else {
-                warning ("Looking up local branch %s", new_branch_name);
-                branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
-            }
+            assert (!new_branch_name.has_prefix (ORIGIN_PREFIX));
+            warning ("Looking up local branch %s", new_branch_name);
+            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
 
             if (branch == null) {
-                throw new IOError.NOT_FOUND ("Branch %s not found in this repository".printf (new_branch_name));
+                throw new IOError.NOT_FOUND ("Local Branch %s not found".printf (new_branch_name));
             }
 
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
             var options = new Ggit.CheckoutOptions () {
                 //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
-                strategy = Ggit.CheckoutStrategy.FORCE
+                strategy = Ggit.CheckoutStrategy.SAFE
+            };
+            git_repo.checkout_head (options);
+
+            branch_name = new_branch_name;
+        }
+        public void checkout_remote_branch (string new_branch_name) throws Error {
+            Ggit.Ref? branch;
+            assert (new_branch_name.has_prefix (ORIGIN_PREFIX));
+            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.REMOTE);
+
+            if (branch == null) {
+                throw new IOError.NOT_FOUND ("Remote Branch %s not found".printf (new_branch_name));
+            }
+
+            var fetch_opts = new Ggit.FetchOptions ();
+            remote_origin.download ({new_branch_name}, fetch_opts);
+            var local_name = new_branch_name.substring (ORIGIN_PREFIX.length);
+            branch = git_repo.lookup_branch (local_name, Ggit.BranchType.LOCAL);
+            git_repo.set_head (((Ggit.Ref)branch).get_name ());
+            var options = new Ggit.CheckoutOptions () {
+                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                strategy = Ggit.CheckoutStrategy.SAFE
             };
             git_repo.checkout_head (options);
 
