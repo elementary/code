@@ -324,18 +324,24 @@ namespace Scratch.FolderManager {
                 );
             }
 
+            unowned var remote_branches = monitored_repo.get_remote_branches ();
             var remote_branch_submenu = new Menu ();
             var remote_branch_menu = new Menu ();
-            remote_branch_submenu.append_submenu (_("Remote Branches"), remote_branch_menu);
+            if (remote_branches.length () > 0) {
+                remote_branch_submenu.append_submenu (_("Remote Branches"), remote_branch_menu);
+                foreach (unowned var branch_name in remote_branches) {
+                    remote_branch_menu.append (
+                        branch_name,
+                        GLib.Action.print_detailed_name (
+                            FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
+                            branch_name
+                        )
+                    );
+                }
 
-            foreach (unowned var branch_name in monitored_repo.get_remote_branches ()) {
-                remote_branch_menu.append (
-                    branch_name,
-                    GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
-                        branch_name
-                    )
-                );
+
+            } else {
+                warning ("No remote branches");
             }
 
             var new_branch_item = new GLib.MenuItem (
