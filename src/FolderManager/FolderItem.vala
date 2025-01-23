@@ -140,7 +140,7 @@ namespace Scratch.FolderManager {
             }
 
             var direct_actions_section = new GLib.Menu ();
-            direct_actions_section.append_item (create_submenu_for_new ());
+            direct_actions_section.append_item (create_new_menuitem ());
             direct_actions_section.append_item (rename_menu_item);
             direct_actions_section.append_item (delete_item);
 
@@ -179,7 +179,7 @@ namespace Scratch.FolderManager {
             return open_in_menu_item;
         }
 
-        protected GLib.MenuItem create_submenu_for_new () {
+        protected virtual GLib.Menu create_submenu_for_new () {
             var new_folder_item = new GLib.MenuItem (
                 _("Folder"),
                 GLib.Action.print_detailed_name (
@@ -200,9 +200,12 @@ namespace Scratch.FolderManager {
             new_menu.append_item (new_folder_item);
             new_menu.append_item (new_file_item);
 
-            var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
-            new_item.set_submenu (new_menu);
+            return new_menu;
 
+        }
+
+        protected GLib.MenuItem create_new_menuitem () {
+            var new_item = new GLib.MenuItem.submenu (_("New"), create_submenu_for_new ());
             return new_item;
         }
 

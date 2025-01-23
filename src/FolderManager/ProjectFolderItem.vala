@@ -158,7 +158,7 @@ namespace Scratch.FolderManager {
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
             var folder_actions_section = new GLib.Menu ();
-            folder_actions_section.append_item (create_submenu_for_new ());
+            folder_actions_section.append_item (create_new_menuitem ());
             if (monitored_repo != null) {
                 folder_actions_section.append_item (create_submenu_for_branch ());
             }
@@ -301,6 +301,35 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
+        protected override GLib.Menu create_submenu_for_new () {
+            var new_menu = base.create_submenu_for_new ();
+            if (monitored_repo != null) {
+                var new_branch_item = new GLib.MenuItem (
+                    _("New Branch…"),
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                        file.path
+                    )
+                );
+
+                new_branch_item.set_attribute_value (
+                    "accel",
+                    Utils.get_accel_for_action (
+                        GLib.Action.print_detailed_name (
+                            MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+                            ""
+                        )
+                    )
+                );
+
+                var new_branch_section = new GLib.Menu ();
+                new_branch_section.append_item (new_branch_item);
+                new_menu.append_section (null, new_branch_section);
+            }
+
+            return new_menu;
+        }
+
         protected GLib.MenuItem create_submenu_for_branch () {
             // Ensures that action for relevant project is being used
             view.actions.add_action (change_branch_action);
@@ -316,33 +345,7 @@ namespace Scratch.FolderManager {
                 );
             }
 
-
-            var new_branch_item = new GLib.MenuItem (
-                _("New Branch…"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                    file.path
-                )
-            );
-
-            new_branch_item.set_attribute_value (
-                "accel",
-                Utils.get_accel_for_action (
-                    GLib.Action.print_detailed_name (
-                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                        ""
-                    )
-                )
-            );
-
-            GLib.Menu bottom_section = new GLib.Menu ();
-            bottom_section.append_item (new_branch_item);
-
-            var menu = new GLib.Menu ();
-            menu.append_section (null, branch_selection_menu);
-            menu.append_section (null, bottom_section);
-
-            var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
+            var menu_item = new GLib.MenuItem.submenu (_("Branch"), branch_selection_menu);
             return menu_item;
         }
 
