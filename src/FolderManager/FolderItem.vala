@@ -88,16 +88,7 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_in_terminal_pane_item = new GLib.MenuItem (
-                (_("Open in Terminal Pane")),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    new Variant.string (file.path)
-                )
-            );
-
             GLib.FileInfo info = null;
-
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
             } catch (Error e) {
@@ -133,7 +124,6 @@ namespace Scratch.FolderManager {
             );
 
             var external_actions_section = new GLib.Menu ();
-            external_actions_section.append_item (open_in_terminal_pane_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
             if (contractor_items.get_n_items () > 0) {
                 external_actions_section.append_submenu (_("Other Actions"), contractor_items);
@@ -158,6 +148,14 @@ namespace Scratch.FolderManager {
         }
 
         protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                (_("Open in Terminal Pane")),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (file.path)
+                )
+            );
+
             var other_menu_item = new GLib.MenuItem (
                 _("Other Application…"),
                 GLib.Action.print_detailed_name (
@@ -168,6 +166,7 @@ namespace Scratch.FolderManager {
 
             var extra_section = new GLib.Menu ();
             extra_section.append_item (other_menu_item);
+            extra_section.append_item (open_in_terminal_pane_item);
 
             file_type = file_type ?? "inode/directory";
 
