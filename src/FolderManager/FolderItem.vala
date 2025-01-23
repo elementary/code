@@ -149,7 +149,7 @@ namespace Scratch.FolderManager {
 
         protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
             var open_in_terminal_pane_item = new GLib.MenuItem (
-                (_("Open in Terminal Pane")),
+                (_("Terminal Pane")),
                 GLib.Action.print_detailed_name (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
                     new Variant.string (file.path)
@@ -166,11 +166,14 @@ namespace Scratch.FolderManager {
 
             var extra_section = new GLib.Menu ();
             extra_section.append_item (other_menu_item);
-            extra_section.append_item (open_in_terminal_pane_item);
+
+            var terminal_pane_section = new Menu ();
+            terminal_pane_section.append_item (open_in_terminal_pane_item);
 
             file_type = file_type ?? "inode/directory";
 
             var open_in_menu = new GLib.Menu ();
+            open_in_menu.append_section (null, terminal_pane_section);
             open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
             open_in_menu.append_section (null, extra_section);
 
