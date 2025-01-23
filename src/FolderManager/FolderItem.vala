@@ -155,6 +155,7 @@ namespace Scratch.FolderManager {
                     new Variant.string (file.path)
                 )
             );
+            open_in_terminal_pane_item.set_icon (new ThemedIcon ("panel-bottom-symbolic"));
 
             var other_menu_item = new GLib.MenuItem (
                 _("Other Application…"),
