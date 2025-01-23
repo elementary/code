@@ -175,14 +175,13 @@ namespace Scratch.Services {
 
         public unowned List<string> get_remote_branches () {
             unowned List<string> branch_names = null;
-            var offset = "origin/".length;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
 
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     var remote_name = branch_ref.get_shorthand ();
                     if (!remote_name.has_suffix ("HEAD") &&
-                        !has_local_branch_name (remote_name.substring (offset))) {
+                        !has_local_branch_name (remote_name.substring (ORIGIN_PREFIX.length))) {
 
                         branch_names.append (branch_ref.get_shorthand ());
                     }
