@@ -31,8 +31,6 @@ namespace Scratch.Services {
     public class MonitoredRepository : Object {
         public const string ORIGIN_PREFIX = "origin/";
         public Ggit.Repository git_repo { get; set construct; }
-        public Ggit.Remote? remote_origin { get; set construct; }
-        public Ggit.Repository? remote_origin_repo { get; set construct; }
         public string branch_name {
             get {
                 return _branch_name;
@@ -70,6 +68,8 @@ namespace Scratch.Services {
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
 
+        private List<Ggit.Ref> remote_branch_ref_list;
+
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
                 return file_status_map.entries;
@@ -100,6 +100,8 @@ namespace Scratch.Services {
                 Ggit.StatusShow.INDEX_AND_WORKDIR,
                 null
             );
+
+            remote_branch_ref_list = new List<Ggit.Ref> ();
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -129,13 +131,6 @@ namespace Scratch.Services {
                 } catch (IOError e) {
                     warning ("An error occurred setting up a file monitor on the gitignore file: %s", e.message);
                 }
-            }
-
-            remote_origin = git_repo.lookup_remote ("origin");
-            if (remote_origin != null) {
-                remote_origin_repo = remote_origin.get_owner ();
-            } else {
-                warning ("No remote");
             }
         }
 
@@ -179,23 +174,26 @@ namespace Scratch.Services {
         }
 
         public unowned List<string> get_remote_branches () {
-            unowned List<string> branches = null;
+            unowned List<string> branch_names = null;
             var offset = "origin/".length;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
 
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     var remote_name = branch_ref.get_shorthand ();
-                    if (!remote_name.has_suffix ("HEAD") && !has_local_branch_name (remote_name.substring (offset))) {
-                        branches.append (branch_ref.get_shorthand ());
+                    if (!remote_name.has_suffix ("HEAD") &&
+                        !has_local_branch_name (remote_name.substring (offset))) {
+
+                        branch_names.append (branch_ref.get_shorthand ());
                     }
 
+                    remote_branch_ref_list.append (branch_ref);
                 }
             } catch (Error e) {
-                warning ("Could not enumerate branches %s", e.message);
+                warning ("Could not enumerate local branches %s", e.message);
             }
 
-            return branches;
+            return branch_names;
         }
 
         public bool has_local_branch_name (string name) {
@@ -216,46 +214,44 @@ namespace Scratch.Services {
             return true;
         }
 
-        public void change_branch (string new_branch_name) throws Error {
-            Ggit.Ref? branch;
-            assert (!new_branch_name.has_prefix (ORIGIN_PREFIX));
-            warning ("Looking up local branch %s", new_branch_name);
-            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
+        public void change_local_branch (string new_branch_name) throws Error
+        requires (!new_branch_name.has_prefix (ORIGIN_PREFIX)) {
 
-            if (branch == null) {
-                throw new IOError.NOT_FOUND ("Local Branch %s not found".printf (new_branch_name));
-            }
+            //TODO Check current head has no uncommitted changes.
+            Ggit.Ref? branch;
+            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
 
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
             var options = new Ggit.CheckoutOptions () {
-                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
                 strategy = Ggit.CheckoutStrategy.SAFE
             };
             git_repo.checkout_head (options);
 
             branch_name = new_branch_name;
         }
-        public void checkout_remote_branch (string new_branch_name) throws Error {
-            Ggit.Ref? branch;
-            assert (new_branch_name.has_prefix (ORIGIN_PREFIX));
-            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.REMOTE);
 
-            if (branch == null) {
-                throw new IOError.NOT_FOUND ("Remote Branch %s not found".printf (new_branch_name));
+        public void checkout_remote_branch (string target_shorthand) throws Error
+        requires (target_shorthand.has_prefix (ORIGIN_PREFIX)) {
+
+            Ggit.Ref? branch_ref;
+            //Assume list is up to date as this is called from context menu
+            unowned var list_pointer = remote_branch_ref_list.first ();
+            while (list_pointer.data != null &&
+                   list_pointer.data.get_shorthand () != target_shorthand) {
+
+                list_pointer = list_pointer.next;
             }
 
-            var fetch_opts = new Ggit.FetchOptions ();
-            remote_origin.download ({new_branch_name}, fetch_opts);
-            var local_name = new_branch_name.substring (ORIGIN_PREFIX.length);
-            branch = git_repo.lookup_branch (local_name, Ggit.BranchType.LOCAL);
-            git_repo.set_head (((Ggit.Ref)branch).get_name ());
-            var options = new Ggit.CheckoutOptions () {
-                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
-                strategy = Ggit.CheckoutStrategy.SAFE
-            };
-            git_repo.checkout_head (options);
+            branch_ref = list_pointer.data;
+            if (branch_ref == null) {
+                //TODO Warn user
+                return;
+            }
 
-            branch_name = new_branch_name;
+            var commit = branch_ref.lookup ();
+            var local_name = target_shorthand.substring (ORIGIN_PREFIX.length);
+            var local_branch = git_repo.create_branch (local_name, commit, NONE) as Ggit.Branch;
+            local_branch.set_upstream (local_branch.get_name ());
         }
 
         public void create_new_branch (string name) throws Error {
