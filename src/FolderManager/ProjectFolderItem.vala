@@ -318,7 +318,7 @@ namespace Scratch.FolderManager {
                 branch_selection_menu.append (
                     branch_name,
                     GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
+                        FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
                         branch_name
                     )
                 );
