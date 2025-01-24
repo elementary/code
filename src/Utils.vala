@@ -207,7 +207,7 @@ namespace Scratch.Utils {
         var menu = new GLib.Menu ();
 
         external_apps.sort ((a, b) => {
-            return strcmp (a.get_name (), b.get_name ());
+            return a.get_name ().collate (b.get_name ());
         });
 
         foreach (AppInfo app_info in external_apps) {
