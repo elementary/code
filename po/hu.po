@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-08-06 06:16+0000\n"
+"PO-Revision-Date: 2025-01-16 17:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -492,10 +492,11 @@ msgstr ""
 "mentett módosítások vannak."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "A(z) \"%s\" fájl törōlve és nem mentett módosítások vannak."
+msgstr ""
+"A(z) \"%s\" fájl törōlve, átnevezve vagy mozgatva lett és nem mentett "
+"módosítások vannak."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
