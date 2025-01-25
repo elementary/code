@@ -216,13 +216,15 @@ namespace Scratch.Services {
         public void change_local_branch (string new_branch_name) throws Error
         requires (!new_branch_name.has_prefix (ORIGIN_PREFIX)) {
 
-            //TODO Check current head has no uncommitted changes.
+            //TODO Check current head has no uncommitted changes.since we FORCE the checkout.
             Ggit.Ref? branch;
             branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
 
             git_repo.set_head (((Ggit.Ref)branch).get_name ());
+            // This will force all changes in current branch to be overwritten even if uncommitted.
+            // Using SAFE results in unwanted diff files in the staging area even if there are no uncommitted changes
             var options = new Ggit.CheckoutOptions () {
-                strategy = Ggit.CheckoutStrategy.SAFE
+                strategy = Ggit.CheckoutStrategy.FORCE
             };
             git_repo.checkout_head (options);
 
