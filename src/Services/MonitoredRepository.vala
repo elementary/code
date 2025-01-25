@@ -234,7 +234,16 @@ namespace Scratch.Services {
 
             branch_ref = list_pointer.data;
             if (branch_ref == null) {
-                //TODO Warn user
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Remote Branch '%s' not found").printf (target_shorthand),
+                    _("The requested branch was not found in any remote linked to this repository"),
+                    "dialog-warning"
+                ) {
+                    modal = true
+                };
+
+                dialog.response.connect (() => {dialog.destroy ();});
+                dialog.present ();
                 return;
             }
 
