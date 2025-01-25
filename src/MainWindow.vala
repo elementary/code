@@ -734,9 +734,12 @@ namespace Scratch {
             return document_view.current_document;
         }
 
-        public string get_selected_text () {
+        // If selected text covers more than one line return just the first.
+        // Returns "" if no selection
+        public string get_selected_text_for_search () {
             var doc = get_current_document ();
-            return doc != null ? doc.get_selected_text (false) : "";
+            var text = doc != null ? doc.get_selected_text (false) : "";
+            return text.split ("\n", 2)[0];
         }
 
         public bool has_successful_search () {
@@ -1158,11 +1161,10 @@ namespace Scratch {
                 if (show_find_action.enabled) {
                     show_find_action.activate (new Variant ("b", true));
                 }
-            } else if (!search_bar.is_focused) {
-                var selected_text = get_selected_text ();
-                if (selected_text != "") {
-                    search_bar.set_search_entry_text (selected_text);
-                }
+            }
+
+            if (!search_bar.is_focused || search_bar.entry_text == "") {
+                search_bar.set_search_entry_text (get_selected_text_for_search ());
             }
 
             search_bar.search ();
@@ -1192,19 +1194,18 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            var current_doc = get_current_document ();
-            var selected_text = current_doc != null ? current_doc.get_selected_text (false) : "";
-            selected_text = selected_text.split ("\n", 2)[0];
-
             var search_term = "";
-            if (search_bar.is_focused || selected_text == "") {
-                search_term = search_bar.entry_text;
+            if (!search_bar.is_focused || search_bar.entry_text == "") {
+                search_term = get_selected_text_for_search ();
             } else {
-                search_term = selected_text;
+                search_term = search_bar.entry_text;
             }
 
             folder_manager_view.search_global (get_target_path_for_actions (param), search_term);
             search_bar.set_search_entry_text (search_term);
+            if (!search_bar.is_revealed) {
+                action_toggle_show_find ();
+            }
         }
 
         private void update_find_actions () {
@@ -1230,6 +1231,9 @@ namespace Scratch {
             search_bar.reveal (to_show);
             if (to_show) {
                 search_bar.focus_search_entry ();
+                if (search_bar.entry_text == "") { // Should always be true atm as entry cleared on hiding
+                    search_bar.set_search_entry_text (get_selected_text_for_search ());
+                }
             }
         }
 

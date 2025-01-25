@@ -82,6 +82,12 @@ namespace Scratch.Widgets {
             }
         }
 
+        public uint transition_time_msec {
+            get {
+                return revealer.transition_duration + 10;
+            }
+        }
+
         public SearchBar (MainWindow window) {
             Object (window: window);
         }
@@ -489,10 +495,11 @@ namespace Scratch.Widgets {
             replace_entry.grab_focus ();
         }
 
-        public void reveal (bool visible) {
-            revealer.reveal_child = visible;
-            if (!visible) {
-                search_entry.text = "";
+        public void reveal (bool to_reveal) {
+            revealer.reveal_child = to_reveal;
+            // Clear entry when searchbar is hidden
+            if (is_revealed && !to_reveal) {
+                set_search_entry_text ("");
             }
         }
 
