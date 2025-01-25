@@ -1156,10 +1156,7 @@ namespace Scratch {
             if (!search_bar.is_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
-                    /* Toggling the fetch action causes this function to be called again but the search_revealer child
-                     * is still not revealed so nothing more happens.  We use the map signal on the search entry
-                     * to set it up once it has been revealed. */
-                    show_find_action.set_state (true);
+                    show_find_action.activate (new Variant ("b", true));
                 }
             } else if (!search_bar.is_focused) {
                 var selected_text = get_selected_text ();
@@ -1228,8 +1225,12 @@ namespace Scratch {
         /** Toggle action - linked to toolbar togglebutton. **/
         private void action_toggle_show_find () {
             var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
-            action.set_state (!action.get_state ().get_boolean ());
-            search_bar.reveal (action.get_state ().get_boolean ());
+            var to_show = !action.get_state ().get_boolean ();
+            action.set_state (to_show);
+            search_bar.reveal (to_show);
+            if (to_show) {
+                search_bar.focus_search_entry ();
+            }
         }
 
         private void action_go_to () {
