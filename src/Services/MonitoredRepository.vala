@@ -254,8 +254,13 @@ namespace Scratch.Services {
             checkout_branch (local_branch);
         }
 
-        private void checkout_branch (Ggit.Branch new_head_branch) {
+        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
             //TODO Check current head has no uncommitted changes.since we FORCE the checkout.
+            if (confirm && has_uncommitted) {
+                confirm_checkout_branch (new_head_branch);
+                return;
+            }
+
             git_repo.set_head (((Ggit.Ref)new_head_branch).get_name ());
             // This will force all changes in current branch to be overwritten even if uncommitted.
             // Using SAFE results in unwanted diff files in the staging area even if there are no uncommitted changes
@@ -265,6 +270,19 @@ namespace Scratch.Services {
             git_repo.checkout_head (options);
 
             branch_name = new_head_branch.get_name ();
+        }
+
+        private void confirm_checkout_branch (Ggit.Branch new_head_branch) {
+            var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+            var dialog = new Scratch.Dialogs.OverwriteUncommittedConfirmationDialog (parent, new_head_branch.get_name ());
+            dialog.response.connect ((res) => {
+                dialog.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    checkout_branch (new_head_branch, false);
+                }
+            });
+
+            dialog.present ();
         }
 
         public void create_new_branch (string name) throws Error {
