@@ -216,19 +216,8 @@ namespace Scratch.Services {
         public void change_local_branch (string new_branch_name) throws Error
         requires (!new_branch_name.has_prefix (ORIGIN_PREFIX)) {
 
-            //TODO Check current head has no uncommitted changes.since we FORCE the checkout.
-            Ggit.Ref? branch;
-            branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
-
-            git_repo.set_head (((Ggit.Ref)branch).get_name ());
-            // This will force all changes in current branch to be overwritten even if uncommitted.
-            // Using SAFE results in unwanted diff files in the staging area even if there are no uncommitted changes
-            var options = new Ggit.CheckoutOptions () {
-                strategy = Ggit.CheckoutStrategy.FORCE
-            };
-            git_repo.checkout_head (options);
-
-            branch_name = new_branch_name;
+            var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
+            checkout_branch (branch);
         }
 
         public void checkout_remote_branch (string target_shorthand) throws Error
@@ -253,6 +242,20 @@ namespace Scratch.Services {
             var local_name = target_shorthand.substring (ORIGIN_PREFIX.length);
             var local_branch = git_repo.create_branch (local_name, commit, NONE) as Ggit.Branch;
             local_branch.set_upstream (local_branch.get_name ());
+            checkout_branch (local_branch);
+        }
+
+        private void checkout_branch (Ggit.Branch new_head_branch) {
+            //TODO Check current head has no uncommitted changes.since we FORCE the checkout.
+            git_repo.set_head (((Ggit.Ref)new_head_branch).get_name ());
+            // This will force all changes in current branch to be overwritten even if uncommitted.
+            // Using SAFE results in unwanted diff files in the staging area even if there are no uncommitted changes
+            var options = new Ggit.CheckoutOptions () {
+                strategy = Ggit.CheckoutStrategy.FORCE
+            };
+            git_repo.checkout_head (options);
+
+            branch_name = new_head_branch.get_name ();
         }
 
         public void create_new_branch (string name) throws Error {
