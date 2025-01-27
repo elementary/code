@@ -115,7 +115,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             git_manager.active_project_path = project_entry.project_path;
-            project_chosen ();
         });
 
         realize.connect (() => {
