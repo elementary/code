@@ -657,11 +657,12 @@ namespace Scratch {
             }
         }
 
-        private void restore_opened_documents () {
+        private async void restore_opened_documents () {
+            File? focused_file = null;
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var doc_infos = settings.get_value ("opened-files");
                 var doc_info_iter = new VariantIter (doc_infos);
-                string focused_document = settings.get_string ("focused-document");
+                string focused_uri = settings.get_string ("focused-document");
                 string uri;
                 int pos;
                 bool was_restore_overriden = false;
@@ -677,31 +678,28 @@ namespace Scratch {
                            But for files that do not exist we need to make sure that doc won't create a new file
                         */
                         if (file.query_exists ()) {
+                            var is_focused = uri == focused_uri;
+                            if (is_focused) {
+                                focused_file = file;
+                            }
                             //TODO Check files valid (settings could have been manually altered)
                             var doc = new Scratch.Services.Document (actions, file);
-                            bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
                                 if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
-                                    open_document_at_selected_range (doc, true, restore_override.range, true);
+                                    yield open_document_at_selected_range (doc, true, restore_override.range, true);
                                     was_restore_overriden = true;
                                 } else {
-                                    open_document (doc, was_restore_overriden ? false : is_focused, pos);
+                                    yield open_document (doc, was_restore_overriden ? false : is_focused, pos);
                                 }
-                            }
-
-                            if (is_focused) { //Maybe expand to show all opened documents?
-                                folder_manager_view.expand_to_path (file.get_path ());
                             }
                         }
                     }
                 }
             }
 
-            Idle.add (() => {
-                document_view.request_placeholder_if_empty ();
-                restore_override = null;
-                return Source.REMOVE;
-            });
+            document_view.request_placeholder_if_empty ();
+            restore_override = null;
+            folder_manager_view.expand_to_path (focused_file.get_path ());
         }
 
         // private bool on_key_pressed (Gdk.EventKey event) {
@@ -757,16 +755,16 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc,
+        public async void open_document (Scratch.Services.Document doc,
                                    bool focus = true,
                                    int cursor_position = 0) {
 
             FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             doc.source_view.project = project;
-            document_view.open_document (doc, focus, cursor_position);
+            yield document_view.open_document (doc, focus, cursor_position);
         }
 
-        public void open_document_at_selected_range (Scratch.Services.Document doc,
+        public async void open_document_at_selected_range (Scratch.Services.Document doc,
                                                      bool focus = true,
                                                      SelectionRange range = SelectionRange.EMPTY,
                                                      bool is_override = false) {
@@ -776,7 +774,7 @@ namespace Scratch {
 
             FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             doc.source_view.project = project;
-            document_view.open_document (doc, focus, 0, range);
+            yield document_view.open_document (doc, focus, 0, range);
         }
 
         // Close a document
