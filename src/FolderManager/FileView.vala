@@ -126,9 +126,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         write_settings ();
     }
 
-    public void restore_saved_state () {
+    public async void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            add_folder (new File (path), false);
+            yield add_folder (new File (path), false);
         }
     }
 
@@ -505,7 +505,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private void add_folder (File folder, bool expand) {
+    private async void add_folder (File folder, bool expand) {
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
@@ -583,8 +583,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             });
 
             write_settings ();
+            add_folder.callback ();
             return Source.REMOVE;
         });
+
+        yield;
     }
 
     private bool is_open (File folder) {
