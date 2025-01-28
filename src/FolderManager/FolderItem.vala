@@ -55,14 +55,10 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void on_toggled () {
+        private async void load_children () {
             var root = get_root_folder ();
-            if (!children_loaded &&
-                 expanded &&
-                 n_children <= 1 &&
-                 file.children.size > 0) {
-
-                foreach (var child in file.children) {
+            foreach (var child in file.children) {
+                Idle.add (() => {
                     Code.Widgets.SourceList.Item item = null;
                     if (child.is_valid_directory ()) {
                         item = new FolderItem (child, view);
@@ -73,15 +69,34 @@ namespace Scratch.FolderManager {
                     if (item != null) {
                         add (item);
                     }
-                }
 
-                children_loaded = true;
-                if (root != null) {
-                    root.child_folder_loaded (this);
-                }
-            } else if (!expanded &&
-                       root != null &&
-                       root.monitored_repo != null) {
+                    load_children.callback ();
+                    return Source.REMOVE;
+                });
+
+                yield;
+            }
+
+            children_loaded = true;
+            if (root != null) {
+                root.child_folder_loaded (this);
+            }
+        }
+
+        private void on_toggled () {
+            if (!children_loaded &&
+                 expanded &&
+                 n_children <= 1 &&
+                 file.children.size > 0) {
+
+                load_children.begin ();
+                return;
+            }
+
+            var root = get_root_folder ();
+            if (!expanded &&
+                root != null &&
+                root.monitored_repo != null) {
                 //When toggled closed, update status to reflect hidden contents
                 root.update_item_status (this);
             }
