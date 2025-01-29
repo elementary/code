@@ -115,6 +115,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
             git_manager.active_project_path = project_entry.project_path;
+            project_chosen ();
         });
 
         realize.connect (() => {
@@ -122,8 +123,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             git_manager.notify["active-project-path"].connect (() => {
                 // Sync menubutton states
                 set_active_path (git_manager.active_project_path);
-                // Signal window to update as required (e.g. terminal)
-                project_chosen ();
             });
         });
     }
