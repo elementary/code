@@ -313,22 +313,28 @@ namespace Scratch.FolderManager {
             view.actions.add_action (change_branch_action);
             view.actions.add_action (checkout_remote_branch_action);
 
-            GLib.Menu branch_selection_menu = new GLib.Menu ();
-            foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
-                branch_selection_menu.append (
-                    branch_name,
-                    GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
-                        branch_name
-                    )
-                );
+            unowned var local_branches = monitored_repo.get_local_branches ();
+            var local_branch_submenu = new Menu ();
+            var local_branch_menu = new Menu ();
+            if (local_branches.length () > 0) {
+                local_branch_submenu.append_submenu (_("Local"), local_branch_menu);
+                foreach (unowned var branch_name in local_branches) {
+                    local_branch_menu.append (
+                        branch_name,
+                        GLib.Action.print_detailed_name (
+                            FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
+                            branch_name
+                        )
+                    );
+                }
             }
+
 
             unowned var remote_branches = monitored_repo.get_remote_branches ();
             var remote_branch_submenu = new Menu ();
             var remote_branch_menu = new Menu ();
             if (remote_branches.length () > 0) {
-                remote_branch_submenu.append_submenu (_("Remote Branches"), remote_branch_menu);
+                remote_branch_submenu.append_submenu (_("Remote"), remote_branch_menu);
                 foreach (unowned var branch_name in remote_branches) {
                     remote_branch_menu.append (
                         branch_name,
@@ -340,8 +346,6 @@ namespace Scratch.FolderManager {
                 }
 
 
-            } else {
-                warning ("No remote branches");
             }
 
             var new_branch_item = new GLib.MenuItem (
@@ -366,7 +370,7 @@ namespace Scratch.FolderManager {
             bottom_section.append_item (new_branch_item);
 
             var menu = new GLib.Menu ();
-            menu.append_section (null, branch_selection_menu);
+            menu.append_section (null, local_branch_submenu);
             menu.append_section (null, remote_branch_submenu);
             menu.append_section (null, bottom_section);
 
