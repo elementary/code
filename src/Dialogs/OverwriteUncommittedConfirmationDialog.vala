@@ -19,12 +19,18 @@
 public class Scratch.Dialogs.OverwriteUncommittedConfirmationDialog : Granite.MessageDialog {
 
     public string branch_name { get; construct; }
-    public OverwriteUncommittedConfirmationDialog (Gtk.Window parent, string new_branch_name) {
+    public OverwriteUncommittedConfirmationDialog (
+        Gtk.Window parent,
+        string new_branch_name,
+        string details
+    ) {
         Object (
             buttons: Gtk.ButtonsType.NONE,
             transient_for: parent,
             branch_name: new_branch_name
         );
+
+        show_error_details (details);
     }
 
     construct {
