@@ -20,7 +20,6 @@ code_files = files(
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
     'Dialogs/RestoreConfirmationDialog.vala',
-    'Dialogs/OverwriteUncommittedConfirmationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
     'Dialogs/NewBranchDialog.vala',
     'FolderManager/File.vala',
