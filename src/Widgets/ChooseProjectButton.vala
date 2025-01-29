@@ -118,23 +118,24 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             project_chosen ();
         });
 
-        realize.connect (() => {
-            set_active_path (git_manager.active_project_path);
-            git_manager.notify["active-project-path"].connect (() => {
-                // Sync menubutton states
-                set_active_path (git_manager.active_project_path);
-            });
+        toggled.connect (() => {
+            if (active) {
+                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+                foreach (var child in project_listbox.get_children ()) {
+                    var project_row = ((ProjectRow) child);
+                    // All paths must not end in directory separator so can be compared directly
+                    project_row.active = active_path == project_row.project_path;
+                }
+            }
         });
+
+        git_manager.notify["active-project-path"].connect (update_button);
+        update_button ();
     }
 
     // Set appearance (only) of project chooser button and list according to active path
-    private void set_active_path (string active_path) {
-        foreach (var child in project_listbox.get_children ()) {
-            var project_row = ((ProjectRow) child);
-            // All paths must not end in directory separator so can be compared directly
-            project_row.active = active_path == project_row.project_path;
-        }
-
+    private void update_button () {
+        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
         if (active_path != "") {
             label_widget.label = Path.get_basename (active_path);
             tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_path));
