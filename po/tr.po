@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-09-24 11:24+0000\n"
+"PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -488,10 +488,11 @@ msgstr ""
 "“%s” dosyasını içeren konum kaldırıldı ve kaydedilmemiş değişiklikler var."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "“%s” dosyası silindi ve kaydedilmemiş değişiklikler var."
+msgstr ""
+"“%s” dosyası silindi, yeniden adlandırıldı veya taşındı ve kaydedilmemiş "
+"değişiklikler var."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
