@@ -635,11 +635,7 @@ namespace Scratch {
 
             sidebar.choose_project_button.project_chosen.connect (() => {
                 folder_manager_view.collapse_other_projects ();
-                if (terminal.visible) {
-                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
-                    var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
-                    open_in_terminal_action.activate (param);
-                }
+                change_terminal_path (Services.GitManager.get_instance ().get_default_build_dir (null));
             });
 
             set_widgets_sensitive (false);
@@ -1363,9 +1359,12 @@ namespace Scratch {
 
             //If param is null or empty, the active project path build dir is returned or failing that
             //the active document path
-            var target_path = get_target_path_for_actions (param, true);
-            terminal.change_location (target_path);
+            change_terminal_path (get_target_path_for_actions (param, true));
             terminal.terminal.grab_focus ();
+        }
+
+        private void change_terminal_path (string path) {
+            terminal.change_location (path);
         }
 
         private void action_toggle_outline (SimpleAction action) {
