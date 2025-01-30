@@ -20,6 +20,8 @@
 
 public class Euclide.Completion.Parser : GLib.Object {
     public const int MINIMUM_WORD_LENGTH = 1;
+    public const int MAXIMUM_WORD_LENGTH = 50;
+
     public const int MAX_TOKENS = 1000000;
 
     private Scratch.Plugins.PrefixTree prefix_tree;
@@ -27,11 +29,6 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const string DELIMITERS = " .,;:?{}[]()0123456789+=&|<>*\\/\r\n\t\'\"`";
     public static bool is_delimiter (unichar c) {
         return DELIMITERS.index_of_char (c) >= 0;
-    }
-
-    public static void back_to_word_start (ref Gtk.TextIter iter) {
-        iter.backward_find_char (is_delimiter, null);
-        iter.forward_char ();
     }
 
     public Gee.HashMap<Gtk.TextView,Scratch.Plugins.PrefixTree> text_view_words;
@@ -97,5 +94,60 @@ public class Euclide.Completion.Parser : GLib.Object {
             add_word (current_word);
         }
         return true;
+    }
+
+    public string get_word_immediately_before (Gtk.TextIter iter) {
+        int end_pos;
+        var text = get_sentence_at_iter (iter, out end_pos);
+        var pos = end_pos;
+        unichar uc;
+        text.get_prev_char (ref pos, out uc);
+        if (is_delimiter (uc)) {
+            return "";
+        }
+
+        pos = (end_pos - MAXIMUM_WORD_LENGTH - 1).clamp (0, end_pos);
+        if (pos >= end_pos) {
+            critical ("pos after end_pos");
+            return "";
+        }
+
+        var sliced_text = text.slice (pos, end_pos);
+        var words = sliced_text.split_set (DELIMITERS);
+        var previous_word = words[words.length - 1]; // Maybe ""
+        return previous_word;
+    }
+
+    public string get_word_immediately_after (Gtk.TextIter iter) {
+        int start_pos;
+        var text = get_sentence_at_iter (iter, out start_pos);
+        var pos = start_pos;
+        unichar uc;
+        text.get_next_char (ref pos, out uc);
+        if (is_delimiter (uc)) {
+            return "";
+        }
+
+        // Find end of search range
+        pos = (start_pos + MAXIMUM_WORD_LENGTH + 1).clamp (start_pos, text.length);
+        if (start_pos >= pos) {
+            critical ("start pos after pos");
+            return "";
+        }
+
+        // Find first word in range
+        var words = text.slice (start_pos, pos).split_set (DELIMITERS, 2);
+        var next_word = words[0]; // Maybe ""
+        return next_word;
+    }
+
+    private string get_sentence_at_iter (Gtk.TextIter iter, out int iter_sentence_offset) {
+        var start_iter = iter;
+        var end_iter = iter;
+        start_iter.backward_sentence_start ();
+        end_iter.forward_sentence_end ();
+        var text = start_iter.get_text (end_iter);
+        iter_sentence_offset = iter.get_offset () - start_iter.get_offset ();
+        return text;
     }
 }

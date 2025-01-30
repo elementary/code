@@ -52,11 +52,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public bool match (Gtk.SourceCompletionContext context) {
-        Gtk.TextIter start, end;
-        buffer.get_iter_at_offset (out end, buffer.cursor_position);
-        start = end.copy ();
-        Euclide.Completion.Parser.back_to_word_start (ref start);
-        string text = buffer.get_text (start, end, true);
+        Gtk.TextIter iter;
+        buffer.get_iter_at_offset (out iter, buffer.cursor_position);
+        string text = parser.get_word_immediately_before (iter);
 
         return parser.match (text);
     }
@@ -94,19 +92,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return 0;
     }
 
-    public bool get_start_iter (Gtk.SourceCompletionContext context,
-                                Gtk.SourceCompletionProposal proposal,
-                                out Gtk.TextIter iter) {
-        var mark = buffer.get_insert ();
-        Gtk.TextIter cursor_iter;
-        buffer.get_iter_at_mark (out cursor_iter, mark);
-
-        iter = cursor_iter;
-        Euclide.Completion.Parser.back_to_word_start (ref iter);
-        return true;
-    }
-
-
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
         Gtk.TextBuffer temp_buffer = buffer;
@@ -118,12 +103,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         to_find = temp_buffer.get_text (start, end, true);
 
         if (to_find.length == 0) {
-            temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
-
-            start = end;
-            Euclide.Completion.Parser.back_to_word_start (ref start);
-
-            to_find = buffer.get_text (start, end, false);
+            Gtk.TextIter iter;
+            temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
+            to_find = parser.get_word_immediately_before (iter);
         }
 
         buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
