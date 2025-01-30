@@ -94,6 +94,8 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
+        string completion = "";
+        bool have_selection = true;
         Gtk.TextBuffer temp_buffer = buffer;
         props = null;
 
@@ -103,6 +105,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         to_find = temp_buffer.get_text (start, end, true);
 
         if (to_find.length == 0) {
+            have_selection = false;
             Gtk.TextIter iter;
             temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
             to_find = parser.get_word_immediately_before (iter);
@@ -117,9 +120,17 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             List<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
+                    // If there is a selection the start mark is at start of completion
+                    // otherwise it is at the cursor position but we want to replace from 
+                    // the start of the word
+                    if (have_selection) {
+                        completion = word;
+                    } else {
+                        completion = word.substring (to_find.length);
+                    }
                     var item = new Gtk.SourceCompletionItem ();
                     item.label = word;
-                    item.text = word;
+                    item.text = completion;
                     props.append (item);
                 }
 
