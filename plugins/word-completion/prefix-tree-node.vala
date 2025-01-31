@@ -19,7 +19,7 @@
  *
  */
 
-public class Scratch.Plugins.PrefixNode : Object{
+public class Scratch.Plugins.PrefixNode : Object {
     public GLib.List<PrefixNode> children;
     public unichar value { get; construct; }
 
