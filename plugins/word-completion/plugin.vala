@@ -19,16 +19,9 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
-
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
-
-    private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
+    public const int MAX_TOKENS = 1000000;
+    public const uint INTERACTIVE_DELAY = 500;
+    public const int INITIAL_PARSE_DELAY_MSEC = 1000;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -40,6 +33,18 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     };
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
+
+    public Object object { owned get; construct; }
+    public Euclide.Completion.Parser parser;
+    public Gtk.SourceView? current_view;
+
+    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
+    private Gtk.SourceCompletion? current_completion;
+    private Scratch.Plugins.CompletionProvider current_provider;
+    private Scratch.Services.Document current_document {get; private set;}
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
 
     private uint timeout_id = 0;
 
