@@ -81,7 +81,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_document = doc;
         current_view = doc.source_view;
+
+        if (text_view_list.find (current_view) == null) {
+            text_view_list.append (current_view);
+        }
+
         current_view.key_press_event.connect (on_key_press);
+
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
         });
@@ -89,23 +95,27 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             completion_in_progress = false;
         });
 
-
-        if (text_view_list.find (current_view) == null)
-            text_view_list.append (current_view);
-
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
-
+        current_completion = current_view.completion;
         try {
-            current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
-            current_view.completion.show_icons = true;
+            current_provider = new Scratch.Plugins.CompletionProvider (this);
+            current_provider.priority = 1;
+            current_provider.name = provider_name_from_document (doc);
+
+            current_completion.add_provider (current_provider);
+            current_completion.show_headers = true;
+            current_completion.show_icons = true;
+            current_completion.accelerators = 9;
+            current_completion.select_on_show = true;
             /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
-
         } catch (Error e) {
-            warning (e.message);
+            critical (
+                "Could not add completion provider to %s. %s\n",
+                current_document.title,
+                e.message
+            );
+            cleanup (current_view);
+            return;
         }
     }
 
