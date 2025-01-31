@@ -1,14 +1,5 @@
 
 namespace Scratch.Plugins {
-    private class PrefixNode : Object {
-        public GLib.List<PrefixNode> children;
-        public unichar value { get; set; }
-
-        construct {
-            children = new List<PrefixNode> ();
-        }
-    }
-
     public class PrefixTree : Object {
         private PrefixNode root;
 
