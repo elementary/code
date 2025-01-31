@@ -21,7 +21,13 @@
 
 public class Scratch.Plugins.PrefixNode : Object{
     public GLib.List<PrefixNode> children;
-    public unichar value { get; set; }
+    public unichar value { get; construct; }
+
+    public PrefixNode (unichar c = '\0') {
+        Object (
+            value: c
+        );
+    }
 
     construct {
         children = new List<PrefixNode> ();
