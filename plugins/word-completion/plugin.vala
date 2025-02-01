@@ -98,8 +98,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             current_view.completion.add_provider (comp_provider);
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
-            // Wait a bit to allow text to load then run parser
-            // timeout_id = Timeout.add (1000, on_timeout_update);
 
         } catch (Error e) {
             warning (e.message);
