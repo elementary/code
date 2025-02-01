@@ -19,6 +19,8 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
+    public const int INITIAL_PARSE_DELAY_MSEC = 1000;
+
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
@@ -96,28 +98,35 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             current_view.completion.add_provider (comp_provider);
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load then run parser*/
-            timeout_id = Timeout.add (1000, on_timeout_update);
+            // Wait a bit to allow text to load then run parser
+            // timeout_id = Timeout.add (1000, on_timeout_update);
 
         } catch (Error e) {
             warning (e.message);
         }
-    }
 
-    private bool on_timeout_update () {
-        try {
-            new Thread<void*>.try ("word-completion-thread", () => {
-                if (current_view != null)
-                    parser.parse_text_view (current_view as Gtk.TextView);
+        // Check whether there is already a parsed tree
+        if (!parser.select_current_tree (current_view)) {
+            // If not, start initial parsing  after timeout to ensure text loaded
+            var view_to_parse = current_view;
+            timeout_id = Timeout.add (INITIAL_PARSE_DELAY_MSEC, () => {
+                timeout_id = 0;
+                // Check view has not been switched
+                if (view_to_parse == current_view) {
+                    try {
+                        new Thread<void*>.try ("word-completion-thread", () => {
+                            // The initial parse gets cancelled if view switched before complete
+                            parser.rebuild_word_list (view_to_parse);
+                            return null;
+                        });
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                }
 
-                return null;
+                return Source.REMOVE;
             });
-        } catch (Error e) {
-            warning (e.message);
         }
-
-        timeout_id = 0;
-        return false;
     }
 
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {

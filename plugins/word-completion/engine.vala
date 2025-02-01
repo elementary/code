@@ -22,7 +22,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const int MINIMUM_WORD_LENGTH = 1;
     public const int MAX_TOKENS = 1000000;
 
-    private Scratch.Plugins.PrefixTree prefix_tree;
+    private Scratch.Plugins.PrefixTree? prefix_tree = null;
 
     public const string DELIMITERS = " .,;:?{}[]()0123456789+=&|<>*\\/\r\n\t\'\"`";
     public static bool is_delimiter (unichar c) {
@@ -53,24 +53,36 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public void rebuild_word_list (Gtk.TextView view) {
         prefix_tree.clear ();
-        parse_text_view (view);
-    }
-
-    public void parse_text_view (Gtk.TextView view) {
-        /* If this view has already been parsed, restore the word list */
-        lock (prefix_tree) {
-            if (text_view_words.has_key (view)) {
-                prefix_tree = text_view_words.@get (view);
-            } else {
-                /* Else create a new word list and parse the buffer text */
-                prefix_tree = new Scratch.Plugins.PrefixTree ();
-            }
-        }
-
         if (view.buffer.text.length > 0) {
             parse_string (view.buffer.text);
             text_view_words.@set (view, prefix_tree);
         }
+    }
+
+    public bool select_current_tree (Gtk.TextView view) {
+        bool pre_existing = true;
+        if (!text_view_words.has_key (view)) {
+            var new_treemap = new Scratch.Plugins.PrefixTree ();
+            text_view_words.@set (view, new_treemap);
+            pre_existing = false;
+        }
+
+        lock (prefix_tree) {
+            prefix_tree = text_view_words.@get (view);
+            parsing_cancelled = false;
+        }
+
+        return pre_existing && get_initial_parsing_completed ();
+    }
+
+    public void set_initial_parsing_completed (bool completed) requires (prefix_tree != null) {
+        lock (prefix_tree) {
+            prefix_tree.completed = completed;
+        }
+    }
+
+    public bool get_initial_parsing_completed () requires (prefix_tree != null) {
+        return prefix_tree.completed;
     }
 
     public void add_word (string word) {
