@@ -27,7 +27,7 @@ public class Scratch.Plugins.PrefixNode : Object {
     }
 
     private const unichar WORD_END_CHAR = '\0';
-    private  uint occurrences; // Only used for WORD_END nodes
+    private uint occurrences; // Only used for WORD_END nodes
 
     public unichar uc { get; construct; }
     public NodeType node_type { get; construct; }
