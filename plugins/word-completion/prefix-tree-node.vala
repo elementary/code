@@ -27,11 +27,12 @@ public class Scratch.Plugins.PrefixNode : Object {
     }
 
     private const unichar WORD_END_CHAR = '\0';
+    private  uint occurrences; // Only used for WORD_END nodes
+
     public unichar uc { get; construct; }
     public NodeType node_type { get; construct; }
     public PrefixNode? parent { get; construct; }
     public unichar value { get; construct; }
-    public uint occurrences { get; set construct; default = 0; }
 
     public Gee.ArrayList<PrefixNode> children;
 
@@ -40,8 +41,7 @@ public class Scratch.Plugins.PrefixNode : Object {
             value: c,
             parent: _parent,
             uc: c,
-            node_type: NodeType.CHAR,
-            occurrences: 1
+            node_type: NodeType.CHAR
         );
     }
 
@@ -49,8 +49,7 @@ public class Scratch.Plugins.PrefixNode : Object {
         Object (
             parent: null,
             uc: WORD_END_CHAR,
-            node_type: NodeType.ROOT,
-            occurrences: 0
+            node_type: NodeType.ROOT
         );
     }
 
@@ -58,9 +57,10 @@ public class Scratch.Plugins.PrefixNode : Object {
         Object (
             parent: _parent,
             uc: WORD_END_CHAR,
-            node_type: NodeType.WORD_END,
-            occurrences: 1
+            node_type: NodeType.WORD_END
         );
+
+        occurrences = 1;
     }
 
     construct {
