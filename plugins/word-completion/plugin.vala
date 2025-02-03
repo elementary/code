@@ -151,10 +151,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             Gtk.TextIter cursor_iter;
             buffer.get_iter_at_mark (out cursor_iter, mark);
 
-            var word_start = cursor_iter;
-            Euclide.Completion.Parser.back_to_word_start (ref word_start);
-
-            string word = buffer.get_text (word_start, cursor_iter, false);
+            string word = parser.get_word_immediately_before (cursor_iter);
             parser.add_word (word);
         }
 
