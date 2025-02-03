@@ -202,12 +202,13 @@ namespace Scratch.Utils {
     }
 
     public GLib.Menu create_executable_app_items_for_file (GLib.File file, string file_type) {
-        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-        var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-        external_apps.prepend (files_appinfo);
-
-        string this_id = GLib.Application.get_default ().application_id + ".desktop";
+        var external_apps = GLib.AppInfo.get_all_for_type (file_type);
+        var this_id = GLib.Application.get_default ().application_id + ".desktop";
         var menu = new GLib.Menu ();
+
+        external_apps.sort ((a, b) => {
+            return a.get_name ().collate (b.get_name ());
+        });
 
         foreach (AppInfo app_info in external_apps) {
             string app_id = app_info.get_id ();

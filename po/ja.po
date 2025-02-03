@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"POT-Creation-Date: 2025-02-02 19:37+0000\n"
 "PO-Revision-Date: 2025-01-11 23:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -286,6 +286,31 @@ msgstr "復元しない"
 msgid "Restore Anyway"
 msgstr "了解して復元"
 
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "スクラッチに保存されてない変化が有ります！"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
@@ -485,7 +510,8 @@ msgstr ""
 #: src/Services/Document.vala:876
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "ファイル“%s”は削除、名称変更、または移動されていて、未保存の変更があります。"
+msgstr ""
+"ファイル“%s”は削除、名称変更、または移動されていて、未保存の変更があります。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -1467,9 +1493,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "プラグインへの引数"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "スクラッチに保存されてない変化が有ります！"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "保存されていない編集箇所があります!"

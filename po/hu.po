@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-08-06 06:16+0000\n"
+"POT-Creation-Date: 2025-02-02 19:37+0000\n"
+"PO-Revision-Date: 2025-01-16 17:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -289,6 +289,31 @@ msgstr "Ne állítsa vissza"
 msgid "Restore Anyway"
 msgstr "Visszaállítás mindenképp"
 
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Mentetlen módosítások vannak a Scratch!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
@@ -492,10 +517,11 @@ msgstr ""
 "mentett módosítások vannak."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "A(z) \"%s\" fájl törōlve és nem mentett módosítások vannak."
+msgstr ""
+"A(z) \"%s\" fájl törōlve, átnevezve vagy mozgatva lett és nem mentett "
+"módosítások vannak."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -1478,9 +1504,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "A fájl változtatásai nem kerültek mentésre."
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Mentetlen módosítások vannak a Scratch!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Mentetlen módosítások vannak!"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-09-29 02:16+0000\n"
-"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
+"POT-Creation-Date: 2025-02-02 19:37+0000\n"
+"PO-Revision-Date: 2025-01-13 12:16+0000\n"
+"Last-Translator: Jeremy Wootten <jeremywootten@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -287,6 +287,31 @@ msgstr "Don't Restore"
 msgid "Restore Anyway"
 msgstr "Restore Anyway"
 
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "There are unsaved changes in Scratch!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
@@ -488,10 +513,9 @@ msgstr ""
 "changes."
 
 #: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "File “%s” was deleted and there are unsaved changes."
+msgstr "File “%s” was deleted, renamed or moved and there are unsaved changes."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -1461,9 +1485,6 @@ msgstr "%s - Word Completion"
 
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "Argument for the set of plug-ins"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "There are unsaved changes in Scratch!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "There are unsaved changes!"
