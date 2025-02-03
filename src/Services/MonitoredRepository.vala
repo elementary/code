@@ -250,8 +250,8 @@ namespace Scratch.Services {
             var commit = branch_ref.lookup ();
             var local_name = target_shorthand.substring (ORIGIN_PREFIX.length);
             var local_branch = git_repo.create_branch (local_name, commit, NONE) as Ggit.Branch;
-            local_branch.set_upstream (local_branch.get_name ());
             checkout_branch (local_branch);
+            local_branch.set_upstream (target_shorthand);
         }
 
         private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) throws Error {
