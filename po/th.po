@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-02 19:37+0000\n"
-"PO-Revision-Date: 2024-09-02 20:05+0000\n"
+"PO-Revision-Date: 2025-02-04 01:16+0000\n"
 "Last-Translator: Aefgh Threenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://l10n.elementary.io/projects/code/code/th/>\n"
 "Language: th\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -304,19 +304,19 @@ msgstr "ปิด"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการเรียกคืนไฟล์นี้?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "การเรียกคืนไฟล์จะยกเลิกการเปลี่ยนแปลงทั้งหมดที่ทำไปตั้งแต่เมื่อเปิดไฟล์"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "ไม่เรียกคืน"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr ""
+msgstr "ยืนยันเรียกคืน"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
@@ -344,173 +344,156 @@ msgstr ""
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "เปิดในบานหน้าต่างเทอร์มินัล"
 
 #: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
-#, fuzzy
 msgid "Other Actions"
-msgstr "รูปแบบอื่นๆ"
+msgstr "การกระทำอื่นๆ"
 
 #: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
-msgstr ""
+msgstr "เปลี่ยนชื่อ"
 
 #: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
 #: src/FolderManager/ProjectFolderItem.vala:260
 msgid "Move to Trash"
-msgstr ""
+msgstr "ย้ายไปที่ถังขยะ"
 
 #: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
-msgstr ""
+msgstr "แอปพลิเคชันอื่นๆ…"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
-#, fuzzy
 msgid "Open In"
-msgstr "เปิด"
+msgstr "เปิดใน"
 
 #: src/FolderManager/FileView.vala:76
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
 #: src/FolderManager/FolderItem.vala:128
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "เปิดโฟลเดอร์"
+msgstr "ค้นหาในโฟลเดอร์…"
 
 #: src/FolderManager/FolderItem.vala:184
-#, fuzzy
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
 #: src/FolderManager/FolderItem.vala:192
 msgid "Empty File"
-msgstr ""
+msgstr "ไฟล์เปล่า"
 
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:203
 #: src/FolderManager/ProjectFolderItem.vala:382
 #: src/FolderManager/ProjectFolderItem.vala:388
-#, fuzzy
 msgid "New"
-msgstr "แท็บใหม่"
+msgstr "สร้าง"
 
 #: src/FolderManager/FolderItem.vala:361
 msgid "untitled folder"
-msgstr ""
+msgstr "โฟลเดอร์ไม่มีชื่อ"
 
 #: src/FolderManager/FolderItem.vala:361
-#, fuzzy
 msgid "new file"
-msgstr "สร้างไฟล์"
+msgstr "ไฟล์ใหม่"
 
 #: src/FolderManager/ProjectFolderItem.vala:167
 msgid "Close Folder"
 msgstr "ปิดโฟลเดอร์"
 
 #: src/FolderManager/ProjectFolderItem.vala:175
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "ปิดโฟลเดอร์"
+msgstr "ปิดโฟลเดอร์อื่นๆ"
 
 #: src/FolderManager/ProjectFolderItem.vala:192
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
+msgstr[0] "ปิดเอกสารที่เปิดอยู่ %u รายการ"
 
 #: src/FolderManager/ProjectFolderItem.vala:204
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "เอกสารใหม่"
+msgstr[0] "ซ่อนเอกสารที่เปิดอยู่ %u รายการ"
 
 #: src/FolderManager/ProjectFolderItem.vala:227
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
+msgstr[0] "เรียกคืนเอกสารที่ซ่อนอยู่ %u รายการ"
 
 #: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Project…"
-msgstr "เปิดโฟลเดอร์"
+msgstr "ค้นหาในโครงการ…"
 
 #: src/FolderManager/ProjectFolderItem.vala:321
-#, fuzzy
 msgid "New Branch…"
-msgstr "เปลี่ยนการตั้งค่าของ Scratch"
+msgstr "สาขาใหม่…"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
-#, fuzzy
 msgid "Branch"
-msgstr "เปลี่ยนการตั้งค่าของ Scratch"
+msgstr "สาขา"
 
 #: src/FolderManager/ProjectFolderItem.vala:388
 msgid "Modified"
-msgstr ""
+msgstr "ถูกปรับเปลี่ยน"
 
 #: src/FolderManager/ProjectFolderItem.vala:426
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะสร้างสาขาใหม่: “%s”"
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:369
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s ไม่ใช่ไฟล์ข้อความ"
 
 #: src/Services/Document.vala:370
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code จะไม่โหลดไฟล์ชนิดนี้"
 
 #: src/Services/Document.vala:372
 msgid "Load Anyway"
-msgstr ""
+msgstr "ยืนยันโหลด"
 
 #: src/Services/Document.vala:393
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr ""
+msgstr "การโหลดไฟล์ “%s” ใช้เวลานาน"
 
 #: src/Services/Document.vala:394
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "โปรดรอขณะที่ Code โหลดไฟล์"
 
 #: src/Services/Document.vala:396
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "ยกเลิก"
+msgstr "ยกเลิกการโหลด"
 
 #: src/Services/Document.vala:483
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to “%s” before closing?"
-msgstr "ต้องการบันทึกการเปลี่ยนแปลงไปยัง %s ก่อนปิดโปรแกรมหรือไม่?"
+msgstr "บันทึกการเปลี่ยนแปลงลงใน “%s” ก่อนปิดหรือไม่?"
 
 #: src/Services/Document.vala:484
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr "หากไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ตั้งแต่ 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
+msgstr "ถ้าคุณไม่บันทึก การเปลี่ยนแปลงทั้งหมดจะหายไปอย่างถาวร"
 
 #: src/Services/Document.vala:490
-#, fuzzy
 msgid "Close Without Saving"
-msgstr "ปิดโดยไม่ต้องบันทึก"
+msgstr "ปิดโดยไม่บันทึก"
 
 #: src/Services/Document.vala:494 src/Services/Document.vala:662
 msgid "Save"
 msgstr "บันทึก"
 
 #: src/Services/Document.vala:621
-#, fuzzy, c-format
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "ต้องการบันทึกการเปลี่ยนแปลงไปยัง %s ก่อนปิดโปรแกรมหรือไม่?"
+msgstr "การบันทึกลงใน “%s” ล้มเหลว"
 
 #: src/Services/Document.vala:659
 msgid "Save File"
@@ -524,7 +507,7 @@ msgstr "เอกสารใหม่"
 #: src/Services/Document.vala:766
 #, c-format
 msgid "Cannot save this document to %s"
-msgstr ""
+msgstr "ไม่สามารถบันทึกเอกสารนี้ลงใน %s ได้"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:832
@@ -720,15 +703,13 @@ msgid "Filter projects"
 msgstr ""
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "ปิด"
+msgstr "แท็บที่ปิด"
 
 #: src/Widgets/DocumentView.vala:449
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "ไฟล์ข้อความจาก "
+msgstr "ไฟล์ข้อความจาก %s:%d"
 
 #: src/Widgets/DocumentView.vala:636
 msgid "Close Tabs to the Right"
@@ -761,17 +742,16 @@ msgid "Syntax Highlighting"
 msgstr "การเน้นไวยากรณ์"
 
 #: src/Widgets/FormatBar.vala:60
-#, fuzzy
 msgid "Line number"
-msgstr "แสดงเลขบรรทัด:"
+msgstr "เลขบรรทัด"
 
 #: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
-msgstr ""
+msgstr "กรองภาษา"
 
 #: src/Widgets/FormatBar.vala:111
 msgid "Plain Text"
-msgstr ""
+msgstr "ข้อความธรรมดา"
 
 #: src/Widgets/FormatBar.vala:149
 msgid "Some settings set by EditorConfig file"
@@ -800,18 +780,16 @@ msgid "Go To Line:"
 msgstr "ไปยังบรรทัด:"
 
 #: src/Widgets/FormatBar.vala:287
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "สร้างพื้นที่"
-msgstr[1] "สร้างพื้นที่"
+msgstr[0] "%d ช่องว่าง"
 
 #: src/Widgets/FormatBar.vala:289
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "แท็บใหม่"
-msgstr[1] "แท็บใหม่"
+msgstr[0] "%d แท็บ"
 
 #: src/Widgets/HeaderBar.vala:38
 msgid "Open a file"
@@ -838,18 +816,16 @@ msgid "Share"
 msgstr "ใช้งานร่วมกัน"
 
 #: src/Widgets/HeaderBar.vala:84
-#, fuzzy
 msgid "Zoom Out"
-msgstr "ซูม"
+msgstr "ซูมออก"
 
 #: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
-msgstr "Zoom 1:1"
+msgstr "ซูม 1:1"
 
 #: src/Widgets/HeaderBar.vala:100
-#, fuzzy
 msgid "Zoom In"
-msgstr "ซูม"
+msgstr "ซูมเข้า"
 
 #: src/Widgets/HeaderBar.vala:145
 msgid "Follow System Style"
@@ -857,7 +833,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:240
 msgid "Menu"
-msgstr ""
+msgstr "เมนู"
 
 #: src/Widgets/Sidebar.vala:63
 #, fuzzy
@@ -866,15 +842,15 @@ msgstr "เปิดโฟลเดอร์"
 
 #: src/Widgets/Sidebar.vala:66
 msgid "Collapse All"
-msgstr ""
+msgstr "ยุบทั้งหมด"
 
 #: src/Widgets/Sidebar.vala:69
 msgid "Alphabetize"
-msgstr ""
+msgstr "จัดตามลำดับอักษร"
 
 #: src/Widgets/Sidebar.vala:81
 msgid "Manage project folders"
-msgstr ""
+msgstr "จัดการโฟลเดอร์โครงการ"
 
 #: src/Widgets/SearchBar.vala:71
 msgid "Find"
@@ -906,11 +882,11 @@ msgstr ""
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Always"
-msgstr ""
+msgstr "ทุกครั้ง"
 
 #: src/Widgets/SearchBar.vala:107
 msgid "Case Sensitive"
-msgstr ""
+msgstr "แยกตัวพิมพ์ใหญ่-เล็ก"
 
 #: src/Widgets/SearchBar.vala:114
 msgid "Use Regular Expressions"
