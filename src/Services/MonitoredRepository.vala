@@ -254,16 +254,36 @@ namespace Scratch.Services {
             checkout_branch (local_branch);
         }
 
-        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
-            git_repo.set_head (((Ggit.Ref)new_head_branch).get_name ());
-            // This will force all changes in current branch to be overwritten even if uncommitted.
-            // Using SAFE results in unwanted diff files in the staging area even if there are no uncommitted changes
+        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) throws Error {
+            if (confirm && has_uncommitted) {
+                confirm_checkout_branch (new_head_branch);
+                return;
+            }
+
+            git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
             var options = new Ggit.CheckoutOptions () {
                 strategy = Ggit.CheckoutStrategy.FORCE
             };
             git_repo.checkout_head (options);
 
             branch_name = new_head_branch.get_name ();
+        }
+
+        private void confirm_checkout_branch (Ggit.Branch new_head_branch) {
+            var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+            var dialog = new Scratch.Dialogs.OverwriteUncommittedConfirmationDialog (
+                parent,
+                new_head_branch.get_name (),
+                get_project_diff ()
+            );
+            dialog.response.connect ((res) => {
+                dialog.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    checkout_branch (new_head_branch, false);
+                }
+            });
+
+            dialog.present ();
         }
 
         public void create_new_branch (string name) throws Error {
@@ -330,6 +350,41 @@ namespace Scratch.Services {
         public bool path_is_ignored (string path) throws Error {
             return git_repo.path_is_ignored (path);
         }
+
+        public string get_project_diff () throws GLib.Error {
+            var sb = new StringBuilder ("");
+            var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+            repo_diff_list.print (Ggit.DiffFormatType.PATCH, (delta, hunk, line) => {
+                unowned var file_diff = delta.get_old_file ();
+                if (file_diff == null) {
+                    return 0;
+                }
+
+                if (line != null) {
+                    var delta_type = line.get_origin ();
+                    string prefix = "?";
+                    switch (delta_type) {
+                        case Ggit.DiffLineType.ADDITION:
+                            prefix = "+";
+                            break;
+                        case Ggit.DiffLineType.DELETION:
+                            prefix = "-";
+                            break;
+                        case Ggit.DiffLineType.CONTEXT:
+                            prefix = " ";
+                            break;
+                        default:
+                            break;
+                    }
+                    //TODO Add color according to linetype
+                    sb.append (prefix + line.get_text ());
+                }
+                return 0;
+            });
+
+            return sb.str;
+        }
+
 
         private bool refreshing = false;
         public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"POT-Creation-Date: 2025-02-02 19:37+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -326,6 +326,31 @@ msgstr "Genskab Ikke"
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
 msgstr "Indlæs Alligevel"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Der er ændringer, som ikke er gemte i Scratch!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
+msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
@@ -1587,9 +1612,6 @@ msgstr "%s - Fuldførsel af ord"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "Skrifttype og Farve Valg:"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Der er ændringer, som ikke er gemte i Scratch!"
 
 #~ msgid "The file %s was modified."
 #~ msgstr "Filen %s blev ændret."
