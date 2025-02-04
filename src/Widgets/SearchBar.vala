@@ -360,6 +360,7 @@ namespace Scratch.Widgets {
         }
 
         public bool search () {
+            search_entry.grab_focus ();
             if (search_context == null) {
                 return false;
             }

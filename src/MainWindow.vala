@@ -731,8 +731,9 @@ namespace Scratch {
         // Returns "" if no selection
         public string get_selected_text_for_search () {
             var doc = get_current_document ();
-            var text = doc != null ? doc.get_selected_text (false) : "";
-            return text.split ("\n", 2)[0];
+            var selected_text = doc != null ? doc.get_selected_text (false) : "";
+            var search_term = selected_text.split ("\n", 2)[0];
+            return search_term ?? "";
         }
 
         public bool has_successful_search () {
@@ -1167,7 +1168,7 @@ namespace Scratch {
                 }
             }
 
-            if (!search_bar.is_focused || search_bar.entry_text == "") {
+            if (search_bar.entry_text == "") {
                 search_bar.set_search_entry_text (get_selected_text_for_search ());
             }
 
