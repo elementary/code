@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2025-01-10 15:16+0000\n"
+"POT-Creation-Date: 2025-02-02 19:37+0000\n"
+"PO-Revision-Date: 2025-02-04 01:16+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -289,6 +289,34 @@ msgstr "No el restauris"
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
 msgstr "Restaura'l tanmateix"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+msgid "There are uncommitted changes in the current branch"
+msgstr "Hi ha canvis no aplicats a la branca actual."
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+"Els canvis no aplicats es perdran permanentment si ara es revisa <b>'%s'</b>."
+"\n"
+"\n"
+"<i>Es recomana que els canvis no aplicats es desin, s'apliquin o es "
+"reverteixin abans de continuar </i>"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr "Surt i sobreescriu"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
+msgstr "No en surtis"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:138
@@ -1481,9 +1509,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Mostra un marge a la dreta:"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Hi ha canvis sense desar a l'Scratch."
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Hi ha canvis sense desar."
