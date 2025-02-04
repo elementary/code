@@ -349,7 +349,7 @@ namespace Scratch.FolderManager {
         private void handle_change_branch_action (GLib.Variant? parameter) {
             var branch_name = parameter.get_string ();
             try {
-                monitored_repo.change_branch (branch_name);
+                monitored_repo.change_local_branch (branch_name);
             } catch (GLib.Error e) {
                 warning ("Failed to change branch to %s. %s", branch_name, e.message);
             }
