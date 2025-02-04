@@ -310,9 +310,6 @@ namespace Scratch {
                 toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             });
 
-            // Restore session
-            restore_saved_state_extra ();
-
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
 
@@ -477,9 +474,6 @@ namespace Scratch {
                 }
             });
 
-
-            folder_manager_view.restore_saved_state ();
-
             folder_manager_view.rename_request.connect ((file) => {
                 var allow = true;
                 foreach (var window in app.get_windows ()) {
@@ -559,13 +553,11 @@ namespace Scratch {
                 });
 
                 hook_func ();
+
+                restore ();
             });
 
             document_view.realize.connect (() => {
-                if (restore_docs) {
-                    restore_opened_documents ();
-                }
-
                 document_view.update_outline_visible ();
                 update_find_actions ();
             });
@@ -680,6 +672,7 @@ namespace Scratch {
                 }
             }
 
+            // DocumentView's number of docs updates asychronously so need Idle
             Idle.add (() => {
                 document_view.request_placeholder_if_empty ();
                 restore_override = null;
@@ -755,8 +748,7 @@ namespace Scratch {
                                    bool focus = true,
                                    int cursor_position = 0) {
 
-            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-            doc.source_view.project = project;
+            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
             document_view.open_document (doc, focus, cursor_position);
         }
 
@@ -768,8 +760,7 @@ namespace Scratch {
                 return;
             }
 
-            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-            doc.source_view.project = project;
+            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
             document_view.open_document (doc, focus, 0, range);
         }
 
@@ -789,6 +780,19 @@ namespace Scratch {
             }
 
             return true;
+        }
+
+        private void restore () {
+             // Plugin panes size
+             hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
+             vp.set_position (Scratch.saved_state.get_int ("vp-size"));
+            // Ensure foldermanager finishes loading projects before start opening documents
+            folder_manager_view.restore_saved_state.begin ((obj, res) => {
+                folder_manager_view.restore_saved_state.end (res);
+                if (restore_docs) {
+                    restore_opened_documents ();
+                }
+            });
         }
 
         // Save session information different from window state

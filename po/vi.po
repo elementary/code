@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"POT-Creation-Date: 2025-02-04 12:18+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -54,77 +54,77 @@ msgstr "Mã nguồn"
 msgid "Code"
 msgstr "Mã nguồn"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:374
 msgid "Hide search bar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:379 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Mở tập tin"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:390
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:395
 #, fuzzy
 msgid "Show Projects Sidebar"
 msgstr "Dành cho từ đã chọn"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:404
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:409
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:418
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:423 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:610
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:950 src/Services/Document.vala:651
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:954 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:958
 msgid "Open some files"
 msgstr "Mở vài tệp"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:961
 msgid "Open"
 msgstr "Mở"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:962 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
 #: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Bỏ qua"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1002
 msgid "_Open"
 msgstr "_Mở"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1003
 msgid "_Cancel"
 msgstr "_Bỏ qua"
 
@@ -310,6 +310,72 @@ msgstr ""
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+msgid "This folder is the parent of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
+#, c-format
+msgid "This folder is the parent of %u open projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+msgid "Opening this folder will close the child project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
+msgid "Opening this folder will close all child projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+msgid "Close Child Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
+msgid "Close Child Projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+msgid "Don't Open"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Có thay đổi chưa được lưu!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding </i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Checkout and Overwrite"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+msgid "Do not Checkout"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
@@ -1256,9 +1322,6 @@ msgstr ""
 
 #~ msgid "Do you want to create it again?"
 #~ msgstr "Bạn có muốn tạo lại nó?"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Có thay đổi chưa được lưu!"
 
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Bạn có muốn lưu thay đổi vào tập tin %s trước khi thoát không?"
