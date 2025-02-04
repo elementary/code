@@ -1168,8 +1168,9 @@ namespace Scratch {
                 }
             }
 
-            if (search_bar.entry_text == "") {
-                search_bar.set_search_entry_text (get_selected_text_for_search ());
+            var selected_text_for_search = get_selected_text_for_search ();
+            if (selected_text_for_search != "") {
+                search_bar.set_search_entry_text (selected_text_for_search);
             }
 
             search_bar.search ();
