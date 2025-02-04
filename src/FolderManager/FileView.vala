@@ -127,7 +127,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
-    warning ("set active project");
         var path = parameter.get_string ();
         if (path == null || path == "") {
             return;
