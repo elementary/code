@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-04 12:18+0000\n"
-"PO-Revision-Date: 2025-02-04 01:16+0000\n"
+"PO-Revision-Date: 2025-02-05 10:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -292,46 +292,44 @@ msgstr "Restaura'l tanmateix"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
+msgstr "Aquesta carpeta és la principal d'un projecte obert."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 #, c-format
 msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgstr "Aquesta carpeta és la principal de %u projectes oberts."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
+msgstr "En obrir aquesta carpeta es tancarà el projecte secundari."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close all child projects"
-msgstr ""
+msgstr "En obrir aquesta carpeta es tancaran tots els projectes secundaris."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
+msgstr "Tanca el projecte secundari"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Projects"
-msgstr ""
+msgstr "Tanca els projectes secundaris"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Aquesta carpeta és la secundària d'un projecte obert."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "En obrir aquesta carpeta es tancarà el projecte principal."
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Tanca el projecte principal"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "No el restauris"
+msgstr "No l'obris"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
