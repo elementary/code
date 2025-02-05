@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-02-05 10:55+0000\n"
+"PO-Revision-Date: 2025-02-06 00:33+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -408,10 +408,8 @@ msgid "new file"
 msgstr "קובץ חדש"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "מיזם Git פעיל: %s"
+msgstr "הגדרה בתור המיזם הפעיל"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -681,8 +679,7 @@ msgid "No Project Selected"
 msgstr "לא נבחר מיזם"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "מיזם Git פעיל: %s"
 
