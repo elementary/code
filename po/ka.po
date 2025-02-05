@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-02 19:37+0000\n"
+"POT-Creation-Date: 2025-02-04 12:18+0000\n"
 "PO-Revision-Date: 2024-08-05 01:16+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/code/code/ka/>\n"
@@ -47,73 +47,73 @@ msgstr "კოდი (%s)"
 msgid "Code"
 msgstr "კოდი"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:374
 msgid "Hide search bar"
 msgstr "ძებნის პანელის დამალვა"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:379 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "გვერდზე ძებნა…"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:390
 msgid "Hide Projects Sidebar"
 msgstr "პროექტების პანელის დამალვა"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:395
 msgid "Show Projects Sidebar"
 msgstr "პროექტების პანელის ჩვენება"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:404
 msgid "Hide Symbol Outline"
 msgstr "სიმბოლოების მონახაზის დამალვა"
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:409
 msgid "Show Symbol Outline"
 msgstr "სიმბოლოების მონახაზის ჩვენება"
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:418
 msgid "Hide Terminal"
 msgstr "ტერმინალის დამალვა"
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:423 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "ტერმინალის ჩვენება"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:610
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:950 src/Services/Document.vala:651
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:954 src/Services/Document.vala:655
 msgid "Text files"
 msgstr "ტექსტური ფაილები"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:958
 msgid "Open some files"
 msgstr "გახსენით რამდენიმე ფაილი"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:961
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:962 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
 #: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1002
 msgid "_Open"
 msgstr "გახ_სნა"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1003
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
@@ -281,6 +281,49 @@ msgstr "არ აღადგინო"
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
 msgstr "მაინც აღადგინე"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+msgid "This folder is the parent of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
+#, c-format
+msgid "This folder is the parent of %u open projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+msgid "Opening this folder will close the child project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
+msgid "Opening this folder will close all child projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+msgid "Close Child Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
+msgid "Close Child Projects"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#, fuzzy
+#| msgid "Don't Restore"
+msgid "Don't Open"
+msgstr "არ აღადგინო"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
