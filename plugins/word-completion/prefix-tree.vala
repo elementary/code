@@ -36,8 +36,9 @@ namespace Scratch.Plugins {
                 }
             }
 
-            var new_child = new PrefixNode (curr);
-            node.children.insert_sorted (new_child, (c1, c2) => {
+            var new_child = new PrefixNode.from_unichar (curr, null);
+            node.children.insert (0, new_child);
+            node.children.sort ((c1, c2) => {
                 if (c1.value > c2.value) {
                     return 1;
                 } else if (c1.value == c2.value) {
