@@ -192,7 +192,9 @@ namespace Scratch.Services {
         }
 
         private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
+            var new_branch_name = "";
             try {
+                new_branch_name = new_head_branch.get_name ();
                 if (confirm && has_uncommitted) {
                     confirm_checkout_branch (new_head_branch);
                     return;
@@ -205,10 +207,16 @@ namespace Scratch.Services {
                 };
 
                 git_repo.checkout_head (options);
-
-                branch_name = new_head_branch.get_name ();
+                branch_name = new_branch_name;
             } catch (Error e) {
-                warning ("Error when checking out branch %s", e.message);
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("An error occurred while checking out %s").printf (new_branch_name),
+                    e.message,
+                    "dialog-warning"
+                );
+
+                dialog.run ();
+                dialog.destroy ();
             }
         }
 
