@@ -474,7 +474,7 @@ namespace Scratch {
                         //TODO Handle folders dropped here
                         if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
                             Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                            document_view.open_document (doc);
+                            document_view.open_document.begin (doc);
                         }
                     }
 
@@ -494,7 +494,7 @@ namespace Scratch {
                 var doc = new Scratch.Services.Document (actions, file.file);
 
                 if (file.is_valid_textfile) {
-                    open_document (doc);
+                    open_document.begin (doc);
                 } else {
                     open_binary (file.file);
                 }
@@ -804,7 +804,7 @@ namespace Scratch {
             folder_manager_view.restore_saved_state.begin ((obj, res) => {
                 folder_manager_view.restore_saved_state.end (res);
                 if (restore_docs) {
-                    restore_opened_documents ();
+                    restore_opened_documents.begin ();
                 }
             });
         }
@@ -984,7 +984,7 @@ namespace Scratch {
                     // Open the file
                     var file = File.new_for_uri (uri);
                     var doc = new Scratch.Services.Document (actions, file);
-                    open_document (doc);
+                    open_document.begin (doc);
                 }
             }
         }
@@ -999,7 +999,7 @@ namespace Scratch {
             var file = File.new_for_path (path);
             var doc = new Scratch.Services.Document (new_window.actions, file);
 
-            new_window.open_document (doc, true);
+            new_window.open_document.begin (doc, true);
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
@@ -1167,7 +1167,7 @@ namespace Scratch {
         private void restore_project_docs (string project_path) {
             document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
                 var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
-                open_document (doc); // Use this to reassociate project and document.
+                open_document.begin (doc); // Use this to reassociate project and document.
                 return true;
             });
         }

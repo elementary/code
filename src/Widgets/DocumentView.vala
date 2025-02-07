@@ -294,7 +294,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
             var doc = new Services.Document (window.actions, file);
             // Must open document in order to unlock it.
-            open_document (doc);
+            open_document.begin (doc);
         } catch (Error e) {
             critical (e.message);
         }
@@ -309,7 +309,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             file.replace_contents (clipboard.data, null, false, 0, null);
             var doc = new Services.Document (window.actions, file);
 
-            open_document (doc);
+            open_document.begin (doc);
 
 
         } catch (Error e) {
@@ -515,7 +515,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public void restore_closed_tab (string path) {
         var file = File.new_for_path (path);
         var doc = new Services.Document (window.actions, file);
-        open_document (doc);
+        open_document.begin (doc);
 
         var menu = (Menu) tab_history_button.menu_model;
         for (var i = 0; i < menu.get_n_items (); i++) {
@@ -644,7 +644,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             foreach (var filename in uris) {
                 var file = File.new_for_uri (filename);
                 var doc = new Services.Document (window.actions, file);
-                open_document (doc);
+                open_document.begin (doc);
             }
 
             Gtk.drag_finish (ctx, true, false, time);
