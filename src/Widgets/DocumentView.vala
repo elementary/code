@@ -122,6 +122,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         // TabView tab events
         tab_view.close_page.connect ((tab) => {
             var doc = tab.child as Services.Document;
+            if (doc == null || doc.closing) {
+                return true; // doc.do_close () already called once
+            }
+
             if (doc == null) {
                 tab_view.close_page_finish (tab, true);
             } else {
