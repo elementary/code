@@ -134,8 +134,39 @@ namespace Scratch.FolderManager {
                 warning (e.message);
             }
 
+            MenuItem set_active_folder_item;
+            if (is_git_repo) {
+                set_active_folder_item = new GLib.MenuItem (
+                    _("Set as Active Project"),
+                    GLib.Action.print_detailed_name (
+                        FileView.ACTION_PREFIX + FileView.ACTION_SET_ACTIVE_PROJECT,
+                        new Variant.string (file.path)
+                    )
+                );
+            } else {
+                set_active_folder_item = new GLib.MenuItem (
+                    _("Open in Terminal Pane"),
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        new Variant.string (
+                            Services.GitManager.get_instance ().get_default_build_dir (path)
+                        )
+                    )
+                );
+            }
+
+            set_active_folder_item.set_attribute_value (
+                "accel",
+                Utils.get_accel_for_action (
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        ""
+                    )
+                )
+            );
 
             var external_actions_section = new GLib.Menu ();
+            external_actions_section.append_item (set_active_folder_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
             var folder_actions_section = new GLib.Menu ();
@@ -330,7 +361,7 @@ namespace Scratch.FolderManager {
         private void handle_change_branch_action (GLib.Variant? parameter) {
             var branch_name = parameter.get_string ();
             try {
-                monitored_repo.change_branch (branch_name);
+                monitored_repo.change_local_branch (branch_name);
             } catch (GLib.Error e) {
                 warning ("Failed to change branch to %s. %s", branch_name, e.message);
             }

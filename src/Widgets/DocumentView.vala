@@ -122,15 +122,20 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         // TabView tab events
         tab_view.close_page.connect ((tab) => {
             var doc = tab.child as Services.Document;
+            if (doc == null || doc.closing) {
+                return true; // doc.do_close () already called once
+            }
+
             if (doc == null) {
                 tab_view.close_page_finish (tab, true);
             } else {
                 doc.do_close.begin (false, (obj, res) => {
                     var should_close = doc.do_close.end (res);
-                    if (should_close) {
-                        before_doc_removed (doc);
+                    // Ensure removed doc is saved by handling this first
+                    if (!is_closing) {
+                        save_opened_files ();
                     }
-
+                    //`page-detached` handler will perform rest of necessary cleanup
                     tab_view.close_page_finish (tab, should_close);
                 });
             }
@@ -139,7 +144,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         tab_view.page_attached.connect (on_doc_added);
-        tab_view.page_detached.connect (on_doc_removed);
+        tab_view.page_detached.connect (on_page_detached);
         tab_view.page_reordered.connect (on_doc_reordered);
         tab_view.create_window.connect (on_doc_to_new_window);
 
@@ -463,21 +468,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return unsaved_file_path_builder (extension);
     }
 
-    private void before_doc_removed (Services.Document doc) {
-        on_doc_removed_shared (doc);
-    }
-
-    private void on_doc_removed (Hdy.TabPage tab, int position) {
+    private void on_page_detached (Hdy.TabPage tab, int position) {
         var doc = tab.get_child () as Services.Document;
         if (doc == null) {
             return;
         }
 
-        on_doc_removed_shared (doc);
-        request_placeholder_if_empty ();
-    }
-
-    private void on_doc_removed_shared (Services.Document doc) {
         if (tab_history_button.menu_model == null) {
             tab_history_button.menu_model = new Menu ();
         }
@@ -522,9 +518,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
         }
 
-        if (!is_closing) {
-            save_opened_files ();
-        }
+        request_placeholder_if_empty ();
     }
 
     public void restore_closed_tab (string path) {
