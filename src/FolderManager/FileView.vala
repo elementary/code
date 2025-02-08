@@ -36,6 +36,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
+    public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -47,7 +48,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
+        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
     };
 
     private GLib.Settings settings;
@@ -61,11 +63,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public ActionGroup toplevel_action_group { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
-    public string active_project_path {
-        get {
-            return git_manager.active_project_path;
-        }
-    }
 
     public FileView (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
@@ -120,9 +117,28 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (project_folder_item != folder_root) {
                 toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
                 root.remove (project_folder_item);
-                Scratch.Services.GitManager.get_instance ().remove_project (project_folder_item);
+                git_manager.remove_project (project_folder_item);
             }
         }
+
+        //Make remaining project the active one
+        git_manager.active_project_path = path;
+
+        write_settings ();
+    }
+
+    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
+            return;
+        }
+
+        git_manager.active_project_path = path;
 
         write_settings ();
     }
@@ -177,14 +193,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         selected = null;
     }
 
-    public void collapse_other_projects (string? keep_open_path = null) {
+    public void collapse_other_projects () {
         unowned string path;
-        if (keep_open_path == null) {
-            path = git_manager.active_project_path;
-        } else {
-            path = keep_open_path;
-            git_manager.active_project_path = path;
-        }
+        path = git_manager.active_project_path;
 
         foreach (var child in root.children) {
             var project_folder = ((ProjectFolderItem) child);
