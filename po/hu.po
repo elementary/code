@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-01-16 17:55+0000\n"
+"PO-Revision-Date: 2025-02-07 15:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/"
-">\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
+"\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,46 +291,44 @@ msgstr "Visszaállítás mindenképp"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
+msgstr "Ez a mappa egy megnyitott projekt szülője"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 #, c-format
 msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgstr "Ez a mappa %u megnyitott projekt szülője"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
+msgstr "A mappa megnyitása be fogja zárni a leszármazott projektet"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close all child projects"
-msgstr ""
+msgstr "A mappa megnyitása be fogja zárni az összes leszármazott projektet"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
+msgstr "Leszármazott projekt bezárása"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Projects"
-msgstr ""
+msgstr "Leszármazott projektek bezárása"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Ez a mappa egy megnyitott projekt leszármazottja"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "A mappa megnyitása be fogja zárni a szülőprojektet"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Szülőprojekt bezárása"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Ne állítsa vissza"
+msgstr "Ne nyissa meg"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
@@ -416,10 +414,8 @@ msgid "new file"
 msgstr "új fájl"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Aktív Git projekt: %s"
+msgstr "Beállítás aktív projektként"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
