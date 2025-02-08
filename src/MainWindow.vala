@@ -601,7 +601,7 @@ namespace Scratch {
                 content_stack.visible_child = view_grid;
                 toolbar.document_available (true);
                 set_widgets_sensitive (true);
-                update_find_actions ();
+                update_find_actions ();jeremypw/silence-some-warnings
             });
 
             document_view.tab_removed.connect ((doc) => {
@@ -621,6 +621,7 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
+
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
