@@ -158,6 +158,8 @@ namespace Scratch.Services {
             }
         }
 
+        public bool closing { get; private set; default = false; }
+
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
         private Scratch.Services.SymbolOutline? outline = null;
@@ -181,7 +183,6 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
-        private bool closing = false;
         private Mount mount;
         private Icon locked_icon;
 
@@ -470,6 +471,9 @@ namespace Scratch.Services {
 
         public async bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
+            if (closing) {
+                return true;
+            }
 
             if (!loaded) {
                 load_cancellable.cancel ();
@@ -488,7 +492,6 @@ namespace Scratch.Services {
 
                 // Ask whether to save changes
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
-
                 var dialog = new Granite.MessageDialog (
                     _("Save changes to “%s” before closing?").printf (this.get_basename ()),
                     _("If you don't save, changes will be permanently lost."),
@@ -1155,6 +1158,9 @@ namespace Scratch.Services {
                 file.delete ();
                 return true;
             } catch (Error e) {
+                if (e is IOError.NOT_FOUND) {
+                    return true;
+                }
                 warning ("Cannot delete temporary file “%s”: %s", file.get_uri (), e.message);
             }
 
