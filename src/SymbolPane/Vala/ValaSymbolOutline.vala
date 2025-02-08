@@ -135,9 +135,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             if (cancellable.is_cancelled ())
                 break;
 
-            var exist = find_existing (symbol, new_root, cancellable);
-            if (exist != null)
-                continue;
 
             if (symbol.name == null)
                 continue;
