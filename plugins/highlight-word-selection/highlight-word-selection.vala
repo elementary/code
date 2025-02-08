@@ -36,12 +36,10 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
-                current_source.deselected.disconnect (on_deselection);
                 current_source.selection_changed.disconnect (on_selection_changed);
             }
 
             current_source = doc.source_view;
-            current_source.deselected.connect (on_deselection);
             current_source.selection_changed.connect (on_selection_changed);
         });
 
@@ -50,13 +48,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         });
     }
 
-    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
+    public void on_selection_changed (string selected_text, ref Gtk.TextIter start, ref Gtk.TextIter end) {
         var window_search_context = main_window != null ? main_window.search_bar.search_context : null;
-
-        if (window_search_context == null ||
+        if (selected_text != "" &&
+            (window_search_context == null ||
             window_search_context.settings.search_text == "" ||
-            window_search_context.get_occurrences_count () == 0) {
-            // Perform plugin selection when there is no ongoing and successful search 
+            window_search_context.get_occurrences_count () == 0)) {
+            // Perform plugin selection when there is no ongoing and successful search
             current_search_context = new Gtk.SourceSearchContext (
                 (Gtk.SourceBuffer)current_source.buffer,
                 null
@@ -118,13 +116,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             );
 
             // Ensure no leading or trailing space
-            var selected_text = start.get_text (end).strip ();
+            var stripped_selected_words = start.get_text (end).strip ();
 
-            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
+            if (stripped_selected_words.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
                 return;
             }
 
-            current_search_context.settings.search_text = selected_text;
+            current_search_context.settings.search_text = stripped_selected_words;
             current_search_context.set_highlight (true);
         } else if (current_search_context != null) {
             // Cancel existing search
@@ -133,16 +131,8 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         }
     }
 
-    public void on_deselection () {
-        if (current_search_context != null) {
-            current_search_context.set_highlight (false);
-            current_search_context = null;
-        }
-    }
-
     public void deactivate () {
         if (current_source != null) {
-            current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);
         }
     }
