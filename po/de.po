@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-02-05 10:55+0000\n"
+"PO-Revision-Date: 2025-02-10 16:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -420,10 +420,8 @@ msgid "new file"
 msgstr "neue Datei"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Aktives Git-Projekt: %s"
+msgstr "Als aktives Projekt festlegen"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -706,8 +704,7 @@ msgid "No Project Selected"
 msgstr "Kein Projekt ausgewählt"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktives Git-Projekt: %s"
 
