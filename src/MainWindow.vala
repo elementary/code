@@ -27,6 +27,17 @@ namespace Scratch {
         public Scratch.Application app { get; private set; }
         public bool restore_docs { get; construct; }
         public RestoreOverride restore_override { get; construct set; }
+        public string default_globalsearch_path {
+            owned get {
+                if (document_view.current_document != null) {
+                    if (document_view.current_document.project_path != "") {
+                        return document_view.current_document.project_path;
+                    }
+                }
+
+                return git_manager.active_project_path;
+            }
+        }
 
         public Scratch.Widgets.DocumentView document_view;
 
@@ -593,7 +604,6 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
-                    git_manager.active_project_path = doc.source_view.project.path;
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
@@ -729,11 +739,19 @@ namespace Scratch {
 
         // If selected text covers more than one line return just the first.
         // Returns "" if no selection
-        public string get_selected_text_for_search () {
+        public void set_selected_text_for_search () {
             var doc = get_current_document ();
             var selected_text = doc != null ? doc.get_selected_text (false) : "";
-            var search_term = selected_text.split ("\n", 2)[0];
-            return search_term ?? "";
+            var search_term = "";
+            if (selected_text.contains ("\n")) {
+                search_term = selected_text.split ("\n", 2)[0];
+            } else {
+                search_term = selected_text;
+            }
+
+            if (search_term != "") {
+                search_bar.set_search_entry_text (search_term);
+            }
         }
 
         public bool has_successful_search () {
@@ -1168,10 +1186,7 @@ namespace Scratch {
                 }
             }
 
-            var selected_text_for_search = get_selected_text_for_search ();
-            if (selected_text_for_search != "") {
-                search_bar.set_search_entry_text (selected_text_for_search);
-            }
+            set_selected_text_for_search ();
 
             search_bar.search ();
         }
@@ -1200,15 +1215,25 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            var search_term = "";
             if (!search_bar.is_focused || search_bar.entry_text == "") {
-                search_term = get_selected_text_for_search ();
-            } else {
-                search_term = search_bar.entry_text;
+                set_selected_text_for_search ();
             }
 
-            folder_manager_view.search_global (get_target_path_for_actions (param), search_term);
-            search_bar.set_search_entry_text (search_term);
+            var search_path = "";
+            if (param != null && param.get_string () != "") {
+                search_path = param.get_string ();
+            } else {
+                search_path = default_globalsearch_path;
+            }
+
+            if (search_path != "") {
+                folder_manager_view.search_global (search_path, search_bar.entry_text);
+            } else {
+                // Fallback to standard search
+                warning ("Unable to perform global search - search document instead");
+                action_find ();
+            }
+
             if (!search_bar.is_revealed) {
                 action_toggle_show_find ();
             }
@@ -1222,9 +1247,9 @@ namespace Scratch {
                 Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
+                var can_global_search = is_current_doc || git_manager.active_project_path != null;
+                Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (can_global_search);
 
-                var is_active_project = git_manager.active_project_path != "";
-                Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (is_active_project);
                 return Source.REMOVE;
             });
         }
@@ -1238,7 +1263,7 @@ namespace Scratch {
             if (to_show) {
                 search_bar.focus_search_entry ();
                 if (search_bar.entry_text == "") { // Should always be true atm as entry cleared on hiding
-                    search_bar.set_search_entry_text (get_selected_text_for_search ());
+                    set_selected_text_for_search ();
                 }
             }
         }
