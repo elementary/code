@@ -126,7 +126,7 @@ namespace Scratch {
         private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_find},
+            { ACTION_FIND, action_find, "s"},
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
@@ -193,7 +193,7 @@ namespace Scratch {
         }
 
         static construct {
-            action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND + "::", "<Control>f");
             action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
@@ -738,7 +738,6 @@ namespace Scratch {
         }
 
         // If selected text covers more than one line return just the first.
-        // Returns "" if no selection
         public void set_selected_text_for_search () {
             var doc = get_current_document ();
             var selected_text = doc != null ? doc.get_selected_text (false) : "";
@@ -1178,7 +1177,11 @@ namespace Scratch {
         }
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
-        private void action_find () {
+        private void action_find (SimpleAction action, Variant? param) {
+            find (param != null ? param.get_string () : "");
+        }
+
+        private void find (string search_term = "") {
             if (!search_bar.is_revealed) {
                 var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
@@ -1186,13 +1189,17 @@ namespace Scratch {
                 }
             }
 
-            set_selected_text_for_search ();
+            if (search_term != "") {
+                search_bar.set_search_entry_text (search_term);
+            } else {
+                set_selected_text_for_search ();
+            }
 
             search_bar.search ();
         }
 
         private void action_show_replace (SimpleAction action) {
-            action_find ();
+            find ();
             // May have to wait for the search bar to be revealed before we can grab focus
 
             if (search_bar.is_revealed) {
@@ -1231,12 +1238,10 @@ namespace Scratch {
             } else {
                 // Fallback to standard search
                 warning ("Unable to perform global search - search document instead");
-                action_find ();
+                find ();
             }
 
-            if (!search_bar.is_revealed) {
-                action_toggle_show_find ();
-            }
+            // No need to reveal searchbar - handled by subsequent find action.
         }
 
         private void update_find_actions () {
@@ -1262,7 +1267,7 @@ namespace Scratch {
             search_bar.reveal (to_show);
             if (to_show) {
                 search_bar.focus_search_entry ();
-                if (search_bar.entry_text == "") { // Should always be true atm as entry cleared on hiding
+                if (search_bar.entry_text == "") {
                     set_selected_text_for_search ();
                 }
             }
