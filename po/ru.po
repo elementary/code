@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-01-11 23:16+0000\n"
+"PO-Revision-Date: 2025-02-13 03:01+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -290,52 +290,48 @@ msgstr "Всё равно восстановить"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
+msgstr "Эта папка — родительская для открытого проекта"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 #, c-format
 msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgstr "Эта папка — родительская для %u открытых проектов"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
+msgstr "Открытие этой папки закроет дочерний проект"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close all child projects"
-msgstr ""
+msgstr "Открытие этой папки закроет все дочерние проекты"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
+msgstr "Закрыть дочерний проект"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Projects"
-msgstr ""
+msgstr "Закрыть дочерние проекты"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Эта папка — дочерняя для открытого проекта"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Открытие этой папки закроет родительский проект"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Закрыть родительский проект"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Не восстанавливать"
+msgstr "Не открывать"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "В Scratch есть несохранённые изменения!"
+msgstr "В этой ветке есть незафиксированные изменения"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -347,14 +343,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding </i>"
 msgstr ""
+"Если выполнить checkout <b>«%s»</b> сейчас, незафиксированные изменения "
+"будут потеряны навсегда.\n"
+"\n"
+"<i>Перед продолжением рекомендуется спрятать, зафиксировать либо отменить "
+"незафиксированные изменения</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Выполнить checkout и перезаписать"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Не выполнять checkout"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
@@ -415,10 +416,8 @@ msgid "new file"
 msgstr "новый файл"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Активный Git-проект: %s"
+msgstr "Назначить активным проектом"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -696,8 +695,7 @@ msgid "No Project Selected"
 msgstr "Проект не выбран"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Активный Git-проект: %s"
 
