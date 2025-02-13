@@ -1,4 +1,4 @@
 option ('plugins', type : 'boolean', value : true)
 option('have_pkexec', type : 'boolean', value : 'true', description : 'Allow launching with pkexec. Should not be used in FlatPak')
 option('development', type : 'boolean', value : false, description : 'Build is a development branch')
-option('enable-profiling', type : 'feature', value : 'disabled', yield : true, description: 'Enable profiling building')
+option('profiling-enabled', type : 'boolean', value : true, description: 'Enable profiling building')

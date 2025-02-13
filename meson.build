@@ -80,18 +80,18 @@ endif
 # Profiling is not active unless the correct environment variables are set at runtime
 # See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
-if get_option('enable-profiling').enabled()
-  profiler_dep = dependency('libprofiler')
+if get_option('profiling-enabled')
+  profiler_dep = dependency ('libprofiler')
   if(profiler_dep.found())
     message('Profiling enabled: Building examples with profiling support.')
-    link_flags += ['-lprofiler']
-    c_flags += ['-DPROFILING']
-    # Update test test_deps to include profiler dependency
-    test_deps += [profiler_dep]
+    add_global_link_arguments ('-lprofiler', language: 'c')
+    add_project_arguments ('--define=PROFILING', language: 'vala')
+    dependencies += profiler_dep
   else
     message('MESON_FAIL gperftools profiling library not found.')
   endif
 endif
+
 
 subdir('data')
 subdir('src')
