@@ -36,7 +36,7 @@ gtksourceview_dep = dependency('gtksourceview-4')
 peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 git_dep = dependency('libgit2-glib-1.0')
-fontconfig_dep = dependency('fontconfig') 
+fontconfig_dep = dependency('fontconfig')
 pangofc_dep = dependency('pangoft2')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 vte_dep = dependency('vte-2.91')
@@ -82,15 +82,26 @@ endif
 # with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop ()
 # See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
-if get_option('profiling-enabled')
+if get_option('cpu-profiling-enabled')
   profiler_dep = dependency ('libprofiler')
+  heap_profiler_dep = dependency ('libtcmalloc')
   if(profiler_dep.found())
-    message('Profiling enabled: Building with profiling support.')
+    message('CPU profiling enabled: Building with profiling support.')
     add_global_link_arguments ('-lprofiler', language: 'c')
     add_project_arguments ('--define=PROFILING', language: 'vala')
     dependencies += profiler_dep
   else
-    message('MESON_FAIL gperftools profiling library not found.')
+    message('MESON_FAIL: CPU profiling requested but libprofiler (gperftools) not found.')
+  endif
+endif
+if get_option('heap-profiling-enabled')
+  if(heap_profiler_dep.found())
+    message('Heap profiling enabled: Building with heap profiling support.')
+    add_global_link_arguments ('-ltcmalloc', language: 'c')
+    add_project_arguments ('--define=HEAP_PROFILING', language: 'vala')
+    dependencies += heap_profiler_dep
+  else
+    message('MESON_FAIL: Heap profiling requested but libtcmalloc (gperftools) not found.')
   endif
 endif
 

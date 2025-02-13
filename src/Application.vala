@@ -200,18 +200,33 @@ namespace Scratch {
 // By default, profile whole app when profiling is enabled in meson_options.txt
 // These conditional statements can be moved to profile sections of code
 // The gperftools library must be installed (libgoogle-perftools-dev)
-// Amend the profile report path as required
-// Visualize the profile with e.g. google-pprof --functions --text io.elementary.code <profile_path>
-// Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
+// Amend the profile report paths as required
 #if PROFILING
-            var profile_path = Path.build_filename (Environment.get_home_dir (), "Application.prof");
+            // Visualize the cpu profile with e.g. google-pprof --functions --gv /usr/bin/io.elementary.code <profile_path>
+            // Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
+            var profile_path = Path.build_filename (Environment.get_home_dir (), "ApplicationCPU.prof");
+            // Start CPU profiling
             Profiler.start (profile_path);
-            warning ("start profiling");
+            warning ("start cpu profiling - output to %s", profile_path);
 #endif
+#if HEAP_PROFILING
+            // Visualize the profile with e.g. google-pprof --gv /usr/bin/io.elementary.code <profile_path>
+            // Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
+            var heap_profile_path = Path.build_filename (Environment.get_home_dir (), "ApplicationHeap");
+            // Start heap profiling
+            HeapProfiler.start (heap_profile_path);
+            warning ("start heap profiling - output to %s", heap_profile_path);
+#endif
+
             return new Application ().run (args);
+
 #if PROFILING
             Profiler.stop ();
-            warning ("stop profiling");
+            warning ("stop cpu profiling");
+#endif
+#if HEAP_PROFILING
+            HeapProfiler.stop ();
+            warning ("stop heap profiling");
 #endif
         }
     }
