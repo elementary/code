@@ -202,17 +202,20 @@ namespace Scratch {
 // The gperftools library must be installed (libgoogle-perftools-dev)
 // Amend the profile report paths as required
 #if PROFILING
+            // The output path will have the suffix '.prof' appended
             // Visualize the cpu profile with e.g. google-pprof --functions --gv /usr/bin/io.elementary.code <profile_path>
             // Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
-            var profile_path = Path.build_filename (Environment.get_home_dir (), "ApplicationCPU.prof");
+            var profile_path = Path.build_filename (Environment.get_home_dir (), "Application");
             // Start CPU profiling
             Profiler.start (profile_path);
             warning ("start cpu profiling - output to %s", profile_path);
 #endif
 #if HEAP_PROFILING
+            // NOTE: Heap profiling at this point slows the program down **a lot** It will take tens of seconds to load.
+            // The output path will have the suffix '.NNNN.heap' appended
             // Visualize the profile with e.g. google-pprof --gv /usr/bin/io.elementary.code <profile_path>
             // Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
-            var heap_profile_path = Path.build_filename (Environment.get_home_dir (), "ApplicationHeap");
+            var heap_profile_path = Path.build_filename (Environment.get_home_dir (), "Application");
             // Start heap profiling
             HeapProfiler.start (heap_profile_path);
             warning ("start heap profiling - output to %s", heap_profile_path);
