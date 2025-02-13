@@ -65,7 +65,7 @@ dependencies = [
     pangofc_dep,
     posix_dep,
     vala_dep,
-    vte_dep,
+    vte_dep
 ]
 
 git = find_program('git', required: false)
@@ -76,10 +76,11 @@ if get_option('development') and git.found ()
 endif
 
 # Profiler linking code taken from https://github.com/RidgeRun/gst-inference/blob/master/meson.build
-# 'libprofiler' is provided by installing (e.g.) 'gperf-tools'
+# with some amendments
+# 'libprofiler' and 'libtcmalloc' are provided by installing (e.g.) 'google-perftools' and 'google-pertools-dev'
 # Profiling is not active unless either the correct environment variables are set at runtime
-# or the profiling is switched on/off in the code using the PROFILING conditional compilation flag
-# with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop ()
+# or the profiling is switched on/off in the code using the CPU_PROFILING and HEAP_PROFILING conditional compilation flags
+# with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop () and the corresponding HeapProfiler functions
 # See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
 if get_option('cpu-profiling-enabled')
