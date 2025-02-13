@@ -197,7 +197,22 @@ namespace Scratch {
         }
 
         public static int main (string[] args) {
+// By default, profile whole app when profiling is enabled in meson_options.txt
+// These conditional statements can be moved to profile sections of code
+// The gperftools library must be installed (libgoogle-perftools-dev)
+// Amend the profile report path as required
+// Visualize the profile with e.g. google-pprof --functions --text io.elementary.code <profile_path>
+// Use --focus=<regexp> and --ignore=<regexp> to filter/prune nodes displayed
+#if PROFILING
+            var profile_path = Path.build_filename (Environment.get_home_dir (), "Application.prof");
+            Profiler.start (profile_path);
+            warning ("start profiling");
+#endif
             return new Application ().run (args);
+#if PROFILING
+            Profiler.stop ();
+            warning ("stop profiling");
+#endif
         }
     }
 }
