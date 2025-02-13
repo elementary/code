@@ -85,7 +85,6 @@ endif
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
 if get_option('cpu-profiling-enabled')
   profiler_dep = dependency ('libprofiler')
-  heap_profiler_dep = dependency ('libtcmalloc')
   if(profiler_dep.found())
     message('CPU profiling enabled: Building with profiling support.')
     add_global_link_arguments ('-lprofiler', language: 'c')
@@ -96,6 +95,7 @@ if get_option('cpu-profiling-enabled')
   endif
 endif
 if get_option('heap-profiling-enabled')
+  heap_profiler_dep = dependency ('libtcmalloc')
   if(heap_profiler_dep.found())
     message('Heap profiling enabled: Building with heap profiling support.')
     add_global_link_arguments ('-ltcmalloc', language: 'c')
