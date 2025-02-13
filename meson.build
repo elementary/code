@@ -77,13 +77,15 @@ endif
 
 # Profiler linking code taken from https://github.com/RidgeRun/gst-inference/blob/master/meson.build
 # 'libprofiler' is provided by installing (e.g.) 'gperf-tools'
-# Profiling is not active unless the correct environment variables are set at runtime
+# Profiling is not active unless either the correct environment variables are set at runtime
+# or the profiling is switched on/off in the code using the PROFILING conditional compilation flag
+# with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop ()
 # See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
 if get_option('profiling-enabled')
   profiler_dep = dependency ('libprofiler')
   if(profiler_dep.found())
-    message('Profiling enabled: Building examples with profiling support.')
+    message('Profiling enabled: Building with profiling support.')
     add_global_link_arguments ('-lprofiler', language: 'c')
     add_project_arguments ('--define=PROFILING', language: 'vala')
     dependencies += profiler_dep
