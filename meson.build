@@ -81,6 +81,8 @@ endif
 # Profiling is not active unless either the correct environment variables are set at runtime
 # or the profiling is switched on/off in the code using the CPU_PROFILING and HEAP_PROFILING conditional compilation flags
 # with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop () and the corresponding HeapProfiler functions
+# It is advisable not to run cpu profiling at the same time as heap profiling
+# If meson options are changed then rebuild with 'cd .. && sudo rm -R ./build && build'
 # See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
 # and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
 if get_option('cpu-profiling-enabled')
