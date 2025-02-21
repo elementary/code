@@ -77,7 +77,7 @@ endif
 
 # Profiler linking code taken from https://github.com/RidgeRun/gst-inference/blob/master/meson.build
 # with some amendments
-# 'libprofiler' and 'libtcmalloc' are provided by installing (e.g.) 'google-perftools' and 'google-pertools-dev'
+# 'libprofiler' and 'libtcmalloc' are provided by installing (e.g.) 'google-perftools' and 'libgoogle-pertools-dev'
 # Profiling is not active unless either the correct environment variables are set at runtime
 # or the profiling is switched on/off in the code using the CPU_PROFILING and HEAP_PROFILING conditional compilation flags
 # with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop () and the corresponding HeapProfiler functions
