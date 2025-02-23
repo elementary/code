@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 elementary, Inc. <https://elementary.io>
  * Copyright (c) 2013 Mario Guerriero <mario@elementaryos.org>
  *
  * This is a free software; you can redistribute it and/or
@@ -18,37 +19,50 @@
  *
  */
 
-public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
-    public string name;
-    public int priority;
+public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, GLib.Object {
+    private const int MAX_COMPLETIONS = 10;
+    public string name { get; construct; }
+    public int priority { get; construct; }
+    public int interactive_delay { get; construct; }
+    public Gtk.SourceCompletionActivation activation { get; construct; }
 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
 
-    private Gtk.TextView? view;
-    private Gtk.TextBuffer? buffer;
-    private Euclide.Completion.Parser parser;
+    public Gtk.TextView? view { get; construct; }
+    public Euclide.Completion.Parser parser { get; construct; }
+
+    private unowned Gtk.TextBuffer buffer {
+        get {
+            return view.buffer;
+        }
+    }
+
     private Gtk.TextMark completion_end_mark;
     private Gtk.TextMark completion_start_mark;
+    private string current_text_to_find = "";
 
     public signal void can_propose (bool b);
 
-    public CompletionProvider (Scratch.Plugins.Completion completion) {
-        this.view = completion.current_view as Gtk.TextView;
-        this.buffer = completion.current_view.buffer;
-        this.parser = completion.parser;
+    public CompletionProvider (
+        Euclide.Completion.Parser _parser,
+        Scratch.Services.Document _doc
+        ) {
+
+        Object (
+            parser: _parser,
+            view: _doc.source_view,
+            name: _("%s - Word Completion").printf (_doc.get_basename ())
+        );
+    }
+
+    construct {
+        interactive_delay = (int) Completion.INTERACTIVE_DELAY;
+        activation = INTERACTIVE | USER_REQUESTED;
         Gtk.TextIter iter;
-        buffer.get_iter_at_offset (out iter, 0);
+        view.buffer.get_iter_at_offset (out iter, 0);
         completion_end_mark = buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
-    }
-
-    public string get_name () {
-        return this.name;
-    }
-
-    public int get_priority () {
-        return this.priority;
     }
 
     public bool match (Gtk.SourceCompletionContext context) {
@@ -83,15 +97,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         buffer.@delete (ref start, ref end);
         buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         return true;
-    }
-
-    public Gtk.SourceCompletionActivation get_activation () {
-        return Gtk.SourceCompletionActivation.INTERACTIVE |
-               Gtk.SourceCompletionActivation.USER_REQUESTED;
-    }
-
-    public int get_interactive_delay () {
-        return 0;
     }
 
     public bool get_start_iter (Gtk.SourceCompletionContext context,
