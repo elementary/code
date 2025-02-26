@@ -33,37 +33,35 @@ jobs:
 
   flatpak:
     name: Flatpak
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.configuration.runs-on }}
 
     strategy:
       matrix:
-        arch: [x86_64, aarch64]
+        configuration:
+          - arch: x86_64
+            runs-on: ubuntu-latest
+          - arch: aarch64
+            runs-on: ubuntu-24.04-arm
       # Don't fail the whole workflow if one architecture fails
       fail-fast: false
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:7.1-${{ matrix.arch }}
+      image: ghcr.io/elementary/flatpak-platform/runtime:8-${{ matrix.configuration.arch }}
       options: --privileged
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up QEMU for aarch64 emulation
-        if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm64
-
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.4
         with:
           bundle: code.flatpak
           manifest-path: io.elementary.code.yml
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
-          arch: ${{ matrix.arch }}
+          arch: ${{ matrix.configuration.arch }}
 
   lint:
     name: Lint

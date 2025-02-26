@@ -31,7 +31,7 @@ public class Code.WelcomeView : Granite.Placeholder {
     construct {
         append ("document-new", _("New File"), _("Create a new empty file."));
         append ("document-open", _("Open File"), _("Open a saved file."));
-        append ("folder-saved-search", _("Open Folder"), _("Add a project folder to the sidebar."));
+        append ("open-project", _("Open Folder"), _("Add a project folder to the sidebar."));
 
         activated.connect ((i) => {
             // New file
