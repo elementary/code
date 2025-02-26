@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-02-07 15:16+0000\n"
+"PO-Revision-Date: 2025-02-26 19:46+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
 "\n"
@@ -331,10 +331,8 @@ msgid "Don't Open"
 msgstr "Ne nyissa meg"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Mentetlen módosítások vannak a Scratch!"
+msgstr "Nem commitolt módosítások vannak a jelenlegi elágazáson"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -346,14 +344,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding </i>"
 msgstr ""
+"A nem commitolt változtatások véglegesen elvesznek, ha a(z) <b>'%s'</b> "
+"elágazásra vált most.\n"
+"\n"
+"<i>Javasolt a nem commitolt változtatásokat stash-elni, commitolni vagy "
+"visszaállítani a továbblépés előtt </i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Váltás és felülírás"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Ne váltson"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
@@ -693,8 +696,7 @@ msgid "No Project Selected"
 msgstr "Nincs kiválasztott projekt"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktív Git projekt: %s"
 
