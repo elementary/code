@@ -24,7 +24,7 @@ public class Code.Sidebar : Gtk.Grid {
 
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
-    public Hdy.HeaderBar headerbar { get; private set; }
+    public Adw.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
 
     private Gtk.StackSwitcher stack_switcher;
@@ -111,20 +111,14 @@ public class Code.Sidebar : Gtk.Grid {
             }
         });
 
-        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        GLib.Value uris = {"text/uri-list", 0, GLib.Value.URI_LIST};
         Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         drag_data_received.connect (drag_received);
     }
 
-    private void drag_received (Gtk.Widget w,
-                                Gdk.DragContext ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time) {
+    private void drag_received (Gdk.Drag drag) {
 
-        if (info == TargetType.URI_LIST) {
+        if (info == GLib.Value.URI_LIST) {
             var uri_list = sel.get_uris ();
             GLib.List<GLib.File> folder_list = null;
             foreach (unowned var uri in uri_list) {
@@ -143,8 +137,6 @@ public class Code.Sidebar : Gtk.Grid {
                     new Variant.string (folder.get_path ())
                 );
             }
-
-            Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
         }
     }
 

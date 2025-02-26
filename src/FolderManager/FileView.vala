@@ -21,7 +21,7 @@
 /**
  * SourceList that displays folders and their contents.
  */
-public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.PaneSwitcher {
+public class Scratch.FolderManager.FileView : Code.Widgets.SourceList.Window, Code.PaneSwitcher {
     public const string ACTION_GROUP = "file-view";
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
     public const string ACTION_LAUNCH_APP_WITH_FILE_PATH = "launch-app-with-file-path";

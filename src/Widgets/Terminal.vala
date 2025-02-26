@@ -19,7 +19,7 @@ public class Code.Terminal : Gtk.Box {
     public SimpleActionGroup actions { get; construct; }
 
     private GLib.Pid child_pid;
-    private Gtk.Clipboard current_clipboard;
+    private Gdk.Clipboard current_clipboard;
 
     construct {
         terminal = new Vte.Terminal () {

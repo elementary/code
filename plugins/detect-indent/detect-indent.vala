@@ -1,4 +1,4 @@
-public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     const int MAX_LINES = 500;
 
     Scratch.Services.Interface plugins;
@@ -17,7 +17,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
                 return;
             }
 
-            var source_buffer = (Gtk.SourceBuffer) view.buffer;
+            var source_buffer = (GtkSource.Buffer) view.buffer;
             Gtk.TextIter it;
             source_buffer.get_iter_at_line (out it, 0);
 
@@ -79,7 +79,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
-        typeof (Peas.Activatable),
+        typeof (Scratch.Services.ActivatablePlugin),
         typeof (Scratch.Plugins.DetectIndent)
     );
 }

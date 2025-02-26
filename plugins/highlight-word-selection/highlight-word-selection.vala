@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Widgets.SourceView current_source;
     Scratch.MainWindow? main_window = null;
     Gtk.SourceSearchContext? current_search_context = null;
@@ -58,7 +58,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
             window_search_context.get_occurrences_count () == 0) {
             // Perform plugin selection when there is no ongoing and successful search 
             current_search_context = new Gtk.SourceSearchContext (
-                (Gtk.SourceBuffer)current_source.buffer,
+                (GtkSource.Buffer)current_source.buffer,
                 null
             );
             current_search_context.settings.search_text = "";
@@ -151,6 +151,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
 [ModuleInit]
 public void peas_register_types (TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Scratch.Plugins.HighlightSelectedWords));
 }
