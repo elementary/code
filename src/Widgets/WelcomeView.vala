@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.WelcomeView : Granite.Widgets.Welcome {
+public class Code.WelcomeView : Granite.Placeholder {
     public unowned Scratch.MainWindow window { get; construct; }
 
     public WelcomeView (Scratch.MainWindow window) {

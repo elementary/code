@@ -19,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Hdy.Window {
+    public class MainWindow : Adw.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
@@ -61,7 +61,7 @@ namespace Scratch {
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
 
-        public Gtk.Clipboard clipboard;
+        public Gdk.Clipboard clipboard;
 
         // Delegates
         delegate void HookFunc ();
@@ -290,7 +290,7 @@ namespace Scratch {
                 update_style ();
             });
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+            clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
             plugins = new Scratch.Services.PluginsManager (this);
 
@@ -343,6 +343,8 @@ namespace Scratch {
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
+
+            close_request.connect (on_delete_event);
         }
 
         private void update_style () {
@@ -461,7 +463,7 @@ namespace Scratch {
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen
-            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            GLib.Value target = {"text/uri-list", 0, 0};
             Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
             welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
@@ -724,7 +726,7 @@ namespace Scratch {
             return false;
         }
 
-        protected override bool delete_event (Gdk.EventAny event) {
+        protected override bool delete_event () {
             action_quit ();
             return true;
         }
@@ -1346,8 +1348,8 @@ namespace Scratch {
             }
 
             var buffer = doc.source_view.buffer;
-            if (buffer is Gtk.SourceBuffer) {
-                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+            if (buffer is GtkSource.Buffer) {
+                CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
             }
         }
 

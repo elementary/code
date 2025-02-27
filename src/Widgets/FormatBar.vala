@@ -17,6 +17,8 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
+// TODO: make CheckButton radio buttons
+
 public class Code.FormatBar : Gtk.Box {
     public bool tab_style_set_by_editor_config { get; set; default = false; }
     public bool tab_width_set_by_editor_config { get; set; default = false; }
@@ -31,7 +33,7 @@ public class Code.FormatBar : Gtk.Box {
     private Gtk.Entry goto_entry;
     private Gtk.ListBox lang_selection_listbox;
     private Gtk.SearchEntry lang_selection_filter;
-    private Gtk.SourceLanguageManager manager;
+    private GtkSource.LanguageManager manager;
     private LangEntry normal_entry;
 
     private unowned Scratch.Services.Document? doc = null;
@@ -39,7 +41,7 @@ public class Code.FormatBar : Gtk.Box {
     construct {
         get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-        manager = Gtk.SourceLanguageManager.get_default ();
+        manager = GtkSource.LanguageManager.get_default ();
 
         tab_menubutton = new FormatButton () {
             icon = new ThemedIcon ("format-indent-more-symbolic")
@@ -100,9 +102,9 @@ public class Code.FormatBar : Gtk.Box {
         lang_scrolled.add (lang_selection_listbox);
 
         unowned string[]? ids = manager.get_language_ids ();
-        unowned SList<Gtk.RadioButton> group = null;
+        unowned SList<Gtk.CheckButton> group = null;
         foreach (unowned string id in ids) {
-            weak Gtk.SourceLanguage lang = manager.get_language (id);
+            weak GtkSource.Language lang = manager.get_language (id);
             var entry = new LangEntry (id, lang.name, group);
             group = entry.get_radio_group ();
             lang_selection_listbox.add (entry);
@@ -351,7 +353,7 @@ public class Code.FormatBar : Gtk.Box {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
-        public unowned SList<Gtk.RadioButton> group { get; construct; }
+        public unowned SList<Gtk.CheckButton> group { get; construct; }
 
         public bool active {
             get {
@@ -375,8 +377,8 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
-        private Gtk.RadioButton lang_radio;
-        public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
+        private Gtk.CheckButton lang_radio;
+        public LangEntry (string? lang_id, string lang_name, SList<Gtk.CheckButton> group) {
             Object (group: group, lang_id: lang_id, lang_name: lang_name);
         }
 
@@ -385,7 +387,7 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         construct {
-            lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
+            lang_radio = new Gtk.CheckButton.with_label (group, lang_name);
 
             add (lang_radio);
             lang_radio.toggled.connect (radio_toggled);
@@ -397,7 +399,7 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
-        public unowned SList<Gtk.RadioButton> get_radio_group () {
+        public unowned SList<Gtk.CheckButton> get_radio_group () {
             return lang_radio.get_group ();
         }
     }

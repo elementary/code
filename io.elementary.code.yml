@@ -1,30 +1,30 @@
 app-id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '7.1'
+runtime-version: 'daily'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
-  - '--filesystem=xdg-run/gvfsd'
-  - '--filesystem=host'
+  - "--filesystem=xdg-run/gvfsd"
+  - "--filesystem=host"
 
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=wayland'
+  - "--share=ipc"
+  - "--socket=fallback-x11"
+  - "--socket=wayland"
 
-  - '--talk-name=org.gtk.vfs.*'
-  - '--talk-name=org.gnome.SettingsDaemon'
-  - '--talk-name=org.elementary.Contractor'
+  - "--talk-name=org.gtk.vfs.*"
+  - "--talk-name=org.gnome.SettingsDaemon"
+  - "--talk-name=org.elementary.Contractor"
 
-  - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
+  - "--metadata=X-DConf=migrate-path=/io/elementary/code/"
 cleanup:
-  - '/include'
-  - '/lib/pkgconfig'
-  - '/lib/cmake'
-  - '/lib/girepository-1.0'
-  - '/share/gir-1.0'
-  - '/share/vala'
-  - '*.a'
-  - '*.la'
+  - "/include"
+  - "/lib/pkgconfig"
+  - "/lib/cmake"
+  - "/lib/girepository-1.0"
+  - "/share/gir-1.0"
+  - "/share/vala"
+  - "*.a"
+  - "*.la"
 modules:
   - name: gtksourceview
     buildsystem: meson
@@ -33,22 +33,26 @@ modules:
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: '4.8.4'
 
-  - name: peas
+  - name: libpeas
     buildsystem: meson
     config-opts:
-      - '-Dgtk_doc=false'
-      - '-Ddemos=false'
-      - '-Dvapi=true'
+      - -Dlua51=false
+      - -Dgjs=false
     sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libpeas.git
-        tag: libpeas-1.34.0
+      - type: archive
+        url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz
+        sha256: 376f2f73d731b54e13ddbab1d91b6382cf6a980524def44df62add15489de6dd
+        x-checker-data:
+          type: gnome
+          versions:
+            <: '2.0.6'
+          name: libpeas
 
   - name: git2-glib
     buildsystem: meson
     builddir: true
     config-opts:
-      - '-Dpython=false'
+      - "-Dpython=false"
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libgit2-glib.git
@@ -57,14 +61,14 @@ modules:
       - name: ssh2
         buildsystem: cmake-ninja
         config-opts:
-          - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
-          - '-DBUILD_SHARED_LIBS:BOOL=ON'
-          - '-DBUILD_EXAMPLES:BOOL=OFF'
-          - '-DBUILD_TESTING:BOOL=OFF'
-          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
+          - "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+          - "-DBUILD_SHARED_LIBS:BOOL=ON"
+          - "-DBUILD_EXAMPLES:BOOL=OFF"
+          - "-DBUILD_TESTING:BOOL=OFF"
+          - "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib"
         cleanup:
-          - '/share/man'
-          - '/share/doc'
+          - "/share/man"
+          - "/share/doc"
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
@@ -72,28 +76,28 @@ modules:
       - name: libgit2
         buildsystem: cmake-ninja
         config-opts:
-          - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+          - "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
-            tag: 'v1.5.1'
+            tag: "v1.5.1"
 
   - name: editorconfig
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
-      - '-DBUILD_DOCUMENTATION:BOOL=OFF'
+      - "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+      - "-DBUILD_DOCUMENTATION:BOOL=OFF"
     sources:
       - type: git
         url: https://github.com/editorconfig/editorconfig-core-c.git
-        tag: 'v0.12.6'
+        tag: "v0.12.6"
         disable-submodules: true
 
   - name: gtkspell
     config-opts:
-      - '--disable-gtk-doc-html'
+      - "--disable-gtk-doc-html"
     cleanup:
-      - '/share/gtk-doc' # for some reason, it still install the html folder.
+      - "/share/gtk-doc" # for some reason, it still install the html folder.
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/gtkspell/gtkspell3-3.0.10.tar.xz
@@ -101,7 +105,7 @@ modules:
     modules:
       - name: intltool
         cleanup:
-          - '*'
+          - "*"
         sources:
           - type: archive
             url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
@@ -110,11 +114,11 @@ modules:
   - name: vte
     buildsystem: meson
     config-opts:
-      - '-Dbuildtype=debugoptimized'
+      - "-Dbuildtype=debugoptimized"
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/vte.git
-        branch: '0.70.2'
+        branch: "0.70.2"
 
   - name: universal-ctags
     sources:
@@ -125,7 +129,7 @@ modules:
   - name: code
     buildsystem: meson
     config-opts:
-     - '-Dhave_pkexec=false'
+      - "-Dhave_pkexec=false"
     sources:
       - type: dir
         path: .

@@ -59,9 +59,9 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public bool outline_visible { get; set; default = false; }
     public int outline_width { get; set; }
 
-    private Hdy.TabView tab_view;
-    private Hdy.TabBar tab_bar;
-    private weak Hdy.TabPage? tab_menu_target = null;
+    private Adw.TabView tab_view;
+    private Adw.TabBar tab_bar;
+    private weak Adw.TabPage? tab_menu_target = null;
     private Gtk.CssProvider style_provider;
     private Gtk.MenuButton tab_history_button;
 
@@ -170,7 +170,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         // Handle Drag-and-drop of files onto add-tab button to create document
-        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        GLib.Value uris = {"text/uri-list", 0, GLib.Value.URI_LIST};
         Gtk.drag_dest_set (tab_bar, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         tab_bar.drag_data_received.connect (drag_received);
 
@@ -191,12 +191,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             style_scheme = Scratch.settings.get_string ("style-scheme");
         }
 
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
 
-            // Default gtksourceview background color is white
+            // Default GtkSource.view background color is white
             var color = "#FFFFFF";
             if (text_color_data != null) {
                 // If the current style has a background color, use that
@@ -428,7 +428,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     // This is called when tab context menu is opened or closed
-    private void tab_view_setup_menu (Hdy.TabPage? page) {
+    private void tab_view_setup_menu (Adw.TabPage? page) {
         tab_menu_target = page;
 
         var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
@@ -468,7 +468,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return unsaved_file_path_builder (extension);
     }
 
-    private void on_page_detached (Hdy.TabPage tab, int position) {
+    private void before_doc_removed (Services.Document doc) {
+        on_doc_removed_shared (doc);
+    }
+
+    private void on_doc_removed (Adw.TabPage tab, int position) {
         var doc = tab.get_child () as Services.Document;
         if (doc == null) {
             return;
@@ -539,7 +543,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    private void on_doc_reordered (Hdy.TabPage tab, int new_position) {
+    private void on_doc_reordered (Adw.TabPage tab, int new_position) {
         var doc = tab.child as Services.Document;
         if (doc != null) {
             docs.remove (doc);
@@ -550,12 +554,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         save_opened_files ();
     }
 
-    private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
+    private unowned Adw.TabView? on_doc_to_new_window (Adw.TabView tab_view) {
         var other_window = new MainWindow (false);
         return other_window.document_view.tab_view;
     }
 
-    private void on_doc_added (Hdy.TabPage page, int position) {
+    private void on_doc_added (Adw.TabPage page, int position) {
         var doc = page.get_child () as Services.Document;
 
         doc.init_tab (page);
@@ -640,23 +644,14 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return menu;
     }
 
-    private void drag_received (Gtk.Widget w,
-                                Gdk.DragContext ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time) {
-
-        if (info == TargetType.URI_LIST) {
+    private void drag_begin (Gdk.Drag drag) {
+        if (info == GLib.Value.URI_LIST) {
             var uris = sel.get_uris ();
             foreach (var filename in uris) {
                 var file = File.new_for_uri (filename);
                 var doc = new Services.Document (window.actions, file);
                 open_document (doc);
             }
-
-            Gtk.drag_finish (ctx, true, false, time);
         }
     }
 }

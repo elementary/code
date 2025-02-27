@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
+        public GtkSource.SearchContext? search_context { get; private set; default = null; }
 
         public signal void search_empty ();
 
@@ -191,17 +191,33 @@ namespace Scratch.Widgets {
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
-            search_entry.key_press_event.connect (on_search_entry_key_press);
-            search_entry.focus_in_event.connect (on_search_entry_focused_in);
             search_entry.search_changed.connect (update_search_widgets);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
                 }
             });
-            replace_entry.activate.connect (on_replace_entry_activate);
-            replace_entry.key_press_event.connect (on_replace_entry_key_press);
 
+            // search_entry.key_press_event.connect (on_search_entry_key_press);
+            // search_entry.focus_in_event.connect (on_search_entry_focused_in);
+
+            var search_key_controller = new Gtk.EventControllerKey () {
+                propagation_phase = CAPTURE
+            };
+            search_entry.add_controller (search_key_controller);
+            search_key_controller.key_pressed.connect (on_search_entry_key_press);
+
+            replace_entry.activate.connect (on_replace_entry_activate);
+            search_replace_entry.key_press_event.connect (on_replace_entry_key_press);
+            var replace_key_controller = new Gtk.EventControllerKey () {
+                propagation_phase = CAPTURE
+            };
+            replace_entry.add_controller (replace_key_controller);
+            replace_key_controller.key_pressed.connect (on_replace_entry_key_press);
+
+            var focus_controller = new Gtk.EventControllerFocus ();
+            add_controller (focus_controller);
+            focus_controller.enter.connect (on_search_entry_focused_in);
             var entry_path = new Gtk.WidgetPath ();
             entry_path.append_type (typeof (Gtk.Widget));
 
@@ -240,7 +256,7 @@ namespace Scratch.Widgets {
             this.text_view.selection_changed.connect (on_selection_changed);
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
-            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+            this.search_context = new GtkSource.SearchContext (text_buffer as GtkSource.Buffer, null);
             search_context.settings.wrap_around = cycle_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
             search_context.settings.search_text = search_entry.text;
@@ -340,13 +356,12 @@ namespace Scratch.Widgets {
             }
         }
 
-        private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+        private void on_search_entry_focused_in () {
             if (text_buffer == null) {
-                return false;
+                return;
             }
 
             update_search_widgets ();
-            return false;
         }
 
         public bool search () {
@@ -477,13 +492,13 @@ namespace Scratch.Widgets {
             }
         }
 
-        private bool on_search_entry_key_press (Gdk.EventKey event) {
+        private bool on_search_entry_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
             /* We don't need to perform search if there is nothing to search... */
             if (search_entry.text == "") {
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             }
 
-            string key = Gdk.keyval_name (event.keyval);
+            string key = Gdk.keyval_name (keyval);
             if (Gdk.ModifierType.SHIFT_MASK in event.state) {
                 key = "<Shift>" + key;
             }
@@ -492,44 +507,44 @@ namespace Scratch.Widgets {
                 case "<Shift>Return":
                 case "Up":
                     search_previous ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 case "Return":
                 case "Down":
                     search_next ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 case "Tab":
                     if (search_entry.is_focus) {
                         replace_entry.grab_focus ();
                     }
 
-                    return true;
+                    return Gdk.EVENT_STOP;
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         }
 
-        private bool on_replace_entry_key_press (Gdk.EventKey event) {
+        private bool on_replace_entry_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
             /* We don't need to perform search if there is nothing to search… */
             if (search_entry.text == "") {
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             }
 
-            switch (Gdk.keyval_name (event.keyval)) {
+            switch (Gdk.keyval_name (keyval)) {
                 case "Up":
                     search_previous ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 case "Down":
                     search_next ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 case "Tab":
                     if (replace_entry.is_focus) {
                         search_entry.grab_focus ();
                     }
 
-                    return true;
+                    return Gdk.EVENT_STOP;
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         }
 
         private void cancel_update_search_widgets () {
