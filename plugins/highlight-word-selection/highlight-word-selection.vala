@@ -23,9 +23,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
     Scratch.MainWindow? main_window = null;
     Gtk.SourceSearchContext? current_search_context = null;
 
-    // Consts
-    // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
-    private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
+    private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 255;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
