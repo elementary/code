@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-01-11 23:16+0000\n"
+"PO-Revision-Date: 2025-03-01 15:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -361,7 +361,7 @@ msgstr "ターミナルペインで開く"
 
 #: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
-msgstr "ほかの操作"
+msgstr "他の操作"
 
 #: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
@@ -374,7 +374,7 @@ msgstr "ゴミ箱に移動"
 
 #: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
-msgstr "ほかのアプリケーション…"
+msgstr "他のアプリケーション…"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
@@ -424,7 +424,7 @@ msgstr "フォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Close Other Folders"
-msgstr "ほかのフォルダーを閉じる"
+msgstr "他のフォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
@@ -589,7 +589,7 @@ msgstr "ドキュメントは、最後の保存以降に外部で変更されま
 #: src/Services/Document.vala:971
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "“%s”はここには保存できません。ほかの場所に複製して保存しますか?"
+msgstr "“%s”はここには保存できません。他の場所に複製して保存しますか?"
 
 #: src/Services/Document.vala:980
 msgid "Ignore"
@@ -613,7 +613,7 @@ msgstr "上書きする"
 
 #: src/Services/Document.vala:1039
 msgid "Save Document elsewhere"
-msgstr "ドキュメントをほかの場所に保存"
+msgstr "ドキュメントを他の場所に保存"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -664,7 +664,7 @@ msgstr "名前空間"
 
 #: src/SymbolPane/SymbolOutline.vala:55
 msgid "Other"
-msgstr "そのほか"
+msgstr "その他"
 
 #: src/SymbolPane/SymbolOutline.vala:96
 msgid "Find Symbol"
@@ -711,7 +711,7 @@ msgstr "右側のタブを閉じる"
 
 #: src/Widgets/DocumentView.vala:627
 msgid "Close Other Tabs"
-msgstr "ほかのタブを閉じる"
+msgstr "他のタブを閉じる"
 
 #: src/Widgets/DocumentView.vala:628
 msgid "Close Tab"
