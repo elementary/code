@@ -77,6 +77,7 @@ namespace Ggit {
 		public Ggit.Ref? get_upstream () throws GLib.Error;
 		public bool is_head () throws GLib.Error;
 		public Ggit.Branch? move (string new_branch_name, Ggit.CreateFlags flags) throws GLib.Error;
+		public void set_upstream (string upstream_branch_name) throws GLib.Error;
 	}
 	[CCode (cheader_filename = "libgit2-glib/ggit.h", ref_function = "ggit_branch_enumerator_ref", type_id = "ggit_branch_enumerator_get_type ()", unref_function = "ggit_branch_enumerator_unref")]
 	[Compact]

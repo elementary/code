@@ -32,7 +32,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CHANGE_BRANCH = "change-branch";
+    public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
+    public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
     public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
