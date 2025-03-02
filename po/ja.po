@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-02 09:16+0000\n"
-"PO-Revision-Date: 2025-03-02 09:36+0000\n"
+"PO-Revision-Date: 2025-03-02 10:28+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -336,11 +336,11 @@ msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "チェックアウトして上書き"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
-msgstr ""
+msgstr "チェックアウトしない"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
@@ -401,10 +401,8 @@ msgid "new file"
 msgstr "新しいファイル"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "アクティブな Git プロジェクト: %s"
+msgstr "アクティブなプロジェクトに設定"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -675,8 +673,7 @@ msgid "No Project Selected"
 msgstr "プロジェクト未選択"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "アクティブな Git プロジェクト: %s"
 
