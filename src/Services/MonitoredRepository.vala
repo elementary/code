@@ -210,7 +210,7 @@ namespace Scratch.Services {
                 branch_name = new_branch_name;
             } catch (Error e) {
                 var dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                    _("An error occurred while checking out %s").printf (new_branch_name),
+                    _("An error occurred while checking out the requested branch"),
                     e.message,
                     "dialog-warning"
                 );
