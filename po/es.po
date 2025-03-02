@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-02 09:16+0000\n"
-"PO-Revision-Date: 2025-02-06 00:33+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"PO-Revision-Date: 2025-03-02 12:17+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -290,28 +290,23 @@ msgid "Restore Anyway"
 msgstr "Restaurar de todos modos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy, c-format
-#| msgid "This folder is the parent of an open project"
+#, c-format
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of %u open projects"
 msgstr[0] "Esta carpeta es una carpeta padre de un proyecto abierto"
-msgstr[1] "Esta carpeta es una carpeta padre de un proyecto abierto"
+msgstr[1] "Esta carpeta es una carpeta padre de %u proyectos abiertos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Al abrir esta carpeta se cerrará el proyecto hijo"
-msgstr[1] "Al abrir esta carpeta se cerrará el proyecto hijo"
+msgstr[1] "Al abrir esta carpeta se cerrarán todos los proyectos hijos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Cerrar el proyecto hijo"
-msgstr[1] "Cerrar el proyecto hijo"
+msgstr[1] "Cerrar los proyectos hijos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
