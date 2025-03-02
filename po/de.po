@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 09:16+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
 "PO-Revision-Date: 2025-02-10 16:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -339,13 +339,19 @@ msgstr ""
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 "Nicht committete Änderungen gehen unwiderruflich verloren, falls <b>'%s'</b> "
 "jetzt ausgecheckt wird.\n"
@@ -354,12 +360,12 @@ msgstr ""
 "Fortfahren gestashed, committet oder zurückgesetzt werden </i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr "Auschecken und überschreiben"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr "Nicht auschecken"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Auschecken und überschreiben"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148

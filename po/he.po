@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 09:16+0000\n"
-"PO-Revision-Date: 2025-02-12 00:44+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
+"PO-Revision-Date: 2025-03-02 10:12+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -286,28 +286,23 @@ msgid "Restore Anyway"
 msgstr "לשחזר בכל זאת"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy, c-format
-#| msgid "This folder is the parent of an open project"
+#, c-format
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of %u open projects"
 msgstr[0] "התיקייה הזאת היא תיקיית העל של מיזם פתוח"
-msgstr[1] "התיקייה הזאת היא תיקיית העל של מיזם פתוח"
+msgstr[1] "התיקייה הזאת היא תיקיית העל של %u מיזמים פתוחים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "פתיחת התיקייה הזאת תסגור את מיזם הצאצא"
-msgstr[1] "פתיחת התיקייה הזאת תסגור את מיזם הצאצא"
+msgstr[1] "פתיחת התיקייה הזאת תסגור את כל המיזמים הצאצאיים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "סגירת מיזם צאצא"
-msgstr[1] "סגירת מיזם צאצא"
+msgstr[1] "סגירת מיזמים צאצאיים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -331,21 +326,27 @@ msgstr "יש שינויים שלא קובעו בענף הנוכחי"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr "שינויים שלא קובעו יאבדו לצמיתות אם"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
+msgid "Do not Checkout"
 msgstr ""
 
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
-msgid "Do not Checkout"
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
