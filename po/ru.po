@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 09:16+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
 "PO-Revision-Date: 2025-02-13 03:01+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -337,13 +337,19 @@ msgstr "В этой ветке есть незафиксированные из�
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 "Если выполнить checkout <b>«%s»</b> сейчас, незафиксированные изменения "
 "будут потеряны навсегда.\n"
@@ -352,12 +358,12 @@ msgstr ""
 "незафиксированные изменения</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr "Выполнить checkout и перезаписать"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr "Не выполнять checkout"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Выполнить checkout и перезаписать"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148

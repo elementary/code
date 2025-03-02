@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 09:16+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
 "PO-Revision-Date: 2024-11-27 10:38+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -341,15 +341,15 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
+msgid "Do not Checkout"
 msgstr ""
 
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
-msgid "Do not Checkout"
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92

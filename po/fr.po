@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 09:16+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
 "PO-Revision-Date: 2025-02-07 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
@@ -335,13 +335,19 @@ msgstr "Il y a des modifications non validées dans la branche courante"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 "Les modifications non validées seront définitivement perdues si vous "
 "basculez sur <b>« %s »</b> maintenant.\n"
@@ -351,12 +357,12 @@ msgstr ""
 "</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr "Basculer et écraser"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr "Ne pas basculer"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Basculer et écraser"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
