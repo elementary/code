@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
+"POT-Creation-Date: 2025-03-02 14:51+0000\n"
 "PO-Revision-Date: 2025-02-06 00:33+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
-"\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
+">\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,11 +93,11 @@ msgstr "Показати термінал"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Текстові файли"
 
@@ -110,8 +110,8 @@ msgid "Open"
 msgstr "Відкрити"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Скасувати"
@@ -290,29 +290,31 @@ msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+#, fuzzy, c-format
+#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
-msgstr "Це батьківська тека відкритого проєкту"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr "Це батьківська тека %u відкритих проєктів"
+msgid_plural "This folder is the parent of %u open projects"
+msgstr[0] "Це батьківська тека відкритого проєкту"
+msgstr[1] "Це батьківська тека відкритого проєкту"
+msgstr[2] "Це батьківська тека відкритого проєкту"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+#, fuzzy
+#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
-msgstr "Відкриття цієї теки призведе до закриття вкладеного проєкту"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr "Відкриття цієї теки призведе до закриття вкладених проєктів"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
+msgstr[1] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
+msgstr[2] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+#, fuzzy
+#| msgid "Close Child Project"
 msgid "Close Child Project"
-msgstr "Закрити вкладений проєкт"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr "Закрити вкладені проєкти"
+msgid_plural "Close Child Projects"
+msgstr[0] "Закрити вкладений проєкт"
+msgstr[1] "Закрити вкладений проєкт"
+msgstr[2] "Закрити вкладений проєкт"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -336,13 +338,19 @@ msgstr "У поточній гілці є не надіслані зміни"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 "Не надіслані зміни буде назавжди втрачено, якщо зараз буде позначено "
 "<b>'%s'</b>.\n"
@@ -351,12 +359,12 @@ msgstr ""
 "продовженням</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr "Вивантажити й перезаписати"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr "Не вивантажувати"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Вивантажити й перезаписати"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
@@ -474,96 +482,96 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Помилка створення нової гілки: «%s»"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s це не текстовий файл"
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Code не може завантажити цей тип файлу."
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "Все одно завантажити"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Завантаження файлу «%s» триває надто довго"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "Зачекайте хвильку, доки Код завантажує файл."
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "Скасувати завантаження"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Зберегти зміни в «%s» перш ніж закрити?"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Якщо не зберегти файл, зміни буде безповоротно втрачено."
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "Закрити без збереження"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Не вдалося зберегти до «%s»."
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Зберегти файл"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Новий документ"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Неможливо зберегти цей документ до %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Не вдалося прочитати текст у файлі «%s»"
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "Можливо, у вас немає дозволу на читання файлу."
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Файл може бути пошкоджений або не бути текстовим файлом"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "Усе одно показати"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "Попереднє розташування файлу «%s» від'єднано, але є незбережені зміни."
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -571,17 +579,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Файл «%s» не має дозволу на запис."
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Файл «%s» було змінено іншим застосунком"
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -589,36 +597,36 @@ msgstr ""
 "Також є незбережені зміни. Перезавантаження документа перезапише незбережені "
 "зміни."
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr "З моменту останнього збереження в документі відбулися зовнішні зміни."
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "«%s» не можна зберегти тут. Зберегти дублікат в іншому місці?"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "Зберегти дублікат…"
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Далі"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "Перезаписати"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Зберегти документ в іншому місці"
 
@@ -706,28 +714,28 @@ msgstr "Фільтрувати проєкти"
 msgid "Closed Tabs"
 msgstr "Закрити вкладки"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Текстовий файл з %s:%d"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "Закрити вкладки праворуч"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "Закрити інші вкладки"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "Закрити вкладку"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "Відкрити нове вікно"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "Дублювати вкладку"
 
@@ -1021,6 +1029,16 @@ msgstr "Установіть принаймні один словник [aspell]
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"
+
+#, c-format
+#~ msgid "This folder is the parent of %u open projects"
+#~ msgstr "Це батьківська тека %u відкритих проєктів"
+
+#~ msgid "Opening this folder will close all child projects"
+#~ msgstr "Відкриття цієї теки призведе до закриття вкладених проєктів"
+
+#~ msgid "Close Child Projects"
+#~ msgstr "Закрити вкладені проєкти"
 
 #~ msgid "Tabs"
 #~ msgstr "Вкладки"
