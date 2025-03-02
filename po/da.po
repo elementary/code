@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 14:51+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -328,9 +328,8 @@ msgid "Restore Anyway"
 msgstr "Indlæs Alligevel"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, c-format
 msgid "This folder is the parent of an open project"
-msgid_plural "This folder is the parent of %u open projects"
+msgid_plural "This folder is the parent of open projects"
 msgstr[0] ""
 msgstr[1] ""
 
