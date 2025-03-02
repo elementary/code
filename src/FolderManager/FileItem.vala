@@ -41,19 +41,8 @@ namespace Scratch.FolderManager {
             }
 
             var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
-
-            var open_in_terminal_pane_item = new GLib.MenuItem (
-                _("Open in Terminal Pane"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    new Variant.string (file.file.get_parent ().get_path ())
-                )
-            );
-
             var contractor_items = Utils.create_contract_items_for_file (file.file);
-
             var external_actions_section = new GLib.Menu ();
-            external_actions_section.append_item (open_in_terminal_pane_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
             if (contractor_items.get_n_items () > 0) {
                 external_actions_section.append_submenu (
