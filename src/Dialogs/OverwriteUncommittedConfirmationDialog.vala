@@ -35,15 +35,14 @@ public class Scratch.Dialogs.OverwriteUncommittedConfirmationDialog : Granite.Me
 
     construct {
         modal = true;
-        image_icon = new ThemedIcon ("dialog-stop");
+        image_icon = new ThemedIcon ("dialog-warning");
 
         primary_text = _("There are uncommitted changes in the current branch");
         ///TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
-        secondary_text = _("Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out now.\n\n<i>It is recommended that uncommitted changes are stashed, committed, or reverted before proceeding </i>").printf (branch_name);
+        secondary_text = _("Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out now.\n\n<i>It is recommended that uncommitted changes are stashed, committed, or reverted before proceeding.</i>").printf (branch_name);
 
+        var cancel_button = add_button (_("Do not Checkout"), Gtk.ResponseType.REJECT);
         var proceed_button = (Gtk.Button) add_button (_("Checkout and Overwrite"), Gtk.ResponseType.ACCEPT);
         proceed_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-        var cancel_button = add_button (_("Do not Checkout"), Gtk.ResponseType.REJECT);
-        cancel_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
     }
 }

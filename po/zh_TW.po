@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
 "PO-Revision-Date: 2024-09-23 11:35+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -91,11 +91,11 @@ msgstr "顯示終端機"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "文字檔案"
 
@@ -108,8 +108,8 @@ msgid "Open"
 msgstr "開啟"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
@@ -286,28 +286,18 @@ msgstr "無論如何都要復原"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr ""
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr ""
+msgid_plural "Close Child Projects"
+msgstr[0] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -341,15 +331,15 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
+msgid "Do not Checkout"
 msgstr ""
 
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
-msgid "Do not Checkout"
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
@@ -464,96 +454,96 @@ msgid "Error while creating new branch: “%s”"
 msgstr "建立新分支時發生錯誤：「%s」"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文字檔"
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Code 無法載入這類檔案。"
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "無論如何都要載入"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "載入「%s」花得有點久"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "當 Code 忙著載入檔案時總是等候它。"
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "取消載入"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "關閉前要先將變更儲存到「%s」嗎？"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若您不儲存，更動皆會永遠消失。"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "關閉且不儲存"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "儲存"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "儲存到「%s」失敗了。"
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "儲存檔案"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "新增文件"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "無法將此文件儲存至 %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "無法讀取檔案「%s」中的文字"
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "您可能沒有讀取該檔案的權限。"
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "檔案可能已毀損或者不是文字檔案"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "無論如何都要顯示"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "包含「%s」檔案的位置已被卸載，而該檔案有未儲存的變更。"
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted and there are unsaved changes."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -561,52 +551,52 @@ msgstr "檔案「%s」已被刪除而有未儲存的變更。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "沒有寫入檔案「%s」的權限。"
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "「%s」檔案已被外部程式修改過"
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr "還有變更尚未儲存。重新載入文件會覆寫未儲存的變更。"
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr "文件在您上次儲存以來已從外部被變更。"
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "「%s」無法儲存至此。要存一份副本到別的地方嗎？"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "儲存副本…"
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "繼續"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "重新載入"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "覆寫"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "將文件儲存到別的地方"
 
@@ -695,28 +685,28 @@ msgstr "過濾專案"
 msgid "Closed Tabs"
 msgstr "已關閉的分頁"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "文字檔來自 %s:%d"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "關閉右方的分頁"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "關閉其他分頁"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "關閉分頁"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "在新視窗中開啟"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "建立分頁副本"
 

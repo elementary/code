@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2024-12-12 05:36+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"PO-Revision-Date: 2025-03-01 15:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -93,7 +93,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr "そのほかの機能:"
+msgstr "その他の機能:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
@@ -171,8 +171,8 @@ msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
 msgstr ""
-"コマンドラインやほかのアプリから“コード”でファイルを開く際に、行番号・列番号"
-"や選択範囲を指定する機能を追加"
+"コマンドラインや他のアプリから“コード”でファイルを開く際に、行番号・列番号や"
+"選択範囲を指定する機能を追加"
 
 #: data/code.metainfo.xml.in:120
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
