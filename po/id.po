@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -43,82 +43,82 @@ msgstr ""
 msgid "[FILE…]"
 msgstr "[BERKAS...]"
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:249
 #, c-format
 msgid "Code (%s)"
 msgstr "Kode (%s)"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:251
 msgid "Code"
 msgstr "Kode"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:385
 msgid "Hide search bar"
 msgstr "Sembunyikan bilah pencarian"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:390 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Temukan pada Halaman…"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:401
 msgid "Hide Projects Sidebar"
 msgstr "Sembunyikan Bilah Sisi Proyek"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:406
 msgid "Show Projects Sidebar"
 msgstr "Tampilkan Bilah Sisi Proyek"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:415
 msgid "Hide Symbol Outline"
 msgstr "Sembunyikan Simbol Garis Tepi Luar"
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:420
 msgid "Show Symbol Outline"
 msgstr "Tampikan Simbol Garis Tepi Luar"
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:429
 msgid "Hide Terminal"
 msgstr "Sembunyikan Terminal"
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:434 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Tampilkan Terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:621
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Semua berkas"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Berkas teks"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:968
 msgid "Open some files"
 msgstr "Buka beberapa berkas"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:971
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
-#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1012
 msgid "_Open"
 msgstr "_Buka"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -312,8 +312,66 @@ msgstr "Jangan Pulihkan"
 msgid "Restore Anyway"
 msgstr "Pulihkan Saja"
 
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#, fuzzy
+#| msgid "Don't Restore"
+msgid "Don't Open"
+msgstr "Jangan Pulihkan"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Ada perubahan yang tak tersimpan di Scratch!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:138
+#: src/FolderManager/ProjectFolderItem.vala:148
 msgid "Open in Terminal Pane"
 msgstr ""
 
@@ -326,7 +384,7 @@ msgid "Rename"
 msgstr "Ubah Nama"
 
 #: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
-#: src/FolderManager/ProjectFolderItem.vala:260
+#: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Pindahkan ke Keranjang Sampah"
 
@@ -338,7 +396,7 @@ msgstr "Aplikasi Lain…"
 msgid "Open In"
 msgstr "Buka Pada"
 
-#: src/FolderManager/FileView.vala:76
+#: src/FolderManager/FileView.vala:73
 msgid "Folders"
 msgstr "Folder"
 
@@ -357,8 +415,8 @@ msgstr "File Kosong"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:203
-#: src/FolderManager/ProjectFolderItem.vala:382
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:394
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Baru"
 
@@ -370,137 +428,143 @@ msgstr "folder tanpa judul"
 msgid "new file"
 msgstr "berkas baru"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:140
+#, fuzzy
+#| msgid "Active Git project: %s"
+msgid "Set as Active Project"
+msgstr "Proyek Git aktif: %s"
+
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
 msgstr "Tutup Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Close Other Folders"
 msgstr "Tutup Folder Lainnya"
 
-#: src/FolderManager/ProjectFolderItem.vala:192
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Tutup %u Dokumen Terbuka"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:216
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Sembunyikan %u Dokumen Terbuka"
 
-#: src/FolderManager/ProjectFolderItem.vala:227
+#: src/FolderManager/ProjectFolderItem.vala:239
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Pulihkan %u Dokumen Tersembunyi"
 
-#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Temukan pada Proyek…"
 
-#: src/FolderManager/ProjectFolderItem.vala:321
+#: src/FolderManager/ProjectFolderItem.vala:333
 msgid "New Branch…"
 msgstr "Cabang Baru…"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:357
 msgid "Branch"
 msgstr "Cabang"
 
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "Modified"
 msgstr "Diubah"
 
-#: src/FolderManager/ProjectFolderItem.vala:426
+#: src/FolderManager/ProjectFolderItem.vala:438
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Kesalahan saat membuat cabang baru: “%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:369
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Bukan sebuah Berkas Teks"
 
-#: src/Services/Document.vala:370
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Kode tidak akan memuat jenis berkas ini."
 
-#: src/Services/Document.vala:372
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "Muat Saja"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Memuat Berkas “%s” Memakan Waktu Lama"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "Silakan tunggu sementara Kode memuat berkas."
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "Batal Memuat"
 
-#: src/Services/Document.vala:483
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Simpan perubahan ke “%s” sebelum menutup?"
 
-#: src/Services/Document.vala:484
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jika tidak Anda simpan, perubahan akan hilang permanen."
 
-#: src/Services/Document.vala:490
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "Tutup Tanpa Menyimpan"
 
-#: src/Services/Document.vala:494 src/Services/Document.vala:662
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Services/Document.vala:621
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Menyimpan ke “%s” gagal."
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Simpan Berkas"
 
-#: src/Services/Document.vala:746 src/Services/Document.vala:764
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Dokumen Baru"
 
 #. No path for a new document
-#: src/Services/Document.vala:766
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Tidak dapat menyimpan dokumen ini ke %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:832
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Tidak dapat membaca teks pada berkas “%s”"
 
-#: src/Services/Document.vala:835
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "Anda mungkin tidak memiliki izin untuk membaca berkasnya."
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Berkas mungkin rusak atau mungkin bukan berkas teks"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:843
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "Tampilkan Saja"
 
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:887
 #, fuzzy, c-format
 #| msgid "The location containing the file “%s” was unmounted."
 msgid ""
@@ -508,7 +572,7 @@ msgid ""
 "changes."
 msgstr "Lokasi yang berisi berkas “%s” telah dilepas."
 
-#: src/Services/Document.vala:876
+#: src/Services/Document.vala:889
 #, fuzzy, c-format
 #| msgid "File “%s” was modified by an external application."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -516,53 +580,53 @@ msgstr "Berkas “%s” telah dimodifikasi oleh aplikasi eksternal."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Berkas “%s” tidak memiliki izin tulis."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:949
 #, fuzzy, c-format
 #| msgid "File “%s” was modified by an external application."
 msgid "File “%s” was modified by an external application"
 msgstr "Berkas “%s” telah dimodifikasi oleh aplikasi eksternal."
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:961
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” tidak bisa disimpan di sini. Simpan duplikat di tempat lain?"
 
-#: src/Services/Document.vala:970
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "Hiraukan"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "Simpan Duplikat…"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Lanjutkan"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "Muat Ulang"
 
-#: src/Services/Document.vala:1026
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1029
+#: src/Services/Document.vala:1042
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
@@ -645,14 +709,13 @@ msgstr ""
 msgid "No Project Selected"
 msgstr "Tidak Ada Proyek yang Dipilih"
 
-#: src/Widgets/ChooseProjectButton.vala:47
-#: src/Widgets/ChooseProjectButton.vala:127
-#: src/Widgets/ChooseProjectButton.vala:136
-#, c-format
-msgid "Active Git project: %s"
+#: src/Widgets/ChooseProjectButton.vala:21
+#, fuzzy, c-format
+#| msgid "Active Git project: %s"
+msgid "Active Git Project: %s"
 msgstr "Proyek Git aktif: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:62
+#: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "Saring proyek"
 
@@ -662,34 +725,34 @@ msgstr "Saring proyek"
 msgid "Closed Tabs"
 msgstr "Tutup"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Berkas teks dari %s:%d"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:637
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "Tutup Folder Lainnya"
 
-#: src/Widgets/DocumentView.vala:638
+#: src/Widgets/DocumentView.vala:632
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Tutup"
 
-#: src/Widgets/DocumentView.vala:641
+#: src/Widgets/DocumentView.vala:635
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Jendela Baru"
 
-#: src/Widgets/DocumentView.vala:642
+#: src/Widgets/DocumentView.vala:636
 #, fuzzy
 #| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
@@ -1506,9 +1569,6 @@ msgstr "%s - Pelengkapan Kata"
 
 #~ msgid "Go to line..."
 #~ msgstr "Tuju baris..."
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Ada perubahan yang tak tersimpan di Scratch!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Ada perubahan yang tak tersimpan!"

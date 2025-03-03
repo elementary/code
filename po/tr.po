@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2024-09-24 11:24+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:38 src/Widgets/DocumentView.vala:99
@@ -43,82 +43,82 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[DOSYA…]"
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:249
 #, c-format
 msgid "Code (%s)"
 msgstr "Kod (%s)"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:251
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:385
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:390 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Sayfada Bul…"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:401
 msgid "Hide Projects Sidebar"
 msgstr "Proje Kenar Çubuğunu Gizle"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:406
 msgid "Show Projects Sidebar"
 msgstr "Proje Kenar Çubuğunu Göster"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:415
 msgid "Hide Symbol Outline"
 msgstr "Sembol Listesini Gizle"
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:420
 msgid "Show Symbol Outline"
 msgstr "Sembol Listesini Göster"
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:429
 msgid "Hide Terminal"
 msgstr "Terminal'i Gizle"
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:434 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Terminal'i Göster"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:621
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:968
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:971
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
-#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1012
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -288,8 +288,69 @@ msgstr "Geri Yükleme"
 msgid "Restore Anyway"
 msgstr "Yine de Geri Yükle"
 
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#, fuzzy
+#| msgid "Don't Restore"
+msgid "Don't Open"
+msgstr "Geri Yükleme"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Scratch'ta kaydedilmemiş değişiklikler var!"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:138
+#: src/FolderManager/ProjectFolderItem.vala:148
 msgid "Open in Terminal Pane"
 msgstr "Terminal Bölmesinde Aç"
 
@@ -302,7 +363,7 @@ msgid "Rename"
 msgstr "Yeniden Adlandır"
 
 #: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
-#: src/FolderManager/ProjectFolderItem.vala:260
+#: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
 
@@ -314,7 +375,7 @@ msgstr "Diğer Uygulamalar…"
 msgid "Open In"
 msgstr "İçinde Aç"
 
-#: src/FolderManager/FileView.vala:76
+#: src/FolderManager/FileView.vala:73
 msgid "Folders"
 msgstr "Klasörler"
 
@@ -333,8 +394,8 @@ msgstr "Boş Dosya"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:203
-#: src/FolderManager/ProjectFolderItem.vala:382
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:394
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Yeni"
 
@@ -346,140 +407,146 @@ msgstr "adsız klasör"
 msgid "new file"
 msgstr "yeni dosya"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:140
+#, fuzzy
+#| msgid "Active Git project: %s"
+msgid "Set as Active Project"
+msgstr "Etkin Git projesi: %s"
+
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Close Other Folders"
 msgstr "Diğer Klasörleri Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:192
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "%u Açık Belgeyi Kapat"
 msgstr[1] "%u Açık Belgeyi Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:216
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "%u Açık Belgeyi Gizle"
 msgstr[1] "%u Açık Belgeyi Gizle"
 
-#: src/FolderManager/ProjectFolderItem.vala:227
+#: src/FolderManager/ProjectFolderItem.vala:239
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u Gizli Belgeyi Yeniden Göster"
 msgstr[1] "%u Gizli Belgeyi Yeniden Göster"
 
-#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Projede Bul…"
 
-#: src/FolderManager/ProjectFolderItem.vala:321
+#: src/FolderManager/ProjectFolderItem.vala:333
 msgid "New Branch…"
 msgstr "Yeni Dal…"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:357
 msgid "Branch"
 msgstr "Dal"
 
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:426
+#: src/FolderManager/ProjectFolderItem.vala:438
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Yeni dal oluşturulurken hata meydana geldi: \"%s\""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:369
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Bir Metin Dosyası Değil"
 
-#: src/Services/Document.vala:370
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Kod bu tip bir dosyayı yüklemeyecek."
 
-#: src/Services/Document.vala:372
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "Yine de Yükle"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "“%s” Dosyasının Yüklenmesi Uzun Sürüyor"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "Yüklemeyi İptal Et"
 
-#: src/Services/Document.vala:483
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Kapatmadan önce “%s” üzerinde yapılan değişiklikler kaydedilsin mi?"
 
-#: src/Services/Document.vala:484
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Kaydetmezseniz, değişiklikler kalıcı olarak kaybedilir."
 
-#: src/Services/Document.vala:490
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "Kaydetmeden Kapat"
 
-#: src/Services/Document.vala:494 src/Services/Document.vala:662
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/Services/Document.vala:621
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "“%s” dosyasına kaydedilemedi."
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Dosyayı Kaydet"
 
-#: src/Services/Document.vala:746 src/Services/Document.vala:764
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Yeni Belge"
 
 #. No path for a new document
-#: src/Services/Document.vala:766
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Bu belge %s konumuna kaydedilemiyor"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:832
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "“%s” dosyasındaki metin okunamıyor"
 
-#: src/Services/Document.vala:835
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "Dosyayı okuma izniniz olmayabilir."
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Dosya bozuk olabilir veya bir metin dosyası olmayabilir"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:843
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "Yine de Göster"
 
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -487,25 +554,26 @@ msgid ""
 msgstr ""
 "“%s” dosyasını içeren konum kaldırıldı ve kaydedilmemiş değişiklikler var."
 
-#: src/Services/Document.vala:876
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#: src/Services/Document.vala:889
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "“%s” dosyası silindi ve kaydedilmemiş değişiklikler var."
+msgstr ""
+"“%s” dosyası silindi, yeniden adlandırıldı veya taşındı ve kaydedilmemiş "
+"değişiklikler var."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "“%s” dosyasının yazma izni yok."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "“%s” dosyası başka bir uygulama tarafından değiştirilmiş"
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -513,36 +581,36 @@ msgstr ""
 "Kaydedilmemiş değişiklikler de var. Belgeyi yeniden yüklemek kaydedilmemiş "
 "değişikliklerin üzerine yazacaktır."
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr "Belge son kaydettiğinizden bu yana harici olarak değişti."
 
-#: src/Services/Document.vala:961
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” burada kaydedilemez. Başka bir yere kopyası kaydedilsin mi?"
 
-#: src/Services/Document.vala:970
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "Kopyayı Kaydet…"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Devam Et"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "Yeniden Yükle"
 
-#: src/Services/Document.vala:1026
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "Üzerine yaz"
 
-#: src/Services/Document.vala:1029
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Belgeyi başka bir yere kaydet"
 
@@ -617,14 +685,13 @@ msgstr "Tümünü Seçimden Çıkar"
 msgid "No Project Selected"
 msgstr "Proje Seçilmedi"
 
-#: src/Widgets/ChooseProjectButton.vala:47
-#: src/Widgets/ChooseProjectButton.vala:127
-#: src/Widgets/ChooseProjectButton.vala:136
-#, c-format
-msgid "Active Git project: %s"
+#: src/Widgets/ChooseProjectButton.vala:21
+#, fuzzy, c-format
+#| msgid "Active Git project: %s"
+msgid "Active Git Project: %s"
 msgstr "Etkin Git projesi: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:62
+#: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "Projeleri filtrele"
 
@@ -632,28 +699,28 @@ msgstr "Projeleri filtrele"
 msgid "Closed Tabs"
 msgstr "Kapatılan Sekmeler"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Metin dosyası %s:%d"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "Sağdaki Sekmeleri Kapat"
 
-#: src/Widgets/DocumentView.vala:637
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "Diğer Sekmeleri Kapat"
 
-#: src/Widgets/DocumentView.vala:638
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "Sekmeyi Kapat"
 
-#: src/Widgets/DocumentView.vala:641
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "Yeni Pencerede Aç"
 
-#: src/Widgets/DocumentView.vala:642
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "Sekmeyi Kopyala"
 
@@ -1503,9 +1570,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "Choose the new location"
 #~ msgstr "Yeni konumu belirle"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Scratch'ta kaydedilmemiş değişiklikler var!"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "Yazı Tipi ve Renk Şeması:"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 13:54+0000\n"
-"PO-Revision-Date: 2025-01-13 12:16+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"PO-Revision-Date: 2025-02-10 16:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
@@ -43,82 +43,82 @@ msgstr "<STARTZEILE[.STARTSPALTE][-ENDZEILE[.ENDSPALTE]]>"
 msgid "[FILE…]"
 msgstr "[DATEI…]"
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:249
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:251
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:385
 msgid "Hide search bar"
 msgstr "Suchleiste ausblenden"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:390 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Auf Seite suchen …"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:401
 msgid "Hide Projects Sidebar"
 msgstr "Projektleiste ausblenden"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:406
 msgid "Show Projects Sidebar"
 msgstr "Projektleiste anzeigen"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:415
 msgid "Hide Symbol Outline"
 msgstr "Gliederungsymbole ausblenden"
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:420
 msgid "Show Symbol Outline"
 msgstr "Gliederungsymbole anzeigen"
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:429
 msgid "Hide Terminal"
 msgstr "Terminal ausblenden"
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:434 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Terminal anzeigen"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:621
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Textdateien"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:968
 msgid "Open some files"
 msgstr "Datei öffnen"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:971
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
-#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1012
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
@@ -289,10 +289,88 @@ msgstr "Nicht wiederherstellen"
 msgid "Restore Anyway"
 msgstr "Trotzdem wiederherstellen"
 
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "This folder is the parent of an open project"
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] "Dieser Ordner ist einem geöffneten Projekt übergeordnet"
+msgstr[1] "Dieser Ordner ist einem geöffneten Projekt übergeordnet"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+#, fuzzy
+#| msgid "Opening this folder will close the child project"
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+"Beim Öffnen dieses Ordners wird das untergeordnete Projekt geschlossen"
+msgstr[1] ""
+"Beim Öffnen dieses Ordners wird das untergeordnete Projekt geschlossen"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+#, fuzzy
+#| msgid "Close Child Project"
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] "Untergeordnetes Projekt schließen"
+msgstr[1] "Untergeordnetes Projekt schließen"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr "Dieser Ordner ist einem geöffneten Projekt untergeordnet"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr "Beim Öffnen dieses Ordners wird das übergeordnete Projekt geschlossen"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr "Übergeordnetes Projekt schließen"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+msgid "Don't Open"
+msgstr "Nicht öffnen"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+msgid "There are uncommitted changes in the current branch"
+msgstr ""
+"Im aktuellen Branch gibt es Änderungen, für die noch kein Commit "
+"durchgeführt wurde"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, fuzzy, c-format
+#| msgid ""
+#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
+#| "out now.\n"
+#| "\n"
+#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
+#| "reverted before proceeding </i>"
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+"Nicht committete Änderungen gehen unwiderruflich verloren, falls <b>'%s'</b> "
+"jetzt ausgecheckt wird.\n"
+"\n"
+"<i>Es ist empfehlenswert, dass nicht committete Änderungen vor dem "
+"Fortfahren gestashed, committet oder zurückgesetzt werden </i>"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr "Nicht auschecken"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Auschecken und überschreiben"
+
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:138
+#: src/FolderManager/ProjectFolderItem.vala:148
 msgid "Open in Terminal Pane"
-msgstr "In Terminal-Pane öffnen"
+msgstr "Im Terminalbereich öffnen"
 
 #: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
@@ -303,7 +381,7 @@ msgid "Rename"
 msgstr "Umbenennen"
 
 #: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
-#: src/FolderManager/ProjectFolderItem.vala:260
+#: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
@@ -315,7 +393,7 @@ msgstr "Andere Anwendung…"
 msgid "Open In"
 msgstr "Öffnen in"
 
-#: src/FolderManager/FileView.vala:76
+#: src/FolderManager/FileView.vala:73
 msgid "Folders"
 msgstr "Ordner"
 
@@ -334,8 +412,8 @@ msgstr "Leere Datei"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:203
-#: src/FolderManager/ProjectFolderItem.vala:382
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:394
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Neu"
 
@@ -347,143 +425,147 @@ msgstr "unbenannter Ordner"
 msgid "new file"
 msgstr "neue Datei"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:140
+msgid "Set as Active Project"
+msgstr "Als aktives Projekt festlegen"
+
+#: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Close Other Folders"
 msgstr "Andere Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:192
+#: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "%u geöffnetes Dokument schließen"
 msgstr[1] "%u geöffnete Dokumente schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:216
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "%u geöffnetes Dokument ausblenden"
 msgstr[1] "%u geöffnete Dokumente ausblenden"
 
-#: src/FolderManager/ProjectFolderItem.vala:227
+#: src/FolderManager/ProjectFolderItem.vala:239
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u ausgeblendetes Dokument wiederherstellen"
 msgstr[1] "%u ausgeblendete Dokumente wiederherstellen"
 
-#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Im Projekt suchen …"
 
-#: src/FolderManager/ProjectFolderItem.vala:321
+#: src/FolderManager/ProjectFolderItem.vala:333
 msgid "New Branch…"
 msgstr "Neuer Zweig …"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:357
 msgid "Branch"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:400
 msgid "Modified"
 msgstr "Geändert"
 
-#: src/FolderManager/ProjectFolderItem.vala:426
+#: src/FolderManager/ProjectFolderItem.vala:438
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fehler beim Erstellen eines neuen Zweigs: »%s«"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:369
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ist keine Textdatei"
 
-#: src/Services/Document.vala:370
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Code wird diesen Dateityp nicht laden."
 
-#: src/Services/Document.vala:372
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "Trotzdem laden"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Das Laden von »%s« dauert sehr lange"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "Bitte warten Sie, während Code die Datei lädt."
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "Laden abbrechen"
 
-#: src/Services/Document.vala:483
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Änderungen am Dokument »%s« vor dem Schließen speichern?"
 
-#: src/Services/Document.vala:484
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Wenn Sie nicht speichern, gehen Ihre Änderungen unwiderruflich verloren."
 
-#: src/Services/Document.vala:490
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "Schließen ohne zu speichern"
 
-#: src/Services/Document.vala:494 src/Services/Document.vala:662
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Speichern"
 
-#: src/Services/Document.vala:621
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Speichern in »%s« fehlgeschlagen."
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Datei speichern"
 
-#: src/Services/Document.vala:746 src/Services/Document.vala:764
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Neues Dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:766
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Dieses Dokument konnte nicht in %s gespeichert werden"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:832
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Kein Text in Datei »%s« gelesen"
 
-#: src/Services/Document.vala:835
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr ""
 "Sie verfügen möglicherweise nicht über die benötigten Rechte zum Lesen der "
 "Datei."
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Die Datei ist möglicherweise beschädigt oder keine Textdatei"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:843
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "Trotzdem anzeigen"
 
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -492,7 +574,7 @@ msgstr ""
 "Der Ort, an dem sich die Datei »%s« befindet, wurde ausgehängt; es gibt noch "
 "nicht gespeicherte Änderungen."
 
-#: src/Services/Document.vala:876
+#: src/Services/Document.vala:889
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -501,17 +583,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Datei »%s« ist schreibgeschützt."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Die Datei »%s« wurde von einer anderen Anwendung bearbeitet"
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -519,40 +601,40 @@ msgstr ""
 "Es gibt außerdem nicht gespeicherte Änderungen. Ein erneutes Laden des "
 "Dokuments überschreibt diese Änderungen."
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr ""
 "Das Dokument wurde von einem anderen Programm geändert, nachdem Sie es "
 "zuletzt gespeichert haben."
 
-#: src/Services/Document.vala:961
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 "»%s« konnte hier nicht gespeichert werden. Eine Kopie an anderem Ort "
 "speichern?"
 
-#: src/Services/Document.vala:970
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "Ignorieren"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "Kopie speichern …"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Fortfahren"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "Neu laden"
 
-#: src/Services/Document.vala:1026
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "Überschreiben"
 
-#: src/Services/Document.vala:1029
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Dokument an anderem Ort speichern"
 
@@ -627,14 +709,12 @@ msgstr "Auswahl aufheben"
 msgid "No Project Selected"
 msgstr "Kein Projekt ausgewählt"
 
-#: src/Widgets/ChooseProjectButton.vala:47
-#: src/Widgets/ChooseProjectButton.vala:127
-#: src/Widgets/ChooseProjectButton.vala:136
+#: src/Widgets/ChooseProjectButton.vala:21
 #, c-format
-msgid "Active Git project: %s"
+msgid "Active Git Project: %s"
 msgstr "Aktives Git-Projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:62
+#: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "Projekte filtern"
 
@@ -642,28 +722,28 @@ msgstr "Projekte filtern"
 msgid "Closed Tabs"
 msgstr "Geschlossene Tabs"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Textdatei aus %s:%d"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "Rechte Tabs schließen"
 
-#: src/Widgets/DocumentView.vala:637
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "Andere Tabs schließen"
 
-#: src/Widgets/DocumentView.vala:638
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "Tab schließen"
 
-#: src/Widgets/DocumentView.vala:641
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "In neuem Fenster öffnen"
 
-#: src/Widgets/DocumentView.vala:642
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "Tab duplizieren"
 
@@ -955,6 +1035,18 @@ msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Wortvervollständigung"
+
+#, c-format
+#~ msgid "This folder is the parent of %u open projects"
+#~ msgstr "Dieser Ordner ist %u geöffneten Projekten übergeordnet"
+
+#~ msgid "Opening this folder will close all child projects"
+#~ msgstr ""
+#~ "Beim Öffnen dieses Ordners werden alle untergeordneten Projekte "
+#~ "geschlossen"
+
+#~ msgid "Close Child Projects"
+#~ msgstr "Untergeordnete Projekte schließen"
 
 #~ msgid "Tabs"
 #~ msgstr "Tabulatoren"
@@ -1514,9 +1606,6 @@ msgstr "%s – Wortvervollständigung"
 
 #~ msgid "Find..."
 #~ msgstr "Suchen …"
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Einige Änderungen in Scratch wurden noch nicht gespeichert!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Einige Änderungen wurden noch nicht gespeichert!"

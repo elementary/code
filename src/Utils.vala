@@ -227,6 +227,9 @@ namespace Scratch.Utils {
                 external_apps.prepend (files_appinfo);
             } else {
                 external_apps = GLib.AppInfo.get_all_for_type (file_type);
+                external_apps.sort ((a, b) => {
+                    return a.get_name ().collate (b.get_name ());
+                });
             }
 
             foreach (AppInfo app_info in external_apps) {
