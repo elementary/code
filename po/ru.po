@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 14:51+0000\n"
-"PO-Revision-Date: 2025-02-13 03:01+0000\n"
+"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"PO-Revision-Date: 2025-03-02 19:26+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
@@ -289,31 +289,25 @@ msgid "Restore Anyway"
 msgstr "Всё равно восстановить"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy, c-format
-#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
-msgid_plural "This folder is the parent of %u open projects"
+msgid_plural "This folder is the parent of open projects"
 msgstr[0] "Эта папка — родительская для открытого проекта"
-msgstr[1] "Эта папка — родительская для открытого проекта"
-msgstr[2] "Эта папка — родительская для открытого проекта"
+msgstr[1] "Эта папка — родительская для открытых проектов"
+msgstr[2] "Эта папка — родительская для открытых проектов"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Открытие этой папки закроет дочерний проект"
-msgstr[1] "Открытие этой папки закроет дочерний проект"
-msgstr[2] "Открытие этой папки закроет дочерний проект"
+msgstr[1] "Открытие этой папки закроет все дочерние проекты"
+msgstr[2] "Открытие этой папки закроет все дочерние проекты"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Закрыть дочерний проект"
-msgstr[1] "Закрыть дочерний проект"
-msgstr[2] "Закрыть дочерний проект"
+msgstr[1] "Закрыть дочерние проекты"
+msgstr[2] "Закрыть дочерние проекты"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -337,13 +331,7 @@ msgstr "В этой ветке есть незафиксированные из�
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, fuzzy, c-format
-#| msgid ""
-#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
-#| "out now.\n"
-#| "\n"
-#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
-#| "reverted before proceeding </i>"
+#, c-format
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
@@ -355,7 +343,7 @@ msgstr ""
 "будут потеряны навсегда.\n"
 "\n"
 "<i>Перед продолжением рекомендуется спрятать, зафиксировать либо отменить "
-"незафиксированные изменения</i>"
+"незафиксированные изменения.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
