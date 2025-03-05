@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-02 18:11+0000\n"
-"PO-Revision-Date: 2025-03-02 10:28+0000\n"
+"PO-Revision-Date: 2025-03-03 20:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -287,8 +287,6 @@ msgid "Restore Anyway"
 msgstr "了解して復元"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "開いているプロジェクトの親フォルダーです"
@@ -321,7 +319,7 @@ msgstr "キャンセル"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
-msgstr "コミットされてない変更が現在のブランチにあります"
+msgstr "コミットしていない変更が現在のブランチにあります"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -333,6 +331,10 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"<b>'%s'</b> にチェックアウトすると、コミットしていない変更は破棄されます。\n"
+"\n"
+"<i>続行する前に、コミットしていない変更をスタッシュ、コミット、またはリバート"
+"することをおすすめします。</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
