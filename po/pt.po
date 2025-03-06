@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"POT-Creation-Date: 2025-03-06 14:08+0000\n"
 "PO-Revision-Date: 2024-11-27 10:38+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -617,6 +617,16 @@ msgstr "Substituir"
 #: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Guardar o documento noutro local"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"

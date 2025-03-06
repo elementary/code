@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"POT-Creation-Date: 2025-03-06 14:08+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -659,6 +659,16 @@ msgstr ""
 #| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
 msgstr "Salvați modificările în altă parte"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"

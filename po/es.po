@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"POT-Creation-Date: 2025-03-06 14:08+0000\n"
 "PO-Revision-Date: 2025-03-02 19:26+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
@@ -341,8 +341,8 @@ msgstr ""
 "«checkout» de <b>'%s'</b>.\n"
 "\n"
 "<i>Se recomienda que los cambios sin confirmar se guarden localmente "
-"(«stash»), confirmen («commit») o reviertan («revert») antes de "
-"continuar.</i>"
+"(«stash»), confirmen («commit») o reviertan («revert») antes de continuar.</"
+"i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
@@ -617,6 +617,16 @@ msgstr "Sobreescribir"
 #: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Guardar el documento en otro lugar"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"

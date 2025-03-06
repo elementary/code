@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
+"POT-Creation-Date: 2025-03-06 14:08+0000\n"
 "PO-Revision-Date: 2025-03-06 14:08+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -298,7 +298,8 @@ msgstr[1] "Dieser Ordner ist geöffneten Projekten übergeordnet"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] "Beim Öffnen dieses Ordners wird das untergeordnete Projekt geschlossen"
+msgstr[0] ""
+"Beim Öffnen dieses Ordners wird das untergeordnete Projekt geschlossen"
 msgstr[1] ""
 "Beim Öffnen dieses Ordners werden alle untergeordneten Projekte geschlossen"
 
@@ -624,6 +625,16 @@ msgstr "Überschreiben"
 #: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Dokument an anderem Ort speichern"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
