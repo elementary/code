@@ -88,9 +88,9 @@ namespace Scratch.FolderManager {
         public bool is_valid_directory {
             get {
                 if (_is_valid_directory == null) {
-                _is_valid_directory = info != null &&
-                                      !info.get_is_backup () &&
-                                      info.get_file_type () == FileType.DIRECTORY;
+                    _is_valid_directory = info != null &&
+                                          !info.get_is_backup () &&
+                                          info.get_file_type () == FileType.DIRECTORY;
                 }
 
                 return _is_valid_directory;
