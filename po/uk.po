@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
-"PO-Revision-Date: 2025-02-06 00:33+0000\n"
+"POT-Creation-Date: 2025-03-06 14:08+0000\n"
+"PO-Revision-Date: 2025-03-03 20:14+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/"
 ">\n"
@@ -290,31 +290,25 @@ msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "Це батьківська тека відкритого проєкту"
-msgstr[1] "Це батьківська тека відкритого проєкту"
-msgstr[2] "Це батьківська тека відкритого проєкту"
+msgstr[1] "Це батьківська тека відкритих проєктів"
+msgstr[2] "Це батьківська тека відкритих проєктів"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
-msgstr[1] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
-msgstr[2] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
+msgstr[1] "Відкриття цієї теки призведе до закриття вкладених проєктів"
+msgstr[2] "Відкриття цієї теки призведе до закриття вкладених проєктів"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Закрити вкладений проєкт"
-msgstr[1] "Закрити вкладений проєкт"
-msgstr[2] "Закрити вкладений проєкт"
+msgstr[1] "Закрити вкладені проєкти"
+msgstr[2] "Закрити вкладені проєкти"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -338,13 +332,7 @@ msgstr "У поточній гілці є не надіслані зміни"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, fuzzy, c-format
-#| msgid ""
-#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
-#| "out now.\n"
-#| "\n"
-#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
-#| "reverted before proceeding </i>"
+#, c-format
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
@@ -356,7 +344,7 @@ msgstr ""
 "<b>'%s'</b>.\n"
 "\n"
 "<i>Рекомендується, сховати, надіслати або скасувати не надіслані зміни перед "
-"продовженням</i>"
+"продовженням.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
@@ -629,6 +617,16 @@ msgstr "Перезаписати"
 #: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "Зберегти документ в іншому місці"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
