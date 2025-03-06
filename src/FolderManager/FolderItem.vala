@@ -304,7 +304,6 @@ namespace Scratch.FolderManager {
                             var file = new File (source.get_path ());
                             if (file.is_valid_directory) {
                                 path_item = new FolderItem (file, view);
-
                             } else if (file.is_valid_textfile) {
                                 path_item = new FileItem (file, view);
                             }
