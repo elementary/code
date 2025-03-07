@@ -601,7 +601,7 @@ namespace Scratch {
                 content_stack.visible_child = view_grid;
                 toolbar.document_available (true);
                 set_widgets_sensitive (true);
-                update_find_actions ();jeremypw/silence-some-warnings
+                update_find_actions ();
             });
 
             document_view.tab_removed.connect ((doc) => {
