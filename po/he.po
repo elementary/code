@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-02-06 00:33+0000\n"
+"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"PO-Revision-Date: 2025-03-04 07:40+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "פתיחת קובץ בטווח בחירה שצוין"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
@@ -91,11 +91,11 @@ msgstr "הצגת המסוף"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "קבצי טקסט"
 
@@ -108,8 +108,8 @@ msgid "Open"
 msgstr "פתיחה"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "ביטול"
@@ -121,6 +121,12 @@ msgstr "_פתיחה"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_ביטול"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -287,28 +293,21 @@ msgstr "לשחזר בכל זאת"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr "התיקייה הזאת היא תיקיית העל של מיזם פתוח"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr "התיקייה הזאת היא תיקיית העל של %u מיזמים פתוחים"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] "התיקייה הזאת היא תיקיית העל של מיזם פתוח"
+msgstr[1] "התיקייה הזאת היא תיקיית העל של מיזמים פתוחים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr "פתיחת התיקייה הזאת תסגור את מיזם הצאצא"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr "פתיחת התיקייה הזאת תסגור את כל המיזמים הצאצאים"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] "פתיחת התיקייה הזאת תסגור את מיזם הצאצא"
+msgstr[1] "פתיחת התיקייה הזאת תסגור את כל המיזמים הצאצאיים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr "סגירת מיזם צאצא"
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr "סגירת מיזמים צאצאים"
+msgid_plural "Close Child Projects"
+msgstr[0] "סגירת מיזם צאצא"
+msgstr[1] "סגירת מיזמים צאצאיים"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -338,15 +337,15 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
-msgstr "שינויים שלא קובעו יאבדו לצמיתות אם"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
+"reverted before proceeding.</i>"
 msgstr ""
 
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
@@ -462,150 +461,160 @@ msgid "Error while creating new branch: “%s”"
 msgstr "שגיאה ביצירת ענף חדש: „%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s אינו קובץ טקסט"
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "קוד לא ידע לטעון סוג כזה של קובץ."
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "לטעון בכל זאת"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "טעינת הקובץ „%s” אורכת זמן רב"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "נא להמתין בזמן שקוד טוען את הקובץ."
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "ביטול הטעינה"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "לשמור את השינויים אל „%s” לפני הסגירה?"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "בחירה שלא לשמור תוביל לאבדן השינויים לעד."
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "סגירה ללא שמירה"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "שמירה"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "השמירה אל „%s” נכשלה."
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "שמירת קובץ"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "מסמך חדש"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "לא ניתן לשמור את המסמך הזה אל %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "לא ניתן לקרוא טקסט בקובץ „%s”"
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "כנראה שאין לך הרשאות לקרוא את הקובץ."
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "כנראה שהקובץ פגום או שאינו קובץ טקסט"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "להציג בכל זאת"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "בוטלה העגינה של המקום המכיל את הקובץ „%s” והיו שינויים שלא נשמרו."
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr "הקובץ „%s” נמחק, שמו השתנה או שהוא הועבר ויש שינויים שלא נשמרו."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "לקובץ „%s” אין הרשאות כתיבה."
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "הקובץ „%s” נערך ביישום חיצוני"
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr "יש גם שינויים שלא נשמרו. טעינת המסמך מחדש ישכתב את השינויים שלא נשמרו."
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr "המסמך נערך חיצונית מאז ששמרת אותו לאחרונה."
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "אי אפשר לשמור לכאן את „%s”. לשמור שכפול במקום אחר?"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "שמירת שכפול…"
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "המשך"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "רענון"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "לשכתב"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
 msgstr "לשמור את המסמך במקום אחר"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -691,28 +700,28 @@ msgstr "סינון מיזמים"
 msgid "Closed Tabs"
 msgstr "לשוניות סגורות"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "קובץ טקסט מ־%s:‏%d"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "סגירת הלשוניות מימין"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "שגירת שאר הלשוניות"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "סגירת לשונית"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "פתיחה בחלון חדש"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "שכפול לשונית"
 
@@ -1004,6 +1013,16 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#, c-format
+#~ msgid "This folder is the parent of %u open projects"
+#~ msgstr "התיקייה הזאת היא תיקיית העל של %u מיזמים פתוחים"
+
+#~ msgid "Opening this folder will close all child projects"
+#~ msgstr "פתיחת התיקייה הזאת תסגור את כל המיזמים הצאצאים"
+
+#~ msgid "Close Child Projects"
+#~ msgstr "סגירת מיזמים צאצאים"
 
 #~ msgid "Tabs"
 #~ msgstr "טאבים"
