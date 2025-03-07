@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-07 05:04+0000\n"
-"PO-Revision-Date: 2025-03-05 09:35+0000\n"
+"PO-Revision-Date: 2025-03-08 08:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -126,7 +126,7 @@ msgstr "_Annuler"
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Afficher « %s » avec l'application par défaut"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -630,13 +630,13 @@ msgstr "Enregistrer le document ailleurs"
 
 #: src/Services/MonitoredRepository.vala:213
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Une erreur s'est produite lors de l'extraction de la branche demandée"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:261
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (détachée)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
