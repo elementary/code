@@ -507,7 +507,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
-        } else if (!folder.is_valid_directory (true)) { // Allow hidden top-level folders
+        } else if (!folder.is_valid_directory) {
             warning ("Cannot open invalid directory.");
             return;
         }
