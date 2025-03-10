@@ -158,7 +158,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        add_folder (folder, true);
+        add_folder.begin (folder, true);
     }
 
     public void collapse_all () {
