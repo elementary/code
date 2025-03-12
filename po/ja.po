@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 14:08+0000\n"
-"PO-Revision-Date: 2025-03-03 20:14+0000\n"
+"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"PO-Revision-Date: 2025-03-08 08:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,30 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "バージョン情報を表示して終了する"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "選択範囲を指定してファイルを開く"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<開始行[.開始位置][-終了行[.終了位置]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
@@ -121,6 +121,12 @@ msgstr "開く(_O)"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "'%s' をデフォルトアプリで表示"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -605,13 +611,13 @@ msgstr "ドキュメントを他の場所に保存"
 
 #: src/Services/MonitoredRepository.vala:213
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "指定されたブランチへのチェックアウト中にエラーが発生しました"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:261
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (detached)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"

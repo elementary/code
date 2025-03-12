@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 14:08+0000\n"
-"PO-Revision-Date: 2025-02-08 13:02+0000\n"
+"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"PO-Revision-Date: 2025-03-08 08:16+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nowa karta"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "Nowe okno"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "Wyświetl informację o wersji i zamknij"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "Otwórz plik w danym przedziale zaznaczenia"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 "<LINIA_POCZĄTKOWA[.KOLUMNA_POCZĄTKOWA][-LINIA_KOŃCOWA[.KOLUMNA_KOŃCOWA]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[PLIK…]"
 
@@ -123,6 +123,12 @@ msgstr "_Otwórz"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_Anuluj"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "Pokaż „%s” przy pomocy domyślnej aplikacji"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -292,31 +298,25 @@ msgid "Restore Anyway"
 msgstr "Przywróć mimo wszystko"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "Ten folder jest nadrzędny dla otwartego projektu"
-msgstr[1] "Ten folder jest nadrzędny dla otwartego projektu"
-msgstr[2] "Ten folder jest nadrzędny dla otwartego projektu"
+msgstr[1] "Ten folder jest nadrzędny dla otwartych projektów"
+msgstr[2] "Ten folder jest nadrzędny dla otwartych projektów"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Otworzenie tego folderu zamknie projekt podrzędny"
-msgstr[1] "Otworzenie tego folderu zamknie projekt podrzędny"
-msgstr[2] "Otworzenie tego folderu zamknie projekt podrzędny"
+msgstr[1] "Otworzenie tego folderu zamknie wszystkie projekty podrzędne"
+msgstr[2] "Otworzenie tego folderu zamknie wszystkie projekty podrzędne"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Zamknij projekt podrzędny"
 msgstr[1] "Zamknij projekt podrzędny"
-msgstr[2] "Zamknij projekt podrzędny"
+msgstr[2] "Zamknij projekty podrzędne"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -340,13 +340,7 @@ msgstr "Istnieją niescommitowane zmiany w aktualnym odgałęzieniu"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, fuzzy, c-format
-#| msgid ""
-#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
-#| "out now.\n"
-#| "\n"
-#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
-#| "reverted before proceeding </i>"
+#, c-format
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
@@ -358,7 +352,7 @@ msgstr ""
 "teraz otwarty.\n"
 "\n"
 "<i>Zalecane jest by niescommitowane zmiany zostały przechowane w stashu, "
-"scommitowane, lub odrzucone przed kontynuowaniem</i>"
+"scommitowane, lub odrzucone przed kontynuowaniem.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
@@ -639,13 +633,13 @@ msgstr "Zapisz dokument gdzie indziej"
 
 #: src/Services/MonitoredRepository.vala:213
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Podczas przełączania się na wybraną gałąź wystąpił błąd"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:261
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (detached)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
