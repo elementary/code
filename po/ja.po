@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
-"PO-Revision-Date: 2025-01-11 23:16+0000\n"
+"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"PO-Revision-Date: 2025-03-08 08:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -16,30 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "バージョン情報を表示して終了する"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "選択範囲を指定してファイルを開く"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<開始行[.開始位置][-終了行[.終了位置]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
@@ -91,11 +91,11 @@ msgstr "ターミナルを表示"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "テキストファイル"
 
@@ -108,8 +108,8 @@ msgid "Open"
 msgstr "開く"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "キャンセル"
@@ -121,6 +121,12 @@ msgstr "開く(_O)"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "'%s' をデフォルトアプリで表示"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -288,52 +294,38 @@ msgstr "了解して復元"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] "開いているプロジェクトの親フォルダーです"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr ""
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] "このフォルダーを開くと、サブプロジェクトを閉じます"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr ""
+msgid_plural "Close Child Projects"
+msgstr[0] "サブプロジェクトを閉じる"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "開いているプロジェクトのサブフォルダーです"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "このフォルダーを開くと、親プロジェクトを閉じます"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "親プロジェクトを閉じる"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "復元しない"
+msgstr "キャンセル"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "スクラッチに保存されてない変化が有ります！"
+msgstr "コミットしていない変更が現在のブランチにあります"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -343,16 +335,20 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
+"<b>'%s'</b> にチェックアウトすると、コミットしていない変更は破棄されます。\n"
+"\n"
+"<i>続行する前に、コミットしていない変更をスタッシュ、コミット、またはリバート"
+"することをおすすめします。</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
-msgstr ""
+msgstr "チェックアウトしない"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "チェックアウトして上書き"
 
 #: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
 #: src/FolderManager/ProjectFolderItem.vala:148
@@ -361,7 +357,7 @@ msgstr "ターミナルペインで開く"
 
 #: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
 msgid "Other Actions"
-msgstr "ほかの操作"
+msgstr "他の操作"
 
 #: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
 msgid "Rename"
@@ -374,7 +370,7 @@ msgstr "ゴミ箱に移動"
 
 #: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
 msgid "Other Application…"
-msgstr "ほかのアプリケーション…"
+msgstr "他のアプリケーション…"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
 msgid "Open In"
@@ -413,10 +409,8 @@ msgid "new file"
 msgstr "新しいファイル"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "アクティブな Git プロジェクト: %s"
+msgstr "アクティブなプロジェクトに設定"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -424,7 +418,7 @@ msgstr "フォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:187
 msgid "Close Other Folders"
-msgstr "ほかのフォルダーを閉じる"
+msgstr "他のフォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:204
 #, c-format
@@ -466,89 +460,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "“コード”はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "ファイル“%s”の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "ファイルが読み込まれるまでお待ちください。"
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "閉じる前に“%s”への変更を保存しますか?"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "“%s”に保存できませんでした。"
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "%s にこのドキュメントを保存できません"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "ファイル“%s”内のテキストを読み込めません"
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr "ファイルを読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr "ファイルが破損しているか、テキストファイルではない可能性があります"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr "強制的に表示"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -556,7 +550,7 @@ msgid ""
 msgstr ""
 "ファイル“%s”を含む場所はアンマウントされていて、未保存の変更があります。"
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -564,17 +558,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "“%s”への書き込み権限がありません。"
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "ファイル“%s”は外部のアプリケーションによって変更されました"
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -582,38 +576,48 @@ msgstr ""
 "未保存の変更も存在します。ドキュメントを最読み込みすると、未保存の変更は上書"
 "きされます。"
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr "ドキュメントは、最後の保存以降に外部で変更されました。"
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
-msgstr "“%s”はここには保存できません。ほかの場所に複製して保存しますか?"
+msgstr "“%s”はここには保存できません。他の場所に複製して保存しますか?"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr "無視"
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr "複製を保存…"
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "編集を続行"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 msgid "Reload"
 msgstr "再読み込み"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr "上書きする"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
-msgstr "ドキュメントをほかの場所に保存"
+msgstr "ドキュメントを他の場所に保存"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr "指定されたブランチへのチェックアウト中にエラーが発生しました"
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr "%.8s (detached)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -664,7 +668,7 @@ msgstr "名前空間"
 
 #: src/SymbolPane/SymbolOutline.vala:55
 msgid "Other"
-msgstr "そのほか"
+msgstr "その他"
 
 #: src/SymbolPane/SymbolOutline.vala:96
 msgid "Find Symbol"
@@ -687,8 +691,7 @@ msgid "No Project Selected"
 msgstr "プロジェクト未選択"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "アクティブな Git プロジェクト: %s"
 
@@ -700,28 +703,28 @@ msgstr "プロジェクトをフィルター"
 msgid "Closed Tabs"
 msgstr "閉じたタブ"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "テキストファイル %s:%d"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr "右側のタブを閉じる"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
-msgstr "ほかのタブを閉じる"
+msgstr "他のタブを閉じる"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "タブを閉じる"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "新しいウィンドウで開く"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "タブを複製"
 
@@ -1011,6 +1014,16 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#, c-format
+#~ msgid "This folder is the parent of %u open projects"
+#~ msgstr "開いているプロジェクト %u 個の親フォルダーです"
+
+#~ msgid "Opening this folder will close all child projects"
+#~ msgstr "このフォルダーを開くと、すべてのサブプロジェクトを閉じます"
+
+#~ msgid "Close Child Projects"
+#~ msgstr "サブプロジェクトを閉じる"
 
 #~ msgid "Tabs"
 #~ msgstr "タブ"
