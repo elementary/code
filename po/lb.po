@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2017-08-09 15:06+0000\n"
 "Last-Translator: Yvo Marques <macghivo@gmail.com>\n"
 "Language-Team: Luxembourgish <https://weblate.elementary.io/projects/scratch/"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Neien Tab"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Nei Fënster"
 
@@ -345,29 +345,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 #, fuzzy
 msgid "Open In"
 msgstr "Datei opmaachen"
@@ -376,39 +371,47 @@ msgstr "Datei opmaachen"
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "Datei opmaachen"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+msgid "Terminal Pane"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 #, fuzzy
 msgid "New"
 msgstr "Neien Tab"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 #, fuzzy
 msgid "new file"
 msgstr "Nei Datei"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
 msgid "Set as Active Project"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
@@ -650,8 +653,8 @@ msgid "Templates"
 msgstr "Vierlaagen"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr ""

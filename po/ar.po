@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "لسان جديد"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "نافذة جديدة"
 
@@ -393,29 +393,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr "اجراءات اخرى"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr "إعادة التسمية"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "انقل الى سلة المهملات"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr "تطبيقات أخرى…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "إفتح في"
 
@@ -423,38 +418,48 @@ msgstr "إفتح في"
 msgid "Folders"
 msgstr "المجلدات"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Folder…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+#, fuzzy
+#| msgid "Terminal"
+msgid "Terminal Pane"
+msgstr "الطرفية"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "مجلد"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr "ملف فارغ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "جديد"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "ملف غير مسمى"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "ملف جديد"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
 msgid "Set as Active Project"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
@@ -713,8 +718,8 @@ msgid "Templates"
 msgstr "القوالب"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
@@ -1208,9 +1213,6 @@ msgstr "اتمام %s من الكلمات"
 #~| msgid "Open project folder…"
 #~ msgid "Open Project Folder…"
 #~ msgstr "فتح مجلد المشروع…"
-
-#~ msgid "Terminal"
-#~ msgstr "الطرفية"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "الشريط الجانبي"

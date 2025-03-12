@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2021-03-21 11:04+0000\n"
 "Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Yangi vkladka"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Yangi oyna"
 
@@ -381,29 +381,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr "Boshqa amallar"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr "Qayta nomlash"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Axlat savatchasiga o'tkazish"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr "Boshqa ilova…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "Boshqa ilovada ochish"
 
@@ -411,38 +406,48 @@ msgstr "Boshqa ilovada ochish"
 msgid "Folders"
 msgstr "Papkalar"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 #, fuzzy
 #| msgid "Open Project Folder…"
 msgid "Find in Folder…"
 msgstr "Loyiha papkasini ochish…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+#, fuzzy
+#| msgid "Terminal"
+msgid "Terminal Pane"
+msgstr "Terminal"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "Papka"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr "Bo'sh fayl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Yaratish"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "nomsiz papka"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "yangi fayl"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
 msgid "Set as Active Project"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
@@ -688,8 +693,8 @@ msgid "Templates"
 msgstr "Na'munalar"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Belgilar"
@@ -1165,9 +1170,6 @@ msgstr "%s - so'zlarni avtomatik tugatish"
 
 #~ msgid "Open Project Folder…"
 #~ msgstr "Loyiha papkasini ochish…"
-
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Yon panelni almashtirish"

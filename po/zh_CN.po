@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 05:04+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2023-08-08 09:08+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "新标签页"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "新窗口"
 
@@ -373,29 +373,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr ""
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr "其它动作"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr "重命名"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "移至回收站"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr "其他应用…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "使用其他应用打开"
 
@@ -403,31 +398,37 @@ msgstr "使用其他应用打开"
 msgid "Folders"
 msgstr "文件夹"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 msgid "Find in Folder…"
 msgstr "在文件夹中查找…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+#, fuzzy
+#| msgid "Terminal"
+msgid "Terminal Pane"
+msgstr "终端"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "文件夹"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr "空白文件"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "新建"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "未命名文件夹"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "新文件"
 
@@ -436,6 +437,10 @@ msgstr "新文件"
 #| msgid "Active Git project: %s"
 msgid "Set as Active Project"
 msgstr "活跃的 Git 项目：%s"
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
+msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -646,8 +651,8 @@ msgid "Templates"
 msgstr "模板"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "符号"
@@ -1116,9 +1121,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "Open Project Folder…"
 #~ msgstr "打开项目文件夹…"
-
-#~ msgid "Terminal"
-#~ msgstr "终端"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "激活侧边栏"
