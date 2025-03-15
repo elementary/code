@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-12 16:30+0000\n"
-"PO-Revision-Date: 2025-03-12 00:28+0000\n"
+"PO-Revision-Date: 2025-03-15 16:15+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -390,10 +390,8 @@ msgid "Find in Folder…"
 msgstr "Поиск в папке…"
 
 #: src/FolderManager/FolderItem.vala:152
-#, fuzzy
-#| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
-msgstr "Открыть в панели терминала"
+msgstr "Панель терминала"
 
 #: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
