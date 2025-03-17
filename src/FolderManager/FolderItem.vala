@@ -29,7 +29,7 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
-        public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
+        public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
 
@@ -63,16 +63,14 @@ namespace Scratch.FolderManager {
                  file.children.size > 0) {
 
                 foreach (var child in file.children) {
-                    Code.Widgets.SourceList.Item item = null;
-                    if (child.is_valid_directory ()) {
+                    Code.Widgets.SourceList.Item? item = null;
+                    if (child.is_valid_directory) {
                         item = new FolderItem (child, view);
                     } else if (child.is_valid_textfile) {
                         item = new FileItem (child, view);
                     }
 
-                    if (item != null) {
-                        add (item);
-                    }
+                    add (item); // ignores null parameter
                 }
 
                 children_loaded = true;
@@ -307,15 +305,13 @@ namespace Scratch.FolderManager {
                         var path_item = find_item_for_path (source.get_path ());
                         if (path_item == null) {
                             var file = new File (source.get_path ());
-                            if (file.is_valid_directory ()) {
+                            if (file.is_valid_directory) {
                                 path_item = new FolderItem (file, view);
-                            } else if (!file.is_temporary) {
+                            } else if (file.is_valid_textfile) {
                                 path_item = new FileItem (file, view);
-                            } else {
-                                break;
                             }
 
-                            add (path_item);
+                            add (path_item); // null parameter is silently ignored
                         }
 
                         break;
