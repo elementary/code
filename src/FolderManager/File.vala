@@ -69,11 +69,11 @@ namespace Scratch.FolderManager {
 
                 if (info != null) {
                     _icon = GLib.ContentType.get_icon (info.get_content_type ());
-                    return _icon;
                 } else {
                     _icon = new ThemedIcon ("missing-image");
-                    return _icon;
                 }
+
+                return _icon;
             }
         }
 
