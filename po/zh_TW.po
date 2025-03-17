@@ -6,24 +6,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 05:04+0000\n"
-"PO-Revision-Date: 2024-09-23 11:35+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
+"PO-Revision-Date: 2025-03-17 11:10+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
-"code/code/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/code/code/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.2\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "新增視窗"
 
@@ -126,7 +126,7 @@ msgstr "取消(_C)"
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "用預設應用程式來開啟 '%s'"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -293,41 +293,37 @@ msgstr "無論如何都要復原"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
+msgstr[0] "這個資料夾是已開啟專案的上層資料夾"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
+msgstr[0] "開啟這個資料夾將會關閉所有子專案"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
+msgstr[0] "關閉子專案"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "這個資料夾是已開啟專案的子資料夾"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "開啟這個資料夾將會關閉上層專案"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "關閉上層專案"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "不要還原"
+msgstr "不要開啟"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Scratch 中有未儲存的更動！"
+msgstr "目前分支裡有未提交的變更"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -339,38 +335,36 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"如果現在遷出 <b>'%s'</b> 的話會使未提交的變更永久丟失。\n"
+"\n"
+"<i>建議繼續操作之前先進行貯存、提交或是還原。</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "不要簽出"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "簽出並覆寫"
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr "在終端機面板中開啟"
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr "其他選項"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "開啟於"
 
@@ -378,39 +372,45 @@ msgstr "開啟於"
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 msgid "Find in Folder…"
 msgstr "在資料夾中尋找…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+msgid "Terminal Pane"
+msgstr "終端機面板"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr "空白檔案"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "未命名資料夾"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "新檔案"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "作用中 Git 專案：%s"
+msgstr "設為作用中專案"
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
+msgstr "在終端機面板中開啟"
 
 #: src/FolderManager/ProjectFolderItem.vala:179
 msgid "Close Folder"
@@ -550,10 +550,9 @@ msgid ""
 msgstr "包含「%s」檔案的位置已被卸載，而該檔案有未儲存的變更。"
 
 #: src/Services/Document.vala:889
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "檔案「%s」已被刪除而有未儲存的變更。"
+msgstr "檔案「%s」已被刪除、重新命名或移動，但有未儲存的變更。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -608,21 +607,21 @@ msgstr "將文件儲存到別的地方"
 
 #: src/Services/MonitoredRepository.vala:213
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "遷出指定分支時發生錯誤"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:261
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s（分離狀態）"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "範本"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "符號"
@@ -688,8 +687,7 @@ msgid "No Project Selected"
 msgstr "未選擇專案"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "作用中 Git 專案：%s"
 
