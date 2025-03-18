@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-12 16:30+0000\n"
-"PO-Revision-Date: 2025-03-09 08:41+0000\n"
+"PO-Revision-Date: 2025-03-18 03:00+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -390,10 +390,8 @@ msgid "Find in Folder…"
 msgstr "Пошук у теці…"
 
 #: src/FolderManager/FolderItem.vala:152
-#, fuzzy
-#| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
-msgstr "Відкрити у панелі Термінала"
+msgstr "Панель Термінала"
 
 #: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
