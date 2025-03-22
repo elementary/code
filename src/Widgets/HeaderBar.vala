@@ -114,7 +114,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         font_size_box.add (zoom_in_button);
 
         find_button = new Gtk.ToggleButton () {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND,
+            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SHOW_FIND,
             image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic", Gtk.IconSize.MENU)
         };
         find_button.tooltip_markup = Granite.markup_accel_tooltip (
