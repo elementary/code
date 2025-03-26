@@ -129,6 +129,7 @@ namespace Scratch {
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
+            { ACTION_FIND, action_clone_repo },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
@@ -1027,6 +1028,38 @@ namespace Scratch {
             } else {
                 folder_manager_view.open_folder (new FolderManager.File (path));
             }
+        }
+
+        private void action_clone_repo (SimpleAction action, Variant? param) {
+            var uri = "";
+            var local_folder = Path.get_dirname (git_manager.active_project_path);
+            var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
+            clone_dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    uri = clone_dialog.get_source_repository_uri ();
+                    local_folder = clone_dialog.get_local_folder ();
+                }
+
+                clone_dialog.destroy ();
+            });
+
+            clone_dialog.run ();
+
+            if (uri == "") {
+                return;
+            }
+
+            git_manager.clone_repository.begin (uri, (obj, res) => {
+                try {
+                    string folder;
+                    if (git_manager.clone_repository.end (res, out folder)) {
+                        //TODO Open repo and make active
+                    }
+                } catch (Error e) {
+                    ///TRANSLATORS the first %s is a URI; the second %s is a system error message
+                    warning ("Unable to clone '%s'. %s", uri, e.message);
+                }
+            });
         }
 
         private void action_collapse_all_folders () {
