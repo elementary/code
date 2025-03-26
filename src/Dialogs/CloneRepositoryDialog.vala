@@ -25,8 +25,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
 
     //Taken from "switchboard-plug-parental-controls/src/plug/Views/InternetView.vala"
-    private const string NAME_REGEX = """[/w.-]+""";
-    private const string LOCAL_FOLDER_REGEX ="^/[0-9a-zA-Z_-]+$";
+    private const string NAME_REGEX = "^[0-9a-zA-Z_-]+$";
+    private const string LOCAL_FOLDER_REGEX ="""^(/[^/ ]*)+/?$""";
     private const string URL_REGEX = "([^/w.])[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{1,3}([^/])\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*\\b)";
     private Regex name_regex;
     private Regex local_folder_regex;
@@ -47,6 +47,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         repository_host_uri_entry.text = "https://github.com";
         repository_user_entry.text = "elementary";
         repository_name_entry.text = "";
+
+        on_is_valid_changed ();
     }
 
     construct {
@@ -77,7 +79,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         };
         var repository_local_folder_label = new Gtk.Label (_("Target Folder"));
         repository_local_folder_entry = new Granite.ValidatedEntry.from_regex (local_folder_regex) {
-            activates_default = false
+            activates_default = false,
+            width_chars = 50
         };
         var content_grid = new Gtk.Grid ();
         content_grid.attach (repository_host_uri_label, 0, 0);
@@ -100,7 +103,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         repository_name_entry.notify["is-valid"].connect (on_is_valid_changed);
         repository_local_folder_entry.notify["is-valid"].connect (on_is_valid_changed);
 
+        clone_button.sensitive = can_clone;
         bind_property ("can-clone", clone_button, "sensitive");
+
+        show_all ();
     }
 
     public string get_source_repository_uri () {

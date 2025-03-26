@@ -129,7 +129,7 @@ namespace Scratch {
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch, "s" },
-            { ACTION_FIND, action_clone_repo },
+            { ACTION_CLONE_REPO, action_clone_repo },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },

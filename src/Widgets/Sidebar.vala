@@ -65,7 +65,6 @@ public class Code.Sidebar : Gtk.Grid {
 
         var clone_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO,
-            action_target = new Variant.string (""),
             always_show_image = true,
             label = _("Clone Repository…")
         };
