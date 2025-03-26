@@ -113,8 +113,9 @@ namespace Scratch.Services {
             return build_path;
         }
 
-        public async bool clone_repository (string uri, out string path_to_repo) throws Error {
+        public async bool clone_repository (string uri, string local_folder, out string path_to_repo) throws Error {
             path_to_repo = "";
+            warning ("Uri to clone is %s, into %s", uri, local_folder);
             //TODO Actually clone repo at uri;
             return false;
         }

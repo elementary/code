@@ -115,12 +115,18 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         }
 
         //TODO Further validation here?
-        return Path.build_path (
+        var repo_uri =  Path.build_path (
             Path.DIR_SEPARATOR_S,
             repository_host_uri_entry.text,
             repository_user_entry.text,
             repository_name_entry.text
         );
+
+        if (!repo_uri.has_suffix (".git")) {
+            repo_uri += ".git";
+        }
+
+        return repo_uri;
     }
 
     public string get_local_folder () {

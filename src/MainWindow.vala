@@ -1035,7 +1035,8 @@ namespace Scratch {
             var local_folder = Path.get_dirname (git_manager.active_project_path);
             var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
             clone_dialog.response.connect ((res) => {
-                if (res == Gtk.ResponseType.ACCEPT) {
+            warning ("response %s", res.to_string ());
+                if (res == Gtk.ResponseType.APPLY) {
                     uri = clone_dialog.get_source_repository_uri ();
                     local_folder = clone_dialog.get_local_folder ();
                 }
@@ -1046,10 +1047,11 @@ namespace Scratch {
             clone_dialog.run ();
 
             if (uri == "") {
+            warning ("returned no uri");
                 return;
             }
 
-            git_manager.clone_repository.begin (uri, (obj, res) => {
+            git_manager.clone_repository.begin (uri, local_folder, (obj, res) => {
                 try {
                     string folder;
                     if (git_manager.clone_repository.end (res, out folder)) {
