@@ -113,11 +113,35 @@ namespace Scratch.Services {
             return build_path;
         }
 
-        public async bool clone_repository (string uri, string local_folder, out string path_to_repo) throws Error {
-            path_to_repo = "";
-            warning ("Uri to clone is %s, into %s", uri, local_folder);
-            //TODO Actually clone repo at uri;
-            return false;
+        public async bool clone_repository (
+            string uri,
+            string local_folder,
+            out File? repo_workdir
+        ) throws Error {
+
+            repo_workdir = null;
+            var folder_file = File.new_for_path (local_folder);
+
+            var fetch_options = new Ggit.FetchOptions ();
+            fetch_options.set_download_tags (Ggit.RemoteDownloadTagsType.UNSPECIFIED);
+            fetch_options.set_remote_callbacks (null);
+
+            var clone_options = new Ggit.CloneOptions ();
+            clone_options.set_local (Ggit.CloneLocal.AUTO);
+            clone_options.set_is_bare (false);
+            clone_options.set_fetch_options (fetch_options);
+
+            var new_repo = Ggit.Repository.clone (
+                uri,
+                folder_file,
+                clone_options
+            );
+
+            if (new_repo != null) {
+                repo_workdir = new_repo.get_workdir ();
+            }
+
+            return new_repo != null;
         }
     }
 }

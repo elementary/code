@@ -1053,8 +1053,8 @@ namespace Scratch {
 
             git_manager.clone_repository.begin (uri, local_folder, (obj, res) => {
                 try {
-                    string folder;
-                    if (git_manager.clone_repository.end (res, out folder)) {
+                    File? workdir = null;
+                    if (git_manager.clone_repository.end (res, out workdir)) {
                         //TODO Open repo and make active
                     }
                 } catch (Error e) {

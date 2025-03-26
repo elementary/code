@@ -115,7 +115,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         }
 
         //TODO Further validation here?
-        var repo_uri =  Path.build_path (
+        var repo_uri = Path.build_path (
             Path.DIR_SEPARATOR_S,
             repository_host_uri_entry.text,
             repository_user_entry.text,
