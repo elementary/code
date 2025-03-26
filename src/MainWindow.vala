@@ -71,6 +71,7 @@ namespace Scratch {
         public const string ACTION_GROUP = "win";
         public const string ACTION_PREFIX = ACTION_GROUP + ".";
         public const string ACTION_FIND = "action-find";
+        public const string ACTION_CLONE_REPO = "action-clone-repo";
         public const string ACTION_FIND_NEXT = "action-find-next";
         public const string ACTION_FIND_PREVIOUS = "action-find-previous";
         public const string ACTION_FIND_GLOBAL = "action-find-global";
