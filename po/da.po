@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nyt faneblad"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Nyt Vindue"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "Print versionsinfo og afslut"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr ""
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr ""
 
@@ -100,11 +100,11 @@ msgstr "Vis terminal"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Tekstfiler"
 
@@ -117,8 +117,8 @@ msgid "Open"
 msgstr "Åbn"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuller"
@@ -130,6 +130,12 @@ msgstr "_Åbn"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_Annuller"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -329,28 +335,21 @@ msgstr "Indlæs Alligevel"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr ""
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr ""
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -384,40 +383,35 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "Åbn I"
 
@@ -425,38 +419,48 @@ msgstr "Åbn I"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Folder…"
 msgstr "Åbn projekt mappe…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+#, fuzzy
+#| msgid "Terminal"
+msgid "Terminal Pane"
+msgstr "Terminal"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr "Tom Fil"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr "unavngivet mappe"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "ny fil"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
 msgid "Set as Active Project"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
@@ -517,97 +521,97 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Er Ikke En Tekstfil"
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr "Code kan ikke indlæse denne type fil."
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Indlæsning af Filen \"%s\" Tager Lang Tid"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr "Vent venligst, mens Code indlæser filen."
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 msgid "Cancel Loading"
 msgstr "Annuller Indlæsning"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Gem ændringer til dokumentet \"%s\", inden lukning?"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Hvis ikke du gemmer, vil ændringer gå tabt permanent."
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 msgid "Close Without Saving"
 msgstr "Luk uden at gemme"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Gem"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Gem ændringer til dokumentet \"%s\", inden lukning?"
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Gem fil"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Nyt Dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr ""
 "Den kan være beskadiget, eller du kan mangle tilladelse til at læse den."
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -619,7 +623,7 @@ msgstr ""
 "Placeringen som indeholder filen \"%s\" blev afmonteret. Vil du gemme et "
 "andet sted?"
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -631,13 +635,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Filen \"%s\" blev slettet. Vil du gemme den alligevel?"
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -647,56 +651,66 @@ msgstr ""
 "Filen \"%s\" var ændret af en anden applikation. Vil du indlæse den igen "
 "eller fortsætte med dine ændringer?"
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Fortsæt"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Upload"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
 msgstr "Gem den aktuelle fil"
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
+msgstr ""
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Skabeloner"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Symboler"
@@ -784,34 +798,34 @@ msgstr ""
 msgid "Closed Tabs"
 msgstr "Luk"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstfil fra %s:%d"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "Luk Andre Mapper"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Luk"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Nyt Vindue"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -1188,9 +1202,6 @@ msgstr "%s - Fuldførsel af ord"
 #~| msgid "Open project folder…"
 #~ msgid "Open Project Folder…"
 #~ msgstr "Åbn projekt mappe…"
-
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
 
 #~ msgid "Toggle Sidebar"
 #~ msgstr "Vis/Skjul Sidepanel"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:55+0000\n"
+"POT-Creation-Date: 2025-03-12 16:30+0000\n"
 "PO-Revision-Date: 2018-06-01 00:06+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/code/code/ku/"
@@ -15,27 +15,27 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Hilpekîna nû"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Paceya nû"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr ""
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr ""
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr ""
 
@@ -95,11 +95,11 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:661
+#: src/MainWindow.vala:960 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Hemû pelan"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:665
+#: src/MainWindow.vala:964 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Dosiyên nivîsê"
 
@@ -112,8 +112,8 @@ msgid "Open"
 msgstr "Veke"
 
 #: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:503
-#: src/Services/Document.vala:673 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
+#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Betal bike"
@@ -125,6 +125,12 @@ msgstr "_Veke"
 #: src/MainWindow.vala:1013
 msgid "_Cancel"
 msgstr "_Betalbike"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -292,28 +298,21 @@ msgstr ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-#, c-format
-msgid "This folder is the parent of %u open projects"
-msgstr ""
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close all child projects"
-msgstr ""
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Projects"
-msgstr ""
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -343,40 +342,35 @@ msgid ""
 "now.\n"
 "\n"
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding </i>"
+"reverted before proceeding.</i>"
 msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Checkout and Overwrite"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:46
 msgid "Do not Checkout"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
 msgid "Open In"
 msgstr "Veke tewe"
 
@@ -384,38 +378,48 @@ msgstr "Veke tewe"
 msgid "Folders"
 msgstr "Peldank"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:119
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Find in Folder…"
 msgstr "Peldanke veke"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:152
+#, fuzzy
+#| msgid "Terminal"
+msgid "Terminal Pane"
+msgstr "Termînal"
+
+#: src/FolderManager/FolderItem.vala:187
 msgid "Folder"
 msgstr "Peldanke"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:195
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
+#: src/FolderManager/FolderItem.vala:206
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Nû"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:364
 msgid "new file"
 msgstr "pelgeh veke"
 
 #: src/FolderManager/ProjectFolderItem.vala:140
 msgid "Set as Active Project"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:148
+msgid "Open in Terminal Pane"
 msgstr ""
 
 #: src/FolderManager/ProjectFolderItem.vala:179
@@ -474,153 +478,163 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:379
+#: src/Services/Document.vala:380
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:381
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:383
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:403
+#: src/Services/Document.vala:404
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:405
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:407
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Betal bike"
 
-#: src/Services/Document.vala:493
+#: src/Services/Document.vala:496
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Tu dixwazî guhertinan di dosiyê de %s tomar bikî ?"
 
-#: src/Services/Document.vala:494
+#: src/Services/Document.vala:497
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:503
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Bêyî tomarkirin bigire"
 
-#: src/Services/Document.vala:504 src/Services/Document.vala:672
+#: src/Services/Document.vala:507 src/Services/Document.vala:675
 msgid "Save"
 msgstr "Tomar Bike"
 
-#: src/Services/Document.vala:631
+#: src/Services/Document.vala:634
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "Tu dixwazî guhertinan di dosiyê de %s tomar bikî ?"
 
-#: src/Services/Document.vala:669
+#: src/Services/Document.vala:672
 msgid "Save File"
 msgstr "Pelgehê Tomar Bike"
 
-#: src/Services/Document.vala:756 src/Services/Document.vala:774
+#: src/Services/Document.vala:759 src/Services/Document.vala:777
 msgid "New Document"
 msgstr "Pelgeya nû"
 
 #. No path for a new document
-#: src/Services/Document.vala:776
+#: src/Services/Document.vala:779
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:842
+#: src/Services/Document.vala:845
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 msgid "You may not have permission to read the file."
 msgstr ""
 
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:850
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:853
+#: src/Services/Document.vala:856
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:887
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr ""
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:889
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:900
+#: src/Services/Document.vala:903
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr ""
 
-#: src/Services/Document.vala:946
+#: src/Services/Document.vala:949
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr ""
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:954
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:955
+#: src/Services/Document.vala:958
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:971
+#: src/Services/Document.vala:974
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:982
+#: src/Services/Document.vala:985
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1034
 msgid "Continue"
 msgstr "Berdewam"
 
-#: src/Services/Document.vala:1033
+#: src/Services/Document.vala:1036
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Bar bike"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1039
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1042
 msgid "Save Document elsewhere"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:213
+msgid "An error occurred while checking out the requested branch"
+msgstr ""
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:261
+#, c-format
+msgid "%.8s (detached)"
 msgstr ""
 
 #: src/Services/TemplateManager.vala:198
@@ -628,8 +642,8 @@ msgid "Templates"
 msgstr "Şablon"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
 #: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Dawêr"
@@ -711,34 +725,34 @@ msgstr ""
 msgid "Closed Tabs"
 msgstr "Bigire"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:454
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Dosiyên nivîsê %s"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Close Other Tabs"
 msgstr "Peldanke veke"
 
-#: src/Widgets/DocumentView.vala:628
+#: src/Widgets/DocumentView.vala:632
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Bigire"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:635
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Paceya nû"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -1046,9 +1060,6 @@ msgstr ""
 #~| msgid "Open Folder"
 #~ msgid "Open Project Folder…"
 #~ msgstr "Peldanke veke"
-
-#~ msgid "Terminal"
-#~ msgstr "Termînal"
 
 #~ msgid "Find…"
 #~ msgstr "Lê gerrîn …"
