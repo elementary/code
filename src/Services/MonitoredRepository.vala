@@ -254,26 +254,41 @@ namespace Scratch.Services {
             local_branch.set_upstream (target_shorthand);
         }
 
-        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) throws Error {
-            if (confirm && has_uncommitted) {
-                confirm_checkout_branch (new_head_branch);
-                return;
+        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
+            var new_branch_name = "";
+            try {
+                new_branch_name = new_head_branch.get_name ();
+                if (confirm && has_uncommitted) {
+                    confirm_checkout_branch (new_head_branch);
+                    return;
+                }
+
+                git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
+                var options = new Ggit.CheckoutOptions () {
+                    //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                    strategy = Ggit.CheckoutStrategy.FORCE
+                };
+
+                git_repo.checkout_head (options);
+                branch_name = new_branch_name;
+            } catch (Error e) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("An error occurred while checking out the requested branch"),
+                    e.message,
+                    "dialog-warning"
+                );
+
+                dialog.run ();
+                dialog.destroy ();
             }
-
-            git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
-            var options = new Ggit.CheckoutOptions () {
-                strategy = Ggit.CheckoutStrategy.FORCE
-            };
-            git_repo.checkout_head (options);
-
-            branch_name = new_head_branch.get_name ();
         }
 
-        private void confirm_checkout_branch (Ggit.Branch new_head_branch) {
+        private void confirm_checkout_branch (Ggit.Branch new_head_branch) throws Error {
             var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+            var new_branch_name = new_head_branch.get_name ();
             var dialog = new Scratch.Dialogs.OverwriteUncommittedConfirmationDialog (
                 parent,
-                new_head_branch.get_name (),
+                new_branch_name,
                 get_project_diff ()
             );
             dialog.response.connect ((res) => {
