@@ -813,13 +813,6 @@ namespace Scratch {
             });
         }
 
-        // Save session information different from window state
-        private void restore_saved_state_extra () {
-            // Plugin panes size
-            hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
-            vp.set_position (Scratch.saved_state.get_int ("vp-size"));
-        }
-
         private void create_unsaved_documents_directory () {
             var directory = File.new_for_path (app.data_home_folder_unsaved);
             if (!directory.query_exists ()) {
