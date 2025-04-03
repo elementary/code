@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 15:18+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
 "PO-Revision-Date: 2025-03-15 16:15+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
@@ -369,7 +369,7 @@ msgid "Rename"
 msgstr "Переименовать"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
@@ -381,7 +381,7 @@ msgstr "Другое приложение…"
 msgid "Open In"
 msgstr "Открыть в"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Папки"
 
@@ -404,8 +404,8 @@ msgstr "Пустой файл"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Создать"
 
@@ -417,23 +417,23 @@ msgstr "безымянная папка"
 msgid "new file"
 msgstr "новый файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr "Назначить активным проектом"
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr "Открыть в панели терминала"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Закрыть остальные папки"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -441,7 +441,7 @@ msgstr[0] "Закрыть %u открытый документ"
 msgstr[1] "Закрыть %u открытых документа"
 msgstr[2] "Закрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
@@ -449,7 +449,7 @@ msgstr[0] "Скрыть %u открытый документ"
 msgstr[1] "Скрыть %u открытых документа"
 msgstr[2] "Скрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -457,23 +457,31 @@ msgstr[0] "Восстановить %u скрытый документ"
 msgstr[1] "Восстановить %u скрытых документа"
 msgstr[2] "Восстановить %u скрытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Найти в проекте…"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "Новая ветка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Ветка"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Изменено"
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Ошибка создания новой ветки: «%s»"
@@ -629,12 +637,22 @@ msgstr "Перезаписать"
 msgid "Save Document elsewhere"
 msgstr "Сохранить в другом месте"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr "Произошла ошибка при выполнении checkout для указанной ветки"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (отсоединён)"

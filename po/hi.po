@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 15:18+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -387,7 +387,7 @@ msgid "Rename"
 msgstr "पुनः नामकरण"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
 
@@ -399,7 +399,7 @@ msgstr "अन्य अनुप्रयोग…"
 msgid "Open In"
 msgstr "में खोलें"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "फोल्डर"
 
@@ -426,8 +426,8 @@ msgstr "ख़ाली फ़ाइल"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "नया"
 
@@ -439,32 +439,32 @@ msgstr "अनाम फ़ोल्डर"
 msgid "new file"
 msgstr "नई फ़ाइल"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "फ़ोल्डर बंद करें"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "फ़ोल्डर बंद करें"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -472,34 +472,42 @@ msgid_plural "Hide %u Open Documents"
 msgstr[0] "नया दस्तावेज़"
 msgstr[1] "नया दस्तावेज़"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "एक फ़ोल्डर खोलें"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 #, fuzzy
 msgid "New Branch…"
 msgstr "शाखा बदलें"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 #, fuzzy
 msgid "Branch"
 msgstr "शाखा बदलें"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -675,12 +683,22 @@ msgstr ""
 msgid "Save Document elsewhere"
 msgstr "वर्तमान फाइल सहेजें"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""

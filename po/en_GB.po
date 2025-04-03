@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 15:18+0000\n"
-"PO-Revision-Date: 2025-03-13 16:55+0000\n"
-"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"PO-Revision-Date: 2025-04-03 09:20+0000\n"
+"Last-Translator: Jeremy Wootten <jeremywootten@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementaryos.org/"
 "projects/code/code/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -364,7 +364,7 @@ msgid "Rename"
 msgstr "Rename"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Move to Rubbish Bin"
 
@@ -376,7 +376,7 @@ msgstr "Other Application…"
 msgid "Open In"
 msgstr "Open In"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Folders"
 
@@ -399,8 +399,8 @@ msgstr "Empty File"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "New"
 
@@ -412,60 +412,68 @@ msgstr "untitled folder"
 msgid "new file"
 msgstr "new file"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr "Set as Active Project"
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr "Open in Terminal Pane"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Close Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Close Other Folders"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Close %u Open Document"
 msgstr[1] "Close %u Open Documents"
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Hide %u Open Document"
 msgstr[1] "Hide %u Open Documents"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Restore %u Hidden Document"
 msgstr[1] "Restore %u Hidden Documents"
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Find in Project…"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "New Branch…"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Modified"
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Error while creating new branch: “%s”"
@@ -620,12 +628,22 @@ msgstr "Overwrite"
 msgid "Save Document elsewhere"
 msgstr "Save Document elsewhere"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr "An error occurred while checking out the requested branch"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (detached)"
@@ -642,10 +660,8 @@ msgid "Symbols"
 msgstr "Symbols"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symbols"
+msgstr "Too Many Symbols"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
