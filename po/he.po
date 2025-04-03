@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2025-03-13 16:55+0000\n"
+"PO-Revision-Date: 2025-04-03 19:39+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/"
-">\n"
+"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -449,11 +449,11 @@ msgstr "איתור במיזם…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "מקומי"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "מרוחק"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -621,12 +621,12 @@ msgstr "לשמור את המסמך במקום אחר"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "הענף המרוחק ‚%s’ לא נמצא"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
-msgstr ""
+msgstr "הענף המרוחק לא נמצא באף צד מרוחק שמקושר למאגר הזה"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
@@ -650,10 +650,8 @@ msgid "Symbols"
 msgstr "סמלים"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "סמלים"
+msgstr "יותר מדי סמלים"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -661,6 +659,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took long"
 msgstr ""
+"%s מכיל יותר מדי סמלים של Vala.\n"
+"פענוחם והצגתם ארכו זמן רב"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
