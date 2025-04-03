@@ -121,7 +121,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                         var warning_item = new Code.Widgets.SourceList.Item () {
                             icon = new ThemedIcon ("dialog-warning"),
                             markup = "<big>%s</big>".printf (_("Too Many Symbols")),
-                            tooltip = _("%s contains too many Vala symbols.\nParsing and showing them took long").printf (doc.file.get_basename ()),
+                            tooltip = _("%s contains too many Vala symbols.\nParsing and showing them took too long.").printf (doc.file.get_basename ()),
                             selectable = false
                         };
 
