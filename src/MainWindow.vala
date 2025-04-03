@@ -1032,13 +1032,15 @@ namespace Scratch {
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
             var uri = "";
+            //By default, create clone in parent of the current project
             var local_folder = Path.get_dirname (git_manager.active_project_path);
+            var local_name = "";
             var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
             clone_dialog.response.connect ((res) => {
-            warning ("response %s", res.to_string ());
                 if (res == Gtk.ResponseType.APPLY) {
                     uri = clone_dialog.get_source_repository_uri ();
                     local_folder = clone_dialog.get_local_folder ();
+                    local_name = clone_dialog.get_local_name ();
                 }
 
                 clone_dialog.destroy ();
@@ -1046,22 +1048,27 @@ namespace Scratch {
 
             clone_dialog.run ();
 
-            if (uri == "") {
-            warning ("returned no uri");
-                return;
-            }
-
-            git_manager.clone_repository.begin (uri, local_folder, (obj, res) => {
-                try {
-                    File? workdir = null;
-                    if (git_manager.clone_repository.end (res, out workdir)) {
-                        //TODO Open repo and make active
+            if (clone_dialog.can_clone) {
+                //TODO Show progress while cloning
+                git_manager.clone_repository.begin (
+                    uri, 
+                    Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
+                    (obj, res) => {
+                        try {
+                            File? workdir = null;
+                            if (git_manager.clone_repository.end (res, out workdir)) {
+                                debug ("Repository cloned into %s", workdir.get_uri ());
+                                open_folder (workdir);
+                                //TODO Make active according to dialog checkbox
+                            }
+                        } catch (Error e) {
+                            warning ("Unable to clone '%s'. %s", uri, e.message);
+                        }
                     }
-                } catch (Error e) {
-                    ///TRANSLATORS the first %s is a URI; the second %s is a system error message
-                    warning ("Unable to clone '%s'. %s", uri, e.message);
-                }
-            });
+                );
+            } else {
+                //TODO Give feedback
+            }
         }
 
         private void action_collapse_all_folders () {
