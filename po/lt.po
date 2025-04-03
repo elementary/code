@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 15:18+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -399,7 +399,7 @@ msgid "Rename"
 msgstr "Pervadinti"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Perkelti į Šiukšlinę"
 
@@ -411,7 +411,7 @@ msgstr "Kitoje programoje…"
 msgid "Open In"
 msgstr "Kur atverti"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Aplankai"
 
@@ -438,8 +438,8 @@ msgstr "Tuščias failas"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Naujas"
 
@@ -451,25 +451,25 @@ msgstr "bevardis aplankas"
 msgid "new file"
 msgstr "naujas failas"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Užverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Užverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -478,7 +478,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, fuzzy, c-format
 #| msgid "New Document"
 msgid "Hide %u Open Document"
@@ -488,7 +488,7 @@ msgstr[1] "Naujas dokumentas"
 msgstr[2] "Naujas dokumentas"
 msgstr[3] "Naujas dokumentas"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -497,27 +497,35 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Project…"
 msgstr "Atverti aplanką"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Šaka"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Šaka"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -696,12 +704,22 @@ msgstr ""
 msgid "Save Document elsewhere"
 msgstr "Įrašyti pakeitimus kitur"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 15:18+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
 "PO-Revision-Date: 2024-12-01 18:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
@@ -378,7 +378,7 @@ msgid "Rename"
 msgstr "Nimeä uudelleen"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
 
@@ -390,7 +390,7 @@ msgstr "Muu sovellus…"
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Kansiot"
 
@@ -415,8 +415,8 @@ msgstr "Tyhjä tiedosto"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Uusi"
 
@@ -428,62 +428,70 @@ msgstr "nimetön kansio"
 msgid "new file"
 msgstr "uusi tiedosto"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 #, fuzzy
 #| msgid "Active Git project: %s"
 msgid "Set as Active Project"
 msgstr "Aktiivinen Git-projekti: %s"
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Sulje kansio"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Sulje muut kansiot"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Sulje %u avoin asiakirja"
 msgstr[1] "Sulje %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Piilota %u avoin asiakirja"
 msgstr[1] "Piilota %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Palauta %u piilotettu asiakirja"
 msgstr[1] "Palauta %u piilotettua asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Etsi projektista…"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "Uusi haara…"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Haara"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Muokattu"
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Virhe uutta haaraa luotaessa: “%s”"
@@ -643,12 +651,22 @@ msgstr "Korvaa"
 msgid "Save Document elsewhere"
 msgstr "Tallenna asiakirja muualle"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
