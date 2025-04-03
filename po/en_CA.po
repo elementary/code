@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-12 16:30+0000\n"
+"POT-Creation-Date: 2025-04-02 15:18+0000\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -101,34 +101,34 @@ msgstr "Show Terminal"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:664
+#: src/MainWindow.vala:953 src/Services/Document.vala:664
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:668
+#: src/MainWindow.vala:957 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:968
+#: src/MainWindow.vala:961
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:964
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
 #: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:1012
+#: src/MainWindow.vala:1005
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:1013
+#: src/MainWindow.vala:1006
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -386,25 +386,25 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 #, fuzzy
 msgid "Other Actions"
 msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
 msgid "Rename"
 msgstr "Rename"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Move to Trash"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
 msgid "Other Application…"
 msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
 msgid "Open In"
 msgstr "Open In"
 
@@ -412,39 +412,39 @@ msgstr "Open In"
 msgid "Folders"
 msgstr "Folders"
 
-#: src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FolderItem.vala:117
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find in Folder…"
 msgstr "Open a folder"
 
-#: src/FolderManager/FolderItem.vala:152
+#: src/FolderManager/FolderItem.vala:150
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Terminal"
 
-#: src/FolderManager/FolderItem.vala:187
+#: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
 msgstr "Folder"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:193
 msgid "Empty File"
 msgstr "Empty File"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:206
+#: src/FolderManager/FolderItem.vala:204
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "new file"
 
@@ -704,10 +704,23 @@ msgstr "Templates"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
-#: src/SymbolPane/SymbolOutline.vala:92
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Symbols"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#, fuzzy
+#| msgid "Symbols"
+msgid "Too Many Symbols"
+msgstr "Symbols"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#, c-format
+msgid ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took long"
+msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -750,23 +763,23 @@ msgstr ""
 msgid "Other"
 msgstr "Others..."
 
-#: src/SymbolPane/SymbolOutline.vala:96
+#: src/SymbolPane/SymbolOutline.vala:103
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "Symbols"
 
-#: src/SymbolPane/SymbolOutline.vala:105
+#: src/SymbolPane/SymbolOutline.vala:112
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:125
+#: src/SymbolPane/SymbolOutline.vala:132
 #, fuzzy
 #| msgid "Select font:"
 msgid "Select All"
 msgstr "Select font:"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:138
 msgid "Deselect All"
 msgstr ""
 

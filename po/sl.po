@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-12 16:30+0000\n"
+"POT-Creation-Date: 2025-04-02 15:18+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -102,34 +102,34 @@ msgstr "Pokaži terminal"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:664
+#: src/MainWindow.vala:953 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:668
+#: src/MainWindow.vala:957 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:968
+#: src/MainWindow.vala:961
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:964
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
 #: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:1012
+#: src/MainWindow.vala:1005
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:1013
+#: src/MainWindow.vala:1006
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -400,24 +400,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
 msgstr "Druga dejanja"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
 #: src/FolderManager/ProjectFolderItem.vala:272
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
 msgid "Open In"
 msgstr "Odpri v"
 
@@ -425,39 +425,39 @@ msgstr "Odpri v"
 msgid "Folders"
 msgstr "Mape"
 
-#: src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FolderItem.vala:117
 #, fuzzy
 #| msgid "Add Project Folder…"
 msgid "Find in Folder…"
 msgstr "Dodaj projektno mapo…"
 
-#: src/FolderManager/FolderItem.vala:152
+#: src/FolderManager/FolderItem.vala:150
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Terminal"
 
-#: src/FolderManager/FolderItem.vala:187
+#: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
 msgstr "Mapa"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:193
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:206
+#: src/FolderManager/FolderItem.vala:204
 #: src/FolderManager/ProjectFolderItem.vala:394
 #: src/FolderManager/ProjectFolderItem.vala:400
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "nova datoteka"
 
@@ -719,10 +719,23 @@ msgstr "Predloge"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
-#: src/SymbolPane/SymbolOutline.vala:92
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Simboli"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#, fuzzy
+#| msgid "Symbols"
+msgid "Too Many Symbols"
+msgstr "Simboli"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#, c-format
+msgid ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took long"
+msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -766,23 +779,23 @@ msgstr ""
 msgid "Other"
 msgstr "Drugo…"
 
-#: src/SymbolPane/SymbolOutline.vala:96
+#: src/SymbolPane/SymbolOutline.vala:103
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "Simboli"
 
-#: src/SymbolPane/SymbolOutline.vala:105
+#: src/SymbolPane/SymbolOutline.vala:112
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:125
+#: src/SymbolPane/SymbolOutline.vala:132
 #, fuzzy
 #| msgid "Select font:"
 msgid "Select All"
 msgstr "Izberi pisavo:"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:138
 msgid "Deselect All"
 msgstr ""
 
