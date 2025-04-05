@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2025-03-15 16:15+0000\n"
+"PO-Revision-Date: 2025-04-05 13:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -463,11 +463,11 @@ msgstr "Найти в проекте…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "Локальные"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "Удалённые"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -475,7 +475,7 @@ msgstr "Новая ветка…"
 
 #: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
-msgstr "Ветка"
+msgstr "Ветки"
 
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
@@ -640,12 +640,13 @@ msgstr "Сохранить в другом месте"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Удалённая ветка «%s» не найдена"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"Указанная ветка не обнаружена ни в одном связанном удалённом репозитории"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
@@ -669,10 +670,8 @@ msgid "Symbols"
 msgstr "Символы"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Символы"
+msgstr "Слишком много символов"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -680,6 +679,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took long"
 msgstr ""
+"«%s» содержит слишком много символов Vala.\n"
+"Их распознавание и отображение выполнялись слишком долго"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
