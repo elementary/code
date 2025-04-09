@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2025-04-01 13:55+0000\n"
+"PO-Revision-Date: 2025-04-10 11:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -299,7 +299,7 @@ msgstr "Restaurer quand-même"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] "Ce dossier est le parent de projets ouverts"
+msgstr[0] "Ce dossier est le parent d'un projet ouvert"
 msgstr[1] "Ce dossier est le parent de projets ouverts"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
@@ -459,11 +459,11 @@ msgstr "Rechercher dans le projet…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "Distant"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -643,12 +643,14 @@ msgstr "Enregistrer le document ailleurs"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Branche distante « %s » introuvable"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"La branche demandée n'a été trouvée dans aucun dépôt distant lié au dépôt "
+"local"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
@@ -672,10 +674,8 @@ msgid "Symbols"
 msgstr "Symboles"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symboles"
+msgstr "Trop de symboles"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -683,6 +683,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took long"
 msgstr ""
+"%s comporte trop de symboles Vala.\n"
+"Leur analyse et leur affichage ont pris beaucoup de temps"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
