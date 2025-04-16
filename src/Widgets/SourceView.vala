@@ -36,7 +36,10 @@ namespace Scratch.Widgets {
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
         private string selected_text = "";
-        private SourceGutterRenderer git_diff_gutter_renderer;
+        private GitGutterRenderer git_diff_gutter_renderer;
+        private NavMarkGutterRenderer navmark_gutter_renderer;
+        private Gtk.TextMark? current_edit_point = null;
+        private int last_edit_point_line = 0;
 
         private const uint THROTTLE_MS = 400;
         private double total_delta = 0;
@@ -83,10 +86,6 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter_renderer = new SourceGutterRenderer ();
-            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
-
             space_drawer.enable_matrix = true;
 
             expand = true;
@@ -100,11 +99,19 @@ namespace Scratch.Widgets {
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
+            source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
 
             var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
             draw_spaces_tag.draw_spaces = true;
             source_buffer.tag_table.add (draw_spaces_tag);
+
+            // Make the gutter renderer and insert into the left side of the source view.
+            git_diff_gutter_renderer = new GitGutterRenderer ();
+            navmark_gutter_renderer = new NavMarkGutterRenderer (source_buffer);
+
+            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
+            get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
 
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
@@ -193,16 +200,6 @@ namespace Scratch.Widgets {
                         size_allocate_timer = 0;
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
-                    });
-                }
-            });
-
-            notify["project"].connect (() => {
-                //Assuming project will not change again
-                if (project.is_git_repo) {
-                    schedule_refresh_diff ();
-                    project.monitored_repo.file_content_changed.connect (() => {
-                        schedule_refresh_diff ();
                     });
                 }
             });
@@ -527,6 +524,34 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        public void add_mark_at_cursor () {
+            Gtk.TextIter? cur_iter = null;
+            buffer.get_iter_at_offset (out cur_iter, cursor_position);
+            var cur_line = cur_iter.get_line ();
+            navmark_gutter_renderer.add_mark_at_line (cur_line);
+        }
+
+        public void goto_previous_mark () {
+            goto_nearest_mark (true);
+        }
+
+        public void goto_next_mark () {
+            goto_nearest_mark (false);
+        }
+
+        private void goto_nearest_mark (bool before) {
+            Gtk.TextIter? start, end;
+            int line;
+            if (get_current_line (out start, out end)) {
+                navmark_gutter_renderer.get_nearest_marked_line (start.get_line (), before, out line);
+                    Gtk.TextIter? iter;
+                    buffer.get_iter_at_line (out iter, line);
+                    if (iter != null) {
+                        cursor_position = iter.get_offset ();
+                    }
+            }
+        }
+
         private void update_draw_spaces () {
             Gtk.TextIter doc_start, doc_end;
             buffer.get_start_iter (out doc_start);
@@ -552,6 +577,8 @@ namespace Scratch.Widgets {
         }
 
         private void on_context_menu (Gtk.Menu menu) {
+            scroll_mark_onscreen (buffer.get_mark ("insert"));
+
             var sort_item = new Gtk.MenuItem ();
             sort_item.sensitive = get_selected_line_count () > 1;
             sort_item.add (new Granite.AccelLabel.from_action_name (
@@ -561,6 +588,45 @@ namespace Scratch.Widgets {
             sort_item.activate.connect (sort_selected_lines);
 
             menu.add (sort_item);
+
+            var add_edit_item = new Gtk.MenuItem () {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ADD_MARK
+            };
+            add_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Mark Current Line"),
+                add_edit_item.action_name
+
+            ));
+            menu.add (add_edit_item);
+
+            var previous_edit_item = new Gtk.MenuItem () {
+                sensitive = navmark_gutter_renderer.has_marks,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
+            };
+            previous_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Previous Edit Mark"),
+                previous_edit_item.action_name
+
+            ));
+            menu.add (previous_edit_item);
+
+            var next_edit_item = new Gtk.MenuItem () {
+                sensitive = navmark_gutter_renderer.has_marks,
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
+            };
+            next_edit_item.add (new Granite.AccelLabel.from_action_name (
+                _("Goto Next Edit Mark"),
+                next_edit_item.action_name
+
+            ));
+            menu.add (next_edit_item);
+
+            if (!navmark_gutter_renderer.has_marks) {
+                previous_edit_item.action_name = "";
+                previous_edit_item.sensitive = false;
+                next_edit_item.action_name = "";
+                next_edit_item.sensitive = false;
+            }
 
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
@@ -597,7 +663,7 @@ namespace Scratch.Widgets {
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
-        void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
+        private void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
@@ -622,10 +688,17 @@ namespace Scratch.Widgets {
             } else {
                 selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
             }
-
         }
 
-        bool selection_changed_event () {
+        private void on_mark_deleted (Gtk.TextMark mark) {
+            var name = mark.get_name ();
+            if (name != null && name.has_prefix ("NavMark")) {
+                warning ("NavMark deleted");
+                navmark_gutter_renderer.remove_mark (mark);
+            }
+        }
+
+        private bool selection_changed_event () {
             Gtk.TextIter start, end;
             bool selected = buffer.get_selection_bounds (out start, out end);
             if (selected) {
@@ -642,17 +715,24 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        uint refresh_diff_timeout_id = 0;
-        private void schedule_refresh_diff () {
-            if (refresh_diff_timeout_id > 0) {
-                Source.remove (refresh_diff_timeout_id);
+        uint refresh_timeout_id = 0;
+        public void schedule_refresh () {
+            if (refresh_timeout_id > 0) {
+                Source.remove (refresh_timeout_id);
             }
 
-            refresh_diff_timeout_id = Timeout.add (250, () => {
-                refresh_diff_timeout_id = 0;
-                git_diff_gutter_renderer.line_status_map.clear ();
-                project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
-                git_diff_gutter_renderer.queue_draw ();
+            refresh_timeout_id = Timeout.add (250, () => {
+                refresh_timeout_id = 0;
+                if (project != null && project.is_git_repo) {
+                    git_diff_gutter_renderer.line_status_map.clear ();
+                    project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
+                    git_diff_gutter_renderer.queue_draw ();
+                }
+
+                if (navmark_gutter_renderer.has_marks) {
+                    navmark_gutter_renderer.queue_draw ();
+                }
+
                 return Source.REMOVE;
             });
         }
