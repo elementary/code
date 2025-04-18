@@ -37,20 +37,20 @@ public class Scratch.Dialogs.CloseProjectsConfirmationDialog : Granite.MessageDi
         // We can assume n_parents is either zero or one
         if (n_children > 0) {
             primary_text = ngettext (
-                _("This folder is the parent of an open project"),
-                _("This folder is the parent of %u open projects").printf (n_children),
+                "This folder is the parent of an open project",
+                "This folder is the parent of open projects",
                 (ulong) n_children
             );
                 ;
             secondary_text = ngettext (
-                _("Opening this folder will close the child project"),
-                _("Opening this folder will close all child projects"),
+                "Opening this folder will close the child project",
+                "Opening this folder will close all child projects",
                 (ulong) n_children
             );
 
             button_label = ngettext (
-                _("Close Child Project"),
-                _("Close Child Projects"),
+                "Close Child Project",
+                "Close Child Projects",
                 (ulong) n_children
             );
         } else {
