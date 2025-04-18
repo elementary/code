@@ -43,7 +43,6 @@ namespace Scratch {
 
         // Widgets
         public Scratch.HeaderBar toolbar;
-        private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
         private Code.Terminal terminal;
@@ -89,7 +88,6 @@ namespace Scratch {
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
-        public const string ACTION_SHOW_FIND = "action-show-find";
         public const string ACTION_TEMPLATES = "action-templates";
         public const string ACTION_SHOW_REPLACE = "action-show-replace";
         public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
@@ -101,6 +99,7 @@ namespace Scratch {
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
         public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
+        public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
@@ -127,7 +126,7 @@ namespace Scratch {
         private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
-            { ACTION_FIND, action_fetch, "s" },
+            { ACTION_FIND, action_find, "s"},
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
@@ -139,7 +138,7 @@ namespace Scratch {
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
-            { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
+            { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
@@ -378,7 +377,7 @@ namespace Scratch {
 
         private void update_toolbar_button (string name, bool new_state) {
             switch (name) {
-                case ACTION_SHOW_FIND:
+                case ACTION_TOGGLE_SHOW_FIND:
                     if (new_state) {
                         toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
                             {"Escape"},
@@ -391,7 +390,7 @@ namespace Scratch {
                         );
                     }
 
-                    search_revealer.set_reveal_child (new_state);
+                    search_bar.reveal (new_state);
 
                     break;
                 case ACTION_TOGGLE_SIDEBAR:
@@ -444,20 +443,6 @@ namespace Scratch {
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
-            search_revealer = new Gtk.Revealer ();
-            search_revealer.add (search_bar);
-
-            search_bar.map.connect_after ((w) => { /* signalled when reveal child */
-                set_search_text ();
-            });
-            search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
-                search_bar.search_entry.text = "";
-                search_bar.highlight_none ();
-            });
-            search_bar.search_empty.connect (() => {
-                folder_manager_view.clear_badges ();
-            });
-
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen
@@ -524,7 +509,7 @@ namespace Scratch {
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
             };
-            view_grid.add (search_revealer);
+            view_grid.add (search_bar);
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
@@ -562,8 +547,6 @@ namespace Scratch {
             var size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
             size_group.add_widget (sidebar.headerbar);
             size_group.add_widget (toolbar);
-
-            search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
@@ -704,13 +687,12 @@ namespace Scratch {
             folder_manager_view.expand_to_path (focused_file.get_path ());
         }
 
-        // private bool on_key_pressed (Gdk.EventKey event) {
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
             switch (Gdk.keyval_name (keyval)) {
                 case "Escape":
-                    if (search_revealer.get_child_revealed ()) {
-                        var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-                        fetch_action.set_state (false);
+                    if (search_bar.is_revealed) {
+                        var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
+                        action.set_state (false);
                         document_view.current_document.source_view.grab_focus ();
                     }
 
@@ -729,7 +711,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
@@ -750,6 +732,26 @@ namespace Scratch {
         // Get current document if it's focused
         public Scratch.Services.Document? get_focused_document () {
             return document_view.current_document;
+        }
+
+        // If selected text covers more than one line return just the first.
+        public void set_selected_text_for_search () {
+            var doc = get_current_document ();
+            var selected_text = doc != null ? doc.get_selected_text (false) : "";
+            var search_term = "";
+            if (selected_text.contains ("\n")) {
+                search_term = selected_text.split ("\n", 2)[0];
+            } else {
+                search_term = selected_text;
+            }
+
+            if (search_term != "") {
+                search_bar.set_search_entry_text (search_term);
+            }
+        }
+
+        public bool has_successful_search () {
+            return search_bar.search_occurrences > 0;
         }
 
         public void open_folder (File folder) {
@@ -807,13 +809,6 @@ namespace Scratch {
                     restore_opened_documents.begin ();
                 }
             });
-        }
-
-        // Save session information different from window state
-        private void restore_saved_state_extra () {
-            // Plugin panes size
-            hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
-            vp.set_position (Scratch.saved_state.get_int ("vp-size"));
         }
 
         private void create_unsaved_documents_directory () {
@@ -1173,32 +1168,38 @@ namespace Scratch {
         }
 
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
-        private string current_search_term = "";
-        private void action_fetch (SimpleAction action, Variant? param) {
-            current_search_term = param != null ? param.get_string () : "";
-            if (!search_revealer.child_revealed) {
-                var show_find_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+        private void action_find (SimpleAction action, Variant? param) {
+            find (param != null ? param.get_string () : "");
+        }
+
+        private void find (string search_term = "") {
+            if (!search_bar.is_revealed) {
+                var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
                 if (show_find_action.enabled) {
-                    /* Toggling the fetch action causes this function to be called again but the search_revealer child
-                     * is still not revealed so nothing more happens.  We use the map signal on the search entry
-                     * to set it up once it has been revealed. */
-                    show_find_action.set_state (true);
+                    show_find_action.activate (new Variant ("b", true));
                 }
-            } else {
-                set_search_text ();
             }
+
+            if (search_term != "") {
+                search_bar.set_search_entry_text (search_term);
+            } else {
+                set_selected_text_for_search ();
+            }
+
+            search_bar.search ();
         }
 
         private void action_show_replace (SimpleAction action) {
-            action_fetch (action, null);
+            find ();
             // May have to wait for the search bar to be revealed before we can grab focus
-            if (search_revealer.child_revealed) {
-                search_bar.replace_entry.grab_focus ();
+
+            if (search_bar.is_revealed) {
+                search_bar.focus_replace_entry ();
             } else {
-                ulong map_handler = 0;
-                map_handler = search_bar.map.connect_after (() => {
-                    search_bar.replace_entry.grab_focus ();
-                    search_bar.disconnect (map_handler);
+                search_bar.reveal (true);
+                Idle.add (() => {
+                    search_bar.focus_replace_entry ();
+                    return Source.REMOVE;
                 });
             }
         }
@@ -1212,29 +1213,11 @@ namespace Scratch {
         }
 
         private void action_find_global (SimpleAction action, Variant? param) {
-            var selected_text = "";
+            if (!search_bar.is_focused || search_bar.entry_text == "") {
+                set_selected_text_for_search ();
+            }
+
             var search_path = "";
-
-            var current_doc = get_current_document ();
-            if (current_doc != null) {
-                selected_text = current_doc.get_selected_text (false);
-            }
-
-            if (selected_text != "") {
-                selected_text = selected_text.split ("\n", 2)[0];
-            }
-            // If search entry focused use its text for search term, else use selected text
-            var term = search_bar.search_entry.has_focus ?
-                            search_bar.search_entry.text : selected_text;
-
-            // If no focused selected text fallback to search entry text if visible
-            if (term == "" &&
-                !search_bar.search_entry.has_focus &&
-                search_revealer.reveal_child) {
-
-                term = search_bar.search_entry.text;
-            }
-
             if (param != null && param.get_string () != "") {
                 search_path = param.get_string ();
             } else {
@@ -1242,12 +1225,14 @@ namespace Scratch {
             }
 
             if (search_path != "") {
-                folder_manager_view.search_global (search_path, term);
+                folder_manager_view.search_global (search_path, search_bar.entry_text);
             } else {
                 // Fallback to standard search
                 warning ("Unable to perform global search - search document instead");
-                action_fetch (action, param);
+                find ();
             }
+
+            // No need to reveal searchbar - handled by subsequent find action.
         }
 
         private void update_find_actions () {
@@ -1255,7 +1240,7 @@ namespace Scratch {
             Idle.add (() => {
                 var is_current_doc = get_current_document () != null;
                 Utils.action_from_group (ACTION_FIND, actions).set_enabled (is_current_doc);
-                Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (is_current_doc);
+                Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
                 var can_global_search = is_current_doc || git_manager.active_project_path != null;
@@ -1265,38 +1250,18 @@ namespace Scratch {
             });
         }
 
-        private void set_search_text () {
-            if (current_search_term != "") {
-                search_bar.search_entry.text = current_search_term;
-                search_bar.search_entry.grab_focus ();
-                search_bar.search_next ();
-            } else if (search_bar.search_entry.text != "") {
-                // Always search on what is showing in search entry
-                current_search_term = search_bar.search_entry.text;
-                search_bar.search_entry.grab_focus ();
-            } else {
-                var current_doc = get_current_document ();
-                // This is also called when all documents are closed.
-                if (current_doc != null) {
-                    var selected_text = current_doc.get_selected_text (false);
-                    if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                        current_search_term = selected_text.split ("\n", 2)[0];
-                        search_bar.search_entry.text = current_search_term;
-                    }
-
-                    search_bar.search_entry.grab_focus (); /* causes loss of document selection */
+        /** Toggle action - linked to toolbar togglebutton. **/
+        private void action_toggle_show_find () {
+            var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
+            var to_show = !action.get_state ().get_boolean ();
+            action.set_state (to_show);
+            search_bar.reveal (to_show);
+            if (to_show) {
+                search_bar.focus_search_entry ();
+                if (search_bar.entry_text == "") {
+                    set_selected_text_for_search ();
                 }
             }
-
-            if (current_search_term != "") {
-                search_bar.search_next (); /* this selects the next match (if any) */
-            }
-        }
-
-        /** Toggle action - linked to toolbar togglebutton. **/
-        private void action_show_fetch () {
-            var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-            fetch_action.set_state (!fetch_action.get_state ().get_boolean ());
         }
 
         private void action_go_to () {

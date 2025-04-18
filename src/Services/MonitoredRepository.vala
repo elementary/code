@@ -29,6 +29,7 @@ namespace Scratch.Services {
     }
 
     public class MonitoredRepository : Object {
+        public const string ORIGIN_PREFIX = "origin/";
         public Ggit.Repository git_repo { get; set construct; }
         public string branch_name {
             get {
@@ -67,6 +68,8 @@ namespace Scratch.Services {
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
 
+        private List<Ggit.Ref> remote_branch_ref_list;
+
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
                 return file_status_map.entries;
@@ -97,6 +100,8 @@ namespace Scratch.Services {
                 Ggit.StatusShow.INDEX_AND_WORKDIR,
                 null
             );
+
+            remote_branch_ref_list = new List<Ggit.Ref> ();
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -168,6 +173,28 @@ namespace Scratch.Services {
             return branches;
         }
 
+        public unowned List<string> get_remote_branches () {
+            unowned List<string> branch_names = null;
+            try {
+                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
+
+                foreach (Ggit.Ref branch_ref in branch_enumerator) {
+                    var remote_name = branch_ref.get_shorthand ();
+                    if (!remote_name.has_suffix ("HEAD") &&
+                        !has_local_branch_name (remote_name.substring (ORIGIN_PREFIX.length))) {
+
+                        branch_names.append (branch_ref.get_shorthand ());
+                    }
+
+                    remote_branch_ref_list.append (branch_ref);
+                }
+            } catch (Error e) {
+                warning ("Could not enumerate local branches %s", e.message);
+            }
+
+            return branch_names;
+        }
+
         public bool has_local_branch_name (string name) {
             try {
                 git_repo.lookup_branch (name, Ggit.BranchType.LOCAL);
@@ -186,33 +213,82 @@ namespace Scratch.Services {
             return true;
         }
 
-        public void change_local_branch (string new_branch_name) throws Error {
+        public void change_local_branch (string new_branch_name) throws Error
+        requires (!new_branch_name.has_prefix (ORIGIN_PREFIX)) {
+
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
             checkout_branch (branch);
         }
 
-        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) throws Error {
-            if (confirm && has_uncommitted) {
-                confirm_checkout_branch (new_head_branch);
+        public void checkout_remote_branch (string target_shorthand) throws Error
+        requires (target_shorthand.has_prefix (ORIGIN_PREFIX)) {
+
+            Ggit.Ref? branch_ref;
+            //Assume list is up to date as this is called from context menu
+            unowned var list_pointer = remote_branch_ref_list.first ();
+            while (list_pointer.data != null &&
+                   list_pointer.data.get_shorthand () != target_shorthand) {
+
+                list_pointer = list_pointer.next;
+            }
+
+            branch_ref = list_pointer.data;
+            if (branch_ref == null) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Remote Branch '%s' not found").printf (target_shorthand),
+                    _("The requested branch was not found in any remote linked to this repository"),
+                    "dialog-warning"
+                ) {
+                    modal = true
+                };
+
+                dialog.response.connect (() => {dialog.destroy ();});
+                dialog.present ();
                 return;
             }
 
-            git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
-            var options = new Ggit.CheckoutOptions () {
-                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
-                strategy = Ggit.CheckoutStrategy.FORCE
-            };
-
-            git_repo.checkout_head (options);
-
-            branch_name = new_head_branch.get_name ();
+            var commit = branch_ref.lookup ();
+            var local_name = target_shorthand.substring (ORIGIN_PREFIX.length);
+            var local_branch = git_repo.create_branch (local_name, commit, NONE) as Ggit.Branch;
+            checkout_branch (local_branch);
+            local_branch.set_upstream (target_shorthand);
         }
 
-        private void confirm_checkout_branch (Ggit.Branch new_head_branch) {
+        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
+            var new_branch_name = "";
+            try {
+                new_branch_name = new_head_branch.get_name ();
+                if (confirm && has_uncommitted) {
+                    confirm_checkout_branch (new_head_branch);
+                    return;
+                }
+
+                git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
+                var options = new Ggit.CheckoutOptions () {
+                    //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                    strategy = Ggit.CheckoutStrategy.FORCE
+                };
+
+                git_repo.checkout_head (options);
+                branch_name = new_branch_name;
+            } catch (Error e) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("An error occurred while checking out the requested branch"),
+                    e.message,
+                    "dialog-warning"
+                );
+
+                dialog.run ();
+                dialog.destroy ();
+            }
+        }
+
+        private void confirm_checkout_branch (Ggit.Branch new_head_branch) throws Error {
             var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+            var new_branch_name = new_head_branch.get_name ();
             var dialog = new Scratch.Dialogs.OverwriteUncommittedConfirmationDialog (
                 parent,
-                new_head_branch.get_name (),
+                new_branch_name,
                 get_project_diff ()
             );
             dialog.response.connect ((res) => {
