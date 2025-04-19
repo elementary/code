@@ -326,26 +326,28 @@ namespace Scratch.Widgets {
         }
 
         // Called when one of the settings buttons or the search term changes
-        private void on_search_parameters_changed () requires (search_context != null) {
-            var search_string = search_entry.text;
-            search_context.settings.search_text = search_string;
-            var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
-            switch (case_mode) {
-                case CaseSensitiveMode.NEVER:
-                    search_context.settings.case_sensitive = false;
-                    break;
-                case CaseSensitiveMode.MIXED:
-                    search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-                    break;
-                case CaseSensitiveMode.ALWAYS:
-                    search_context.settings.case_sensitive = true;
-                    break;
-                default:
-                    assert_not_reached ();
-            }
+        private void on_search_parameters_changed () {
+            if (search_context != null) {
+                var search_string = search_entry.text;
+                search_context.settings.search_text = search_string;
+                var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
+                switch (case_mode) {
+                    case CaseSensitiveMode.NEVER:
+                        search_context.settings.case_sensitive = false;
+                        break;
+                    case CaseSensitiveMode.MIXED:
+                        search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+                        break;
+                    case CaseSensitiveMode.ALWAYS:
+                        search_context.settings.case_sensitive = true;
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
 
-            search_context.settings.at_word_boundaries = whole_word_search_button.active;
-            search_context.settings.regex_enabled = regex_search_button.active;
+                search_context.settings.at_word_boundaries = whole_word_search_button.active;
+                search_context.settings.regex_enabled = regex_search_button.active;
+            }
 
             update_search_widgets ();
         }
