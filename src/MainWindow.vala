@@ -684,7 +684,9 @@ namespace Scratch {
 
             document_view.request_placeholder_if_empty ();
             restore_override = null;
-            folder_manager_view.expand_to_path (focused_file.get_path ());
+            if (focused_file != null) {
+                folder_manager_view.expand_to_path (focused_file.get_path ());
+            }
         }
 
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
