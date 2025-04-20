@@ -1181,17 +1181,19 @@ namespace Scratch {
         }
 
         private void find (string search_term = "") {
-            if (!search_bar.is_revealed) {
-                var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
-                if (show_find_action.enabled) {
-                    show_find_action.activate (new Variant ("b", true));
-                }
-            }
-
+            // Set search term before focusing search bar else maybe ineffective
             if (search_term != "") {
                 search_bar.set_search_entry_text (search_term);
             } else {
                 set_selected_text_for_search ();
+            }
+
+            if (!search_bar.is_revealed) {
+                var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
+                if (show_find_action.enabled) {
+                    // This focuses the search bar
+                    show_find_action.activate (new Variant ("b", true));
+                }
             }
 
             search_bar.search ();
