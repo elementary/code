@@ -739,7 +739,13 @@ namespace Scratch {
 
         // If selected text covers more than one line return just the first.
         public void set_selected_text_for_search () {
+            // Do not overwrite search term if we are editing the entry.
+            if (search_bar.is_focused) {
+                return;
+            }
+
             var doc = get_current_document ();
+
             var selected_text = doc != null ? doc.get_selected_text (false) : "";
             var search_term = "";
             if (selected_text.contains ("\n")) {
