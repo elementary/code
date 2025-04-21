@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-12 16:30+0000\n"
-"PO-Revision-Date: 2025-03-15 16:15+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"PO-Revision-Date: 2025-04-05 13:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
 "\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -93,34 +93,34 @@ msgstr "Показать Терминал"
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:664
+#: src/MainWindow.vala:953 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:668
+#: src/MainWindow.vala:957 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:968
+#: src/MainWindow.vala:961
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:964
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
 #: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:1012
+#: src/MainWindow.vala:1005
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:1013
+#: src/MainWindow.vala:1006
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -360,80 +360,80 @@ msgstr "Не выполнять checkout"
 msgid "Checkout and Overwrite"
 msgstr "Выполнить checkout и перезаписать"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:129
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
 msgstr "Другие действия"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:103
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
 msgid "Rename"
 msgstr "Переименовать"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:111
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
 msgid "Other Application…"
 msgstr "Другое приложение…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:181
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
 msgid "Open In"
 msgstr "Открыть в"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Папки"
 
-#: src/FolderManager/FolderItem.vala:119
+#: src/FolderManager/FolderItem.vala:117
 msgid "Find in Folder…"
 msgstr "Поиск в папке…"
 
-#: src/FolderManager/FolderItem.vala:152
+#: src/FolderManager/FolderItem.vala:150
 msgid "Terminal Pane"
 msgstr "Панель терминала"
 
-#: src/FolderManager/FolderItem.vala:187
+#: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
 msgstr "Папку"
 
-#: src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FolderItem.vala:193
 msgid "Empty File"
 msgstr "Пустой файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:206
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Создать"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "безымянная папка"
 
-#: src/FolderManager/FolderItem.vala:364
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "новый файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr "Назначить активным проектом"
 
-#: src/FolderManager/ProjectFolderItem.vala:148
+#: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
 msgstr "Открыть в панели терминала"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Закрыть остальные папки"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
@@ -441,7 +441,7 @@ msgstr[0] "Закрыть %u открытый документ"
 msgstr[1] "Закрыть %u открытых документа"
 msgstr[2] "Закрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
@@ -449,7 +449,7 @@ msgstr[0] "Скрыть %u открытый документ"
 msgstr[1] "Скрыть %u открытых документа"
 msgstr[2] "Скрыть %u открытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
@@ -457,23 +457,31 @@ msgstr[0] "Восстановить %u скрытый документ"
 msgstr[1] "Восстановить %u скрытых документа"
 msgstr[2] "Восстановить %u скрытых документов"
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Найти в проекте…"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr "Локальные"
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr "Удалённые"
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "Новая ветка…"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
-msgstr "Ветка"
+msgstr "Ветки"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Изменено"
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Ошибка создания новой ветки: «%s»"
@@ -629,12 +637,23 @@ msgstr "Перезаписать"
 msgid "Save Document elsewhere"
 msgstr "Сохранить в другом месте"
 
-#: src/Services/MonitoredRepository.vala:213
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr "Удалённая ветка «%s» не найдена"
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+"Указанная ветка не обнаружена ни в одном связанном удалённом репозитории"
+
+#: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
 msgstr "Произошла ошибка при выполнении checkout для указанной ветки"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:261
+#: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (отсоединён)"
@@ -645,10 +664,23 @@ msgstr "Шаблоны"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:138
-#: src/SymbolPane/SymbolOutline.vala:92
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Символы"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+msgid "Too Many Symbols"
+msgstr "Слишком много символов"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#, c-format
+msgid ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took long"
+msgstr ""
+"«%s» содержит слишком много символов Vala.\n"
+"Их распознавание и отображение выполнялись слишком долго"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -690,19 +722,19 @@ msgstr "Пространство имён"
 msgid "Other"
 msgstr "Другое"
 
-#: src/SymbolPane/SymbolOutline.vala:96
+#: src/SymbolPane/SymbolOutline.vala:103
 msgid "Find Symbol"
 msgstr "Поиск символов"
 
-#: src/SymbolPane/SymbolOutline.vala:105
+#: src/SymbolPane/SymbolOutline.vala:112
 msgid "Filter symbol type"
 msgstr "Фильтрация по типу"
 
-#: src/SymbolPane/SymbolOutline.vala:125
+#: src/SymbolPane/SymbolOutline.vala:132
 msgid "Select All"
 msgstr "Выбрать все"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:138
 msgid "Deselect All"
 msgstr "Снять выбор со всех"
 
