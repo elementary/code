@@ -7,39 +7,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-02 18:11+0000\n"
-"PO-Revision-Date: 2025-02-07 15:16+0000\n"
+"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"PO-Revision-Date: 2025-04-10 11:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:98
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "Afficher les détails de version et quitter"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "Ouvrir un fichier dans la plage de sélection spécifiée"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<DÉBUT_LIGNE[.DÉBUT_COLONNE][-FIN_LIGNE[.FIN_COLONNE]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[FICHIER…]"
 
@@ -91,36 +92,42 @@ msgstr "Afficher le terminal"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:960 src/Services/Document.vala:664
+#: src/MainWindow.vala:953 src/Services/Document.vala:664
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:964 src/Services/Document.vala:668
+#: src/MainWindow.vala:957 src/Services/Document.vala:668
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:968
+#: src/MainWindow.vala:961
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:971
+#: src/MainWindow.vala:964
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:972 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
 #: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:1012
+#: src/MainWindow.vala:1005
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:1013
+#: src/MainWindow.vala:1006
 msgid "_Cancel"
 msgstr "_Annuler"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "Afficher « %s » avec l'application par défaut"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -290,28 +297,22 @@ msgid "Restore Anyway"
 msgstr "Restaurer quand-même"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "This folder is the parent of an open project"
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "Ce dossier est le parent d'un projet ouvert"
-msgstr[1] "Ce dossier est le parent d'un projet ouvert"
+msgstr[1] "Ce dossier est le parent de projets ouverts"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
-#, fuzzy
-#| msgid "Opening this folder will close the child project"
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Ouvrir ce dossier fermera le projet enfant"
-msgstr[1] "Ouvrir ce dossier fermera le projet enfant"
+msgstr[1] "Ouvrir ce dossier fermera les projets enfants"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
-#, fuzzy
-#| msgid "Close Child Project"
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Fermer le projet enfant"
-msgstr[1] "Fermer le projet enfant"
+msgstr[1] "Fermer les projets enfants"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -335,13 +336,7 @@ msgstr "Il y a des modifications non validées dans la branche courante"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, fuzzy, c-format
-#| msgid ""
-#| "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked "
-#| "out now.\n"
-#| "\n"
-#| "<i>It is recommended that uncommitted changes are stashed, committed, or "
-#| "reverted before proceeding </i>"
+#, c-format
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
@@ -364,114 +359,125 @@ msgstr "Ne pas basculer"
 msgid "Checkout and Overwrite"
 msgstr "Basculer et écraser"
 
-#: src/FolderManager/FileItem.vala:46 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:148
-msgid "Open in Terminal Pane"
-msgstr "Ouvrir dans le panneau du Terminal"
-
-#: src/FolderManager/FileItem.vala:60 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:66 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:76 src/FolderManager/FolderItem.vala:120
-#: src/FolderManager/ProjectFolderItem.vala:272
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
-#: src/FolderManager/FileItem.vala:111 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileView.vala:73
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:117
 msgid "Find in Folder…"
 msgstr "Rechercher dans le dossier…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:150
+msgid "Terminal Pane"
+msgstr "Panneau du Terminal"
+
+#: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:193
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
-#: src/FolderManager/ProjectFolderItem.vala:394
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:360
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:361
+#: src/FolderManager/FolderItem.vala:360
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/ProjectFolderItem.vala:140
+#: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
 msgstr "Définir comme projet actif"
 
-#: src/FolderManager/ProjectFolderItem.vala:179
+#: src/FolderManager/ProjectFolderItem.vala:155
+msgid "Open in Terminal Pane"
+msgstr "Ouvrir dans le panneau du Terminal"
+
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
-#: src/FolderManager/ProjectFolderItem.vala:187
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Fermer les autres dossiers"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Fermer %u document ouvert"
 msgstr[1] "Fermer %u documents ouverts"
 
-#: src/FolderManager/ProjectFolderItem.vala:216
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Cacher %u document ouvert"
 msgstr[1] "Cacher %u documents ouverts"
 
-#: src/FolderManager/ProjectFolderItem.vala:239
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Afficher %u document caché"
 msgstr[1] "Afficher %u documents cachés"
 
-#: src/FolderManager/ProjectFolderItem.vala:283 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Rechercher dans le projet…"
 
-#: src/FolderManager/ProjectFolderItem.vala:333
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr "Local"
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr "Distant"
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "Nouvelle branche…"
 
-#: src/FolderManager/ProjectFolderItem.vala:357
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Branche"
 
-#: src/FolderManager/ProjectFolderItem.vala:400
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Modifié"
 
-#: src/FolderManager/ProjectFolderItem.vala:438
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Erreur lors de la création de la nouvelle branche : « %s »"
@@ -634,16 +640,51 @@ msgstr "Écraser"
 msgid "Save Document elsewhere"
 msgstr "Enregistrer le document ailleurs"
 
+#: src/Services/MonitoredRepository.vala:238
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr "Branche distante « %s » introuvable"
+
+#: src/Services/MonitoredRepository.vala:239
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr ""
+"La branche demandée n'a été trouvée dans aucun dépôt distant lié au dépôt "
+"local"
+
+#: src/Services/MonitoredRepository.vala:276
+msgid "An error occurred while checking out the requested branch"
+msgstr "Une erreur s'est produite lors de l'extraction de la branche demandée"
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:324
+#, c-format
+msgid "%.8s (detached)"
+msgstr "%.8s (détachée)"
+
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Modèles"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
-#: src/SymbolPane/SymbolOutline.vala:92
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Symboles"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+msgid "Too Many Symbols"
+msgstr "Trop de symboles"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#, c-format
+msgid ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took long"
+msgstr ""
+"%s comporte trop de symboles Vala.\n"
+"Leur analyse et leur affichage ont pris beaucoup de temps"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -685,19 +726,19 @@ msgstr "Namespace"
 msgid "Other"
 msgstr "Autre"
 
-#: src/SymbolPane/SymbolOutline.vala:96
+#: src/SymbolPane/SymbolOutline.vala:103
 msgid "Find Symbol"
 msgstr "Rechercher le symbole"
 
-#: src/SymbolPane/SymbolOutline.vala:105
+#: src/SymbolPane/SymbolOutline.vala:112
 msgid "Filter symbol type"
 msgstr "Filtrer par type de symbole"
 
-#: src/SymbolPane/SymbolOutline.vala:125
+#: src/SymbolPane/SymbolOutline.vala:132
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:138
 msgid "Deselect All"
 msgstr "Tout désélectionner"
 
