@@ -20,16 +20,50 @@
  */
 
 public class Scratch.Plugins.PrefixNode : Object {
-    public GLib.List<PrefixNode> children;
+    public enum NodeType {
+        ROOT,
+        CHAR,
+        WORD_END
+    }
+
+    private const unichar WORD_END_CHAR = '\0';
+    private uint occurrences; // Only used for WORD_END nodes
+
+    public unichar uc { get; construct; }
+    public NodeType node_type { get; construct; }
+    public PrefixNode? parent { get; construct; }
     public unichar value { get; construct; }
 
-    public PrefixNode (unichar c = '\0') {
+    public Gee.ArrayList<PrefixNode> children;
+
+    public PrefixNode.from_unichar (unichar c, PrefixNode? _parent) requires (c != WORD_END_CHAR) {
         Object (
-            value: c
+            value: c,
+            parent: _parent,
+            uc: c,
+            node_type: NodeType.CHAR
         );
     }
 
+    public PrefixNode.root () {
+        Object (
+            parent: null,
+            uc: WORD_END_CHAR,
+            node_type: NodeType.ROOT
+        );
+    }
+
+    public PrefixNode.word_end (PrefixNode _parent) {
+        Object (
+            parent: _parent,
+            uc: WORD_END_CHAR,
+            node_type: NodeType.WORD_END
+        );
+
+        occurrences = 1;
+    }
+
     construct {
-        children = new List<PrefixNode> ();
+        children = new Gee.ArrayList<PrefixNode> ();
     }
 }

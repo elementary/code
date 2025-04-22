@@ -42,7 +42,11 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
     construct {
         store.item_selected.connect ((selected) => {
+            if (selected == null) {
+                return;
+            }
             doc.goto (((CtagsSymbol)selected).line);
+            store.selected = null;
         });
     }
 
