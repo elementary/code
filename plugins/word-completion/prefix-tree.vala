@@ -2,6 +2,7 @@
 namespace Scratch.Plugins {
     public class PrefixTree : Object {
         private PrefixNode root;
+        public bool completed { get; set; default = false; }
 
         construct {
             clear ();
