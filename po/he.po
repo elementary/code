@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2025-04-03 19:39+0000\n"
+"PO-Revision-Date: 2025-04-16 13:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/>"
 "\n"
@@ -340,14 +340,17 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"שינויים שלא קובעו יאבדו לחלוטין אם <b>‚%s’</b> הוא מה שנשלף כרגע.\n"
+"\n"
+"<i>מומלץ ששינויים שלא קובעו יוטמנו, יקובעו או ישוחזרו בטרם המשך הפעילות.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "לא לשלוף"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "לשלוף ולדרוס"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
@@ -630,7 +633,7 @@ msgstr "הענף המרוחק לא נמצא באף צד מרוחק שמקושר 
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "אירעה שגיאה בשליפת הענף המבוקש"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:324
