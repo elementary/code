@@ -26,7 +26,8 @@ namespace Scratch.FolderManager {
 
         private static Icon added_icon;
         private static Icon modified_icon;
-        private SimpleAction change_branch_action;
+        private SimpleAction checkout_local_branch_action;
+        private SimpleAction checkout_remote_branch_action;
 
         public signal void closed ();
 
@@ -68,7 +69,7 @@ namespace Scratch.FolderManager {
                     );
                 }
 
-                change_branch_action.set_state (monitored_repo.branch_name);
+                checkout_local_branch_action.set_state (monitored_repo.branch_name);
             }
         }
 
@@ -76,8 +77,13 @@ namespace Scratch.FolderManager {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
-                change_branch_action = new SimpleAction.stateful (
-                    FileView.ACTION_CHANGE_BRANCH,
+                checkout_local_branch_action = new SimpleAction.stateful (
+                    FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
+                    GLib.VariantType.STRING,
+                    ""
+                );
+                checkout_remote_branch_action = new SimpleAction.stateful (
+                    FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
                     GLib.VariantType.STRING,
                     ""
                 );
@@ -86,7 +92,8 @@ namespace Scratch.FolderManager {
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
-                change_branch_action.activate.connect (handle_change_branch_action);
+                checkout_local_branch_action.activate.connect (handle_checkout_local_branch_action);
+                checkout_remote_branch_action.activate.connect (handle_checkout_remote_branch_action);
             }
         }
 
@@ -124,26 +131,38 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            GLib.FileInfo info = null;
-            unowned string? file_type = null;
-
+            string file_type = "";
             try {
-                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-                file_type = info.get_content_type ();
+                var info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                if (info.has_attribute (GLib.FileAttribute.STANDARD_CONTENT_TYPE)) {
+                    file_type = info.get_content_type ();
+                }
             } catch (Error e) {
                 warning (e.message);
             }
 
-            var open_in_terminal_pane_item = new GLib.MenuItem (
-                _("Open in Terminal Pane"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    new Variant.string (
-                        Services.GitManager.get_instance ().get_default_build_dir (path)
+            MenuItem set_active_folder_item;
+            if (is_git_repo) {
+                set_active_folder_item = new GLib.MenuItem (
+                    _("Set as Active Project"),
+                    GLib.Action.print_detailed_name (
+                        FileView.ACTION_PREFIX + FileView.ACTION_SET_ACTIVE_PROJECT,
+                        new Variant.string (file.path)
                     )
-                )
-            );
-            open_in_terminal_pane_item.set_attribute_value (
+                );
+            } else {
+                set_active_folder_item = new GLib.MenuItem (
+                    _("Open in Terminal Pane"),
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        new Variant.string (
+                            Services.GitManager.get_instance ().get_default_build_dir (path)
+                        )
+                    )
+                );
+            }
+
+            set_active_folder_item.set_attribute_value (
                 "accel",
                 Utils.get_accel_for_action (
                     GLib.Action.print_detailed_name (
@@ -154,7 +173,7 @@ namespace Scratch.FolderManager {
             );
 
             var external_actions_section = new GLib.Menu ();
-            external_actions_section.append_item (open_in_terminal_pane_item);
+            external_actions_section.append_item (set_active_folder_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
             var folder_actions_section = new GLib.Menu ();
@@ -303,19 +322,43 @@ namespace Scratch.FolderManager {
 
         protected GLib.MenuItem create_submenu_for_branch () {
             // Ensures that action for relevant project is being used
-            view.actions.add_action (change_branch_action);
+            view.actions.add_action (checkout_local_branch_action);
+            view.actions.add_action (checkout_remote_branch_action);
 
-            GLib.Menu branch_selection_menu = new GLib.Menu ();
-            foreach (unowned var branch_name in monitored_repo.get_local_branches ()) {
-                branch_selection_menu.append (
-                    branch_name,
-                    GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_CHANGE_BRANCH,
-                        branch_name
-                    )
-                );
+            unowned var local_branches = monitored_repo.get_local_branches ();
+            var local_branch_submenu = new Menu ();
+            var local_branch_menu = new Menu ();
+            if (local_branches.length () > 0) {
+                local_branch_submenu.append_submenu (_("Local"), local_branch_menu);
+                foreach (unowned var branch_name in local_branches) {
+                    local_branch_menu.append (
+                        branch_name,
+                        GLib.Action.print_detailed_name (
+                            FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
+                            branch_name
+                        )
+                    );
+                }
             }
 
+
+            unowned var remote_branches = monitored_repo.get_remote_branches ();
+            var remote_branch_submenu = new Menu ();
+            var remote_branch_menu = new Menu ();
+            if (remote_branches.length () > 0) {
+                remote_branch_submenu.append_submenu (_("Remote"), remote_branch_menu);
+                foreach (unowned var branch_name in remote_branches) {
+                    remote_branch_menu.append (
+                        branch_name,
+                        GLib.Action.print_detailed_name (
+                            FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
+                            branch_name
+                        )
+                    );
+                }
+
+
+            }
 
             var new_branch_item = new GLib.MenuItem (
                 _("New Branch…"),
@@ -339,17 +382,31 @@ namespace Scratch.FolderManager {
             bottom_section.append_item (new_branch_item);
 
             var menu = new GLib.Menu ();
-            menu.append_section (null, branch_selection_menu);
+            menu.append_section (null, local_branch_submenu);
+            menu.append_section (null, remote_branch_submenu);
             menu.append_section (null, bottom_section);
 
             var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
             return menu_item;
         }
 
-        private void handle_change_branch_action (GLib.Variant? parameter) {
-            var branch_name = parameter.get_string ();
+        private void handle_checkout_local_branch_action (GLib.Variant? param) {
+            var branch_name = param != null ? param.get_string () : "";
             try {
-                monitored_repo.change_branch (branch_name);
+                monitored_repo.change_local_branch (branch_name);
+            } catch (GLib.Error e) {
+                warning ("Failed to change branch to %s. %s", branch_name, e.message);
+            }
+        }
+
+        private void handle_checkout_remote_branch_action (GLib.Variant? param) {
+            var branch_name = param != null ? param.get_string () : "";
+            if (branch_name == "") {
+                return;
+            }
+
+            try {
+                monitored_repo.checkout_remote_branch (branch_name);
             } catch (GLib.Error e) {
                 warning ("Failed to change branch to %s. %s", branch_name, e.message);
             }

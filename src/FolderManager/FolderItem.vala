@@ -29,7 +29,7 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
-        public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
+        public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
 
@@ -63,16 +63,14 @@ namespace Scratch.FolderManager {
                  file.children.size > 0) {
 
                 foreach (var child in file.children) {
-                    Code.Widgets.SourceList.Item item = null;
-                    if (child.is_valid_directory ()) {
+                    Code.Widgets.SourceList.Item? item = null;
+                    if (child.is_valid_directory) {
                         item = new FolderItem (child, view);
                     } else if (child.is_valid_textfile) {
                         item = new FileItem (child, view);
                     }
 
-                    if (item != null) {
-                        add (item);
-                    }
+                    add (item); // ignores null parameter
                 }
 
                 children_loaded = true;
@@ -88,16 +86,7 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_in_terminal_pane_item = new GLib.MenuItem (
-                (_("Open in Terminal Pane")),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    new Variant.string (file.path)
-                )
-            );
-
             GLib.FileInfo info = null;
-
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
             } catch (Error e) {
@@ -133,7 +122,6 @@ namespace Scratch.FolderManager {
             );
 
             var external_actions_section = new GLib.Menu ();
-            external_actions_section.append_item (open_in_terminal_pane_item);
             external_actions_section.append_item (create_submenu_for_open_in (file_type));
             if (contractor_items.get_n_items () > 0) {
                 external_actions_section.append_submenu (_("Other Actions"), contractor_items);
@@ -158,6 +146,15 @@ namespace Scratch.FolderManager {
         }
 
         protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
+            var open_in_terminal_pane_item = new GLib.MenuItem (
+                (_("Terminal Pane")),
+                GLib.Action.print_detailed_name (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (file.path)
+                )
+            );
+            open_in_terminal_pane_item.set_icon (new ThemedIcon ("panel-bottom-symbolic"));
+
             var other_menu_item = new GLib.MenuItem (
                 _("Other Application…"),
                 GLib.Action.print_detailed_name (
@@ -169,9 +166,13 @@ namespace Scratch.FolderManager {
             var extra_section = new GLib.Menu ();
             extra_section.append_item (other_menu_item);
 
+            var terminal_pane_section = new Menu ();
+            terminal_pane_section.append_item (open_in_terminal_pane_item);
+
             file_type = file_type ?? "inode/directory";
 
             var open_in_menu = new GLib.Menu ();
+            open_in_menu.append_section (null, terminal_pane_section);
             open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
             open_in_menu.append_section (null, extra_section);
 
@@ -237,7 +238,6 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            view.ignore_next_select = true;
             ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
             // Add back dummy if empty
             if (!(has_dummy || n_children > 0)) {
@@ -305,15 +305,13 @@ namespace Scratch.FolderManager {
                         var path_item = find_item_for_path (source.get_path ());
                         if (path_item == null) {
                             var file = new File (source.get_path ());
-                            if (file.is_valid_directory ()) {
+                            if (file.is_valid_directory) {
                                 path_item = new FolderItem (file, view);
-                            } else if (!file.is_temporary) {
+                            } else if (file.is_valid_textfile) {
                                 path_item = new FileItem (file, view);
-                            } else {
-                                break;
                             }
 
-                            add (path_item);
+                            add (path_item); // null parameter is silently ignored
                         }
 
                         break;
@@ -384,7 +382,7 @@ namespace Scratch.FolderManager {
                                 gfile.make_directory ();
                             } else {
                                 gfile.create (FileCreateFlags.NONE);
-                                view.select (gfile.get_path ());
+                                view.activate (gfile.get_path ());
                             }
                         } catch (Error e) {
                             warning (e.message);
