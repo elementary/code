@@ -19,16 +19,9 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
-
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
-
-    private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
+    public const int MAX_TOKENS = 1000000;
+    public const uint INTERACTIVE_DELAY = 500;
+    public const int INITIAL_PARSE_DELAY_MSEC = 1000;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -40,6 +33,18 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     };
 
     private const uint REFRESH_SHORTCUT = Gdk.Key.bar; //"|" in combination with <Ctrl> will cause refresh
+
+    public Object object { owned get; construct; }
+    public Euclide.Completion.Parser parser;
+    public Gtk.SourceView? current_view;
+
+    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
+    private Gtk.SourceCompletion? current_completion;
+    private Scratch.Plugins.CompletionProvider current_provider;
+    private Scratch.Services.Document current_document {get; private set;}
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+    private bool completion_in_progress = false;
 
     private uint timeout_id = 0;
 
@@ -76,7 +81,13 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
         current_document = doc;
         current_view = doc.source_view;
+
+        if (text_view_list.find (current_view) == null) {
+            text_view_list.append (current_view);
+        }
+
         current_view.key_press_event.connect (on_key_press);
+
         current_view.completion.show.connect (() => {
             completion_in_progress = true;
         });
@@ -84,23 +95,27 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
             completion_in_progress = false;
         });
 
-
-        if (text_view_list.find (current_view) == null)
-            text_view_list.append (current_view);
-
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
-
+        current_completion = current_view.completion;
         try {
-            current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
-            current_view.completion.show_icons = true;
+            current_provider = new Scratch.Plugins.CompletionProvider (this);
+            current_provider.priority = 1;
+            current_provider.name = provider_name_from_document (doc);
+
+            current_completion.add_provider (current_provider);
+            current_completion.show_headers = true;
+            current_completion.show_icons = true;
+            current_completion.accelerators = 9;
+            current_completion.select_on_show = true;
             /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
-
         } catch (Error e) {
-            warning (e.message);
+            critical (
+                "Could not add completion provider to %s. %s\n",
+                current_document.title,
+                e.message
+            );
+            cleanup (current_view);
+            return;
         }
     }
 
