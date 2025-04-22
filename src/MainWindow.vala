@@ -1046,7 +1046,7 @@ namespace Scratch {
             if (clone_dialog.can_clone) {
                 //TODO Show progress while cloning
                 git_manager.clone_repository.begin (
-                    uri, 
+                    uri,
                     Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
                     (obj, res) => {
                         try {

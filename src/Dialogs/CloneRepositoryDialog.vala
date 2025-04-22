@@ -139,7 +139,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         return repository_local_folder_entry.text;
     }
 
-    public string get_local_name ()  requires (can_clone) {
+    public string get_local_name () requires (can_clone) {
         var local_name = repository_local_name_entry.text;
         if (local_name == "") {
             local_name = repository_name_entry.text;
