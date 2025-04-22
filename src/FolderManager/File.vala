@@ -25,7 +25,7 @@ namespace Scratch.FolderManager {
      */
     public class File : GLib.Object {
         public GLib.File file { get; private set; }
-        private GLib.FileInfo info;
+        private GLib.FileInfo? info = null; // Non-null after loading
 
         public File (string path) {
             Object (path: path);
@@ -67,7 +67,12 @@ namespace Scratch.FolderManager {
                     return _icon;
                 }
 
-                _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                if (info != null) {
+                    _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                } else {
+                    _icon = new ThemedIcon ("missing-image");
+                }
+
                 return _icon;
             }
         }
@@ -78,31 +83,29 @@ namespace Scratch.FolderManager {
         }
 
         // Checks if we're dealing with a non-backup directory
-        // Hidden subfolders are not shown by default, but we need to allow hidden top-level folder
-        public bool is_valid_directory (bool allow_hidden = true) {
-            if ((!allow_hidden && name.has_prefix (".")) || // If parent is hidden then inherit validity from parent
-                 info.get_is_backup ()) {
+        // If parent is hidden then inherit validity from parent
+        private bool? _is_valid_directory = null;
+        public bool is_valid_directory {
+            get {
+                if (_is_valid_directory == null) {
+                    _is_valid_directory = info != null &&
+                                          !info.get_is_backup () &&
+                                          info.get_file_type () == FileType.DIRECTORY;
+                }
 
-                return false;
+                return _is_valid_directory;
             }
-
-            if (info.get_file_type () == FileType.DIRECTORY) {
-                return true;
-            }
-
-            return false;
         }
 
-        public bool is_temporary {
-            get {
-               return path.has_suffix ("~");
-            }
-         }
-
         // checks if we're dealing with a textfile
+        private bool? _is_valid_textfile = null;
         public bool is_valid_textfile {
             get {
-                return Utils.check_if_valid_text_file (path, info);
+                if (_is_valid_textfile == null) {
+                    _is_valid_textfile = !path.has_suffix ("~") && Utils.check_if_valid_text_file (path, info);
+                }
+
+                return _is_valid_textfile;
             }
         }
 
@@ -138,7 +141,7 @@ namespace Scratch.FolderManager {
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
                         var child_file = new File (child.get_path ());
-                        if (child_file.is_valid_directory () || child_file.is_valid_textfile) {
+                        if (child_file.is_valid_directory || child_file.is_valid_textfile) {
                             _children.add (child_file);
                         }
                     }
@@ -195,10 +198,10 @@ namespace Scratch.FolderManager {
         }
 
         public static int compare (File a, File b) {
-            if (a.is_valid_directory () && b.is_valid_textfile) {
+            if (a.is_valid_directory && b.is_valid_textfile) {
                 return -1;
             }
-            if (a.is_valid_textfile && b.is_valid_directory ()) {
+            if (a.is_valid_textfile && b.is_valid_directory) {
                 return 1;
             }
 

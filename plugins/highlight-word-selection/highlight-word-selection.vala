@@ -23,9 +23,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
     Scratch.MainWindow? main_window = null;
     Gtk.SourceSearchContext? current_search_context = null;
 
-    // Consts
-    // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
-    private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
+    private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 255;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -50,12 +48,8 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
         });
     }
 
-    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
-        var window_search_context = main_window != null ? main_window.search_bar.search_context : null;
-
-        if (window_search_context == null ||
-            window_search_context.settings.search_text == "" ||
-            window_search_context.get_occurrences_count () == 0) {
+    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) requires (main_window != null) {
+        if (!main_window.has_successful_search ()) {
             // Perform plugin selection when there is no ongoing and successful search 
             current_search_context = new Gtk.SourceSearchContext (
                 (Gtk.SourceBuffer)current_source.buffer,
