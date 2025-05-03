@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-05 13:55+0000\n"
+"PO-Revision-Date: 2025-05-04 23:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -659,16 +659,13 @@ msgid "Too Many Symbols"
 msgstr "シンボルが多すぎます"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s には過剰な Vala シンボルが含まれています。\n"
-"これらを解析・表示するには、時間がかかります"
+"これらを解析・表示するには、相当な時間がかかります。"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -950,20 +947,16 @@ msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "現在の行"
+msgstr "現在の行をブックマークする"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "前のブックマークに移動"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "テキストエディター"
+msgstr "次のブックマークに移動"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
