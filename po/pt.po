@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2024-11-27 10:38+0000\n"
+"PO-Revision-Date: 2025-05-03 18:55+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementaryos.org/projects/code/code/"
+"pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -127,7 +127,7 @@ msgstr "_Cancelar"
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Mostrar '%s' com a aplicação predefinida"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -259,7 +259,7 @@ msgstr "Tipo de letra"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr "Usar fonte do sistema"
+msgstr "Usar tipo de letra do sistema"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
@@ -299,44 +299,40 @@ msgstr "Restaurar mesmo assim"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta pasta é a principal de um projeto aberto"
+msgstr[1] "Esta pasta é a principal dos projectos abertos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abrir esta pasta fechará o projeto dependente"
+msgstr[1] "Abrir esta pasta fechará todos os projetos dependentes"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fechar projeto dependente"
+msgstr[1] "Fechar projetos dependentes"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Esta pasta é dependente de um projeto aberto"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Ao abrir esta pasta, fechará o projeto principal"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Fechar projeto principal"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Não restaurar"
+msgstr "Não abrir"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Existem alterações por guardar no Scratch!"
+msgstr "Existem alterações não confirmadas no ramo atual"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -348,14 +344,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"As alterações não confirmadas serão perdidas permanentemente se efetuar o "
+"check-out de <b>'%s'</b> agora.\n"
+"\n"
+"<i>É recomendável que as alterações não confirmadas sejam armazenadas, "
+"confirmadas ou revertidas antes de prosseguir.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Não efetuar o check-out"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Checkout e substituir"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
@@ -387,10 +388,8 @@ msgid "Find in Folder…"
 msgstr "Localizar na Pasta…"
 
 #: src/FolderManager/FolderItem.vala:150
-#, fuzzy
-#| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
-msgstr "Abrir no painel do terminal"
+msgstr "Painel do terminal"
 
 #: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
@@ -417,10 +416,8 @@ msgid "new file"
 msgstr "novo ficheiro"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Projeto Git ativo: %s"
+msgstr "Definir como projeto ativo"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
@@ -461,11 +458,11 @@ msgstr "Localizar no projeto…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "Remoto"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -578,10 +575,11 @@ msgstr ""
 "alterações não guardadas."
 
 #: src/Services/Document.vala:889
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "O ficheiro \"%s\" foi eliminado e existem alterações não guardadas."
+msgstr ""
+"O ficheiro “%s” foi eliminado, renomeado ou movido e existem alterações não "
+"guardadas."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -640,22 +638,24 @@ msgstr "Guardar o documento noutro local"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Ramo remoto '%s' não encontrado"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"O ramo solicitado não foi encontrado em nenhuma ligação remota a este "
+"repositório"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Ocorreu um erro ao efetuar o check-out do ramo solicitado"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (separado)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -669,10 +669,8 @@ msgid "Symbols"
 msgstr "Símbolos"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Símbolos"
+msgstr "Demasiados símbolos"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -680,6 +678,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took long"
 msgstr ""
+"%s contém demasiados símbolos Vala.\n"
+"A análise e apresentação dos símbolos demorou muito tempo"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -742,10 +742,9 @@ msgid "No Project Selected"
 msgstr "Nenhum projeto selecionado"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
-msgstr "Projeto Git ativo: %s"
+msgstr "Projeto Git Ativo: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"

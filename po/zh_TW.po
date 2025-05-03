@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2025-03-17 11:10+0000\n"
+"PO-Revision-Date: 2025-04-26 11:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional Han script) <https://l10n.elementaryos."
-"org/projects/code/code/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/code/code/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -444,11 +444,11 @@ msgstr "在專案中尋找…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "本地"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "遠端"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -616,12 +616,12 @@ msgstr "將文件儲存到別的地方"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "找不到遠端分支「%s」"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
-msgstr ""
+msgstr "要求的分支沒有在任何與此版本庫連結的遠端當中找到"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
@@ -645,10 +645,8 @@ msgid "Symbols"
 msgstr "符號"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "符號"
+msgstr "太多符號"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -656,6 +654,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took long"
 msgstr ""
+"%s 內含太多 Vala 符號。\n"
+"剖析與顯示它們花了很多時間"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
