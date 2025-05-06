@@ -19,6 +19,8 @@
  */
 
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
+    public const uint INTERACTIVE_DELAY = 500;
+
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
@@ -88,9 +90,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
+        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
 
         try {
             current_view.completion.add_provider (comp_provider);

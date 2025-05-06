@@ -201,46 +201,83 @@ namespace Scratch.Utils {
         return false;
     }
 
-    public GLib.Menu create_executable_app_items_for_file (GLib.File file, string file_type) {
-        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-        var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-        external_apps.prepend (files_appinfo);
-
-        string this_id = GLib.Application.get_default ().application_id + ".desktop";
+    public GLib.Menu? create_executable_app_items_for_file (GLib.File file, string file_type) {
+        var scratch_app = (Scratch.Application) (GLib.Application.get_default ());
+        var this_id = scratch_app.application_id + ".desktop";
         var menu = new GLib.Menu ();
 
-        foreach (AppInfo app_info in external_apps) {
-            string app_id = app_info.get_id ();
-            if (app_id == this_id) {
-                continue;
-            }
-
+        if (scratch_app.is_running_in_flatpak) {
             var menu_item = new MenuItem (
-                app_info.get_name (),
+                ///TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+                _("Show '%s' with default app").printf (file.get_basename ()),
                 GLib.Action.print_detailed_name (
                     Scratch.FolderManager.FileView.ACTION_PREFIX
                     + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
                     new GLib.Variant.array (
                         GLib.VariantType.STRING,
-                        { file.get_path (), app_id }
+                        { file.get_path (), "" }
                     )
                 )
             );
-            menu_item.set_icon (app_info.get_icon ());
             menu.append_item (menu_item);
+        } else {
+            List<AppInfo> external_apps = null;
+            if (file_type == "") {
+                var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+                external_apps.prepend (files_appinfo);
+            } else {
+                external_apps = GLib.AppInfo.get_all_for_type (file_type);
+                external_apps.sort ((a, b) => {
+                    return a.get_name ().collate (b.get_name ());
+                });
+            }
+
+            foreach (AppInfo app_info in external_apps) {
+                string app_id = app_info.get_id ();
+                if (app_id == this_id) {
+                    continue;
+                }
+
+                var menu_item = new MenuItem (
+                    app_info.get_name (),
+                    GLib.Action.print_detailed_name (
+                        Scratch.FolderManager.FileView.ACTION_PREFIX
+                        + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
+                        new GLib.Variant.array (
+                            GLib.VariantType.STRING,
+                            { file.get_path (), app_id }
+                        )
+                    )
+                );
+                menu_item.set_icon (app_info.get_icon ());
+                menu.append_item (menu_item);
+            }
         }
 
         return menu;
     }
 
-    public void launch_app_with_file (AppInfo app_info, GLib.File file) {
-        var file_list = new List<GLib.File> ();
-        file_list.append (file);
+    public void launch_app_with_file (string app_id, string path) {
+        var scratch_app = (Scratch.Application) (GLib.Application.get_default ());
+        if (scratch_app.is_running_in_flatpak || app_id == "") {
+            var uri = Uri.join (UriFlags.NONE, "file", null, null, -1, path, null, null);
 
-        try {
-            app_info.launch (file_list, null);
-        } catch (Error e) {
-            warning (e.message);
+            try {
+                Gtk.show_uri_on_window (scratch_app.get_active_window (), uri, Gdk.CURRENT_TIME);
+            } catch (Error e) {
+                warning ("Error showing uri %s, %s", uri, e.message);
+            }
+        } else {
+            var app_info = new GLib.DesktopAppInfo (app_id);
+            var file = GLib.File.new_for_path (path);
+            var file_list = new List<GLib.File> ();
+            file_list.append (file);
+
+            try {
+                app_info.launch (file_list, null);
+            } catch (Error e) {
+                warning (e.message);
+            }
         }
     }
 
