@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-23 09:55+0000\n"
+"PO-Revision-Date: 2025-05-08 12:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -670,16 +670,13 @@ msgid "Too Many Symbols"
 msgstr "Túl sok szimbólum"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s túl sok Vala szimbólumot tartalmaz.\n"
-"Az elemzésük és megjelenítésük túl sok ideig tartott"
+"Az elemzésük és megjelenítésük túl sok ideig tartott."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -963,20 +960,16 @@ msgid "Sort Selected Lines"
 msgstr "A kiválasztott sorok sorrendbe rakása"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Jelenlegi sor"
+msgstr "Jelenlegi sor megjelölése"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Előző szerkesztési jelöléshez ugrás"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Szövegszerkesztő"
+msgstr "Következő szerkesztési jelöléshez ugrás"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
