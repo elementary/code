@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-05 13:55+0000\n"
+"PO-Revision-Date: 2025-05-06 08:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -673,16 +673,13 @@ msgid "Too Many Symbols"
 msgstr "Забагато символів"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s містить забагато символів.\n"
-"Розбирання їх і показ триватиме довго"
+"Розбирання їх і показ триватиме задовго."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -968,20 +965,16 @@ msgid "Sort Selected Lines"
 msgstr "Впорядкувати вибрані рядки"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Поточний рядок"
+msgstr "Позначити поточний рядок"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Перейти до попередньої позначки редагування"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Текстовий редактор"
+msgstr "Перейти до наступної позначки редагування"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
