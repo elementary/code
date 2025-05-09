@@ -130,7 +130,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
             var file = new Scratch.FolderManager.File (filepath);
             var doc = new Scratch.Services.Document (window.actions, file.file);
 
-            window.open_document (doc);
+            window.open_document.begin (doc);
             popover.popdown ();
         });
 
