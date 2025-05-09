@@ -357,8 +357,13 @@ namespace Scratch.Widgets {
                 return false;
             }
 
-            update_search_widgets ();
-            return false;
+            Idle.add (() => {
+                update_search_widgets ();
+                search_entry.select_region (0, -1);
+                return Source.REMOVE;
+            });
+
+            return Gdk.EVENT_PROPAGATE;
         }
 
         public bool search () {
