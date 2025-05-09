@@ -83,6 +83,10 @@ namespace Scratch {
         public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_ADD_MARK = "action_add_mark";
+        public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
+        public const string ACTION_NEXT_MARK = "action_next_mark";
+
         public const string ACTION_UNDO = "action-undo";
         public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
@@ -166,6 +170,9 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_ADD_MARK, action_add_mark},
+            { ACTION_PREVIOUS_MARK, action_previous_mark},
+            { ACTION_NEXT_MARK, action_next_mark},
             { ACTION_CLOSE_TAB, action_close_tab, "s" },
             { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
             { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
@@ -234,6 +241,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
+            action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
+            action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
             action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
@@ -604,6 +614,7 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
+
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
@@ -1214,6 +1225,7 @@ namespace Scratch {
             search_bar.search_previous ();
         }
 
+
         private void action_find_global (SimpleAction action, Variant? param) {
             if (!search_bar.is_focused || search_bar.entry_text == "") {
                 set_selected_text_for_search ();
@@ -1385,6 +1397,33 @@ namespace Scratch {
 
         private void action_new_branch (SimpleAction action, Variant? param) {
             folder_manager_view.new_branch (get_target_path_for_actions (param));
+        }
+
+        private void action_previous_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.goto_previous_mark ();
+        }
+
+        private void action_next_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.goto_next_mark ();
+        }
+
+        private void action_add_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.add_mark_at_cursor ();
         }
 
         private void action_move_tab_to_new_window () {
