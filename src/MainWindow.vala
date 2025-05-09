@@ -956,7 +956,7 @@ namespace Scratch {
             handle_quit ();
             check_unsaved_changes.begin ((obj, res) => {
                 if (check_unsaved_changes.end (res)) {
-                    destroy ();
+                    app.quit ();
                 }
             });
         }
