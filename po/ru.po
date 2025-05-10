@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-05 13:55+0000\n"
-"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
-">\n"
+"PO-Revision-Date: 2025-05-11 14:55+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -674,16 +674,13 @@ msgid "Too Many Symbols"
 msgstr "Слишком много символов"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "«%s» содержит слишком много символов Vala.\n"
-"Их распознавание и отображение выполнялись слишком долго"
+"Их распознавание и отображение выполнялись слишком долго."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -969,20 +966,16 @@ msgid "Sort Selected Lines"
 msgstr "Сортировать выделенные строки"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "На текущей строке"
+msgstr "Пометить текущую строку"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Перейти к предыдущей метке"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Текстовый редактор"
+msgstr "Перейти к следующей метке"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
