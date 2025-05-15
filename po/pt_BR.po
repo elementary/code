@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
 "PO-Revision-Date: 2025-05-16 14:55+0000\n"
-"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "code/code/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -316,21 +316,19 @@ msgstr[1] "Fechar Projetos Filho"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Esta pasta é filha de um projeto aberto"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Abrir esta pasta fechará o projeto pai"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Fechar Projeto Pai"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Não restaurar"
+msgstr "Não abrir"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
@@ -578,10 +576,10 @@ msgstr ""
 "salvas."
 
 #: src/Services/Document.vala:891
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "O arquivo \"%s\" foi excluído e existem alterações não salvas."
+msgstr ""
+"O arquivo “%s” foi excluído, renomeado ou movido e há alterações não salvas."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
