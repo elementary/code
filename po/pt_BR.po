@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
 "PO-Revision-Date: 2025-05-17 17:55+0000\n"
-"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "code/code/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -740,8 +740,7 @@ msgid "No Project Selected"
 msgstr "Nenhum Projeto Selecionado"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Projeto Git ativo: %s"
 
