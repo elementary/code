@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-05-16 14:55+0000\n"
-"Last-Translator: Renato Trevisan <rjltrevisan@gmail.com>\n"
+"PO-Revision-Date: 2025-05-17 17:55+0000\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "code/code/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -676,6 +676,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
+"%s contém muitos símbolos Vala.\n"
+"Analisar e mostrar eles demorou demais."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -745,11 +747,11 @@ msgstr "Projeto Git ativo: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
-msgstr "Filtrar Projetos"
+msgstr "Filtrar projetos"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
-msgstr "Abas Fechadas"
+msgstr "Abas fechadas"
 
 #: src/Widgets/DocumentView.vala:454
 #, c-format
@@ -778,7 +780,7 @@ msgstr "Duplicar aba"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
-msgstr "Destaque de sintaxe"
+msgstr "Realce de sintaxe"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -852,7 +854,7 @@ msgstr "Compartilhar"
 
 #: src/Widgets/HeaderBar.vala:84
 msgid "Zoom Out"
-msgstr "Reduzir Zoom"
+msgstr "Reduzir zoom"
 
 #: src/Widgets/HeaderBar.vala:92
 msgid "Zoom 1:1"
@@ -960,20 +962,16 @@ msgid "Sort Selected Lines"
 msgstr "Ordenar Linhas Selecionadas"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Linha atual"
+msgstr "Marcar linha atual"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Ir para a marca de edição anterior"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Editor de texto"
+msgstr "Ir para a próxima marca de edição"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
