@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
 
     private Scratch.Services.Interface plugins;
     private Gee.TreeSet<weak Services.Document> documents;
@@ -244,6 +244,6 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Scratch.Plugins.PreserveIndent));
 }
