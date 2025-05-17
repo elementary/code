@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2024-08-17 19:16+0000\n"
-"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
-"code/pt_BR/>\n"
+"PO-Revision-Date: 2025-05-16 14:55+0000\n"
+"Last-Translator: Renato Trevisan <rjltrevisan@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
+"code/code/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -127,7 +127,7 @@ msgstr "_Cancelar"
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Mostrar '%s' com o aplicativo padrão"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -299,44 +299,40 @@ msgstr "Restaurar de qualquer forma"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esta pasta é a pasta pai de um projeto aberto"
+msgstr[1] "Esta pasta é a pasta pai de projetos abertos"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abrir essa pasta fechará o projeto filho"
+msgstr[1] "Abrir essa pasta fechará os projetos filho"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fechar Projeto Filho"
+msgstr[1] "Fechar Projetos Filho"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Esta pasta é filha de um projeto aberto"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Abrir esta pasta fechará o projeto pai"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Fechar Projeto Pai"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Não restaurar"
+msgstr "Não abrir"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Ha alterações não salvas no Scratch!"
+msgstr "Há alterações não confirmadas no ramo atual"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -348,18 +344,23 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"Alterações não confirmadas serão permanentemente perdidas se for feito "
+"checkout de <b>'%s'</b> agora.\n"
+"\n"
+"<i>É recomendado que todas as alterações não confirmadas sejam feitas Stash, "
+"confirmadas ou revertidas antes de continuar.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Não fazer checkout"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Fazer checkout e sobrescrever"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
 msgid "Other Actions"
-msgstr "Outras Ações"
+msgstr "Outras ações"
 
 #: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
 msgid "Rename"
@@ -368,11 +369,11 @@ msgstr "Renomear"
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
-msgstr "Mover para Lixeira"
+msgstr "Mover para lixeira"
 
 #: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
 msgid "Other Application…"
-msgstr "Outra Aplicação…"
+msgstr "Outra aplicação…"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
 msgid "Open In"
@@ -387,10 +388,8 @@ msgid "Find in Folder…"
 msgstr "Encontrar na pasta …"
 
 #: src/FolderManager/FolderItem.vala:150
-#, fuzzy
-#| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
-msgstr "Abrir em um painel de Terminal"
+msgstr "Abrir em um painel de terminal"
 
 #: src/FolderManager/FolderItem.vala:185
 msgid "Folder"
@@ -398,7 +397,7 @@ msgstr "Pasta"
 
 #: src/FolderManager/FolderItem.vala:193
 msgid "Empty File"
-msgstr "Arquivo Vazio"
+msgstr "Arquivo vazio"
 
 #. scan all children
 #. No need to show status when children shown
@@ -417,10 +416,8 @@ msgid "new file"
 msgstr "novo arquivo"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Projeto Git ativo: %s"
+msgstr "Definir como projeto ativo"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
@@ -457,19 +454,19 @@ msgstr[1] "Restaurar %u Documentos Escondidos"
 
 #: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
-msgstr "Encontrar no Projeto…"
+msgstr "Encontrar no projeto…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "Remoto"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
-msgstr "Nova Branch…"
+msgstr "Novo ramo…"
 
 #: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
@@ -482,13 +479,13 @@ msgstr "Modificado"
 #: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr "Erro ao criar nova branch: “%s”"
+msgstr "Erro ao criar novo ramo: “%s”"
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:382
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr "%s Não é um Arquivo de Texto"
+msgstr "%s não é um arquivo de texto"
 
 #: src/Services/Document.vala:383
 msgid "Code will not load this type of file."
@@ -496,7 +493,7 @@ msgstr "Code não irá carregar este tipo de arquivo."
 
 #: src/Services/Document.vala:385
 msgid "Load Anyway"
-msgstr "Carregar de Qualquer Forma"
+msgstr "Carregar de qualquer forma"
 
 #: src/Services/Document.vala:406
 #, c-format
@@ -509,7 +506,7 @@ msgstr "Aguarde enquanto o Code está carregando o arquivo."
 
 #: src/Services/Document.vala:409
 msgid "Cancel Loading"
-msgstr "Cancelar Carregamento"
+msgstr "Cancelar carregamento"
 
 #: src/Services/Document.vala:498
 #, c-format
@@ -522,7 +519,7 @@ msgstr "Se você não salvar, as alterações serão permanentemente perdidas."
 
 #: src/Services/Document.vala:505
 msgid "Close Without Saving"
-msgstr "Fechar sem Salvar"
+msgstr "Fechar sem salvar"
 
 #: src/Services/Document.vala:509 src/Services/Document.vala:677
 msgid "Save"
@@ -539,7 +536,7 @@ msgstr "Salvar arquivo"
 
 #: src/Services/Document.vala:761 src/Services/Document.vala:779
 msgid "New Document"
-msgstr "Novo Documento"
+msgstr "Novo documento"
 
 #. No path for a new document
 #: src/Services/Document.vala:781
@@ -577,10 +574,10 @@ msgstr ""
 "salvas."
 
 #: src/Services/Document.vala:891
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "O arquivo \"%s\" foi excluído e existem alterações não salvas."
+msgstr ""
+"O arquivo “%s” foi excluído, renomeado ou movido e há alterações não salvas."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -639,22 +636,24 @@ msgstr "Salvar o documento em outro local"
 #: src/Services/MonitoredRepository.vala:238
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "O ramo remoto '%s' não foi encontrado"
 
 #: src/Services/MonitoredRepository.vala:239
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"O ramo que você requisitou não foi encontrado em qualquer remoto ligado à "
+"este repositório"
 
 #: src/Services/MonitoredRepository.vala:276
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Um erro ocorreu enquanto o checkout acontecia no ramo requisitado"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:324
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (desanexado)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -668,10 +667,8 @@ msgid "Symbols"
 msgstr "Símbolos"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Símbolos"
+msgstr "Muitos símbolos"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -698,7 +695,7 @@ msgstr "Método"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr "Estrutura"
+msgstr "Struct"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
