@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-05 13:55+0000\n"
-"Last-Translator: Jeremy Wootten <jeremywootten@gmail.com>\n"
+"PO-Revision-Date: 2025-05-15 14:35+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementaryos.org/"
 "projects/code/code/en_GB/>\n"
 "Language: en_GB\n"
@@ -670,6 +670,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took too long."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -953,20 +955,16 @@ msgid "Sort Selected Lines"
 msgstr "Sort Selected Lines"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Current Line"
+msgstr "Mark Current Line"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Goto Previous Edit Mark"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Text Editor"
+msgstr "Goto Next Edit Mark"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
