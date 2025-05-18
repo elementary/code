@@ -84,6 +84,10 @@ namespace Scratch {
         public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_ADD_MARK = "action_add_mark";
+        public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
+        public const string ACTION_NEXT_MARK = "action_next_mark";
+
         public const string ACTION_UNDO = "action-undo";
         public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
@@ -168,6 +172,9 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_ADD_MARK, action_add_mark},
+            { ACTION_PREVIOUS_MARK, action_previous_mark},
+            { ACTION_NEXT_MARK, action_next_mark},
             { ACTION_CLOSE_TAB, action_close_tab, "s" },
             { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
             { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
@@ -236,6 +243,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
+            action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
+            action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
             action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
@@ -461,7 +471,7 @@ namespace Scratch {
                         //TODO Handle folders dropped here
                         if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
                             Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                            document_view.open_document (doc);
+                            document_view.open_document.begin (doc);
                         }
                     }
 
@@ -481,7 +491,7 @@ namespace Scratch {
                 var doc = new Scratch.Services.Document (actions, file.file);
 
                 if (file.is_valid_textfile) {
-                    open_document (doc);
+                    open_document.begin (doc);
                 } else {
                     open_binary (file.file);
                 }
@@ -606,6 +616,7 @@ namespace Scratch {
                     title = _("%s - %s").printf (doc.get_basename (), base_title);
 
                     toolbar.set_document_focus (doc);
+
                     folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
@@ -644,11 +655,12 @@ namespace Scratch {
             }
         }
 
-        private void restore_opened_documents () {
+        private async void restore_opened_documents () {
+            File? focused_file = null;
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var doc_infos = settings.get_value ("opened-files");
                 var doc_info_iter = new VariantIter (doc_infos);
-                string focused_document = settings.get_string ("focused-document");
+                string focused_uri = settings.get_string ("focused-document");
                 string uri;
                 int pos;
                 bool was_restore_overriden = false;
@@ -664,32 +676,30 @@ namespace Scratch {
                            But for files that do not exist we need to make sure that doc won't create a new file
                         */
                         if (file.query_exists ()) {
+                            var is_focused = uri == focused_uri;
+                            if (is_focused) {
+                                focused_file = file;
+                            }
                             //TODO Check files valid (settings could have been manually altered)
                             var doc = new Scratch.Services.Document (actions, file);
-                            bool is_focused = file.get_uri () == focused_document;
                             if (doc.exists () || !doc.is_file_temporary) {
                                 if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
-                                    open_document_at_selected_range (doc, true, restore_override.range, true);
+                                    yield open_document_at_selected_range (doc, true, restore_override.range, true);
                                     was_restore_overriden = true;
                                 } else {
-                                    open_document (doc, was_restore_overriden ? false : is_focused, pos);
+                                    yield open_document (doc, was_restore_overriden ? false : is_focused, pos);
                                 }
-                            }
-
-                            if (is_focused) { //Maybe expand to show all opened documents?
-                                folder_manager_view.expand_to_path (file.get_path ());
                             }
                         }
                     }
                 }
             }
 
-            // DocumentView's number of docs updates asychronously so need Idle
-            Idle.add (() => {
-                document_view.request_placeholder_if_empty ();
-                restore_override = null;
-                return Source.REMOVE;
-            });
+            document_view.request_placeholder_if_empty ();
+            restore_override = null;
+            if (focused_file != null) {
+                folder_manager_view.expand_to_path (focused_file.get_path ());
+            }
         }
 
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
@@ -741,7 +751,13 @@ namespace Scratch {
 
         // If selected text covers more than one line return just the first.
         public void set_selected_text_for_search () {
+            // Do not overwrite search term if we are editing the entry.
+            if (search_bar.is_focused) {
+                return;
+            }
+
             var doc = get_current_document ();
+
             var selected_text = doc != null ? doc.get_selected_text (false) : "";
             var search_term = "";
             if (selected_text.contains ("\n")) {
@@ -764,15 +780,16 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        public void open_document (Scratch.Services.Document doc,
+        public async void open_document (Scratch.Services.Document doc,
                                    bool focus = true,
                                    int cursor_position = 0) {
 
-            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
-            document_view.open_document (doc, focus, cursor_position);
+            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
+            yield document_view.open_document (doc, focus, cursor_position);
         }
 
-        public void open_document_at_selected_range (Scratch.Services.Document doc,
+        public async void open_document_at_selected_range (Scratch.Services.Document doc,
                                                      bool focus = true,
                                                      SelectionRange range = SelectionRange.EMPTY,
                                                      bool is_override = false) {
@@ -781,7 +798,7 @@ namespace Scratch {
             }
 
             doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
-            document_view.open_document (doc, focus, 0, range);
+            yield document_view.open_document (doc, focus, 0, range);
         }
 
         // Close a document
@@ -810,7 +827,7 @@ namespace Scratch {
             folder_manager_view.restore_saved_state.begin ((obj, res) => {
                 folder_manager_view.restore_saved_state.end (res);
                 if (restore_docs) {
-                    restore_opened_documents ();
+                    restore_opened_documents.begin ();
                 }
             });
         }
@@ -947,7 +964,7 @@ namespace Scratch {
             handle_quit ();
             check_unsaved_changes.begin ((obj, res) => {
                 if (check_unsaved_changes.end (res)) {
-                    destroy ();
+                    app.quit ();
                 }
             });
         }
@@ -983,7 +1000,7 @@ namespace Scratch {
                     // Open the file
                     var file = File.new_for_uri (uri);
                     var doc = new Scratch.Services.Document (actions, file);
-                    open_document (doc);
+                    open_document.begin (doc);
                 }
             }
         }
@@ -998,7 +1015,7 @@ namespace Scratch {
             var file = File.new_for_path (path);
             var doc = new Scratch.Services.Document (new_window.actions, file);
 
-            new_window.open_document (doc, true);
+            new_window.open_document.begin (doc, true);
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
@@ -1207,7 +1224,7 @@ namespace Scratch {
         private void restore_project_docs (string project_path) {
             document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
                 var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
-                open_document (doc); // Use this to reassociate project and document.
+                open_document.begin (doc); // Use this to reassociate project and document.
                 return true;
             });
         }
@@ -1218,17 +1235,19 @@ namespace Scratch {
         }
 
         private void find (string search_term = "") {
-            if (!search_bar.is_revealed) {
-                var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
-                if (show_find_action.enabled) {
-                    show_find_action.activate (new Variant ("b", true));
-                }
-            }
-
+            // Set search term before focusing search bar else maybe ineffective
             if (search_term != "") {
                 search_bar.set_search_entry_text (search_term);
             } else {
                 set_selected_text_for_search ();
+            }
+
+            if (!search_bar.is_revealed) {
+                var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
+                if (show_find_action.enabled) {
+                    // This focuses the search bar
+                    show_find_action.activate (new Variant ("b", true));
+                }
             }
 
             search_bar.search ();
@@ -1256,6 +1275,7 @@ namespace Scratch {
         private void action_find_previous () {
             search_bar.search_previous ();
         }
+
 
         private void action_find_global (SimpleAction action, Variant? param) {
             if (!search_bar.is_focused || search_bar.entry_text == "") {
@@ -1428,6 +1448,33 @@ namespace Scratch {
 
         private void action_new_branch (SimpleAction action, Variant? param) {
             folder_manager_view.new_branch (get_target_path_for_actions (param));
+        }
+
+        private void action_previous_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.goto_previous_mark ();
+        }
+
+        private void action_next_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.goto_next_mark ();
+        }
+
+        private void action_add_mark () {
+            var doc = get_focused_document ();
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.add_mark_at_cursor ();
         }
 
         private void action_move_tab_to_new_window () {
