@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Widgets.SourceView current_source;
     Scratch.Services.Interface plugins;
 
@@ -244,6 +244,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 [ModuleInit]
 public void peas_register_types (TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Code.Plugins.MarkdownActions));
 }

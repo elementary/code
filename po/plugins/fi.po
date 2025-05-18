@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 22:46+0000\n"
-"PO-Revision-Date: 2021-08-04 08:28+0000\n"
+"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"PO-Revision-Date: 2024-12-01 18:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/plugins/fi/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,12 @@ msgstr "Lataa asetukset EditorConfig-tiedostosta"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Find Project Files"
-msgstr ""
+msgstr "Etsi projektitiedostoja"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:7
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
+"Sumea haku kaikille avointen projektien tiedostoille (Näytä käyttäen ALT + F)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"

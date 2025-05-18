@@ -870,7 +870,11 @@ public class SourceList : Gtk.ScrolledWindow {
             return items.has_key (item);
         }
 
-        public void update_item (Item item) requires (has_item (item)) {
+        public void update_item (Item item) {
+            if (!has_item (item)) {
+                return;
+            }
+
             assert (root != null);
 
             // Emitting row_changed() for this item's row in the child model causes the filter

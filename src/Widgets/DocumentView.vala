@@ -122,15 +122,20 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         // TabView tab events
         tab_view.close_page.connect ((tab) => {
             var doc = tab.child as Services.Document;
+            if (doc == null || doc.closing) {
+                return true; // doc.do_close () already called once
+            }
+
             if (doc == null) {
                 tab_view.close_page_finish (tab, true);
             } else {
                 doc.do_close.begin (false, (obj, res) => {
                     var should_close = doc.do_close.end (res);
-                    if (should_close) {
-                        before_doc_removed (doc);
+                    // Ensure removed doc is saved by handling this first
+                    if (!is_closing) {
+                        save_opened_files ();
                     }
-
+                    //`page-detached` handler will perform rest of necessary cleanup
                     tab_view.close_page_finish (tab, should_close);
                 });
             }
@@ -139,7 +144,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         tab_view.page_attached.connect (on_doc_added);
-        tab_view.page_detached.connect (on_doc_removed);
+        tab_view.page_detached.connect (on_page_detached);
         tab_view.page_reordered.connect (on_doc_reordered);
         tab_view.create_window.connect (on_doc_to_new_window);
 
@@ -293,7 +298,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
             var doc = new Services.Document (window.actions, file);
             // Must open document in order to unlock it.
-            open_document (doc);
+            open_document.begin (doc);
         } catch (Error e) {
             critical (e.message);
         }
@@ -308,7 +313,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             file.replace_contents (clipboard.data, null, false, 0, null);
             var doc = new Services.Document (window.actions, file);
 
-            open_document (doc);
+            open_document.begin (doc);
 
 
         } catch (Error e) {
@@ -316,7 +321,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    public void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
+    public async void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
        for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -347,24 +352,19 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             current_document = doc;
         }
 
-        Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
-            doc.open.begin (false, (obj, res) => {
-                doc.open.end (res);
-                if (focus && doc == current_document) {
-                    doc.focus ();
-                }
+        yield doc.open (false);
 
-                if (range != SelectionRange.EMPTY) {
-                    doc.source_view.select_range (range);
-                } else if (cursor_position > 0) {
-                    doc.source_view.cursor_position = cursor_position;
-                }
+        if (focus && doc == current_document) {
+            doc.focus ();
+        }
 
-                save_opened_files ();
-            });
+        if (range != SelectionRange.EMPTY) {
+            doc.source_view.select_range (range);
+        } else if (cursor_position > 0) {
+            doc.source_view.cursor_position = cursor_position;
+        }
 
-            return false;
-        });
+        save_opened_files ();
     }
 
     public void next_document () {
@@ -463,21 +463,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return unsaved_file_path_builder (extension);
     }
 
-    private void before_doc_removed (Services.Document doc) {
-        on_doc_removed_shared (doc);
-    }
-
-    private void on_doc_removed (Hdy.TabPage tab, int position) {
+    private void on_page_detached (Hdy.TabPage tab, int position) {
         var doc = tab.get_child () as Services.Document;
         if (doc == null) {
             return;
         }
 
-        on_doc_removed_shared (doc);
-        request_placeholder_if_empty ();
-    }
-
-    private void on_doc_removed_shared (Services.Document doc) {
         if (tab_history_button.menu_model == null) {
             tab_history_button.menu_model = new Menu ();
         }
@@ -522,15 +513,13 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
         }
 
-        if (!is_closing) {
-            save_opened_files ();
-        }
+        request_placeholder_if_empty ();
     }
 
     public void restore_closed_tab (string path) {
         var file = File.new_for_path (path);
         var doc = new Services.Document (window.actions, file);
-        open_document (doc);
+        open_document.begin (doc);
 
         var menu = (Menu) tab_history_button.menu_model;
         for (var i = 0; i < menu.get_n_items (); i++) {
@@ -659,7 +648,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             foreach (var filename in uris) {
                 var file = File.new_for_uri (filename);
                 var doc = new Services.Document (window.actions, file);
-                open_document (doc);
+                open_document.begin (doc);
             }
 
             Gtk.drag_finish (ctx, true, false, time);

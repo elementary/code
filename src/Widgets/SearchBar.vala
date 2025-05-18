@@ -20,13 +20,14 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.FlowBox {
+    public class SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
         enum CaseSensitiveMode {
             NEVER,
             MIXED,
             ALWAYS
         }
         public weak MainWindow window { get; construct; }
+
 
         private Gtk.Button tool_arrow_up;
         private Gtk.Button tool_arrow_down;
@@ -40,32 +41,59 @@ namespace Scratch.Widgets {
         private Gtk.ComboBoxText case_sensitive_search_button;
         private Granite.SwitchModelButton regex_search_button;
         private Granite.SwitchModelButton whole_word_search_button;
-        public Gtk.SearchEntry search_entry;
-        public Gtk.SearchEntry replace_entry;
-
+        private Gtk.SearchEntry search_entry;
+        private Gtk.SearchEntry replace_entry;
         private Gtk.Label search_occurence_count_label;
-
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
-
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        public Gtk.SourceSearchContext? search_context { get; private set; default = null; }
-
-        public signal void search_empty ();
-
+        private Gtk.SourceSearchContext? search_context;
         private uint update_search_label_timeout_id = 0;
+        private Gtk.Revealer revealer;
 
-        /**
-         * Create a new SearchBar widget.
-         *
-         * following actions : Fetch, ShowGoTo, ShowReplace, or null.
-         **/
+        public bool is_focused {
+            get {
+                return search_entry.has_focus || replace_entry.has_focus;
+            }
+        }
+
+        public bool is_revealed {
+            get {
+                return revealer.child_revealed;
+            }
+        }
+
+        public string entry_text {
+            get {
+                return search_entry.text;
+            }
+        }
+
+        public uint search_occurrences {
+            get {
+                 if (search_context == null ||
+                     search_context.settings.search_text == "") {
+
+                    return 0;
+                } else {
+                    return search_context.get_occurrences_count ();
+                }
+            }
+        }
+
+        public uint transition_time_msec {
+            get {
+                return revealer.transition_duration + 10;
+            }
+        }
+
         public SearchBar (MainWindow window) {
             Object (window: window);
         }
 
         construct {
+            this.orientation = HORIZONTAL;
             search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
                 placeholder_text = _("Find")
@@ -137,10 +165,10 @@ namespace Scratch.Widgets {
             };
             search_menubutton.add (search_buttonbox);
 
-            cycle_search_button.toggled.connect (on_search_entry_text_changed);
-            case_sensitive_search_button.changed.connect (on_search_entry_text_changed);
-            whole_word_search_button.toggled.connect (on_search_entry_text_changed);
-            regex_search_button.toggled.connect (on_search_entry_text_changed);
+            cycle_search_button.toggled.connect (on_search_parameters_changed);
+            case_sensitive_search_button.changed.connect (on_search_parameters_changed);
+            whole_word_search_button.toggled.connect (on_search_parameters_changed);
+            regex_search_button.toggled.connect (on_search_parameters_changed);
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
@@ -190,10 +218,9 @@ namespace Scratch.Widgets {
             replace_flow_box_child.add (replace_grid);
 
             // Connecting to some signals
-            search_entry.changed.connect (on_search_entry_text_changed);
+            search_entry.changed.connect (on_search_parameters_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
-            search_entry.search_changed.connect (update_search_widgets);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
@@ -209,13 +236,21 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
-            selection_mode = Gtk.SelectionMode.NONE;
-            column_spacing = 6;
-            max_children_per_line = 2;
-            get_style_context ().add_class ("search-bar");
-            add (search_flow_box_child);
-            add (replace_flow_box_child);
+            var flowbox = new Gtk.FlowBox () {
+                selection_mode = Gtk.SelectionMode.NONE,
+                column_spacing = 6,
+                max_children_per_line = 2
+            };
+            flowbox.get_style_context ().add_class ("search-bar");
+            flowbox.add (search_flow_box_child);
+            flowbox.add (replace_flow_box_child);
 
+            revealer = new Gtk.Revealer () {
+                child = flowbox,
+                reveal_child = false
+            };
+
+            add (revealer);
             update_search_widgets ();
         }
 
@@ -233,11 +268,9 @@ namespace Scratch.Widgets {
                 return;
             } else if (this.text_buffer != null) {
                 this.text_buffer.changed.disconnect (on_text_buffer_changed);
-                this.text_view.selection_changed.disconnect (on_selection_changed);
             }
 
             this.text_view = text_view;
-            this.text_view.selection_changed.connect (on_selection_changed);
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
@@ -249,21 +282,6 @@ namespace Scratch.Widgets {
 
         private void on_text_buffer_changed () {
             update_search_widgets ();
-        }
-
-        private void on_selection_changed () {
-
-            var selected_text = text_view.get_selected_text ();
-            bool clear_required;
-            if (search_context.settings.case_sensitive) {
-                clear_required = selected_text != search_entry.text;
-            } else {
-                clear_required = selected_text.down () != search_entry.text.down ();
-            }
-
-            if (clear_required) {
-                search_entry.text = "";
-            }
         }
 
         private void on_replace_entry_activate () {
@@ -307,37 +325,31 @@ namespace Scratch.Widgets {
             this.window.get_current_document ().toggle_changed_handlers (true);
         }
 
-        private void on_search_entry_text_changed () {
-            if (search_context == null) { // This can happen during start up
-                debug ("search entry changed with null context");
-                return;
-            }
+        // Called when one of the settings buttons or the search term changes
+        private void on_search_parameters_changed () {
+            if (search_context != null) {
+                var search_string = search_entry.text;
+                search_context.settings.search_text = search_string;
+                var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
+                switch (case_mode) {
+                    case CaseSensitiveMode.NEVER:
+                        search_context.settings.case_sensitive = false;
+                        break;
+                    case CaseSensitiveMode.MIXED:
+                        search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+                        break;
+                    case CaseSensitiveMode.ALWAYS:
+                        search_context.settings.case_sensitive = true;
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
 
-            var search_string = search_entry.text;
-            search_context.settings.search_text = search_string;
-            var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
-            switch (case_mode) {
-                case CaseSensitiveMode.NEVER:
-                    search_context.settings.case_sensitive = false;
-                    break;
-                case CaseSensitiveMode.MIXED:
-                    search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-                    break;
-                case CaseSensitiveMode.ALWAYS:
-                    search_context.settings.case_sensitive = true;
-                    break;
-                default:
-                    assert_not_reached ();
+                search_context.settings.at_word_boundaries = whole_word_search_button.active;
+                search_context.settings.regex_enabled = regex_search_button.active;
             }
-
-            search_context.settings.at_word_boundaries = whole_word_search_button.active;
-            search_context.settings.regex_enabled = regex_search_button.active;
 
             update_search_widgets ();
-
-            if (search_entry.text == "") {
-                search_empty ();
-            }
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -345,11 +357,17 @@ namespace Scratch.Widgets {
                 return false;
             }
 
-            update_search_widgets ();
-            return false;
+            Idle.add (() => {
+                update_search_widgets ();
+                search_entry.select_region (0, -1);
+                return Source.REMOVE;
+            });
+
+            return Gdk.EVENT_PROPAGATE;
         }
 
         public bool search () {
+            search_entry.grab_focus ();
             if (search_context == null) {
                 return false;
             }
@@ -475,6 +493,26 @@ namespace Scratch.Widgets {
 
                 update_search_widgets ();
             }
+        }
+
+        public void focus_search_entry () {
+            search_entry.grab_focus ();
+        }
+
+        public void focus_replace_entry () {
+            replace_entry.grab_focus ();
+        }
+
+        public void reveal (bool to_reveal) {
+            revealer.reveal_child = to_reveal;
+            // Clear entry when searchbar is hidden
+            if (is_revealed && !to_reveal) {
+                set_search_entry_text ("");
+            }
+        }
+
+        public void set_search_entry_text (string text) {
+            search_entry.text = text;
         }
 
         private bool on_search_entry_key_press (Gdk.EventKey event) {

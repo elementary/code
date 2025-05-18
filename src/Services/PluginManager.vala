@@ -2,7 +2,9 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
+  Copyright (C) 2019–2024 elementary, Inc. <https://elementary.io>
+                2013 Mario Guerriero <mario@elementaryos.org>
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -19,10 +21,17 @@
 ***/
 
 namespace Scratch.Services {
+    // Interface implemented by all plugins
+    public interface ActivatablePlugin : Object {
+        // Migrated from Peas.Activatable
+        public abstract void activate ();
+        public abstract void deactivate ();
+        public virtual void update_state () {}
+        public abstract GLib.Object object { owned get; construct; }
+    }
+
+    // Object shared with plugins providing signals and methods to interface with application
     public class Interface : GLib.Object {
-
-        public PluginsManager manager;
-
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (GLib.MenuModel menu);
@@ -31,17 +40,22 @@ namespace Scratch.Services {
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
         public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-        public Scratch.TemplateManager template_manager { private set; get; }
+        public Scratch.TemplateManager template_manager { get; construct; }
+        public Scratch.Services.PluginsManager manager { get; construct; }
 
-        public Interface (PluginsManager manager) {
-            this.manager = manager;
+        public Interface (PluginsManager _manager) {
+            Object (
+                manager: _manager
+            );
+        }
 
+        construct {
             template_manager = new Scratch.TemplateManager ();
         }
 
         public Document open_file (File file) {
             var doc = new Document (manager.window.actions, file);
-            manager.window.open_document (doc);
+            manager.window.open_document.begin (doc);
             return doc;
         }
 
@@ -50,16 +64,12 @@ namespace Scratch.Services {
         }
     }
 
-
     public class PluginsManager : GLib.Object {
         Peas.Engine engine;
         Peas.ExtensionSet exts;
 
-        string settings_field;
-
         public Interface plugin_iface { private set; public get; }
-
-        public weak MainWindow window;
+        public weak MainWindow window {get; construct; }
 
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
@@ -72,11 +82,13 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
 
-        public PluginsManager (MainWindow window) {
-            this.window = window;
+        public PluginsManager (MainWindow _window) {
+            Object (
+                window: _window
+            );
+        }
 
-            settings_field = "plugins-enabled";
-
+        construct {
             plugin_iface = new Interface (this);
 
             /* Let's init the engine */
@@ -86,19 +98,24 @@ namespace Scratch.Services {
             Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
-            exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
+            exts = new Peas.ExtensionSet.with_properties (
+                engine,
+                typeof (ActivatablePlugin),
+                {"object"},
+                {plugin_iface}
+            );
 
             exts.extension_added.connect ((info, ext) => {
-                ((Peas.Activatable)ext).activate ();
+                ((ActivatablePlugin)ext).activate ();
                 extension_added (info);
             });
 
             exts.extension_removed.connect ((info, ext) => {
-                ((Peas.Activatable)ext).deactivate ();
+                ((ActivatablePlugin)ext).deactivate ();
                 extension_removed (info);
             });
 
-            exts.foreach (on_extension_foreach);
+            exts.@foreach ((Peas.ExtensionSetForeachFunc) on_extension_foreach, null);
 
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
@@ -126,15 +143,81 @@ namespace Scratch.Services {
             });
         }
 
-        void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-            ((Peas.Activatable)extension).activate ();
+        void on_extension_foreach (Peas.ExtensionSet exts, Peas.PluginInfo info, Object ext, void* data) {
+            ((ActivatablePlugin)ext).activate ();
         }
 
+        // Return an emulation of the discontinued libpeas-1.0 widget
         public Gtk.Widget get_view () {
-            var view = new PeasGtk.PluginManager (engine);
-            var bottom_box = view.get_children ().nth_data (1);
-            bottom_box.no_show_all = true;
-            return view;
+            var list_box = new Gtk.ListBox ();
+            var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = NEVER,
+                vscrollbar_policy = AUTOMATIC,
+                max_content_height = 300,
+                child = list_box
+            };
+            var frame = new Gtk.Frame (null) {
+                child = scrolled_window
+            };
+
+            // Bind the engine ListModel and use a row factory
+            list_box.bind_model (engine, get_widget_for_plugin_info);
+            // Cannot sort a ListModel so sort the ListBox (is there a better way?)
+            // Gtk warns the function will be ignored but it does in fact work, at least
+            // on initial display. We know the model will not change while the view is used
+            // In Gtk4 could use SortListModel
+            list_box.set_sort_func ((r1, r2) => {
+                return strcmp (
+                    r1.get_child ().get_data<string> ("name"),
+                    r2.get_child ().get_data<string> ("name")
+                );
+            });
+            frame.show_all ();
+            return frame;
+        }
+
+        private Gtk.Widget get_widget_for_plugin_info (Object obj) {
+            var info = (Peas.PluginInfo)obj;
+            var content = new Gtk.Box (HORIZONTAL, 6);
+            var checkbox = new Gtk.CheckButton () {
+                valign = Gtk.Align.CENTER,
+                active = info.is_loaded (),
+                margin_start = 6
+            };
+            checkbox.toggled.connect (() => {
+                if (checkbox.active) {
+                    engine.load_plugin (info);
+                } else {
+                    engine.unload_plugin (info);
+                }
+            });
+            var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
+                valign = Gtk.Align.CENTER
+            };
+            var description_box = new Gtk.Box (VERTICAL, 0);
+            var name_label = new Granite.HeaderLabel (info.name);
+            //TODO In Granite-7 we can use secondary text property but emulate for now
+            var description_label = new Gtk.Label (info.get_description ()) {
+                use_markup = true,
+                wrap = true,
+                xalign = 0,
+                margin_start = 6,
+                margin_bottom = 6
+            };
+            description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+            description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            description_box.add (name_label);
+            description_box.add (description_label);
+            content.add (checkbox);
+            content.add (image);
+            content.add (description_box);
+            content.set_data<string> ("name", info.get_name ());
+
+            return content;
+        }
+
+        public uint get_n_plugins () {
+            return engine.get_n_items ();
         }
     }
 }

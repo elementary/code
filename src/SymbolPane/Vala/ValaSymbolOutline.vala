@@ -17,6 +17,7 @@
  */
 
 public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline {
+    public const int PARSE_TIME_MAX_MSEC = 1000;
     private Code.Plugins.ValaSymbolResolver resolver;
     private Vala.Parser parser;
     private GLib.Cancellable cancellable;
@@ -48,7 +49,12 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         resolver = new Code.Plugins.ValaSymbolResolver ();
 
         store.item_selected.connect ((selected) => {
+            if (selected == null) {
+                return;
+            }
+
             doc.goto (((ValaSymbolItem)selected).symbol.source_reference.begin.line);
+            store.selected = null;
         });
 
         doc.doc_closed.connect (doc_closed);
@@ -66,7 +72,9 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         }
     }
 
+    private uint parse_timeout_id = 0;
     public override void parse_symbols () {
+        tool_box_sensitive = true;
         var context = new Vala.CodeContext ();
 #if VALA_0_50
         context.set_target_profile (Vala.Profile.GOBJECT, false);
@@ -87,8 +95,20 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             resolver.resolve (context);
             Vala.CodeContext.pop ();
 
+            bool took_too_long = false;
+            parse_timeout_id = Timeout.add_full (Priority.LOW, PARSE_TIME_MAX_MSEC, () => {
+                parse_timeout_id = 0;
+                took_too_long = true;
+                cancellable.cancel ();
+                return Source.REMOVE;
+            });
+
             var new_root = construct_tree (cancellable);
-            if (!cancellable.is_cancelled ()) {
+            if (parse_timeout_id > 0) {
+                Source.remove (parse_timeout_id);
+            }
+
+            if (!cancellable.is_cancelled () || took_too_long) {
                 Idle.add (() => {
                     double adjustment_value = store.vadjustment.value;
                     var root_children = store.root.children; // Keep reference to children for later destruction
@@ -97,7 +117,21 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                         destroy_all_children ((Code.Widgets.SourceList.ExpandableItem)child);
                     }
 
-                    store.root.add (new_root);
+                    if (took_too_long) {
+                        var warning_item = new Code.Widgets.SourceList.Item () {
+                            icon = new ThemedIcon ("dialog-warning"),
+                            markup = "<big>%s</big>".printf (_("Too Many Symbols")),
+                            tooltip = _("%s contains too many Vala symbols.\nParsing and showing them took too long.").printf (doc.file.get_basename ()),
+                            selectable = false
+                        };
+
+                        store.root.add (warning_item);
+                        tool_box_sensitive = false;
+
+                    } else {
+                        store.root.add (new_root);
+                    }
+
                     store.root.expand_all ();
                     store.vadjustment.set_value (adjustment_value);
 
@@ -106,6 +140,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             } else {
                 destroy_all_children (new_root);
             }
+
             return null;
         });
     }
@@ -135,15 +170,13 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             if (cancellable.is_cancelled ())
                 break;
 
-            var exist = find_existing (symbol, new_root, cancellable);
-            if (exist != null)
-                continue;
 
             if (symbol.name == null)
                 continue;
 
             construct_child (symbol, new_root, cancellable);
         }
+
         return new_root;
     }
 
