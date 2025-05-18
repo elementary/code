@@ -185,9 +185,9 @@ namespace Scratch {
                         debug ("Files length: %d\n", files.length);
                         var doc = new Scratch.Services.Document (window.actions, file);
                         if (location_jump_manager.has_selection_range != null && files.length == 1) {
-                            window.open_document_at_selected_range (doc, true, location_jump_manager.range);
+                            window.open_document_at_selected_range.begin (doc, true, location_jump_manager.range);
                         } else {
-                            window.open_document (doc);
+                            window.open_document.begin (doc);
                         }
                     }
                 }

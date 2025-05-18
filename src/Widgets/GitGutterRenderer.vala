@@ -1,4 +1,4 @@
-public class Scratch.Widgets.SourceGutterRenderer : Gtk.SourceGutterRenderer {
+public class Scratch.Widgets.GitGutterRenderer : Gtk.SourceGutterRenderer {
     // These style_ids must be present in the "classic" SourceStyleScheme (or allowed Code SourceStyleSchemes) to avoid terminal spam)
     public const string ADDED_STYLE_ID = "diff:added-line";
     public const string REMOVED_STYLE_ID = "diff:removed-line";
