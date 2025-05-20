@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-10 11:55+0000\n"
+"PO-Revision-Date: 2025-05-21 09:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -678,16 +678,13 @@ msgid "Too Many Symbols"
 msgstr "Trop de symboles"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s comporte trop de symboles Vala.\n"
-"Leur analyse et leur affichage ont pris beaucoup de temps"
+"Leur analyse et leur affichage ont pris trop de temps."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -971,20 +968,16 @@ msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Ligne courante"
+msgstr "Marquer la ligne courante"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Revenir à la marque d'édition précédente"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Éditeur de texte"
+msgstr "Aller à la marque d'édition suivante"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
