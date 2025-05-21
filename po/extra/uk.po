@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-10-22 05:04+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
@@ -135,6 +135,10 @@ msgstr "Прокрутіть у кінець файлу, щоб зберегти
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Опційна міні-карта для полегшення навігації у великих файлах"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -184,8 +188,8 @@ msgstr "Збереження й відновлення стану в панел�
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "\"Знайти в теці\" відтепер працює для всіх тек і текстових файлів, а не "
 "тільки для файлів \".vala\""
@@ -446,7 +450,7 @@ msgstr "текст;редактор;код;text;IDE;code;"
 msgid "New File"
 msgstr "Новий файл"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Нове вікно"
 
@@ -507,9 +511,6 @@ msgstr "Потрібна автентифікація для запуску Ко
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Усі копії придатні для перетворення"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "Показується, коли запущено розробницьку гілку Коду"
@@ -774,8 +775,8 @@ msgstr "Потрібна автентифікація для запуску Ко
 #~ "послідовність. Він привабливий, але не відвертає."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "Інші підтримувані мови: Bash, C, C #, C ++. Cmake, CSS, .Desktop, Diff, "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2016-08-03 23:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -118,6 +118,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr ""
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -164,8 +168,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -383,7 +387,7 @@ msgstr "Scratch"
 msgid "New File"
 msgstr ""
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr ""
 
@@ -424,12 +428,12 @@ msgstr ""
 #~ "kõrgtasemel. See on seksikas, kuid mitte liiga seksikas."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Teised süntaksi-esiletõstetud keeled: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Teised süntaksi-esiletõstetud keeled: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"

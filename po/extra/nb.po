@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2023-06-16 11:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -151,6 +151,12 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Alternativt minikart for å gjøre navigering av større filer enklere"
 
+#: data/code.metainfo.xml.in:65
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "elementary, Inc."
+msgstr "elementary LLC. (selskap med begrenset ansvar)"
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -197,8 +203,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -420,7 +426,7 @@ msgstr "text;IDE;scratch;"
 msgid "New File"
 msgstr "Ny fil"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Nytt vindu"
 
@@ -432,11 +438,6 @@ msgstr "Kjør Kode som administrator"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr ""
-
-#, fuzzy
-#~| msgid "elementary LLC."
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary LLC. (selskap med begrenset ansvar)"
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "Vis kjøring av utviklingsforgrening av Kode"
@@ -521,8 +522,8 @@ msgstr ""
 #~ "konsistens. Den er vakker, men ikke distraherende."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "Andre syntaks-språk: Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, "
