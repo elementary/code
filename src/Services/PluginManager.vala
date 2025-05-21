@@ -65,13 +65,6 @@ namespace Scratch.Services {
     }
 
     public class PluginsManager : GLib.Object {
-        Peas.Engine engine;
-        Peas.ExtensionSet exts;
-
-        public Interface plugin_iface { private set; public get; }
-        public weak MainWindow window {get; construct; }
-
-        // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (GLib.MenuModel menu);
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
@@ -82,10 +75,13 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
 
+        private Peas.Engine engine;
+
+        public weak MainWindow window { get; construct; }
+        public Interface plugin_iface { get; private set; }
+
         public PluginsManager (MainWindow _window) {
-            Object (
-                window: _window
-            );
+            Object (window: _window);
         }
 
         construct {
@@ -98,7 +94,7 @@ namespace Scratch.Services {
             Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
-            exts = new Peas.ExtensionSet.with_properties (
+            var exts = new Peas.ExtensionSet.with_properties (
                 engine,
                 typeof (ActivatablePlugin),
                 {"object"},
@@ -143,7 +139,7 @@ namespace Scratch.Services {
             });
         }
 
-        void on_extension_foreach (Peas.ExtensionSet exts, Peas.PluginInfo info, Object ext, void* data) {
+        private void on_extension_foreach (Peas.ExtensionSet exts, Peas.PluginInfo info, Object ext, void* data) {
             ((ActivatablePlugin)ext).activate ();
         }
 
