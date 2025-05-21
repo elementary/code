@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2021-03-11 12:54+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/code/extra/sr/>\n"
@@ -130,6 +130,12 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 
+#: data/code.metainfo.xml.in:65
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "elementary, Inc."
+msgstr "elementary LLC."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -176,8 +182,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -395,7 +401,7 @@ msgstr "текст;ИДЕ;ИРО;нацрт;скица;"
 msgid "New File"
 msgstr "Нова датотека"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Нови прозор"
 
@@ -406,11 +412,6 @@ msgstr "Покрени Код као администратор"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "Потребно је потврђивање идентитета за покретање Кода као администратор"
-
-#, fuzzy
-#~| msgid "elementary LLC."
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary LLC."
 
 #~ msgid "New features:"
 #~ msgstr "Нове функције:"
@@ -612,13 +613,13 @@ msgstr "Потребно је потврђивање идентитета за �
 #~ "брзине и доследности. Врло је љубак, али не одвраћа пажњу."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Други језици истакнуте синтаксе су: Баш, Ц, Ц#, Ц++, Ц-мејк, ЦСС, ."
-#~ "Десктоп, Дифф, Фортран, Геттекст, ини, Јава; Јава скрипт, ЛаТеКс, Луа, "
-#~ "Мејкфајл, Објектни Ц, Паскал, Перл, Питон, Рубин, ИксМЛ."
+#~ "Други језици истакнуте синтаксе су: Баш, Ц, Ц#, Ц++, Ц-мејк, "
+#~ "ЦСС, .Десктоп, Дифф, Фортран, Геттекст, ини, Јава; Јава скрипт, ЛаТеКс, "
+#~ "Луа, Мејкфајл, Објектни Ц, Паскал, Перл, Питон, Рубин, ИксМЛ."
 
 #~ msgid "Additional features include:"
 #~ msgstr "У додатне функције спадају:"

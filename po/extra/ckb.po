@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2022-09-10 09:55+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -140,6 +140,10 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 "نەخشۆچکەیەکی ئارەزوومەندانە بۆ ئاسانکردنی هاتووچۆکردن بەناو فایلە گەورەکان"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -186,8 +190,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -411,7 +415,7 @@ msgstr "text;IDE;scratch;code;"
 msgid "New File"
 msgstr "پەڕگەی نوێ"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "پەنجەرەی نوێ"
 
@@ -473,9 +477,6 @@ msgstr "سەلماندنی ڕەسەنێتی پێویستە بۆ کارپێکرد
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "دڵنیابوونەوە لەوەی کە هەموو لەبەرگیراوەکان وەردەگێڕدرێن"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
 
 #~ msgid "New features:"
 #~ msgstr "تایبەتمەندییە تازەکان:"

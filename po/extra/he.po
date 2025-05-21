@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-10-27 06:56+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
@@ -129,6 +129,10 @@ msgstr "גלילה מעבר לסוף הקובץ כדי לשמור על השור�
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "מפה ממוזערת כרשות כדי להקל על הניווט בקבצים גדולים"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary בע״מ."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -177,8 +181,8 @@ msgstr "שמירה ושחזור את מצב סרגל המסוף"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr "„איתור בתיקייה” עובד כעת לכל התיקיות וקובצי הטקסט, לא רק קובצי „‎.vala”"
 
 #: data/code.metainfo.xml.in:126
@@ -402,7 +406,7 @@ msgstr "סביבת פיתוח;קוד;תכנות;טקסט;עריכה;תיכנות
 msgid "New File"
 msgstr "קובץ חדש"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "חלון חדש"
 
@@ -457,9 +461,6 @@ msgstr "נדרש אימות כדי להריץ את קוד עם הרשאות ני
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "וידוא שכל ההעתקה ניתנת לתרגום"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary בע״מ."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "להציג בעת שימוש בגרסת פיתוח של קוד"
@@ -704,8 +705,8 @@ msgstr "נדרש אימות כדי להריץ את קוד עם הרשאות ני
 #~ "תואם לתקנים הגבוהים של עיצוב, מהירות ועקביות. מושך, אך לא מסיח את הדעת."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "שפות אחרות עם הדגשת תחביר: Bash,‏ C,‏ C#‎,‏ C++‎.‏ Cmake,‏ CSS,‏ ‎.Desktop,‏ Diff,‏ "
