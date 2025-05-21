@@ -115,20 +115,19 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
     private void fix_ordered_list_numbering () {
         Gtk.TextIter next;
+        var count = 1;
+        var item_text = "";
         var current_buffer = current_source.buffer;
+
         current_buffer.get_iter_at_offset (out next, current_buffer.cursor_position);
         var line = get_current_line (next).strip ();
-        int count = 1;
-        string item_text;
+        // Get list item number from current line
         parse_ordered_list_item (line, ref count, out item_text);
-
-        while (next.forward_line ()) {
+        // Start checking following lines
+        next.forward_line ();
+        line = get_current_line (next).strip ();
+        while (parse_ordered_list_item (line, ref count, out item_text)) {
             count++;
-            line = get_current_line (next).strip ();
-            if (line.length == 0) {
-                break;
-            }
-
             var next_mark = current_buffer.create_mark (null, next, true);
             var point_offset = line.index_of_char ('.');
             var start = next;
@@ -140,10 +139,12 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
             var to_insert = "%d".printf (count);
             current_buffer.insert (ref next, to_insert, to_insert.length);
+            next.forward_line ();
+            line = get_current_line (next).strip ();
         }
     }
 
-    private string get_current_line (Gtk.TextIter? start=null) {
+    private string get_current_line (Gtk.TextIter? start = null) {
         var current_buffer = current_source.buffer;
         Gtk.TextIter end;
 
