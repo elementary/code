@@ -17,16 +17,24 @@
  */
 
 public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable, Scratch.Services.SymbolItem {
-    public Vala.Symbol symbol { get; set; }
+    public Vala.Symbol symbol { get; construct; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public ValaSymbolItem (Vala.Symbol symbol) {
-        this.symbol = symbol;
-        this.name = symbol.name;
+        Object (
+            symbol: symbol
+        );
+    }
+
+    construct {
         if (symbol is Vala.CreationMethod) {
-            if (symbol.name == ".new")
-                this.name = ((Vala.CreationMethod)symbol).class_name;
-            else
-                this.name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
+            var klass = ((Vala.CreationMethod)symbol).class_name;
+            if (symbol.name == ".new") {
+                name = klass;
+            } else {
+                name = "%s.%s".printf (klass, symbol.name);
+            }
+        } else {
+            name = symbol.name;
         }
     }
 
