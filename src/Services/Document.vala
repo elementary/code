@@ -1226,27 +1226,30 @@ namespace Scratch.Services {
 
         public void show_outline (bool show) {
             if (show && outline == null) {
-               switch (mime_type) {
-                   case "text/x-vala":
+                switch (mime_type) {
+                    case "text/x-vala":
                        outline = new ValaSymbolOutline (this);
                        break;
-                   case "text/x-csrc":
-                   case "text/x-chdr":
-                   case "text/x-c++src":
-                   case "text/x-c++hdr":
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
                        outline = new CtagsSymbolOutline (this);
                        break;
-               }
+                }
 
-               if (outline != null) {
-                   outline_widget_pane.pack2 (outline.get_widget (), false, false);
-                   Idle.add (() => {
-                       set_outline_width (doc_view.outline_width);
-                       outline_widget_pane.notify["position"].connect (sync_outline_width);
-                       outline.parse_symbols ();
-                       return Source.REMOVE;
-                   });
-               }
+                if (outline != null) {
+                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    Idle.add (() => {
+                        set_outline_width (doc_view.outline_width);
+                        outline_widget_pane.notify["position"].connect (sync_outline_width);
+                        if (!tab.loading) {
+                            outline.parse_symbols ();
+                        } // else parsing will occur when tab finishes loading
+
+                        return Source.REMOVE;
+                    });
+                }
             } else if (!show && outline != null) {
                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
                outline_widget_pane.get_child2 ().destroy ();
