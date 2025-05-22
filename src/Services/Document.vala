@@ -819,7 +819,7 @@ namespace Scratch.Services {
             var text = source_view;
             Gtk.TextIter iter;
             text.buffer.get_iter_at_line (out iter, start_line - 1);
-            if (!iter.forward_chars (start_col - 1)) {
+            if (start_col > 1 && !iter.forward_chars (start_col - 1)) {
                 return "";
             }
 
