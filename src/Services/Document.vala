@@ -1341,6 +1341,9 @@ namespace Scratch.Services {
         /* Block user editing while tab is loading */
         private void on_tab_loading_change () {
             source_view.sensitive = !tab.loading;
+            if (!tab.loading && outline != null) {
+                outline.parse_symbols ();
+            }
         }
     }
 }
