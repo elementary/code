@@ -306,7 +306,7 @@ namespace Scratch.Services {
 
         public void init_tab (Hdy.TabPage tab) {
             this.tab = tab;
-            notify["tab.loading"].connect (on_tab_loading_change);
+            tab.notify["loading"].connect (on_tab_loading_change);
 
             tab.title = title;
             tab.icon = icon;
