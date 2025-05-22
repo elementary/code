@@ -166,6 +166,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         symbols.remove_all (fields);
 
         var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        new_root.tooltip = _("Vala symbols found in %s").printf (doc.file.get_basename ());
         foreach (var symbol in symbols) {
             if (cancellable.is_cancelled ())
                 break;
@@ -180,7 +181,12 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         return new_root;
     }
 
-    private ValaSymbolItem construct_child (Vala.Symbol symbol, Code.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
+    private ValaSymbolItem construct_child (
+        Vala.Symbol symbol,
+        Code.Widgets.SourceList.ExpandableItem given_parent,
+        GLib.Cancellable cancellable
+    ) {
+
         Code.Widgets.SourceList.ExpandableItem parent;
         if (symbol.scope.parent_scope.owner.name == null)
             parent = given_parent;
@@ -191,8 +197,20 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
         }
 
-        var tree_child = new ValaSymbolItem (symbol);
+        var tooltip = "%s%s".printf (
+            doc.get_slice (
+                symbol.source_reference.begin.line,
+                symbol.source_reference.begin.column,
+                symbol.source_reference.end.line,
+                symbol.source_reference.end.column
+            ),
+            symbol.comment != null ? "\n" + symbol.comment.content : ""
+        );
 
+        var tree_child = new ValaSymbolItem (
+            symbol,
+            tooltip
+        );
         parent.add (tree_child);
         return tree_child;
     }

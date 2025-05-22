@@ -815,6 +815,26 @@ namespace Scratch.Services {
             return this.source_view.get_selected_text (replace_newline);
         }
 
+        public string get_slice (int start_line, int start_col, int end_line, int end_col) {
+            var text = source_view;
+            Gtk.TextIter iter;
+            text.buffer.get_iter_at_line (out iter, start_line - 1);
+            if (!iter.forward_chars (start_col - 1)) {
+                return "";
+            }
+
+            var start = iter;
+            text.buffer.get_iter_at_line (out iter, end_line - 1);
+
+            if (!iter.forward_to_line_end ()) {
+                return "";
+            }
+
+            var end = iter;
+            var slice = text.buffer.get_text (start, end, false);
+            return text.buffer.get_text (start, end, false);
+        }
+
         // Get language name
         public string get_language_name () {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;

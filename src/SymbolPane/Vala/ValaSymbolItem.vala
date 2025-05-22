@@ -19,9 +19,10 @@
 public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable, Scratch.Services.SymbolItem {
     public Vala.Symbol symbol { get; construct; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
-    public ValaSymbolItem (Vala.Symbol symbol) {
+    public ValaSymbolItem (Vala.Symbol symbol, string _tooltip) {
         Object (
-            symbol: symbol
+            symbol: symbol,
+            tooltip: _tooltip
         );
     }
 
