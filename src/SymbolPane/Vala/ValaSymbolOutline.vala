@@ -192,67 +192,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         }
 
         var tree_child = new ValaSymbolItem (symbol);
-        if (symbol is Vala.Struct) {
-            tree_child.icon = new ThemedIcon ("lang-struct");
-            tree_child.symbol_type = SymbolType.STRUCT;
-        } else if (symbol is Vala.Class) {
-            if (((Vala.Class) symbol).is_abstract) {
-                tree_child.icon = new ThemedIcon ("lang-class-abstract");
-            } else {
-                tree_child.icon = new ThemedIcon ("lang-class");
-            }
-
-            tree_child.symbol_type = SymbolType.CLASS;
-        } else if (symbol is Vala.Constant) {
-            tree_child.icon = new ThemedIcon ("lang-constant");
-            tree_child.symbol_type = SymbolType.CONSTANT;
-        } else if (symbol is Vala.Enum) {
-            tree_child.icon = new ThemedIcon ("lang-enum");
-            tree_child.symbol_type = SymbolType.ENUM;
-        } else if (symbol is Vala.Field) {
-            tree_child.icon = new ThemedIcon ("lang-property");
-            tree_child.symbol_type = SymbolType.PROPERTY;
-        } else if (symbol is Vala.Interface) {
-            tree_child.icon = new ThemedIcon ("lang-interface");
-            tree_child.symbol_type = SymbolType.INTERFACE;
-        } else if (symbol is Vala.Property) {
-            if (((Vala.Property) symbol).is_abstract) {
-                tree_child.icon = new ThemedIcon ("lang-property-abstract");
-            } else if (((Vala.Property) symbol).is_virtual) {
-                tree_child.icon = new ThemedIcon ("lang-property-virtual");
-            } else {
-                tree_child.icon = new ThemedIcon ("lang-property");
-            }
-
-            tree_child.symbol_type = SymbolType.PROPERTY;
-        } else if (symbol is Vala.Signal) {
-            tree_child.icon = new ThemedIcon ("lang-signal");
-            tree_child.symbol_type = SymbolType.SIGNAL;
-        } else if (symbol is Vala.CreationMethod) {
-            tree_child.icon = new ThemedIcon ("lang-constructor");
-            tree_child.symbol_type = SymbolType.CONSTRUCTOR;
-        } else if (symbol is Vala.Method) {
-            if (((Vala.Method) symbol).is_abstract) {
-                tree_child.icon = new ThemedIcon ("lang-method-abstract");
-            } else if (((Vala.Method) symbol).is_virtual) {
-                tree_child.icon = new ThemedIcon ("lang-method-virtual");
-            } else if (((Vala.Method) symbol).binding == Vala.MemberBinding.STATIC) {
-                tree_child.icon = new ThemedIcon ("lang-method-static");
-            } else {
-                tree_child.icon = new ThemedIcon ("lang-method");
-            }
-
-            tree_child.symbol_type = SymbolType.METHOD;
-        } else if (symbol is Vala.Namespace) {
-            tree_child.icon = new ThemedIcon ("lang-namespace");
-            tree_child.symbol_type = SymbolType.NAMESPACE;
-        } else if (symbol is Vala.ErrorDomain) {
-            tree_child.icon = new ThemedIcon ("lang-errordomain");
-        } else if (symbol is Vala.Delegate) {
-            tree_child.icon = new ThemedIcon ("lang-delegate");
-        } else {
-            warning (symbol.type_name);
-        }
 
         parent.add (tree_child);
         return tree_child;
