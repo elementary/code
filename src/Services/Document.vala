@@ -162,7 +162,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
 
-        public Scratch.Widgets.SourceView source_view  { get; construct; }
+        public Scratch.Widgets.SourceView source_view { get; construct; }
 
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
