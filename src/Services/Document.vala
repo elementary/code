@@ -161,7 +161,9 @@ namespace Scratch.Services {
         public bool closing { get; private set; default = false; }
 
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+
+        public Scratch.Widgets.SourceView source_view  { get; construct; }
+
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
             get {
@@ -816,23 +818,24 @@ namespace Scratch.Services {
         }
 
         public string get_slice (int start_line, int start_col, int end_line, int end_col) {
-            var text = source_view;
-            Gtk.TextIter iter;
-            text.buffer.get_iter_at_line (out iter, start_line - 1);
-            if (start_col > 1 && !iter.forward_chars (start_col - 1)) {
-                return "";
+            // This is accessed from separate thread so must lock the sourceview
+            lock (source_view) {
+                Gtk.TextIter iter;
+                source_view.buffer.get_iter_at_line (out iter, start_line - 1);
+                if (start_col > 1 && !iter.forward_chars (start_col - 1)) {
+                    return "";
+                }
+
+                var start = iter;
+                source_view.buffer.get_iter_at_line (out iter, end_line - 1);
+
+                if (!iter.forward_to_line_end ()) {
+                    return "";
+                }
+
+                var end = iter;
+                return source_view.buffer.get_text (start, end, false);
             }
-
-            var start = iter;
-            text.buffer.get_iter_at_line (out iter, end_line - 1);
-
-            if (!iter.forward_to_line_end ()) {
-                return "";
-            }
-
-            var end = iter;
-            var slice = text.buffer.get_text (start, end, false);
-            return text.buffer.get_text (start, end, false);
         }
 
         // Get language name
