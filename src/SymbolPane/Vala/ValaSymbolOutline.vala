@@ -159,6 +159,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         parent.remove (item);
     }
 
+    // Called from separate thread
     private Code.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
         var fields = resolver.get_properties_fields ();
         var symbols = resolver.get_symbols ();
@@ -176,6 +177,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                 continue;
 
             construct_child (symbol, new_root, cancellable);
+            Thread.yield ();
         }
 
         return new_root;
