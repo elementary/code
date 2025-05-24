@@ -17,7 +17,7 @@
  */
 
 public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline {
-    public const int PARSE_TIME_MAX_MSEC = 1000;
+    public const int PARSE_TIME_MAX_MSEC = 5000;
     private Code.Plugins.ValaSymbolResolver resolver;
     private Vala.Parser parser;
     private GLib.Cancellable cancellable;
