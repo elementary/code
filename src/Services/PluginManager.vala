@@ -4,9 +4,9 @@
  *                         2013 Mario Guerriero <mario@elementaryos.org>
  */
 
-namespace Scratch.Services {
-    // Interface implemented by all plugins
-    public interface ActivatablePlugin : Object {
+// namespace Scratch.Services {
+//     // Interface implemented by all plugins
+    public interface Scratch.Services.ActivatablePlugin : Object {
         // Migrated from Peas.Activatable
         public abstract void activate ();
         public abstract void deactivate ();
@@ -15,7 +15,7 @@ namespace Scratch.Services {
     }
 
     // Object shared with plugins providing signals and methods to interface with application
-    public class Interface : GLib.Object {
+    public class Scratch.Services.Interface : GLib.Object {
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (GLib.MenuModel menu);
@@ -27,7 +27,7 @@ namespace Scratch.Services {
         public Scratch.TemplateManager template_manager { get; construct; }
         public Scratch.Services.PluginsManager manager { get; construct; }
 
-        public Interface (PluginsManager _manager) {
+        public Interface (Scratch.Services.PluginsManager _manager) {
             Object (
                 manager: _manager
             );
@@ -37,18 +37,18 @@ namespace Scratch.Services {
             template_manager = new Scratch.TemplateManager ();
         }
 
-        public Document open_file (File file) {
-            var doc = new Document (manager.window.actions, file);
+        public Scratch.Services.Document open_file (File file) {
+            var doc = new Scratch.Services.Document (manager.window.actions, file);
             manager.window.open_document.begin (doc);
             return doc;
         }
 
-        public void close_document (Document doc) {
+        public void close_document (Scratch.Services.Document doc) {
             manager.window.close_document (doc);
         }
     }
 
-    public class PluginsManager : GLib.Object {
+    public class Scratch.Services.PluginsManager : GLib.Object {
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (GLib.MenuModel menu);
         public signal void hook_toolbar (Scratch.HeaderBar toolbar);
@@ -59,43 +59,68 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
 
-        private Peas.Engine engine;
+        public Peas.Engine engine { get; construct; }
 
-        public weak MainWindow window { get; construct; }
-        public Interface plugin_iface { get; private set; }
+        public weak Scratch.MainWindow window { get; construct; }
+        public Scratch.Services.Interface plugin_iface { get; construct; }
 
-        public PluginsManager (MainWindow _window) {
+        public PluginsManager (Scratch.MainWindow _window) {
             Object (window: _window);
         }
 
         construct {
-            plugin_iface = new Interface (this);
+            plugin_iface = new Scratch.Services.Interface (this);
 
             /* Let's init the engine */
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
+            // engine.loaded_plugins = {"highlight-word-selection"};
             Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
             var exts = new Peas.ExtensionSet.with_properties (
                 engine,
-                typeof (ActivatablePlugin),
+                typeof (Scratch.Services.ActivatablePlugin),
                 {"object"},
                 {plugin_iface}
             );
 
-            exts.extension_added.connect ((info, ext) => {
-                ((ActivatablePlugin)ext).activate ();
-                extension_added (info);
-            });
+            if (exts != null) {
+                exts.extension_added.connect ((info, ext) => {
+                warning ("extension added");
+                    ((ActivatablePlugin)ext).activate ();
+                    extension_added (info);
+                });
 
-            exts.extension_removed.connect ((info, ext) => {
-                ((ActivatablePlugin)ext).deactivate ();
-                extension_removed (info);
-            });
+                exts.extension_removed.connect ((info, ext) => {
+                warning ("extension removed");
+                    // ((ActivatablePlugin)ext).deactivate ();
+                    // extension_removed (info);
+                    
+                    warning ("number of extensions now %u", exts.get_n_items ());
+                });
 
-            exts.@foreach ((Peas.ExtensionSetForeachFunc) on_extension_foreach, null);
+                exts.@foreach ((exts, info, ext) => {
+                    ((Scratch.Services.ActivatablePlugin)ext).activate ();
+                }, null);
+                // var pos = 0;
+                // while (pos < exts.get_n_items ()) {
+                //     var obj = exts.get_item (pos);
+                //     if (obj != null) {
+                //         var eb = (Peas.ExtensionBase)obj;
+                //         var info = eb.plugin_info;
+                //         warning ("got ext %s", info.get_name ());
+                //         var ap = (Scratch.Services.ActivatablePlugin)obj;
+                //         ap.activate ();
+                //     } else {
+                //         warning ("Object is null");
+                //     }
+                //     pos++;
+                // }
+            } else {
+                warning ("ext set is null");
+            }
 
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
@@ -123,12 +148,9 @@ namespace Scratch.Services {
             });
         }
 
-        private void on_extension_foreach (Peas.ExtensionSet exts, Peas.PluginInfo info, Object ext, void* data) {
-            ((ActivatablePlugin)ext).activate ();
-        }
-
         // Return an emulation of the discontinued libpeas-1.0 widget
         public Gtk.Widget get_view () {
+        warning ("get plugin view");
             var list_box = new Gtk.ListBox ();
             list_box.get_accessible ().accessible_name = _("Extensions");
 
@@ -203,10 +225,17 @@ namespace Scratch.Services {
             content.set_data<string> ("name", info.get_name ());
 
             checkbox.toggled.connect (() => {
+            warning ("toggled");
                 if (checkbox.active) {
+                warning ("active - load");
                     engine.load_plugin (info);
                 } else {
+                warning ("inactive - unload");
                     engine.unload_plugin (info);
+                }
+
+                foreach (string s in engine.loaded_plugins) {
+                    warning ("loaded %s", s);
                 }
             });
 
@@ -217,4 +246,4 @@ namespace Scratch.Services {
             return engine.get_n_items ();
         }
     }
-}
+// }

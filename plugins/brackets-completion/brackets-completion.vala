@@ -19,6 +19,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
     private string previous_selection = "";
 
     public void activate () {
+warning ("brackets completion activate");
         brackets = new Gee.HashMap<string, string> ();
         brackets["("] = ")";
         brackets["["] = "]";
@@ -43,6 +44,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
     }
 
     public void deactivate () {
+warning ("brackets completion deactivate");
         plugins.hook_document.disconnect (on_hook_document);
     }
 
