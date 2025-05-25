@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="io.elementary.code.window-states">
+  <enum id="com.github.jeremypw.code-testing.window-states">
     <value nick="Normal" value="0" />
     <value nick="Maximized" value="1" />
     <value nick="Fullscreen" value="2" />
   </enum>
-  <enum id="io.elementary.code.draw-spaces-states">
+  <enum id="com.github.jeremypw.code-testing.draw-spaces-states">
     <value nick="Never" value="0" />
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
     <value nick="Current" value="4" />
   </enum>
-  <enum id="io.elementary.code.case-sensitive-mode">
+  <enum id="com.github.jeremypw.code-testing.case-sensitive-mode">
     <value nick="never" value="0" />
     <value nick="mixed" value="1" />
     <value nick="always" value="2" />
   </enum>
 
-  <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
-    <key name="window-state" enum="io.elementary.code.window-states">
+  <schema path="/com/github/jeremypw/code-testing/saved-state/" id="com.github.jeremypw.code-testing.saved-state" gettext-domain="com.github.jeremypw.code-testing">
+    <key name="window-state" enum="com.github.jeremypw.code-testing.window-states">
       <default>"Normal"</default>
       <summary>The saved state of the window.</summary>
       <description>The saved state of the window.</description>
@@ -65,7 +65,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
+  <schema path="/com/github/jeremypw/code-testing/settings/" id="com.github.jeremypw.code-testing.settings" gettext-domain="com.github.jeremypw.code-testing">
     <key type="as" name="plugins-enabled">
       <default>['brackets-completion', 'detect-indent', 'editorconfig']</default>
       <summary>Enabled Plugins</summary>
@@ -106,7 +106,7 @@
       <summary>Highlight Matching Brackets</summary>
       <description>Whether Code should highlight matching brackets.</description>
     </key>
-    <key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
+    <key name="draw-spaces" enum="com.github.jeremypw.code-testing.draw-spaces-states">
       <default>"For Selection"</default>
       <summary>Draw spaces and tabs with symbols</summary>
       <description>Draw spaces and tabs with symbols. "Never" is deprecated and not exposed in the UI.</description>
@@ -187,7 +187,7 @@
       <summary>Whether search term is a regex expression</summary>
       <description>Whether the search should use the search term as a regex expression for matching.</description>
     </key>
-    <key name="case-sensitive-search" enum="io.elementary.code.case-sensitive-mode">
+    <key name="case-sensitive-search" enum="com.github.jeremypw.code-testing.case-sensitive-mode">
       <default>'mixed'</default>
       <summary>When text search is case sensitive</summary>
       <description>Whether the text search is case sensitive never, always or only when search term is mixed case</description>
@@ -199,7 +199,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
+  <schema path="/com/github/jeremypw/code-testing/services/" id="com.github.jeremypw.code-testing.services" gettext-domain="com.github.jeremypw.code-testing">
     <key name="paste-format-code" type="s">
       <default>'None'</default>
       <summary>Default PasteBin text highlight</summary>
@@ -217,7 +217,7 @@
     </key>
   </schema>
 
-  <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
+  <schema path="/com/github/jeremypw/code-testing/folder-manager/" id="com.github.jeremypw.code-testing.folder-manager">
     <key name="opened-folders" type="as">
       <default>[]</default>
       <summary>Opened folders.</summary>
