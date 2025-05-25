@@ -1,11 +1,9 @@
 project(
-    'com.github.jeremypw.code-testing',
+    'io.elementary.code',
     'vala', 'c',
     meson_version: '>= 0.58.0',
     version: '7.4.0'
 )
-
-original_project_name = 'io.elementary.code'
 
 add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
@@ -43,7 +41,7 @@ posix_dep = meson.get_compiler('vala').find_library('posix')
 vte_dep = dependency('vte-2.91')
 
 code_resources = gnome.compile_resources(
-    'code-resources', 'data/' + original_project_name + '.gresource.xml',
+    'code-resources', 'data/' + meson.project_name() + '.gresource.xml',
     source_dir: 'data'
 )
 
