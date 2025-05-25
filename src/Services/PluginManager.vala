@@ -59,6 +59,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     public signal void extension_removed (Peas.PluginInfo info);
 
     public Peas.Engine engine { get; construct; }
+    public Peas.ExtensionSet extension_set {get; construct; }
 
     public weak Scratch.MainWindow window { get; construct; }
     public Scratch.Services.Interface plugin_iface { get; construct; }
@@ -78,7 +79,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
         /* Our extension set */
-        var exts = new Peas.ExtensionSet.with_properties (
+        extension_set = new Peas.ExtensionSet.with_properties (
             engine,
             typeof (Scratch.Services.ActivatablePlugin),
             {"object"},
