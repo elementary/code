@@ -25,6 +25,7 @@ install_data([
 install_data(
     'io.elementary.code.gschema.xml',
     'io.elementary.code.plugins.spell.gschema.xml',
+    rename: ['com.github.jeremypw.code-testing.gschema.xml', 'com.github.jeremypw.code-testing.plugins.spell.gschema.xml'],
     install_dir: get_option('prefix') / get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
@@ -46,7 +47,7 @@ desktop_in_file = configure_file(
 
 desktop_file = i18n.merge_file(
     input: desktop_in_file,
-    output: 'io.elementary.code.desktop',
+    output: meson.project_name() + '.desktop',
     po_dir: meson.project_source_root () / 'po' / 'extra',
     type: 'desktop',
     install_dir: get_option('datadir') / 'applications',
