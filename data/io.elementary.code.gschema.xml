@@ -173,7 +173,7 @@
       <description>Use the Dark style if the system prefers a dark style, or elementary Light otherwise. Overrides control of prefer-dark-style.</description>
     </key>
     <key name="cyclic-search" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Whether search is cyclic</summary>
       <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
     </key>
