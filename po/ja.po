@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2025-05-04 23:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
@@ -92,34 +92,34 @@ msgstr "ターミナルを表示"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:966 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:666
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:970 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:670
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: src/MainWindow.vala:974
+#: src/MainWindow.vala:980
 msgid "Open some files"
 msgstr "複数のファイルを開く"
 
-#: src/MainWindow.vala:977
+#: src/MainWindow.vala:983
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:978 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
 #: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1024
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/MainWindow.vala:1019
+#: src/MainWindow.vala:1025
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -351,24 +351,24 @@ msgstr "チェックアウトしない"
 msgid "Checkout and Overwrite"
 msgstr "チェックアウトして上書き"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
 msgid "Other Actions"
 msgstr "他の操作"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
 msgstr "名前を変更"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
 msgstr "他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
 msgid "Open In"
 msgstr "指定した方法で開く"
 
@@ -376,35 +376,35 @@ msgstr "指定した方法で開く"
 msgid "Folders"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "フォルダー内を検索…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:167
 msgid "Terminal Pane"
 msgstr "ターミナルペイン"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
 msgstr "空のファイル"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
 msgstr "名称未設定フォルダー"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "new file"
 msgstr "新しいファイル"
 
@@ -740,28 +740,28 @@ msgstr "プロジェクトをフィルター"
 msgid "Closed Tabs"
 msgstr "閉じたタブ"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "テキストファイル %s:%d"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr "右側のタブを閉じる"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Other Tabs"
 msgstr "他のタブを閉じる"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Tab"
 msgstr "タブを閉じる"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 msgid "Open in New Window"
 msgstr "新しいウィンドウで開く"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr "タブを複製"
 
@@ -933,12 +933,12 @@ msgstr "置換"
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: src/Widgets/SearchBar.vala:600
+#: src/Widgets/SearchBar.vala:607
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d 件"
 
-#: src/Widgets/SearchBar.vala:605
+#: src/Widgets/SearchBar.vala:612
 msgid "no results"
 msgstr "結果なし"
 
@@ -1003,7 +1003,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "サイドバーにプロジェクトフォルダーを追加します。"
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Pastebin にアップロード"
 

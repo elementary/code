@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
-"PO-Revision-Date: 2025-04-10 11:55+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
+"PO-Revision-Date: 2025-05-21 09:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -92,34 +92,34 @@ msgstr "Afficher le terminal"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:966 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:666
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:970 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:670
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:974
+#: src/MainWindow.vala:980
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:977
+#: src/MainWindow.vala:983
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:978 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
 #: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1024
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:1019
+#: src/MainWindow.vala:1025
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -359,24 +359,24 @@ msgstr "Ne pas basculer"
 msgid "Checkout and Overwrite"
 msgstr "Basculer et écraser"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
 msgid "Open In"
 msgstr "Ouvrir dans"
 
@@ -384,35 +384,35 @@ msgstr "Ouvrir dans"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "Rechercher dans le dossier…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:167
 msgid "Terminal Pane"
 msgstr "Panneau du Terminal"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "new file"
 msgstr "nouveau fichier"
 
@@ -678,16 +678,13 @@ msgid "Too Many Symbols"
 msgstr "Trop de symboles"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s comporte trop de symboles Vala.\n"
-"Leur analyse et leur affichage ont pris beaucoup de temps"
+"Leur analyse et leur affichage ont pris trop de temps."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -762,28 +759,28 @@ msgstr "Filtrer les projets"
 msgid "Closed Tabs"
 msgstr "Onglets fermés"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Fichier texte du %s:%d"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr "Fermer les onglets de droite"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Other Tabs"
 msgstr "Fermer les autres onglets"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Tab"
 msgstr "Fermer l'onglet"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 msgid "Open in New Window"
 msgstr "Ouvrir dans une nouvelle fenêtre"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr "Dupliquer l'onglet"
 
@@ -957,12 +954,12 @@ msgstr "Remplacer"
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SearchBar.vala:600
+#: src/Widgets/SearchBar.vala:607
 #, c-format
 msgid "%d of %d"
 msgstr "%d sur %d"
 
-#: src/Widgets/SearchBar.vala:605
+#: src/Widgets/SearchBar.vala:612
 msgid "no results"
 msgstr "Aucun résultat"
 
@@ -971,20 +968,16 @@ msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Ligne courante"
+msgstr "Marquer la ligne courante"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Revenir à la marque d'édition précédente"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Éditeur de texte"
+msgstr "Aller à la marque d'édition suivante"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
@@ -1031,7 +1024,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Ajouter le dossier d'un projet dans la barre latérale."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Envoyer vers Pastebin"
 

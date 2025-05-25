@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2022-09-30 22:14+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/extra/sk/>\n"
@@ -139,6 +139,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Voliteľná minimapa, ktorá zjednodušuje pohyb po väčších súboroch"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -185,8 +189,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -407,7 +411,7 @@ msgstr "text;IDE;scratch;kód;program;programovanie;"
 msgid "New File"
 msgstr "Nový súbor"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Nové okno"
 
@@ -471,9 +475,6 @@ msgstr ""
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Zaistené, že všetky kópie sú prekladateľné"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "New features:"
 #~ msgstr "Nové funkcie:"
@@ -740,12 +741,12 @@ msgstr ""
 #~ "rýchlosti a konzistencie. Je sexy, ale nie rozptyľujúci."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Ďalšie jazyky so zvýrazňovaním syntaxe: Bash, C, C#, C++, Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Ďalšie jazyky so zvýrazňovaním syntaxe: Bash, C, C#, C++, Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"

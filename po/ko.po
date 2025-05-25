@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -100,34 +100,34 @@ msgstr "터미널 보이기"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:966 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:666
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:970 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:670
 msgid "Text files"
 msgstr "텍스트 파일"
 
-#: src/MainWindow.vala:974
+#: src/MainWindow.vala:980
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:977
+#: src/MainWindow.vala:983
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:978 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
 #: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "취소"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1024
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: src/MainWindow.vala:1019
+#: src/MainWindow.vala:1025
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -382,24 +382,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
 msgid "Other Actions"
 msgstr "다른 작업"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
 msgstr "이름 바꾸기"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "휴지통에 버리기"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
 msgstr "다른 애플리케이션…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
 msgid "Open In"
 msgstr "열기"
 
@@ -407,37 +407,37 @@ msgstr "열기"
 msgid "Folders"
 msgstr "폴더"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "폴더에서 찾기…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:167
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "터미널"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "폴더"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
 msgstr "빈 파일"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
 msgstr "이름 없는 폴더"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "new file"
 msgstr "새 파일"
 
@@ -806,34 +806,34 @@ msgstr "필터 프로젝트"
 msgid "Closed Tabs"
 msgstr "닫기"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "%s의 텍스트 파일:%d개"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "다른 폴더 닫기"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "닫기"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "새 창"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -1019,12 +1019,12 @@ msgstr "바꾸기"
 msgid "Replace all"
 msgstr "모두 바꾸기"
 
-#: src/Widgets/SearchBar.vala:600
+#: src/Widgets/SearchBar.vala:607
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d"
 
-#: src/Widgets/SearchBar.vala:605
+#: src/Widgets/SearchBar.vala:612
 msgid "no results"
 msgstr "결과 없음"
 
@@ -1093,7 +1093,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "사이드바에 프로젝트 폴더 추가하기."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Pastebin에 업로드"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2022-12-26 20:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
@@ -100,34 +100,34 @@ msgstr "Zobraziť terminál"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:966 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:666
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/MainWindow.vala:970 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:670
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/MainWindow.vala:974
+#: src/MainWindow.vala:980
 msgid "Open some files"
 msgstr "Otvorte nejaké súbory"
 
-#: src/MainWindow.vala:977
+#: src/MainWindow.vala:983
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/MainWindow.vala:978 src/Dialogs/GlobalSearchDialog.vala:109
+#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
 #: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
 #: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1024
 msgid "_Open"
 msgstr "_Otvoriť"
 
-#: src/MainWindow.vala:1019
+#: src/MainWindow.vala:1025
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -388,24 +388,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
 msgid "Other Actions"
 msgstr "Ostatné akcie"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
 msgstr "Premenovať"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Presunúť do koša"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
 msgstr "Iná aplikácia…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
 msgid "Open In"
 msgstr "Otvoriť v"
 
@@ -413,37 +413,37 @@ msgstr "Otvoriť v"
 msgid "Folders"
 msgstr "Priečinky"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:134
 msgid "Find in Folder…"
 msgstr "Nájsť v priečinku…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:167
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Terminál"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:202
 msgid "Folder"
 msgstr "Priečinok"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
 msgstr "Prázdny súbor"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
+#: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Nový"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
 msgstr "priečinok bez názvu"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:377
 msgid "new file"
 msgstr "nový súbor"
 
@@ -819,34 +819,34 @@ msgstr "Filtrovať projekty"
 msgid "Closed Tabs"
 msgstr "Zatvoriť"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Textový súbor z %s:%d"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "Zatvoriť ostatné priečinky"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Zatvoriť"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Nové okno"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -1036,12 +1036,12 @@ msgstr "Nahradiť"
 msgid "Replace all"
 msgstr "Nahradiť všetko"
 
-#: src/Widgets/SearchBar.vala:600
+#: src/Widgets/SearchBar.vala:607
 #, c-format
 msgid "%d of %d"
 msgstr "%d z %d"
 
-#: src/Widgets/SearchBar.vala:605
+#: src/Widgets/SearchBar.vala:612
 msgid "no results"
 msgstr "žiadne výsledky"
 
@@ -1110,7 +1110,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Pridať priečinok projektu do bočného panela."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Nahrať na Pastebin"
 

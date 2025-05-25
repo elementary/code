@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-11-06 11:20+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -126,6 +126,12 @@ msgstr "捲動到超過檔案末端，讓您能把目前的行保持在讀起來
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "可關閉的小地圖，讓瀏覽大檔案變得更容易"
 
+#: data/code.metainfo.xml.in:65
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "elementary, Inc."
+msgstr "elementary LLC."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -174,8 +180,8 @@ msgstr "儲存或復原終端機面板狀態"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr "「在資料夾中尋找」現在支援所有資料夾和文字檔案，不只有 \".vala\" 檔案"
 
 #: data/code.metainfo.xml.in:126
@@ -393,7 +399,7 @@ msgstr "text;IDE;scratch;code;程式碼;"
 msgid "New File"
 msgstr "新增檔案"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "新增視窗"
 
@@ -404,11 +410,6 @@ msgstr "以管理員模式執行程式碼"
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
 msgstr "需要驗證才能以管理員模式執行程式碼"
-
-#, fuzzy
-#~| msgid "elementary LLC."
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary LLC."
 
 #, fuzzy
 #~| msgid "syntax highlighting with gtksourceview-3"
@@ -437,8 +438,8 @@ msgstr "需要驗證才能以管理員模式執行程式碼"
 #~ "遵守設計、速度、一致… 等高標。它性感，卻又不亂了您的思緒。"
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "其他有語法標明的語言：Bash、C、C#、C++、Cmake、CSS、Desktop、Diif、"
