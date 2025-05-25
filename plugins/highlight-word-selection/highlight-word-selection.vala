@@ -31,7 +31,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
     public void update_state () {}
 
     public void activate () {
-    warning ("activate highlight");
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
@@ -136,7 +135,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
     }
 
     public void deactivate () {
-    warning ("deactivate highlight");
         if (current_source != null) {
             current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);

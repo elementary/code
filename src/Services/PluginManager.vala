@@ -4,9 +4,8 @@
  *                         2013 Mario Guerriero <mario@elementaryos.org>
  */
 
-//     // Interface implemented by all plugins
+    // Interface implemented by all plugins  (Migrated from Peas.Activatable)
 public interface Scratch.Services.ActivatablePlugin : Object {
-    // Migrated from Peas.Activatable
     public abstract void activate ();
     public abstract void deactivate ();
     public virtual void update_state () {}
@@ -75,7 +74,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         engine = Peas.Engine.get_default ();
         engine.enable_loader ("python");
         engine.add_search_path (Constants.PLUGINDIR, null);
-        // engine.loaded_plugins = {"highlight-word-selection"};
         Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
         /* Our extension set */
@@ -86,41 +84,19 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             {plugin_iface}
         );
 
-        if (exts != null) {
-            exts.extension_added.connect ((info, ext) => {
-            warning ("extension added");
-                ((ActivatablePlugin)ext).activate ();
-                extension_added (info);
-            });
+        extension_set.extension_added.connect ((info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).activate ();
+            extension_added (info);
+        });
 
-            exts.extension_removed.connect ((info, ext) => {
-            warning ("extension removed");
-                // ((ActivatablePlugin)ext).deactivate ();
-                // extension_removed (info);
-                
-                warning ("number of extensions now %u", exts.get_n_items ());
-            });
+        extension_set.extension_removed.connect ((info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).deactivate ();
+            extension_removed (info);
+        });
 
-            exts.@foreach ((exts, info, ext) => {
-                ((Scratch.Services.ActivatablePlugin)ext).activate ();
-            }, null);
-            // var pos = 0;
-            // while (pos < exts.get_n_items ()) {
-            //     var obj = exts.get_item (pos);
-            //     if (obj != null) {
-            //         var eb = (Peas.ExtensionBase)obj;
-            //         var info = eb.plugin_info;
-            //         warning ("got ext %s", info.get_name ());
-            //         var ap = (Scratch.Services.ActivatablePlugin)obj;
-            //         ap.activate ();
-            //     } else {
-            //         warning ("Object is null");
-            //     }
-            //     pos++;
-            // }
-        } else {
-            warning ("ext set is null");
-        }
+        extension_set.@foreach ((exts, info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).activate ();
+        }, null);
 
         // Connect managers signals to interface's signals
         this.hook_window.connect ((w) => {
@@ -150,7 +126,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
     // Return an emulation of the discontinued libpeas-1.0 widget
     public Gtk.Widget get_view () {
-    warning ("get plugin view");
         var list_box = new Gtk.ListBox ();
         list_box.get_accessible ().accessible_name = _("Extensions");
 
@@ -225,17 +200,10 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         content.set_data<string> ("name", info.get_name ());
 
         checkbox.toggled.connect (() => {
-        warning ("toggled");
             if (checkbox.active) {
-            warning ("active - load");
                 engine.load_plugin (info);
             } else {
-            warning ("inactive - unload");
                 engine.unload_plugin (info);
-            }
-
-            foreach (string s in engine.loaded_plugins) {
-                warning ("loaded %s", s);
             }
         });
 
@@ -246,4 +214,3 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         return engine.get_n_items ();
     }
 }
-
