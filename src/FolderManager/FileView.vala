@@ -209,9 +209,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private unowned Code.Widgets.SourceList.Item? find_path (Code.Widgets.SourceList.ExpandableItem list,
-                                                                string path,
-                                                                bool expand = false) {
+    private unowned Code.Widgets.SourceList.Item? find_path (
+        Code.Widgets.SourceList.ExpandableItem list,
+        string path,
+        bool expand = false) {
+
         foreach (var item in list.children) {
             if (item is Item) {
                 var code_item = (Item)item;
@@ -227,6 +229,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
                     if (!expander.expanded) {
                          if (expand) {
+                             ((FolderItem)expander).load_children (); //Synchronous
                              expander.expanded = true;
                          } else {
                              continue;

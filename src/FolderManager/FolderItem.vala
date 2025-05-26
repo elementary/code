@@ -55,50 +55,67 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private async void load_children () {
-            var root = get_root_folder ();
+
+        public void load_children () {
+            foreach (var child in file.children) {
+                add_child (child);
+            }
+
+            after_children_loaded ();
+        }
+
+        private async void load_children_async () {
             foreach (var child in file.children) {
                 Idle.add (() => {
-                    Code.Widgets.SourceList.Item item = null;
-                    if (child.is_valid_directory) {
-                        item = new FolderItem (child, view);
-                    } else if (child.is_valid_textfile) {
-                        item = new FileItem (child, view);
-                    }
-
-                    if (item != null) {
-                        add (item);
-                    }
-
-                    load_children.callback ();
+                    add_child (child);
+                    load_children_async.callback ();
                     return Source.REMOVE;
                 });
 
                 yield;
             }
 
+            after_children_loaded ();
+        }
+
+        private void add_child (File child) {
+            Code.Widgets.SourceList.Item item = null;
+            if (child.is_valid_directory) {
+                item = new FolderItem (child, view);
+            } else if (child.is_valid_textfile) {
+                item = new FileItem (child, view);
+            }
+
+            if (item != null) {
+                add (item);
+            }
+        }
+
+        private void after_children_loaded () {
             children_loaded = true;
+            var root = get_root_folder ();
             if (root != null) {
-                root.child_folder_loaded (this);
+                root.child_folder_loaded (this); //Updates child status emblens
             }
         }
 
         private void on_toggled () {
-            if (!children_loaded &&
-                 expanded &&
-                 n_children <= 1 &&
-                 file.children.size > 0) {
+            if (expanded) {
+                if (!children_loaded &&
+                     n_children <= 1 &&
+                     file.children.size > 0) {
 
-                load_children.begin ();
-                return;
-            }
+                    load_children_async.begin ();
 
-            var root = get_root_folder ();
-            if (!expanded &&
-                root != null &&
-                root.monitored_repo != null) {
-                //When toggled closed, update status to reflect hidden contents
-                root.update_item_status (this);
+                    return;
+                }
+            } else {
+                var root = get_root_folder ();
+                if (root != null &&
+                    root.monitored_repo != null) {
+                    //When toggled closed, update status to reflect hidden contents
+                    root.update_item_status (this);
+                }
             }
         }
 
