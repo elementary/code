@@ -338,6 +338,8 @@ namespace Scratch.Services {
                                 return false;
                             });
                         }
+
+                        source_view.schedule_refresh ();
                      });
                 });
             } else if (!enabled && onchange_handler_id != 0) {

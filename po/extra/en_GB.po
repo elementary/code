@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-11-06 03:29+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -136,6 +136,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Optional mini-map to make navigating large files easier"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -184,11 +188,11 @@ msgstr "Save and restore the state of the terminal pane"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 
 #: data/code.metainfo.xml.in:126
 msgid "\"Follow System Style\" is now fully respected"
@@ -436,7 +440,7 @@ msgstr "text;IDE;scratch;code;"
 msgid "New File"
 msgstr "New File"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "New Window"
 
@@ -495,9 +499,6 @@ msgstr "Authentication is required to run Code as Administrator"
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Ensure all copy is translatable"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "Show when running a development branch of Code"
@@ -740,12 +741,12 @@ msgstr "Authentication is required to run Code as Administrator"
 #~ "consistency. It's sexy, but not distracting."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"

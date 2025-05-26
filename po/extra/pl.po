@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-10-26 15:42+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
@@ -138,6 +138,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Opcjonalna mini-mapa by łatwiej nawigować w dużych plikach"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -189,8 +193,8 @@ msgstr "Zapisywanie i przywracanie stanu panelu terminala"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "„Znajdź w folderze” działa teraz ze wszystkimi folderami i plikami "
 "tekstowymi, nie tylko z plikami „.vala”"
@@ -454,7 +458,7 @@ msgstr "tekst;IDE;scratch;kod;"
 msgid "New File"
 msgstr "Nowy plik"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Nowe okno"
 
@@ -521,9 +525,6 @@ msgstr "Uwierzytelnienie jest wymagane by uruchomić Kod jako administrator"
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Upewniono się, że kopiuj jest tłumaczone"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "Dodano informację przy wykorzystywaniu wersji deweloperskiej Kodu"
@@ -791,8 +792,8 @@ msgstr "Uwierzytelnienie jest wymagane by uruchomić Kod jako administrator"
 #~ "zaprojektowania, szybkości i spójności. Jest sexy, ale nie rozprasza."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "Inne języki z kolorowanie składni: Bash, C, C#, Cmake, CSS, .Desktop, "

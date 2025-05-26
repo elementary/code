@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
     private Code.FormatBar format_bar;
@@ -96,5 +96,5 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.EditorConfigPlugin));
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin), typeof (Scratch.Plugins.EditorConfigPlugin));
 }

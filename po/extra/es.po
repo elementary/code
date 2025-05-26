@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2024-10-22 05:04+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
@@ -142,6 +142,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Minimapa opcional para facilitar la navegación en archivos grandes"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -197,8 +201,8 @@ msgstr "Se puede guardar y restaurar el estado del panel de la terminal"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "«Buscar en carpetas» ahora funciona para todas las carpetas y archivos de "
 "texto, no solo en archivos «.vala»"
@@ -469,7 +473,7 @@ msgstr "texto;IDE;EID;scratch;código;"
 msgid "New File"
 msgstr "Archivo nuevo"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Nueva ventana"
 
@@ -540,9 +544,6 @@ msgstr "Necesita autenticarse para ejecutar Code con permisos de administrador"
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Se garantiza que toda la copia sea traducible"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "New features:"
 #~ msgstr "Funcionalidades nuevas:"
@@ -820,12 +821,12 @@ msgstr "Necesita autenticarse para ejecutar Code con permisos de administrador"
 #~ "diseño, velocidad y coherencia. Es atractivo, pero no le distrae."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Otros lenguajes con coloración sintáctica: Bash, C, C#, C++, Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Otros lenguajes con coloración sintáctica: Bash, C, C#, C++, Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"

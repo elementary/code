@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
-"io>\n"
+"Last-Translator: Faisal Rachmadin "
+"<frachmadin@users.noreply.l10n.elementary.io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/extra/id/"
 ">\n"
 "Language: id\n"
@@ -138,6 +138,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Peta mini opsional untuk memudahkan navigasi berkas besar"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -184,8 +188,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -445,7 +449,7 @@ msgstr "teks;IDE;scratch;kode;"
 msgid "New File"
 msgstr "Berkas Baru"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Jendela Baru"
 
@@ -507,9 +511,6 @@ msgstr "Otentikasi diperlukan untuk menjalankan Code sebagai Administrator"
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Pastikan semua salinan dapat diterjemahkan"
 
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
-
 #, fuzzy
 #~| msgid "syntax highlighting with gtksourceview-3"
 #~ msgid "Keep syntax highlighting when duplicating a file"
@@ -540,12 +541,12 @@ msgstr "Otentikasi diperlukan untuk menjalankan Code sebagai Administrator"
 #~ "dan konsistensi yang tinggi. Ini seksi, tapi tidak mengganggu."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Bahasa yang disorot sintaks lainnya: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Bahasa yang disorot sintaks lainnya: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"
