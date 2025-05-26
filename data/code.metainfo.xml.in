@@ -72,6 +72,7 @@
       <description>
         <p>Improvements:</p>
         <ul>
+          <li>A new gutter is added for adding/removing edit marks that can be navigated between with keyboard shortcuts</li>
           <li>Remote branches may now be opened from the "Branch" menu</li>
           <li>Options to overwrite or cancel are given when switching branch with uncommitted changes</li>
           <li>The network can now be accessed from within the Flatpak</li>
@@ -84,6 +85,9 @@
           <li>The "Open in …" menu is no longer empty when running as Flatpak</li>
           <li>The search term now persists until editing or closing the search bar.</li>
           <li>No longer allow the parent or child of an open project to be itself opened as a project</li>
+          <li>The active project dropdown now keeps in sync</li>
+          <li>Numbered lists are now handled correctly by Markdown plugin</li>
+          <li>The highlighting plugin now works with selections of more than one word</li>
           <li>The "Open in …" menu is now sorted and includes a "Terminal Pane" entry</li>
           <li>Folders containing may items now expand faster without blocking the UI</li>
           <li>Symbol Pane now always scrolls document to selected symbol</li>
@@ -99,6 +103,9 @@
         <issue url="https://github.com/elementary/code/issues/1511">Open in menu empty when running as Flatpak</issue>
         <issue url="https://github.com/elementary/code/issues/1508">Search term disappears unexpectedly when editing text</issue>
         <issue url="https://github.com/elementary/code/issues/1494">Code crashes when both a folder and its parent are open as projects and a document present in both is opened</issue>
+        <issue url="https://github.com/elementary/code/issues/1471">Active project dropdown sometimes out of sync on restart</issue>
+        <issue url="https://github.com/elementary/code/issues/1473">Markdown numbered list auto-completion deletes text</issue>
+        <issue url="https://github.com/elementary/code/issues/1469">Certain word selections are not highlighted by plugin</issue>
         <issue url="https://github.com/elementary/code/issues/1408">Move "Open in Terminal Pane" item to the "Open In" menu</issue>
         <issue url="https://github.com/elementary/code/issues/1332">Sidebar is slow to expand folders containing moderately many (2000) files first time</issue>
         <issue url="https://github.com/elementary/code/issues/1317">Symbol Pane: Does not scroll back to already selected method</issue>
