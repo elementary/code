@@ -60,13 +60,16 @@ public class Code.Sidebar : Gtk.Grid {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
             action_target = new Variant.string (""),
             always_show_image = true,
-            label = _("Open Folder…")
+            label = _("Open …"),
+            xalign = 0.0f
         };
 
         var clone_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO,
             always_show_image = true,
-            label = _("Clone Repository…")
+            label = _("Clone …"),
+            xalign = 0.0f
+
         };
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
@@ -86,8 +89,16 @@ public class Code.Sidebar : Gtk.Grid {
         project_more_button.menu_model = project_menu_model;
         project_more_button.tooltip_text = _("Manage project folders");
 
-        actionbar.add (add_folder_button);
-        actionbar.add (clone_button);
+        var tool_flowbox = new Gtk.FlowBox () {
+            orientation = HORIZONTAL,
+            hexpand = true,
+            selection_mode = NONE,
+            column_spacing = 0,
+            max_children_per_line = 2
+        };
+        tool_flowbox.add (add_folder_button);
+        tool_flowbox.add (clone_button);
+        actionbar.add (tool_flowbox);
         actionbar.pack_end (project_more_button);
 
         add (headerbar);
