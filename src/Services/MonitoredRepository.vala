@@ -157,13 +157,17 @@ namespace Scratch.Services {
             return "";
         }
 
+        //Returns an alphabetically sorted list of local branch names
         public unowned List<string> get_local_branches () {
             unowned List<string> branches = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     if (branch_ref is Ggit.Branch) {
-                        branches.append (((Ggit.Branch)branch_ref).get_name ());
+                        branches.insert_sorted (
+                            ((Ggit.Branch)branch_ref).get_name (),
+                            strcmp
+                        );
                     }
                 }
             } catch (Error e) {
@@ -173,6 +177,7 @@ namespace Scratch.Services {
             return branches;
         }
 
+        //Returns an alphabetically sorted list of remote branch names
         public unowned List<string> get_remote_branches () {
             unowned List<string> branch_names = null;
             try {
@@ -183,7 +188,10 @@ namespace Scratch.Services {
                     if (!remote_name.has_suffix ("HEAD") &&
                         !has_local_branch_name (remote_name.substring (ORIGIN_PREFIX.length))) {
 
-                        branch_names.append (branch_ref.get_shorthand ());
+                        branch_names.insert_sorted (
+                            branch_ref.get_shorthand (),
+                            strcmp
+                        );
                     }
 
                     remote_branch_ref_list.append (branch_ref);
