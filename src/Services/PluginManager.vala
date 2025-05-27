@@ -162,9 +162,9 @@ namespace Scratch.Services {
         private Gtk.Widget get_widget_for_plugin_info (Object obj) {
             var info = (Peas.PluginInfo)obj;
 
-            var checkbox = new Gtk.CheckButton () {
+            var load_switch = new Gtk.Switch () {
                 valign = CENTER,
-                active = info.is_loaded ()
+                state = info.is_loaded ()
             };
 
             var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
@@ -199,11 +199,11 @@ namespace Scratch.Services {
             };
             content.add (image);
             content.add (description_box);
-            content.add (checkbox);
+            content.add (load_switch);
             content.set_data<string> ("name", info.get_name ());
 
-            checkbox.toggled.connect (() => {
-                if (checkbox.active) {
+            load_switch.notify["active"].connect (() => {
+                if (load_switch.active) {
                     engine.load_plugin (info);
                 } else {
                     engine.unload_plugin (info);
