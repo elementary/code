@@ -860,6 +860,8 @@ namespace Scratch {
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
             Scratch.saved_state.set_int ("vp-size", vp.get_position ());
+
+            terminal.save_settings ();
         }
 
         // SIGTERM/SIGINT Handling
