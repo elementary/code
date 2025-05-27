@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 19:46+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
@@ -140,6 +140,10 @@ msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 "Büyük dosyalarda gezinmeyi kolaylaştırmak için isteğe bağlı mini harita"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -188,8 +192,8 @@ msgstr "Terminal bölmesinin durumunu kaydedin ve geri yükleyin"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "\"Klasörde Bul\" artık yalnızca \".vala\" dosyaları için değil, tüm "
 "klasörler ve metin dosyaları için çalışıyor"
@@ -443,7 +447,7 @@ msgstr "metin;IDE;karalama;text;code;scratch;kod;"
 msgid "New File"
 msgstr "Yeni Dosya"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Yeni Pencere"
 
@@ -472,9 +476,6 @@ msgstr "Kodu Yönetici olarak çalıştırmak için kimlik doğrulaması gerekli
 
 #~ msgid "Hide project chooser button when hiding sidebar"
 #~ msgstr "Kenar çubuğunu gizlerken proje seçici düğmesini gizle"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "New features:"
 #~ msgstr "Yeni özellikler:"
@@ -557,12 +558,12 @@ msgstr "Kodu Yönetici olarak çalıştırmak için kimlik doğrulaması gerekli
 #~ "değil."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
-#~ "Sözdizimi ile vurgulanan diğer diller: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Sözdizimi ile vurgulanan diğer diller: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #~ msgid "Additional features include:"

@@ -16,7 +16,7 @@ You'll need the following dependencies:
 * libgranite-dev >= 6.0.0
 * libhandy-1-dev >= 0.90.0
 * libpeas-2-dev
-* libsoup2.4-dev
+* libsoup-3.0-dev
 * libvala-0.48-dev (or higher)
 * libvte-2.91-dev
 * valac
