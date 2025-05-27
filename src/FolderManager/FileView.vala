@@ -115,16 +115,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                toplevel_action_group.activate_action (
+                    MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    new Variant.string (project_folder_item.path)
+                );
                 root.remove (project_folder_item);
                 git_manager.remove_project (project_folder_item);
             }
         }
-
         //Make remaining project the active one
-        git_manager.active_project_path = path;
-
-        write_settings ();
+        set_active_project (path);
     }
 
     private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
@@ -138,7 +138,14 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        git_manager.active_project_path = path;
+        set_active_project (path);
+    }
+
+    private void set_active_project (string path) {
+        toplevel_action_group.activate_action (
+            MainWindow.ACTION_SET_ACTIVE_PROJECT,
+            new Variant.string (path)
+        );
 
         write_settings ();
     }
