@@ -29,6 +29,12 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
+        public bool loading_required {
+            get {
+                return !children_loaded && n_children <= 1 && file.children.size > 0;
+            }
+        }
+
         public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
@@ -57,22 +63,26 @@ namespace Scratch.FolderManager {
 
 
         public void load_children () {
-            foreach (var child in file.children) {
-                add_child (child);
-            }
+            if (loading_required) {
+                foreach (var child in file.children) {
+                    add_child (child);
+                }
 
-            after_children_loaded ();
+                after_children_loaded ();
+            }
         }
 
         private async void load_children_async () {
-            foreach (var child in file.children) {
-                Idle.add (() => {
-                    add_child (child);
-                    load_children_async.callback ();
-                    return Source.REMOVE;
-                });
+            if (loading_required) {
+                foreach (var child in file.children) {
+                    Idle.add (() => {
+                        add_child (child);
+                        load_children_async.callback ();
+                        return Source.REMOVE;
+                    });
 
-                yield;
+                    yield;
+                }
             }
 
             after_children_loaded ();
@@ -101,14 +111,8 @@ namespace Scratch.FolderManager {
 
         private void on_toggled () {
             if (expanded) {
-                if (!children_loaded &&
-                     n_children <= 1 &&
-                     file.children.size > 0) {
-
-                    load_children_async.begin ();
-
-                    return;
-                }
+                load_children_async.begin ();
+                return;
             } else {
                 var root = get_root_folder ();
                 if (root != null &&
