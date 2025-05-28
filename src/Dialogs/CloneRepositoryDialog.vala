@@ -32,12 +32,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             suggested_local_folder: _suggested_local_folder
         );
 
-        repository_host_uri_entry.text = "https://github.com";
-        repository_user_entry.text = "elementary";
-        repository_name_entry.text = "";
-        repository_local_name_entry.text = "";
-
-        on_is_valid_changed ();
     }
 
     construct {
@@ -135,6 +129,15 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         clone_button.sensitive = can_clone;
         bind_property ("can-clone", clone_button, "sensitive");
+
+        // Set default values.
+        //TODO Persist user choices for these
+        //TODO Use a dropdown of common/recent hosts?
+        //TODO Use a dropdown of recent user names?
+        repository_host_uri_entry.text = "https://github.com";
+        repository_user_entry.text = "elementary";
+
+        on_is_valid_changed ();
 
         show_all ();
     }
