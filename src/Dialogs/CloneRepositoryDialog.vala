@@ -49,15 +49,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         badge_icon = new ThemedIcon ("download");
 
         remote_host_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
-            input_purpose = URL,
-            activates_default = false
+            input_purpose = URL
         };
-        remote_user_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
-            activates_default = false
-        };
-        remote_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
-            activates_default = false
-        };
+        remote_user_name_entry = new Granite.ValidatedEntry.from_regex (name_regex);
+        remote_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex);
 
         var folder_image = new Gtk.Image.from_icon_name ("folder-download", BUTTON) {
             margin_end = 6
@@ -96,9 +91,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         });
 
-        local_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
-            activates_default = false,
-        };
+        local_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex);
 
         set_as_active_check = new Gtk.CheckButton.with_label (_("Set as Active Project")) {
             margin_top = 12,
