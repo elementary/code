@@ -69,6 +69,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         badge_icon = new ThemedIcon ("download");
 
         repository_host_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
+            input_purpose = URL,
             activates_default = false
         };
         repository_user_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
