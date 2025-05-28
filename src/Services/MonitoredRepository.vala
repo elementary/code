@@ -166,7 +166,7 @@ namespace Scratch.Services {
                     if (branch_ref is Ggit.Branch) {
                         branches.insert_sorted (
                             ((Ggit.Branch)branch_ref).get_name (),
-                            strcmp
+                            string.collate
                         );
                     }
                 }
@@ -190,7 +190,7 @@ namespace Scratch.Services {
 
                         branch_names.insert_sorted (
                             branch_ref.get_shorthand (),
-                            strcmp
+                            string.collate
                         );
                     }
 
