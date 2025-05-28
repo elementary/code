@@ -1058,7 +1058,7 @@ namespace Scratch {
                 clone_dialog.destroy ();
             });
 
-            clone_dialog.run ();
+            clone_dialog.present ();
 
             if (clone_dialog.can_clone) {
                 //TODO Show progress while cloning
