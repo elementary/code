@@ -46,7 +46,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         ///TRANSLATORS "Git" is a proper name and must not be translated
         primary_text = _("Create a local clone of a Git repository");
         secondary_text = _("The source repository and local folder must exist and have the required read and write permissions");
-        badge_icon = new ThemedIcon ("download");
+        badge_icon = new ThemedIcon ("emblem-downloads");
 
         remote_host_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
             input_purpose = URL
