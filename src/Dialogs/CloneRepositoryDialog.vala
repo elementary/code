@@ -12,7 +12,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     //Taken from "switchboard-plug-parental-controls/src/plug/Views/InternetView.vala"
     private const string NAME_REGEX = "^[0-9a-zA-Z_-]+$";
-    private const string LOCAL_FOLDER_REGEX ="""^(/[^/ ]*)+/?$""";
     private const string URL_REGEX = "([^/w.])[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{1,3}([^/])\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*\\b)";
     private Regex name_regex;
     private Regex local_folder_regex;
@@ -24,13 +23,15 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Granite.ValidatedEntry repository_local_name_entry;
     private Gtk.CheckButton set_as_active_check;
 
-    public CloneRepositoryDialog (string local_folder) {
+    public string suggested_local_folder { get; construct; }
+
+    public CloneRepositoryDialog (string _suggested_local_folder) {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
-            image_icon: new ThemedIcon ("git")
+            image_icon: new ThemedIcon ("git"),
+            suggested_local_folder: _suggested_local_folder
         );
 
-        repository_local_folder_entry.text = local_folder;
         repository_host_uri_entry.text = "https://github.com";
         repository_user_entry.text = "elementary";
         repository_name_entry.text = "";
@@ -42,7 +43,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     construct {
         try {
             name_regex = new Regex (NAME_REGEX, RegexCompileFlags.OPTIMIZE);
-            local_folder_regex = new Regex (LOCAL_FOLDER_REGEX, RegexCompileFlags.OPTIMIZE);
             url_regex = new Regex (URL_REGEX, RegexCompileFlags.OPTIMIZE);
         } catch (RegexError e) {
             warning ("%s\n", e.message);
@@ -64,10 +64,44 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         repository_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
             activates_default = false
         };
-        repository_local_folder_entry = new Granite.ValidatedEntry.from_regex (local_folder_regex) {
-            activates_default = false,
-            width_chars = 50
+
+        var folder_image = new Gtk.Image.from_icon_name ("folder-download", BUTTON) {
+            margin_end = 6
         };
+        // The suggested folder is assumed to be valid as it is generated internally
+        var folder_label = new Gtk.Label (suggested_local_folder) {
+            hexpand = true,
+            halign = START
+        };
+        var view_more_image = new Gtk.Image.from_icon_name ("view-more-horizontal-symbolic", BUTTON);
+        var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 0);
+        folder_chooser_button_child.add (folder_image);
+        folder_chooser_button_child.add (folder_label);
+        folder_chooser_button_child.add (view_more_image);
+
+        var folder_chooser_button = new Gtk.Button () {
+            child = folder_chooser_button_child
+        };
+        folder_chooser_button.clicked.connect (() => {
+            var chooser = new Gtk.FileChooserNative (
+                _("Select folder where the cloned repository will be created"),
+                this.transient_for,
+                SELECT_FOLDER,
+                _("Select"),
+                _("Cancel")
+            );
+            chooser.set_current_folder (folder_label.label);
+            chooser.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    folder_label.label = chooser.get_filename ();
+                }
+
+                chooser.destroy ();
+            });
+            chooser.show ();
+
+        });
+
         repository_local_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
             activates_default = false,
         };
@@ -83,7 +117,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         content_box.add (new CloneEntry (_("User"), repository_user_entry));
         content_box.add (new CloneEntry (_("Name"), repository_name_entry));
         content_box.add (new Granite.HeaderLabel (_("Clone")));
-        content_box.add (new CloneEntry (_("Target Folder"), repository_local_folder_entry));
+        content_box.add (new CloneEntry (_("Target Folder"), folder_chooser_button));
         content_box.add (new CloneEntry (_("Target Name"), repository_local_name_entry));
         content_box.add (set_as_active_check);
 
