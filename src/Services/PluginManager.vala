@@ -22,7 +22,7 @@ public class Scratch.Services.Interface : GLib.Object {
     public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
     public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-    public Scratch.TemplateManager template_manager { get; construct; }
+    public Scratch.TemplateManager template_manager { get; private set; }
     public Scratch.Services.PluginsManager manager { get; construct; }
 
     public Interface (Scratch.Services.PluginsManager _manager) {
@@ -57,11 +57,11 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     public signal void extension_added (Peas.PluginInfo info);
     public signal void extension_removed (Peas.PluginInfo info);
 
-    public Peas.Engine engine { get; construct; }
-    public Peas.ExtensionSet extension_set {get; construct; }
+    private Peas.Engine engine;
+    private Peas.ExtensionSet extension_set;
 
+    public Scratch.Services.Interface plugin_iface { get; private set; }
     public weak Scratch.MainWindow window { get; construct; }
-    public Scratch.Services.Interface plugin_iface { get; construct; }
 
     public PluginsManager (Scratch.MainWindow _window) {
         Object (window: _window);
