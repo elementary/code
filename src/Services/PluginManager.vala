@@ -76,7 +76,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         engine.add_search_path (Constants.PLUGINDIR, null);
         Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
-        /* Our extension set */
+        /* Our extension set. We need to keep a reference to this after migrating to libpeas-2 */
         extension_set = new Peas.ExtensionSet.with_properties (
             engine,
             typeof (Scratch.Services.ActivatablePlugin),
