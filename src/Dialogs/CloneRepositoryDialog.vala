@@ -100,12 +100,12 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         var content_box = new Gtk.Box (VERTICAL, 12);
         content_box.add (new Granite.HeaderLabel (_("Source Repository")));
-        content_box.add (new CloneEntry (_("Host URI"), remote_host_uri_entry));
-        content_box.add (new CloneEntry (_("User"), remote_user_name_entry));
-        content_box.add (new CloneEntry (_("Name"), remote_project_name_entry));
+        content_box.add (new CloneEntry (_("Remote Host URI"), remote_host_uri_entry));
+        content_box.add (new CloneEntry (_("Username on Remote"), remote_user_name_entry));
+        content_box.add (new CloneEntry (_("Project Name on Remote"), remote_project_name_entry));
         content_box.add (new Granite.HeaderLabel (_("Clone")));
-        content_box.add (new CloneEntry (_("Target Folder"), folder_chooser_button));
-        content_box.add (new CloneEntry (_("Target Name"), local_project_name_entry));
+        content_box.add (new CloneEntry (_("Parent Folder of Clone"), folder_chooser_button));
+        content_box.add (new CloneEntry (_("Name of Clone "), local_project_name_entry));
         content_box.add (set_as_active_check);
 
         custom_bin.add (content_box);
