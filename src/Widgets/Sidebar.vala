@@ -56,13 +56,6 @@ public class Code.Sidebar : Gtk.Grid {
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
-        var add_folder_button = Scratch.Utils.make_button_with_icon_and_label ("folder-open-symbolic", _("Open…"));
-        add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
-        add_folder_button.action_target = new Variant.string ("");
-
-        var clone_button = Scratch.Utils.make_button_with_icon_and_label ("folder-download-symbolic", _("Clone…"));
-        clone_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO;
-
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
 
@@ -74,23 +67,15 @@ public class Code.Sidebar : Gtk.Grid {
         project_menu.append_item (order_projects_menu_item);
         project_menu_model = project_menu;
 
-        var project_more_button = new Gtk.MenuButton ();
-        project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        project_more_button.use_popover = false;
-        project_more_button.menu_model = project_menu_model;
-        project_more_button.tooltip_text = _("Manage project folders");
-
-        var tool_flowbox = new Gtk.FlowBox () {
-            orientation = HORIZONTAL,
+        var project_more_button = new Gtk.MenuButton (){
             hexpand = true,
-            selection_mode = NONE,
-            column_spacing = 0,
-            max_children_per_line = 2
+            use_popover = false,
+            menu_model = project_menu_model,
+            label = _("Manage project folders…"),
+            xalign = 0.0f
         };
-        tool_flowbox.add (add_folder_button);
-        tool_flowbox.add (clone_button);
-        actionbar.add (tool_flowbox);
-        actionbar.pack_end (project_more_button);
+
+        actionbar.pack_start (project_more_button);
 
         add (headerbar);
         add (stack_switcher);
