@@ -99,6 +99,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         content_box.add (new CloneEntry (_("Parent Folder of Clone"), folder_chooser_button));
         content_box.add (new CloneEntry (_("Name of Clone "), local_project_name_entry));
         content_box.add (set_as_active_check);
+        content_box.show_all ();
 
         custom_bin.add (content_box);
 
@@ -113,8 +114,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         bind_property ("can-clone", clone_button, "sensitive");
 
         on_is_valid_changed ();
-
-        show_all ();
 
         // Focus cancel button so that entry placeholder text shows
         cancel_button.grab_focus ();
