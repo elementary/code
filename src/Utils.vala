@@ -339,10 +339,8 @@ namespace Scratch.Utils {
     }
 
     public Gtk.Button make_button_with_icon_and_label (string icon_name, string text) {
-        var box = new Gtk.Box (HORIZONTAL, 0);
-        var image = new Gtk.Image.from_icon_name (icon_name, BUTTON) {
-            margin_end = 3
-        };
+        var box = new Gtk.Box (HORIZONTAL, 3);
+        var image = new Gtk.Image.from_icon_name (icon_name, BUTTON);
         var label = new Gtk.Label (text);
         box.add (image);
         box.add (label);
