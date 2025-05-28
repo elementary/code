@@ -16,11 +16,11 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Regex name_regex;
     private Regex local_folder_regex;
     private Regex url_regex;
-    private Granite.ValidatedEntry repository_host_uri_entry;
-    private Granite.ValidatedEntry repository_user_entry;
-    private Granite.ValidatedEntry repository_name_entry;
-    private Granite.ValidatedEntry repository_local_folder_entry;
-    private Granite.ValidatedEntry repository_local_name_entry;
+    private Granite.ValidatedEntry remote_host_uri_entry;
+    private Granite.ValidatedEntry remote_user_name_entry;
+    private Granite.ValidatedEntry remote_project_name_entry;
+    private Gtk.Label clone_parent_folder_label;
+    private Granite.ValidatedEntry local_project_name_entry;
     private Gtk.CheckButton set_as_active_check;
 
     public string suggested_local_folder { get; construct; }
@@ -48,14 +48,14 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         secondary_text = _("The source repository and local folder must exist and be accessible");
         badge_icon = new ThemedIcon ("download");
 
-        repository_host_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
+        remote_host_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
             input_purpose = URL,
             activates_default = false
         };
-        repository_user_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
+        remote_user_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
             activates_default = false
         };
-        repository_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
+        remote_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
             activates_default = false
         };
 
@@ -63,14 +63,14 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             margin_end = 6
         };
         // The suggested folder is assumed to be valid as it is generated internally
-        var folder_label = new Gtk.Label (suggested_local_folder) {
+        clone_parent_folder_label = new Gtk.Label (suggested_local_folder) {
             hexpand = true,
             halign = START
         };
         var view_more_image = new Gtk.Image.from_icon_name ("view-more-horizontal-symbolic", BUTTON);
         var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 0);
         folder_chooser_button_child.add (folder_image);
-        folder_chooser_button_child.add (folder_label);
+        folder_chooser_button_child.add (clone_parent_folder_label);
         folder_chooser_button_child.add (view_more_image);
 
         var folder_chooser_button = new Gtk.Button () {
@@ -84,10 +84,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 _("Select"),
                 _("Cancel")
             );
-            chooser.set_current_folder (folder_label.label);
+            chooser.set_current_folder (clone_parent_folder_label.label);
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    folder_label.label = chooser.get_filename ();
+                    clone_parent_folder_label.label = chooser.get_filename ();
                 }
 
                 chooser.destroy ();
@@ -96,7 +96,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         });
 
-        repository_local_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
+        local_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex) {
             activates_default = false,
         };
 
@@ -107,12 +107,12 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         var content_box = new Gtk.Box (VERTICAL, 12);
         content_box.add (new Granite.HeaderLabel (_("Source Repository")));
-        content_box.add (new CloneEntry (_("Host URI"), repository_host_uri_entry));
-        content_box.add (new CloneEntry (_("User"), repository_user_entry));
-        content_box.add (new CloneEntry (_("Name"), repository_name_entry));
+        content_box.add (new CloneEntry (_("Host URI"), remote_host_uri_entry));
+        content_box.add (new CloneEntry (_("User"), remote_user_name_entry));
+        content_box.add (new CloneEntry (_("Name"), remote_project_name_entry));
         content_box.add (new Granite.HeaderLabel (_("Clone")));
         content_box.add (new CloneEntry (_("Target Folder"), folder_chooser_button));
-        content_box.add (new CloneEntry (_("Target Name"), repository_local_name_entry));
+        content_box.add (new CloneEntry (_("Target Name"), local_project_name_entry));
         content_box.add (set_as_active_check);
 
         custom_bin.add (content_box);
@@ -122,10 +122,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         clone_button.has_default = true;
         clone_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        repository_host_uri_entry.notify["is-valid"].connect (on_is_valid_changed);
-        repository_user_entry.notify["is-valid"].connect (on_is_valid_changed);
-        repository_name_entry.notify["is-valid"].connect (on_is_valid_changed);
-        repository_local_folder_entry.notify["is-valid"].connect (on_is_valid_changed);
+        remote_host_uri_entry.notify["is-valid"].connect (on_is_valid_changed);
+        remote_user_name_entry.notify["is-valid"].connect (on_is_valid_changed);
+        remote_project_name_entry.notify["is-valid"].connect (on_is_valid_changed);
 
         clone_button.sensitive = can_clone;
         bind_property ("can-clone", clone_button, "sensitive");
@@ -134,8 +133,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         //TODO Persist user choices for these
         //TODO Use a dropdown of common/recent hosts?
         //TODO Use a dropdown of recent user names?
-        repository_host_uri_entry.text = "https://github.com";
-        repository_user_entry.text = "elementary";
+        remote_host_uri_entry.text = "https://github.com";
+        remote_user_name_entry.text = "elementary";
 
         on_is_valid_changed ();
 
@@ -146,9 +145,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         //TODO Further validation here?
         var repo_uri = Path.build_path (
             Path.DIR_SEPARATOR_S,
-            repository_host_uri_entry.text,
-            repository_user_entry.text,
-            repository_name_entry.text
+            remote_host_uri_entry.text,
+            remote_user_name_entry.text,
+            remote_project_name_entry.text
         );
 
         if (!repo_uri.has_suffix (".git")) {
@@ -160,23 +159,22 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     public string get_local_folder () requires (can_clone) {
         //TODO Further validation here?
-        return repository_local_folder_entry.text;
+        return clone_parent_folder_label.label;
     }
 
     public string get_local_name () requires (can_clone) {
-        var local_name = repository_local_name_entry.text;
+        var local_name = local_project_name_entry.text;
         if (local_name == "") {
-            local_name = repository_name_entry.text;
+            local_name = remote_project_name_entry.text;
         }
         //TODO Further validation here?
         return local_name;
     }
 
     private void on_is_valid_changed () {
-        can_clone = repository_host_uri_entry.is_valid &&
-                    repository_user_entry.is_valid &&
-                    repository_name_entry.is_valid &&
-                    repository_local_folder_entry.is_valid;
+        can_clone = remote_host_uri_entry.is_valid &&
+                    remote_user_name_entry.is_valid &&
+                    remote_project_name_entry.is_valid;
     }
 
     private class CloneEntry : Gtk.Box {
