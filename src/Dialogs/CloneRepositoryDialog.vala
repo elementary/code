@@ -179,7 +179,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private class CloneEntry : Gtk.Box {
         public CloneEntry (string label_text, Gtk.Widget entry) {
             var label = new Gtk.Label (label_text) {
-                halign = START
+                halign = START,
+                mnemonic_widget = entry
             };
             add (label);
             add (entry);
