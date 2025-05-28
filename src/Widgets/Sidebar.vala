@@ -56,21 +56,12 @@ public class Code.Sidebar : Gtk.Grid {
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
-        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
-            action_target = new Variant.string (""),
-            always_show_image = true,
-            label = _("Open…"),
-            xalign = 0.0f
-        };
+        var add_folder_button = Scratch.Utils.make_button_with_icon_and_label ("folder-open-symbolic", _("Open…"));
+        add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
+        add_folder_button.action_target = new Variant.string ("");
 
-        var clone_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO,
-            always_show_image = true,
-            label = _("Clone…"),
-            xalign = 0.0f
-
-        };
+        var clone_button = Scratch.Utils.make_button_with_icon_and_label ("folder-download-symbolic", _("Clone…"));
+        clone_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO;
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
