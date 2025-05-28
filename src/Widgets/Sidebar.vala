@@ -60,14 +60,14 @@ public class Code.Sidebar : Gtk.Grid {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
             action_target = new Variant.string (""),
             always_show_image = true,
-            label = _("Open …"),
+            label = _("Open…"),
             xalign = 0.0f
         };
 
         var clone_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLONE_REPO,
             always_show_image = true,
-            label = _("Clone …"),
+            label = _("Clone…"),
             xalign = 0.0f
 
         };
