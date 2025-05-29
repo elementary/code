@@ -35,7 +35,6 @@ namespace Scratch.Widgets {
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
-        private string selected_text = "";
         private GitGutterRenderer git_diff_gutter_renderer;
         private NavMarkGutterRenderer navmark_gutter_renderer;
 
@@ -44,9 +43,9 @@ namespace Scratch.Widgets {
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
-        public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
-        public signal void deselected ();
+        // "selection_event" signal emitted when selection changes. May be selection or deselection.
+        //  Listened to by highlight word selection plugin
+        public signal void selection_event (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
 
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
@@ -663,29 +662,38 @@ namespace Scratch.Widgets {
 
         private void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
+            // may not be new selection - also caused by highlighting for example
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
+            if (last_select_start_iter.equal (start) && last_select_end_iter.equal (end)) {
+                // Selection unchanged - update draw spaces when required
+                if (start.get_line () != last_select_start_iter.get_line ()) {
+                    update_draw_spaces ();
+                }
 
-            if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
                 return;
+            } else {
+                last_select_start_iter.assign (start);
+                last_select_end_iter.assign (end);
             }
-
-            last_select_start_iter.assign (start);
-            last_select_end_iter.assign (end);
-            update_draw_spaces ();
 
             if (selection_changed_timer != 0) {
                 Source.remove (selection_changed_timer);
                 selection_changed_timer = 0;
             }
 
-            // Fire deselected immediately
-            if (start.equal (end)) {
-                deselected ();
-            // Don't fire signal till we think select movement is done
-            } else {
-                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
-            }
+            selection_changed_timer = Timeout.add (
+                THROTTLE_MS,
+                () => {
+                    selection_changed_timer = 0;
+                    update_draw_spaces ();
+
+                    Gtk.TextIter s, e;
+                    bool selected = buffer.get_selection_bounds (out s, out e);
+                    selection_event (s, e);
+                    return Source.REMOVE;
+                }
+            );
         }
 
         private void on_mark_deleted (Gtk.TextMark mark) {
@@ -694,23 +702,6 @@ namespace Scratch.Widgets {
                 warning ("NavMark deleted");
                 navmark_gutter_renderer.remove_mark (mark);
             }
-        }
-
-        private bool selection_changed_event () {
-            Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start, out end);
-            if (selected) {
-                var prev_selected_text = selected_text;
-                selected_text = buffer.get_text (start, end, true);
-                if (selected_text != prev_selected_text) {
-                    selection_changed (start, end);
-                }
-            } else {
-                deselected ();
-            }
-
-            selection_changed_timer = 0;
-            return false;
         }
 
         uint refresh_timeout_id = 0;
