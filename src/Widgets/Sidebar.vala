@@ -67,7 +67,7 @@ public class Code.Sidebar : Gtk.Grid {
         project_menu.append_item (order_projects_menu_item);
         project_menu_model = project_menu;
 
-        var project_more_button = new Gtk.MenuButton (){
+        var project_more_button = new Gtk.MenuButton () {
             hexpand = true,
             use_popover = false,
             menu_model = project_menu_model,
