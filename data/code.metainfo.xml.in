@@ -76,6 +76,8 @@
           <li>Remote branches may now be opened from the "Branch" menu</li>
           <li>Options to overwrite or cancel are given when switching branch with uncommitted changes</li>
           <li>The network can now be accessed from within the Flatpak</li>
+          <li>The branch names in the "Branch" submenus are now sorted alphabetically</li>
+          <li>The extension list now has switches instead of checkboxes in order to provide a larger target</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
@@ -95,6 +97,7 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/code/issues/1575">Sort the branch names in "Branch" menu</issue>
         <issue url="https://github.com/elementary/code/issues/1558">Add icons for launcher actions</issue>
         <issue url="https://github.com/elementary/code/issues/1536">Cannot open docs after opening and closing a new document</issue>
         <issue url="https://github.com/elementary/code/issues/1521">Uncommitted changes lost without warning if another branch is checked out with the context menu</issue>
