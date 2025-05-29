@@ -557,20 +557,17 @@ namespace Scratch.Widgets {
 
             Gtk.TextIter start, end;
             var selection = buffer.get_selection_bounds (out start, out end);
-            var draw_spaces_state = (ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces");
+            var draw_spaces_state = Scratch.settings.get_enum ("draw-spaces");
             /* Draw spaces in selection the same way if drawn at all */
-            if (selection &&
-                draw_spaces_state in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.CURRENT | ScratchDrawSpacesState.ALWAYS)) {
-
-                    buffer.apply_tag_by_name ("draw_spaces", start, end);
-                    return;
-            }
-
-            if (draw_spaces_state == ScratchDrawSpacesState.CURRENT &&
-                get_current_line (out start, out end)) {
-
+            if (selection && draw_spaces_state != ScratchDrawSpacesState.NEVER) {
+                buffer.apply_tag_by_name ("draw_spaces", start, end);
+            } else if (draw_spaces_state == ScratchDrawSpacesState.CURRENT) {
+                    get_current_line (out start, out end);
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
+
+            //This is required for reliable results when this function is called from another thread (e.g. SourceFunc)
+            queue_draw ();
         }
 
         private void on_context_menu (Gtk.Menu menu) {
@@ -667,10 +664,6 @@ namespace Scratch.Widgets {
             buffer.get_selection_bounds (out start, out end);
             if (last_select_start_iter.equal (start) && last_select_end_iter.equal (end)) {
                 // Selection unchanged - update draw spaces when required
-                if (start.get_line () != last_select_start_iter.get_line ()) {
-                    update_draw_spaces ();
-                }
-
                 return;
             } else {
                 last_select_start_iter.assign (start);
