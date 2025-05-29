@@ -36,7 +36,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
-    public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
+    public const string ACTION_SET_PROJECT_ACTIVE = "set-project-active";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -49,7 +49,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
-        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
+        { ACTION_SET_PROJECT_ACTIVE, action_set_project_active, "s"}
     };
 
     private GLib.Settings settings;
@@ -124,10 +124,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             }
         }
         //Make remaining project the active one
-        set_active_project (path);
+        set_project_active (path);
     }
 
-    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+    private void action_set_project_active (SimpleAction action, GLib.Variant? parameter) {
         var path = parameter.get_string ();
         if (path == null || path == "") {
             return;
@@ -138,10 +138,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        set_active_project (path);
+        set_project_active (path);
     }
 
-    private void set_active_project (string path) {
+    private void set_project_active (string path) {
         toplevel_action_group.activate_action (
             MainWindow.ACTION_SET_ACTIVE_PROJECT,
             new Variant.string (path)

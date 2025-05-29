@@ -146,7 +146,7 @@ namespace Scratch.FolderManager {
                 set_active_folder_item = new GLib.MenuItem (
                     _("Set as Active Project"),
                     GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_SET_ACTIVE_PROJECT,
+                        FileView.ACTION_PREFIX + FileView.ACTION_SET_PROJECT_ACTIVE,
                         new Variant.string (file.path)
                     )
                 );
