@@ -70,6 +70,7 @@ namespace Scratch {
         public const string ACTION_GROUP = "win";
         public const string ACTION_PREFIX = ACTION_GROUP + ".";
         public const string ACTION_FIND = "action-find";
+        public const string ACTION_CLONE_REPO = "action-clone-repo";
         public const string ACTION_FIND_NEXT = "action-find-next";
         public const string ACTION_FIND_PREVIOUS = "action-find-previous";
         public const string ACTION_FIND_GLOBAL = "action-find-global";
@@ -130,6 +131,7 @@ namespace Scratch {
         private Services.GitManager git_manager;
 
         private const ActionEntry[] ACTION_ENTRIES = {
+            { ACTION_CLONE_REPO, action_clone_repo },
             { ACTION_FIND, action_find, "s"},
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
@@ -1037,6 +1039,47 @@ namespace Scratch {
                 chooser.destroy ();
             } else {
                 folder_manager_view.open_folder (new FolderManager.File (path));
+            }
+        }
+
+        private void action_clone_repo (SimpleAction action, Variant? param) {
+            var uri = "";
+            //By default, create clone in parent of the current project
+            var local_folder = Path.get_dirname (git_manager.active_project_path);
+            var local_name = "";
+            var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
+            clone_dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.APPLY) {
+                    uri = clone_dialog.get_source_repository_uri ();
+                    local_folder = clone_dialog.get_local_folder ();
+                    local_name = clone_dialog.get_local_name ();
+                }
+
+                clone_dialog.destroy ();
+            });
+
+            clone_dialog.present ();
+
+            if (clone_dialog.can_clone) {
+                //TODO Show progress while cloning
+                git_manager.clone_repository.begin (
+                    uri,
+                    Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
+                    (obj, res) => {
+                        try {
+                            File? workdir = null;
+                            if (git_manager.clone_repository.end (res, out workdir)) {
+                                debug ("Repository cloned into %s", workdir.get_uri ());
+                                open_folder (workdir);
+                                //TODO Make active according to dialog checkbox
+                            }
+                        } catch (Error e) {
+                            warning ("Unable to clone '%s'. %s", uri, e.message);
+                        }
+                    }
+                );
+            } else {
+                //TODO Give feedback
             }
         }
 
