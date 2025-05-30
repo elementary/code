@@ -26,9 +26,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
             image_icon: new ThemedIcon ("git"),
+            modal: true,
             suggested_local_folder: _suggested_local_folder
         );
-
     }
 
     construct {
@@ -40,6 +40,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         }
 
         var cancel_button = add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+
         ///TRANSLATORS "Git" is a proper name and must not be translated
         primary_text = _("Create a local clone of a Git repository");
         secondary_text = _("The source repository and local folder must exist and have the required read and write permissions");
@@ -47,20 +48,20 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         remote_repository_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
             input_purpose = URL,
-            placeholder_text = _("https://<hostname>/<username>/<projectname>.git")
+            placeholder_text = _("https://example.com/username/projectname.git")
         };
 
-        var folder_image = new Gtk.Image.from_icon_name ("folder-download", BUTTON);
         // The suggested folder is assumed to be valid as it is generated internally
         clone_parent_folder_label = new Gtk.Label (suggested_local_folder) {
             hexpand = true,
             halign = START
         };
-        var view_more_image = new Gtk.Image.from_icon_name ("view-more-horizontal-symbolic", BUTTON);
+
         var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 6);
-        folder_chooser_button_child.add (folder_image);
         folder_chooser_button_child.add (clone_parent_folder_label);
-        folder_chooser_button_child.add (view_more_image);
+        folder_chooser_button_child.add (
+            new Gtk.Image.from_icon_name ("folder-open-symbolic", BUTTON)
+        );
 
         var folder_chooser_button = new Gtk.Button () {
             child = folder_chooser_button_child
@@ -93,11 +94,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         };
 
         var content_box = new Gtk.Box (VERTICAL, 12);
-        content_box.add (new Granite.HeaderLabel (_("Source Repository")));
-        content_box.add (new CloneEntry (_("Remote Repository URI"), remote_repository_uri_entry));
-        content_box.add (new Granite.HeaderLabel (_("Clone")));
-        content_box.add (new CloneEntry (_("Parent Folder of Clone"), folder_chooser_button));
-        content_box.add (new CloneEntry (_("Name of Clone "), local_project_name_entry));
+        content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
+        content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
+        content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
         content_box.add (set_as_active_check);
         content_box.show_all ();
 
@@ -161,21 +160,16 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     private class CloneEntry : Gtk.Box {
         public CloneEntry (string label_text, Gtk.Widget entry) {
-            var label = new Gtk.Label (label_text) {
-                halign = START,
+            var label = new Granite.HeaderLabel (label_text) {
                 mnemonic_widget = entry
             };
+
             add (label);
             add (entry);
         }
 
         construct {
             orientation = VERTICAL;
-            spacing = 6;
-            hexpand = false;
-            margin_start = 12;
-            margin_end = 12;
-            margin_bottom = 12;
         }
     }
 }
