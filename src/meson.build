@@ -50,6 +50,7 @@ code_files = files(
     'Widgets/HeaderBar.vala',
     'Widgets/Sidebar.vala',
     'Widgets/PaneSwitcher.vala',
+    'Widgets/PopoverMenuItem.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceList/CellRendererBadge.vala',
     'Widgets/SourceList/CellRendererExpander.vala',
