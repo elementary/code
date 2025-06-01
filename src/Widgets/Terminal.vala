@@ -236,6 +236,7 @@ public class Code.Terminal : Gtk.Box {
         if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
             if (match_keycode (Gdk.Key.c, keycode)) {
                 actions.activate_action (ACTION_COPY, null);
+                return true;
             } else if (match_keycode (Gdk.Key.v, keycode)) {
                 actions.activate_action (ACTION_PASTE, null);
                 return true;
