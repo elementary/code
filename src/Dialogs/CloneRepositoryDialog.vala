@@ -8,6 +8,15 @@
 public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     public FolderManager.ProjectFolderItem? active_project { get; construct; }
     public bool can_clone { get; private set; default = false; }
+    public bool cloning_in_progress { get; set; }
+    public string cloning_progress_message {
+        set {
+            warning ("setting cloning message to %s", value);
+            warning ("reveal child %s", (value.length > 0).to_string ());
+            cloning_progress_label.label = value;
+            cloning_progress_revealer.reveal_child = (value.length > 0);
+        }
+    }
 
 
     //Taken from "switchboard-plug-parental-controls/src/plug/Views/InternetView.vala"
@@ -17,6 +26,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Granite.ValidatedEntry remote_repository_uri_entry;
     private Granite.ValidatedEntry local_project_name_entry;
     private Gtk.CheckButton set_as_active_check;
+    private Gtk.Revealer cloning_progress_revealer;
+    private Gtk.Label cloning_progress_label;
 
     public string suggested_local_folder { get; construct; }
 
@@ -91,11 +102,18 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             active = true
         };
 
+        cloning_progress_label = new Gtk.Label ("Dummy");
+        cloning_progress_revealer = new Gtk.Revealer () {
+            child = cloning_progress_label,
+            halign = Gtk.Align.START
+        };
+
         var content_box = new Gtk.Box (VERTICAL, 12);
         content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
         content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
         content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
         content_box.add (set_as_active_check);
+        content_box.add (cloning_progress_revealer);
         content_box.show_all ();
 
         custom_bin.add (content_box);
@@ -105,8 +123,13 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         clone_button.has_default = true;
         clone_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        clone_button.sensitive = can_clone;
         bind_property ("can-clone", clone_button, "sensitive");
+        bind_property ("cloning-in-progress", clone_button, "sensitive", INVERT_BOOLEAN);
+        bind_property ("cloning-in-progress", remote_repository_uri_entry, "sensitive", INVERT_BOOLEAN);
+        bind_property ("cloning-in-progress", folder_chooser_button, "sensitive", INVERT_BOOLEAN);
+        bind_property ("cloning-in-progress", local_project_name_entry, "sensitive", INVERT_BOOLEAN);
+        bind_property ("cloning-in-progress", set_as_active_check, "sensitive", INVERT_BOOLEAN);
+        bind_property ("cloning-in-progress", cloning_progress_revealer, "reveal-child");
 
         //Do not want to connect to "is-valid" property notification as this gets changed to "true" every time the entry
         //text changed. So call explicitly after we validate the text.
@@ -114,6 +137,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         // Focus cancel button so that entry placeholder text shows
         cancel_button.grab_focus ();
+        cloning_in_progress = false;
     }
 
     public string get_source_repository_uri () requires (can_clone) {

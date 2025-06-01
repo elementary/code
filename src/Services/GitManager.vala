@@ -116,10 +116,12 @@ namespace Scratch.Services {
         public async bool clone_repository (
             string uri,
             string local_folder,
-            out File? repo_workdir
-        ) throws Error {
+            out File? repo_workdir,
+            out string message
+        ) {
 
             repo_workdir = null;
+            message = null;
             var folder_file = File.new_for_path (local_folder);
 
             var fetch_options = new Ggit.FetchOptions ();
@@ -131,14 +133,31 @@ namespace Scratch.Services {
             clone_options.set_is_bare (false);
             clone_options.set_fetch_options (fetch_options);
 
-            var new_repo = Ggit.Repository.clone (
-                uri,
-                folder_file,
-                clone_options
-            );
+            Ggit.Repository? new_repo = null;
+            string? error_message = null;
+            Idle.add (() => {
+                try {
+                    new_repo = Ggit.Repository.clone (
+                        uri,
+                        folder_file,
+                        clone_options
+                    );
+                } catch (Error e) {
+                    warning ("Error cloning - %s", e.message);
+                    error_message = e.message;
+                } finally {
+                    clone_repository.callback ();
+                }
 
+                return Source.REMOVE;
+            });
+
+            yield;
             if (new_repo != null) {
                 repo_workdir = new_repo.get_workdir ();
+                message = _("Cloned %s into %s").printf (uri, repo_workdir.get_uri ());
+            } else if (error_message != null) {
+                message = error_message;
             }
 
             return new_repo != null;

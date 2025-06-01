@@ -1053,34 +1053,37 @@ namespace Scratch {
                     uri = clone_dialog.get_source_repository_uri ();
                     local_folder = clone_dialog.get_local_folder ();
                     local_name = clone_dialog.get_local_name ();
-                }
+                    if (clone_dialog.can_clone) {
+                        clone_dialog.cloning_in_progress = true;
+                        clone_dialog.cloning_progress_message = "Cloning";
+                        warning ("Cloning now in progress");
 
-                clone_dialog.destroy ();
+                        // //TODO Show progress while cloning
+                        git_manager.clone_repository.begin (
+                            uri,
+                            Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
+                            (obj, res) => {
+                            warning ("cloning end");
+                                File? workdir = null;
+                                string message;
+                                if (git_manager.clone_repository.end (res, out workdir, out message)) {
+                                    open_folder (workdir);
+                                    //TODO Make active according to dialog checkbox
+                                }
+
+                                clone_dialog.cloning_in_progress = false;
+                                clone_dialog.cloning_progress_message = message;
+                            }
+                        );
+                    } else {
+                        clone_dialog.destroy ();
+                    }
+                } else {
+                    clone_dialog.destroy ();
+                }
             });
 
             clone_dialog.present ();
-
-            if (clone_dialog.can_clone) {
-                //TODO Show progress while cloning
-                git_manager.clone_repository.begin (
-                    uri,
-                    Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
-                    (obj, res) => {
-                        try {
-                            File? workdir = null;
-                            if (git_manager.clone_repository.end (res, out workdir)) {
-                                debug ("Repository cloned into %s", workdir.get_uri ());
-                                open_folder (workdir);
-                                //TODO Make active according to dialog checkbox
-                            }
-                        } catch (Error e) {
-                            warning ("Unable to clone '%s'. %s", uri, e.message);
-                        }
-                    }
-                );
-            } else {
-                //TODO Give feedback
-            }
         }
 
         private void action_collapse_all_folders () {
