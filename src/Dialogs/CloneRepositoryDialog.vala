@@ -12,9 +12,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     //Taken from "switchboard-plug-parental-controls/src/plug/Views/InternetView.vala"
     private const string NAME_REGEX = "^[0-9a-zA-Z_-]+$";
-    private const string URL_REGEX = "([^/w.])[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{1,3}([^/])\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*\\b)";
     private Regex name_regex;
-    private Regex url_regex;
     private Gtk.Label clone_parent_folder_label;
     private Granite.ValidatedEntry remote_repository_uri_entry;
     private Granite.ValidatedEntry local_project_name_entry;
@@ -34,7 +32,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     construct {
         try {
             name_regex = new Regex (NAME_REGEX, RegexCompileFlags.OPTIMIZE);
-            url_regex = new Regex (URL_REGEX, RegexCompileFlags.OPTIMIZE);
         } catch (RegexError e) {
             warning ("%s\n", e.message);
         }
@@ -46,10 +43,11 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         secondary_text = _("The source repository and local folder must exist and have the required read and write permissions");
         badge_icon = new ThemedIcon ("emblem-downloads");
 
-        remote_repository_uri_entry = new Granite.ValidatedEntry.from_regex (url_regex) {
-            input_purpose = URL,
-            placeholder_text = _("https://example.com/username/projectname.git")
+        remote_repository_uri_entry = new Granite.ValidatedEntry () {
+            placeholder_text = _("https://example.com/username/projectname.git"),
+            input_purpose = URL
         };
+        remote_repository_uri_entry.changed.connect (on_remote_uri_changed);
 
         // The suggested folder is assumed to be valid as it is generated internally
         clone_parent_folder_label = new Gtk.Label (suggested_local_folder) {
@@ -107,12 +105,12 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         clone_button.has_default = true;
         clone_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        remote_repository_uri_entry.notify["is-valid"].connect (on_is_valid_changed);
-
         clone_button.sensitive = can_clone;
         bind_property ("can-clone", clone_button, "sensitive");
 
-        on_is_valid_changed ();
+        //Do not want to connect to "is-valid" property notification as this gets changed to "true" every time the entry
+        //text changed. So call explicitly after we validate the text.
+        can_clone = false;
 
         // Focus cancel button so that entry placeholder text shows
         cancel_button.grab_focus ();
@@ -154,8 +152,56 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         return local_name;
     }
 
-    private void on_is_valid_changed () {
+    private void update_can_clone () {
         can_clone = remote_repository_uri_entry.is_valid;
+    }
+
+    private void on_remote_uri_changed (Gtk.Editable source) {
+        var entry = (Granite.ValidatedEntry)source;
+        if (entry.is_valid) { //entry is a URL
+            //Only accept HTTPS url atm but may also accept ssh address in future
+            entry.is_valid = validate_https_address (entry.text);
+        }
+
+        update_can_clone ();
+    }
+
+    private bool validate_https_address (string address) {
+        var valid = false;
+        string? scheme, userinfo, host, path, query, fragment;
+        int port;
+        try {
+            Uri.split (
+                address,
+                UriFlags.NONE,
+                out scheme,
+                out userinfo,
+                out host,
+                out port,
+                out path,
+                out query,
+                out fragment
+            );
+
+            if (query == null &&
+                fragment == null &&
+                scheme == "https" &&
+                host != null && //e.g. github.com
+                userinfo == null &&  //User is first part of pat
+                (port < 0 || port == 443)) { //TODO Allow non-standard port to be selected
+
+                if (path.has_prefix (Path.DIR_SEPARATOR_S)) {
+                    path = path.substring (1, -1);
+                }
+
+                var parts = path.split (Path.DIR_SEPARATOR_S);
+                valid = parts.length == 2 && parts[1].has_suffix (".git");
+            }
+        } catch (UriError e) {
+            warning ("Uri split error %s", e.message);
+        }
+
+       return valid;
     }
 
     private class CloneEntry : Gtk.Box {
