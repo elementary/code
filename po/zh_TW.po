@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 19:50+0000\n"
-"PO-Revision-Date: 2025-04-26 11:55+0000\n"
+"PO-Revision-Date: 2025-06-03 03:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_Hant/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -649,16 +649,13 @@ msgid "Too Many Symbols"
 msgstr "太多符號"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s 內含太多 Vala 符號。\n"
-"剖析與顯示它們花了很多時間"
+"剖析與顯示它們花了太多時間。"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -940,20 +937,16 @@ msgid "Sort Selected Lines"
 msgstr "排序所選取的行"
 
 #: src/Widgets/SourceView.vala:596
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "目前的行"
+msgstr "標記目前的行"
 
 #: src/Widgets/SourceView.vala:607
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "前往上一個編輯標記"
 
 #: src/Widgets/SourceView.vala:618
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "文字編輯器"
+msgstr "前往下一個編輯標記"
 
 #: src/Widgets/SourceView.vala:637
 msgid "Toggle Comment"
