@@ -18,8 +18,10 @@ public class Code.Terminal : Gtk.Box {
     public Vte.Terminal terminal { get; construct; }
     public SimpleActionGroup actions { get; construct; }
 
+
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
+    private Settings? terminal_settings;
 
     construct {
         terminal = new Vte.Terminal () {
@@ -31,14 +33,46 @@ public class Code.Terminal : Gtk.Box {
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
         var terminal_schema = schema_source.lookup (SETTINGS_SCHEMA, true);
-        if (terminal_schema != null) {
-            update_terminal_settings (SETTINGS_SCHEMA);
-        } else {
-            var legacy_terminal_schema = schema_source.lookup (LEGACY_SETTINGS_SCHEMA, true);
-            if (legacy_terminal_schema != null) {
-                update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
-            }
+        if (terminal_schema == null) {
+            terminal_schema = schema_source.lookup (LEGACY_SETTINGS_SCHEMA, true);
         }
+
+        if (terminal_schema != null) {
+            terminal_settings = new Settings.full (terminal_schema, null, null);
+            terminal_settings.changed.connect ((key) => {
+                switch (key) {
+                    case "font":
+                        update_font ();
+                        break;
+                    case "audible-bell":
+                        update_audible_bell ();
+                        break;
+                    case "cursor-shape":
+                        update_cursor ();
+                        break;
+                    case "foreground":
+                    case "background":
+                    case "palette":
+                        update_colors ();
+                        break;
+                    default:
+                        //TODO Handle other relevant terminal settings
+                        // "theme"
+                        // "prefer-dark-style"
+                        break;
+                }
+            });
+        } else {
+            //TODO monitor changes in relevant system settings
+            // "audible-bell"
+            // "monospace-font-name"
+            // "color-scheme"
+        }
+
+        update_font ();
+        update_audible_bell ();
+        update_cursor ();
+        update_colors ();
 
         terminal.child_exited.connect (() => {
             GLib.Application.get_default ().activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
@@ -129,71 +163,92 @@ public class Code.Terminal : Gtk.Box {
         }
     }
 
-    private void update_terminal_settings (string settings_schema) {
-        var pantheon_terminal_settings = new GLib.Settings (settings_schema);
+    private void update_font () {
+        var font_name = "";
+        if (terminal_settings != null) {
+            font_name = terminal_settings.get_string ("font");
+        }
 
-        var font_name = pantheon_terminal_settings.get_string ("font");
         if (font_name == "") {
-            var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
-            font_name = system_settings.get_string ("monospace-font-name");
+            var system_interface_settings = new Settings ("org.gnome.desktop.interface");
+            font_name = system_interface_settings.get_string ("monospace-font-name");
         }
 
         var fd = Pango.FontDescription.from_string (font_name);
         terminal.set_font (fd);
+    }
 
-        bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
-        this.terminal.set_audible_bell (audible_bell_setting);
-
-        string cursor_shape_setting = pantheon_terminal_settings.get_string ("cursor-shape");
-
-        switch (cursor_shape_setting) {
-            case "Block":
-                this.terminal.cursor_shape = Vte.CursorShape.BLOCK;
-                break;
-            case "I-Beam":
-                this.terminal.cursor_shape = Vte.CursorShape.IBEAM;
-                break;
-            case "Underline":
-                this.terminal.cursor_shape = Vte.CursorShape.UNDERLINE;
-                break;
+    private void update_audible_bell () {
+        var audible_bell = false;
+        if (terminal_settings != null) {
+            audible_bell = terminal_settings.get_boolean ("audible-bell");
+        } else {
+            var system_wm_settings = new Settings ("org.gnome.desktop.wm.preferences");
+            audible_bell = system_wm_settings.get_boolean ("audible-bell");
         }
 
-        string background_setting = pantheon_terminal_settings.get_string ("background");
-        Gdk.RGBA background_color = Gdk.RGBA ();
-        background_color.parse (background_setting);
+        terminal.set_audible_bell (audible_bell);
+    }
 
-        string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
-        Gdk.RGBA foreground_color = Gdk.RGBA ();
-        foreground_color.parse (foreground_setting);
-
-        string palette_setting = pantheon_terminal_settings.get_string ("palette");
-
-        string[] hex_palette = {"#000000", "#FF6C60", "#A8FF60", "#FFFFCC", "#96CBFE",
-                                "#FF73FE", "#C6C5FE", "#EEEEEE", "#000000", "#FF6C60",
-                                "#A8FF60", "#FFFFB6", "#96CBFE", "#FF73FE", "#C6C5FE",
-                                "#EEEEEE"};
-
-        string current_string = "";
-        int current_color = 0;
-        for (var i = 0; i < palette_setting.length; i++) {
-            if (palette_setting[i] == ':') {
-                hex_palette[current_color] = current_string;
-                current_string = "";
-                current_color++;
-            } else {
-                current_string += palette_setting[i].to_string ();
+    private void update_cursor () {
+        if (terminal_settings != null) {
+            var cursor_shape_setting = terminal_settings.get_string ("cursor-shape");
+            switch (cursor_shape_setting) {
+                case "Block":
+                    this.terminal.cursor_shape = Vte.CursorShape.BLOCK;
+                    break;
+                case "I-Beam":
+                    this.terminal.cursor_shape = Vte.CursorShape.IBEAM;
+                    break;
+                case "Underline":
+                    this.terminal.cursor_shape = Vte.CursorShape.UNDERLINE;
+                    break;
             }
-        }
+        } //No corresponding system keymap
 
-        Gdk.RGBA[] palette = new Gdk.RGBA[16];
+        //TODO follow system cursor-blink
+        //TODO Remove discontinued key cursor-color
+    }
 
-        for (int i = 0; i < hex_palette.length; i++) {
-            Gdk.RGBA new_color = Gdk.RGBA ();
-            new_color.parse (hex_palette[i]);
-            palette[i] = new_color;
-        }
+    private void update_colors () {
+        if (terminal_settings != null) {
+            string background_setting = terminal_settings.get_string ("background");
+            Gdk.RGBA background_color = Gdk.RGBA ();
+            background_color.parse (background_setting);
 
-        this.terminal.set_colors (foreground_color, background_color, palette);
+            string foreground_setting = terminal_settings.get_string ("foreground");
+            Gdk.RGBA foreground_color = Gdk.RGBA ();
+            foreground_color.parse (foreground_setting);
+
+            string palette_setting = terminal_settings.get_string ("palette");
+
+            string[] hex_palette = {"#000000", "#FF6C60", "#A8FF60", "#FFFFCC", "#96CBFE",
+                                    "#FF73FE", "#C6C5FE", "#EEEEEE", "#000000", "#FF6C60",
+                                    "#A8FF60", "#FFFFB6", "#96CBFE", "#FF73FE", "#C6C5FE",
+                                    "#EEEEEE"};
+
+            string current_string = "";
+            int current_color = 0;
+            for (var i = 0; i < palette_setting.length; i++) {
+                if (palette_setting[i] == ':') {
+                    hex_palette[current_color] = current_string;
+                    current_string = "";
+                    current_color++;
+                } else {
+                    current_string += palette_setting[i].to_string ();
+                }
+            }
+
+            Gdk.RGBA[] palette = new Gdk.RGBA[16];
+
+            for (int i = 0; i < hex_palette.length; i++) {
+                Gdk.RGBA new_color = Gdk.RGBA ();
+                new_color.parse (hex_palette[i]);
+                palette[i] = new_color;
+            }
+
+            terminal.set_colors (foreground_color, background_color, palette);
+        } //No suitable system keys
     }
 
     public void increment_size () {
