@@ -225,25 +225,25 @@ public class Code.Terminal : Gtk.Box {
             if (keymap.get_entries_for_keyval (keyval, out keys)) {
                 foreach (var key in keys) {
                     if (code == key.keycode) {
-                        return true;
+                        return Gdk.EVENT_STOP;
                     }
                 }
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         }
 
         if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
             if (match_keycode (Gdk.Key.c, keycode)) {
                 actions.activate_action (ACTION_COPY, null);
-                return true;
+                return Gdk.EVENT_STOP;
             } else if (match_keycode (Gdk.Key.v, keycode)) {
                 actions.activate_action (ACTION_PASTE, null);
-                return true;
+                return Gdk.EVENT_STOP;
             }
         }
 
 
-        return false;
+        return Gdk.EVENT_PROPAGATE;
     }
 }
