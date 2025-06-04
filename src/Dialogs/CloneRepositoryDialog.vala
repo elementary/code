@@ -16,7 +16,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     // - Must not contain consecutive special characters.
     // - Cannot end in . git or . atom .
 
-    private const string NAME_REGEX = "^[0-9a-zA-Z].[-0-9a-zA-Z_.]+$"; //TODO additional validation required
+    private const string NAME_REGEX = """^[0-9a-zA-Z].([-_.]?[0-9a-zA-Z])*$"""; //TODO additional validation required
     private Regex name_regex;
     private Gtk.Label clone_parent_folder_label;
     private Granite.ValidatedEntry remote_repository_uri_entry;
@@ -36,7 +36,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     construct {
         try {
-            name_regex = new Regex (NAME_REGEX, RegexCompileFlags.OPTIMIZE);
+            name_regex = new Regex (NAME_REGEX, OPTIMIZE, ANCHORED | NOTEMPTY);
         } catch (RegexError e) {
             warning ("%s\n", e.message);
         }
@@ -89,8 +89,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         });
 
-        local_project_name_entry = new Granite.ValidatedEntry.from_regex (name_regex);
-        local_project_name_entry.changed.connect (update_can_clone);
+        local_project_name_entry = new Granite.ValidatedEntry ();
+        local_project_name_entry.changed.connect (validate_local_name);
 
         set_as_active_check = new Gtk.CheckButton.with_label (_("Set as Active Project")) {
             margin_top = 12,
@@ -137,7 +137,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     private void update_can_clone () {
         can_clone = remote_repository_uri_entry.is_valid && local_project_name_entry.is_valid;
-        // We can assume the folder entry is valid as it defaults to a valid folder and 
+        // We can assume the folder entry is valid as it defaults to a valid folder and
         // can only be changed with the filechooser.
     }
 
@@ -190,6 +190,24 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         }
 
         return valid;
+    }
+
+    private void validate_local_name () {
+        unowned var name = local_project_name_entry.text;
+        MatchInfo? match_info;
+        bool valid = false;
+        try {
+            name_regex.match (name, ANCHORED | NOTEMPTY, out match_info);
+            if (match_info.matches ()) {
+                valid = !name.has_suffix (".git") && !name.has_suffix (".atom");
+            }
+        } catch (Error e) {
+            warning ("Error match regex");
+        } finally {
+            local_project_name_entry.is_valid = valid;
+        }
+
+        update_can_clone ();
     }
 
     private class CloneEntry : Gtk.Box {
