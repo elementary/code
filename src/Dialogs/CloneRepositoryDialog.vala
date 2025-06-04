@@ -103,8 +103,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         clone_button.has_default = true;
         clone_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        clone_button.sensitive = can_clone;
-        bind_property ("can-clone", clone_button, "sensitive");
+        bind_property ("can-clone", clone_button, "sensitive", DEFAULT | SYNC_CREATE);
 
         //Do not want to connect to "is-valid" property notification as this gets changed to "true" every time the entry
         //text changed. So call explicitly after we validate the text.
