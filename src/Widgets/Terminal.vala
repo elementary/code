@@ -234,10 +234,10 @@ public class Code.Terminal : Gtk.Box {
         }
 
         if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
-            if (match_keycode (Gdk.Key.c, keycode)) {
+            if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
                 actions.activate_action (ACTION_COPY, null);
                 return Gdk.EVENT_STOP;
-            } else if (match_keycode (Gdk.Key.v, keycode)) {
+            } else if (match_keycode (Gdk.Key.v, keycode) && current_clipboard.wait_is_text_available ()) {
                 actions.activate_action (ACTION_PASTE, null);
                 return Gdk.EVENT_STOP;
             }
