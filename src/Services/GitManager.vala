@@ -113,6 +113,7 @@ namespace Scratch.Services {
             return build_path;
         }
 
+        //TODO Make this a real async function that does not block the main loop.
         public async bool clone_repository (
             string uri,
             string local_folder,
