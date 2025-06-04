@@ -10,7 +10,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     public bool can_clone { get; private set; default = false; }
 
 
-    //Git project name rules: https://github.com/jeremypw/code-dogfood-7.1.git
+    // Git project name rules according to GitLab
     // - Must start and end with a letter ( a-zA-Z ) or digit ( 0-9 ).
     // - Can contain only letters ( a-zA-Z ), digits ( 0-9 ), underscores ( _ ), dots ( . ), or dashes ( - ).
     // - Must not contain consecutive special characters.
