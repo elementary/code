@@ -1043,17 +1043,15 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
-            var uri = "";
-            //By default, create clone in parent of the current project
-            var local_folder = Path.get_dirname (git_manager.active_project_path);
-            var local_name = "";
             var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
             clone_dialog.response.connect ((res) => {
+                var uri = clone_dialog.get_source_repository_uri ();
+                var local_folder = clone_dialog.get_local_folder ();
+                var local_name = clone_dialog.get_local_name ();
+                // MainWindow should provide feedback on cloning progress
+                // Close modal dialog now
+                clone_dialog.destroy ();
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
-                    uri = clone_dialog.get_source_repository_uri ();
-                    local_folder = clone_dialog.get_local_folder ();
-                    local_name = clone_dialog.get_local_name ();
-
                     //TODO Show progress while cloning
                     git_manager.clone_repository.begin (
                         uri,
@@ -1064,7 +1062,6 @@ namespace Scratch {
                                 if (git_manager.clone_repository.end (res, out workdir)) {
                                     debug ("Repository cloned into %s", workdir.get_uri ());
                                     open_folder (workdir);
-                                    //TODO Make active according to dialog checkbox
                                 }
                             } catch (Error e) {
                                 warning ("Unable to clone '%s'. %s", uri, e.message);
@@ -1072,8 +1069,6 @@ namespace Scratch {
                         }
                     );
                 }
-
-                clone_dialog.destroy ();
             });
 
             clone_dialog.present ();
