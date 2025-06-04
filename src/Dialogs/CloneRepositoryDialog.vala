@@ -6,7 +6,6 @@
  */
 
 public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
-    public FolderManager.ProjectFolderItem? active_project { get; construct; }
     public bool can_clone { get; private set; default = false; }
 
 
@@ -21,7 +20,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Gtk.Label clone_parent_folder_label;
     private Granite.ValidatedEntry remote_repository_uri_entry;
     private Granite.ValidatedEntry local_project_name_entry;
-    private Gtk.CheckButton set_as_active_check;
 
     public string suggested_local_folder { get; construct; }
 
@@ -92,16 +90,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         local_project_name_entry = new Granite.ValidatedEntry ();
         local_project_name_entry.changed.connect (validate_local_name);
 
-        set_as_active_check = new Gtk.CheckButton.with_label (_("Set as Active Project")) {
-            margin_top = 12,
-            active = true
-        };
-
         var content_box = new Gtk.Box (VERTICAL, 12);
         content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
         content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
         content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
-        content_box.add (set_as_active_check);
         content_box.show_all ();
 
         custom_bin.add (content_box);
