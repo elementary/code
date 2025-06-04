@@ -1057,9 +1057,10 @@ namespace Scratch {
                 var uri = clone_dialog.get_source_repository_uri ();
                 var local_folder = clone_dialog.get_local_folder ();
                 var local_name = clone_dialog.get_local_name ();
+                var can_clone = clone_dialog.can_clone;
                 // MainWindow should provide feedback on cloning progress - close modal dialog now
                 clone_dialog.destroy ();
-                if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
+                if (res == Gtk.ResponseType.APPLY && can_clone) { // Should not need second test?
                     //TODO Show progress while cloning
                     cloning_progress_dialog = new Scratch.Dialogs.CloningProgressDialog (this, uri, local_folder);
                     cloning_progress_dialog.response.connect ((res) => {
