@@ -1,140 +1,216 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
+/*
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2013 Mario Guerriero <mario@elementaryos.org>
+ */
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as published
-  by the Free Software Foundation.
+    // Interface implemented by all plugins  (Migrated from Peas.Activatable)
+public interface Scratch.Services.ActivatablePlugin : Object {
+    public abstract void activate ();
+    public abstract void deactivate ();
+    public virtual void update_state () {}
+    public abstract GLib.Object object { owned get; construct; }
+}
 
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
+// Object shared with plugins providing signals and methods to interface with application
+public class Scratch.Services.Interface : GLib.Object {
+    // Signals
+    public signal void hook_window (Scratch.MainWindow window);
+    public signal void hook_share_menu (GLib.MenuModel menu);
+    public signal void hook_toolbar (Scratch.HeaderBar toolbar);
+    public signal void hook_document (Scratch.Services.Document doc);
+    public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+    public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses/>
+    public Scratch.TemplateManager template_manager { get; private set; }
+    public Scratch.Services.PluginsManager manager { get; construct; }
 
-  END LICENSE
-***/
-
-namespace Scratch.Services {
-    public class Interface : GLib.Object {
-
-        public PluginsManager manager;
-
-        // Signals
-        public signal void hook_window (Scratch.MainWindow window);
-        public signal void hook_share_menu (GLib.MenuModel menu);
-        public signal void hook_toolbar (Scratch.HeaderBar toolbar);
-        public signal void hook_document (Scratch.Services.Document doc);
-        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
-        public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
-
-        public Scratch.TemplateManager template_manager { private set; get; }
-
-        public Interface (PluginsManager manager) {
-            this.manager = manager;
-
-            template_manager = new Scratch.TemplateManager ();
-        }
-
-        public Document open_file (File file) {
-            var doc = new Document (manager.window.actions, file);
-            manager.window.open_document (doc);
-            return doc;
-        }
-
-        public void close_document (Document doc) {
-            manager.window.close_document (doc);
-        }
+    public Interface (Scratch.Services.PluginsManager _manager) {
+        Object (
+            manager: _manager
+        );
     }
 
+    construct {
+        template_manager = new Scratch.TemplateManager ();
+    }
 
-    public class PluginsManager : GLib.Object {
-        Peas.Engine engine;
-        Peas.ExtensionSet exts;
+    public Scratch.Services.Document open_file (File file) {
+        var doc = new Scratch.Services.Document (manager.window.actions, file);
+        manager.window.open_document.begin (doc);
+        return doc;
+    }
 
-        string settings_field;
+    public void close_document (Scratch.Services.Document doc) {
+        manager.window.close_document (doc);
+    }
+}
 
-        public Interface plugin_iface { private set; public get; }
+public class Scratch.Services.PluginsManager : GLib.Object {
+    public signal void hook_window (Scratch.MainWindow window);
+    public signal void hook_share_menu (GLib.MenuModel menu);
+    public signal void hook_toolbar (Scratch.HeaderBar toolbar);
+    public signal void hook_document (Scratch.Services.Document doc);
+    public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+    public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-        public weak MainWindow window;
+    public signal void extension_added (Peas.PluginInfo info);
+    public signal void extension_removed (Peas.PluginInfo info);
 
-        // Signals
-        public signal void hook_window (Scratch.MainWindow window);
-        public signal void hook_share_menu (GLib.MenuModel menu);
-        public signal void hook_toolbar (Scratch.HeaderBar toolbar);
-        public signal void hook_document (Scratch.Services.Document doc);
-        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
-        public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
+    private Peas.Engine engine;
+    private Peas.ExtensionSet extension_set;
 
-        public signal void extension_added (Peas.PluginInfo info);
-        public signal void extension_removed (Peas.PluginInfo info);
+    public Scratch.Services.Interface plugin_iface { get; private set; }
+    public weak Scratch.MainWindow window { get; construct; }
 
-        public PluginsManager (MainWindow window) {
-            this.window = window;
+    public PluginsManager (Scratch.MainWindow _window) {
+        Object (window: _window);
+    }
 
-            settings_field = "plugins-enabled";
+    construct {
+        plugin_iface = new Scratch.Services.Interface (this);
 
-            plugin_iface = new Interface (this);
+        /* Let's init the engine */
+        engine = Peas.Engine.get_default ();
+        engine.enable_loader ("python");
+        engine.add_search_path (Constants.PLUGINDIR, null);
+        Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
-            /* Let's init the engine */
-            engine = Peas.Engine.get_default ();
-            engine.enable_loader ("python");
-            engine.add_search_path (Constants.PLUGINDIR, null);
-            Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+        /* Our extension set. We need to keep a reference to this after migrating to libpeas-2 */
+        extension_set = new Peas.ExtensionSet.with_properties (
+            engine,
+            typeof (Scratch.Services.ActivatablePlugin),
+            {"object"},
+            {plugin_iface}
+        );
 
-            /* Our extension set */
-            exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
+        extension_set.extension_added.connect ((info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).activate ();
+            extension_added (info);
+        });
 
-            exts.extension_added.connect ((info, ext) => {
-                ((Peas.Activatable)ext).activate ();
-                extension_added (info);
-            });
+        extension_set.extension_removed.connect ((info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).deactivate ();
+            extension_removed (info);
+        });
 
-            exts.extension_removed.connect ((info, ext) => {
-                ((Peas.Activatable)ext).deactivate ();
-                extension_removed (info);
-            });
+        extension_set.@foreach ((exts, info, ext) => {
+            ((Scratch.Services.ActivatablePlugin)ext).activate ();
+        }, null);
 
-            exts.foreach (on_extension_foreach);
+        // Connect managers signals to interface's signals
+        this.hook_window.connect ((w) => {
+            plugin_iface.hook_window (w);
+        });
 
-            // Connect managers signals to interface's signals
-            this.hook_window.connect ((w) => {
-                plugin_iface.hook_window (w);
-            });
+        this.hook_share_menu.connect ((m) => {
+            plugin_iface.hook_share_menu (m);
+        });
 
-            this.hook_share_menu.connect ((m) => {
-                plugin_iface.hook_share_menu (m);
-            });
+        this.hook_toolbar.connect ((t) => {
+            plugin_iface.hook_toolbar (t);
+        });
 
-            this.hook_toolbar.connect ((t) => {
-                plugin_iface.hook_toolbar (t);
-            });
+        this.hook_document.connect ((d) => {
+            plugin_iface.hook_document (d);
+        });
 
-            this.hook_document.connect ((d) => {
-                plugin_iface.hook_document (d);
-            });
+        this.hook_preferences_dialog.connect ((d) => {
+            plugin_iface.hook_preferences_dialog (d);
+        });
 
-            this.hook_preferences_dialog.connect ((d) => {
-                plugin_iface.hook_preferences_dialog (d);
-            });
+        this.hook_folder_item_change.connect ((source, dest, event) => {
+            plugin_iface.hook_folder_item_change (source, dest, event);
+        });
+    }
 
-            this.hook_folder_item_change.connect ((source, dest, event) => {
-                plugin_iface.hook_folder_item_change (source, dest, event);
-            });
-        }
+    // Return an emulation of the discontinued libpeas-1.0 widget
+    public Gtk.Widget get_view () {
+        var list_box = new Gtk.ListBox ();
+        list_box.get_accessible ().accessible_name = _("Extensions");
 
-        void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-            ((Peas.Activatable)extension).activate ();
-        }
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            hscrollbar_policy = NEVER,
+            child = list_box
+        };
 
-        public Gtk.Widget get_view () {
-            var view = new PeasGtk.PluginManager (engine);
-            var bottom_box = view.get_children ().nth_data (1);
-            bottom_box.no_show_all = true;
-            return view;
-        }
+        var frame = new Gtk.Frame (null) {
+            child = scrolled_window
+        };
+
+        // Bind the engine ListModel and use a row factory
+        list_box.bind_model (engine, get_widget_for_plugin_info);
+
+        // Cannot sort a ListModel so sort the ListBox (is there a better way?)
+        // Gtk warns the function will be ignored but it does in fact work, at least
+        // on initial display. We know the model will not change while the view is used
+        // In Gtk4 could use SortListModel
+        list_box.set_sort_func ((r1, r2) => {
+            return strcmp (
+                r1.get_child ().get_data<string> ("name"),
+                r2.get_child ().get_data<string> ("name")
+            );
+        });
+
+        frame.show_all ();
+        return frame;
+    }
+
+    private Gtk.Widget get_widget_for_plugin_info (Object obj) {
+        var info = (Peas.PluginInfo)obj;
+
+        var checkbox = new Gtk.CheckButton () {
+            valign = CENTER,
+            active = info.is_loaded ()
+        };
+
+        var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
+            valign = START
+        };
+
+        var name_label = new Gtk.Label (info.name) {
+            ellipsize = MIDDLE,
+            xalign = 0
+        };
+
+        var description_label = new Gtk.Label (info.get_description ()) {
+            ellipsize = END,
+            lines = 2,
+            wrap = true,
+            xalign = 0
+        };
+        description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var description_box = new Gtk.Box (VERTICAL, 0) {
+            hexpand = true
+        };
+        description_box.add (name_label);
+        description_box.add (description_label);
+
+        var content = new Gtk.Box (HORIZONTAL, 6) {
+            margin_top = 6,
+            margin_end = 12,
+            margin_bottom = 6,
+            margin_start = 6
+        };
+        content.add (image);
+        content.add (description_box);
+        content.add (checkbox);
+        content.set_data<string> ("name", info.get_name ());
+
+        checkbox.toggled.connect (() => {
+            if (checkbox.active) {
+                engine.load_plugin (info);
+            } else {
+                engine.unload_plugin (info);
+            }
+        });
+
+        return content;
+    }
+
+    public uint get_n_plugins () {
+        return engine.get_n_items ();
     }
 }

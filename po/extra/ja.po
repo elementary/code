@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2025-03-01 15:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
@@ -136,6 +136,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "行数の多いファイルでも移動が簡単になるミニマップ機能もオプションで用意"
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -186,8 +190,8 @@ msgstr "ターミナルペインの状態を保存・復元するように変更
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "\"フォルダー内を検索\"機能の対象を、\".vala\"ファイルだけではなくすべてのフォ"
 "ルダーとテキストファイルに変更"
@@ -440,7 +444,7 @@ msgstr "text;IDE;scratch;code;テキスト;統合開発環境;コード;"
 msgid "New File"
 msgstr "新しいファイル"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
@@ -507,9 +511,6 @@ msgstr "“コード”を管理者として実行するには認証が必要で
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "すべてのテキストが翻訳できるように修正"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "開発ブランチ版の Code を実行していることを表示する機能を追加"
@@ -784,8 +785,8 @@ msgstr "“コード”を管理者として実行するには認証が必要で
 #~ "いですが、作業に集中できます。"
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "そのほかのシンタックスハイライトが利用可能な言語: Bash、C、C#、C++、"

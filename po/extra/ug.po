@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-05-21 19:50+0000\n"
 "PO-Revision-Date: 2016-12-07 08:58+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -36,10 +36,10 @@ msgid ""
 "never lose your spot—even between sessions."
 msgstr ""
 "يۇقىرى ئۈنۈملۈك  تېكىست تەھرىرلىگۈچىسى Scratch ھۆججەتلىرىڭىزنى ئاپتوماتىك "
-"ساقلايدۇ،بۇ سىزنىڭ ھۆججەتلىرىڭىزنىڭ ھەردائىم يىڭى بولىدىغانلىقىنى بىلدۈرىدۇ."
-"ئۇندىن باشقا Scratchيەنە سىزنىڭ  خەتكۈچلىرىڭىزنى  ئىسىدە ساقلايدۇ، شۇڭلاشقا "
-"سىز ھىساۋات ئالماشتۇرغان ياكى كومپىيۇتىرنى قايتا قوزغاتقاندىن كىيىنمۇ "
-"خىزمىتىڭىزنى داۋاملاشتۇرالايسىز."
+"ساقلايدۇ،بۇ سىزنىڭ ھۆججەتلىرىڭىزنىڭ ھەردائىم يىڭى بولىدىغانلىقىنى "
+"بىلدۈرىدۇ.ئۇندىن باشقا Scratchيەنە سىزنىڭ  خەتكۈچلىرىڭىزنى  ئىسىدە ساقلايدۇ، "
+"شۇڭلاشقا سىز ھىساۋات ئالماشتۇرغان ياكى كومپىيۇتىرنى قايتا قوزغاتقاندىن "
+"كىيىنمۇ خىزمىتىڭىزنى داۋاملاشتۇرالايسىز."
 
 #: data/code.metainfo.xml.in:13
 msgid ""
@@ -57,8 +57,9 @@ msgid ""
 "languages."
 msgstr ""
 "ئۆزىڭىزنىڭ پروگرامما تېلىدا خىزمەت قىلىسىز. مەيلى سىز Vala،  PHPلار بىلەن "
-"پروگرامما يىزىڭ ياكى HTML بىلەن توربەت ياساڭ Scratch ھەممىسىنى قوللايدۇ."
-"گىرامماتىكىلىق كۆرسىتش ئىقتىدارى ئىنتايىن كۆپ پروگرامما تېللىرىنى قوللايدۇ."
+"پروگرامما يىزىڭ ياكى HTML بىلەن توربەت ياساڭ Scratch ھەممىسىنى "
+"قوللايدۇ.گىرامماتىكىلىق كۆرسىتش ئىقتىدارى ئىنتايىن كۆپ پروگرامما تېللىرىنى "
+"قوللايدۇ."
 
 #: data/code.metainfo.xml.in:15
 msgid ""
@@ -119,6 +120,10 @@ msgstr ""
 msgid "Optional mini-map to make navigating large files easier"
 msgstr ""
 
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr ""
+
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
 #: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
@@ -165,8 +170,8 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:125
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 
 #: data/code.metainfo.xml.in:126
@@ -384,7 +389,7 @@ msgstr "Scratch"
 msgid "New File"
 msgstr ""
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr ""
 
@@ -426,8 +431,8 @@ msgstr ""
 #~ "چىرايلىق، لىكىن چاكىنا ئەمەس."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "گىرامماتىكىلىق كۆرسىتەلەيدىغان باشقا تېللار:Bash, C, C#, C++. Cmake, "
