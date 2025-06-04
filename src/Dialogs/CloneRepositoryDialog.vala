@@ -187,17 +187,11 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         unowned var name = local_project_name_entry.text;
         MatchInfo? match_info;
         bool valid = false;
-        try {
-            name_regex.match (name, ANCHORED | NOTEMPTY, out match_info);
-            if (match_info.matches ()) {
-                valid = !name.has_suffix (".git") && !name.has_suffix (".atom");
-            }
-        } catch (Error e) {
-            warning ("Error match regex");
-        } finally {
-            local_project_name_entry.is_valid = valid;
+        if (name_regex.match (name, ANCHORED | NOTEMPTY, out match_info) && match_info.matches ()) {
+            valid = !name.has_suffix (".git") && !name.has_suffix (".atom");
         }
 
+        local_project_name_entry.is_valid = valid;
         update_can_clone ();
     }
 
