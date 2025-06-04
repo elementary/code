@@ -275,6 +275,7 @@ namespace Scratch {
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
             git_manager = Services.GitManager.get_instance ();
+            git_manager.cloning_status.connect (on_cloning_status_changed);
 
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
@@ -1043,35 +1044,60 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
-            var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
+            if (cloning_progress_dialog != null) {
+                critical ("Cloning attempt while cloning in progress");
+                // We do not support simultaneous cloning at the moment.
+                return;
+            }
+
+            var default_folder = git_manager.active_project_path != "" ?
+                                 Path.get_dirname (git_manager.active_project_path) : "";
+            var clone_dialog = new Dialogs.CloneRepositoryDialog (default_folder);
             clone_dialog.response.connect ((res) => {
                 var uri = clone_dialog.get_source_repository_uri ();
                 var local_folder = clone_dialog.get_local_folder ();
                 var local_name = clone_dialog.get_local_name ();
-                // MainWindow should provide feedback on cloning progress
-                // Close modal dialog now
+                // MainWindow should provide feedback on cloning progress - close modal dialog now
                 clone_dialog.destroy ();
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
                     //TODO Show progress while cloning
-                    git_manager.clone_repository.begin (
-                        uri,
-                        Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
-                        (obj, res) => {
-                            try {
+                    cloning_progress_dialog = new Scratch.Dialogs.CloningProgressDialog (this, uri, local_folder);
+                    cloning_progress_dialog.response.connect ((res) => {
+                        cloning_progress_dialog.destroy ();
+                        cloning_progress_dialog = null;
+                    });
+                    cloning_progress_dialog.present ();
+
+                    //Need tiimout in order for dialog to be drawn else cloning blocks it.
+                    //TODO Find a more elegant way
+                    Timeout.add (500, () => {
+                        git_manager.clone_repository.begin (
+                            uri,
+                            Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
+                            (obj, res) => {
                                 File? workdir = null;
                                 if (git_manager.clone_repository.end (res, out workdir)) {
                                     debug ("Repository cloned into %s", workdir.get_uri ());
+                                    //TODO Optionally open folder from progress dialog?
                                     open_folder (workdir);
                                 }
-                            } catch (Error e) {
-                                warning ("Unable to clone '%s'. %s", uri, e.message);
                             }
-                        }
-                    );
+                        );
+                        return Source.REMOVE;
+                    });
                 }
             });
 
             clone_dialog.present ();
+        }
+
+        private Scratch.Dialogs.CloningProgressDialog? cloning_progress_dialog;
+        private void on_cloning_status_changed (
+            Scratch.Services.CloningStatus status,
+            string? message = null
+        ) requires (cloning_progress_dialog != null) {
+
+            cloning_progress_dialog.update_status (status, message);
         }
 
         private void action_collapse_all_folders () {

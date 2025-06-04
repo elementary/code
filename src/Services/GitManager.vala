@@ -19,7 +19,14 @@
  */
 
 namespace Scratch.Services {
+    public enum CloningStatus {
+        START,
+        END_SUCCESS,
+        END_FAIL
+    }
+
     public class GitManager : Object {
+        public signal void cloning_status (CloningStatus cloning_status, string? message = null);
         public ListStore project_liststore { get; private set; }
         public string active_project_path { get; set; default = "";}
 
@@ -117,9 +124,7 @@ namespace Scratch.Services {
             string uri,
             string local_folder,
             out File? repo_workdir
-        ) throws Error {
-
-            repo_workdir = null;
+        ) {
             var folder_file = File.new_for_path (local_folder);
 
             var fetch_options = new Ggit.FetchOptions ();
@@ -131,17 +136,38 @@ namespace Scratch.Services {
             clone_options.set_is_bare (false);
             clone_options.set_fetch_options (fetch_options);
 
-            var new_repo = Ggit.Repository.clone (
-                uri,
-                folder_file,
-                clone_options
-            );
+            cloning_status (START);
+            // Gtk.main_iteration ();
+            var success = false;
+            File? workdir = null;
+            Idle.add (() => {
+                try {
+                    var new_repo = Ggit.Repository.clone (
+                        uri,
+                        folder_file,
+                        clone_options
+                    );
 
-            if (new_repo != null) {
-                repo_workdir = new_repo.get_workdir ();
+                    if (new_repo != null) {
+                        workdir = new_repo.get_workdir ();
+                    }
+                } catch (Error e) {
+                    warning ("Error cloning %s", e.message);
+                    cloning_status (END_FAIL, e.message);
+                }
+
+                clone_repository.callback ();
+                return Source.REMOVE;
+            });
+
+            yield; //Clone still blocks main thread
+
+            if (workdir != null) {
+                cloning_status (END_SUCCESS, _("The local repository working directory is '%s'").printf (workdir.get_uri ()));
             }
 
-            return new_repo != null;
+            repo_workdir = workdir;
+            return workdir != null;
         }
     }
 }
