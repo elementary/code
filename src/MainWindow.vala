@@ -306,7 +306,7 @@ namespace Scratch {
             plugins = new Scratch.Services.PluginsManager (this);
 
             key_controller = new Gtk.EventControllerKey (this) {
-                propagation_phase = CAPTURE
+                propagation_phase = TARGET
             };
             key_controller.key_pressed.connect (on_key_pressed);
 
