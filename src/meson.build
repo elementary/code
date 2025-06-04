@@ -22,6 +22,7 @@ code_files = files(
     'Dialogs/RestoreConfirmationDialog.vala',
     'Dialogs/CloseProjectsConfirmationDialog.vala',
     'Dialogs/CloneRepositoryDialog.vala',
+    'Dialogs/CloningProgressDialog.vala',
     'Dialogs/OverwriteUncommittedConfirmationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
     'Dialogs/NewBranchDialog.vala',
