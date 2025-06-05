@@ -1045,7 +1045,7 @@ namespace Scratch {
         private void action_clone_repo (SimpleAction action, Variant? param) {
             var default_projects_folder = Scratch.settings.get_string ("default-projects-folder");
             if (default_projects_folder == "" && git_manager.active_project_path != "") {
-                default_projects_folder =  Path.get_dirname (git_manager.active_project_path);
+                default_projects_folder = Path.get_dirname (git_manager.active_project_path);
             }
 
             var default_remote = Scratch.settings.get_string ("default-remote");
