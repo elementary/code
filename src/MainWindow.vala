@@ -1043,7 +1043,9 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
-            var clone_dialog = new Dialogs.CloneRepositoryDialog (local_folder);
+            var default_folder = git_manager.active_project_path != "" ?
+                                 Path.get_dirname (git_manager.active_project_path) : "";
+            var clone_dialog = new Dialogs.CloneRepositoryDialog (default_folder);
             clone_dialog.response.connect ((res) => {
                 var uri = clone_dialog.get_source_repository_uri ();
                 var local_folder = clone_dialog.get_local_folder ();
