@@ -78,6 +78,7 @@
           <li>The network can now be accessed from within the Flatpak</li>
           <li>The branch names in the "Branch" submenus are now sorted alphabetically</li>
           <li>The extension list now has switches instead of checkboxes in order to provide a larger target</li>
+          <li>The terminal pane now implements smart copy-paste and follows the "natural-copy-paste" setting of Terminal</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
@@ -114,6 +115,7 @@
         <issue url="https://github.com/elementary/code/issues/1317">Symbol Pane: Does not scroll back to already selected method</issue>
         <issue url="https://github.com/elementary/code/issues/1156">ProjectFolder menu: "Branch" option does not show remote branches</issue>
         <issue url="https://github.com/elementary/code/issues/677">Improve message when file changes on disk to include moving or renaming</issue>
+        <issue url="https://github.com/elementary/code/issues/147">Implement natural copy/paste in terminal plug</issue>
       </issues>
     </release>
 
