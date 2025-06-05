@@ -17,18 +17,20 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     private const string NAME_REGEX = """^[0-9a-zA-Z].([-_.]?[0-9a-zA-Z])*$"""; //TODO additional validation required
     private Regex name_regex;
-    private Gtk.Label clone_parent_folder_label;
+    private Gtk.Label projects_folder_label;
     private Granite.ValidatedEntry remote_repository_uri_entry;
     private Granite.ValidatedEntry local_project_name_entry;
 
     public string suggested_local_folder { get; construct; }
+    public string suggested_remote { get; construct; }
 
-    public CloneRepositoryDialog (string _suggested_local_folder) {
+    public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
             image_icon: new ThemedIcon ("git"),
             modal: true,
-            suggested_local_folder: _suggested_local_folder
+            suggested_local_folder: _suggested_local_folder,
+            suggested_remote: _suggested_remote
         );
     }
 
@@ -51,15 +53,16 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             input_purpose = URL
         };
         remote_repository_uri_entry.changed.connect (on_remote_uri_changed);
+        remote_repository_uri_entry.text = suggested_remote;
 
         // The suggested folder is assumed to be valid as it is generated internally
-        clone_parent_folder_label = new Gtk.Label (suggested_local_folder) {
+        projects_folder_label = new Gtk.Label (suggested_local_folder) {
             hexpand = true,
             halign = START
         };
 
         var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 6);
-        folder_chooser_button_child.add (clone_parent_folder_label);
+        folder_chooser_button_child.add (projects_folder_label);
         folder_chooser_button_child.add (
             new Gtk.Image.from_icon_name ("folder-open-symbolic", BUTTON)
         );
@@ -75,10 +78,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 _("Select"),
                 _("Cancel")
             );
-            chooser.set_current_folder (clone_parent_folder_label.label);
+            chooser.set_current_folder (projects_folder_label.label);
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    clone_parent_folder_label.label = chooser.get_filename ();
+                    projects_folder_label.label = chooser.get_filename ();
                     update_can_clone ();
                 }
 
@@ -114,23 +117,33 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         cancel_button.grab_focus ();
     }
 
-    public string get_source_repository_uri () requires (can_clone) {
+    public string get_projects_folder () {
+        return projects_folder_label.label;
+    }
+
+    public string get_remote () {
+        if (remote_repository_uri_entry.is_valid) {
+            var uri = remote_repository_uri_entry.text;
+            var last_separator = uri.last_index_of (Path.DIR_SEPARATOR_S);
+            return uri.slice (0, last_separator + 1);
+        } else {
+            return suggested_remote;
+        }
+    }
+
+    public string get_valid_source_repository_uri () requires (can_clone) {
         //TODO Further validation here?
         return remote_repository_uri_entry.text;
     }
 
-    public string get_local_folder () requires (can_clone) {
-        return clone_parent_folder_label.label;
-    }
-
-    public string get_local_name () requires (can_clone) {
-        return local_project_name_entry.text;
+    public string get_valid_target () requires (can_clone) {
+        return Path.build_filename (Path.DIR_SEPARATOR_S, projects_folder_label.label, local_project_name_entry.text);
     }
 
     private void update_can_clone () {
         can_clone = remote_repository_uri_entry.is_valid &&
                     local_project_name_entry.is_valid &&
-                    clone_parent_folder_label.label != "";
+                    projects_folder_label.label != "";
 
         //TODO Check whether the target folder already exists and is not empty?
     }

@@ -1043,21 +1043,27 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
-            var default_folder = git_manager.active_project_path != "" ?
-                                 Path.get_dirname (git_manager.active_project_path) : "";
-            var clone_dialog = new Dialogs.CloneRepositoryDialog (default_folder);
+            var default_projects_folder = Scratch.settings.get_string ("default-projects-folder");
+            if (default_projects_folder == "" && git_manager.active_project_path != "") {
+                default_projects_folder =  Path.get_dirname (git_manager.active_project_path);
+            }
+
+            var default_remote = Scratch.settings.get_string ("default-remote");
+            var clone_dialog = new Dialogs.CloneRepositoryDialog (default_projects_folder, default_remote);
             clone_dialog.response.connect ((res) => {
-                var uri = clone_dialog.get_source_repository_uri ();
-                var local_folder = clone_dialog.get_local_folder ();
-                var local_name = clone_dialog.get_local_name ();
+                // Persist last entries (not necessarily valid)
+                Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
+                Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
                 // MainWindow should provide feedback on cloning progress
                 // Hide clone dialog in case needed to retry
                 clone_dialog.hide ();
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
+                    var uri = clone_dialog.get_valid_source_repository_uri ();
+                    var target = clone_dialog.get_valid_target ();
                     //TODO Show progress while cloning
                     git_manager.clone_repository.begin (
                         uri,
-                        Path.build_filename (Path.DIR_SEPARATOR_S, local_folder, local_name),
+                        target,
                         (obj, res) => {
                             try {
                                 File? workdir = null;
