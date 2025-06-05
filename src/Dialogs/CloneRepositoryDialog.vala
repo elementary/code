@@ -79,6 +79,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
                     clone_parent_folder_label.label = chooser.get_filename ();
+                    update_can_clone ();
                 }
 
                 chooser.destroy ();
@@ -127,9 +128,11 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     }
 
     private void update_can_clone () {
-        can_clone = remote_repository_uri_entry.is_valid && local_project_name_entry.is_valid;
-        // We can assume the folder entry is valid as it defaults to a valid folder and
-        // can only be changed with the filechooser.
+        can_clone = remote_repository_uri_entry.is_valid &&
+                    local_project_name_entry.is_valid &&
+                    clone_parent_folder_label.label != "";
+
+        //TODO Check whether the target folder already exists and is not empty?
     }
 
     private void on_remote_uri_changed (Gtk.Editable source) {
