@@ -22,9 +22,15 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
 
+    public ActionGroup toplevel_action_group { get; construct; }
     public signal void project_chosen ();
 
     construct {
+        realize.connect (() => {
+            toplevel_action_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+            assert_nonnull (toplevel_action_group);
+        });
+
         var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
@@ -114,8 +120,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
-            git_manager.active_project_path = project_entry.project_path;
-            project_chosen ();
+            toplevel_action_group.activate_action (
+                Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
+                new Variant.string (project_entry.project_path)
+            );
         });
 
         toggled.connect (() => {
