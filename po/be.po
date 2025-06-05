@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 19:50+0000\n"
-"PO-Revision-Date: 2025-06-05 11:55+0000\n"
+"PO-Revision-Date: 2025-06-06 16:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/code/"
 "be/>\n"
@@ -347,110 +347,100 @@ msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Не рабіць Checkout"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Зрабіць Checkout і перазапісаць"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
-#, fuzzy
 msgid "Other Actions"
-msgstr "Іншыя фарматы"
+msgstr "Іншыя дзеянні"
 
 #: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
-msgstr ""
+msgstr "Перайменаваць"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
-msgstr ""
+msgstr "Перамясціць у сметніцу"
 
 #: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
-msgstr ""
+msgstr "Іншая праграма…"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
-#, fuzzy
 msgid "Open In"
-msgstr "Адкрыць"
+msgstr "Адкрыць у"
 
 #: src/FolderManager/FileView.vala:74
 msgid "Folders"
-msgstr "Тэчкі"
+msgstr "Папкі"
 
 #: src/FolderManager/FolderItem.vala:134
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "Адкрыць тэчку"
+msgstr "Знайсці ў папке…"
 
 #: src/FolderManager/FolderItem.vala:167
-#, fuzzy
-#| msgid "Terminal"
 msgid "Terminal Pane"
-msgstr "Тэрмінал"
+msgstr "Панэль тэрмінала"
 
 #: src/FolderManager/FolderItem.vala:202
-#, fuzzy
 msgid "Folder"
-msgstr "Тэчкі"
+msgstr "Папка"
 
 #: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
-msgstr ""
+msgstr "Пусты файл"
 
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
-#, fuzzy
 msgid "New"
-msgstr "Стварыць укладку"
+msgstr "Стварыць"
 
 #: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
-msgstr ""
+msgstr "папка без назвы"
 
 #: src/FolderManager/FolderItem.vala:377
-#, fuzzy
 msgid "new file"
-msgstr "Стварыць файл"
+msgstr "новы файл"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
-msgstr ""
+msgstr "Назначыць актыўным праектам"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Адкрыць у панэлі тэрмінала"
 
 #: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
-msgstr "Закрыць тэчку"
+msgstr "Закрыць папку"
 
 #: src/FolderManager/ProjectFolderItem.vala:194
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Закрыць тэчку"
+msgstr "Закрыць іншыя папкі"
 
 #: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Закрыць %u адкрыты дакумент"
+msgstr[1] "Закрыць %u адкрытых дакумента"
+msgstr[2] "Закрыць %u адкрытых дакументаў"
 
 #: src/FolderManager/ProjectFolderItem.vala:223
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Новы дакумент"
-msgstr[1] "Новы дакумент"
+msgstr[0] "Схаваць %u адкрыты дакумент"
+msgstr[1] "Схаваць %u адкрытых дакумента"
+msgstr[2] "Схаваць %u адкрытых дакументаў"
 
 #: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
