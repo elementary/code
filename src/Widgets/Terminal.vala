@@ -16,6 +16,9 @@ public class Code.Terminal : Gtk.Box {
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
     public Vte.Terminal terminal { get; construct; }
+    private Gtk.EventControllerKey key_controller;
+    private Settings pantheon_terminal_settings;
+
     public SimpleActionGroup actions { get; construct; }
 
     private GLib.Pid child_pid;
@@ -62,6 +65,11 @@ public class Code.Terminal : Gtk.Box {
         var menu = new Gtk.Menu.from_model (menu_model);
         menu.insert_action_group (ACTION_GROUP, actions);
         menu.show_all ();
+
+        key_controller = new Gtk.EventControllerKey (terminal) {
+            propagation_phase = BUBBLE
+        };
+        key_controller.key_pressed.connect (key_pressed);
 
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
@@ -126,7 +134,7 @@ public class Code.Terminal : Gtk.Box {
     }
 
     private void update_terminal_settings (string settings_schema) {
-        var pantheon_terminal_settings = new GLib.Settings (settings_schema);
+        pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
         var font_name = pantheon_terminal_settings.get_string ("font");
         if (font_name == "") {
@@ -206,5 +214,36 @@ public class Code.Terminal : Gtk.Box {
 
     public void set_default_font_size () {
         terminal.font_scale = 1.0;
+    }
+
+    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType modifiers) {
+        // Use hardware keycodes so the key used is unaffected by internationalized layout
+        bool match_keycode (uint keyval, uint code) {
+            Gdk.KeymapKey[] keys;
+
+            var keymap = Gdk.Keymap.get_for_display (get_display ());
+            if (keymap.get_entries_for_keyval (keyval, out keys)) {
+                foreach (var key in keys) {
+                    if (code == key.keycode) {
+                        return Gdk.EVENT_STOP;
+                    }
+                }
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        }
+
+        if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
+            if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
+                actions.activate_action (ACTION_COPY, null);
+                return Gdk.EVENT_STOP;
+            } else if (match_keycode (Gdk.Key.v, keycode) && current_clipboard.wait_is_text_available ()) {
+                actions.activate_action (ACTION_PASTE, null);
+                return Gdk.EVENT_STOP;
+            }
+        }
+
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
