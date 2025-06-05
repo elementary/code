@@ -1051,8 +1051,8 @@ namespace Scratch {
                 var local_folder = clone_dialog.get_local_folder ();
                 var local_name = clone_dialog.get_local_name ();
                 // MainWindow should provide feedback on cloning progress
-                // Close modal dialog now
-                clone_dialog.destroy ();
+                // Hide clone dialog in case needed to retry
+                clone_dialog.hide ();
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
                     //TODO Show progress while cloning
                     git_manager.clone_repository.begin (
@@ -1064,9 +1064,25 @@ namespace Scratch {
                                 if (git_manager.clone_repository.end (res, out workdir)) {
                                     debug ("Repository cloned into %s", workdir.get_uri ());
                                     open_folder (workdir);
+                                    clone_dialog.destroy ();
                                 }
                             } catch (Error e) {
-                                warning ("Unable to clone '%s'. %s", uri, e.message);
+                                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                                    "Uanble to clone %s".printf (uri),
+                                    e.message,
+                                    "dialog-error",
+                                    Gtk.ButtonsType.CLOSE
+                                );
+                                message_dialog.add_button (_("Retry"), 1);
+                                message_dialog.response.connect ((res) => {
+                                    if (res == 1) {
+                                        clone_dialog.show ();
+                                    } else {
+                                        clone_dialog.destroy ();
+                                    }
+                                    message_dialog.destroy ();
+                                });
+                                message_dialog.present ();
                             }
                         }
                     );
