@@ -3,80 +3,75 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 19:50+0000\n"
-"PO-Revision-Date: 2016-03-03 17:53+0000\n"
-"Last-Translator: Dmitry Taranovich <vorbissmcgregor@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-06-06 16:55+0000\n"
+"Last-Translator: lenify <lenify@tutanota.com>\n"
+"Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/code/"
+"be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
-msgstr "Стварыць укладку"
+msgstr "Новая ўкладка"
 
 #: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
-msgstr "Стварыць акно"
+msgstr "Новае акно"
 
 #: src/Application.vala:43
 msgid "Print version info and exit"
-msgstr "Надрукаваць інфармацыю аб версіі і выйсці"
+msgstr "Паказаць інфармацыю аб версіі і выйсці"
 
 #: src/Application.vala:44
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "Адкрыць файл з даным вылучэннем дыяпазону"
 
 #: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
 #: src/Application.vala:45
 msgid "[FILE…]"
-msgstr ""
+msgstr "[ФАЙЛ…]"
 
 #: src/MainWindow.vala:258
 #, c-format
 msgid "Code (%s)"
-msgstr ""
+msgstr "Код (%s)"
 
 #: src/MainWindow.vala:260
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: src/MainWindow.vala:394
 msgid "Hide search bar"
 msgstr "Схаваць поле пошуку"
 
 #: src/MainWindow.vala:399 src/Widgets/HeaderBar.vala:122
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find on Page…"
-msgstr "Адкрыць тэчку"
+msgstr "Знайсці на старонцы…"
 
 #: src/MainWindow.vala:410
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
-msgstr "Схаваць поле пошуку"
+msgstr "Схаваць панэль праектаў"
 
 #: src/MainWindow.vala:415
-#, fuzzy
-#| msgid "Show Preview"
 msgid "Show Projects Sidebar"
-msgstr "Паказаць перадпрагляд"
+msgstr "Паказаць панэль праектаў"
 
 #: src/MainWindow.vala:424
 msgid "Hide Symbol Outline"
-msgstr ""
+msgstr "Схаваць абводку сімвалаў"
 
 #: src/MainWindow.vala:429
-#, fuzzy
-#| msgid "Symbols"
 msgid "Show Symbol Outline"
-msgstr "Сімвалы"
+msgstr "Паказаць абводку сімвалаў"
 
 #: src/MainWindow.vala:438
 msgid "Hide Terminal"
@@ -91,7 +86,7 @@ msgstr "Паказаць Тэрмінал"
 #: src/MainWindow.vala:614
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/MainWindow.vala:972 src/Services/Document.vala:666
 msgid "All files"
@@ -122,163 +117,144 @@ msgstr "_Адкрыць"
 
 #: src/MainWindow.vala:1025
 msgid "_Cancel"
-msgstr "_Адмяніць"
+msgstr "_Скасаваць"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Паказваць '%s' у прадвызначанай праграме"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
-msgstr ""
+msgstr "Шукаць тэкст у “%s”"
 
 #: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
-msgstr ""
+msgstr "Пошукавы запыт патрэбны быць як мінімум 3 сімвалы."
 
 #: src/Dialogs/GlobalSearchDialog.vala:83
 msgid "Case sensitive:"
-msgstr ""
+msgstr "Улічваць рэгістр:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:92
 msgid "Use regular expressions:"
-msgstr ""
+msgstr "Выкарыстоўваць рэгулярныя выразы:"
 
 #: src/Dialogs/GlobalSearchDialog.vala:111
-#, fuzzy
-#| msgid "Search next"
 msgid "Search"
-msgstr "Шукаць далей"
+msgstr "Пошук"
 
 #: src/Dialogs/NewBranchDialog.vala:43
 #, c-format
 msgid "Create a new branch of “%s/%s”"
-msgstr ""
+msgstr "Стварыць новую галіну “%s/%s”"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/NewBranchDialog.vala:48
 msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
+msgstr "Назва веткі павінна быць унікальнай і прытрымлівацца правіл Git."
 
 #: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
 msgid "Create Branch"
-msgstr "Змяніць параметры Scratch"
+msgstr "Стварыць галіну"
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "Налады"
 
 #: src/Dialogs/PreferencesDialog.vala:23
 msgid "General"
-msgstr ""
+msgstr "Агульныя"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Захоўваць файлы пры змяненні:"
+msgstr "Захоўваць файлы пры змяненні"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace on save"
 msgstr "Пазбаўляцца ад задняга прабела пры захоўванні"
 
 #: src/Dialogs/PreferencesDialog.vala:27
 msgid "Smart cut/copy lines"
-msgstr ""
+msgstr "Разумнае капіраванне/выразанне радкоў"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Выразанне або капіраванне без актыўнага вылучэння выража ці скапіруе ўвесь "
+"радок"
 
 #: src/Dialogs/PreferencesDialog.vala:35
 msgid "Indentation width"
-msgstr ""
+msgstr "Шырыня выемкі"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Indentation"
-msgstr "Аўтаматычнае структураванне:"
+msgstr "Структураванне"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Аўтаматычнае структураванне:"
+msgstr "Аўтаматычнае структураванне"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Устаўляць прабелы замест табуляцый:"
+msgstr "Устаўляць прабелы замест табуляцый"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
-msgstr ""
+msgstr "Прадвызначаны каталог для будавання"
 
 #: src/Dialogs/PreferencesDialog.vala:67
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
-msgstr "Праект"
+msgstr "Праекты"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
-msgstr ""
+msgstr "Нічога"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "Выдаліць бягучы выгляд"
+msgstr "Бягучы радок"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
-msgstr ""
+msgstr "Усё"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
-msgstr ""
+msgstr "Адлюстроўваць прабелы, які не вылучаны"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
-msgstr ""
+msgstr "Рэдактар"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Падсвечваць парныя дужкі:"
+msgstr "Падсвечваць парныя дужкі"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Mini Map"
-msgstr ""
+msgstr "Міні карта"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Перанасіць радкі"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Напраўляючая шырыні радку:"
+msgstr "Паказчык даўжыні радку"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
-msgstr ""
+msgstr "Шрыфт"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "Выкарыстоўваць сістэмны шрыфт"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
@@ -299,61 +275,64 @@ msgstr "Закрыць"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Вы ўпэўнены, што хочаце аднавіць гэты файл?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "Аднаўленне файла скасуе ўсе змены, якія вы да яго прымянілі"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Не аднаўляць"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr ""
+msgstr "Усё роўна аднавіць"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Гэта бацькоўская папка для адкрытага праекту"
+msgstr[1] "Гэта бацькоўская папка для адкрытых праектаў"
+msgstr[2] "Гэта бацькоўская папка для адкрытых праектаў"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Адкрыццё гэтай папкі прывядзе да закрыцця даччынага праекту"
+msgstr[1] "Адкрыццё гэтай папкі прывядзе да закрыцця ўсіх даччыных праектаў"
+msgstr[2] "Адкрыццё гэтай папкі прывядзе да закрыцця ўсіх даччыных праектаў"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Закрыць даччыны праект"
+msgstr[1] "Закрыць даччыныя праекты"
+msgstr[2] "Закрыць даччыныя праекты"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Гэта папка з'яўляецца даччынай адкрытага праекта"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Адкрыццё гэтай папкі прывядзе да закрыцця бацькоўскага праекту"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Закрыць бацькоўскі праект"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
 msgid "Don't Open"
-msgstr ""
+msgstr "Не адкрываць"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
-msgstr ""
+msgstr "У галінцы ёсць незапісаныя змены"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
 "now.\n"
@@ -361,113 +340,107 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"Незапісаныя змены будуць назаўжды страчаны, калі будзе зараз пазначана "
+"<b>'%s'</b>.\n"
+"\n"
+"<i>Рэкамендуецца запісаць або адрабіць змены перад працягам.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Не рабіць Checkout"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Зрабіць Checkout і перазапісаць"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
-#, fuzzy
 msgid "Other Actions"
-msgstr "Іншыя фарматы"
+msgstr "Іншыя дзеянні"
 
 #: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
 msgid "Rename"
-msgstr ""
+msgstr "Перайменаваць"
 
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
-msgstr ""
+msgstr "Перамясціць у сметніцу"
 
 #: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
 msgid "Other Application…"
-msgstr ""
+msgstr "Іншая праграма…"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
-#, fuzzy
 msgid "Open In"
-msgstr "Адкрыць"
+msgstr "Адкрыць у"
 
 #: src/FolderManager/FileView.vala:74
 msgid "Folders"
-msgstr "Тэчкі"
+msgstr "Папкі"
 
 #: src/FolderManager/FolderItem.vala:134
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Find in Folder…"
-msgstr "Адкрыць тэчку"
+msgstr "Знайсці ў папке…"
 
 #: src/FolderManager/FolderItem.vala:167
-#, fuzzy
-#| msgid "Terminal"
 msgid "Terminal Pane"
-msgstr "Тэрмінал"
+msgstr "Панэль тэрмінала"
 
 #: src/FolderManager/FolderItem.vala:202
-#, fuzzy
 msgid "Folder"
-msgstr "Тэчкі"
+msgstr "Папка"
 
 #: src/FolderManager/FolderItem.vala:210
 msgid "Empty File"
-msgstr ""
+msgstr "Пусты файл"
 
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:221
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
-#, fuzzy
 msgid "New"
-msgstr "Стварыць укладку"
+msgstr "Стварыць"
 
 #: src/FolderManager/FolderItem.vala:377
 msgid "untitled folder"
-msgstr ""
+msgstr "папка без назвы"
 
 #: src/FolderManager/FolderItem.vala:377
-#, fuzzy
 msgid "new file"
-msgstr "Стварыць файл"
+msgstr "новы файл"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
 msgid "Set as Active Project"
-msgstr ""
+msgstr "Назначыць актыўным праектам"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Адкрыць у панэлі тэрмінала"
 
 #: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
-msgstr "Закрыць тэчку"
+msgstr "Закрыць папку"
 
 #: src/FolderManager/ProjectFolderItem.vala:194
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Закрыць тэчку"
+msgstr "Закрыць іншыя папкі"
 
 #: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Закрыць %u адкрыты дакумент"
+msgstr[1] "Закрыць %u адкрытых дакумента"
+msgstr[2] "Закрыць %u адкрытых дакументаў"
 
 #: src/FolderManager/ProjectFolderItem.vala:223
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Новы дакумент"
-msgstr[1] "Новы дакумент"
+msgstr[0] "Схаваць %u адкрыты дакумент"
+msgstr[1] "Схаваць %u адкрытых дакумента"
+msgstr[2] "Схаваць %u адкрытых дакументаў"
 
 #: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
