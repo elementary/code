@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 19:50+0000\n"
+"POT-Creation-Date: 2025-06-09 18:14+0000\n"
 "PO-Revision-Date: 2023-07-19 08:07+0000\n"
 "Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -86,16 +86,16 @@ msgstr "Zobrazit terminál"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:614
+#: src/MainWindow.vala:613
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Textové soubory"
 
@@ -108,8 +108,8 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
-#: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:510
+#: src/Services/Document.vala:680 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Zrušit"
@@ -292,7 +292,7 @@ msgstr "Chování"
 msgid "Interface"
 msgstr "Rozhraní"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Rozšíření"
 
@@ -381,24 +381,24 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Ostatní akce"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Přejmenovat"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Přesunout do Koše"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
 msgid "Other Application…"
 msgstr "Jiná aplikace…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
 msgid "Open In"
 msgstr "Otevřít v"
 
@@ -406,37 +406,37 @@ msgstr "Otevřít v"
 msgid "Folders"
 msgstr "Složky"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Vyhledat ve složce…"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:188
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Terminál"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:223
 msgid "Folder"
 msgstr "Složka"
 
-#: src/FolderManager/FolderItem.vala:210
+#: src/FolderManager/FolderItem.vala:231
 msgid "Empty File"
 msgstr "Prázdný soubor"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:242
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Nový"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "untitled folder"
 msgstr "složka bez názvu"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "new file"
 msgstr "nový soubor"
 
@@ -512,89 +512,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Chyba při vytváření nové větve: „%s“"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s není textový soubor"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "Code nenačte tento typ souboru."
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "Přesto načíst"
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Načítání souboru „%s“ trvá hodně dlouho"
 
-#: src/Services/Document.vala:407
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "Prosím počkejte, než Code načte soubor."
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "Zrušit načítání"
 
-#: src/Services/Document.vala:498
+#: src/Services/Document.vala:500
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Uložit před ukončením změny do „%s“?"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Pokud neuložíte, změny budou nenávratně ztraceny."
 
-#: src/Services/Document.vala:505
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "Zavřít bez uložení"
 
-#: src/Services/Document.vala:509 src/Services/Document.vala:677
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "Uložit"
 
-#: src/Services/Document.vala:636
+#: src/Services/Document.vala:638
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Ukládání do „%s“ selhalo."
 
-#: src/Services/Document.vala:674
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "Uložit soubor"
 
-#: src/Services/Document.vala:761 src/Services/Document.vala:779
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Nelze uložit tento dokument do %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:870
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Nelze načíst text ze souboru „%s“"
 
-#: src/Services/Document.vala:850
+#: src/Services/Document.vala:873
 msgid "You may not have permission to read the file."
 msgstr "Možná nemáte oprávnění k přečtění tohoto souboru."
 
-#: src/Services/Document.vala:852
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Soubor může být poškozený nebo se nemusí jednat o textový soubor"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:858
+#: src/Services/Document.vala:881
 msgid "Show Anyway"
 msgstr "Přesto zobrazit"
 
-#: src/Services/Document.vala:889
+#: src/Services/Document.vala:912
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -602,7 +602,7 @@ msgid ""
 msgstr ""
 "Úložiště obsahující soubor „%s“ bylo odpojeno a existují neuložené změny."
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:914
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted and there are unsaved changes."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -610,17 +610,17 @@ msgstr "Soubor „%s“ byl mezitím smazán a existují neuložené změny."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:905
+#: src/Services/Document.vala:928
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Soubor „%s“ je chráněn proti zápisu."
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:974
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací"
 
-#: src/Services/Document.vala:956
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -628,55 +628,55 @@ msgstr ""
 "Existují neuložené změny. Opětovné načtení dokumentu přepíše tyto neuložené "
 "změny."
 
-#: src/Services/Document.vala:960
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr "Tento dokument byl od posledního uložení pozměněn jinou aplikací."
 
-#: src/Services/Document.vala:976
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "Soubor „%s“ nemůže být uložen zde. Chcete jeho kopii uložit jinam?"
 
-#: src/Services/Document.vala:985
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr "Uložit kopii…"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: src/Services/Document.vala:1038
+#: src/Services/Document.vala:1061
 msgid "Reload"
 msgstr "Znovu načíst"
 
-#: src/Services/Document.vala:1041
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr "Přepsat"
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1067
 msgid "Save Document elsewhere"
 msgstr "Uložit dokument jinam"
 
-#: src/Services/MonitoredRepository.vala:238
+#: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:239
+#: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:276
+#: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:324
+#: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -687,7 +687,7 @@ msgstr "Šablony"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:169
 #: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Symboly"
@@ -703,6 +703,11 @@ msgstr "Symboly"
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
+msgstr ""
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
+#, c-format
+msgid "Vala symbols found in %s"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
@@ -1001,35 +1006,35 @@ msgstr "%d z %d"
 msgid "no results"
 msgstr "nic nenalezeno"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:583
 msgid "Sort Selected Lines"
 msgstr "Seřadit vybrané řádky"
 
-#: src/Widgets/SourceView.vala:596
+#: src/Widgets/SourceView.vala:594
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Current Line"
 msgstr "Odstranit současné zobrazení"
 
-#: src/Widgets/SourceView.vala:607
+#: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:618
+#: src/Widgets/SourceView.vala:616
 #, fuzzy
 #| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
 msgstr "Textový editor"
 
-#: src/Widgets/SourceView.vala:637
+#: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
 msgstr "Zobraz/nezobraz. komentář"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:62
 msgid "Copy"
 msgstr "Zkopírovat"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:63
 msgid "Paste"
 msgstr "Vložit"
 

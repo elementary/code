@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 19:50+0000\n"
+"POT-Creation-Date: 2025-06-09 18:14+0000\n"
 "PO-Revision-Date: 2025-05-24 08:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,16 +87,16 @@ msgstr "Mostra el terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:614
+#: src/MainWindow.vala:613
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Fitxers de text"
 
@@ -109,8 +109,8 @@ msgid "Open"
 msgstr "Obre"
 
 #: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
-#: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:510
+#: src/Services/Document.vala:680 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -270,7 +270,7 @@ msgstr "Comportament"
 msgid "Interface"
 msgstr "Interfície"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Extensions"
 
@@ -358,24 +358,24 @@ msgstr "No en surtis"
 msgid "Checkout and Overwrite"
 msgstr "Surt i sobreescriu"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Canvia'n el nom"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
 msgid "Open In"
 msgstr "Obre amb"
 
@@ -383,35 +383,35 @@ msgstr "Obre amb"
 msgid "Folders"
 msgstr "Carpetes"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Troba a la carpeta…"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:188
 msgid "Terminal Pane"
 msgstr "Plafó del terminal"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:223
 msgid "Folder"
 msgstr "Carpeta"
 
-#: src/FolderManager/FolderItem.vala:210
+#: src/FolderManager/FolderItem.vala:231
 msgid "Empty File"
 msgstr "Fitxer buit"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:242
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "untitled folder"
 msgstr "carpeta sense nom"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "new file"
 msgstr "fitxer nou"
 
@@ -482,89 +482,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Error en crear una branca nova: %s"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s no és un fitxer de text"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "El Codi no carregarà aquest tipus de fitxer."
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "Carrega'l tanmateix"
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "La càrrega del fitxer %s està trigant molt."
 
-#: src/Services/Document.vala:407
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "Si us plau, espereu mentre el Codi carrega el fitxer."
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "Cancel·la la càrrega"
 
-#: src/Services/Document.vala:498
+#: src/Services/Document.vala:500
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no deseu el document, els canvis es perdran permanentment."
 
-#: src/Services/Document.vala:505
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "Tanca'l sense desar-lo"
 
-#: src/Services/Document.vala:509 src/Services/Document.vala:677
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "Desa"
 
-#: src/Services/Document.vala:636
+#: src/Services/Document.vala:638
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "No s'ha pogut desar a %s."
 
-#: src/Services/Document.vala:674
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "Desa el fitxer"
 
-#: src/Services/Document.vala:761 src/Services/Document.vala:779
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "Document nou"
 
 #. No path for a new document
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "No es pot desar aquest document a %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:870
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "No es pot llegir el text del fitxer %s"
 
-#: src/Services/Document.vala:850
+#: src/Services/Document.vala:873
 msgid "You may not have permission to read the file."
 msgstr "És possible que no tingueu permís per llegir el fitxer."
 
-#: src/Services/Document.vala:852
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr "El fitxer pot estar malmès o pot no ser un fitxer de text."
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:858
+#: src/Services/Document.vala:881
 msgid "Show Anyway"
 msgstr "Mostra'l tanmateix"
 
-#: src/Services/Document.vala:889
+#: src/Services/Document.vala:912
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -572,7 +572,7 @@ msgid ""
 msgstr ""
 "La ubicació que conté el fitxer %s s'ha desmuntat i hi ha canvis no desats."
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:914
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -581,17 +581,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:905
+#: src/Services/Document.vala:928
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "El fitxer %s no té permís d'escriptura."
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:974
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "El fitxer %s ha estat modificat per una aplicació externa."
 
-#: src/Services/Document.vala:956
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -599,59 +599,59 @@ msgstr ""
 "També hi ha canvis no desats. Si torneu a carregar el document, se "
 "sobreescriuran els canvis no desats."
 
-#: src/Services/Document.vala:960
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr ""
 "El document ha canviat externament des de l'última vegada que el vau desar."
 
-#: src/Services/Document.vala:976
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 "“%s” no es pot desar aquí. En voleu deseu un duplicat en un altre lloc?"
 
-#: src/Services/Document.vala:985
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr "Ignora-ho"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr "Desa'n un duplicat…"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "Continua"
 
-#: src/Services/Document.vala:1038
+#: src/Services/Document.vala:1061
 msgid "Reload"
 msgstr "Torna a carregar"
 
-#: src/Services/Document.vala:1041
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr "Sobreescriu"
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1067
 msgid "Save Document elsewhere"
 msgstr "Desa el document en un altre lloc"
 
-#: src/Services/MonitoredRepository.vala:238
+#: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "No s'ha trobat la branca remota %s"
 
-#: src/Services/MonitoredRepository.vala:239
+#: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 "La branca sol·licitada no s'ha trobat a cap lloc remot enllaçat a aquest "
 "repositori."
 
-#: src/Services/MonitoredRepository.vala:276
+#: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
 msgstr "Hi ha hagut un error en revisar la branca demanada"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:324
+#: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (separat)"
@@ -662,7 +662,7 @@ msgstr "Plantilles"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:169
 #: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Simbols"
@@ -679,6 +679,12 @@ msgid ""
 msgstr ""
 "%s conté massa símbols de Vala.\n"
 "Analitzar-los i mostrar-los ha trigat massa."
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
+#, fuzzy, c-format
+#| msgid "No Symbols Found"
+msgid "Vala symbols found in %s"
+msgstr "No s'ha trobat cap símbol."
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -957,31 +963,31 @@ msgstr "%d de %d"
 msgid "no results"
 msgstr "sense resultats"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:583
 msgid "Sort Selected Lines"
 msgstr "Classifica les línies seleccionades"
 
-#: src/Widgets/SourceView.vala:596
+#: src/Widgets/SourceView.vala:594
 msgid "Mark Current Line"
 msgstr "Marca la línia actual"
 
-#: src/Widgets/SourceView.vala:607
+#: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
 msgstr "Ves a la marca d'edició anterior"
 
-#: src/Widgets/SourceView.vala:618
+#: src/Widgets/SourceView.vala:616
 msgid "Goto Next Edit Mark"
 msgstr "Ves a la marca d'edició següent"
 
-#: src/Widgets/SourceView.vala:637
+#: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:62
 msgid "Copy"
 msgstr "Copia"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:63
 msgid "Paste"
 msgstr "Enganxa"
 
@@ -1157,9 +1163,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "Find…"
 #~ msgstr "Cerca…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "No s'ha trobat cap símbol."
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Dibuxa espais:"
