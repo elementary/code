@@ -581,7 +581,6 @@ namespace Scratch {
             });
 
             document_view.realize.connect (() => {
-                document_view.update_outline_visible ();
                 update_find_actions ();
             });
 
@@ -688,6 +687,7 @@ namespace Scratch {
             }
 
             document_view.request_placeholder_if_empty ();
+            document_view.update_outline_visible ();
             restore_override = null;
             if (focused_file != null) {
                 folder_manager_view.expand_to_path (focused_file.get_path ());

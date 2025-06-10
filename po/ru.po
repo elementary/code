@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 19:50+0000\n"
+"POT-Creation-Date: 2025-06-09 18:14+0000\n"
 "PO-Revision-Date: 2025-05-11 14:55+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
@@ -88,16 +88,16 @@ msgstr "Показать Терминал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:614
+#: src/MainWindow.vala:613
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:666
+#: src/MainWindow.vala:972 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:670
+#: src/MainWindow.vala:976 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Текстовые файлы"
 
@@ -110,8 +110,8 @@ msgid "Open"
 msgstr "Открыть"
 
 #: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:508
-#: src/Services/Document.vala:678 plugins/pastebin/pastebin_dialog.vala:327
+#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:510
+#: src/Services/Document.vala:680 plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Отменить"
@@ -270,7 +270,7 @@ msgstr "Поведение"
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Расширения"
 
@@ -360,24 +360,24 @@ msgstr "Не выполнять checkout"
 msgid "Checkout and Overwrite"
 msgstr "Выполнить checkout и перезаписать"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:144
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Другие действия"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Переименовать"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 #: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:176
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
 msgid "Other Application…"
 msgstr "Другое приложение…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:196
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
 msgid "Open In"
 msgstr "Открыть в"
 
@@ -385,35 +385,35 @@ msgstr "Открыть в"
 msgid "Folders"
 msgstr "Папки"
 
-#: src/FolderManager/FolderItem.vala:134
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Поиск в папке…"
 
-#: src/FolderManager/FolderItem.vala:167
+#: src/FolderManager/FolderItem.vala:188
 msgid "Terminal Pane"
 msgstr "Панель терминала"
 
-#: src/FolderManager/FolderItem.vala:202
+#: src/FolderManager/FolderItem.vala:223
 msgid "Folder"
 msgstr "Папку"
 
-#: src/FolderManager/FolderItem.vala:210
+#: src/FolderManager/FolderItem.vala:231
 msgid "Empty File"
 msgstr "Пустой файл"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:242
 #: src/FolderManager/ProjectFolderItem.vala:439
 #: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Создать"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "untitled folder"
 msgstr "безымянная папка"
 
-#: src/FolderManager/FolderItem.vala:377
+#: src/FolderManager/FolderItem.vala:398
 msgid "new file"
 msgstr "новый файл"
 
@@ -487,89 +487,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Ошибка создания новой ветки: «%s»"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:382
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s не является текстовым файлом"
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "Код не открывает файлы этого типа."
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "Всё равно открыть"
 
-#: src/Services/Document.vala:406
+#: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Загрузка файла «%s» занимает много времени"
 
-#: src/Services/Document.vala:407
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "Пожалуйста, подождите, пока Код открывает файл."
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "Отменить загрузку"
 
-#: src/Services/Document.vala:498
+#: src/Services/Document.vala:500
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Сохранить изменения в «%s» перед закрытием?"
 
-#: src/Services/Document.vala:499
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Если вы не сохраните, то изменения будут безвозвратно потеряны."
 
-#: src/Services/Document.vala:505
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "Закрыть без сохранения"
 
-#: src/Services/Document.vala:509 src/Services/Document.vala:677
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/Services/Document.vala:636
+#: src/Services/Document.vala:638
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Не удалось сохранить «%s»."
 
-#: src/Services/Document.vala:674
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: src/Services/Document.vala:761 src/Services/Document.vala:779
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "Новый документ"
 
 #. No path for a new document
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Невозможно сохранить документ в %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:847
+#: src/Services/Document.vala:870
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Невозможно прочитать текст в файле «%s»"
 
-#: src/Services/Document.vala:850
+#: src/Services/Document.vala:873
 msgid "You may not have permission to read the file."
 msgstr "Возможно, у вас нет разрешения на чтение этого файла."
 
-#: src/Services/Document.vala:852
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Файл может быть повреждён или быть не текстовым"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:858
+#: src/Services/Document.vala:881
 msgid "Show Anyway"
 msgstr "Всё равно показать"
 
-#: src/Services/Document.vala:889
+#: src/Services/Document.vala:912
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -577,7 +577,7 @@ msgid ""
 msgstr ""
 "Источник, содержащий файл «%s» с несохранёнными изменениями, был извлечён."
 
-#: src/Services/Document.vala:891
+#: src/Services/Document.vala:914
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -586,17 +586,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:905
+#: src/Services/Document.vala:928
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Файл «%s» не имеет прав на запись."
 
-#: src/Services/Document.vala:951
+#: src/Services/Document.vala:974
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Файл «%s» был изменён другим приложением"
 
-#: src/Services/Document.vala:956
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -604,56 +604,56 @@ msgstr ""
 "Имеются несохранённые изменения. При перезагрузке документа они будут "
 "перезаписаны."
 
-#: src/Services/Document.vala:960
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr "Документ был изменён извне с момента его последнего сохранения."
 
-#: src/Services/Document.vala:976
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "«%s» не может быть сохранён здесь. Сохранить копию в другом месте?"
 
-#: src/Services/Document.vala:985
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr "Сохранить копию…"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/Services/Document.vala:1038
+#: src/Services/Document.vala:1061
 msgid "Reload"
 msgstr "Перезагрузить"
 
-#: src/Services/Document.vala:1041
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr "Перезаписать"
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1067
 msgid "Save Document elsewhere"
 msgstr "Сохранить в другом месте"
 
-#: src/Services/MonitoredRepository.vala:238
+#: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "Удалённая ветка «%s» не найдена"
 
-#: src/Services/MonitoredRepository.vala:239
+#: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 "Указанная ветка не обнаружена ни в одном связанном удалённом репозитории"
 
-#: src/Services/MonitoredRepository.vala:276
+#: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
 msgstr "Произошла ошибка при выполнении checkout для указанной ветки"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:324
+#: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (отсоединён)"
@@ -664,7 +664,7 @@ msgstr "Шаблоны"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:169
 #: src/SymbolPane/SymbolOutline.vala:99
 msgid "Symbols"
 msgstr "Символы"
@@ -681,6 +681,12 @@ msgid ""
 msgstr ""
 "«%s» содержит слишком много символов Vala.\n"
 "Их распознавание и отображение выполнялись слишком долго."
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
+#, fuzzy, c-format
+#| msgid "No Symbols Found"
+msgid "Vala symbols found in %s"
+msgstr "Символы не найдены"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -961,31 +967,31 @@ msgstr "%d из %d"
 msgid "no results"
 msgstr "ничего не найдено"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:583
 msgid "Sort Selected Lines"
 msgstr "Сортировать выделенные строки"
 
-#: src/Widgets/SourceView.vala:596
+#: src/Widgets/SourceView.vala:594
 msgid "Mark Current Line"
 msgstr "Пометить текущую строку"
 
-#: src/Widgets/SourceView.vala:607
+#: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
 msgstr "Перейти к предыдущей метке"
 
-#: src/Widgets/SourceView.vala:618
+#: src/Widgets/SourceView.vala:616
 msgid "Goto Next Edit Mark"
 msgstr "Перейти к следующей метке"
 
-#: src/Widgets/SourceView.vala:637
+#: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
 msgstr "Закомментировать/Раскомментировать"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:62
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:63
 msgid "Paste"
 msgstr "Вставить"
 
@@ -1162,9 +1168,6 @@ msgstr "%s — Автозавершение слов"
 
 #~ msgid "Find…"
 #~ msgstr "Поиск…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "Символы не найдены"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Показывать пробелы:"
