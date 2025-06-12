@@ -133,8 +133,8 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                     }
 
                     store.root.expand_all ();
+                    add_tooltips (store.root);
                     store.vadjustment.set_value (adjustment_value);
-
                     return false;
                 });
             } else {
@@ -143,6 +143,30 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
             return null;
         });
+    }
+
+    protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
+        foreach (var parent in root.children) {
+            add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
+        }
+    }
+
+    private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
+        if (parent is ValaSymbolItem) {
+            var item = ((ValaSymbolItem)parent);
+            var symbol = item.symbol;
+            item.tooltip = "%s%s".printf (
+                doc.get_slice (
+                    symbol.source_reference.begin.line,
+                    symbol.source_reference.begin.column,
+                    symbol.source_reference.end.line,
+                    symbol.source_reference.end.column
+                ),
+                symbol.comment != null ? "\n" + symbol.comment.content : ""
+            );
+        }
+
+        add_tooltips (parent);
     }
 
     private void destroy_all_children (Code.Widgets.SourceList.ExpandableItem parent) {
@@ -177,7 +201,9 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                 continue;
 
             construct_child (symbol, new_root, cancellable);
-            Thread.yield ();
+            if (!cancellable.is_cancelled ()) {
+                Thread.yield ();
+            }
         }
 
         return new_root;
@@ -199,19 +225,10 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
         }
 
-        var tooltip = "%s%s".printf (
-            doc.get_slice (
-                symbol.source_reference.begin.line,
-                symbol.source_reference.begin.column,
-                symbol.source_reference.end.line,
-                symbol.source_reference.end.column
-            ),
-            symbol.comment != null ? "\n" + symbol.comment.content : ""
-        );
 
         var tree_child = new ValaSymbolItem (
             symbol,
-            tooltip
+            ""
         );
         parent.add (tree_child);
         return tree_child;
