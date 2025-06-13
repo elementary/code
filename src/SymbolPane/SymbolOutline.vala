@@ -87,6 +87,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     }
 
     public virtual void parse_symbols () {}
+    public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
 
     Gtk.MenuButton filter_button;
 
