@@ -108,6 +108,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
+        public const string ACTION_SET_ACTIVE_PROJECT = "action-set-active-project";
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
@@ -165,6 +166,7 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
+            { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
@@ -628,14 +630,6 @@ namespace Scratch {
                 }
             });
 
-            sidebar.choose_project_button.project_chosen.connect (() => {
-                folder_manager_view.collapse_other_projects ();
-                if (terminal.visible) {
-                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
-                    var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
-                    open_in_terminal_action.activate (param);
-                }
-            });
 
             set_widgets_sensitive (false);
         }
@@ -860,6 +854,8 @@ namespace Scratch {
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
             Scratch.saved_state.set_int ("vp-size", vp.get_position ());
+
+            terminal.save_settings ();
         }
 
         // SIGTERM/SIGINT Handling
@@ -1369,7 +1365,7 @@ namespace Scratch {
 
         private void action_open_in_terminal (SimpleAction action, Variant? param) {
             // Ensure terminal is visible
-            if (terminal == null || !terminal.visible) {
+            if (!terminal.visible) {
                 var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
                 toggle_terminal_action.activate (null);
             }
@@ -1379,6 +1375,18 @@ namespace Scratch {
             var target_path = get_target_path_for_actions (param, true);
             terminal.change_location (target_path);
             terminal.terminal.grab_focus ();
+        }
+
+        private void action_set_active_project (SimpleAction action, Variant? param) {
+            var project_path = param.get_string ();
+            git_manager.active_project_path = project_path;
+            folder_manager_view.collapse_other_projects ();
+
+            var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
+            terminal.change_location (new_build_dir);
+            if (terminal.visible) {
+                terminal.terminal.grab_focus ();
+            }
         }
 
         private void action_toggle_outline (SimpleAction action) {
