@@ -161,7 +161,9 @@ namespace Scratch.Services {
         public bool closing { get; private set; default = false; }
 
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+
+        public Scratch.Widgets.SourceView source_view { get; construct; }
+
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
             get {
@@ -306,7 +308,7 @@ namespace Scratch.Services {
 
         public void init_tab (Hdy.TabPage tab) {
             this.tab = tab;
-            notify["tab.loading"].connect (on_tab_loading_change);
+            tab.notify["loading"].connect (on_tab_loading_change);
 
             tab.title = title;
             tab.icon = icon;
@@ -815,6 +817,27 @@ namespace Scratch.Services {
             return this.source_view.get_selected_text (replace_newline);
         }
 
+        public string get_slice (int start_line, int start_col, int end_line, int end_col) {
+            // This is accessed from separate thread so must lock the sourceview
+            lock (source_view) {
+                Gtk.TextIter iter;
+                source_view.buffer.get_iter_at_line (out iter, start_line - 1);
+                if (start_col > 1 && !iter.forward_chars (start_col - 1)) {
+                    return "";
+                }
+
+                var start = iter;
+                source_view.buffer.get_iter_at_line (out iter, end_line - 1);
+
+                if (!iter.forward_to_line_end ()) {
+                    return "";
+                }
+
+                var end = iter;
+                return source_view.buffer.get_text (start, end, false);
+            }
+        }
+
         // Get language name
         public string get_language_name () {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
@@ -1206,27 +1229,30 @@ namespace Scratch.Services {
 
         public void show_outline (bool show) {
             if (show && outline == null) {
-               switch (mime_type) {
-                   case "text/x-vala":
+                switch (mime_type) {
+                    case "text/x-vala":
                        outline = new ValaSymbolOutline (this);
                        break;
-                   case "text/x-csrc":
-                   case "text/x-chdr":
-                   case "text/x-c++src":
-                   case "text/x-c++hdr":
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
                        outline = new CtagsSymbolOutline (this);
                        break;
-               }
+                }
 
-               if (outline != null) {
-                   outline_widget_pane.pack2 (outline.get_widget (), false, false);
-                   Idle.add (() => {
-                       set_outline_width (doc_view.outline_width);
-                       outline_widget_pane.notify["position"].connect (sync_outline_width);
-                       outline.parse_symbols ();
-                       return Source.REMOVE;
-                   });
-               }
+                if (outline != null) {
+                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    Idle.add (() => {
+                        set_outline_width (doc_view.outline_width);
+                        outline_widget_pane.notify["position"].connect (sync_outline_width);
+                        if (!tab.loading) {
+                            outline.parse_symbols ();
+                        } // else parsing will occur when tab finishes loading
+
+                        return Source.REMOVE;
+                    });
+                }
             } else if (!show && outline != null) {
                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
                outline_widget_pane.get_child2 ().destroy ();
@@ -1321,6 +1347,9 @@ namespace Scratch.Services {
         /* Block user editing while tab is loading */
         private void on_tab_loading_change () {
             source_view.sensitive = !tab.loading;
+            if (!tab.loading && outline != null) {
+                outline.parse_symbols ();
+            }
         }
     }
 }
