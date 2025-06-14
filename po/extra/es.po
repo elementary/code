@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 19:35+0000\n"
-"PO-Revision-Date: 2024-10-22 05:04+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
+"PO-Revision-Date: 2025-06-14 16:55+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
+"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/extra/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -157,41 +158,53 @@ msgid ""
 "A new gutter is added for adding/removing edit marks that can be navigated "
 "between with keyboard shortcuts"
 msgstr ""
+"Se ha añadido un nuevo espacio para agregar o quitar marcadores, los cuales "
+"se pueden navegar con atajos del teclado"
 
 #: data/code.metainfo.xml.in:76
 msgid "Remote branches may now be opened from the \"Branch\" menu"
-msgstr ""
+msgstr "La ramas remotas ahora se pueden abrir desde el menú de «Ramas»"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options to overwrite or cancel are given when switching branch with "
 "uncommitted changes"
 msgstr ""
+"Ahora se ofrecen opciones para sobrescribir o cancelar cambios no "
+"persistidos («uncomitted») cuando se cambia a otra rama"
 
 #: data/code.metainfo.xml.in:78
 msgid "The network can now be accessed from within the Flatpak"
-msgstr ""
+msgstr "Ahora se tiene acceso a redes desde el paquete de Flatpak"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The branch names in the \"Branch\" submenus are now sorted alphabetically"
 msgstr ""
+"Ahora las ramas ubicadas en los sub-menús de «Ramas» se organizan "
+"alfabéticamente"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The extension list now has switches instead of checkboxes in order to "
 "provide a larger target"
 msgstr ""
+"Las lista de extensiones ahora usan botones de alternancia en vez de "
+"casillas, lo cual proporciona un área más grande para hacer clic"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
 msgstr ""
+"El panel de la terminal ahora implementa copiar-pegar de manera inteligente "
+"y sigue el estilo «copiar-pegar natural» de la Terminal"
 
 #: data/code.metainfo.xml.in:82
 msgid "The Vala symbol pane now gives more information in the tooltips"
 msgstr ""
+"El panel de símbolos de Vala ahora ofrece más información en la descripción "
+"emergente"
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:126
 #: data/code.metainfo.xml.in:147 data/code.metainfo.xml.in:176
@@ -202,58 +215,78 @@ msgstr "Actualizaciones menores:"
 
 #: data/code.metainfo.xml.in:86
 msgid "Launcher actions now have icons"
-msgstr ""
+msgstr "Las acciones del lanzador ahora tienen íconos"
 
 #: data/code.metainfo.xml.in:87
 msgid ""
 "Opening and immediately closing a new document no longer prevents further "
 "documents being opened"
 msgstr ""
+"El abrir e inmediatamente cerrar un documento nuevo ya no evita abrir más "
+"documentos"
 
 #: data/code.metainfo.xml.in:88
 msgid ""
 "The Vala symbol pane may only block the UI for a limited time if there are a "
 "large number of symbols"
 msgstr ""
+"El panel de símbolos de Vala y solamente bloquea la interfaz por un tiempo "
+"limitado si existen demasiados símbolos"
 
 #: data/code.metainfo.xml.in:89
 msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
 msgstr ""
+"El menú «Abrir en...» ya no se encuentra vacío si Code se ejecuta como un "
+"paquete de Flatpak"
 
 #: data/code.metainfo.xml.in:90
 msgid "The search term now persists until editing or closing the search bar."
 msgstr ""
+"Los términos de búsqueda ahora persisten sin cambios hasta editarlos, o al "
+"cerrar la barra de búsqueda."
 
 #: data/code.metainfo.xml.in:91
 msgid ""
 "No longer allow the parent or child of an open project to be itself opened "
 "as a project"
 msgstr ""
+"Ya no se permite que un proyecto padre o hijo abierto pueda abrirse el mismo "
+"como proyecto"
 
 #: data/code.metainfo.xml.in:92
 msgid "The active project dropdown now keeps in sync"
-msgstr ""
+msgstr "Ahora el menú desplegable del proyecto abierto se mantiene sincronizado"
 
 #: data/code.metainfo.xml.in:93
 msgid "Numbered lists are now handled correctly by Markdown plugin"
 msgstr ""
+"Las listas numeradas ahora funcionan correctamente bajo la extensión de "
+"Markdown"
 
 #: data/code.metainfo.xml.in:94
 msgid "The highlighting plugin now works with selections of more than one word"
 msgstr ""
+"La extensión de resaltado ahora funciona con selecciones de más de una "
+"palabra"
 
 #: data/code.metainfo.xml.in:95
 msgid ""
 "The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
 msgstr ""
+"El menú de «Abrir en...» está ahora mejor organizado e incluye una entra de «"
+"Panel de la terminal»"
 
 #: data/code.metainfo.xml.in:96
 msgid "Folders containing may items now expand faster without blocking the UI"
 msgstr ""
+"Los archivos que contengan muchos elementos ahora se expande más rápido sin "
+"bloquear la interfaz"
 
 #: data/code.metainfo.xml.in:97
 msgid "Symbol Pane now always scrolls document to selected symbol"
 msgstr ""
+"El panel de símbolos ahora siempre desplaza el documento al seleccionar un "
+"símbolo"
 
 #: data/code.metainfo.xml.in:98 data/code.metainfo.xml.in:129
 #: data/code.metainfo.xml.in:149 data/code.metainfo.xml.in:185
