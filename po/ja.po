@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 18:14+0000\n"
-"PO-Revision-Date: 2025-05-04 23:55+0000\n"
+"POT-Creation-Date: 2025-06-10 19:35+0000\n"
+"PO-Revision-Date: 2025-06-13 13:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -668,10 +668,9 @@ msgstr ""
 "これらを解析・表示するには、相当な時間がかかります。"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
-#, fuzzy, c-format
-#| msgid "No Symbols Found"
+#, c-format
 msgid "Vala symbols found in %s"
-msgstr "シンボルが見つかりません"
+msgstr "%s 内で見つかった Vala シンボル"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"

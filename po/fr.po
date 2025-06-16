@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 18:14+0000\n"
-"PO-Revision-Date: 2025-05-21 09:55+0000\n"
+"POT-Creation-Date: 2025-06-10 19:35+0000\n"
+"PO-Revision-Date: 2025-06-10 19:35+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
 ">\n"
@@ -687,10 +687,9 @@ msgstr ""
 "Leur analyse et leur affichage ont pris trop de temps."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
-#, fuzzy, c-format
-#| msgid "No Symbols Found"
+#, c-format
 msgid "Vala symbols found in %s"
-msgstr "Aucun symbole trouvé"
+msgstr "Aucun symbole Vala trouvé dans %s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
