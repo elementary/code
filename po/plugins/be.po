@@ -8,27 +8,29 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 19:35+0000\n"
-"PO-Revision-Date: 2018-10-18 14:27-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-18 19:55+0000\n"
+"Last-Translator: lenify <lenify@tutanota.com>\n"
+"Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/"
+"plugins/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Закрыццё дужак"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Аўтаматычна закрываць дужкі пры друкаванні"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Выяўляць водступы"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
