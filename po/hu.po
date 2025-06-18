@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 19:35+0000\n"
-"PO-Revision-Date: 2025-05-08 12:55+0000\n"
+"PO-Revision-Date: 2025-06-18 19:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -679,10 +679,9 @@ msgstr ""
 "Az elemzésük és megjelenítésük túl sok ideig tartott."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
-#, fuzzy, c-format
-#| msgid "No Symbols Found"
+#, c-format
 msgid "Vala symbols found in %s"
-msgstr "Nincsenek szimbólumok"
+msgstr "Vala szimbólumok ebben: %s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
