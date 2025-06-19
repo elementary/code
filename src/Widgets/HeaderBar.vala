@@ -16,7 +16,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     public Gtk.ToggleButton sidebar_button { get; private set; }
     public Gtk.ToggleButton terminal_button { get; private set; }
 
-    private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
+    private const string STYLE_SCHEME_HIGH_CONTRAST = "elementary-highcontrast-light";
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
     private const string STYLE_SCHEME_DARK = "elementary-dark";
 

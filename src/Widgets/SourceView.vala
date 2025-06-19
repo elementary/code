@@ -305,7 +305,7 @@ namespace Scratch.Widgets {
                 }
             } else {
                 var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("elementary-highcontrast-light");
             }
 
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
