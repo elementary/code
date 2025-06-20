@@ -147,7 +147,9 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
     protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
         foreach (var parent in root.children) {
-            add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
+            if (parent is Code.Widgets.SourceList.ExpandableItem) {
+                add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
+            }
         }
     }
 
