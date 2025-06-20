@@ -16,7 +16,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     public Gtk.ToggleButton sidebar_button { get; private set; }
     public Gtk.ToggleButton terminal_button { get; private set; }
 
-    private const string STYLE_SCHEME_HIGH_CONTRAST = "classic";
+    private const string STYLE_SCHEME_HIGH_CONTRAST = "elementary-highcontrast-light";
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
     private const string STYLE_SCHEME_DARK = "elementary-dark";
 
@@ -169,7 +169,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_top = 6,
             margin_bottom = 6
         };
-
         color_box.add (color_button_white);
         color_box.add (color_button_light);
         color_box.add (color_button_dark);
@@ -320,28 +319,52 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         });
     }
 
-    private void style_color_button (Gtk.Widget color_button, string style_id) {
-        string background = "#FFF";
-        string foreground = "#333";
+    private void style_color_button (Gtk.ToggleButton color_button, string style_id) {
+        var background = "";
+        var foreground = "";
 
+        Gtk.SourceStyleScheme? scheme = null;
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
         if (style_id in sssm.scheme_ids) {
-            var scheme = sssm.get_scheme (style_id);
-            color_button.tooltip_text = scheme.name;
+            scheme = sssm.get_scheme (style_id);
+            // We currently ship and hard-code the style schemes so can assume the "text" key
+            // is present but if in future we permit the user to specify their own default
+            // schemes(e.g. through separate settings keys) then this may not be the case.
+            // so do a certain amount of validity checking
+            var text_style = scheme.get_style ("text");
+            var background_pattern_style = scheme.get_style ("background-pattern");
+            if (text_style != null) {
+                if (text_style.background_set) {
+                    background = text_style.background;
+                }
 
-            var background_style = scheme.get_style ("background-pattern");
-            var foreground_style = scheme.get_style ("text");
-
-            if (background_style != null && background_style.background_set && !("rgba" in background_style.background)) {
-                background = background_style.background;
+                if (text_style.foreground_set) {
+                    foreground = text_style.foreground;
+                }
             }
 
-            if (foreground_style != null && foreground_style.foreground_set) {
-                foreground = foreground_style.foreground;
+            if (background_pattern_style != null) {
+                if (background == "" && background_pattern_style.background_set) {
+                    background = background_pattern_style.background;
+                }
+
+                if (foreground == "" && background_pattern_style.foreground_set) {
+                    foreground = background_pattern_style.foreground;
+                }
+            }
+
+            //Fallback to white and grey  if necessary
+            if (background == "" || background.contains ("rgba")) {
+                background ="";
+            }
+
+            if (foreground == "" || foreground.contains ("rgba")) {
+                foreground ="";
             }
         }
 
-        var style_css = """
+        if (background != "" && foreground != "") {
+            var style_css = """
             .color-button radio {
                 background-color: %s;
                 color: %s;
@@ -350,17 +373,34 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             }
         """.printf (background, foreground);
 
-        var css_provider = new Gtk.CssProvider ();
+            var css_provider = new Gtk.CssProvider ();
 
-        try {
-            css_provider.load_from_data (style_css);
-        } catch (Error e) {
-            critical ("Unable to style color button: %s", e.message);
+            try {
+                css_provider.load_from_data (style_css);
+            } catch (Error e) {
+                critical ("Unable to style color button: %s", e.message);
+            }
+
+            unowned var style_context = color_button.get_style_context ();
+            style_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
+            style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            color_button.tooltip_text = scheme.name;
+        } else if (scheme != null || background == "" || foreground == "") {
+            //Fallback to standard radio buttons (shouldnt happen)
+            switch (style_id) {
+                case STYLE_SCHEME_LIGHT:
+                    color_button.label = _("Light");
+                    break;
+                case STYLE_SCHEME_DARK:
+                    color_button.label = _("Dark");
+                    break;
+                case STYLE_SCHEME_HIGH_CONTRAST:
+                    color_button.label = _("Contrast");
+                    break;
+                default:
+                    assert_not_reached ();
+            }
         }
-
-        unowned var style_context = color_button.get_style_context ();
-        style_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
-        style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     private void on_share_menu_changed () {
