@@ -74,7 +74,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
     private uint parse_timeout_id = 0;
     public override void parse_symbols () {
-        tool_box_sensitive = true;
+        before_parse ();
         var context = new Vala.CodeContext ();
 #if VALA_0_50
         context.set_target_profile (Vala.Profile.GOBJECT, false);
@@ -95,7 +95,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
             resolver.resolve (context);
             Vala.CodeContext.pop ();
 
-            bool took_too_long = false;
             parse_timeout_id = Timeout.add_full (Priority.LOW, PARSE_TIME_MAX_MSEC, () => {
                 parse_timeout_id = 0;
                 took_too_long = true;
@@ -126,8 +125,6 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                         };
 
                         store.root.add (warning_item);
-                        tool_box_sensitive = false;
-
                     } else {
                         store.root.add (new_root);
                     }
@@ -135,12 +132,13 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                     store.root.expand_all ();
                     add_tooltips (store.root);
                     store.vadjustment.set_value (adjustment_value);
-                    return false;
+                    return Source.REMOVE;
                 });
             } else {
                 destroy_all_children (new_root);
             }
 
+            after_parse ();
             return null;
         });
     }
