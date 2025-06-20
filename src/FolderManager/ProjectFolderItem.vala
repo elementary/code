@@ -26,8 +26,8 @@ namespace Scratch.FolderManager {
 
         private static Icon added_icon;
         private static Icon modified_icon;
-        private SimpleAction checkout_local_branch_action;
-        private SimpleAction checkout_remote_branch_action;
+        // private SimpleAction checkout_local_branch_action;
+        // private SimpleAction checkout_remote_branch_action;
 
         public signal void closed ();
 
@@ -69,7 +69,7 @@ namespace Scratch.FolderManager {
                     );
                 }
 
-                checkout_local_branch_action.set_state (monitored_repo.branch_name);
+                // checkout_local_branch_action.set_state (monitored_repo.branch_name);
             }
         }
 
@@ -77,23 +77,23 @@ namespace Scratch.FolderManager {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
-                checkout_local_branch_action = new SimpleAction.stateful (
-                    FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
-                    GLib.VariantType.STRING,
-                    ""
-                );
-                checkout_remote_branch_action = new SimpleAction.stateful (
-                    FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
-                    GLib.VariantType.STRING,
-                    ""
-                );
+                // checkout_local_branch_action = new SimpleAction.stateful (
+                //     FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
+                //     GLib.VariantType.STRING,
+                //     ""
+                // );
+                // checkout_remote_branch_action = new SimpleAction.stateful (
+                //     FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
+                //     GLib.VariantType.STRING,
+                //     ""
+                // );
                 monitored_repo.branch_changed.connect (branch_or_name_changed);
                 monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
                 monitored_repo.file_status_change.connect (() => update_item_status (null));
                 monitored_repo.update_status_map ();
                 monitored_repo.branch_changed ();
-                checkout_local_branch_action.activate.connect (handle_checkout_local_branch_action);
-                checkout_remote_branch_action.activate.connect (handle_checkout_remote_branch_action);
+                // checkout_local_branch_action.activate.connect (handle_checkout_local_branch_action);
+                // checkout_remote_branch_action.activate.connect (handle_checkout_remote_branch_action);
             }
         }
 
@@ -179,7 +179,15 @@ namespace Scratch.FolderManager {
             var folder_actions_section = new GLib.Menu ();
             folder_actions_section.append_item (create_submenu_for_new ());
             if (monitored_repo != null) {
-                folder_actions_section.append_item (create_submenu_for_branch ());
+                var branch_action_item = new MenuItem (
+                    _("Branch Actions…"),
+                    GLib.Action.print_detailed_name (
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_BRANCH_ACTIONS,
+                        new Variant.string (file.path)
+                    )
+                );
+                folder_actions_section.append_item (branch_action_item);
+                // folder_actions_section.append_item (create_submenu_for_branch ());
             }
 
             var close_folder_item = new GLib.MenuItem (
@@ -320,97 +328,97 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        protected GLib.MenuItem create_submenu_for_branch () {
-            // Ensures that action for relevant project is being used
-            view.actions.add_action (checkout_local_branch_action);
-            view.actions.add_action (checkout_remote_branch_action);
+        // protected GLib.MenuItem create_submenu_for_branch () {
+        //     // Ensures that action for relevant project is being used
+        //     view.actions.add_action (checkout_local_branch_action);
+        //     view.actions.add_action (checkout_remote_branch_action);
 
-            unowned var local_branches = monitored_repo.get_local_branches ();
-            var local_branch_submenu = new Menu ();
-            var local_branch_menu = new Menu ();
-            if (local_branches.length () > 0) {
-                local_branch_submenu.append_submenu (_("Local"), local_branch_menu);
-                foreach (unowned var branch_name in local_branches) {
-                    local_branch_menu.append (
-                        branch_name,
-                        GLib.Action.print_detailed_name (
-                            FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
-                            branch_name
-                        )
-                    );
-                }
-            }
-
-
-            unowned var remote_branches = monitored_repo.get_remote_branches ();
-            var remote_branch_submenu = new Menu ();
-            var remote_branch_menu = new Menu ();
-            if (remote_branches.length () > 0) {
-                remote_branch_submenu.append_submenu (_("Remote"), remote_branch_menu);
-                foreach (unowned var branch_name in remote_branches) {
-                    remote_branch_menu.append (
-                        branch_name,
-                        GLib.Action.print_detailed_name (
-                            FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
-                            branch_name
-                        )
-                    );
-                }
+        //     unowned var local_branches = monitored_repo.get_local_branches ();
+        //     var local_branch_submenu = new Menu ();
+        //     var local_branch_menu = new Menu ();
+        //     if (local_branches.length () > 0) {
+        //         local_branch_submenu.append_submenu (_("Local"), local_branch_menu);
+        //         foreach (unowned var branch_name in local_branches) {
+        //             local_branch_menu.append (
+        //                 branch_name,
+        //                 GLib.Action.print_detailed_name (
+        //                     FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_LOCAL_BRANCH,
+        //                     branch_name
+        //                 )
+        //             );
+        //         }
+        //     }
 
 
-            }
+        //     unowned var remote_branches = monitored_repo.get_remote_branches ();
+        //     var remote_branch_submenu = new Menu ();
+        //     var remote_branch_menu = new Menu ();
+        //     if (remote_branches.length () > 0) {
+        //         remote_branch_submenu.append_submenu (_("Remote"), remote_branch_menu);
+        //         foreach (unowned var branch_name in remote_branches) {
+        //             remote_branch_menu.append (
+        //                 branch_name,
+        //                 GLib.Action.print_detailed_name (
+        //                     FileView.ACTION_PREFIX + FileView.ACTION_CHECKOUT_REMOTE_BRANCH,
+        //                     branch_name
+        //                 )
+        //             );
+        //         }
 
-            var new_branch_item = new GLib.MenuItem (
-                _("New Branch…"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                    file.path
-                )
-            );
 
-            new_branch_item.set_attribute_value (
-                "accel",
-                Utils.get_accel_for_action (
-                    GLib.Action.print_detailed_name (
-                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
-                        ""
-                    )
-                )
-            );
+        //     }
 
-            GLib.Menu bottom_section = new GLib.Menu ();
-            bottom_section.append_item (new_branch_item);
+        //     var new_branch_item = new GLib.MenuItem (
+        //         _("New Branch…"),
+        //         GLib.Action.print_detailed_name (
+        //             MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+        //             file.path
+        //         )
+        //     );
 
-            var menu = new GLib.Menu ();
-            menu.append_section (null, local_branch_submenu);
-            menu.append_section (null, remote_branch_submenu);
-            menu.append_section (null, bottom_section);
+        //     new_branch_item.set_attribute_value (
+        //         "accel",
+        //         Utils.get_accel_for_action (
+        //             GLib.Action.print_detailed_name (
+        //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_BRANCH,
+        //                 ""
+        //             )
+        //         )
+        //     );
 
-            var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
-            return menu_item;
-        }
+        //     GLib.Menu bottom_section = new GLib.Menu ();
+        //     bottom_section.append_item (new_branch_item);
 
-        private void handle_checkout_local_branch_action (GLib.Variant? param) {
-            var branch_name = param != null ? param.get_string () : "";
-            try {
-                monitored_repo.change_local_branch (branch_name);
-            } catch (GLib.Error e) {
-                warning ("Failed to change branch to %s. %s", branch_name, e.message);
-            }
-        }
+        //     var menu = new GLib.Menu ();
+        //     menu.append_section (null, local_branch_submenu);
+        //     menu.append_section (null, remote_branch_submenu);
+        //     menu.append_section (null, bottom_section);
 
-        private void handle_checkout_remote_branch_action (GLib.Variant? param) {
-            var branch_name = param != null ? param.get_string () : "";
-            if (branch_name == "") {
-                return;
-            }
+        //     var menu_item = new GLib.MenuItem.submenu (_("Branch"), menu);
+        //     return menu_item;
+        // }
 
-            try {
-                monitored_repo.checkout_remote_branch (branch_name);
-            } catch (GLib.Error e) {
-                warning ("Failed to change branch to %s. %s", branch_name, e.message);
-            }
-        }
+        // private void handle_checkout_local_branch_action (GLib.Variant? param) {
+        //     var branch_name = param != null ? param.get_string () : "";
+        //     try {
+        //         monitored_repo.change_local_branch (branch_name);
+        //     } catch (GLib.Error e) {
+        //         warning ("Failed to change branch to %s. %s", branch_name, e.message);
+        //     }
+        // }
+
+        // private void handle_checkout_remote_branch_action (GLib.Variant? param) {
+        //     var branch_name = param != null ? param.get_string () : "";
+        //     if (branch_name == "") {
+        //         return;
+        //     }
+
+        //     try {
+        //         monitored_repo.checkout_remote_branch (branch_name);
+        //     } catch (GLib.Error e) {
+        //         warning ("Failed to change branch to %s. %s", branch_name, e.message);
+        //     }
+        // }
 
         public void update_item_status (FolderItem? start_folder) {
             if (monitored_repo == null) {
@@ -496,6 +504,10 @@ namespace Scratch.FolderManager {
         }
 
         public unowned List<string> get_branch_names () {
+            return is_git_repo ? monitored_repo.get_local_branch_names () : null;
+        }
+
+        public unowned List<Ggit.Branch> get_branches () {
             return is_git_repo ? monitored_repo.get_local_branches () : null;
         }
 

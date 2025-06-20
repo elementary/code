@@ -32,8 +32,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
-    public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
+    // public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
+    // public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
     public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
@@ -133,14 +133,20 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
+        set_active_project (path);
+    }
+
+    private ProjectFolderItem? set_active_project (string path) {
         var folder_root = find_path (root, path) as ProjectFolderItem;
         if (folder_root == null) {
-            return;
+            return null;
         }
 
         git_manager.active_project_path = path;
 
         write_settings ();
+
+        return folder_root;
     }
 
     public async void restore_saved_state () {
@@ -207,6 +213,34 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
             }
         }
+    }
+
+    public void branch_actions (string path) {
+        warning ("branch actions");
+        // Must only carry out branch actions on active project so switch if necessary.
+        //TODO Warn before switching active project?
+        var active_project = set_active_project (path);
+        if (active_project == null || !active_project.is_git_repo) {
+            Gdk.beep ();
+            return;
+        }
+
+        var dialog = new Dialogs.BranchActionDialog (active_project);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.APPLY) {
+                var action = dialog.action;
+                var branch = dialog.branch;
+                perform_branch_action.begin (active_project, action, branch);
+            }
+
+            dialog.destroy ();
+        });
+
+        dialog.present ();
+    }
+
+    private async void perform_branch_action (ProjectFolderItem project, BranchAction action, string branch) {
+        warning ("perform action");
     }
 
     private unowned Code.Widgets.SourceList.Item? find_path (
@@ -288,25 +322,25 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    public void new_branch (string active_project_path) {
-        unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
-        if (active_project == null || !active_project.is_git_repo) {
-            Gdk.beep ();
-            return;
-        }
+    // public void new_branch (string active_project_path) {
+    //     unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
+    //     if (active_project == null || !active_project.is_git_repo) {
+    //         Gdk.beep ();
+    //         return;
+    //     }
 
-        string? branch_name = null;
-        var dialog = new Dialogs.NewBranchDialog (active_project);
-        dialog.show_all ();
-        if (dialog.run () == Gtk.ResponseType.APPLY) {
-            branch_name = dialog.new_branch_name;
-        }
+    //     string? branch_name = null;
+    //     var dialog = new Dialogs.NewBranchDialog (active_project);
+    //     dialog.show_all ();
+    //     if (dialog.run () == Gtk.ResponseType.APPLY) {
+    //         branch_name = dialog.new_branch_name;
+    //     }
 
-        dialog.destroy ();
-        if (branch_name != null) {
-            active_project.new_branch (branch_name);
-        }
-    }
+    //     dialog.destroy ();
+    //     if (branch_name != null) {
+    //         active_project.new_branch (branch_name);
+    //     }
+    // }
 
     public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
         plugins.hook_folder_item_change (source, dest, event);

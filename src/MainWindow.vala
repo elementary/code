@@ -111,7 +111,7 @@ namespace Scratch {
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
-        public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_BRANCH_ACTIONS = "action-branch-actions";
         public const string ACTION_CLOSE_TAB = "action-close-tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
         public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
@@ -169,7 +169,7 @@ namespace Scratch {
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_BRANCH_ACTIONS, action_branch_actions, "s" },
             { ACTION_ADD_MARK, action_add_mark},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
             { ACTION_NEXT_MARK, action_next_mark},
@@ -240,7 +240,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
-            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_BRANCH_ACTIONS + "::", "<Control>B");
             action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
             action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
             action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
@@ -1403,8 +1403,8 @@ namespace Scratch {
             doc.source_view.clear_selected_lines ();
         }
 
-        private void action_new_branch (SimpleAction action, Variant? param) {
-            folder_manager_view.new_branch (get_target_path_for_actions (param));
+        private void action_branch_actions (SimpleAction action, Variant? param) {
+            folder_manager_view.branch_actions (get_target_path_for_actions (param));
         }
 
         private void action_previous_mark () {

@@ -158,7 +158,7 @@ namespace Scratch.Services {
         }
 
         //Returns an alphabetically sorted list of local branch names
-        public unowned List<string> get_local_branches () {
+        public unowned List<string> get_local_branch_names () {
             unowned List<string> branches = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
@@ -177,8 +177,26 @@ namespace Scratch.Services {
             return branches;
         }
 
+        public unowned List<Ggit.Branch> get_local_branches () {
+            unowned List<Ggit.Branch> branches = null;
+            try {
+                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
+                foreach (Ggit.Ref branch_ref in branch_enumerator) {
+                    if (branch_ref is Ggit.Branch) {
+                        branches.insert (
+                            (Ggit.Branch)branch_ref,
+                            0
+                        );
+                    }
+                }
+            } catch (Error e) {
+                warning ("Could not enumerate branches %s", e.message);
+            }
+
+            return branches;
+        }
         //Returns an alphabetically sorted list of remote branch names
-        public unowned List<string> get_remote_branches () {
+        public unowned List<string> get_remote_branch_names () {
             unowned List<string> branch_names = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
