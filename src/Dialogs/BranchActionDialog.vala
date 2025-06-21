@@ -36,35 +36,28 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             set_default_response ( Gtk.ResponseType.CANCEL);
 
             var branch_refs = project.get_all_branch_refs ();
-            var list_store = new ListStore (typeof (Ggit.Ref));
+            var list_box = new Gtk.ListBox ();
             foreach (var branch_ref in branch_refs) {
-                list_store.insert_sorted (branch_ref, branch_sort_func);
+                var row = new BranchNameRow (branch_ref);
+                list_box.add (row);
             }
 
-            var list_box = new Gtk.ListBox ();
-            list_box.bind_model (list_store, (obj) => {
-                var row = new Gtk.ListBoxRow ();
-                var label = new Gtk.Label (((Ggit.Ref)obj).get_shorthand ()) {
-                    halign = START
-                };
-                row.add (label);
-                return row;
+            var search_entry = new Gtk.SearchEntry ();
+
+            list_box.set_filter_func ((row) => {
+                return (((BranchNameRow)row).name.contains (search_entry.text));
             });
 
-            var search_entry = new Gtk.SearchEntry ();
-            list_box.set_filter_func ((row) => {
-                return (((Gtk.Label)(row.get_child ())).label.contains (search_entry.text));
-            });
+            list_box.set_sort_func (listbox_sort_func);
 
             list_box.row_activated.connect ((row) => {
-                search_entry.text = ((Gtk.Label)(row.get_child ())).label;
+                search_entry.text = ((BranchNameRow)row).name;
             });
 
             search_entry.changed.connect (() => {
-
+                list_box.invalidate_filter ();
                 // Checkout action
                 can_apply = project.has_branch_name (search_entry.text, null);
-                warning ("can apply %s", can_apply.to_string ());
             });
 
             var scrolled_window = new Gtk.ScrolledWindow (null, null) {
@@ -83,7 +76,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             search_box.add (scrolled_window);
 
             custom_bin.add (search_box);
-            show_all ();
+            custom_bin.show_all ();
         } else {
             primary_text = _("'%s' is not a git repository").printf (
                 project.file.file.get_basename ()
@@ -93,19 +86,45 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
     }
 
-    private int branch_sort_func (Object oa, Object ob) {
+    private int listbox_sort_func (Gtk.ListBoxRow rowa, Gtk.ListBoxRow rowb) {
+        var a = (BranchNameRow)rowa;
+        var b = (BranchNameRow)rowb;
 
-        var a = (Ggit.Ref)oa;
-        var b = (Ggit.Ref)ob;
-
-        if (a.is_branch () && !b.is_branch ()) {
-            return -1;
-        }
-
-        if (b.is_branch () && !a.is_branch ()) {
+        if (a.is_remote && !b.is_remote) {
             return 1;
         }
 
-        return (a.get_shorthand ()).collate (b.get_shorthand ());
+        if (b.is_remote && !a.is_remote) {
+            return -1;
+        }
+
+        return (a.name.collate (b.name));
+    }
+
+    private class BranchNameRow : Gtk.ListBoxRow {
+        public Ggit.Ref bref { get; construct; }
+        public bool is_remote { get; private set; }
+        public string name {
+            get {
+                return label.label;
+            }
+        }
+
+        private Gtk.Label label;
+
+        public BranchNameRow (Ggit.Ref bref) {
+            Object (
+                bref: bref
+            );
+        }
+
+        construct {
+            is_remote = !bref.is_branch ();
+            label = new Gtk.Label (bref.get_shorthand ()) {
+                halign = START
+            };
+
+            this.child = label;
+        }
     }
 }
