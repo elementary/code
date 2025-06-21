@@ -6,8 +6,12 @@
 */
 public enum Scratch.BranchAction {
     CHECKOUT,
-    CREATE,
-    DELETE
+    COMMIT,
+    PUSH,
+    PULL,
+    MERGE,
+    DELETE,
+    CREATE
 }
 
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
@@ -19,6 +23,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
     private Gtk.Label local_header;
     private Gtk.Label remote_header;
+    private Gtk.Stack stack;
 
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
@@ -80,7 +85,25 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             search_box.add (search_entry);
             search_box.add (scrolled_window);
 
-            custom_bin.add (search_box);
+            stack = new Gtk.Stack ();
+            stack.add_titled (search_box, BranchAction.CHECKOUT.to_string (), _("Checkout"));
+            stack.add_titled (new Gtk.Label (_("Commit not implemented yet")), BranchAction.COMMIT.to_string (), _("Commit"));
+            stack.add_titled (new Gtk.Label (_("Push not implemented yet")), BranchAction.PUSH.to_string (), _("Push"));
+            stack.add_titled (new Gtk.Label (_("Pull not implemented yet")), BranchAction.PULL.to_string (), _("Pull"));
+            stack.add_titled (new Gtk.Label (_("Merge not implemented yet")), BranchAction.MERGE.to_string (), _("Merge"));
+            stack.add_titled (new Gtk.Label (_("Delete not implemented yet")), BranchAction.DELETE.to_string (), _("Delete"));
+            stack.add_titled (new Gtk.Label (_("Create not implemented yet")), BranchAction.CREATE.to_string (), _("Create"));
+
+
+            var sidebar = new Gtk.StackSidebar () {
+                stack = stack
+            };
+
+            var content_box = new Gtk.Box (HORIZONTAL, 12);
+            content_box.add (sidebar);
+            content_box.add (stack);
+
+            custom_bin.add (content_box);
             custom_bin.show_all ();
         } else {
             primary_text = _("'%s' is not a git repository").printf (
@@ -88,6 +111,13 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             );
             secondary_text = _("Unable to perform branch actions");
             image_icon = new ThemedIcon ("dialog-error");
+        }
+    }
+
+    private void on_toggle_button_toggled (Gtk.Widget src) {
+        var action_button = (ActionRadioButton)src;
+        if (action_button.active) {
+            stack.set_visible_child_name (action_button.branch_action.to_string ());
         }
     }
 
@@ -143,6 +173,25 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             };
 
             this.child = label;
+        }
+    }
+
+    private class ActionRadioButton : Gtk.RadioButton {
+        public BranchAction branch_action { get; construct; }
+
+        public ActionRadioButton (BranchAction action, Gtk.RadioButton? sibling, string text) {
+            Object (
+                branch_action: action
+            );
+
+            join_group (sibling);
+            label = text;
+        }
+
+        construct {
+            halign = Gtk.Align.START;
+            valign = Gtk.Align.START;
+            vexpand = true;
         }
     }
 }
