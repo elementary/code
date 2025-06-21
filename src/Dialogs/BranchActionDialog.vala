@@ -4,7 +4,7 @@
 *
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
 */
-public enum Scratch.BranchAction  {
+public enum Scratch.BranchAction {
     CHECKOUT,
     CREATE,
     DELETE
@@ -15,98 +15,97 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
     public BranchAction action { get; set; }
     public string branch { get; set; }
 
+    public bool can_apply { get; private set; default = false; }
+
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
-            transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
-            project: project,
-            primary_text: _("Perform branch action on project %s").printf (
-            project.file.file.get_basename ()),
-            image_icon: new ThemedIcon ("git"),
-            buttons: Gtk.ButtonsType.CANCEL
+            project: project
         );
     }
 
     construct {
-        assert (project.is_git_repo);
-        var apply_button = add_button (_("Apply"), Gtk.ResponseType.APPLY);
-        set_default_response ( Gtk.ResponseType.CANCEL);
+        transient_for = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+        if (project.is_git_repo) {
+            primary_text = _("Perform branch action on project '%s'").printf (
+                project.file.file.get_basename ()
+            );
+            image_icon = new ThemedIcon ("git");
+            var apply_button = add_button (_("Apply"), Gtk.ResponseType.APPLY);
+            bind_property ("can-apply", apply_button, "sensitive", SYNC_CREATE);
+            set_default_response ( Gtk.ResponseType.CANCEL);
 
-        unowned var local_branches = project.get_branches ();
+            var branch_refs = project.get_all_branch_refs ();
+            var list_store = new ListStore (typeof (Ggit.Ref));
+            foreach (var branch_ref in branch_refs) {
+                list_store.insert_sorted (branch_ref, branch_sort_func);
+            }
 
-        var list_store = new ListStore (typeof (Ggit.Branch));
-        foreach (Ggit.Branch branch in local_branches) {
-            list_store.insert_sorted (branch, (a, b) => {
-                return (((Ggit.Branch)a).get_name ()).collate (((Ggit.Branch)b).get_name ());
+            var list_box = new Gtk.ListBox ();
+            list_box.bind_model (list_store, (obj) => {
+                var row = new Gtk.ListBoxRow ();
+                var label = new Gtk.Label (((Ggit.Ref)obj).get_shorthand ()) {
+                    halign = START
+                };
+                row.add (label);
+                return row;
             });
+
+            var search_entry = new Gtk.SearchEntry ();
+            list_box.set_filter_func ((row) => {
+                return (((Gtk.Label)(row.get_child ())).label.contains (search_entry.text));
+            });
+
+            list_box.row_activated.connect ((row) => {
+                search_entry.text = ((Gtk.Label)(row.get_child ())).label;
+            });
+
+            search_entry.changed.connect (() => {
+
+                // Checkout action
+                can_apply = project.has_branch_name (search_entry.text, null);
+                warning ("can apply %s", can_apply.to_string ());
+            });
+
+            var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = NEVER,
+                vscrollbar_policy = AUTOMATIC,
+                min_content_height = 200,
+                vexpand = true
+            };
+            scrolled_window.child = list_box;
+
+            search_entry.changed.connect (() => {
+                list_box.invalidate_filter ();
+            });
+            var search_box = new Gtk.Box (VERTICAL, 6);
+            search_box.add (search_entry);
+            search_box.add (scrolled_window);
+
+            custom_bin.add (search_box);
+            show_all ();
+        } else {
+            primary_text = _("'%s' is not a git repository").printf (
+                project.file.file.get_basename ()
+            );
+            secondary_text = _("Unable to perform branch actions");
+            image_icon = new ThemedIcon ("dialog-error");
+        }
+    }
+
+    private int branch_sort_func (Object oa, Object ob) {
+
+        var a = (Ggit.Ref)oa;
+        var b = (Ggit.Ref)ob;
+
+        if (a.is_branch () && !b.is_branch ()) {
+            return -1;
         }
 
-        var list_box = new Gtk.ListBox ();
-        list_box.bind_model (list_store, (obj) => {
-            var row = new Gtk.ListBoxRow ();
-            var label = new Gtk.Label (((Ggit.Branch)obj).get_name ()) {
-                halign = START
-            };
-            row.add (label);
-            return row;
-        });
+        if (b.is_branch () && !a.is_branch ()) {
+            return 1;
+        }
 
-        var search_entry = new Gtk.SearchEntry ();
-        list_box.set_filter_func ((row) => {
-            return (((Gtk.Label)(row.get_child ())).label.contains (search_entry.text));
-        });
-
-        list_box.row_activated.connect ((row) => {
-            search_entry.text = ((Gtk.Label)(row.get_child ())).label;
-        });
-
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
-            hscrollbar_policy = NEVER,
-            vscrollbar_policy = AUTOMATIC,
-            min_content_height = 100
-        };
-        scrolled_window.child = list_box;
-
-        search_entry.changed.connect (() => {
-            list_box.invalidate_filter ();
-        });
-        var search_box = new Gtk.Box (VERTICAL, 6);
-        search_box.add (search_entry);
-        search_box.add (scrolled_window);
-
-        custom_bin.add (search_box);
-        // secondary_text = _("The branch name must be unique and follow Git naming rules.");
-        // badge_icon = new ThemedIcon ("list-add");
-        // new_branch_name_entry = new Granite.ValidatedEntry () {
-        //     activates_default = true
-        // };
-
-        // custom_bin.add (new_branch_name_entry);
-
-        // var apply_button = (Gtk.Button) add_button (_("Apply"), Gtk.ResponseType.APPLY);
-        // apply_button.can_default = true;
-        // apply_button.has_default = true;
-        // apply_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        // new_branch_name_entry.bind_property (
-        //     "is-valid", apply_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE
-        // );
-
-        // new_branch_name_entry.changed.connect (() => {
-        //     unowned var new_name = new_branch_name_entry.text;
-        //     if (!active_project.is_valid_new_branch_name (new_name)) {
-        //         new_branch_name_entry.is_valid = false;
-        //         return;
-        //     }
-
-        //     if (active_project.has_local_branch_name (new_name)) {
-        //         new_branch_name_entry.is_valid = false;
-        //         return;
-        //     }
-
-        //     //Do we need to check remote branches as well?
-        //     new_branch_name_entry.is_valid = true;
-        // });
-
-        show_all ();
+        return (a.get_shorthand ()).collate (b.get_shorthand ());
     }
 }

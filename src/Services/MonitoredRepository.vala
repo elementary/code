@@ -68,7 +68,7 @@ namespace Scratch.Services {
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
 
-        private List<Ggit.Ref> remote_branch_ref_list;
+        private Gee.ArrayList<Ggit.Ref> all_branch_refs;
 
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
@@ -101,7 +101,7 @@ namespace Scratch.Services {
                 null
             );
 
-            remote_branch_ref_list = new List<Ggit.Ref> ();
+            all_branch_refs = new Gee.ArrayList<Ggit.Ref> ();
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -157,73 +157,42 @@ namespace Scratch.Services {
             return "";
         }
 
-        //Returns an alphabetically sorted list of local branch names
-        public unowned List<string> get_local_branch_names () {
-            unowned List<string> branches = null;
+        public Gee.ArrayList<Ggit.Ref> get_all_branch_refs () {
+            all_branch_refs = new Gee.ArrayList<Ggit.Ref> ();
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
-                    if (branch_ref is Ggit.Branch) {
-                        branches.insert_sorted (
-                            ((Ggit.Branch)branch_ref).get_name (),
-                            string.collate
-                        );
-                    }
+                    all_branch_refs.add (branch_ref);
                 }
-            } catch (Error e) {
-                warning ("Could not enumerate branches %s", e.message);
-            }
 
-            return branches;
-        }
-
-        public unowned List<Ggit.Branch> get_local_branches () {
-            unowned List<Ggit.Branch> branches = null;
-            try {
-                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
-                foreach (Ggit.Ref branch_ref in branch_enumerator) {
-                    if (branch_ref is Ggit.Branch) {
-                        branches.insert (
-                            (Ggit.Branch)branch_ref,
-                            0
-                        );
-                    }
-                }
-            } catch (Error e) {
-                warning ("Could not enumerate branches %s", e.message);
-            }
-
-            return branches;
-        }
-        //Returns an alphabetically sorted list of remote branch names
-        public unowned List<string> get_remote_branch_names () {
-            unowned List<string> branch_names = null;
-            try {
-                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
-
+                branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     var remote_name = branch_ref.get_shorthand ();
                     if (!remote_name.has_suffix ("HEAD") &&
                         !has_local_branch_name (remote_name.substring (ORIGIN_PREFIX.length))) {
 
-                        branch_names.insert_sorted (
-                            branch_ref.get_shorthand (),
-                            string.collate
-                        );
+                        all_branch_refs.add (branch_ref);
                     }
-
-                    remote_branch_ref_list.append (branch_ref);
                 }
             } catch (Error e) {
                 warning ("Could not enumerate local branches %s", e.message);
             }
 
-            return branch_names;
+            return all_branch_refs;
         }
 
         public bool has_local_branch_name (string name) {
             try {
                 git_repo.lookup_branch (name, Ggit.BranchType.LOCAL);
+                return true;
+            } catch (Error e) {}
+
+            return false;
+        }
+
+        public bool has_remote_branch_name (string name) {
+            try {
+                git_repo.lookup_branch (name, Ggit.BranchType.REMOTE);
                 return true;
             } catch (Error e) {}
 
@@ -249,16 +218,15 @@ namespace Scratch.Services {
         public void checkout_remote_branch (string target_shorthand) throws Error
         requires (target_shorthand.has_prefix (ORIGIN_PREFIX)) {
 
-            Ggit.Ref? branch_ref;
+            Ggit.Ref? branch_ref = null;
             //Assume list is up to date as this is called from context menu
-            unowned var list_pointer = remote_branch_ref_list.first ();
-            while (list_pointer.data != null &&
-                   list_pointer.data.get_shorthand () != target_shorthand) {
-
-                list_pointer = list_pointer.next;
+            foreach (var bref in all_branch_refs) {
+                if (bref.get_shorthand () == target_shorthand) {
+                    branch_ref = bref;
+                    break;
+                }
             }
 
-            branch_ref = list_pointer.data;
             if (branch_ref == null) {
                 var dialog = new Granite.MessageDialog.with_image_from_icon_name (
                     _("Remote Branch '%s' not found").printf (target_shorthand),
