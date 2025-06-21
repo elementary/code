@@ -14,14 +14,30 @@ public enum Scratch.BranchAction {
     CREATE
 }
 
+public interface Scratch.BranchActionPage : Gtk.Widget {
+    public abstract BranchAction action { get; }
+    public abstract string branch { get; }
+}
+
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
-    public FolderManager.ProjectFolderItem project { get; construct; }
-    public BranchAction action { get; set; }
-    public string branch { get; set; }
+    public BranchAction action {
+        get {
+            return ((BranchActionPage)stack.get_visible_child ()).action;
+        }
+    }
+
+    public string branch {
+        get {
+            return ((BranchActionPage)stack.get_visible_child ()).branch;
+        }
+    }
+
+
 
     private Gtk.Stack stack;
     protected bool can_apply { get; set; default = false; }
 
+    public FolderManager.ProjectFolderItem project { get; construct; }
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
             project: project
@@ -68,8 +84,23 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
     }
 
-    private class BranchCheckoutPage : Gtk.Box {
+    private class BranchCheckoutPage : Gtk.Box, BranchActionPage {
+        public BranchAction action {
+            get {
+                return BranchAction.CHECKOUT;
+            }
+        }
+
+        public string branch {
+            get {
+                return list_box.text;
+            }
+        }
+
         public BranchActionDialog dialog { get; construct; }
+
+        private BranchListBox list_box;
+
         public BranchCheckoutPage (BranchActionDialog dialog) {
             Object (
                 dialog: dialog
@@ -77,7 +108,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
 
         construct {
-            var list_box = new BranchListBox (dialog, true);
+            list_box = new BranchListBox (dialog, true);
             add (list_box);
         }
     }

@@ -228,6 +228,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Dialogs.BranchActionDialog (active_project);
         dialog.response.connect ((res) => {
             if (res == Gtk.ResponseType.APPLY) {
+warning ("Applying");
                 var action = dialog.action;
                 var branch = dialog.branch;
                 perform_branch_action.begin (active_project, action, branch);
