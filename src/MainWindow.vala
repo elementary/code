@@ -1075,11 +1075,13 @@ namespace Scratch {
                                 }
                             } catch (Error e) {
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    "Uanble to clone %s".printf (uri),
+                                    "Unable to clone %s".printf (uri),
                                     e.message,
                                     "dialog-error",
                                     Gtk.ButtonsType.CLOSE
-                                );
+                                ) {
+                                    transient_for = this
+                                };
                                 message_dialog.add_button (_("Retry"), 1);
                                 message_dialog.response.connect ((res) => {
                                     if (res == 1) {
