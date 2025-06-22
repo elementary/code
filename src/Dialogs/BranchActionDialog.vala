@@ -125,6 +125,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         private Gtk.SearchEntry search_entry;
         private Gtk.Label local_header;
         private Gtk.Label remote_header;
+        private Gtk.Label recent_header;
 
         public BranchListBox (BranchActionDialog dialog, bool show_remotes) {
             Object (
@@ -148,12 +149,17 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             box.add (scrolled_window);
             child = box;
 
+            recent_header = new Granite.HeaderLabel (_("Recent Branches"));
             local_header = new Granite.HeaderLabel (_("Local Branches"));
             remote_header = new Granite.HeaderLabel (_("Remote Branches"));
             var branch_refs = dialog.project.get_all_branch_refs ();
+
             foreach (var branch_ref in branch_refs) {
                 if (branch_ref.is_branch () || show_remotes) {
                     var row = new BranchNameRow (branch_ref);
+                    if (dialog.project.is_recent_ref (branch_ref)) {
+                        row.is_recent = true;
+                    }
                     list_box.add (row);
                 }
             }
@@ -167,6 +173,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             });
             search_entry.changed.connect (() => {
                 list_box.invalidate_filter ();
+                list_box.invalidate_headers ();
                 // Checkout action
                 dialog.can_apply = dialog.project.has_branch_name (search_entry.text, null);
             });
@@ -184,19 +191,20 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             return (BranchNameRow)row;
         }
 
-        public void set_filter_func (Gtk.ListBoxFilterFunc f) {
-            list_box.set_filter_func (f);
-        }
 
         private int listbox_sort_func (Gtk.ListBoxRow rowa, Gtk.ListBoxRow rowb) {
             var a = (BranchNameRow)(rowa);
             var b = (BranchNameRow)(rowb);
 
-            if (a.is_remote && !b.is_remote) {
+            if (a.is_recent && !b.is_recent) {
+                return -1;
+            } else if (b.is_recent && !a.is_recent) {
                 return 1;
             }
 
-            if (b.is_remote && !a.is_remote) {
+            if (a.is_remote && !b.is_remote) {
+                return 1;
+            } else if (b.is_remote && !a.is_remote) {
                 return -1;
             }
 
@@ -204,21 +212,31 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
 
         private void listbox_header_func (Gtk.ListBoxRow row, Gtk.ListBoxRow? row_before) {
+            var a = (BranchNameRow)row;
+            a.set_header (null);
             if (row_before == null) {
-                if (row.get_header () != local_header) {
-                    row.set_header (local_header);
+                if (a.is_recent && a.get_header () != recent_header) {
+                    a.set_header (recent_header);
+                } else if (!a.is_remote && a.get_header () != local_header) {
+                    a.set_header (local_header);
+                } else {
+                    a.set_header (remote_header);
                 }
 
                 return;
             }
 
-            var a = (BranchNameRow)row;
+
             var b = (BranchNameRow)row_before;
 
-            if (a.is_remote && !b.is_remote && row.get_header () != remote_header) {
-                row.set_header (remote_header);
-            } else {
-                row.set_header (null);
+            if (b.is_recent && !a.is_recent) {
+                if (!a.is_remote && a.get_header () != local_header) {
+                    a.set_header (local_header);
+                } else if (a.is_remote && a.get_header () != remote_header) {
+                    a.set_header (remote_header);
+                }
+            } else if (!b.is_remote && a.is_remote && a.get_header () != remote_header) {
+                a.set_header (remote_header);
             }
         }
     }
@@ -226,6 +244,8 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
     private class BranchNameRow : Gtk.ListBoxRow {
         public Ggit.Ref bref { get; construct; }
         public bool is_remote { get; private set; }
+        public bool is_recent { get; set; default = false; }
+
         public string branch_name {
             get {
                 return label.label;

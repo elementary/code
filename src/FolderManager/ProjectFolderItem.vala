@@ -408,6 +408,9 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public bool is_recent_ref (Ggit.Ref bref) {
+            return monitored_repo.is_recent_ref (bref);
+        }
 
         public Gee.ArrayList<Ggit.Ref> get_all_branch_refs () requires (is_git_repo) {
             return monitored_repo.get_all_branch_refs ();
@@ -421,7 +424,7 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.has_remote_branch_name (name) : false;
         }
 
-        public bool has_branch_name (string name, out bool? found_is_remote) {
+        public bool has_branch_name (string name, out bool? found_is_remote = null) {
             var is_remote = false;
             var found = false;
             if (!has_local_branch_name (name)) {

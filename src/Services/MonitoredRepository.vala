@@ -69,6 +69,7 @@ namespace Scratch.Services {
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
 
         private Gee.ArrayList<Ggit.Ref> all_branch_refs;
+        private Gee.HashSet<Ggit.Branch> recently_used_branches;
 
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
@@ -102,6 +103,15 @@ namespace Scratch.Services {
             );
 
             all_branch_refs = new Gee.ArrayList<Ggit.Ref> ();
+            recently_used_branches = new Gee.HashSet<Ggit.Branch> (
+                (v) => {
+                    return v.get_name ().hash ();
+                },
+
+                (va, vb) => {
+                    return va.get_name () == vb.get_name ();
+                }
+            );
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -179,6 +189,10 @@ namespace Scratch.Services {
             }
 
             return all_branch_refs;
+        }
+
+        public bool is_recent_ref (Ggit.Ref bref) {
+            return bref.is_branch () && recently_used_branches.contains ((Ggit.Branch)bref);
         }
 
         public bool has_local_branch_name (string name) {
@@ -265,6 +279,8 @@ namespace Scratch.Services {
 
                 git_repo.checkout_head (options);
                 branch_name = new_branch_name;
+                //TODO limit recent to ? branches and persist
+                recently_used_branches.add (new_head_branch);
             } catch (Error e) {
                 var dialog = new Granite.MessageDialog.with_image_from_icon_name (
                     _("An error occurred while checking out the requested branch"),
