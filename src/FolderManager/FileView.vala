@@ -216,7 +216,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     public void branch_actions (string path) {
-        warning ("branch actions");
         // Must only carry out branch actions on active project so switch if necessary.
         //TODO Warn before switching active project?
         var active_project = set_active_project (path);
@@ -228,10 +227,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Dialogs.BranchActionDialog (active_project);
         dialog.response.connect ((res) => {
             if (res == Gtk.ResponseType.APPLY) {
-warning ("Applying");
                 var action = dialog.action;
-                var branch = dialog.branch;
-                perform_branch_action.begin (active_project, action, branch);
+                var branch_ref = dialog.branch_ref;
+                perform_branch_action.begin (active_project, action, branch_ref);
             }
 
             dialog.destroy ();
@@ -240,8 +238,30 @@ warning ("Applying");
         dialog.present ();
     }
 
-    private async void perform_branch_action (ProjectFolderItem project, BranchAction action, string branch) {
-        warning ("perform action");
+    private async void perform_branch_action (
+        ProjectFolderItem project,
+        BranchAction action,
+        Ggit.Ref branch_ref
+    ) {
+        switch (action) {
+            case CHECKOUT:
+                project.checkout_branch_ref (branch_ref);
+                break;
+            case COMMIT:
+                break;
+            case PUSH:
+                break;
+            case PULL:
+                break;
+            case MERGE:
+                break;
+            case DELETE:
+                break;
+            case CREATE:
+                break;
+            default:
+                assert_not_reached ();
+        }
     }
 
     private unowned Code.Widgets.SourceList.Item? find_path (

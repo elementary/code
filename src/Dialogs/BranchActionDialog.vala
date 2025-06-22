@@ -16,7 +16,7 @@ public enum Scratch.BranchAction {
 
 public interface Scratch.BranchActionPage : Gtk.Widget {
     public abstract BranchAction action { get; }
-    public abstract string branch { get; }
+    public abstract Ggit.Ref branch_ref { get; }
 }
 
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
@@ -26,13 +26,11 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
     }
 
-    public string branch {
+    public Ggit.Ref branch_ref {
         get {
-            return ((BranchActionPage)stack.get_visible_child ()).branch;
+            return ((BranchActionPage)stack.get_visible_child ()).branch_ref;
         }
     }
-
-
 
     private Gtk.Stack stack;
     protected bool can_apply { get; set; default = false; }
@@ -91,9 +89,9 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             }
         }
 
-        public string branch {
+        public Ggit.Ref branch_ref {
             get {
-                return list_box.text;
+                return list_box.get_selected_row ().bref;
             }
         }
 
@@ -162,10 +160,10 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             list_box.set_sort_func (listbox_sort_func);
             list_box.set_header_func (listbox_header_func);
             list_box.row_activated.connect ((listboxrow) => {
-                search_entry.text = ((BranchNameRow)(listboxrow.get_child ())).branch_name;
+                search_entry.text = ((BranchNameRow)(listboxrow)).branch_name;
             });
             list_box.set_filter_func ((listboxrow) => {
-                return (((BranchNameRow)(listboxrow.get_child ())).branch_name.contains (search_entry.text));
+                return (((BranchNameRow)(listboxrow)).branch_name.contains (search_entry.text));
             });
             search_entry.changed.connect (() => {
                 list_box.invalidate_filter ();
@@ -174,13 +172,25 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             });
         }
 
+        public BranchNameRow? get_selected_row () {
+            int index = 0;
+            var row = list_box.get_row_at_index (index);
+            while (row != null &&
+                  ((BranchNameRow)row).branch_name != search_entry.text) {
+
+                row = list_box.get_row_at_index (++index);
+            }
+
+            return (BranchNameRow)row;
+        }
+
         public void set_filter_func (Gtk.ListBoxFilterFunc f) {
             list_box.set_filter_func (f);
         }
 
         private int listbox_sort_func (Gtk.ListBoxRow rowa, Gtk.ListBoxRow rowb) {
-            var a = (BranchNameRow)(rowa.get_child ());
-            var b = (BranchNameRow)(rowb.get_child ());
+            var a = (BranchNameRow)(rowa);
+            var b = (BranchNameRow)(rowb);
 
             if (a.is_remote && !b.is_remote) {
                 return 1;
@@ -202,8 +212,8 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
                 return;
             }
 
-            var a = (BranchNameRow)(row.get_child ());
-            var b = (BranchNameRow)(row_before.get_child ());
+            var a = (BranchNameRow)row;
+            var b = (BranchNameRow)row_before;
 
             if (a.is_remote && !b.is_remote && row.get_header () != remote_header) {
                 row.set_header (remote_header);
@@ -213,7 +223,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
     }
 
-    private class BranchNameRow : Gtk.Box {
+    private class BranchNameRow : Gtk.ListBoxRow {
         public Ggit.Ref bref { get; construct; }
         public bool is_remote { get; private set; }
         public string branch_name {
@@ -237,7 +247,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
                 margin_start = 24
             };
 
-            add (label);
+            child = label;
         }
     }
 }

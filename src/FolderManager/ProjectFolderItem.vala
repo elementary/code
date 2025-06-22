@@ -374,6 +374,16 @@ namespace Scratch.FolderManager {
             });
         }
 
+        public void checkout_branch_ref (Ggit.Ref branch_ref) {
+            if (branch_ref.is_branch ()) {
+                var branch_name = ((Ggit.Branch)branch_ref).get_name ();
+                monitored_repo.change_local_branch (branch_name);
+            } else {
+                var target_shorthand = branch_ref.get_shorthand ();
+                monitored_repo.checkout_remote_branch (target_shorthand);
+            }
+        }
+
         public void new_branch (string branch_name) {
             try {
                 if (monitored_repo.head_is_branch) {
