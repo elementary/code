@@ -56,6 +56,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             primary_text = _("Perform branch action on project '%s'").printf (
                 project.file.file.get_basename ()
             );
+            primary_label.can_focus = false;
             image_icon = new ThemedIcon ("git");
             var apply_button = add_button (_("Apply"), Gtk.ResponseType.APPLY);
             bind_property ("can-apply", apply_button, "sensitive", SYNC_CREATE);

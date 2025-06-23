@@ -36,7 +36,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
             vexpand = true
         };
         scrolled_window.child = list_box;
-        search_entry = new Gtk.SearchEntry ();
+        search_entry = new Gtk.SearchEntry () {
+            placeholder_text = _("Enter search term")
+        };
         var box = new Gtk.Box (VERTICAL, 6);
         box.add (search_entry);
         box.add (scrolled_window);

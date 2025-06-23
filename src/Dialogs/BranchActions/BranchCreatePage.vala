@@ -12,7 +12,6 @@ public class Scratch.Dialogs.BranchCreatePage : Gtk.Box, BranchActionPage {
         }
     }
 
-
     public Ggit.Ref? branch_ref {
         get {
             return null;
@@ -26,14 +25,8 @@ public class Scratch.Dialogs.BranchCreatePage : Gtk.Box, BranchActionPage {
     }
 
     public BranchActionDialog dialog { get; construct; }
-    // public bool can_apply { get; set; default = false; }
 
     private Granite.ValidatedEntry new_branch_name_entry;
-    // public string new_branch_name {
-    //     get {
-    //         return new_branch_name_entry.text;
-    //     }
-    // }
 
     public BranchCreatePage (BranchActionDialog dialog) {
         Object (
