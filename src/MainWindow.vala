@@ -1069,9 +1069,18 @@ namespace Scratch {
                             File? workdir = null;
                             string? error = null;
                             if (git_manager.clone_repository.end (res, out workdir, out error)) {
-                                debug ("Repository cloned into %s", workdir.get_uri ());
                                 open_folder (workdir);
                                 clone_dialog.destroy ();
+                                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                                    "Repository %s successfully cloned".printf (uri),
+                                    "Local repository working directory is %s".printf (workdir.get_uri ()),
+                                    "dialog-information",
+                                    Gtk.ButtonsType.CLOSE
+                                ) {
+                                    transient_for = this
+                                };
+                                message_dialog.response.connect (message_dialog.destroy);
+                                message_dialog.present ();
                             } else {
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     "Unable to clone %s".printf (uri),
