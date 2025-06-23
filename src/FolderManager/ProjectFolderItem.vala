@@ -374,13 +374,22 @@ namespace Scratch.FolderManager {
             });
         }
 
-        public void checkout_branch_ref (Ggit.Ref branch_ref) {
+        public bool checkout_branch_ref (Ggit.Ref branch_ref) {
             if (branch_ref.is_branch ()) {
-                var branch_name = ((Ggit.Branch)branch_ref).get_name ();
-                monitored_repo.change_local_branch (branch_name);
+                var branch_name = branch_ref.get_name ();
+                if (branch_name != null) {
+                    return monitored_repo.change_local_branch (branch_name);
+                } else {
+                    return false;
+                }
+
             } else {
                 var target_shorthand = branch_ref.get_shorthand ();
-                monitored_repo.checkout_remote_branch (target_shorthand);
+                if (target_shorthand != null) {
+                    return monitored_repo.checkout_remote_branch (target_shorthand);
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -424,22 +433,20 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.has_remote_branch_name (name) : false;
         }
 
-        public bool has_branch_name (string name, out bool? found_is_remote = null) {
-            var is_remote = false;
+        public bool has_branch_name (string name, out bool found_is_remote) {
+            found_is_remote = false;
+            // var is_remote = false;
             var found = false;
             if (!has_local_branch_name (name)) {
                 found = has_remote_branch_name (name);
-                is_remote = found;
+                found_is_remote = found;
             } else {
                 found = true;
             }
 
-            if (found_is_remote != null) {
-                found_is_remote = is_remote;
-            }
-
             return found;
         }
+
         public string get_current_branch_name () {
             return is_git_repo ? monitored_repo.branch_name : "";
         }
