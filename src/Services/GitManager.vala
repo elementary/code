@@ -113,15 +113,14 @@ namespace Scratch.Services {
             return build_path;
         }
 
-        //TODO Make this a real async function that does not block the main loop.
         public async bool clone_repository (
             string uri,
             string local_folder,
-            out File? repo_workdir
+            out File? repo_workdir,
+            out string? error
         ) throws Error {
-
             repo_workdir = null;
-            var folder_file = File.new_for_path (local_folder);
+            error = null;
 
             var fetch_options = new Ggit.FetchOptions ();
             fetch_options.set_download_tags (Ggit.RemoteDownloadTagsType.UNSPECIFIED);
@@ -133,14 +132,30 @@ namespace Scratch.Services {
             clone_options.set_is_bare (false);
             clone_options.set_fetch_options (fetch_options);
 
-            var new_repo = Ggit.Repository.clone (
-                uri,
-                folder_file,
-                clone_options
-            );
+            var e_message = ""; // Cannot capture out parameter so make local proxy
+            var folder_file = File.new_for_path (local_folder);
+            Ggit.Repository? new_repo = null;
+            Idle.add (() => {
+                try {
+                    new_repo = Ggit.Repository.clone (
+                        uri,
+                        folder_file,
+                        clone_options
+                    );
+                } catch (Error e) {
+                    e_message = e.message;
+                    new_repo = null;
+                }
 
+                clone_repository.callback ();
+                return Source.REMOVE;
+            });
+
+            yield;
             if (new_repo != null) {
                 repo_workdir = new_repo.get_workdir ();
+            } else {
+                error = e_message;
             }
 
             return new_repo != null;

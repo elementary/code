@@ -1066,17 +1066,16 @@ namespace Scratch {
                         uri,
                         target,
                         (obj, res) => {
-                            try {
-                                File? workdir = null;
-                                if (git_manager.clone_repository.end (res, out workdir)) {
-                                    debug ("Repository cloned into %s", workdir.get_uri ());
-                                    open_folder (workdir);
-                                    clone_dialog.destroy ();
-                                }
-                            } catch (Error e) {
+                            File? workdir = null;
+                            string? error = null;
+                            if (git_manager.clone_repository.end (res, out workdir, out error)) {
+                                debug ("Repository cloned into %s", workdir.get_uri ());
+                                open_folder (workdir);
+                                clone_dialog.destroy ();
+                            } else {
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     "Unable to clone %s".printf (uri),
-                                    e.message,
+                                    error,
                                     "dialog-error",
                                     Gtk.ButtonsType.CLOSE
                                 ) {
