@@ -26,15 +26,16 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
     public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
         Object (
-            transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
-            image_icon: new ThemedIcon ("git"),
-            modal: true,
             suggested_local_folder: _suggested_local_folder,
             suggested_remote: _suggested_remote
         );
     }
 
     construct {
+        transient_for = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+        image_icon = new ThemedIcon ("git");
+        modal = true;
+
         try {
             name_regex = new Regex (NAME_REGEX, OPTIMIZE, ANCHORED | NOTEMPTY);
         } catch (RegexError e) {
