@@ -12,9 +12,15 @@ public class Scratch.Dialogs.BranchCheckoutPage : Gtk.Box, BranchActionPage {
         }
     }
 
-    public Ggit.Ref branch_ref {
+    public Ggit.Ref? branch_ref {
         get {
             return list_box.get_selected_row ().bref;
+        }
+    }
+
+    public string new_branch_name {
+        get {
+            return "";
         }
     }
 

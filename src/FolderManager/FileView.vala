@@ -229,7 +229,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (res == Gtk.ResponseType.APPLY) {
                 var action = dialog.action;
                 var branch_ref = dialog.branch_ref;
-                perform_branch_action.begin (active_project, action, branch_ref);
+                perform_branch_action (dialog);
             }
 
             dialog.destroy ();
@@ -238,14 +238,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         dialog.present ();
     }
 
-    private async void perform_branch_action (
-        ProjectFolderItem project,
-        BranchAction action,
-        Ggit.Ref branch_ref
+    private void perform_branch_action (
+        Scratch.Dialogs.BranchActionDialog dialog
     ) {
-        switch (action) {
+        switch (dialog.action) {
             case CHECKOUT:
-                project.checkout_branch_ref (branch_ref);
+                dialog.project.checkout_branch_ref (dialog.branch_ref);
                 break;
             case COMMIT:
                 break;
@@ -258,6 +256,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             case DELETE:
                 break;
             case CREATE:
+                dialog.project.new_branch (dialog.new_branch_name);
                 break;
             default:
                 assert_not_reached ();

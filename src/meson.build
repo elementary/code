@@ -26,6 +26,7 @@ code_files = files(
     # 'Dialogs/NewBranchDialog.vala',
     'Dialogs/BranchActions/BranchActionDialog.vala',
     'Dialogs/BranchActions/BranchCheckoutPage.vala',
+    'Dialogs/BranchActions/BranchCreatePage.vala',
     'Dialogs/BranchActions/BranchListBox.vala',
     'Dialogs/BranchActions/BranchNameRow.vala',
     'FolderManager/File.vala',

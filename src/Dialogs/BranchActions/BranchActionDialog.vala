@@ -16,7 +16,8 @@ public enum Scratch.BranchAction {
 
 public interface Scratch.BranchActionPage : Gtk.Widget {
     public abstract BranchAction action { get; }
-    public abstract Ggit.Ref branch_ref { get; }
+    public abstract Ggit.Ref? branch_ref { get; }
+    public abstract string new_branch_name { get; }
 }
 
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
@@ -29,6 +30,12 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
     public Ggit.Ref branch_ref {
         get {
             return ((BranchActionPage)stack.get_visible_child ()).branch_ref;
+        }
+    }
+
+    public string new_branch_name {
+        get {
+            return ((BranchActionPage)stack.get_visible_child ()).new_branch_name;
         }
     }
 
@@ -54,6 +61,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             bind_property ("can-apply", apply_button, "sensitive", SYNC_CREATE);
             stack = new Gtk.Stack ();
             var checkout_page = new BranchCheckoutPage (this);
+            var create_page = new BranchCreatePage (this);
             stack.add_titled (checkout_page, BranchAction.CHECKOUT.to_string (), _("Checkout"));
 
             stack.add_titled (new Gtk.Label (_("Commit not implemented yet")), BranchAction.COMMIT.to_string (), _("Commit"));
@@ -61,7 +69,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             stack.add_titled (new Gtk.Label (_("Pull not implemented yet")), BranchAction.PULL.to_string (), _("Pull"));
             stack.add_titled (new Gtk.Label (_("Merge not implemented yet")), BranchAction.MERGE.to_string (), _("Merge"));
             stack.add_titled (new Gtk.Label (_("Delete not implemented yet")), BranchAction.DELETE.to_string (), _("Delete"));
-            stack.add_titled (new Gtk.Label (_("Create not implemented yet")), BranchAction.CREATE.to_string (), _("Create"));
+            stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("Create"));
 
             var sidebar = new Gtk.StackSidebar () {
                 stack = stack
