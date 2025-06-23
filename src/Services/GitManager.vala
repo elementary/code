@@ -118,7 +118,7 @@ namespace Scratch.Services {
             string local_folder,
             out File? repo_workdir,
             out string? error
-        ) throws Error {
+        ) {
             repo_workdir = null;
             error = null;
 
