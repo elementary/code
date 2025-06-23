@@ -14,15 +14,39 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     // - Can contain only letters ( a-zA-Z ), digits ( 0-9 ), underscores ( _ ), dots ( . ), or dashes ( - ).
     // - Must not contain consecutive special characters.
     // - Cannot end in . git or . atom .
+    private const string CLONE_REPOSITORY = N_("Clone Button");
+    private const string CLONING = N_("Cloning…");
 
     private const string NAME_REGEX = """^[0-9a-zA-Z].([-_.]?[0-9a-zA-Z])*$"""; //TODO additional validation required
     private Regex name_regex;
     private Gtk.Label projects_folder_label;
     private Granite.ValidatedEntry remote_repository_uri_entry;
     private Granite.ValidatedEntry local_project_name_entry;
+    private Gtk.Button clone_button;
+    private Gtk.Spinner spinner;
+    private Gtk.Revealer revealer;
 
     public string suggested_local_folder { get; construct; }
     public string suggested_remote { get; construct; }
+
+    public bool cloning_in_progress {
+        set {
+            if (value) {
+                clone_button.label = _(CLONING);
+                spinner.start ();
+
+            } else {
+                clone_button.label = _(CLONE_REPOSITORY);
+                spinner.stop ();
+            }
+
+            revealer.reveal_child = value;
+        }
+
+        get {
+            return revealer.reveal_child;
+        }
+    }
 
     public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
         Object (
@@ -95,19 +119,25 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         local_project_name_entry = new Granite.ValidatedEntry ();
         local_project_name_entry.changed.connect (validate_local_name);
 
-        var content_box = new Gtk.Box (VERTICAL, 12);
-        content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
-        content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
-        content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
+        revealer = new Gtk.Revealer () {
+            valign = END
+        };
+        spinner = new Gtk.Spinner ();
+        revealer.add (spinner);
+
+        var content_box = new Gtk.Grid ();
+        content_box.attach (new CloneEntry (_("Repository URL"), remote_repository_uri_entry), 0, 0);
+        content_box.attach (new CloneEntry (_("Location"), folder_chooser_button), 0, 1);
+        content_box.attach (new CloneEntry (_("Name of Clone"), local_project_name_entry), 0, 2);
+        content_box.attach (revealer, 1, 2);
         content_box.show_all ();
 
         custom_bin.add (content_box);
+        custom_bin.show_all ();
 
-        var clone_button = (Gtk.Button) add_button (_("Clone Repository"), Gtk.ResponseType.APPLY);
-        clone_button.can_default = true;
-        clone_button.has_default = true;
-        clone_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
+        clone_button = new Gtk.Button.with_label (_(CLONE_REPOSITORY));
+        clone_button.show ();
+        add_action_widget (clone_button, Gtk.ResponseType.APPLY);
         bind_property ("can-clone", clone_button, "sensitive", DEFAULT | SYNC_CREATE);
 
         //Do not want to connect to "is-valid" property notification as this gets changed to "true" every time the entry

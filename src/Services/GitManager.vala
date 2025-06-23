@@ -135,7 +135,9 @@ namespace Scratch.Services {
             var e_message = ""; // Cannot capture out parameter so make local proxy
             var folder_file = File.new_for_path (local_folder);
             Ggit.Repository? new_repo = null;
-            Idle.add (() => {
+
+            SourceFunc callback = clone_repository.callback;
+            new Thread<void> ("cloning", () => {
                 try {
                     new_repo = Ggit.Repository.clone (
                         uri,
@@ -147,8 +149,7 @@ namespace Scratch.Services {
                     new_repo = null;
                 }
 
-                clone_repository.callback ();
-                return Source.REMOVE;
+                Idle.add ((owned)callback);
             });
 
             yield;

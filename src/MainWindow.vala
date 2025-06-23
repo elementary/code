@@ -1057,8 +1057,8 @@ namespace Scratch {
                 Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
                 // MainWindow should provide feedback on cloning progress
                 // Hide clone dialog in case needed to retry
-                clone_dialog.hide ();
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
+                    clone_dialog.cloning_in_progress = true;
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
                     //TODO Show progress while cloning
@@ -1066,6 +1066,7 @@ namespace Scratch {
                         uri,
                         target,
                         (obj, res) => {
+                            clone_dialog.cloning_in_progress = false;
                             File? workdir = null;
                             string? error = null;
                             if (git_manager.clone_repository.end (res, out workdir, out error)) {
@@ -1082,6 +1083,7 @@ namespace Scratch {
                                 message_dialog.response.connect (message_dialog.destroy);
                                 message_dialog.present ();
                             } else {
+                                clone_dialog.hide ();
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     "Unable to clone %s".printf (uri),
                                     error,
@@ -1103,6 +1105,8 @@ namespace Scratch {
                             }
                         }
                     );
+                } else {
+                    clone_dialog.destroy ();
                 }
             });
 
