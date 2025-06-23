@@ -63,14 +63,15 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             stack = new Gtk.Stack ();
             var checkout_page = new BranchCheckoutPage (this);
             var create_page = new BranchCreatePage (this);
+            var commit_page = new BranchCommitPage (this);
             stack.add_titled (checkout_page, BranchAction.CHECKOUT.to_string (), _("Checkout"));
-
-            stack.add_titled (new Gtk.Label (_("Commit not implemented yet")), BranchAction.COMMIT.to_string (), _("Commit"));
+            stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("Create"));
+            stack.add_titled (commit_page, BranchAction.COMMIT.to_string (), _("Commit"));
             stack.add_titled (new Gtk.Label (_("Push not implemented yet")), BranchAction.PUSH.to_string (), _("Push"));
             stack.add_titled (new Gtk.Label (_("Pull not implemented yet")), BranchAction.PULL.to_string (), _("Pull"));
             stack.add_titled (new Gtk.Label (_("Merge not implemented yet")), BranchAction.MERGE.to_string (), _("Merge"));
             stack.add_titled (new Gtk.Label (_("Delete not implemented yet")), BranchAction.DELETE.to_string (), _("Delete"));
-            stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("Create"));
+
 
             var sidebar = new Gtk.StackSidebar () {
                 stack = stack

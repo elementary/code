@@ -84,6 +84,7 @@ namespace Scratch.Services {
                         case Ggit.StatusFlags.INDEX_NEW:
                         case Ggit.StatusFlags.INDEX_MODIFIED:
                         case Ggit.StatusFlags.INDEX_RENAMED:
+                        case Ggit.StatusFlags.INDEX_DELETED:
                         case Ggit.StatusFlags.WORKING_TREE_MODIFIED:
                             return true;
 
@@ -417,6 +418,39 @@ namespace Scratch.Services {
             } else {
                 do_update = false;
             }
+        }
+
+        public Gee.ArrayList<string> get_changed_files (bool staged) {
+            var list = new Gee.ArrayList<string> ();
+            file_status_map.map_iterator ().@foreach ((path, status) => {
+                if (staged) {
+                    switch (status) {
+                        case INDEX_NEW:
+                        case INDEX_MODIFIED:
+                        case INDEX_RENAMED:
+                        case INDEX_DELETED:
+                            list.add (path);
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    switch (status) {
+                        case WORKING_TREE_NEW:
+                        case WORKING_TREE_MODIFIED:
+                        // case WORKING_TREE_RENAMED:
+                        case WORKING_TREE_DELETED:
+                            list.add (path);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
+                return true;
+            });
+
+            return list;
         }
 
         public bool path_is_ignored (string path) throws Error {
