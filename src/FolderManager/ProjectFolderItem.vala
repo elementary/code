@@ -376,13 +376,17 @@ namespace Scratch.FolderManager {
 
         public bool checkout_branch_ref (Ggit.Ref branch_ref) {
             if (branch_ref.is_branch ()) {
-                var branch_name = branch_ref.get_name ();
-                if (branch_name != null) {
-                    return monitored_repo.change_local_branch (branch_name);
-                } else {
+                try {
+                    var branch_name = ((Ggit.Branch)branch_ref).get_name ();
+                    if (branch_name != null) {
+                        return monitored_repo.change_local_branch (branch_name);
+                    } else {
+                        return false;
+                    }
+                } catch (Error e) {
+                    warning ("Failed to get branch name from ref. %s", e.message);
                     return false;
                 }
-
             } else {
                 var target_shorthand = branch_ref.get_shorthand ();
                 if (target_shorthand != null) {
