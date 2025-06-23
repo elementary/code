@@ -2,7 +2,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Scratch.Services.
     const int MAX_LINES = 500;
 
     Scratch.Services.Interface plugins;
-    public Object object {owned get; construct;}
+    public Object object {owned get; set construct;}
 
     public void update_state () {
     }

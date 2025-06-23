@@ -78,7 +78,7 @@ namespace Scratch.Services {
 public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
