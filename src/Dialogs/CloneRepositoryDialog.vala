@@ -21,6 +21,16 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Gtk.Stack stack;
     private Gtk.Spinner spinner;
     private Gtk.Revealer revealer;
+    private Gtk.Label message_label;
+    private Gtk.Label indexing_label;
+    private Gtk.Label progress_label;
+    private Gtk.ProgressBar transfer_progress_bar;
+    private uint total_objects = 0;
+    private uint received_objects = 0;
+    private uint indexed_objects = 0;
+    private size_t received_bytes = 0;
+    private string remote_message = "";
+    private uint update_transfer_info_timeout_id = 0;
 
     public bool can_clone { get; private set; default = false; }
     public string suggested_local_folder { get; construct; }
@@ -37,6 +47,10 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 spinner.stop ();
             }
         }
+
+        get {
+            return spinner.active;
+        }
     }
 
     public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
@@ -44,6 +58,12 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             suggested_local_folder: _suggested_local_folder,
             suggested_remote: _suggested_remote
         );
+    }
+
+    ~CloneRepositoryDialog () {
+        if (update_transfer_info_timeout_id > 0) {
+            Source.remove (update_transfer_info_timeout_id);
+        }
     }
 
     construct {
@@ -121,14 +141,31 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         content_box.attach (new CloneEntry (_("Name of Clone"), local_project_name_entry), 0, 2);
         content_box.attach (revealer, 1, 2);
 
-        var cloning_box = new Gtk.Box (HORIZONTAL, 12) {
+        var cloning_box = new Gtk.Box (VERTICAL, 24) {
             valign = CENTER,
             halign = CENTER
         };
+        var spinner_box = new Gtk.Box (HORIZONTAL, 12) {
+            valign = CENTER,
+            halign = CENTER
+        };
+        message_label = new Gtk.Label ("");
+        progress_label = new Gtk.Label ("");
+        indexing_label = new Gtk.Label ("");
+        transfer_progress_bar = new Gtk.ProgressBar () {
+            fraction = 0.0
+        };
+
         var cloning_label = new Granite.HeaderLabel (_("Cloning in progress"));
         spinner = new Gtk.Spinner ();
-        cloning_box.add (cloning_label);
-        cloning_box.add (spinner);
+        spinner_box.add (cloning_label);
+        spinner_box.add (spinner);
+
+        cloning_box.add (spinner_box);
+        cloning_box.add (message_label);
+        cloning_box.add (transfer_progress_bar);
+        cloning_box.add (progress_label);
+        cloning_box.add (indexing_label);
 
         stack = new Gtk.Stack ();
         stack.add_named (content_box, "entries");
@@ -159,6 +196,58 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         } else {
             return suggested_remote;
         }
+    }
+
+    public Ggit.RemoteCallbacks? get_remote_callbacks () {
+        update_transfer_info_timeout_id = Timeout.add (200, () => {
+            if (total_objects > 0) {
+                transfer_progress_bar.fraction = received_objects / total_objects;
+            }
+
+            indexing_label.label = "%u indexed objects".printf (indexed_objects);
+            progress_label.label = "%u bytes received".printf ((uint)received_bytes);
+            message_label.label = remote_message;
+
+            if (cloning_in_progress) {
+                return Source.CONTINUE;
+            } else {
+                update_transfer_info_timeout_id = 0;
+                return Source.REMOVE;
+            }
+        });
+
+        var cbs = new RemoteCallbacks ();
+        cbs.progress.connect ((message) => {
+            remote_message = message;
+        });
+        cbs.transfer_progress.connect ((progress) => {
+            if (progress != null) {
+                received_objects = progress.get_received_objects ();
+                received_bytes = progress.get_received_bytes ();
+
+                indexed_objects = progress.get_indexed_objects ();
+                total_objects = progress.get_total_objects ();
+            }
+        });
+        //TODO Decide what to do with completion info.  Notification?
+        cbs.completion.connect ((type) => {
+        warning ("received completion signal");
+            switch (type) {
+                case DOWNLOAD:
+                    warning ("Download completed");
+                    break;
+                case INDEXING:
+                    warning ("Indexing completed");
+                    break;
+                case ERROR:
+                    warning ("Transfer ended with error");
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+        });
+
+        return cbs;
     }
 
     public string get_valid_source_repository_uri () requires (can_clone) {
@@ -253,6 +342,31 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         construct {
             orientation = VERTICAL;
+        }
+    }
+
+    //Provide for plaintext user password for now
+    private class RemoteCallbacks : Ggit.RemoteCallbacks {
+        public string? user { get; construct; }
+        public string? password { get; construct; }
+
+        public RemoteCallbacks (string? user = null, string? password = null) {
+            Object (
+                user: user,
+                password: password
+            );
+        }
+
+        public override Ggit.Cred? credentials (
+            string url,
+            string? username_from_url,
+            Ggit.Credtype allowed_types
+        ) throws Error {
+            if (user != null && password != null && Ggit.Credtype.USERPASS_PLAINTEXT in allowed_types) {
+                return new Ggit.CredPlaintext (user, password);
+            } else {
+                return null;
+            }
         }
     }
 }
