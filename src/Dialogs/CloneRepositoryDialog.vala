@@ -14,7 +14,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     // - Can contain only letters ( a-zA-Z ), digits ( 0-9 ), underscores ( _ ), dots ( . ), or dashes ( - ).
     // - Must not contain consecutive special characters.
     // - Cannot end in . git or . atom .
-    private const string CLONE_REPOSITORY = N_("Clone Button");
+    private const string CLONE_REPOSITORY = N_("Clone Repository");
     private const string CLONING = N_("Cloning…");
 
     private const string NAME_REGEX = """^[0-9a-zA-Z].([-_.]?[0-9a-zA-Z])*$"""; //TODO additional validation required
@@ -119,11 +119,11 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         local_project_name_entry = new Granite.ValidatedEntry ();
         local_project_name_entry.changed.connect (validate_local_name);
 
-        revealer = new Gtk.Revealer () {
-            valign = END
-        };
         spinner = new Gtk.Spinner ();
-        revealer.add (spinner);
+        revealer = new Gtk.Revealer () {
+            valign = END,
+            child = spinner
+        };
 
         var content_box = new Gtk.Grid ();
         content_box.attach (new CloneEntry (_("Repository URL"), remote_repository_uri_entry), 0, 0);
@@ -133,11 +133,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         content_box.show_all ();
 
         custom_bin.add (content_box);
-        custom_bin.show_all ();
 
-        clone_button = new Gtk.Button.with_label (_(CLONE_REPOSITORY));
-        clone_button.show ();
-        add_action_widget (clone_button, Gtk.ResponseType.APPLY);
+        clone_button = (Gtk.Button)add_button (_(CLONE_REPOSITORY), Gtk.ResponseType.APPLY);
         bind_property ("can-clone", clone_button, "sensitive", DEFAULT | SYNC_CREATE);
 
         //Do not want to connect to "is-valid" property notification as this gets changed to "true" every time the entry
