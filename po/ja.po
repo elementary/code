@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 16:18+0000\n"
-"PO-Revision-Date: 2025-06-13 13:55+0000\n"
+"PO-Revision-Date: 2025-06-24 22:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -127,7 +127,7 @@ msgstr "キャンセル(_C)"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "再試行"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -138,49 +138,46 @@ msgstr "'%s' をデフォルトアプリで表示"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Git リポジトリをローカルにクローンする"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:57
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
-msgstr ""
+msgstr "クローン元リポジトリとローカルフォルダーが存在し、読み書き権限を持っている必"
+"要があります"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:60
 msgid "Clone Repository"
-msgstr ""
+msgstr "リポジトリをクローン"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:70
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:94
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "リポジトリのクローン先の親フォルダーを選択"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "すべて選択"
+msgstr "選択"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Repository URL"
-msgstr ""
+msgstr "リポジトリの URL"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "ローカル"
+msgstr "場所"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:121
 msgid "Name of Clone"
-msgstr ""
+msgstr "クローン先フォルダー"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:128
 msgid "Cloning in progress"
-msgstr ""
+msgstr "クローン中"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -800,7 +797,7 @@ msgstr "フォルダーを開く…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Git リポジトリをクローン…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -932,10 +929,8 @@ msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "プロジェクトフォルダーを管理"
+msgstr "プロジェクトフォルダーを管理…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
