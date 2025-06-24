@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 16:18+0000\n"
+"POT-Creation-Date: 2025-06-24 22:16+0000\n"
 "PO-Revision-Date: 2023-08-08 09:08+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -108,8 +108,8 @@ msgstr "打开一些文件"
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:59
-#: src/Dialogs/CloneRepositoryDialog.vala:98
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
@@ -125,6 +125,22 @@ msgstr "打开(_O)"
 msgid "_Cancel"
 msgstr "取消(_C)"
 
+#: src/MainWindow.vala:1075
+#, c-format
+msgid "Repository %s successfully cloned"
+msgstr ""
+
+#: src/MainWindow.vala:1076
+#, fuzzy, c-format
+#| msgid "Current working directory"
+msgid "Local repository working directory is %s"
+msgstr "当前工作目录"
+
+#: src/MainWindow.vala:1087
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
 #: src/MainWindow.vala:1094
 msgid "Retry"
 msgstr ""
@@ -136,47 +152,47 @@ msgid "Show '%s' with default app"
 msgstr ""
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/CloneRepositoryDialog.vala:56
+#: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:57
+#: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:60
+#: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:70
+#: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:94
+#: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/CloneRepositoryDialog.vala:96
 #, fuzzy
 #| msgid "Select Format"
 msgid "Select"
 msgstr "选择格式"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:119
+#: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:120
+#: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:121
+#: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
 msgstr ""
 
-#: src/Dialogs/CloneRepositoryDialog.vala:128
+#: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
 msgstr ""
 
@@ -1342,9 +1358,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "无法加载图标主题：%s\n"
-
-#~ msgid "Current working directory"
-#~ msgstr "当前工作目录"
 
 #, fuzzy
 #~ msgid "directory"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 16:18+0000\n"
+"POT-Creation-Date: 2025-06-24 22:16+0000\n"
 "PO-Revision-Date: 2025-06-24 22:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
@@ -108,8 +108,8 @@ msgstr "複数のファイルを開く"
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:59
-#: src/Dialogs/CloneRepositoryDialog.vala:98
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
@@ -125,6 +125,22 @@ msgstr "開く(_O)"
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
+#: src/MainWindow.vala:1075
+#, c-format
+msgid "Repository %s successfully cloned"
+msgstr ""
+
+#: src/MainWindow.vala:1076
+#, fuzzy, c-format
+#| msgid "Current working directory"
+msgid "Local repository working directory is %s"
+msgstr "カレントディレクトリ"
+
+#: src/MainWindow.vala:1087
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
 #: src/MainWindow.vala:1094
 msgid "Retry"
 msgstr "再試行"
@@ -136,46 +152,47 @@ msgid "Show '%s' with default app"
 msgstr "'%s' をデフォルトアプリで表示"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/CloneRepositoryDialog.vala:56
+#: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
 msgstr "Git リポジトリをローカルにクローンする"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:57
+#: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
-msgstr "クローン元リポジトリとローカルフォルダーが存在し、読み書き権限を持っている必"
+msgstr ""
+"クローン元リポジトリとローカルフォルダーが存在し、読み書き権限を持っている必"
 "要があります"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:60
+#: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
 msgstr "リポジトリをクローン"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:70
+#: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
 msgstr "https://example.com/username/projectname.git"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:94
+#: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
 msgstr "リポジトリのクローン先の親フォルダーを選択"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/CloneRepositoryDialog.vala:96
 msgid "Select"
 msgstr "選択"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:119
+#: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
 msgstr "リポジトリの URL"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:120
+#: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
 msgstr "場所"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:121
+#: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
 msgstr "クローン先フォルダー"
 
-#: src/Dialogs/CloneRepositoryDialog.vala:128
+#: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
 msgstr "クローン中"
 
@@ -1311,9 +1328,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "アイコンテーマを読み込めませんでした: %s\n"
-
-#~ msgid "Current working directory"
-#~ msgstr "カレントディレクトリ"
 
 #~ msgid "directory"
 #~ msgstr "ディレクトリ"
