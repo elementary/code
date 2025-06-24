@@ -112,8 +112,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         local_project_name_entry = new Granite.ValidatedEntry ();
         local_project_name_entry.changed.connect (validate_local_name);
 
-
-
         var content_box = new Gtk.Grid ();
         content_box.attach (new CloneEntry (_("Repository URL"), remote_repository_uri_entry), 0, 0);
         content_box.attach (new CloneEntry (_("Location"), folder_chooser_button), 0, 1);
@@ -177,7 +175,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                     local_project_name_entry.is_valid &&
                     projects_folder_label.label != "";
 
-        //TODO Check whether the target folder already exists and is not empty?
+        // Checking whether the target folder already exists and is not empty occurs after pressing apply
     }
 
     private void on_remote_uri_changed (Gtk.Editable source) {

@@ -1055,13 +1055,12 @@ namespace Scratch {
                 // Persist last entries (not necessarily valid)
                 Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
                 Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
-                // MainWindow should provide feedback on cloning progress
-                // Hide clone dialog in case needed to retry
-                if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) { // Should not need second test?
+                // Clone dialog show spinner during cloning so keep visible
+                //TODO Show more information re progress using Ggit callbacks
+                if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) {
                     clone_dialog.cloning_in_progress = true;
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
-                    //TODO Show progress while cloning
                     git_manager.clone_repository.begin (
                         uri,
                         target,
@@ -1099,6 +1098,7 @@ namespace Scratch {
                                     } else {
                                         clone_dialog.destroy ();
                                     }
+
                                     message_dialog.destroy ();
                                 });
                                 message_dialog.present ();
