@@ -20,7 +20,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Gtk.Button clone_button;
     private Gtk.Stack stack;
     private Gtk.Spinner spinner;
-    private Gtk.Revealer revealer;
 
     public bool can_clone { get; private set; default = false; }
     public string suggested_local_folder { get; construct; }
@@ -115,18 +114,18 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         };
         local_project_name_entry.changed.connect (validate_local_name);
 
-        var content_box = new Gtk.Grid ();
-        content_box.attach (new CloneEntry (_("Repository URL"), remote_repository_uri_entry), 0, 0);
-        content_box.attach (new CloneEntry (_("Location"), folder_chooser_button), 0, 1);
-        content_box.attach (new CloneEntry (_("Name of Clone"), local_project_name_entry), 0, 2);
-        content_box.attach (revealer, 1, 2);
+        var content_box = new Gtk.Box (VERTICAL, 0);
+        content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
+        content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
+        content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
+
+        var cloning_label = new Granite.HeaderLabel (_("Cloning in progress"));
+        spinner = new Gtk.Spinner ();
 
         var cloning_box = new Gtk.Box (HORIZONTAL, 12) {
             valign = CENTER,
             halign = CENTER
         };
-        var cloning_label = new Granite.HeaderLabel (_("Cloning in progress"));
-        spinner = new Gtk.Spinner ();
         cloning_box.add (cloning_label);
         cloning_box.add (spinner);
 
