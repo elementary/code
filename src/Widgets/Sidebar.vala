@@ -70,14 +70,14 @@ public class Code.Sidebar : Gtk.Grid {
         var label = new Gtk.Label ( _("Manage project folders…")) {
             halign = START
         };
-        var project_more_button = new Gtk.MenuButton () {
+        var project_menu_button = new Gtk.MenuButton () {
             hexpand = true,
             use_popover = false,
             menu_model = project_menu_model,
             child = label
         };
 
-        actionbar.pack_start (project_more_button);
+        actionbar.pack_start (project_menu_button);
 
         add (headerbar);
         add (stack_switcher);
