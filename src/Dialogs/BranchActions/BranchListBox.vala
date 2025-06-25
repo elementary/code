@@ -63,7 +63,10 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         list_box.set_sort_func (listbox_sort_func);
         list_box.set_header_func (listbox_header_func);
         list_box.row_selected.connect ((listboxrow) => {
+            //We want cursor to end up after the inserted text
             search_entry.text = ((BranchNameRow)(listboxrow)).branch_name;
+            search_entry.grab_focus_without_selecting ();
+            search_entry.move_cursor (DISPLAY_LINE_ENDS, 1, false);
         });
         list_box.row_activated.connect ((listboxrow) => {
             dialog.page_activated ();
@@ -76,6 +79,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
             list_box.invalidate_headers ();
             // Checkout action
             dialog.can_apply = dialog.project.has_branch_name (search_entry.text, null);
+        });
+        search_entry.activate.connect (() => {
+            dialog.page_activated ();
         });
     }
 
