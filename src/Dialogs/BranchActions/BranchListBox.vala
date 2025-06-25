@@ -5,6 +5,7 @@
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
 */
 private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
+    public signal void branch_changed (string branch_name);
     public string text {
         get {
             return search_entry.text;
@@ -77,8 +78,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         search_entry.changed.connect (() => {
             list_box.invalidate_filter ();
             list_box.invalidate_headers ();
-            // Checkout action
-            dialog.can_apply = dialog.project.has_branch_name (search_entry.text, null);
+            branch_changed (text);
         });
         search_entry.activate.connect (() => {
             dialog.page_activated ();

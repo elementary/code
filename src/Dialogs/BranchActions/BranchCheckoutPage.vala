@@ -37,6 +37,9 @@ public class Scratch.Dialogs.BranchCheckoutPage : Gtk.Box, BranchActionPage {
     construct {
         list_box = new BranchListBox (dialog, true);
         add (list_box);
+        list_box.branch_changed.connect ((text) => {
+            dialog.can_apply = dialog.project.has_branch_name (text, null);
+        });
     }
 
     public override void focus_start_widget () {
