@@ -77,7 +77,10 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         });
         search_entry.changed.connect (() => {
             list_box.invalidate_filter ();
-            list_box.invalidate_headers ();
+            // recent_header.unparent ();
+            // local_header.unparent ();
+            // remote_header.unparent ();
+            // list_box.invalidate_headers ();
             branch_changed (text);
         });
         search_entry.activate.connect (() => {
@@ -120,6 +123,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
     private void listbox_header_func (Gtk.ListBoxRow row, Gtk.ListBoxRow? row_before) {
         var a = (BranchNameRow)row;
         var b = (BranchNameRow?)row_before;
+        a.set_header (null);
         if (b == null) {
             if (a.is_recent) {
                 a.set_header (recent_header);
@@ -128,14 +132,16 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
             } else {
                 a.set_header (remote_header);
             }
-        } else if (b.is_recent && !a.is_recent) {
-            if (!a.is_remote && a.get_header () != local_header) {
+        } else if (b.is_recent) {
+            if (!a.is_remote) {
                 a.set_header (local_header);
-            } else if (a.is_remote && a.get_header () != remote_header) {
+            } else if (a.is_remote) {
                 a.set_header (remote_header);
             }
-        } else if (!b.is_remote && a.is_remote && a.get_header () != remote_header) {
-            a.set_header (remote_header);
+        } else if (!b.is_remote) {
+            if (a.is_remote) {
+                a.set_header (remote_header);
+            }
         }
     }
 
