@@ -18,6 +18,7 @@ public interface Scratch.BranchActionPage : Gtk.Widget {
     public abstract BranchAction action { get; }
     public abstract Ggit.Ref? branch_ref { get; }
     public abstract string new_branch_name { get; }
+    public virtual void focus_start_widget () {}
 }
 
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
@@ -39,10 +40,11 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
         }
     }
 
-    private Gtk.Stack stack;
     public bool can_apply { get; set; default = false; }
-
     public FolderManager.ProjectFolderItem project { get; construct; }
+
+    private Gtk.Stack stack;
+
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
             project: project
@@ -89,5 +91,9 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             secondary_text = _("Unable to perform branch actions");
             image_icon = new ThemedIcon ("dialog-error");
         }
+
+        realize.connect (() => {
+            ((BranchActionPage)stack.get_visible_child ()).focus_start_widget ();
+        });
     }
 }

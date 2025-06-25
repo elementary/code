@@ -134,4 +134,8 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
             a.set_header (remote_header);
         }
     }
+
+    public new void grab_focus () {
+        search_entry.grab_focus ();
+    }
 }
