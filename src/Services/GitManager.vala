@@ -144,9 +144,13 @@ namespace Scratch.Services {
                         folder_file,
                         clone_options
                     );
+
+                    new_repo.submodule_foreach ((submodule, name) => {
+                        submodule.update (true, null);
+                        return 0;
+                    });
                 } catch (Error e) {
                     e_message = e.message;
-                    new_repo = null;
                 }
 
                 Idle.add ((owned)callback);
@@ -155,7 +159,9 @@ namespace Scratch.Services {
             yield;
             if (new_repo != null) {
                 repo_workdir = new_repo.get_workdir ();
-            } else {
+            }
+
+            if (e_message != "") {
                 error = e_message;
             }
 

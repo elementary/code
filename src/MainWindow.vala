@@ -1071,14 +1071,26 @@ namespace Scratch {
                             if (git_manager.clone_repository.end (res, out workdir, out error)) {
                                 open_folder (workdir);
                                 clone_dialog.destroy ();
+                                var primary_text = "";
+                                if (error == null) {
+                                    primary_text = _("Repository %s successfully cloned").printf (uri);
+                                } else {
+                                    // e.g. Problem updating submodules
+                                    primary_text = _("Repository %s cloned with error").printf (uri);
+                                }
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    _("Repository %s successfully cloned").printf (uri),
+                                    primary_text,
                                     _("Local repository working directory is %s").printf (workdir.get_uri ()),
                                     "dialog-information",
                                     Gtk.ButtonsType.CLOSE
                                 ) {
                                     transient_for = this
                                 };
+
+                                if (error != null) {
+                                    message_dialog.show_error_details (error);
+                                }
+
                                 message_dialog.response.connect (message_dialog.destroy);
                                 message_dialog.present ();
                             } else {
