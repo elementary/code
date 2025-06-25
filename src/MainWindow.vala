@@ -1061,11 +1061,17 @@ namespace Scratch {
                     clone_dialog.cloning_in_progress = true;
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
+// <<<<<<< HEAD
                     var callbacks = clone_dialog.get_remote_callbacks ();
                     git_manager.clone_repository.begin (
                         uri,
                         target,
                         callbacks,
+// =======
+//                     git_manager.clone_repository.begin (
+//                         uri,
+//                         target,
+// >>>>>>> master
                         (obj, res) => {
                             clone_dialog.cloning_in_progress = false;
                             File? workdir = null;
@@ -1074,8 +1080,8 @@ namespace Scratch {
                                 open_folder (workdir);
                                 clone_dialog.destroy ();
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    "Repository %s successfully cloned".printf (uri),
-                                    "Local repository working directory is %s".printf (workdir.get_uri ()),
+                                    _("Repository %s successfully cloned").printf (uri),
+                                    _("Local repository working directory is %s").printf (workdir.get_uri ()),
                                     "dialog-information",
                                     Gtk.ButtonsType.CLOSE
                                 ) {
@@ -1086,7 +1092,7 @@ namespace Scratch {
                             } else {
                                 clone_dialog.hide ();
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    "Unable to clone %s".printf (uri),
+                                    _("Unable to clone %s").printf (uri),
                                     error,
                                     "dialog-error",
                                     Gtk.ButtonsType.CLOSE
