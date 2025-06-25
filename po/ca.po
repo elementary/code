@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-10 19:35+0000\n"
+"PO-Revision-Date: 2025-06-26 09:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,22 +128,21 @@ msgstr "_Cancel·la"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "Repositori %s clonat correctament"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "Directori de treball actual"
+msgstr "El directori de treball del repositori local és %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "No s'ha pogut clonar %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Torna-ho a provar"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -154,49 +153,47 @@ msgstr "Mostra %s amb l'aplicació per defecte"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Crea un clon local d'un repositori de Git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"El repositori d'origen i la carpeta local han d'existir i tenir els permisos "
+"de lectura i escriptura necessaris."
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Clona el repositori"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://exemple.com/numd'usuari/nomdelprojecte.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Seleccioneu la carpeta on es crearà el repositori clonat"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Selecciona-ho tot"
+msgstr "Selecciona"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "URL del repositori"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "Local"
+msgstr "Ubicació"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Nom del clon"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Clonació en curs"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -829,7 +826,7 @@ msgstr "Obre una carpeta…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Clona un repositori de Git…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -963,10 +960,8 @@ msgid "Alphabetize"
 msgstr "Per ordre alfabètic"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Gestioneu les carpetes de projectes"
+msgstr "Gestioneu les carpetes del projecte…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
