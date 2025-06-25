@@ -108,23 +108,16 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
 
     private void listbox_header_func (Gtk.ListBoxRow row, Gtk.ListBoxRow? row_before) {
         var a = (BranchNameRow)row;
-        a.set_header (null);
-        if (row_before == null) {
-            if (a.is_recent && a.get_header () != recent_header) {
+        var b = (BranchNameRow?)row_before;
+        if (b == null) {
+            if (a.is_recent) {
                 a.set_header (recent_header);
-            } else if (!a.is_remote && a.get_header () != local_header) {
+            } else if (!a.is_remote) {
                 a.set_header (local_header);
             } else {
                 a.set_header (remote_header);
             }
-
-            return;
-        }
-
-
-        var b = (BranchNameRow)row_before;
-
-        if (b.is_recent && !a.is_recent) {
+        } else if (b.is_recent && !a.is_recent) {
             if (!a.is_remote && a.get_header () != local_header) {
                 a.set_header (local_header);
             } else if (a.is_remote && a.get_header () != remote_header) {
