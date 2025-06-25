@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-18 19:55+0000\n"
+"PO-Revision-Date: 2025-06-26 09:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -128,22 +128,21 @@ msgstr "_Mégse"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "A(z) %s tároló sikeresen klónozva"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "Aktuális munkakönyvtár"
+msgstr "Az aktuális munkakönyvtár: %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Nem sikerült a(z) %s klónozása"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Újra"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -154,49 +153,47 @@ msgstr "'%s' megjelenítése az alapértelmezett alkalmazással"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Egy Git tároló lokális klónjának készítése"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"A forrástárolónak és a helyi mappának léteznie kell és rendelkeznie kell a "
+"megfelelő írási és olvasási engedélyekkel"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Tároló klónozása"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://pelda.hu/felhasznalonev/projektnev.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Válassza ki a mappát, ahová a klónozott tároló létrejön"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Összes kiválasztása"
+msgstr "Kiválasztás"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "Tároló URL-je"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "Helyi"
+msgstr "Hely"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Klón neve"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Klónozás folyamatban"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -711,7 +708,7 @@ msgstr "A(z) '%s' távoli elágazás nem található"
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
-msgstr "A kért elágazás nem található egy távoli repositoryban sem"
+msgstr "A kért elágazás nem található egy távoli tárolóban sem"
 
 #: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
@@ -827,7 +824,7 @@ msgstr "Mappa megnyitása…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Git tároló klónozása…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -961,10 +958,8 @@ msgid "Alphabetize"
 msgstr "Betűrendbe"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Projekt mappáinak kezelése"
+msgstr "Projekt mappáinak kezelése…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
