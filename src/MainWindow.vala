@@ -1061,17 +1061,11 @@ namespace Scratch {
                     clone_dialog.cloning_in_progress = true;
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
-// <<<<<<< HEAD
                     var callbacks = clone_dialog.get_remote_callbacks ();
                     git_manager.clone_repository.begin (
                         uri,
                         target,
                         callbacks,
-// =======
-//                     git_manager.clone_repository.begin (
-//                         uri,
-//                         target,
-// >>>>>>> master
                         (obj, res) => {
                             clone_dialog.cloning_in_progress = false;
                             File? workdir = null;
