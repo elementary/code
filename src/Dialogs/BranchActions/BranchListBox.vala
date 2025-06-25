@@ -28,7 +28,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
     }
 
     construct {
-        list_box = new Gtk.ListBox ();
+        list_box = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
         var scrolled_window = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
@@ -60,8 +62,11 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         }
         list_box.set_sort_func (listbox_sort_func);
         list_box.set_header_func (listbox_header_func);
-        list_box.row_activated.connect ((listboxrow) => {
+        list_box.row_selected.connect ((listboxrow) => {
             search_entry.text = ((BranchNameRow)(listboxrow)).branch_name;
+        });
+        list_box.row_activated.connect ((listboxrow) => {
+            dialog.page_activated ();
         });
         list_box.set_filter_func ((listboxrow) => {
             return (((BranchNameRow)(listboxrow)).branch_name.contains (search_entry.text));

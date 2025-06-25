@@ -22,6 +22,8 @@ public interface Scratch.BranchActionPage : Gtk.Widget {
 }
 
 public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
+    public signal void page_activated ();
+
     public BranchAction action {
         get {
             return ((BranchActionPage)stack.get_visible_child ()).action;
@@ -94,6 +96,12 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
         realize.connect (() => {
             ((BranchActionPage)stack.get_visible_child ()).focus_start_widget ();
+        });
+
+        page_activated.connect (() => {
+            if (can_apply) {
+                response (Gtk.ResponseType.APPLY);
+            }
         });
     }
 }

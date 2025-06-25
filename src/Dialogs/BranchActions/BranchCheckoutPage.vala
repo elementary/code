@@ -40,7 +40,6 @@ public class Scratch.Dialogs.BranchCheckoutPage : Gtk.Box, BranchActionPage {
     }
 
     public override void focus_start_widget () {
-        warning ("checkout page focus start");
         list_box.grab_focus ();
     }
 }
