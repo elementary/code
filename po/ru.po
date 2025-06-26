@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-14 16:55+0000\n"
+"PO-Revision-Date: 2025-06-27 14:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,22 +129,21 @@ msgstr "_Отменить"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "Репозиторий «%s» успешно клонирован"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "Текущий рабочий каталог"
+msgstr "Рабочий каталог локального репозитория — %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Не удалось клонировать «%s»"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Попробовать снова"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -155,49 +154,47 @@ msgstr "Показать «%s» в приложении по умолчанию"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Создать локальный клон Git-репозитория"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"Исходный репозиторий и локальная папка должны существовать и иметь права "
+"доступа на чтение и запись"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Клонировать репозиторий"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Выберите папку, где будет создан клонированный репозиторий"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Выбрать все"
+msgstr "Выбрать"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "URL-адрес репозитория"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "Локальные"
+msgstr "Расположение"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Название клона"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Клонирование в процессе"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -281,7 +278,7 @@ msgstr "Вставлять пробелы вместо табуляций"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
-msgstr "Директория сборки по умолчанию"
+msgstr "Каталог сборки по умолчанию"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Projects"
@@ -831,7 +828,7 @@ msgstr "Открыть папку…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Клонировать Git-репозиторий…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -967,10 +964,8 @@ msgid "Alphabetize"
 msgstr "По алфавиту"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Управление папками проекта"
+msgstr "Управление папками проекта…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
