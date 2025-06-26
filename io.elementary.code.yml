@@ -1,4 +1,4 @@
-app-id: io.elementary.code8
+app-id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
 runtime-version: '8' # Does not build with version '8.1' for some reason
 sdk: io.elementary.Sdk
@@ -81,7 +81,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
-            tag: 'v1.5.1'
+            tag: 'v1.7.2'
 
   - name: editorconfig
     buildsystem: cmake-ninja
