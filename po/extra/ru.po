@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2024-10-22 05:04+0000\n"
+"PO-Revision-Date: 2025-06-27 14:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/code/extra/ru/>\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/extra/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -262,7 +263,7 @@ msgstr "Добавлена фильтрация символов на стран
 
 #: data/code.metainfo.xml.in:144
 msgid "The Terminal pane now has a settable default directory"
-msgstr "Панель терминала теперь имеет настраиваемую директорию по умолчанию"
+msgstr "Панель терминала теперь имеет настраиваемый каталог по умолчанию"
 
 #: data/code.metainfo.xml.in:145
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
