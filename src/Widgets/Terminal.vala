@@ -16,6 +16,9 @@ public class Code.Terminal : Gtk.Box {
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
 
     public Vte.Terminal terminal { get; construct; }
+    private Gtk.EventControllerKey key_controller;
+    private Settings pantheon_terminal_settings;
+
     public SimpleActionGroup actions { get; construct; }
 
 
@@ -97,6 +100,11 @@ public class Code.Terminal : Gtk.Box {
         menu.insert_action_group (ACTION_GROUP, actions);
         menu.show_all ();
 
+        key_controller = new Gtk.EventControllerKey (terminal) {
+            propagation_phase = BUBBLE
+        };
+        key_controller.key_pressed.connect (key_pressed);
+
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 paste_action.set_enabled (current_clipboard.wait_is_text_available ());
@@ -171,11 +179,14 @@ public class Code.Terminal : Gtk.Box {
 
         if (font_name == "") {
             var system_interface_settings = new Settings ("org.gnome.desktop.interface");
+            //Can we assume that this settings exists and has the expected key?
             font_name = system_interface_settings.get_string ("monospace-font-name");
         }
 
-        var fd = Pango.FontDescription.from_string (font_name);
-        terminal.set_font (fd);
+        if (font_name != "") {
+            var fd = Pango.FontDescription.from_string (font_name);
+            terminal.set_font (fd);
+        }
     }
 
     private void update_audible_bell () {
@@ -261,5 +272,36 @@ public class Code.Terminal : Gtk.Box {
 
     public void set_default_font_size () {
         terminal.font_scale = 1.0;
+    }
+
+    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType modifiers) {
+        // Use hardware keycodes so the key used is unaffected by internationalized layout
+        bool match_keycode (uint keyval, uint code) {
+            Gdk.KeymapKey[] keys;
+
+            var keymap = Gdk.Keymap.get_for_display (get_display ());
+            if (keymap.get_entries_for_keyval (keyval, out keys)) {
+                foreach (var key in keys) {
+                    if (code == key.keycode) {
+                        return Gdk.EVENT_STOP;
+                    }
+                }
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        }
+
+        if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
+            if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
+                actions.activate_action (ACTION_COPY, null);
+                return Gdk.EVENT_STOP;
+            } else if (match_keycode (Gdk.Key.v, keycode) && current_clipboard.wait_is_text_available ()) {
+                actions.activate_action (ACTION_PASTE, null);
+                return Gdk.EVENT_STOP;
+            }
+        }
+
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
