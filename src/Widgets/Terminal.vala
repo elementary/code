@@ -25,7 +25,6 @@ public class Code.Terminal : Gtk.Box {
     private const string GNOME_FONT_KEY = "monospace-font-name";
     private const string GNOME_BELL_KEY = "audible-bell";
 
-
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
     private Settings pantheon_terminal_settings;
@@ -43,7 +42,8 @@ public class Code.Terminal : Gtk.Box {
         terminal = new Vte.Terminal () {
             hexpand = true,
             vexpand = true,
-            scrollback_lines = -1
+            scrollback_lines = -1,
+            cursor_blink_mode = SYSTEM  // There is no Terminal setting so follow Gnome
         };
 
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
