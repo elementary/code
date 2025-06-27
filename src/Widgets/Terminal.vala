@@ -14,10 +14,23 @@ public class Code.Terminal : Gtk.Box {
     private const double MIN_SCALE = 0.2;
     private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
+    private const string GNOME_DESKTOP_INTERFACE_SCHEMA = "org.gnome.desktop.interface";
+    private const string GNOME_DESKTOP_WM_PREFERENCES_SCHEMA = "org.gnome.desktop.wm.preferences";
+    private const string TERMINAL_FONT_KEY = "font";
+    private const string TERMINAL_BELL_KEY = "audible-bell";
+    private const string TERMINAL_CURSOR_KEY = "cursor-shape";
+    private const string TERMINAL_FOREGROUND_KEY = "foreground";
+    private const string TERMINAL_BACKGROUND_KEY = "background";
+    private const string TERMINAL_PALETTE_KEY = "palette";
+    private const string GNOME_FONT_KEY = "monospace-font-name";
+    private const string GNOME_BELL_KEY = "audible-bell";
+
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
     private Settings pantheon_terminal_settings;
+    private Settings gnome_interface_settings;
+    private Settings gnome_wm_settings;
 
     public SimpleActionGroup actions { get; construct; }
 
@@ -44,18 +57,18 @@ public class Code.Terminal : Gtk.Box {
             terminal_settings = new Settings.full (terminal_schema, null, null);
             terminal_settings.changed.connect ((key) => {
                 switch (key) {
-                    case "font":
+                    case TERMINAL_FONT_KEY:
                         update_font ();
                         break;
-                    case "audible-bell":
+                    case TERMINAL_BELL_KEY:
                         update_audible_bell ();
                         break;
-                    case "cursor-shape":
+                    case TERMINAL_CURSOR_KEY:
                         update_cursor ();
                         break;
-                    case "foreground":
-                    case "background":
-                    case "palette":
+                    case TERMINAL_FOREGROUND_KEY:
+                    case TERMINAL_BACKGROUND_KEY:
+                    case TERMINAL_PALETTE_KEY:
                         update_colors ();
                         break;
                     default:
@@ -66,10 +79,36 @@ public class Code.Terminal : Gtk.Box {
                 }
             });
         } else {
+            var gnome_wm_settings_schema = schema_source.lookup (GNOME_DESKTOP_WM_PREFERENCES_SCHEMA, true);
+            if (gnome_wm_settings_schema != null) {
+                gnome_wm_settings = new Settings.full (gnome_wm_settings_schema, null, null);
+                gnome_wm_settings.changed.connect ((key) => {
+                    switch (key) {
+                        case GNOME_BELL_KEY:
+                            update_audible_bell ();
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            }
             //TODO monitor changes in relevant system settings
-            // "audible-bell"
-            // "monospace-font-name"
             // "color-scheme"
+        }
+
+        // Always monitor changes in default font as that is what Terminal usually follows
+        var gnome_interface_settings_schema = schema_source.lookup (GNOME_DESKTOP_INTERFACE_SCHEMA, true);
+        if (gnome_interface_settings_schema != null) {
+            gnome_interface_settings = new Settings.full (gnome_interface_settings_schema, null, null);
+            gnome_interface_settings.changed.connect ((key) => {
+                switch (key) {
+                    case GNOME_FONT_KEY:
+                        update_font ();
+                        break;
+                    default:
+                        break;
+                }
+            });
         }
 
         update_font ();
@@ -174,28 +213,23 @@ public class Code.Terminal : Gtk.Box {
     private void update_font () {
         var font_name = "";
         if (terminal_settings != null) {
-            font_name = terminal_settings.get_string ("font");
+            font_name = terminal_settings.get_string (TERMINAL_FONT_KEY);
         }
 
-        if (font_name == "") {
-            var system_interface_settings = new Settings ("org.gnome.desktop.interface");
-            //Can we assume that this settings exists and has the expected key?
-            font_name = system_interface_settings.get_string ("monospace-font-name");
+        if (font_name == "" && gnome_interface_settings != null) {
+            font_name = gnome_interface_settings.get_string (GNOME_FONT_KEY);
         }
 
-        if (font_name != "") {
-            var fd = Pango.FontDescription.from_string (font_name);
-            terminal.set_font (fd);
-        }
+        var fd = Pango.FontDescription.from_string (font_name);
+        terminal.set_font (fd);
     }
 
     private void update_audible_bell () {
         var audible_bell = false;
         if (terminal_settings != null) {
-            audible_bell = terminal_settings.get_boolean ("audible-bell");
-        } else {
-            var system_wm_settings = new Settings ("org.gnome.desktop.wm.preferences");
-            audible_bell = system_wm_settings.get_boolean ("audible-bell");
+            audible_bell = terminal_settings.get_boolean (TERMINAL_BELL_KEY);
+        } else if (gnome_wm_settings != null) {
+            audible_bell = gnome_wm_settings.get_boolean (GNOME_BELL_KEY);
         }
 
         terminal.set_audible_bell (audible_bell);
