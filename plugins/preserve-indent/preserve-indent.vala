@@ -26,7 +26,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Scratch.Servic
     private int last_clipboard_indent_level = 0;
     private bool waiting_for_clipboard_text = false;
 
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     public void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
