@@ -36,7 +36,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
-    public const string ACTION_SET_PROJECT_ACTIVE = "set-project-active";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -48,8 +47,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
-        { ACTION_SET_PROJECT_ACTIVE, action_set_project_active, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
     private GLib.Settings settings;
@@ -127,27 +125,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         set_project_active (path);
     }
 
-    private void action_set_project_active (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
-
-        var folder_root = find_path (root, path) as ProjectFolderItem;
-        if (folder_root == null) {
-            return;
-        }
-
-        set_project_active (path);
-    }
-
     private void set_project_active (string path) {
         toplevel_action_group.activate_action (
             MainWindow.ACTION_SET_ACTIVE_PROJECT,
             new Variant.string (path)
         );
-
-        write_settings ();
     }
 
     public async void restore_saved_state () {
@@ -252,6 +234,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         return null;
+    }
+
+    public bool project_is_open (string project_path) {
+        return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
     }
 
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
@@ -588,10 +574,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     }
                 }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-                write_settings ();
+                save_opened_folders ();
             });
 
-            write_settings ();
+            save_opened_folders ();
             add_folder.callback ();
             return Source.REMOVE;
         });
@@ -606,7 +592,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         return false;
     }
 
-    private void write_settings () {
+    private void save_opened_folders () {
         string[] to_save = {};
 
         foreach (var main_folder in root.children) {

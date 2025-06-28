@@ -1452,8 +1452,14 @@ namespace Scratch {
 
         private void action_set_active_project (SimpleAction action, Variant? param) {
             var project_path = param.get_string ();
-            git_manager.active_project_path = project_path;
-            folder_manager_view.collapse_other_projects ();
+            if (folder_manager_view.project_is_open (project_path)) {
+                git_manager.active_project_path = project_path;
+                folder_manager_view.collapse_other_projects ();
+                //The opened folders are not changed so no need to update "opened-folders" setting
+            } else {
+                warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
+                //TODO Handle this by opening the folder
+            }
 
             var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
             terminal.change_location (new_build_dir);
