@@ -69,6 +69,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     const string ACTION_PREFIX = ACTION_GROUP + ".";
     const string ACTION_SELECT = "action-select";
     const string ACTION_TOGGLE = "toggle-";
+    const uint SPINNER_DELAY_MSEC = 300;
     SimpleActionGroup symbol_action_group;
 
     public Scratch.Services.Document doc { get; construct; }
@@ -86,10 +87,36 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
     }
 
+    protected bool took_too_long;
+    private uint show_spinner_timeout_id = 0;
+    protected void before_parse () {
+        tool_box_sensitive = true;
+        took_too_long = false;
+        show_spinner_timeout_id = Timeout.add (SPINNER_DELAY_MSEC, () => {
+            show_spinner_timeout_id = 0;
+            stack.visible_child = spinner;
+            spinner.start ();
+            return Source.REMOVE;
+        });
+    }
+
+    protected void after_parse () {
+        if (show_spinner_timeout_id > 0) {
+            Source.remove (show_spinner_timeout_id);
+            show_spinner_timeout_id = 0;
+        }
+
+        spinner.stop ();
+        stack.visible_child = filter_button;
+        tool_box_sensitive = !took_too_long;
+    }
+
     public virtual void parse_symbols () {}
     public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
 
-    Gtk.MenuButton filter_button;
+    private Gtk.MenuButton filter_button;
+    private Gtk.Spinner spinner;
+    private Gtk.Stack stack;
 
     construct {
         symbol_action_group = new SimpleActionGroup ();
@@ -145,9 +172,15 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         filter_button.menu_model = top_model;
 
+        spinner = new Gtk.Spinner ();
+        stack = new Gtk.Stack ();
+        stack.add (filter_button);
+        stack.add (spinner);
+        stack.visible_child = filter_button;
+
         var tool_box = new Gtk.Box (HORIZONTAL, 3);
         tool_box.add (search_entry);
-        tool_box.add (filter_button);
+        tool_box.add (stack);
         add (tool_box);
         add (store);
         set_up_css ();
