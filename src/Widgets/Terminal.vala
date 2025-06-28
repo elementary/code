@@ -249,9 +249,6 @@ public class Code.Terminal : Gtk.Box {
                     break;
             }
         } //No corresponding system keymap
-
-        //TODO follow system cursor-blink
-        //TODO Remove discontinued key cursor-color
     }
 
     private void update_colors () {
