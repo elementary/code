@@ -27,16 +27,15 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
-    private Settings pantheon_terminal_settings;
+
+    private Settings? terminal_settings;
     private Settings gnome_interface_settings;
     private Settings gnome_wm_settings;
 
     public SimpleActionGroup actions { get; construct; }
 
-
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
-    private Settings? terminal_settings;
 
     construct {
         terminal = new Vte.Terminal () {
@@ -72,7 +71,7 @@ public class Code.Terminal : Gtk.Box {
                         update_colors ();
                         break;
                     default:
-                        //TODO Handle other relevant terminal settings
+                        //TODO Handle other relevant terminal settings?
                         // "theme"
                         // "prefer-dark-style"
                         break;
@@ -92,8 +91,8 @@ public class Code.Terminal : Gtk.Box {
                     }
                 });
             }
-            //TODO monitor changes in relevant system settings
-            // "color-scheme"
+            //TODO monitor changes in relevant system settings?
+            // "org.gnome.desktop.interface.color-scheme"
         }
 
         // Always monitor changes in default font as that is what Terminal usually follows
@@ -325,7 +324,7 @@ public class Code.Terminal : Gtk.Box {
             return Gdk.EVENT_PROPAGATE;
         }
 
-        if (CONTROL_MASK in modifiers && pantheon_terminal_settings.get_boolean ("natural-copy-paste")) {
+        if (CONTROL_MASK in modifiers && terminal_settings.get_boolean ("natural-copy-paste")) {
             if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
                 actions.activate_action (ACTION_COPY, null);
                 return Gdk.EVENT_STOP;
