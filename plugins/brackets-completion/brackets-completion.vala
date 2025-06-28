@@ -9,7 +9,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
     };
 
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     private Gee.HashMap<string, string> brackets;
     private Gee.HashMap<uint, string> keys;

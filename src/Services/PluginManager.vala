@@ -9,7 +9,7 @@ public interface Scratch.Services.ActivatablePlugin : Object {
     public abstract void activate ();
     public abstract void deactivate ();
     public virtual void update_state () {}
-    public abstract GLib.Object object { owned get; construct; }
+    public abstract GLib.Object object { owned get; set construct; }
 }
 
 // Object shared with plugins providing signals and methods to interface with application

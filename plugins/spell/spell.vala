@@ -29,7 +29,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
     GtkSpell.Checker spell = null;
 #endif
 
-    public Object object {owned get; construct;}
+    public Object object {owned get; set construct;}
 
     public void update_state () {
     }

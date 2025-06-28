@@ -22,7 +22,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
     Scratch.Widgets.SourceView current_source;
     Scratch.Services.Interface plugins;
 
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     public void update_state () {}
 
