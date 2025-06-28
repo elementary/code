@@ -258,7 +258,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var item in root.children) {
             if (item is ProjectFolderItem) {
                 var folder = (ProjectFolderItem)item;
-                if (folder.contains_file (file)) {
+                if (folder.file.file.equal (file) || folder.contains_file (file)) {
                     return folder;
                 }
             }
