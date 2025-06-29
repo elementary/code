@@ -31,6 +31,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_RENAME_FOLDER = "rename-folder";
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
     public const string ACTION_NEW_FOLDER = "new-folder";
     public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
     public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
@@ -46,6 +47,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
@@ -419,6 +421,25 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         folder.on_add_new (false);
+    }
+
+    private void add_new_from_template (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        // var path = param.get_string ();
+        string? parent_path = null, template_path = null;
+        param.@get ("(ss)", out parent_path, out template_path);
+
+        //Do we need this check?
+        if (parent_path == null || parent_path == "") {
+            return;
+        }
+
+        var folder = find_path (root, parent_path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_new (false, template_path);
     }
 
     private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {

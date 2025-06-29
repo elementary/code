@@ -239,10 +239,82 @@ namespace Scratch.FolderManager {
             new_menu.append_item (new_folder_item);
             new_menu.append_item (new_file_item);
 
+            //Append any templates/template folders.
+            unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
+            if (template_path != null) {
+                load_templates_from_folder (GLib.File.new_for_path (template_path), new_menu);
+            }
+
             var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
             new_item.set_submenu (new_menu);
 
             return new_item;
+        }
+
+        //Adapted from Files app code
+        const int MAX_TEMPLATES = 2048;
+        private void load_templates_from_folder (GLib.File template_folder, Menu new_submenu, uint count = 0) {
+            GLib.List<GLib.File> template_list = null;
+            GLib.List<GLib.File> folder_list = null;
+
+            GLib.FileEnumerator enumerator;
+            var flags = GLib.FileQueryInfoFlags.NOFOLLOW_SYMLINKS;
+            try {
+                enumerator = template_folder.enumerate_children ("standard::*", flags, null);
+                GLib.File location;
+                GLib.FileInfo? info = enumerator.next_file (null);
+
+                while (count < MAX_TEMPLATES && (info != null)) {
+                    if (!info.get_attribute_boolean (GLib.FileAttribute.STANDARD_IS_BACKUP)) {
+                        location = template_folder.get_child (info.get_name ());
+                        if (info.get_file_type () == GLib.FileType.DIRECTORY) {
+                            folder_list.prepend (location);
+                        } else {
+                            template_list.prepend (location);
+                            count ++;
+                        }
+                    }
+
+                    info = enumerator.next_file (null);
+                }
+            } catch (GLib.Error error) {
+                return;
+            }
+
+            if (folder_list.length () > 0) {
+                folder_list.sort ((a, b) => {
+                    return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+                });
+
+                folder_list.@foreach ((folder) => {
+                    var folder_submenu = new Menu ();
+                    var folder_submenuitem = new MenuItem.submenu (
+                        folder.get_basename (),
+                        folder_submenu
+                    );
+
+                    new_submenu.append_item (folder_submenuitem);
+                    load_templates_from_folder (folder, folder_submenu, count);
+                });
+            }
+
+            if (template_list.length () > 0) {
+                template_list.sort ((a, b) => {
+                    return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+                });
+
+                template_list.@foreach ((template) => {
+                    var template_menuitem = new MenuItem (
+                        template.get_basename (),
+                        GLib.Action.print_detailed_name (
+                            FileView.ACTION_PREFIX + FileView.ACTION_NEW_FROM_TEMPLATE,
+                            new Variant ("(ss)", this.path, template.get_path ())
+                        )
+                    );
+
+                    new_submenu.append_item (template_menuitem);
+                });
+            }
         }
 
         public void remove_all_badges () {
@@ -388,69 +460,100 @@ namespace Scratch.FolderManager {
             return null;
         }
 
-        public void on_add_new (bool is_folder) {
+        public void on_add_new (bool is_folder, string? template_path = null) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
                 return;
             }
 
-            unowned string name = is_folder ? _("untitled folder") : _("new file");
-            var new_file = file.file.get_child (name);
+            string name;
+            GLib.File template_file = GLib.File.new_for_path (template_path);
+            if (template_path == null) {
+                name = is_folder ? _("untitled folder") : _("new file");
+            } else {
+                ///TRANSLATORS %s is the placeholder for the path of a template file
+                name = template_file.get_basename ();
+            }
+
+            GLib.File new_file = file.file.get_child (name);
             var n = 1;
 
             while (new_file.query_exists ()) {
                 new_file = file.file.get_child (("%s %d").printf (name, n));
                 n++;
             }
-            expanded = true;
-            var rename_item = new RenameItem (new_file.get_basename (), is_folder);
-            add (rename_item);
-            /* Start editing after finishing signal handler */
-            GLib.Idle.add (() => {
-                if (view.start_editing_item (rename_item)) {
-                    ulong once = 0;
-                    once = rename_item.edited.connect (() => {
-                        rename_item.disconnect (once);
-                        // A name was accepted so create the corresponding file
-                        var new_name = rename_item.name;
-                        try {
-                            var gfile = file.file.get_child_for_display_name (new_name);
-                            if (is_folder) {
-                                gfile.make_directory ();
-                            } else {
-                                gfile.create (FileCreateFlags.NONE);
-                                view.activate (gfile.get_path ());
-                            }
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
-                    });
 
-                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
-                    Timeout.add (200, () => {
-                        if (view.editing) {
-                            return Source.CONTINUE;
-                        } else {
-                            remove (rename_item);
-                        }
-
-                        return Source.REMOVE;
-                    });
-                } else {
-                    remove (rename_item);
+            if (template_path != null) {
+                //Assume templates are small and can be copied without problems
+                try {
+                    template_file.copy (
+                        new_file,
+                        TARGET_DEFAULT_MODIFIED_TIME | TARGET_DEFAULT_PERMS | NOFOLLOW_SYMLINKS,
+                        null, //No cancellable
+                        null  //No progress
+                    );
+                } catch (Error e) {
+                    warning ("Error copying template %s", e.message);
+                    return;
                 }
+            }
 
+            expanded = true;
+            if (template_file == null) {
+                var rename_item = new RenameItem (new_file.get_basename (), is_folder);
+                add (rename_item);
+                GLib.Idle.add (() => {
+                /* Start editing after finishing signal handler */
+                    if (view.start_editing_item (rename_item)) {
+                        ulong once = 0;
+                        once = rename_item.edited.connect (() => {
+                            rename_item.disconnect (once);
+                            // A name was accepted so create the corresponding file
+                            var new_name = rename_item.name;
+                            try {
+                                var gfile = file.file.get_child_for_display_name (new_name);
+                                if (is_folder) {
+                                    gfile.make_directory ();
+                                } else {
+                                    gfile.create (FileCreateFlags.NONE);
+                                    view.activate (gfile.get_path ());
+                                }
+                            } catch (Error e) {
+                                warning (e.message);
+                            }
+                        });
 
-                return Source.REMOVE;
-            });
+                        /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                        Timeout.add (200, () => {
+                            if (view.editing) {
+                                return Source.CONTINUE;
+                            } else {
+                                remove (rename_item);
+                            }
+
+                            return Source.REMOVE;
+                        });
+                    } else {
+                        remove (rename_item);
+                    }
+
+                    return Source.REMOVE;
+                });
+            } else {
+                Idle.add (() => {
+                    //TODO Should we open templates?  Select for now like new empty files.
+                    view.select_path (new_file.get_path ());
+                    return Source.REMOVE;
+                });
+            }
         }
     }
 
     internal class RenameItem : Code.Widgets.SourceList.Item {
         public bool is_folder { get; construct; }
 
-        public RenameItem (string name, bool is_folder) {
+        public RenameItem (string path, bool is_folder) {
             Object (
                 name: name,
                 is_folder: is_folder
