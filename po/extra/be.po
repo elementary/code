@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-18 19:55+0000\n"
+"PO-Revision-Date: 2025-06-29 18:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/extra/"
 "be/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:9
 msgid "Code"
-msgstr "Код"
+msgstr "Code"
 
 #: data/code.metainfo.xml.in:10
 msgid "The editor that works for you"
@@ -46,6 +46,9 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Зроблена для працы над разнастайнымі праектамі, Code ведае, якія ў вас базы "
+"кода. Пастаўляецца са зручнай інтэграцыяй Git для стварэння і пераключэння "
+"паміж галінамі, а таксама паказу змененых файлаў і радкоў у вашых праектах."
 
 #: data/code.metainfo.xml.in:14
 msgid ""
@@ -54,12 +57,17 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Працуйце з вашай мовай: калі вы будуйце праграмы з Vala, пішаце код на PHP, "
+"альбо вярстайце з HTML, у Code усё пад кантролем. Карыстайцеся поўным "
+"выдзяленнем сінтаксісу з амаль усімі мовамі праграмавання і вёрсткі."
 
 #: data/code.metainfo.xml.in:15
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Знайдзіце ўсё, што вам патрэбна, у бягучым файле, асабістых папках, або ўсім "
+"праекце з параметрамі рэгістра і рэгулярных выразаў."
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -68,6 +76,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Разумныя функцыі паўсюдна: аўтаматычныя водступы, разумная выразанне/"
+"капіраванне, бачныя прабелы на вылучаным тэксце і на канцах радкоў, а "
+"таксама дадатковыя пашырэнні для дзеянняў Markdown, праверкі правапісу, "
+"падразання прабелаў, дапаўнення слоў і яшчэ больш іншага."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -75,16 +87,21 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Адаптуйце Code пад ваш працоўны працэс: вы можаце наладжваць паводзіны і "
+"інтэрфейс як вы хочаце з дапамогай зручных, спецыяльна адабраных пашырэнняў "
+"і налад."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "І гэта не ўсё:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Колеравыя схемы: Solarized Light, Solarized Dark і высокая кантраснасць, "
+"якія дзейнічаюць па ўсяму інтэрфейсу"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
@@ -116,7 +133,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:65
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:142
 #: data/code.metainfo.xml.in:170 data/code.metainfo.xml.in:209
@@ -477,7 +494,7 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Стварыць файл"
 
 #: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
