@@ -275,17 +275,6 @@ namespace Scratch.FolderManager {
                 direct_actions_section.append_item (close_item);
             }
 
-            var delete_item = new GLib.MenuItem (
-                _("Move to Trash"),
-                GLib.Action.print_detailed_name (
-                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
-                    new Variant.string (file.path)
-                )
-            );
-
-            var delete_actions_section = new GLib.Menu ();
-            delete_actions_section.append_item (delete_item);
-
             var search_item = new GLib.MenuItem (
                 _("Find in Project…"),
                 GLib.Action.print_detailed_name (
@@ -312,7 +301,6 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, folder_actions_section);
             menu_model.append_section (null, close_actions_section);
             menu_model.append_section (null, direct_actions_section);
-            menu_model.append_section (null, delete_actions_section);
             menu_model.append_section (null, search_actions_section);
 
             var menu = new Gtk.Menu.from_model (menu_model);
