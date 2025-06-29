@@ -44,7 +44,14 @@ public class Code.Terminal : Gtk.Box {
         }
 
         terminal.child_exited.connect (() => {
-            GLib.Application.get_default ().activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
+            //Hide the exited terminal
+            var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+            win_group.activate_action (Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
+            //Get ready to resume at last saved location
+            var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
+            spawn_shell (settings.get_string ("last-opened-path"));
+            //Clear screen of new shell
+            terminal.feed_child ("clear -x\n".data);
         });
 
         var copy_action = new SimpleAction (ACTION_COPY, null);
@@ -125,6 +132,8 @@ public class Code.Terminal : Gtk.Box {
         Posix.kill (child_pid, Posix.Signal.TERM);
         terminal.reset (true, true);
         spawn_shell (dir);
+        var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
+        settings.set_string ("last-opened-path", dir);
     }
 
     private string get_shell_location () {
