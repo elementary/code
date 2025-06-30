@@ -23,7 +23,6 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     public string folder_name { get; construct; }
     public bool is_repo { get; construct; }
     private Granite.ValidatedEntry search_term_entry;
-    private Gtk.Switch case_switch;
     private Gtk.Switch regex_switch;
 
     public string search_term {
@@ -46,43 +45,33 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         }
     }
 
-    public bool case_sensitive {
-        get {
-            return case_switch.active;
-        }
+    public bool case_sensitive { get; construct; }
 
-        set {
-            case_switch.active = value;
-        }
-    }
-
-    public GlobalSearchDialog (string folder_name, bool is_repo) {
+    public GlobalSearchDialog (string folder_name, bool is_repo, bool case_sensitive) {
         Object (
-            transient_for: ((Gtk.Application) GLib.Application.get_default ()).active_window,
             folder_name: folder_name,
             is_repo: is_repo,
-            image_icon: new ThemedIcon ("edit-find")
+            case_sensitive: case_sensitive
         );
     }
 
     construct {
-        primary_text = _("Search for text in “%s”").printf (folder_name);
-        secondary_text = _("The search term must be at least 3 characters long.");
+        transient_for = ((Gtk.Application) GLib.Application.get_default ()).active_window;
+        image_icon = new ThemedIcon ("edit-find");
 
         search_term_entry = new Granite.ValidatedEntry () {
             margin_bottom = 12,
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
 
-        case_switch = new Gtk.Switch () {
-            active = false,
-            halign = Gtk.Align.START,
-            hexpand = true
-        };
+        var case_text = case_sensitive ? _("Search will be case sensitive") : _("Search will case insensitive");
 
-        var case_label = new Gtk.Label (_("Case sensitive:")) {
-            halign = Gtk.Align.END
-        };
+        primary_text = _("Search for text in “%s”").printf (folder_name);
+        secondary_text = "%s\n\n%s".printf (
+            _("The search term must be at least 3 characters long."),
+            case_text
+        );
+
 
         regex_switch = new Gtk.Switch () {
             active = false,
@@ -98,10 +87,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             row_spacing = 6
         };
         layout.attach (search_term_entry, 0, 0, 2);
-        layout.attach (case_label, 0, 1);
-        layout.attach (case_switch, 1, 1);
-        layout.attach (regex_label, 0, 2);
-        layout.attach (regex_switch, 1, 2);
+        layout.attach (regex_label, 0, 1);
+        layout.attach (regex_switch, 1, 1);
         layout.show_all ();
 
         custom_bin.add (layout);

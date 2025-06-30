@@ -19,13 +19,15 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+public enum Scratch.CaseSensitiveMode {
+    NEVER,
+    MIXED,
+    ALWAYS
+}
+
 namespace Scratch.Widgets {
     public class SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
-        enum CaseSensitiveMode {
-            NEVER,
-            MIXED,
-            ALWAYS
-        }
+
         public weak MainWindow window { get; construct; }
 
 
