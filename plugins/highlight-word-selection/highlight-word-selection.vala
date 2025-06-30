@@ -48,10 +48,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
 
     // A deselection is now treated as a selection change
     private void on_selection_changed () requires (main_window != null) {
-        Idle.add (update_highlight_source_func);
-    }
-
-    private bool update_highlight_source_func () {
         if (current_search_context != null) {
             // Cancel existing search
             current_search_context.set_highlight (false);
@@ -127,8 +123,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
                 current_search_context.set_highlight (selected_text.length > 0);
             }
         }
-
-        return Source.REMOVE;
     }
 
     public void deactivate () {
