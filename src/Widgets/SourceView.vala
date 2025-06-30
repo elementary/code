@@ -44,7 +44,7 @@ namespace Scratch.Widgets {
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  
+        // "selection_changed" signal now only emitted when the selected text changes (position ignored).
         // Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
 
@@ -679,8 +679,7 @@ namespace Scratch.Widgets {
                 selection_changed_timer = 0;
             }
 
-            // Fire deselected immediately
-                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
+            selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
         }
 
         private void on_mark_deleted (Gtk.TextMark mark) {
