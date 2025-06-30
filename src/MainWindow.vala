@@ -808,7 +808,7 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        private async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
                 if (!yield (doc.do_close (true))) {
@@ -962,12 +962,7 @@ namespace Scratch {
         }
 
         private void action_quit () {
-            handle_quit ();
-            check_unsaved_changes.begin ((obj, res) => {
-                if (check_unsaved_changes.end (res)) {
-                    app.quit ();
-                }
-            });
+            app.handle_quit_window (this);
         }
 
         private void action_open () {
