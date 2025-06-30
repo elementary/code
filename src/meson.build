@@ -88,18 +88,6 @@ codecore = library(
     version: meson.project_version ()
 )
 
-pkg = import('pkgconfig')
-
-pkg.generate(
-    version: meson.project_version (),
-    libraries: codecore,
-    description: 'elementary Code headers',
-    name: 'codecore',
-    filebase: 'codecore'
-)
-
-install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
-
 codecore_dep = declare_dependency(
     link_with: codecore,
     dependencies: dependencies,
