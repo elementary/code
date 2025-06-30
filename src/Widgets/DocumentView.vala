@@ -133,7 +133,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                     var should_close = doc.do_close.end (res);
                     // Ensure removed doc is saved by handling this first
                     if (!is_closing) {
-                        save_opened_files ();
+                        update_opened_files_setting ();
                     }
                     //`page-detached` handler will perform rest of necessary cleanup
                     tab_view.close_page_finish (tab, should_close);
@@ -337,7 +337,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                 if (range != SelectionRange.EMPTY) {
                     Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
                         current_document.source_view.select_range (range);
-                        save_opened_files ();
+                        update_opened_files_setting ();
 
                         return false;
                     });
@@ -364,7 +364,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             doc.source_view.cursor_position = cursor_position;
         }
 
-        save_opened_files ();
+        update_opened_files_setting ();
     }
 
     public void next_document () {
@@ -399,7 +399,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    public void save_opened_files () {
+    public void update_opened_files_setting () {
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             var vb = new VariantBuilder (new VariantType ("a(si)"));
             docs.foreach ((doc) => {
@@ -542,7 +542,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             current_document = doc;
         }
 
-        save_opened_files ();
+        update_opened_files_setting ();
     }
 
     private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {

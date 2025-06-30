@@ -845,7 +845,7 @@ namespace Scratch {
             }
         }
 
-        private void update_saved_state () {
+        private void update_window_state_setting () {
             // Save window state
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
@@ -872,9 +872,9 @@ namespace Scratch {
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        public void before_quit () {
+            document_view.update_opened_files_setting ();
+            update_window_state_setting ();
         }
 
         public void set_default_zoom () {
