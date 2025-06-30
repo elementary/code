@@ -532,6 +532,7 @@ namespace Scratch.FolderManager {
             bool case_sensitive = false;
             Regex? pattern = null;
 
+            var wholeword_search = Scratch.settings.get_boolean ("wholeword-search");
             var case_mode = (CaseSensitiveMode)(Scratch.settings.get_enum ("case-sensitive-search"));
             switch (case_mode) {
                 case NEVER:
@@ -555,7 +556,8 @@ namespace Scratch.FolderManager {
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
                 folder_name,
                 monitored_repo != null && monitored_repo.git_repo != null,
-                case_sensitive
+                case_sensitive,
+                wholeword_search
             ) {
                 use_regex = use_regex,
                 search_term = term
@@ -566,7 +568,6 @@ namespace Scratch.FolderManager {
                     case Gtk.ResponseType.ACCEPT:
                         search_term = dialog.search_term;
                         use_regex = dialog.use_regex;
-                        case_sensitive = dialog.case_sensitive;
                         break;
 
                     default:
@@ -588,6 +589,9 @@ namespace Scratch.FolderManager {
 
                 if (!use_regex) {
                     search_term = Regex.escape_string (search_term);
+                    if (wholeword_search) {
+                        search_term = "\\b%s\\b".printf (search_term);
+                    }
                 }
 
                 try {

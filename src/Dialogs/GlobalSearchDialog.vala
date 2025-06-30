@@ -46,12 +46,14 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     }
 
     public bool case_sensitive { get; construct; }
+    public bool wholeword { get; construct; }
 
-    public GlobalSearchDialog (string folder_name, bool is_repo, bool case_sensitive) {
+    public GlobalSearchDialog (string folder_name, bool is_repo, bool case_sensitive, bool wholeword) {
         Object (
             folder_name: folder_name,
             is_repo: is_repo,
-            case_sensitive: case_sensitive
+            case_sensitive: case_sensitive,
+            wholeword: wholeword
         );
     }
 
@@ -64,12 +66,14 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
 
-        var case_text = case_sensitive ? _("Search will be case sensitive") : _("Search will case insensitive");
+        var case_text = case_sensitive ? _("Search will be case sensitive") : _("Search will be case insensitive");
+        var wholeword_text = wholeword ? _("Search will match only whole words") : _("Search will match words and parts of words");
 
         primary_text = _("Search for text in “%s”").printf (folder_name);
-        secondary_text = "%s\n\n%s".printf (
+        secondary_text = "%s\n\n%s\n%s".printf (
             _("The search term must be at least 3 characters long."),
-            case_text
+            case_text,
+            wholeword_text
         );
 
 
