@@ -84,6 +84,7 @@ codecore = library(
     config_header,
     dependencies: dependencies,
     install: true,
+    soversion: '0',
     version: meson.project_version ()
 )
 
