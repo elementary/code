@@ -70,17 +70,15 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
 
         var box = new Gtk.Box (VERTICAL, 0);
         if (!use_regex) {
-            box.add (new Gtk.Label (case_text));
+            box.add (new Gtk.Label (case_text) { halign = START });
             if (wholeword_text != "") {
-                box.add (new Gtk.Label (wholeword_text));
+                box.add (new Gtk.Label (wholeword_text) { halign = START });
             }
+        } else {
+            box.add (new Gtk.Label (regex_text) { halign = START });
         }
 
         box.add (search_term_entry);
-
-        if (use_regex) {
-            box.add (new Gtk.Label (regex_text));
-        }
 
         custom_bin.add (box);
         custom_bin.show_all ();
