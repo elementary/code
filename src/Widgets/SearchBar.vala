@@ -174,8 +174,13 @@ namespace Scratch.Widgets {
 
             Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
+            // These settings are ignored when regex searching
+            regex_search_button.bind_property ("active", cycle_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
+            regex_search_button.bind_property ("active", whole_word_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
+            regex_search_button.bind_property ("active", case_sensitive_search_label, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
+            regex_search_button.bind_property ("active", case_sensitive_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
 
             var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 margin_top = 3,
