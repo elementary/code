@@ -523,7 +523,6 @@ namespace Scratch.FolderManager {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
             string? search_term = null;
-            bool use_regex = false;
             bool search_tracked_only = false;
             bool recurse_subfolders = true;
             bool check_is_text = true;
@@ -534,6 +533,7 @@ namespace Scratch.FolderManager {
 
             var wholeword_search = Scratch.settings.get_boolean ("wholeword-search");
             var case_mode = (CaseSensitiveMode)(Scratch.settings.get_enum ("case-sensitive-search"));
+            var use_regex = Scratch.settings.get_boolean ("regex-search");
             switch (case_mode) {
                 case NEVER:
                     case_sensitive = false;
@@ -557,9 +557,9 @@ namespace Scratch.FolderManager {
                 folder_name,
                 monitored_repo != null && monitored_repo.git_repo != null,
                 case_sensitive,
-                wholeword_search
+                wholeword_search,
+                use_regex
             ) {
-                use_regex = use_regex,
                 search_term = term
             };
 
@@ -567,7 +567,6 @@ namespace Scratch.FolderManager {
                 switch (response) {
                     case Gtk.ResponseType.ACCEPT:
                         search_term = dialog.search_term;
-                        use_regex = dialog.use_regex;
                         break;
 
                     default:

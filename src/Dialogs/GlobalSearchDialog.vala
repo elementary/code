@@ -23,7 +23,6 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
     public string folder_name { get; construct; }
     public bool is_repo { get; construct; }
     private Granite.ValidatedEntry search_term_entry;
-    private Gtk.Switch regex_switch;
 
     public string search_term {
         get {
@@ -35,25 +34,17 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         }
     }
 
-    public bool use_regex {
-        get {
-            return regex_switch.active;
-        }
-
-        set {
-            regex_switch.active = value;
-        }
-    }
-
     public bool case_sensitive { get; construct; }
     public bool wholeword { get; construct; }
+    public bool use_regex { get; construct; }
 
-    public GlobalSearchDialog (string folder_name, bool is_repo, bool case_sensitive, bool wholeword) {
+    public GlobalSearchDialog (string folder_name, bool is_repo, bool case_sensitive, bool wholeword, bool use_regex) {
         Object (
             folder_name: folder_name,
             is_repo: is_repo,
             case_sensitive: case_sensitive,
-            wholeword: wholeword
+            wholeword: wholeword,
+            use_regex: use_regex
         );
     }
 
@@ -66,36 +57,33 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             width_chars = 30 //Most searches are less than this, can expand window if required
         };
 
-        var case_text = case_sensitive ? _("Search will be case sensitive") : _("Search will be case insensitive");
-        var wholeword_text = wholeword ? _("Search will match only whole words") : _("Search will match words and parts of words");
+        string case_text = "", wholeword_text = "", regex_text = "";
+        if (use_regex) {
+            regex_text = _("The search term will be treated as a regex expression");
+        } else {
+            case_text = case_sensitive ? _("Search will be case sensitive") : _("Search will be case insensitive");
+            wholeword_text = wholeword ? _("Search will match only whole words") : "";
+        }
 
         primary_text = _("Search for text in “%s”").printf (folder_name);
-        secondary_text = "%s\n\n%s\n%s".printf (
-            _("The search term must be at least 3 characters long."),
-            case_text,
-            wholeword_text
-        );
+        secondary_text = _("The search term must be at least 3 characters long.");
 
+        var box = new Gtk.Box (VERTICAL, 0);
+        if (!use_regex) {
+            box.add (new Gtk.Label (case_text));
+            if (wholeword_text != "") {
+                box.add (new Gtk.Label (wholeword_text));
+            }
+        }
 
-        regex_switch = new Gtk.Switch () {
-            active = false,
-            halign = Gtk.Align.START
-        };
+        box.add (search_term_entry);
 
-        var regex_label = new Gtk.Label (_("Use regular expressions:")) {
-            halign = Gtk.Align.END
-        };
+        if (use_regex) {
+            box.add (new Gtk.Label (regex_text));
+        }
 
-        var layout = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 6
-        };
-        layout.attach (search_term_entry, 0, 0, 2);
-        layout.attach (regex_label, 0, 1);
-        layout.attach (regex_switch, 1, 1);
-        layout.show_all ();
-
-        custom_bin.add (layout);
+        custom_bin.add (box);
+        custom_bin.show_all ();
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
@@ -110,6 +98,13 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
 
         search_term_entry.changed.connect (() => {
             search_term_entry.is_valid = search_term_entry.text.length >= 3;
+            if (use_regex) {
+                try {
+                    var search_regex = new Regex (search_term_entry.text, 0);
+                } catch {
+                    search_term_entry.is_valid = false;
+                }
+            }
         });
     }
  }
