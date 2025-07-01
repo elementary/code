@@ -588,11 +588,10 @@ namespace Scratch.FolderManager {
                 win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
-                    search_term = Regex.escape_string (search_term);
                     if (wholeword_search) {
                         search_term = "\\b%s\\b".printf (search_term);
                     }
-                }
+                } // else use search_term as is - TODO do we need to escape it?
 
                 try {
                     var flags = RegexCompileFlags.MULTILINE;
@@ -678,7 +677,7 @@ namespace Scratch.FolderManager {
         }
 
         private void perform_match (GLib.File target,
-                                    Regex pattern,
+                                    Regex search_regex,
                                     bool check_is_text = false,
                                     FileInfo? target_info = null) {
             string contents;
@@ -722,7 +721,7 @@ namespace Scratch.FolderManager {
             MatchInfo? match_info = null;
             int match_count = 0;
             try {
-                for (pattern.match (contents, 0, out match_info);
+                for (search_regex.match (contents, RegexMatchFlags.NOTEMPTY, out match_info);
                     match_info.matches ();
                     match_info.next ()) {
 
