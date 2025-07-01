@@ -55,6 +55,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     public override void parse_symbols () {
+        before_parse ();
         if (current_subprocess != null)
             current_subprocess.force_exit ();
 
@@ -64,9 +65,12 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                 "ctags", "-f", "-", "--format=2", "--excmd=n", "--fields=nstK", "--extra=", "--sort=no", doc.file.get_path ()
             );
 
-            parse_output.begin (current_subprocess);
+            parse_output.begin (current_subprocess, (obj, res) => {
+                after_parse ();
+            });
         } catch (GLib.Error e) {
             critical (e.message);
+            after_parse ();
         }
     }
 
