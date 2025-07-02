@@ -500,7 +500,7 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            folder_manager_view = new FolderManager.FileView (plugins);
+            folder_manager_view = new FolderManager.FileView (plugins, is_primary);
 
             sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();

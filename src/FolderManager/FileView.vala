@@ -38,23 +38,28 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
     public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
+    private const ActionEntry[] PRIMARY_ONLY_ACTION_ENTRIES = {
+        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
+        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
+        { ACTION_RENAME_FILE, action_rename_file, "s" },
+        { ACTION_RENAME_FOLDER, action_rename_folder, "s" }
+    };
+
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
-        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
         { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
-        { ACTION_RENAME_FILE, action_rename_file, "s" },
-        { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
-        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
-    private Scratch.Services.PluginsManager plugins;
+
+    public Scratch.Services.PluginsManager plugins { get; construct; }
+    public bool is_primary { get; construct; }
 
     public new signal void activate (string file);
     public signal bool rename_request (File file);
@@ -64,8 +69,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public string icon_name { get; set; }
     public string title { get; set; }
 
-    public FileView (Scratch.Services.PluginsManager plugins_manager) {
-        plugins = plugins_manager;
+    public FileView (Scratch.Services.PluginsManager plugins_manager, bool is_primary) {
+        Object (
+            root: new ExpandableItem (), //This does not get created by base class when chaining up
+            plugins: plugins_manager,
+            is_primary: is_primary
+        );
     }
 
     construct {
@@ -79,12 +88,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
+        if (is_primary) {
+            actions.add_action_entries (PRIMARY_ONLY_ACTION_ENTRIES, this);
+        }
+
         insert_action_group (ACTION_GROUP, actions);
 
         realize.connect (() => {
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
         });
+
+        show_all ();
     }
 
     private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
@@ -592,10 +607,13 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         yield;
     }
 
-    private bool is_open (File folder) {
-        foreach (var child in root.children)
-            if (folder.path == ((Item) child).path)
+    private bool is_open (File folder) requires (root != null) {
+        foreach (var child in root.children) {
+            if (folder.path == ((Item) child).path) {
                 return true;
+            }
+        }
+
         return false;
     }
 
