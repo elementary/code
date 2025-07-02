@@ -155,13 +155,13 @@ namespace Scratch {
             if (active_window == null) {
                 if (location_jump_manager.has_selection_range () && location_jump_manager.has_override_target ()) {
                     RestoreOverride restore_override = location_jump_manager.create_restore_override ();
-                    add_window (new MainWindow.with_restore_override (true, restore_override));
+                    add_window (new MainWindow.primary_with_restore_override (restore_override));
                 } else {
-                    add_window (new MainWindow (true)); // Will restore documents if required
+                    add_window (new MainWindow.primary ()); // Will restore documents if required
                 }
             } else if (create_new_window) {
                 create_new_window = false;
-                add_window (new MainWindow (false)); // Will NOT restore documents in additional windows
+                add_window (new MainWindow.secondary ()); // Will NOT restore documents in additional windows
             }
 
             active_window.present ();

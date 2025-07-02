@@ -24,6 +24,7 @@ namespace Scratch {
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
+        public bool is_primary { get; construct; } //TODO should this be mutable?
         public Scratch.Application app { get; private set; }
         public bool restore_docs { get; construct; }
         public RestoreOverride restore_override { get; construct set; }
@@ -186,17 +187,26 @@ namespace Scratch {
             { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
         };
 
-        public MainWindow (bool restore_docs) {
+        public MainWindow.primary () {
             Object (
+                is_primary: true,
                 icon_name: Constants.PROJECT_NAME,
-                restore_docs: restore_docs
+                restore_docs: true
+            );
+        }
+        public MainWindow.secondary () {
+            Object (
+                is_primary: false,
+                icon_name: Constants.PROJECT_NAME,
+                restore_docs: false
             );
         }
 
-        public MainWindow.with_restore_override (bool restore_docs, RestoreOverride restore_override) {
+        public MainWindow.primary_with_restore_override (RestoreOverride restore_override) {
             Object (
+                is_primary: true,
                 icon_name: Constants.PROJECT_NAME,
-                restore_docs: restore_docs,
+                restore_docs: true,
                 restore_override: restore_override
             );
         }
@@ -1012,7 +1022,7 @@ namespace Scratch {
                 return;
             }
 
-            var new_window = new MainWindow (false);
+            var new_window = new MainWindow.secondary ();
             var file = File.new_for_path (path);
             var doc = new Scratch.Services.Document (new_window.actions, file);
 

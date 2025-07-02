@@ -219,7 +219,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return;
         }
 
-        var new_window = new MainWindow (false);
+        var new_window = new MainWindow.secondary ();
         tab_view.transfer_page (target, new_window.document_view.tab_view, 0);
     }
 
@@ -546,7 +546,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
-        var other_window = new MainWindow (false);
+        var other_window = new MainWindow.secondary ();
         return other_window.document_view.tab_view;
     }
 
