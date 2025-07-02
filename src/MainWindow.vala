@@ -88,7 +88,6 @@ namespace Scratch {
         public const string ACTION_ADD_MARK = "action_add_mark";
         public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
         public const string ACTION_NEXT_MARK = "action_next_mark";
-
         public const string ACTION_UNDO = "action-undo";
         public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
@@ -131,14 +130,19 @@ namespace Scratch {
 
         private Services.GitManager git_manager;
 
-        private const ActionEntry[] ACTION_ENTRIES = {
+        private const ActionEntry[] PRIMARY_ONLY_ACTION_ENTRIES = {
             { ACTION_CLONE_REPO, action_clone_repo },
+            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
+            { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
+            { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
+            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+        };
+        private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_find, "s"},
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -152,7 +156,6 @@ namespace Scratch {
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_DUPLICATE_TAB, action_duplicate_tab },
-            { ACTION_PREFERENCES, action_preferences },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
             { ACTION_SHOW_REPLACE, action_show_replace },
@@ -166,13 +169,10 @@ namespace Scratch {
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
-            { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
-            { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" },
             { ACTION_ADD_MARK, action_add_mark},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
             { ACTION_NEXT_MARK, action_next_mark},
@@ -289,6 +289,9 @@ namespace Scratch {
 
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
+            if (is_primary) {
+                actions.add_action_entries (PRIMARY_ONLY_ACTION_ENTRIES, this);
+            }
             insert_action_group (ACTION_GROUP, actions);
 
             foreach (var action in action_accelerators.get_keys ()) {
