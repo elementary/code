@@ -12,7 +12,18 @@ public class Code.PopoverMenuItem : Gtk.Button {
     /**
      * The icon name for the button
      */
-    public string icon_name { get; set; }
+    private Gtk.Image image;
+    public string icon_name { 
+        set {
+            image.icon_name = value;
+        }
+    }
+    private Granite.AccelLabel accel_label;
+    public string accel_string {
+        set {
+            accel_label.accel_string = value;
+        }
+     }
 
     public PopoverMenuItem (string text) {
         Object (text: text);
@@ -23,13 +34,12 @@ public class Code.PopoverMenuItem : Gtk.Button {
     }
 
     construct {
-        var image = new Gtk.Image ();
-
-        var label = new Granite.AccelLabel (text);
+        image = new Gtk.Image ();
+        accel_label = new Granite.AccelLabel (text);
 
         var box = new Gtk.Box (HORIZONTAL, 6);
         box.add (image);
-        box.add (label);
+        box.add (accel_label);
 
         child = box;
 
@@ -41,8 +51,5 @@ public class Code.PopoverMenuItem : Gtk.Button {
                 popover.popdown ();
             }
         });
-
-        bind_property ("action-name", label, "action-name");
-        bind_property ("icon-name", image, "icon-name");
     }
 }

@@ -76,6 +76,7 @@ namespace Scratch {
         public const string ACTION_FIND_GLOBAL = "action-find-global";
         public const string ACTION_OPEN = "action-open";
         public const string ACTION_OPEN_FOLDER = "action-open-folder";
+        public const string ACTION_OPEN_FOLDER_ACCEL = "<Shift><Control>o";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
         public const string ACTION_ORDER_FOLDERS = "action-order-folders";
         public const string ACTION_GO_TO = "action-go-to";
@@ -207,7 +208,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
-            action_accelerators.set (ACTION_OPEN_FOLDER + "::", "<Control><Shift>o");
+            action_accelerators.set (ACTION_OPEN_FOLDER + "::", ACTION_OPEN_FOLDER_ACCEL);
             action_accelerators.set (ACTION_REVERT, "<Control><shift>r");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
