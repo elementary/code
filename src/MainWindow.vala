@@ -360,7 +360,13 @@ namespace Scratch {
             update_toolbar_button (ACTION_TOGGLE_OUTLINE, saved_state.get_boolean ("outline-visible"));
 
             var terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
-            terminal_action.set_state (saved_state.get_boolean ("terminal-visible"));
+            if (is_primary) {
+                terminal_action.set_state (saved_state.get_boolean ("terminal-visible"));
+                terminal.visible = false;
+            } else {
+                terminal_action.set_state (false);
+                terminal_action.set_enabled (false);
+            }
             update_toolbar_button (ACTION_TOGGLE_TERMINAL, saved_state.get_boolean ("terminal-visible"));
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
@@ -445,6 +451,11 @@ namespace Scratch {
 
                     break;
                 case ACTION_TOGGLE_TERMINAL:
+                    if (!is_primary) {
+                        toolbar.terminal_button.sensitive = false;
+                        return;
+                    }
+
                     if (new_state) {
                         toolbar.terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
                             app.get_accels_for_action (ACTION_PREFIX + name),
