@@ -31,7 +31,13 @@ namespace Scratch.FolderManager {
 
         public signal void closed ();
 
-        public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
+        // public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
+        private Scratch.Services.MonitoredRepository? monitored_repo;
+        public bool has_monitored_repo {
+            get {
+                return monitored_repo != null;
+            }
+        }
         // Cache the visible item in the project.
         private List<VisibleItem?> visible_item_list = null;
 
@@ -41,6 +47,7 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public bool is_readonly { get; private set; }
         private Ggit.Repository? git_repo {
             get {
                 return (is_git_repo ? monitored_repo.git_repo : null);
@@ -74,7 +81,7 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
+            is_readonly = Scratch.Services.GitManager.get_instance ().add_project (this, out monitored_repo);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
                 checkout_local_branch_action = new SimpleAction.stateful (
@@ -142,7 +149,7 @@ namespace Scratch.FolderManager {
             }
 
             MenuItem set_active_folder_item;
-            if (is_git_repo) {
+            if (is_git_repo && !is_readonly) {
                 set_active_folder_item = new GLib.MenuItem (
                     _("Set as Active Project"),
                     GLib.Action.print_detailed_name (

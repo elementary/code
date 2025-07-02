@@ -21,7 +21,6 @@
 namespace Scratch.Services {
     public class GitManager : Object {
         public ListStore project_liststore { get; private set; }
-        public string active_project_path { get; set; default = "";}
 
         static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
         static GitManager? instance;
@@ -47,12 +46,11 @@ namespace Scratch.Services {
         construct {
             // Used to populate the ChooseProject popover in sorted order
             project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
-            settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
 
-        public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
+        public bool add_project (FolderManager.ProjectFolderItem root_folder, out MonitoredRepository? monitored_repo) {
             var root_path = root_folder.path;
-            MonitoredRepository? monitored_repo = null;
+            monitored_repo = null;
             uint position;
             if (project_liststore.find_with_equal_func (
                     root_folder,
@@ -60,8 +58,8 @@ namespace Scratch.Services {
                     out position
                 )) {
 
-                var repo = project_gitrepo_map.@get (root_path);
-                return repo;
+                monitored_repo = project_gitrepo_map.@get (root_path);
+                return true;
             }
 
             try {
@@ -69,7 +67,6 @@ namespace Scratch.Services {
                 if (!project_gitrepo_map.has_key (root_path)) {
                     monitored_repo = new MonitoredRepository (git_repo);
                     project_gitrepo_map.@set (root_path, monitored_repo);
-                    return project_gitrepo_map.@get (root_path);
                 }
             } catch (Error e) {
                 debug (
@@ -85,7 +82,8 @@ namespace Scratch.Services {
             }
 
             // No longer need to set default project (restored from settings or left unset)
-            return project_gitrepo_map.@get (root_path);
+            monitored_repo = project_gitrepo_map.@get (root_path);
+            return false;
         }
 
         [CCode (instance_pos = -1)]
@@ -111,17 +109,16 @@ namespace Scratch.Services {
         }
 
         // @project_path is the root of a project or null
-        public string get_default_build_dir (string? project_path) {
-            string build_path = project_path != null ? project_path : active_project_path;
+        public string get_default_build_dir (string project_path) {
             var default_build_dir = Scratch.settings.get_string ("default-build-directory");
-            var build_file = GLib.File.new_for_path (Path.build_filename (build_path, default_build_dir));
+            var build_file = GLib.File.new_for_path (Path.build_filename (project_path, default_build_dir));
             if (build_file.query_exists ()) {
-                build_path = build_file.get_path ();
+                return build_file.get_path ();
             } else {
                 warning ("build path not found %s", build_file.get_path ());
             }
 
-            return build_path;
+            return project_path;
         }
 
         public async bool clone_repository (

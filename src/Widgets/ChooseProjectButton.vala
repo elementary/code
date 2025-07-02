@@ -21,6 +21,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
+    public string active_project_path { get; set; }
 
     public signal void project_chosen ();
 
@@ -128,40 +129,38 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         project_listbox.remove.connect ((row) => {
             var project_row = row as ProjectRow;
-            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
+            var current_project = active_project_path;
             if (project_row.project_path == current_project) {
-                Scratch.Services.GitManager.get_instance ().active_project_path = "";
+                active_project_path = "";
                 // Label and active_path will be updated automatically
             }
         });
 
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
-            git_manager.active_project_path = project_entry.project_path;
+            active_project_path = project_entry.project_path;
             project_chosen ();
         });
 
         toggled.connect (() => {
             if (active) {
-                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
                 foreach (var child in project_listbox.get_children ()) {
                     var project_row = ((ProjectRow) child);
                     // All paths must not end in directory separator so can be compared directly
-                    project_row.active = active_path == project_row.project_path;
+                    project_row.active = active_project_path == project_row.project_path;
                 }
             }
         });
 
-        git_manager.notify["active-project-path"].connect (update_button);
+        notify["active-project-path"].connect (update_button);
         update_button ();
     }
 
     // Set appearance (only) of project chooser button and list according to active path
     private void update_button () {
-        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-        if (active_path != "") {
-            label_widget.label = Path.get_basename (active_path);
-            tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_path));
+        if (active_project_path != "") {
+            label_widget.label = Path.get_basename (active_project_path);
+            tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_project_path));
         } else {
             label_widget.label = Path.get_basename (_(NO_PROJECT_SELECTED));
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));

@@ -28,6 +28,8 @@ namespace Scratch {
         public Scratch.Application app { get; private set; }
         public bool restore_docs { get; construct; }
         public RestoreOverride restore_override { get; construct set; }
+        public string active_project_path { get; set; }
+
         public string default_globalsearch_path {
             owned get {
                 if (document_view.current_document != null) {
@@ -36,7 +38,7 @@ namespace Scratch {
                     }
                 }
 
-                return git_manager.active_project_path;
+                return active_project_path;
             }
         }
 
@@ -373,6 +375,11 @@ namespace Scratch {
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
+
+            bind_property ("active-project-path", sidebar.choose_project_button, "active-project-path", BIDIRECTIONAL);
+            if (is_primary) {
+                settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
+            }
         }
 
         private void update_style () {
@@ -1063,8 +1070,8 @@ namespace Scratch {
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
             var default_projects_folder = Scratch.settings.get_string ("default-projects-folder");
-            if (default_projects_folder == "" && git_manager.active_project_path != "") {
-                default_projects_folder = Path.get_dirname (git_manager.active_project_path);
+            if (default_projects_folder == "" && active_project_path != "") {
+                default_projects_folder = Path.get_dirname (active_project_path);
             }
 
             var default_remote = Scratch.settings.get_string ("default-remote");
@@ -1356,7 +1363,7 @@ namespace Scratch {
                 Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
                 Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
-                var can_global_search = is_current_doc || git_manager.active_project_path != null;
+                var can_global_search = is_current_doc || active_project_path != null;
                 Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (can_global_search);
 
                 return Source.REMOVE;
@@ -1536,7 +1543,7 @@ namespace Scratch {
              }
 
              if (path == "") { // Happens when keyboard accelerator is used
-                 path = git_manager.active_project_path;
+                 path = active_project_path;
                  if (use_build_dir) {
                      path = git_manager.get_default_build_dir (path);
                  }

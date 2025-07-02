@@ -39,7 +39,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
     private const ActionEntry[] PRIMARY_ONLY_ACTION_ENTRIES = {
-        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
         { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
         { ACTION_RENAME_FILE, action_rename_file, "s" },
         { ACTION_RENAME_FOLDER, action_rename_folder, "s" }
@@ -47,6 +46,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
+        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
         { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
@@ -57,6 +57,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private GLib.Settings settings;
     private Scratch.Services.GitManager git_manager;
+    private unowned Scratch.MainWindow window;
 
     public Scratch.Services.PluginsManager plugins { get; construct; }
     public bool is_primary { get; construct; }
@@ -100,6 +101,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         });
 
         show_all ();
+
+        realize.connect (() => {
+            window = (Scratch.MainWindow) (this.get_toplevel ());
+        });
     }
 
     private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
@@ -137,7 +142,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         //Make remaining project the active one
-        git_manager.active_project_path = path;
+        window.active_project_path = path;  //Temporary fix
 
         write_settings ();
     }
@@ -153,7 +158,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        git_manager.active_project_path = path;
+        window.active_project_path = path;
 
         write_settings ();
     }
@@ -210,7 +215,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     public void collapse_other_projects () {
         unowned string path;
-        path = git_manager.active_project_path;
+        path = window.active_project_path;
 
         foreach (var child in root.children) {
             var project_folder = ((ProjectFolderItem) child);

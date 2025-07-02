@@ -116,7 +116,7 @@ namespace Scratch.FolderManager {
             } else {
                 var root = get_root_folder ();
                 if (root != null &&
-                    root.monitored_repo != null) {
+                    root.has_monitored_repo) {
                     //When toggled closed, update status to reflect hidden contents
                     root.update_item_status (this);
                 }
