@@ -249,14 +249,14 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    public void current_doc_pin (bool pinned) {
+    public void toggle_current_doc_pin () {
         var target = tab_menu_target ?? tab_view.selected_page;
 
         if (target == null) {
             return;
         }
 
-        tab_view.set_page_pinned (target, pinned);
+        tab_view.set_page_pinned (target, !target.pinned);
     }
 
     public void close_other_tabs () {
