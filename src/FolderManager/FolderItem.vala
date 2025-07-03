@@ -61,7 +61,6 @@ namespace Scratch.FolderManager {
             }
         }
 
-
         public void load_children () {
             if (loading_required) {
                 foreach (var child in file.children) {
