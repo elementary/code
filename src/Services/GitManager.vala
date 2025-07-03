@@ -112,5 +112,54 @@ namespace Scratch.Services {
 
             return build_path;
         }
+
+        public async bool clone_repository (
+            string uri,
+            string local_folder,
+            out File? repo_workdir,
+            out string? error
+        ) {
+            repo_workdir = null;
+            error = null;
+
+            var fetch_options = new Ggit.FetchOptions ();
+            fetch_options.set_download_tags (Ggit.RemoteDownloadTagsType.UNSPECIFIED);
+            //TODO Set callbacks for authentification and progress
+            fetch_options.set_remote_callbacks (null);
+
+            var clone_options = new Ggit.CloneOptions ();
+            clone_options.set_local (Ggit.CloneLocal.AUTO);
+            clone_options.set_is_bare (false);
+            clone_options.set_fetch_options (fetch_options);
+
+            var e_message = ""; // Cannot capture out parameter so make local proxy
+            var folder_file = File.new_for_path (local_folder);
+            Ggit.Repository? new_repo = null;
+
+            SourceFunc callback = clone_repository.callback;
+            new Thread<void> ("cloning", () => {
+                try {
+                    new_repo = Ggit.Repository.clone (
+                        uri,
+                        folder_file,
+                        clone_options
+                    );
+                } catch (Error e) {
+                    e_message = e.message;
+                    new_repo = null;
+                }
+
+                Idle.add ((owned)callback);
+            });
+
+            yield;
+            if (new_repo != null) {
+                repo_workdir = new_repo.get_workdir ();
+            } else {
+                error = e_message;
+            }
+
+            return new_repo != null;
+        }
     }
 }
