@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-18 19:55+0000\n"
+"PO-Revision-Date: 2025-07-02 20:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/extra/"
 "be/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:9
 msgid "Code"
-msgstr "Код"
+msgstr "Code"
 
 #: data/code.metainfo.xml.in:10
 msgid "The editor that works for you"
@@ -46,6 +46,9 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
+"Зроблена для працы над разнастайнымі праектамі, Code ведае, якія ў вас базы "
+"кода. Пастаўляецца са зручнай інтэграцыяй Git для стварэння і пераключэння "
+"паміж галінамі, а таксама паказу змененых файлаў і радкоў у вашых праектах."
 
 #: data/code.metainfo.xml.in:14
 msgid ""
@@ -54,12 +57,17 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Працуйце з вашай мовай: калі вы будуйце праграмы з Vala, пішаце код на PHP, "
+"альбо вярстайце з HTML, у Code усё пад кантролем. Карыстайцеся поўным "
+"выдзяленнем сінтаксісу з амаль усімі мовамі праграмавання і вёрсткі."
 
 #: data/code.metainfo.xml.in:15
 msgid ""
 "Find anything in your current file, specific folders, or your whole project "
 "with options for case-sensitivity and regular expressions."
 msgstr ""
+"Знайдзіце ўсё, што вам патрэбна, у бягучым файле, асабістых папках, або ўсім "
+"праекце з параметрамі рэгістра і рэгулярных выразаў."
 
 #: data/code.metainfo.xml.in:16
 msgid ""
@@ -68,6 +76,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
+"Разумныя функцыі паўсюдна: аўтаматычныя водступы, разумная выразанне/"
+"капіраванне, бачныя прабелы на вылучаным тэксце і на канцах радкоў, а "
+"таксама дадатковыя пашырэнні для дзеянняў Markdown, праверкі правапісу, "
+"падразання прабелаў, дапаўнення слоў і яшчэ больш іншага."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -75,60 +87,70 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
+"Адаптуйце Code пад ваш працоўны працэс: вы можаце наладжваць паводзіны і "
+"інтэрфейс як вы хочаце з дапамогай зручных, спецыяльна адабраных пашырэнняў "
+"і налад."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
-msgstr ""
+msgstr "І гэта не ўсё:"
 
 #: data/code.metainfo.xml.in:20
 msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
+"Колеравыя схемы: Solarized Light, Solarized Dark і высокая кантраснасць, "
+"якія дзейнічаюць па ўсяму інтэрфейсу"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr ""
+msgstr "Бакавая панэль, якую вы можаце дапасаваць пад сябе"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
-msgstr ""
+msgstr "Разумныя водступы і падтрымка .editorconfig"
 
 #: data/code.metainfo.xml.in:23
 msgid ""
 "Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
 "history"
 msgstr ""
+"Укладкі, як у браўзеры, з падтрымкай дубліравання, паўторнага адкрыцця і "
+"гісторыяй"
 
 #: data/code.metainfo.xml.in:24
 msgid "Display the current line and character—and quickly jump to a new line"
-msgstr ""
+msgstr "Знайдзіце бягучы радок ды сімвал і хутка пераключыцеся на новы радок"
 
 #: data/code.metainfo.xml.in:25
 msgid ""
 "Scroll past the end of the file so you can keep the current line where it's "
 "comfortable"
 msgstr ""
+"Прагартайце да канца файла, каб пабачыць бягучы радок там, дзе вам зручна"
 
 #: data/code.metainfo.xml.in:26
 msgid "Optional mini-map to make navigating large files easier"
-msgstr ""
+msgstr "Міні-карта для таго, каб зрабіць навігацыю ў вялікіх файлах прасцей"
 
 #: data/code.metainfo.xml.in:65
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:142
 #: data/code.metainfo.xml.in:170 data/code.metainfo.xml.in:209
 #: data/code.metainfo.xml.in:257 data/code.metainfo.xml.in:289
 msgid "Improvements:"
-msgstr ""
+msgstr "Паляпшэнні:"
 
 #: data/code.metainfo.xml.in:75
 msgid ""
 "A new gutter is added for adding/removing edit marks that can be navigated "
 "between with keyboard shortcuts"
 msgstr ""
+"Быў даданы новы латок для дадавання і выдалення пазнакаў, якім можна "
+"кіраваць з гарачых клавішаў"
 
 #: data/code.metainfo.xml.in:76
 msgid "Remote branches may now be opened from the \"Branch\" menu"
@@ -170,11 +192,11 @@ msgstr ""
 #: data/code.metainfo.xml.in:215 data/code.metainfo.xml.in:264
 #: data/code.metainfo.xml.in:304
 msgid "Minor updates:"
-msgstr ""
+msgstr "Маленькія абнаўленні:"
 
 #: data/code.metainfo.xml.in:86
 msgid "Launcher actions now have icons"
-msgstr ""
+msgstr "У пунктаў панэлі запуску цяпер ёсць значкі"
 
 #: data/code.metainfo.xml.in:87
 msgid ""
@@ -477,7 +499,7 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Стварыць файл"
 
 #: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
