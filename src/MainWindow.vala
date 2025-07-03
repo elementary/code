@@ -113,6 +113,7 @@ namespace Scratch {
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
         public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_TOGGLE_PIN_TAB = "action-toggle-pin-tab";
         public const string ACTION_CLOSE_TAB = "action-close-tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
         public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
@@ -242,6 +243,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_CLOSE_TAB + "::", "<Control>w");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
+            action_accelerators.set (ACTION_TOGGLE_PIN_TAB, "<Control><Alt><Shift>p"); //Avoid clash with "Print" shortcut
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
             action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
@@ -1425,6 +1427,11 @@ namespace Scratch {
 
             action.set_state (!action.get_state ().get_boolean ());
             sidebar.visible = action.get_state ().get_boolean ();
+        }
+
+        private void action_toggle_pin_tab (SimpleAction action) {
+            action.set_state (!action.get_state ().get_boolean ());
+            document_view.current_doc_pin (action.get_state ().get_boolean ());
         }
 
         private void action_toggle_terminal () {
