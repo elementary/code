@@ -12,10 +12,10 @@ public class Code.PopoverMenuItem : Gtk.Button {
     /**
      * The icon name for the button
      */
-    private Gtk.Image image;
+    private Gtk.Image gtk_image;
     public string icon_name {
         set {
-            image.icon_name = value;
+            gtk_image.icon_name = value;
         }
     }
     private Granite.AccelLabel accel_label;
@@ -34,11 +34,11 @@ public class Code.PopoverMenuItem : Gtk.Button {
     }
 
     construct {
-        image = new Gtk.Image ();
+        gtk_image = new Gtk.Image ();
         accel_label = new Granite.AccelLabel (text);
 
         var box = new Gtk.Box (HORIZONTAL, 6);
-        box.add (image);
+        box.add (gtk_image);
         box.add (accel_label);
 
         child = box;
