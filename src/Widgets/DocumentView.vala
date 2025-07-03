@@ -271,6 +271,16 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
+    public void close_unpinned_tabs () {
+        if (tab_view.n_pages == 0) {
+            return;
+        }
+
+        // We know pinned tabs come first
+        var lp = tab_view.n_pinned_pages > 0 ? tab_view.n_pinned_pages - 1 : 0;
+        tab_view.close_pages_after (tab_view.get_nth_page (lp));
+    }
+
     public void duplicate_tab () {
         var target = tab_menu_target ?? tab_view.selected_page;
         if (target == null) {
@@ -436,12 +446,14 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private void tab_view_setup_menu (Hdy.TabPage? page) {
         tab_menu_target = page;
 
-        var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
+        var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_ALL_OTHER_TABS, window.actions);
+        var close_unpinned_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_UNPINNED_TABS, window.actions);
         var close_tabs_to_right_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_TABS_TO_RIGHT, window.actions);
 
         int page_position = page != null ? tab_view.get_page_position (page) : -1;
 
         close_other_tabs_action.set_enabled (page != null && tab_view.n_pages > 1);
+        close_unpinned_tabs_action.set_enabled (page != null && tab_view.n_pages > 1);
         close_tabs_to_right_action.set_enabled (page != null && page_position != tab_view.n_pages - 1);
     }
 
@@ -633,7 +645,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         var close_tab_section = new Menu ();
         close_tab_section.append (_("Close Tabs to the Right"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TABS_TO_RIGHT);
-        close_tab_section.append (_("Close Other Tabs"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_OTHER_TABS);
+        close_tab_section.append (_("Close Other Tabs"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_ALL_OTHER_TABS);
+        close_tab_section.append (_("Close Unpinned Tabs"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_UNPINNED_TABS);
         close_tab_section.append (_("Close Tab"), MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB + "::");
 
         var open_tab_section = new Menu ();

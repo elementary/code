@@ -87,7 +87,6 @@ namespace Scratch {
         public const string ACTION_ADD_MARK = "action_add_mark";
         public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
         public const string ACTION_NEXT_MARK = "action_next_mark";
-
         public const string ACTION_UNDO = "action-undo";
         public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
@@ -116,7 +115,8 @@ namespace Scratch {
         public const string ACTION_TOGGLE_PIN_TAB = "action-toggle-pin-tab";
         public const string ACTION_CLOSE_TAB = "action-close-tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
-        public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
+        public const string ACTION_CLOSE_ALL_OTHER_TABS = "action-close-other-tabs";
+        public const string ACTION_CLOSE_UNPINNED_TABS = "action-close-unpinned-tabs";
         public const string ACTION_CLOSE_PROJECT_DOCS = "action-close-project-docs";
         public const string ACTION_HIDE_PROJECT_DOCS = "action-hide-project-docs";
         public const string ACTION_RESTORE_PROJECT_DOCS = "action-restore-project-docs";
@@ -178,7 +178,8 @@ namespace Scratch {
             { ACTION_NEXT_MARK, action_next_mark},
             { ACTION_CLOSE_TAB, action_close_tab, "s" },
             { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
-            { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
+            { ACTION_CLOSE_ALL_OTHER_TABS, action_close_other_tabs },
+            { ACTION_CLOSE_UNPINNED_TABS, action_close_unpinned_tabs },
             { ACTION_HIDE_PROJECT_DOCS, action_hide_project_docs, "s"},
             { ACTION_CLOSE_PROJECT_DOCS, action_close_project_docs, "s"},
             { ACTION_RESTORE_PROJECT_DOCS, action_restore_project_docs, "s"},
@@ -241,6 +242,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
             action_accelerators.set (ACTION_CLOSE_TAB + "::", "<Control>w");
+            action_accelerators.set (ACTION_CLOSE_ALL_OTHER_TABS, "<Control><Alt><Shift>w");
+            action_accelerators.set (ACTION_CLOSE_UNPINNED_TABS, "<Shift><Control>w");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_TOGGLE_PIN_TAB, "<Control><Alt><Shift>p"); //Avoid clash with "Print" shortcut
@@ -1219,6 +1222,10 @@ namespace Scratch {
 
         private void action_close_other_tabs () {
             document_view.close_other_tabs ();
+        }
+
+        private void action_close_unpinned_tabs () {
+            document_view.close_unpinned_tabs ();
         }
 
         private void action_hide_project_docs (SimpleAction action, Variant? param) {
