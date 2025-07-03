@@ -13,7 +13,7 @@ public class Code.PopoverMenuItem : Gtk.Button {
      * The icon name for the button
      */
     private Gtk.Image image;
-    public string icon_name { 
+    public string icon_name {
         set {
             image.icon_name = value;
         }
