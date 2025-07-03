@@ -176,6 +176,7 @@ namespace Scratch {
             { ACTION_ADD_MARK, action_add_mark},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
             { ACTION_NEXT_MARK, action_next_mark},
+            { ACTION_TOGGLE_PIN_TAB, action_toggle_pin_tab, null, "false"},
             { ACTION_CLOSE_TAB, action_close_tab, "s" },
             { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
             { ACTION_CLOSE_ALL_OTHER_TABS, action_close_other_tabs },
