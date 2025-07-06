@@ -51,6 +51,10 @@ namespace Scratch.FolderManager {
             file.rename (new_name);
         }
 
+        public bool equal (Item b) {
+            return path == b.path;
+        }
+
         public void trash () {
             file.trash ();
         }
