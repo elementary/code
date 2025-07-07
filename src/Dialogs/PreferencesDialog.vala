@@ -63,25 +63,9 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         build_dir_box.add (buid_dir_label);
         build_dir_box.add (build_dir_entry);
 
-        var template_dir_entry = new Gtk.Entry () {
-            hexpand = true,
-            placeholder_text = "."
-        };
-        Scratch.settings.bind ("default-file-templates-directory", template_dir_entry, "text", DEFAULT);
-
-        var template_dir_label = new Gtk.Label (_("Default file templates directory")) {
-            halign = START,
-            mnemonic_widget = template_dir_entry
-        };
-
-        var template_dir_box = new Gtk.Box (HORIZONTAL, 12);
-        template_dir_box.add (template_dir_label);
-        template_dir_box.add (template_dir_entry);
-
         var projects_box = new Gtk.Box (VERTICAL, 12);
         projects_box.add (new Granite.HeaderLabel (_("Projects")));
         projects_box.add (build_dir_box);
-        projects_box.add (template_dir_box);
 
         var behavior_box = new Gtk.Box (VERTICAL, 24);
         behavior_box.add (general_box);

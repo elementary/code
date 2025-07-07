@@ -162,11 +162,6 @@
       <summary>The default build directory's relative path.</summary>
       <description>The directory, relative to the project root, at which to open the terminal pane and where to run build commands by default.</description>
     </key>
-    <key name="default-file-templates-directory" type="s">
-      <default>'~/Templates'</default>
-      <summary>The default file templates directory.</summary>
-      <description>The directory where files that can be loaded as templates are stored.</description>
-    </key>
     <key name="default-projects-folder" type="s">
       <default>''</default>
       <summary>The default Projects folder</summary>
