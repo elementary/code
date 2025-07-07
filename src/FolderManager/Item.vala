@@ -92,5 +92,34 @@ namespace Scratch.FolderManager {
                 return null;
             }
         }
+
+        protected class RenameItem : Code.Widgets.SourceList.Item {
+            public bool is_folder { get; construct; }
+
+            public RenameItem (string name, bool is_folder) {
+                Object (
+                    name: name,
+                    is_folder: is_folder
+                );
+            }
+
+            construct {
+                editable = true;
+                selectable = true;
+                edited.connect (on_edited);
+
+                if (is_folder) {
+                    icon = GLib.ContentType.get_icon ("inode/directory");
+                } else {
+                    icon = GLib.ContentType.get_icon ("text");
+                }
+            }
+
+            private void on_edited (string new_name) {
+                if (new_name != "") {
+                    name = new_name;
+                }
+            }
+        }
     }
 }
