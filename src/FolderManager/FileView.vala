@@ -215,7 +215,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         Code.Widgets.SourceList.ExpandableItem list,
         string path,
         bool expand = false) {
-
         foreach (var item in list.children) {
             if (item is Item) {
                 var code_item = (Item)item;
@@ -409,9 +408,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private void add_new_file (SimpleAction action, Variant? param) {
         // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
-        var path = param.get_string ();
+        var path = param != null ? param.get_string () : null;
 
         if (path == null || path == "") {
+            critical ("No path");
             return;
         }
 

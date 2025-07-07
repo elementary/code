@@ -35,6 +35,8 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public signal void children_finished_loading ();
+
         public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
@@ -107,6 +109,8 @@ namespace Scratch.FolderManager {
             if (root != null) {
                 root.child_folder_loaded (this); //Updates child status emblens
             }
+
+            children_finished_loading ();
         }
 
         private void on_toggled () {
@@ -348,7 +352,7 @@ namespace Scratch.FolderManager {
                 has_dummy = false;
             }
 
-            ((Code.Widgets.SourceList.ExpandableItem)this).add (item);
+            base.add (item);
         }
 
         public new void remove (Code.Widgets.SourceList.Item item) {
@@ -422,7 +426,6 @@ namespace Scratch.FolderManager {
                         if (source.query_exists () == false) {
                             return;
                         }
-
                         var path_item = find_item_for_path (source.get_path ());
                         if (path_item == null) {
                             var file = new File (source.get_path ());
@@ -479,12 +482,13 @@ namespace Scratch.FolderManager {
             }
 
             string name;
-            GLib.File template_file = GLib.File.new_for_path (template_path);
+            GLib.File? template_file = null;
             if (template_path == null) {
                 name = is_folder ? _("untitled folder") : _("new file");
             } else {
                 ///TRANSLATORS %s is the placeholder for the path of a template file
                 name = template_file.get_basename ();
+                template_file = GLib.File.new_for_path (template_path);
             }
 
             GLib.File new_file = file.file.get_child (name);
@@ -495,7 +499,8 @@ namespace Scratch.FolderManager {
                 n++;
             }
 
-            if (template_path != null) {
+            name = new_file.get_basename ();
+            if (template_file != null) {
                 //Assume templates are small and can be copied without problems
                 try {
                     template_file.copy (
@@ -510,61 +515,65 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            expanded = true;
-            if (template_file == null) {
-                var rename_item = new RenameItem (new_file.get_basename (), is_folder);
-                add (rename_item);
-                GLib.Idle.add (() => {
-                /* Start editing after finishing signal handler */
-                    if (view.start_editing_item (rename_item)) {
-                        ulong once = 0;
-                        once = rename_item.edited.connect (() => {
-                            rename_item.disconnect (once);
-                            // A name was accepted so create the corresponding file
-                            var new_name = rename_item.name;
-                            try {
-                                var gfile = file.file.get_child_for_display_name (new_name);
-                                if (is_folder) {
-                                    gfile.make_directory ();
-                                } else {
-                                    gfile.create (FileCreateFlags.NONE);
-                                    view.activate (gfile.get_path ());
-                                }
-                            } catch (Error e) {
-                                warning (e.message);
-                            }
-                        });
-
-                        /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
-                        Timeout.add (200, () => {
-                            if (view.editing) {
-                                return Source.CONTINUE;
-                            } else {
-                                remove (rename_item);
-                            }
-
-                            return Source.REMOVE;
-                        });
-                    } else {
-                        remove (rename_item);
-                    }
-
-                    return Source.REMOVE;
+            if (!expanded) {
+                expanded = true;  // causes async loading of children
+                ulong once = 0;
+                once = children_finished_loading.connect (() => {
+                    this.disconnect (once);
+                    rename_new (name, is_folder);
                 });
             } else {
-                Idle.add (() => {
-                    //TODO Should we open templates?  Select for now like new empty files.
-                    view.select_path (new_file.get_path ());
-                    return Source.REMOVE;
-                });
+                rename_new (name, is_folder);
             }
         }
+
+        private void rename_new (string name, bool is_folder) {
+            var rename_item = new RenameItem (name, is_folder);
+            add (rename_item);
+            GLib.Idle.add (() => {  //wait for added item to realize
+                if (view.start_editing_item (rename_item)) {
+                    ulong once = 0;
+                    once = rename_item.edited.connect (() => {
+                        rename_item.disconnect (once);
+                        // A name was accepted so create the corresponding file
+                        var new_name = rename_item.name;
+                        try {
+                            var gfile = file.file.get_child_for_display_name (new_name);
+                            if (rename_item.is_folder) {
+                                gfile.make_directory ();
+                            } else {
+                                gfile.create (FileCreateFlags.NONE);
+                                view.activate (gfile.get_path ());
+                            }
+                        } catch (Error e) {
+                            warning (e.message);
+                        }
+                    });
+
+                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+                    Timeout.add (200, () => {
+                        if (view.editing) {
+                            return Source.CONTINUE;
+                        } else {
+                            remove (rename_item);
+                            return Source.REMOVE;
+                        }
+                    });
+                } else {
+                    critical ("Failed to rename new item");
+                    remove (rename_item);
+                }
+
+            return Source.REMOVE;
+        });
     }
+
+
 
     internal class RenameItem : Code.Widgets.SourceList.Item {
         public bool is_folder { get; construct; }
 
-        public RenameItem (string path, bool is_folder) {
+        public RenameItem (string name, bool is_folder) {
             Object (
                 name: name,
                 is_folder: is_folder
@@ -573,6 +582,7 @@ namespace Scratch.FolderManager {
 
         construct {
             editable = true;
+            selectable = true;
             edited.connect (on_edited);
 
             if (is_folder) {

@@ -2101,8 +2101,9 @@ public class SourceList : Gtk.ScrolledWindow {
         }
 
         public bool start_editing_item (Item item) requires (item.editable) requires (item.selectable) {
-            if (editing && item == edited) // If same item again, simply return.
+            if (editing && item == edited) {// If same item again, simply return.
                 return false;
+            }
 
             var path = data_model.get_item_path (item);
             if (path != null) {
