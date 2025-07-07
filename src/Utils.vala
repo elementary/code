@@ -143,15 +143,6 @@ namespace Scratch.Utils {
         }
     }
 
-    public string replace_tilde_with_home (string path) {
-        var home_dir = Environment.get_home_dir ();
-        if (path.has_prefix ("~")) {
-            return home_dir + path.substring (1);
-        } else {
-            return path;
-        }
-    }
-
     public bool find_unique_path (File f1, File f2, out string? path1, out string? path2) {
         if (f1.equal (f2)) {
             path1 = null;

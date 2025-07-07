@@ -244,19 +244,8 @@ namespace Scratch.FolderManager {
             new_menu.append_item (new_folder_item);
             new_menu.append_item (new_file_item);
 
-            string? template_path = null;
-            var app_template_path = Scratch.Utils.replace_tilde_with_home (settings.get_string ("default-file-templates-directory"));
-            var app_template_file = GLib.File.new_for_path (app_template_path);
-            if (!app_template_file.query_exists ()) {
-                unowned var user_template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
-                if (user_template_path != null) {
-                    template_path = user_template_path;
-                }
-            } else {
-                template_path = app_template_path;
-            }
-
             //Append any templates/template folders.
+            unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
             if (template_path != null) {
                 load_templates_from_folder (GLib.File.new_for_path (template_path), new_menu);
             }
