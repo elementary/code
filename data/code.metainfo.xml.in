@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.0.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/7.4.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.0.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -68,6 +68,59 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.0" date="2025-06-20" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>A new gutter is added for adding/removing edit marks that can be navigated between with keyboard shortcuts</li>
+          <li>Remote branches may now be opened from the "Branch" menu</li>
+          <li>Options to overwrite or cancel are given when switching branch with uncommitted changes</li>
+          <li>The network can now be accessed from within the Flatpak</li>
+          <li>The branch names in the "Branch" submenus are now sorted alphabetically</li>
+          <li>The extension list now has switches instead of checkboxes in order to provide a larger target</li>
+          <li>The terminal pane now implements smart copy-paste and follows the "natural-copy-paste" setting of Terminal</li>
+          <li>The Vala symbol pane now gives more information in the tooltips</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Launcher actions now have icons</li>
+          <li>Opening and immediately closing a new document no longer prevents further documents being opened</li>
+          <li>The Vala symbol pane may only block the UI for a limited time if there are a large number of symbols</li>
+          <li>The "Open in …" menu is no longer empty when running as Flatpak</li>
+          <li>The search term now persists until editing or closing the search bar.</li>
+          <li>No longer allow the parent or child of an open project to be itself opened as a project</li>
+          <li>The active project dropdown now keeps in sync</li>
+          <li>Numbered lists are now handled correctly by Markdown plugin</li>
+          <li>The highlighting plugin now works with selections of more than one word</li>
+          <li>The "Open in …" menu is now sorted and includes a "Terminal Pane" entry</li>
+          <li>Folders containing may items now expand faster without blocking the UI</li>
+          <li>Symbol Pane now always scrolls document to selected symbol</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1575">Sort the branch names in "Branch" menu</issue>
+        <issue url="https://github.com/elementary/code/issues/1558">Add icons for launcher actions</issue>
+        <issue url="https://github.com/elementary/code/issues/1536">Cannot open docs after opening and closing a new document</issue>
+        <issue url="https://github.com/elementary/code/issues/1521">Uncommitted changes lost without warning if another branch is checked out with the context menu</issue>
+        <issue url="https://github.com/elementary/code/issues/1519">Sort Apps for "Open in …"</issue>
+        <issue url="https://github.com/elementary/code/issues/1515">Limit time vala symbol pane takes to parse and display symbols</issue>
+        <issue url="https://github.com/elementary/code/issues/1511">Open in menu empty when running as Flatpak</issue>
+        <issue url="https://github.com/elementary/code/issues/1508">Search term disappears unexpectedly when editing text</issue>
+        <issue url="https://github.com/elementary/code/issues/1494">Code crashes when both a folder and its parent are open as projects and a document present in both is opened</issue>
+        <issue url="https://github.com/elementary/code/issues/1471">Active project dropdown sometimes out of sync on restart</issue>
+        <issue url="https://github.com/elementary/code/issues/1473">Markdown numbered list auto-completion deletes text</issue>
+        <issue url="https://github.com/elementary/code/issues/1469">Certain word selections are not highlighted by plugin</issue>
+        <issue url="https://github.com/elementary/code/issues/1410">Add more information to Symbol plugin tooltips</issue>
+        <issue url="https://github.com/elementary/code/issues/1408">Move "Open in Terminal Pane" item to the "Open In" menu</issue>
+        <issue url="https://github.com/elementary/code/issues/1332">Sidebar is slow to expand folders containing moderately many (2000) files first time</issue>
+        <issue url="https://github.com/elementary/code/issues/1317">Symbol Pane: Does not scroll back to already selected method</issue>
+        <issue url="https://github.com/elementary/code/issues/1156">ProjectFolder menu: "Branch" option does not show remote branches</issue>
+        <issue url="https://github.com/elementary/code/issues/677">Improve message when file changes on disk to include moving or renaming</issue>
+        <issue url="https://github.com/elementary/code/issues/147">Implement natural copy/paste in terminal plug</issue>
+      </issues>
+    </release>
+
     <release version="7.4.0" date="2024-10-21" urgency="medium">
       <description>
         <p>Minor updates:</p>
