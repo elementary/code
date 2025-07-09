@@ -116,6 +116,7 @@ namespace Scratch.Services {
         public async bool clone_repository (
             string uri,
             string local_folder,
+            Ggit.RemoteCallbacks? rcallbacks,
             out File? repo_workdir,
             out string? error
         ) {
@@ -125,7 +126,7 @@ namespace Scratch.Services {
             var fetch_options = new Ggit.FetchOptions ();
             fetch_options.set_download_tags (Ggit.RemoteDownloadTagsType.UNSPECIFIED);
             //TODO Set callbacks for authentification and progress
-            fetch_options.set_remote_callbacks (null);
+            fetch_options.set_remote_callbacks (rcallbacks);
 
             var clone_options = new Ggit.CloneOptions ();
             clone_options.set_local (Ggit.CloneLocal.AUTO);
