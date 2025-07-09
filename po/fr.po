@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-10 19:35+0000\n"
+"PO-Revision-Date: 2025-07-02 20:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,22 +128,21 @@ msgstr "_Annuler"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "Le dépôt %s a bien été cloné"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "Répertoire de travail actuel"
+msgstr "Le dossier de travail du dépôt local est %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Impossible de cloner %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Réessayer"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -154,49 +153,47 @@ msgstr "Afficher « %s » avec l'application par défaut"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Créer un clone local d'un dépôt Git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"Le dépôt source et le dossier local doivent exister et avoir les permissions "
+"en lecture et écriture"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Cloner le dépôt"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://exemple.fr/utilisateur/projet.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Sélectionner le dossier où le dépôt cloné sera créé"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Tout sélectionner"
+msgstr "Sélectionner"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "URL du dépôt"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "Local"
+msgstr "Emplacement"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Nom du clone"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Clonage en cours"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -835,7 +832,7 @@ msgstr "Ouvrir un dossier…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Cloner un dépôt Git…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -969,10 +966,8 @@ msgid "Alphabetize"
 msgstr "Trier par ordre alphabétique"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Gérer les dossiers du projet"
+msgstr "Gérer les dossiers du projet…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
