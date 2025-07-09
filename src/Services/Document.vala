@@ -65,6 +65,16 @@ namespace Scratch.Services {
             }
         }
 
+        public string project_path {
+            owned get {
+                if (source_view.project != null) {
+                    return source_view.project.path;
+                } else {
+                    return "";
+                }
+            }
+        }
+
         private string _title = "";
         public string title {
             get { return _title; }
@@ -148,8 +158,12 @@ namespace Scratch.Services {
             }
         }
 
+        public bool closing { get; private set; default = false; }
+
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+
+        public Scratch.Widgets.SourceView source_view { get; construct; }
+
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
             get {
@@ -171,7 +185,6 @@ namespace Scratch.Services {
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
-        private bool closing = false;
         private Mount mount;
         private Icon locked_icon;
 
@@ -295,7 +308,7 @@ namespace Scratch.Services {
 
         public void init_tab (Hdy.TabPage tab) {
             this.tab = tab;
-            notify["tab.loading"].connect (on_tab_loading_change);
+            tab.notify["loading"].connect (on_tab_loading_change);
 
             tab.title = title;
             tab.icon = icon;
@@ -327,6 +340,8 @@ namespace Scratch.Services {
                                 return false;
                             });
                         }
+
+                        source_view.schedule_refresh ();
                      });
                 });
             } else if (!enabled && onchange_handler_id != 0) {
@@ -460,6 +475,9 @@ namespace Scratch.Services {
 
         public async bool do_close (bool app_closing = false) {
             debug ("Closing \"%s\"", get_basename ());
+            if (closing) {
+                return true;
+            }
 
             if (!loaded) {
                 load_cancellable.cancel ();
@@ -478,7 +496,6 @@ namespace Scratch.Services {
 
                 // Ask whether to save changes
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
-
                 var dialog = new Granite.MessageDialog (
                     _("Save changes to “%s” before closing?").printf (this.get_basename ()),
                     _("If you don't save, changes will be permanently lost."),
@@ -800,6 +817,27 @@ namespace Scratch.Services {
             return this.source_view.get_selected_text (replace_newline);
         }
 
+        public string get_slice (int start_line, int start_col, int end_line, int end_col) {
+            // This is accessed from separate thread so must lock the sourceview
+            lock (source_view) {
+                Gtk.TextIter iter;
+                source_view.buffer.get_iter_at_line (out iter, start_line - 1);
+                if (start_col > 1 && !iter.forward_chars (start_col - 1)) {
+                    return "";
+                }
+
+                var start = iter;
+                source_view.buffer.get_iter_at_line (out iter, end_line - 1);
+
+                if (!iter.forward_to_line_end ()) {
+                    return "";
+                }
+
+                var end = iter;
+                return source_view.buffer.get_text (start, end, false);
+            }
+        }
+
         // Get language name
         public string get_language_name () {
             var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
@@ -873,7 +911,7 @@ namespace Scratch.Services {
                     if (mounted == false) {
                         details = _("The location containing the file “%s” was unmounted and there are unsaved changes.");
                     } else {
-                        details = _("File “%s” was deleted and there are unsaved changes.");
+                        details = _("File “%s” was deleted, renamed or moved and there are unsaved changes.");
                     }
 
                     ask_save_location (details.printf ("<b>%s</b>".printf (get_basename ())));
@@ -1145,6 +1183,9 @@ namespace Scratch.Services {
                 file.delete ();
                 return true;
             } catch (Error e) {
+                if (e is IOError.NOT_FOUND) {
+                    return true;
+                }
                 warning ("Cannot delete temporary file “%s”: %s", file.get_uri (), e.message);
             }
 
@@ -1188,27 +1229,30 @@ namespace Scratch.Services {
 
         public void show_outline (bool show) {
             if (show && outline == null) {
-               switch (mime_type) {
-                   case "text/x-vala":
+                switch (mime_type) {
+                    case "text/x-vala":
                        outline = new ValaSymbolOutline (this);
                        break;
-                   case "text/x-csrc":
-                   case "text/x-chdr":
-                   case "text/x-c++src":
-                   case "text/x-c++hdr":
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
                        outline = new CtagsSymbolOutline (this);
                        break;
-               }
+                }
 
-               if (outline != null) {
-                   outline_widget_pane.pack2 (outline.get_widget (), false, false);
-                   Idle.add (() => {
-                       set_outline_width (doc_view.outline_width);
-                       outline_widget_pane.notify["position"].connect (sync_outline_width);
-                       outline.parse_symbols ();
-                       return Source.REMOVE;
-                   });
-               }
+                if (outline != null) {
+                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    Idle.add (() => {
+                        set_outline_width (doc_view.outline_width);
+                        outline_widget_pane.notify["position"].connect (sync_outline_width);
+                        if (!tab.loading) {
+                            outline.parse_symbols ();
+                        } // else parsing will occur when tab finishes loading
+
+                        return Source.REMOVE;
+                    });
+                }
             } else if (!show && outline != null) {
                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
                outline_widget_pane.get_child2 ().destroy ();
@@ -1303,6 +1347,9 @@ namespace Scratch.Services {
         /* Block user editing while tab is loading */
         private void on_tab_loading_change () {
             source_view.sensitive = !tab.loading;
+            if (!tab.loading && outline != null) {
+                outline.parse_symbols ();
+            }
         }
     }
 }

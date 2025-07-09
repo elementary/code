@@ -13,7 +13,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
 
     Scratch.Services.Interface plugins;
 
@@ -29,7 +29,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     GtkSpell.Checker spell = null;
 #endif
 
-    public Object object {owned get; construct;}
+    public Object object {owned get; set construct;}
 
     public void update_state () {
     }
@@ -160,7 +160,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
-        typeof (Peas.Activatable),
+        typeof (Scratch.Services.ActivatablePlugin),
         typeof (Scratch.Plugins.Spell)
     );
 }

@@ -79,7 +79,15 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     protected Code.Widgets.SourceList.ExpandableItem root;
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return this; }
+    public bool tool_box_sensitive {
+        set {
+            search_entry.sensitive = value;
+            filter_button.sensitive = value;
+        }
+    }
+
     public virtual void parse_symbols () {}
+    public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
 
     Gtk.MenuButton filter_button;
 

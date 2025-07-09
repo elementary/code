@@ -870,7 +870,11 @@ public class SourceList : Gtk.ScrolledWindow {
             return items.has_key (item);
         }
 
-        public void update_item (Item item) requires (has_item (item)) {
+        public void update_item (Item item) {
+            if (!has_item (item)) {
+                return;
+            }
+
             assert (root != null);
 
             // Emitting row_changed() for this item's row in the child model causes the filter
@@ -2644,6 +2648,12 @@ public class SourceList : Gtk.ScrolledWindow {
      */
     public bool editing {
         get { return tree.editing; }
+    }
+
+    public bool activate_on_single_click {
+        set {
+            tree.activate_on_single_click = value;
+        }
     }
 
     private Tree tree;

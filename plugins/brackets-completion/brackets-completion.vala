@@ -1,39 +1,22 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
+/*
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ *                         2013 Mario Guerriero <mario@elementaryos.org>
+ */
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as published
-  by the Free Software Foundation.
-
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses/>
-
-  END LICENSE
-***/
-
-public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activatable {
-    Gee.HashMap<string, string> brackets;
-    Gee.HashMap<uint, string> keys;
-    const string[] VALID_NEXT_CHARS = {
+public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
+    private const string[] VALID_NEXT_CHARS = {
         "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
     };
 
-    Gtk.TextBuffer current_buffer;
-    Scratch.Widgets.SourceView current_source_view;
+    public Object object { owned get; set construct; }
 
+    private Gee.HashMap<string, string> brackets;
+    private Gee.HashMap<uint, string> keys;
+    private Gtk.TextBuffer current_buffer;
+    private Scratch.Services.Interface plugins;
+    private Scratch.Widgets.SourceView current_source_view;
     private string previous_selection = "";
-
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
-
-    public void update_state () {}
 
     public void activate () {
         brackets = new Gee.HashMap<string, string> ();
@@ -63,7 +46,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         plugins.hook_document.disconnect (on_hook_document);
     }
 
-    void on_hook_document (Scratch.Services.Document doc) {
+    public void update_state () {}
+
+    private void on_hook_document (Scratch.Services.Document doc) {
         current_buffer = doc.source_view.buffer;
 
         if (current_source_view != null) {
@@ -79,7 +64,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         current_source_view.backspace.connect (on_backspace);
     }
 
-    string get_next_char () {
+    private string get_next_char () {
         Gtk.TextIter start, end;
 
         current_buffer.get_selection_bounds (null, out end);
@@ -93,7 +78,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         return current_buffer.get_text (start, end, true) ;
     }
 
-    string get_previous_char () {
+    private string get_previous_char () {
         Gtk.TextIter start, end;
 
         current_buffer.get_selection_bounds (out start, null);
@@ -107,7 +92,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         return current_buffer.get_text (start, end, true) ;
     }
 
-    void on_backspace () {
+    private void on_backspace () {
         if (!current_buffer.has_selection) {
             string left_char = get_previous_char ();
             string right_char = get_next_char ();
@@ -123,7 +108,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         }
     }
 
-    void complete_brackets (string opening_bracket) {
+    private void complete_brackets (string opening_bracket) {
         Gtk.TextIter start, end;
 
         if (opening_bracket == "'" || opening_bracket == "\"") {
@@ -154,13 +139,13 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         current_buffer.end_user_action ();
     }
 
-    bool has_valid_next_char (string next_char) {
+    private bool has_valid_next_char (string next_char) {
         return next_char in VALID_NEXT_CHARS ||
                next_char in brackets.values ||
                brackets.has_key (next_char);
     }
 
-    void delete_next_char () {
+    private void delete_next_char () {
         current_buffer.begin_user_action ();
 
         Gtk.TextIter start;
@@ -178,7 +163,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         current_buffer.end_user_action ();
     }
 
-    bool on_key_down (Gdk.EventKey event) {
+    private bool on_key_down (Gdk.EventKey event) {
         if (Gdk.ModifierType.MOD1_MASK in event.state || Gdk.ModifierType.CONTROL_MASK in event.state) {
             return false;
         }
@@ -198,7 +183,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         return false;
     }
 
-    void check_bracket_indent () {
+    private void check_bracket_indent () {
         var next_char = get_next_char ();
         if (next_char in brackets.values) {
             Gtk.TextIter start, end;
@@ -236,7 +221,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         }
     }
 
-    void on_event_after (Gdk.Event root_event) {
+    private void on_event_after (Gdk.Event root_event) {
         if (root_event.type != Gdk.EventType.KEY_PRESS) {
             return;
         }
@@ -278,6 +263,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BracketsCompletion));
+    objmodule.register_extension_type (
+        typeof (Scratch.Services.ActivatablePlugin),
+        typeof (Scratch.Plugins.BracketsCompletion)
+    );
 }

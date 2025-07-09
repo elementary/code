@@ -152,10 +152,25 @@
       <summary>Remember the last focused document.</summary>
       <description>Restore the focused document from a previous session when opening Code.</description>
     </key>
+    <key name="active-project-path" type="s">
+      <default>''</default>
+      <summary>The active project path.</summary>
+      <description>The path to the folder containing the active project.</description>
+    </key>
     <key name="default-build-directory" type="s">
       <default>''</default>
       <summary>The default build directory's relative path.</summary>
       <description>The directory, relative to the project root, at which to open the terminal pane and where to run build commands by default.</description>
+    </key>
+    <key name="default-projects-folder" type="s">
+      <default>''</default>
+      <summary>The default Projects folder</summary>
+      <description>The path to the folder below which projects are saved or cloned</description>
+    </key>
+    <key name="default-remote" type="s">
+      <default>''</default>
+      <summary>The default git remote</summary>
+      <description>The URL of the remote from where repositories can be cloned, for example https://github.com/elementary/</description>
     </key>
     <key name="prefer-dark-style" type="b">
       <default>false</default>

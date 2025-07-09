@@ -1,10 +1,13 @@
 src/Application.vala
 src/MainWindow.vala
 src/Utils.vala
+src/Dialogs/CloneRepositoryDialog.vala
 src/Dialogs/GlobalSearchDialog.vala
 src/Dialogs/NewBranchDialog.vala
 src/Dialogs/PreferencesDialog.vala
 src/Dialogs/RestoreConfirmationDialog.vala
+src/Dialogs/CloseProjectsConfirmationDialog.vala
+src/Dialogs/OverwriteUncommittedConfirmationDialog.vala
 src/FolderManager/File.vala
 src/FolderManager/FileItem.vala
 src/FolderManager/FileView.vala
@@ -13,6 +16,7 @@ src/FolderManager/Item.vala
 src/FolderManager/ProjectFolderItem.vala
 src/Services/Document.vala
 src/Services/FileHandler.vala
+src/Services/MonitoredRepository.vala
 src/Services/PluginManager.vala
 src/Services/Settings.vala
 src/Services/TemplateManager.vala

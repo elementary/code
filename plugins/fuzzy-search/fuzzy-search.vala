@@ -6,8 +6,8 @@
  */
 
 
-public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
+public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
+    public Object object { owned get; set construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 
@@ -130,7 +130,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
             var file = new Scratch.FolderManager.File (filepath);
             var doc = new Scratch.Services.Document (window.actions, file.file);
 
-            window.open_document (doc);
+            window.open_document.begin (doc);
             popover.popdown ();
         });
 
@@ -158,7 +158,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
-        typeof (Peas.Activatable),
+        typeof (Scratch.Services.ActivatablePlugin),
         typeof (Scratch.Plugins.FuzzySearch)
     );
 }

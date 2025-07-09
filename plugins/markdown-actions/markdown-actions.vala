@@ -18,11 +18,11 @@
   END LICENSE
 ***/
 
-public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Widgets.SourceView current_source;
     Scratch.Services.Interface plugins;
 
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     public void update_state () {}
 
@@ -116,7 +116,10 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 
     private void fix_ordered_list_numbering (int indent_spaces) {
         Gtk.TextIter next;
+        var count = 1;
+        var item_text = "";
         var current_buffer = current_source.buffer;
+
         current_buffer.get_iter_at_offset (out next, current_buffer.cursor_position);
         var line = get_current_line (next);
         // Get list item number from current line
@@ -264,6 +267,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 [ModuleInit]
 public void peas_register_types (TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Code.Plugins.MarkdownActions));
 }

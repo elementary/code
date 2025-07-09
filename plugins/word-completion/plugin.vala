@@ -18,8 +18,10 @@
  *
  */
 
-public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
-    public Object object { owned get; construct; }
+public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
+    public const uint INTERACTIVE_DELAY = 500;
+
+    public Object object { owned get; set construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
     public Euclide.Completion.Parser parser {get; private set;}
@@ -88,9 +90,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
-        comp_provider.priority = 1;
-        comp_provider.name = provider_name_from_document (doc);
+        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
 
         try {
             current_view.completion.add_provider (comp_provider);
@@ -185,6 +185,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                        typeof (Scratch.Plugins.Completion));
 }

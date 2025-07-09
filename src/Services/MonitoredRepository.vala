@@ -29,6 +29,7 @@ namespace Scratch.Services {
     }
 
     public class MonitoredRepository : Object {
+        public const string ORIGIN_PREFIX = "origin/";
         public Ggit.Repository git_repo { get; set construct; }
         public string branch_name {
             get {
@@ -67,6 +68,8 @@ namespace Scratch.Services {
         // Need to use nullable status in order to pass Flatpak CI.
         private Gee.HashMap<string, Ggit.StatusFlags?> file_status_map;
 
+        private List<Ggit.Ref> remote_branch_ref_list;
+
         public Gee.Set<Gee.Map.Entry<string, Ggit.StatusFlags?>> non_current_entries {
             owned get {
                 return file_status_map.entries;
@@ -97,6 +100,8 @@ namespace Scratch.Services {
                 Ggit.StatusShow.INDEX_AND_WORKDIR,
                 null
             );
+
+            remote_branch_ref_list = new List<Ggit.Ref> ();
         }
 
         public MonitoredRepository (Ggit.Repository _git_repo) {
@@ -152,13 +157,17 @@ namespace Scratch.Services {
             return "";
         }
 
+        //Returns an alphabetically sorted list of local branch names
         public unowned List<string> get_local_branches () {
             unowned List<string> branches = null;
             try {
                 var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 foreach (Ggit.Ref branch_ref in branch_enumerator) {
                     if (branch_ref is Ggit.Branch) {
-                        branches.append (((Ggit.Branch)branch_ref).get_name ());
+                        branches.insert_sorted (
+                            ((Ggit.Branch)branch_ref).get_name (),
+                            string.collate
+                        );
                     }
                 }
             } catch (Error e) {
@@ -166,6 +175,32 @@ namespace Scratch.Services {
             }
 
             return branches;
+        }
+
+        //Returns an alphabetically sorted list of remote branch names
+        public unowned List<string> get_remote_branches () {
+            unowned List<string> branch_names = null;
+            try {
+                var branch_enumerator = git_repo.enumerate_branches (Ggit.BranchType.REMOTE);
+
+                foreach (Ggit.Ref branch_ref in branch_enumerator) {
+                    var remote_name = branch_ref.get_shorthand ();
+                    if (!remote_name.has_suffix ("HEAD") &&
+                        !has_local_branch_name (remote_name.substring (ORIGIN_PREFIX.length))) {
+
+                        branch_names.insert_sorted (
+                            branch_ref.get_shorthand (),
+                            string.collate
+                        );
+                    }
+
+                    remote_branch_ref_list.append (branch_ref);
+                }
+            } catch (Error e) {
+                warning ("Could not enumerate local branches %s", e.message);
+            }
+
+            return branch_names;
         }
 
         public bool has_local_branch_name (string name) {
@@ -186,17 +221,92 @@ namespace Scratch.Services {
             return true;
         }
 
-        public void change_branch (string new_branch_name) throws Error {
+        public void change_local_branch (string new_branch_name) throws Error
+        requires (!new_branch_name.has_prefix (ORIGIN_PREFIX)) {
+
             var branch = git_repo.lookup_branch (new_branch_name, Ggit.BranchType.LOCAL);
-            git_repo.set_head (((Ggit.Ref)branch).get_name ());
-            var options = new Ggit.CheckoutOptions () {
-                //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
-                strategy = Ggit.CheckoutStrategy.FORCE
-            };
+            checkout_branch (branch);
+        }
 
-            git_repo.checkout_head (options);
+        public void checkout_remote_branch (string target_shorthand) throws Error
+        requires (target_shorthand.has_prefix (ORIGIN_PREFIX)) {
 
-            branch_name = new_branch_name;
+            Ggit.Ref? branch_ref;
+            //Assume list is up to date as this is called from context menu
+            unowned var list_pointer = remote_branch_ref_list.first ();
+            while (list_pointer.data != null &&
+                   list_pointer.data.get_shorthand () != target_shorthand) {
+
+                list_pointer = list_pointer.next;
+            }
+
+            branch_ref = list_pointer.data;
+            if (branch_ref == null) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Remote Branch '%s' not found").printf (target_shorthand),
+                    _("The requested branch was not found in any remote linked to this repository"),
+                    "dialog-warning"
+                ) {
+                    modal = true
+                };
+
+                dialog.response.connect (() => {dialog.destroy ();});
+                dialog.present ();
+                return;
+            }
+
+            var commit = branch_ref.lookup ();
+            var local_name = target_shorthand.substring (ORIGIN_PREFIX.length);
+            var local_branch = git_repo.create_branch (local_name, commit, NONE) as Ggit.Branch;
+            checkout_branch (local_branch);
+            local_branch.set_upstream (target_shorthand);
+        }
+
+        private void checkout_branch (Ggit.Branch new_head_branch, bool confirm = true) {
+            var new_branch_name = "";
+            try {
+                new_branch_name = new_head_branch.get_name ();
+                if (confirm && has_uncommitted) {
+                    confirm_checkout_branch (new_head_branch);
+                    return;
+                }
+
+                git_repo.set_head (((Ggit.Ref) new_head_branch).get_name ());
+                var options = new Ggit.CheckoutOptions () {
+                    //Ensure documents match checked out branch (deal with potential conflicts/losses beforehand)
+                    strategy = Ggit.CheckoutStrategy.FORCE
+                };
+
+                git_repo.checkout_head (options);
+                branch_name = new_branch_name;
+            } catch (Error e) {
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("An error occurred while checking out the requested branch"),
+                    e.message,
+                    "dialog-warning"
+                );
+
+                dialog.run ();
+                dialog.destroy ();
+            }
+        }
+
+        private void confirm_checkout_branch (Ggit.Branch new_head_branch) throws Error {
+            var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
+            var new_branch_name = new_head_branch.get_name ();
+            var dialog = new Scratch.Dialogs.OverwriteUncommittedConfirmationDialog (
+                parent,
+                new_branch_name,
+                get_project_diff ()
+            );
+            dialog.response.connect ((res) => {
+                dialog.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    checkout_branch (new_head_branch, false);
+                }
+            });
+
+            dialog.present ();
         }
 
         public void create_new_branch (string name) throws Error {
@@ -263,6 +373,41 @@ namespace Scratch.Services {
         public bool path_is_ignored (string path) throws Error {
             return git_repo.path_is_ignored (path);
         }
+
+        public string get_project_diff () throws GLib.Error {
+            var sb = new StringBuilder ("");
+            var repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+            repo_diff_list.print (Ggit.DiffFormatType.PATCH, (delta, hunk, line) => {
+                unowned var file_diff = delta.get_old_file ();
+                if (file_diff == null) {
+                    return 0;
+                }
+
+                if (line != null) {
+                    var delta_type = line.get_origin ();
+                    string prefix = "?";
+                    switch (delta_type) {
+                        case Ggit.DiffLineType.ADDITION:
+                            prefix = "+";
+                            break;
+                        case Ggit.DiffLineType.DELETION:
+                            prefix = "-";
+                            break;
+                        case Ggit.DiffLineType.CONTEXT:
+                            prefix = " ";
+                            break;
+                        default:
+                            break;
+                    }
+                    //TODO Add color according to linetype
+                    sb.append (prefix + line.get_text ());
+                }
+                return 0;
+            });
+
+            return sb.str;
+        }
+
 
         private bool refreshing = false;
         public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {

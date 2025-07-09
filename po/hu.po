@@ -7,121 +7,193 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-02 18:27+0000\n"
-"PO-Revision-Date: 2024-08-06 06:16+0000\n"
+"POT-Creation-Date: 2025-06-24 22:16+0000\n"
+"PO-Revision-Date: 2025-06-26 09:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/code/code/hu/>"
-"\n"
+"Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
+"hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:38 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Új lap"
 
-#: src/Application.vala:39 src/FolderManager/FileItem.vala:94
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
 msgid "New Window"
 msgstr "Új ablak"
 
-#: src/Application.vala:40
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "Verzióinformáció kiírása és kilépés"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "Fájl megnyitása megadott kiválasztási tartományban"
 
-#: src/Application.vala:41
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<KEZDŐSOR[.KEZDŐOSZLOP][-ZÁRÓSOR[.ZÁRÓOSZLOP]]>"
 
-#: src/Application.vala:42
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:238
+#: src/MainWindow.vala:261
 #, c-format
 msgid "Code (%s)"
 msgstr "Kód (%s)"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:263
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:377
+#: src/MainWindow.vala:397
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:382 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Keresés az oldalon…"
 
-#: src/MainWindow.vala:393
+#: src/MainWindow.vala:413
 msgid "Hide Projects Sidebar"
 msgstr "A Projektek oldalsáv elrejtése"
 
-#: src/MainWindow.vala:398
+#: src/MainWindow.vala:418
 msgid "Show Projects Sidebar"
 msgstr "A Projektek oldalsáv megjelenítése"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:427
 msgid "Hide Symbol Outline"
 msgstr "Szimbólumkiemelés elrejtése"
 
-#: src/MainWindow.vala:412
+#: src/MainWindow.vala:432
 msgid "Show Symbol Outline"
 msgstr "Szimbólumkiemelés megjelenítése"
 
-#: src/MainWindow.vala:421
+#: src/MainWindow.vala:441
 msgid "Hide Terminal"
 msgstr "Terminál elrejtése"
 
-#: src/MainWindow.vala:426 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Terminál megjelenítése"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:946 src/Services/Document.vala:651
+#: src/MainWindow.vala:975 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:950 src/Services/Document.vala:655
+#: src/MainWindow.vala:979 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:954
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:957
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:958 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:493
-#: src/Services/Document.vala:663 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/MainWindow.vala:998
+#: src/MainWindow.vala:1027
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:999
+#: src/MainWindow.vala:1028
 msgid "_Cancel"
 msgstr "_Mégse"
+
+#: src/MainWindow.vala:1075
+#, c-format
+msgid "Repository %s successfully cloned"
+msgstr "A(z) %s tároló sikeresen klónozva"
+
+#: src/MainWindow.vala:1076
+#, c-format
+msgid "Local repository working directory is %s"
+msgstr "Az aktuális munkakönyvtár: %s"
+
+#: src/MainWindow.vala:1087
+#, c-format
+msgid "Unable to clone %s"
+msgstr "Nem sikerült a(z) %s klónozása"
+
+#: src/MainWindow.vala:1094
+msgid "Retry"
+msgstr "Újra"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "'%s' megjelenítése az alapértelmezett alkalmazással"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/CloneRepositoryDialog.vala:55
+msgid "Create a local clone of a Git repository"
+msgstr "Egy Git tároló lokális klónjának készítése"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:56
+msgid ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
+msgstr ""
+"A forrástárolónak és a helyi mappának léteznie kell és rendelkeznie kell a "
+"megfelelő írási és olvasási engedélyekkel"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:59
+msgid "Clone Repository"
+msgstr "Tároló klónozása"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:69
+msgid "https://example.com/username/projectname.git"
+msgstr "https://pelda.hu/felhasznalonev/projektnev.git"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:93
+msgid "Select folder where the cloned repository will be created"
+msgstr "Válassza ki a mappát, ahová a klónozott tároló létrejön"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:96
+msgid "Select"
+msgstr "Kiválasztás"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:118
+msgid "Repository URL"
+msgstr "Tároló URL-je"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:119
+msgid "Location"
+msgstr "Hely"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:120
+msgid "Name of Clone"
+msgstr "Klón neve"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:122
+msgid "Cloning in progress"
+msgstr "Klónozás folyamatban"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -263,7 +335,7 @@ msgstr "Viselkedés"
 msgid "Interface"
 msgstr "Felület"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Bővítmények"
 
@@ -289,200 +361,277 @@ msgstr "Ne állítsa vissza"
 msgid "Restore Anyway"
 msgstr "Visszaállítás mindenképp"
 
-#: src/FolderManager/FileItem.vala:42 src/FolderManager/FolderItem.vala:92
-#: src/FolderManager/ProjectFolderItem.vala:138
-msgid "Open in Terminal Pane"
-msgstr "Megnyitás a Terminál panelen"
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] "Ez a mappa egy megnyitott projekt szülője"
+msgstr[1] "Ez a mappa megnyitott projektek szülője"
 
-#: src/FolderManager/FileItem.vala:56 src/FolderManager/FolderItem.vala:139
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] "A mappa megnyitása be fogja zárni a leszármazott projektet"
+msgstr[1] "A mappa megnyitása be fogja zárni a leszármazott projekteket"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] "Leszármazott projektek bezárása"
+msgstr[1] "Leszármazott projekt bezárása"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+msgid "This folder is a child of an open project"
+msgstr "Ez a mappa egy megnyitott projekt leszármazottja"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "Opening this folder will close the parent project"
+msgstr "A mappa megnyitása be fogja zárni a szülőprojektet"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Close Parent Project"
+msgstr "Szülőprojekt bezárása"
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+msgid "Don't Open"
+msgstr "Ne nyissa meg"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+msgid "There are uncommitted changes in the current branch"
+msgstr "Nem commitolt módosítások vannak a jelenlegi elágazáson"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+"A nem commitolt változtatások véglegesen elvesznek, ha a(z) <b>'%s'</b> "
+"elágazásra vált most.\n"
+"\n"
+"<i>Javasolt a nem commitolt változtatásokat stash-elni, commitolni vagy "
+"visszaállítani a továbblépés előtt.</i>"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr "Ne váltson"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr "Váltás és felülírás"
+
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Egyéb műveletek"
 
-#: src/FolderManager/FileItem.vala:62 src/FolderManager/FolderItem.vala:112
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: src/FolderManager/FileItem.vala:72 src/FolderManager/FolderItem.vala:120
-#: src/FolderManager/ProjectFolderItem.vala:260
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:279
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
-#: src/FolderManager/FileItem.vala:107 src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:122 src/FolderManager/FolderItem.vala:178
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
-#: src/FolderManager/FileView.vala:76
+#: src/FolderManager/FileView.vala:74
 msgid "Folders"
 msgstr "Mappák"
 
-#: src/FolderManager/FolderItem.vala:128
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Keresés a mappában…"
 
-#: src/FolderManager/FolderItem.vala:184
+#: src/FolderManager/FolderItem.vala:188
+msgid "Terminal Pane"
+msgstr "Terminál panel"
+
+#: src/FolderManager/FolderItem.vala:223
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:192
+#: src/FolderManager/FolderItem.vala:231
 msgid "Empty File"
 msgstr "Üres fájl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:203
-#: src/FolderManager/ProjectFolderItem.vala:382
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/FolderItem.vala:242
+#: src/FolderManager/ProjectFolderItem.vala:439
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:398
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:362
+#: src/FolderManager/FolderItem.vala:398
 msgid "new file"
 msgstr "új fájl"
 
-#: src/FolderManager/ProjectFolderItem.vala:167
+#: src/FolderManager/ProjectFolderItem.vala:147
+msgid "Set as Active Project"
+msgstr "Beállítás aktív projektként"
+
+#: src/FolderManager/ProjectFolderItem.vala:155
+msgid "Open in Terminal Pane"
+msgstr "Megnyitás a Terminál panelen"
+
+#: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
 msgstr "Mappa bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:175
+#: src/FolderManager/ProjectFolderItem.vala:194
 msgid "Close Other Folders"
 msgstr "Többi mappa bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:192
+#: src/FolderManager/ProjectFolderItem.vala:211
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "%u dokumentum bezárása"
 msgstr[1] "%u dokumentum bezárása"
 
-#: src/FolderManager/ProjectFolderItem.vala:204
+#: src/FolderManager/ProjectFolderItem.vala:223
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "%u megnyitott dokumentum elrejtése"
 msgstr[1] "%u megnyitott dokumentum elrejtése"
 
-#: src/FolderManager/ProjectFolderItem.vala:227
+#: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u elrejtett dokumentum visszaállítása"
 msgstr[1] "%u elrejtett dokumentum visszaállítása"
 
-#: src/FolderManager/ProjectFolderItem.vala:271 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Keresés a projektben…"
 
-#: src/FolderManager/ProjectFolderItem.vala:321
+#: src/FolderManager/ProjectFolderItem.vala:332
+msgid "Local"
+msgstr "Helyi"
+
+#: src/FolderManager/ProjectFolderItem.vala:349
+msgid "Remote"
+msgstr "Távoli"
+
+#: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
 msgstr "Új ág…"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:389
 msgid "Branch"
 msgstr "Ág"
 
-#: src/FolderManager/ProjectFolderItem.vala:388
+#: src/FolderManager/ProjectFolderItem.vala:445
 msgid "Modified"
 msgstr "Módosítva"
 
-#: src/FolderManager/ProjectFolderItem.vala:426
+#: src/FolderManager/ProjectFolderItem.vala:483
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Hiba az ág létrehozása közben: \"%s\""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:369
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "A(z) %s nem szövegfájl"
 
-#: src/Services/Document.vala:370
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "A Kód nem tölt be ilyen típusú fájlt."
 
-#: src/Services/Document.vala:372
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "Betöltés mindenképp"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "Várjon, amíg a Kód betölti a fájlt."
 
-#: src/Services/Document.vala:396
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "Betöltés megszakítása"
 
-#: src/Services/Document.vala:483
+#: src/Services/Document.vala:500
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Menti a(z) %s módosításait bezárás előtt?"
 
-#: src/Services/Document.vala:484
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ha nem menti, akkor a módosítások véglegesen elvesznek."
 
-#: src/Services/Document.vala:490
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "Bezárás mentés nélkül"
 
-#: src/Services/Document.vala:494 src/Services/Document.vala:662
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "Mentés"
 
-#: src/Services/Document.vala:621
+#: src/Services/Document.vala:638
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Mentés a(z) %s fájlba sikertelen."
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "Fájl mentése"
 
-#: src/Services/Document.vala:746 src/Services/Document.vala:764
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "Új dokumentum"
 
 #. No path for a new document
-#: src/Services/Document.vala:766
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "A dokumentumot nem lehet menteni ide: %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:832
+#: src/Services/Document.vala:870
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "A szöveg beolvasása sikertelen a(z) \"%s\" fájlban"
 
-#: src/Services/Document.vala:835
+#: src/Services/Document.vala:873
 msgid "You may not have permission to read the file."
 msgstr ""
 "Lehet, hogy nem rendelkezik a szükséges engedélyekkel ahhoz, hogy olvashassa "
 "a fájlt."
 
-#: src/Services/Document.vala:837
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr "A fál sérült lehet, vagy pedig nem szövegfájl"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:843
+#: src/Services/Document.vala:881
 msgid "Show Anyway"
 msgstr "Megnyitás mindenképp"
 
-#: src/Services/Document.vala:874
+#: src/Services/Document.vala:912
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -491,24 +640,26 @@ msgstr ""
 "A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került és nem "
 "mentett módosítások vannak."
 
-#: src/Services/Document.vala:876
+#: src/Services/Document.vala:914
 #, c-format
-msgid "File “%s” was deleted and there are unsaved changes."
-msgstr "A(z) \"%s\" fájl törōlve és nem mentett módosítások vannak."
+msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
+msgstr ""
+"A(z) \"%s\" fájl törōlve, átnevezve vagy mozgatva lett és nem mentett "
+"módosítások vannak."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:928
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "A(z) \"%s\" fájlhoz nincs írási engedélye."
 
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:974
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "A(z) \"%s\" fájlt egy külső alkalmazás módosította"
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -516,49 +667,87 @@ msgstr ""
 "Nem mentett módosítások is vannak. A dokumentum újratöltése felülírja a nem "
 "mentett módosításokat."
 
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr "A dokumentum külső forrásból módosult a legutóbbi mentés óta."
 
-#: src/Services/Document.vala:961
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "A(z) “%s” nem menthető ide. Készít egy másolatot máshova?"
 
-#: src/Services/Document.vala:970
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: src/Services/Document.vala:972
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr "Másolat mentése…"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "Folytatás"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1061
 msgid "Reload"
 msgstr "Újratöltés"
 
-#: src/Services/Document.vala:1026
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr "Felülírás"
 
-#: src/Services/Document.vala:1029
+#: src/Services/Document.vala:1067
 msgid "Save Document elsewhere"
 msgstr "A dokumentum mentése máshova"
+
+#: src/Services/MonitoredRepository.vala:246
+#, c-format
+msgid "Remote Branch '%s' not found"
+msgstr "A(z) '%s' távoli elágazás nem található"
+
+#: src/Services/MonitoredRepository.vala:247
+msgid ""
+"The requested branch was not found in any remote linked to this repository"
+msgstr "A kért elágazás nem található egy távoli tárolóban sem"
+
+#: src/Services/MonitoredRepository.vala:284
+msgid "An error occurred while checking out the requested branch"
+msgstr "Hiba lépett fel a kért elágazásra váltáskor"
+
+#. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
+#: src/Services/MonitoredRepository.vala:332
+#, c-format
+msgid "%.8s (detached)"
+msgstr "%.8s (detached)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
 msgstr "Sablonok"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:71
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:133
-#: src/SymbolPane/SymbolOutline.vala:92
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:195
+#: src/SymbolPane/SymbolOutline.vala:100
 msgid "Symbols"
 msgstr "Szimbólumok"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+msgid "Too Many Symbols"
+msgstr "Túl sok szimbólum"
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#, c-format
+msgid ""
+"%s contains too many Vala symbols.\n"
+"Parsing and showing them took too long."
+msgstr ""
+"%s túl sok Vala szimbólumot tartalmaz.\n"
+"Az elemzésük és megjelenítésük túl sok ideig tartott."
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:196
+#, c-format
+msgid "Vala symbols found in %s"
+msgstr "Vala szimbólumok ebben: %s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -600,19 +789,19 @@ msgstr "Névtér"
 msgid "Other"
 msgstr "Egyéb"
 
-#: src/SymbolPane/SymbolOutline.vala:96
+#: src/SymbolPane/SymbolOutline.vala:104
 msgid "Find Symbol"
 msgstr "Szimbólum keresése"
 
-#: src/SymbolPane/SymbolOutline.vala:105
+#: src/SymbolPane/SymbolOutline.vala:113
 msgid "Filter symbol type"
 msgstr "Szimbólumtípus szűrése"
 
-#: src/SymbolPane/SymbolOutline.vala:125
+#: src/SymbolPane/SymbolOutline.vala:133
 msgid "Select All"
 msgstr "Összes kiválasztása"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:139
 msgid "Deselect All"
 msgstr "Összes kiválasztásának megszüntetése"
 
@@ -620,16 +809,22 @@ msgstr "Összes kiválasztásának megszüntetése"
 msgid "No Project Selected"
 msgstr "Nincs kiválasztott projekt"
 
-#: src/Widgets/ChooseProjectButton.vala:47
-#: src/Widgets/ChooseProjectButton.vala:127
-#: src/Widgets/ChooseProjectButton.vala:136
+#: src/Widgets/ChooseProjectButton.vala:21
 #, c-format
-msgid "Active Git project: %s"
+msgid "Active Git Project: %s"
 msgstr "Aktív Git projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:62
+#: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "Projektek szűrése"
+
+#: src/Widgets/ChooseProjectButton.vala:74
+msgid "Open Folder…"
+msgstr "Mappa megnyitása…"
+
+#: src/Widgets/ChooseProjectButton.vala:80
+msgid "Clone Git Repository…"
+msgstr "Git tároló klónozása…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -640,23 +835,23 @@ msgstr "Bezárt lapok"
 msgid "Text file from %s:%d"
 msgstr "Szöveges fájl innen: %s:%d"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr "Jobbra lévő lapok bezárása"
 
-#: src/Widgets/DocumentView.vala:637
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Other Tabs"
 msgstr "A többi lap bezárása"
 
-#: src/Widgets/DocumentView.vala:638
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Tab"
 msgstr "A lap bezárása"
 
-#: src/Widgets/DocumentView.vala:641
+#: src/Widgets/DocumentView.vala:630
 msgid "Open in New Window"
 msgstr "Megnyitás új ablakban"
 
-#: src/Widgets/DocumentView.vala:642
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr "Lap megkettőzése"
 
@@ -754,104 +949,112 @@ msgstr "Rendszertéma követése"
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:63
-msgid "Open Folder…"
-msgstr "Mappa megnyitása…"
-
-#: src/Widgets/Sidebar.vala:66
+#: src/Widgets/Sidebar.vala:59
 msgid "Collapse All"
 msgstr "Összes becsukása"
 
-#: src/Widgets/Sidebar.vala:69
+#: src/Widgets/Sidebar.vala:62
 msgid "Alphabetize"
 msgstr "Betűrendbe"
 
-#: src/Widgets/Sidebar.vala:81
-msgid "Manage project folders"
-msgstr "Projekt mappáinak kezelése"
+#: src/Widgets/Sidebar.vala:70
+msgid "Manage project folders…"
+msgstr "Projekt mappáinak kezelése…"
 
-#: src/Widgets/SearchBar.vala:71
+#: src/Widgets/SearchBar.vala:99
 msgid "Find"
 msgstr "Keresés"
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:102
 msgid "No Results"
 msgstr "Nincs találat"
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:114
 msgid "Search next"
 msgstr "Következő keresése"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:124
 msgid "Search previous"
 msgstr "Előző keresése"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:127
 msgid "Cyclic Search"
 msgstr "Ciklikus keresés"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Soha"
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:131
 msgid "Mixed Case"
 msgstr "Kevert"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:132
 msgid "Always"
 msgstr "Mindig"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:135
 msgid "Case Sensitive"
 msgstr "Kis-nagybetű érzékenység"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:142
 msgid "Use Regular Expressions"
 msgstr "Reguláris kifejezések használata"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:143
 msgid "Match Whole Words"
 msgstr "Teljes szavak illesztése"
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:164
 msgid "Search Options"
 msgstr "Keresési beállítások"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:196
 msgid "Replace With"
 msgstr "Csere ezzel"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:199
 msgid "Replace"
 msgstr "Csere"
 
-#: src/Widgets/SearchBar.vala:174
+#: src/Widgets/SearchBar.vala:202
 msgid "Replace all"
 msgstr "Összes cseréje"
 
-#: src/Widgets/SearchBar.vala:569
+#: src/Widgets/SearchBar.vala:607
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:574
+#: src/Widgets/SearchBar.vala:612
 msgid "no results"
 msgstr "nincs találat"
 
-#: src/Widgets/SourceView.vala:558
+#: src/Widgets/SourceView.vala:583
 msgid "Sort Selected Lines"
 msgstr "A kiválasztott sorok sorrendbe rakása"
 
-#: src/Widgets/SourceView.vala:571
+#: src/Widgets/SourceView.vala:594
+msgid "Mark Current Line"
+msgstr "Jelenlegi sor megjelölése"
+
+#: src/Widgets/SourceView.vala:605
+msgid "Goto Previous Edit Mark"
+msgstr "Előző szerkesztési jelöléshez ugrás"
+
+#: src/Widgets/SourceView.vala:616
+msgid "Goto Next Edit Mark"
+msgstr "Következő szerkesztési jelöléshez ugrás"
+
+#: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
 msgstr "Megjegyzés megjelenítése/elrejtése"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:62
 msgid "Copy"
 msgstr "Másolás"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:63
 msgid "Paste"
 msgstr "Beillesztés"
 
@@ -888,7 +1091,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Adjon hozzá egy projektmappát az oldalsávhoz."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Feltöltés Pastebinre"
 
@@ -945,9 +1148,20 @@ msgid "Please install at least one [aspell] dictionary."
 msgstr "Telepítsen legalább egy [aspell] szótárt."
 
 #: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#, c-format
+#~ msgid "This folder is the parent of %u open projects"
+#~ msgstr "Ez a mappa %u megnyitott projekt szülője"
+
+#~ msgid "Opening this folder will close all child projects"
+#~ msgstr "A mappa megnyitása be fogja zárni az összes leszármazott projektet"
+
+#~ msgid "Close Child Projects"
+#~ msgstr "Leszármazott projektek bezárása"
 
 #~ msgid "Tabs"
 #~ msgstr "Lapok"
@@ -1017,9 +1231,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Find…"
 #~ msgstr "Keresés…"
-
-#~ msgid "No Symbols Found"
-#~ msgstr "Nincsenek szimbólumok"
 
 #~ msgid "Draw Spaces:"
 #~ msgstr "Szóközök megjelenítése:"
@@ -1116,9 +1327,6 @@ msgstr "%s - szókiegészítés"
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "A(z) %s ikontéma nem tölthető be\n"
 
-#~ msgid "Current working directory"
-#~ msgstr "Aktuális munkakönyvtár"
-
 #, fuzzy
 #~ msgid "directory"
 #~ msgstr "Ez egy könyvtár."
@@ -1166,9 +1374,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Edit text files"
 #~ msgstr "Szövegfájlok szerkesztése"
-
-#~ msgid "Text Editor"
-#~ msgstr "Szövegszerkesztő"
 
 #~ msgid "About Scratch"
 #~ msgstr "A Scratch névjegye"
@@ -1477,9 +1682,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "A fájl változtatásai nem kerültek mentésre."
-
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Mentetlen módosítások vannak a Scratch!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Mentetlen módosítások vannak!"
