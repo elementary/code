@@ -76,6 +76,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         }
 
         if (evt.keyval == Gdk.Key.Return) {
+            // Get line text on which return was pressed
             var line = get_current_line ();
             if (line.strip () == "") {
                 return false;
@@ -83,14 +84,15 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
             string ul_marker;
             int indent_spaces, ol_number;
-            string item_text;
-            if (parse_unordered_list_item (line, out ul_marker)) {
-                if (line.strip ().length <= 3) { // empty list item
+            string item_text = "";
+            if (parse_unordered_list_item (line, out ul_marker, out item_text)) {
+                if (item_text.strip () == "") { // empty list item
                     delete_empty_item ();
                 } else {
                     string to_insert = "\n%s".printf (ul_marker);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
                 }
+
                 return true;
             } else if (parse_ordered_list_item (line, out ol_number, out item_text, out indent_spaces, null)) {
                 if (item_text.length == 0) {
@@ -200,12 +202,13 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         return indent_spaces >= 0 && current_number >= 1;
     }
 
-    private bool parse_unordered_list_item (string line, out string ul_marker) {
+    private bool parse_unordered_list_item (string line, out string ul_marker, out string item_text) {
         var chugged_line = line.chug ();
         if ((chugged_line[0] == '*' || chugged_line[0] == '-') &&
             chugged_line[1] == ' ') {
             var ul_marker_index = line.index_of_char (chugged_line[0]);
             ul_marker = "%s%c ".printf (string.nfill (ul_marker_index, ' '), chugged_line[0]);
+            item_text = chugged_line.substring (2, -1);
             return true;
         }
 
