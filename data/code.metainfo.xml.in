@@ -68,8 +68,13 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="8.0.1" date="2025-07-14" urgency="medium">
+    <release version="8.1.0" date="2025-07-14" urgency="medium">
       <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The Project Chooser context menu now includes an option to clone a remote git repository</li>
+          <li>The "Open Folder" action now appears in the Project Chooser context menu</li>
+        </ul>
         <p>Minor updates:</p>
         <ul>
           <li>Updated translations</li>
