@@ -123,10 +123,10 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         var line = get_current_line (next).strip ();
         // Get list item number from current line
         parse_ordered_list_item (line, ref count, out item_text);
-        // Start checking following lines
-        next.forward_line ();
-        line = get_current_line (next).strip ();
-        while (parse_ordered_list_item (line, ref count, out item_text)) {
+        while (
+            next.forward_line () &&
+            parse_ordered_list_item (get_current_line (next).strip (), ref count, out item_text)
+        ) {
             count++;
             var next_mark = current_buffer.create_mark (null, next, true);
             var point_offset = line.index_of_char ('.');
@@ -139,8 +139,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
             var to_insert = "%d".printf (count);
             current_buffer.insert (ref next, to_insert, to_insert.length);
-            next.forward_line ();
-            line = get_current_line (next).strip ();
         }
     }
 
