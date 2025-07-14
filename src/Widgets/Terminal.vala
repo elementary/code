@@ -28,7 +28,7 @@ public class Code.Terminal : Gtk.Box {
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
 
-    private Settings? terminal_settings;
+    private Settings? terminal_settings = null;
     private Settings gnome_interface_settings;
     private Settings gnome_wm_settings;
 
@@ -321,7 +321,9 @@ public class Code.Terminal : Gtk.Box {
             return Gdk.EVENT_PROPAGATE;
         }
 
-        if (CONTROL_MASK in modifiers && terminal_settings.get_boolean ("natural-copy-paste")) {
+        if (CONTROL_MASK in modifiers && (SHIFT_MASK in modifiers ||
+            terminal_settings != null && terminal_settings.get_boolean ("natural-copy-paste"))) {
+
             if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
                 actions.activate_action (ACTION_COPY, null);
                 return Gdk.EVENT_STOP;
