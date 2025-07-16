@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2024-10-26 15:42+0000\n"
+"PO-Revision-Date: 2025-07-07 18:55+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/code/extra/pl/>\n"
+"Language-Team: Polish <https://l10n.elementaryos.org/projects/code/extra/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -153,41 +154,49 @@ msgid ""
 "A new gutter is added for adding/removing edit marks that can be navigated "
 "between with keyboard shortcuts"
 msgstr ""
+"Dodano nowy rowek pozwalający na dodanie/usunięcie zakładek edycyjnych "
+"pomiędzy którymi można nawigować przy użyciu skrótów klawiszowych"
 
 #: data/code.metainfo.xml.in:76
 msgid "Remote branches may now be opened from the \"Branch\" menu"
-msgstr ""
+msgstr "Gałęzie zdalne mogą być teraz otwarte w menu „Gałąź”"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "Options to overwrite or cancel are given when switching branch with "
 "uncommitted changes"
 msgstr ""
+"Możliwość nadpisania bądź anulowania przy zmieni gałęzi z niescommitowanymi "
+"zmianami"
 
 #: data/code.metainfo.xml.in:78
 msgid "The network can now be accessed from within the Flatpak"
-msgstr ""
+msgstr "Sieć jest teraz dostępna wewnątrz środowiska Flatpak"
 
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The branch names in the \"Branch\" submenus are now sorted alphabetically"
-msgstr ""
+msgstr "Nazwy gałęzi w podmenu „Gałąź” są teraz posortowane alfabetycznie"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The extension list now has switches instead of checkboxes in order to "
 "provide a larger target"
 msgstr ""
+"Lista rozszerzeń ma teraz przełączniki zamiast checkboxów aby zwiększyć ich "
+"pole powierzchni"
 
 #: data/code.metainfo.xml.in:81
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
 msgstr ""
+"Panel terminala wspiera teraz smart kopiowanie i wklejania oraz respektuje "
+"ustawienie \"natural-copy-paste\" Terminala"
 
 #: data/code.metainfo.xml.in:82
 msgid "The Vala symbol pane now gives more information in the tooltips"
-msgstr ""
+msgstr "Panel symboli Vala pokazuje teraz więcej informacji w tooltipie"
 
 #: data/code.metainfo.xml.in:84 data/code.metainfo.xml.in:126
 #: data/code.metainfo.xml.in:147 data/code.metainfo.xml.in:176
@@ -198,7 +207,7 @@ msgstr "Mniejsze aktualizacje:"
 
 #: data/code.metainfo.xml.in:86
 msgid "Launcher actions now have icons"
-msgstr ""
+msgstr "Akcje wyzwalacza mają teraz ikony"
 
 #: data/code.metainfo.xml.in:87
 msgid ""
