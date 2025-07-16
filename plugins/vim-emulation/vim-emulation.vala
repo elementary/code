@@ -34,7 +34,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
     Scratch.Widgets.SourceView? view = null;
 
     Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     construct {
         views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
