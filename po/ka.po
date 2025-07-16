@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-04 04:55+0000\n"
+"PO-Revision-Date: 2025-07-07 18:55+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/code/code/ka/"
 ">\n"
@@ -126,10 +126,9 @@ msgid "Repository %s successfully cloned"
 msgstr ""
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "მიმდინარე სამუშაო ცნობარი"
+msgstr "ლოკალური რეპოზიტორიის სამუშაო საქაღალდეა %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
@@ -957,10 +956,8 @@ msgid "Alphabetize"
 msgstr "ანბანიზაცია"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "პროექტის საქაღალდეების მართვა"
+msgstr "პროექტის საქაღალდეების მართვა…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
