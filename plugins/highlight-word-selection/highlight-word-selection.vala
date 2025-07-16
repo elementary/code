@@ -26,7 +26,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 255;
 
     Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     public void update_state () {}
 

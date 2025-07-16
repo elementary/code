@@ -1891,8 +1891,10 @@ public class SourceList : Gtk.ScrolledWindow {
                 set_tooltip_row (tooltip, path);
 
                 if (item.tooltip == null) {
-                    tooltip.set_markup (item.name);
-                    should_show = true;
+                    if (item.name != "") {
+                        tooltip.set_markup (item.name);
+                        should_show = true;
+                    }
                 } else if (item.tooltip != "") {
                     tooltip.set_markup (item.tooltip);
                     should_show = true;
@@ -2019,8 +2021,9 @@ public class SourceList : Gtk.ScrolledWindow {
 
             if (item != null) {
                 // Main categories ARE NOT selectable, so check for that
-                if (!data_model.is_category (item, null, path))
+                if (!data_model.is_category (item, null, path)) {
                     selectable = item.selectable;
+                }
             }
 
             return selectable;

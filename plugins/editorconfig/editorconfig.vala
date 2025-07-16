@@ -19,7 +19,7 @@
 
 public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
     private Code.FormatBar format_bar;
 
     public void update_state () { }
