@@ -48,6 +48,7 @@ namespace Scratch.FolderManager {
 
             dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
+            dummy.selectable = false;
             ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
