@@ -291,11 +291,18 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
         if (parent is CtagsSymbol) {
             var item = ((CtagsSymbol)parent);
+            var start = item.line;
+            var end = item.line;
+            // The type of a method is often on the previous line
+            if (item.symbol_type == SymbolType.METHOD) {
+                start = start > 0 ? start - 1 : start;
+            }
+
             item.tooltip = Markup.escape_text ("%s".printf (
                 doc.get_slice (
-                    item.line,
+                    start,
                     0,
-                    item.line,
+                    end,
                     0
                 )
             ));
