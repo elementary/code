@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-03-30 11:55+0000\n"
+"PO-Revision-Date: 2025-07-07 18:55+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
-"Language-Team: Polish <https://l10n.elementaryos.org/projects/code/code/pl/"
-">\n"
+"Language-Team: Polish <https://l10n.elementaryos.org/projects/code/code/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -130,22 +130,21 @@ msgstr "_Anuluj"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "Pomyślnie sklonowano repozytorium %s"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "Bieżący katalog roboczy"
+msgstr "Katalog roboczy lokalnego repozytorium to %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Nie udało się sklonować %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Ponów"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -156,47 +155,47 @@ msgstr "Pokaż „%s” przy pomocy domyślnej aplikacji"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Stwórz lokalny klon repozytorium Git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"Repozytorium źródłowe oraz lokalny katalog muszą istnieć i posiadać "
+"odpowiednie uprawnienia do odczytu i zapisu"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Sklonuj repozytorium"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/nazwa_uzytkownika/nazwa_projektu.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Wybierz katalog w którym stworzone zostanie sklonowane repozytorium"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Zaznacz wszystko"
+msgstr "Zaznacz"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "URL repozytorium"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "Lokalizacja"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Nazwa klona"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Klonowanie w toku"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -533,11 +532,11 @@ msgstr "Znajdź w projekcie…"
 
 #: src/FolderManager/ProjectFolderItem.vala:332
 msgid "Local"
-msgstr ""
+msgstr "Lokalne"
 
 #: src/FolderManager/ProjectFolderItem.vala:349
 msgid "Remote"
-msgstr ""
+msgstr "Zdalne"
 
 #: src/FolderManager/ProjectFolderItem.vala:364
 msgid "New Branch…"
@@ -713,12 +712,14 @@ msgstr "Zapisz dokument gdzie indziej"
 #: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Zdalna gałąź „%s” nie odnaleziona"
 
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"Wybrana gałąź nie została znaleziona w żadnym zdalnym punkcie powiązanym z "
+"tym repozytorium"
 
 #: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
@@ -742,10 +743,8 @@ msgid "Symbols"
 msgstr "Symbole"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symbole"
+msgstr "Zbyt wiele symboli"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
 #, c-format
@@ -753,12 +752,13 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
+"%s zawiera zbyt wiele symboli Vala.\n"
+"Parsowanie i pokazywanie ich zajęło zbyt długo."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:196
-#, fuzzy, c-format
-#| msgid "No Symbols Found"
+#, c-format
 msgid "Vala symbols found in %s"
-msgstr "Nie znaleziono symboli"
+msgstr "Symbole Vala znalezione w %s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -835,7 +835,7 @@ msgstr "Otwórz katalog…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Sklonuj repozytorium Git…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -971,10 +971,8 @@ msgid "Alphabetize"
 msgstr "Ułóż alfabetycznie"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Zarządzaj folderami projektu"
+msgstr "Zarządzaj katalogami projektu…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
@@ -1050,20 +1048,16 @@ msgid "Sort Selected Lines"
 msgstr "Sortuj wybrane wiersze"
 
 #: src/Widgets/SourceView.vala:594
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "W aktualnej linii"
+msgstr "Zaznacz aktualną linię"
 
 #: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "Idź do poprzedniej zakładki edycyjnej"
 
 #: src/Widgets/SourceView.vala:616
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "Edytor tekstu"
+msgstr "Idź do następnej zakładki edycyjnej"
 
 #: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
