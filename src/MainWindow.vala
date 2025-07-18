@@ -808,7 +808,7 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        private async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes () {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
                 if (!yield (doc.do_close (true))) {
@@ -845,7 +845,7 @@ namespace Scratch {
             }
         }
 
-        private void update_saved_state () {
+        private void update_window_state_setting () {
             // Save window state
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
@@ -872,9 +872,9 @@ namespace Scratch {
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        public void before_quit () {
+            document_view.update_opened_files_setting ();
+            update_window_state_setting ();
         }
 
         public void set_default_zoom () {
@@ -962,12 +962,7 @@ namespace Scratch {
         }
 
         private void action_quit () {
-            handle_quit ();
-            check_unsaved_changes.begin ((obj, res) => {
-                if (check_unsaved_changes.end (res)) {
-                    app.quit ();
-                }
-            });
+            app.handle_quit_window (this);
         }
 
         private void action_open () {
