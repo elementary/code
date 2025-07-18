@@ -48,8 +48,7 @@ public class Code.Terminal : Gtk.Box {
             var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
             win_group.activate_action (Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
             //Get ready to resume at last saved location
-            var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
-            spawn_shell (settings.get_string ("last-opened-path"));
+            spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
             //Clear screen of new shell
             terminal.feed_child ("clear -x\n".data);
         });
@@ -96,8 +95,7 @@ public class Code.Terminal : Gtk.Box {
             copy_action.set_enabled (terminal.get_has_selection ());
         });
 
-        var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
-        spawn_shell (settings.get_string ("last-opened-path"));
+        spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
 
         var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
         scrolled_window.add (terminal);
@@ -105,7 +103,7 @@ public class Code.Terminal : Gtk.Box {
         add (scrolled_window);
 
         destroy.connect (() => {
-            settings.set_string ("last-opened-path", get_shell_location ());
+            Scratch.saved_state.set_string ("last-opened-path", get_shell_location ());
         });
 
         show_all ();
