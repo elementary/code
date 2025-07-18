@@ -20,7 +20,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     private Gtk.Button clone_button;
     private Gtk.Stack stack;
     private Gtk.Spinner spinner;
-// <<<<<<< HEAD
     private Gtk.Revealer revealer;
     private Gtk.Label message_label;
     private Gtk.Label indexing_label;

@@ -1055,24 +1055,25 @@ namespace Scratch {
                 // Persist last entries (not necessarily valid)
                 Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
                 Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
-                // Clone dialog show spinner during cloning so keep visible
                 //TODO Show more information re progress using Ggit callbacks
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) {
-                    clone_dialog.cloning_in_progress = true;
+                    sidebar.cloning_in_progress = true;
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
                     var callbacks = clone_dialog.get_remote_callbacks ();
+                    clone_dialog.hide ();
                     git_manager.clone_repository.begin (
                         uri,
                         target,
                         callbacks,
                         (obj, res) => {
-                            clone_dialog.cloning_in_progress = false;
+                            sidebar.cloning_in_progress = false;
                             File? workdir = null;
                             string? error = null;
                             if (git_manager.clone_repository.end (res, out workdir, out error)) {
                                 open_folder (workdir);
                                 clone_dialog.destroy ();
+                                //TODO Show toast instead
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     _("Repository %s successfully cloned").printf (uri),
                                     _("Local repository working directory is %s").printf (workdir.get_uri ()),
@@ -1084,7 +1085,6 @@ namespace Scratch {
                                 message_dialog.response.connect (message_dialog.destroy);
                                 message_dialog.present ();
                             } else {
-                                clone_dialog.hide ();
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     _("Unable to clone %s").printf (uri),
                                     error,

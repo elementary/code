@@ -27,6 +27,17 @@ public class Code.Sidebar : Gtk.Grid {
     public Hdy.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
 
+    // May show progress in different way in future
+    public bool cloning_in_progress {
+        get {
+            return choose_project_button.cloning_in_progress;
+        }
+
+        set {
+            choose_project_button.cloning_in_progress = value;
+        }
+    }
+
     private Gtk.StackSwitcher stack_switcher;
 
     construct {
