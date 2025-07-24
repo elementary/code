@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-23 15:37+0000\n"
-"PO-Revision-Date: 2025-06-12 07:55+0000\n"
+"PO-Revision-Date: 2025-07-25 07:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/extra/ca/"
 ">\n"
@@ -158,6 +158,8 @@ msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
 msgstr ""
+"El menú contextual del Selector de projectes ara inclou una opció per clonar "
+"un dipòsit git remot."
 
 #: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:108
 #: data/code.metainfo.xml.in:150 data/code.metainfo.xml.in:171
@@ -170,18 +172,16 @@ msgstr "Actualitzacions menors:"
 msgid ""
 "The \"Open Folder\" action now appears in the Project Chooser context menu"
 msgstr ""
+"L'acció d'obrir una carpeta apareix ara al menú contextual del Selector de "
+"projectes."
 
 #: data/code.metainfo.xml.in:80
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The Vala symbol pane now shows a spinner while loading"
-msgstr ""
-"La taula de símbols de Vala ara dona més informació a les descripcions "
-"emergents."
+msgstr "La taula de símbols de Vala ara mostra una baldufa mentre es carrega."
 
 #: data/code.metainfo.xml.in:81
 msgid "The filter in the C symbol pane now works"
-msgstr ""
+msgstr "El filtre de la taula de símbols C ara funciona."
 
 #: data/code.metainfo.xml.in:82 data/code.metainfo.xml.in:122
 #: data/code.metainfo.xml.in:153 data/code.metainfo.xml.in:173
