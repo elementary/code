@@ -26,11 +26,11 @@ cleanup:
   - '/share/vala'
   - '*.a'
   - '*.la'
+build-options:
+  libdir: /app/lib
 modules:
   - name: gtksourceview
     buildsystem: meson
-    config-opts:
-      - --libdir=/app/lib
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
@@ -41,7 +41,6 @@ modules:
     config-opts:
       - -Dlua51=false
       - -Dgjs=false
-      - --libdir=/app/lib
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz
@@ -69,7 +68,6 @@ modules:
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
           - '-DBUILD_EXAMPLES:BOOL=OFF'
           - '-DBUILD_TESTING:BOOL=OFF'
-          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         cleanup:
           - '/share/man'
           - '/share/doc'
@@ -81,7 +79,6 @@ modules:
         buildsystem: cmake-ninja
         config-opts:
           - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
-          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
@@ -92,7 +89,6 @@ modules:
     config-opts:
       - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
       - '-DBUILD_DOCUMENTATION:BOOL=OFF'
-      - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
     sources:
       - type: git
         url: https://github.com/editorconfig/editorconfig-core-c.git
