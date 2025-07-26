@@ -78,6 +78,7 @@ modules:
         buildsystem: cmake-ninja
         config-opts:
           - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
@@ -88,6 +89,7 @@ modules:
     config-opts:
       - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
       - '-DBUILD_DOCUMENTATION:BOOL=OFF'
+      - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
     sources:
       - type: git
         url: https://github.com/editorconfig/editorconfig-core-c.git
