@@ -1,6 +1,6 @@
-app-id: io.elementary.code
+id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '8.1'
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
