@@ -45,7 +45,7 @@ jobs:
       fail-fast: false
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:8-${{ matrix.configuration.arch }}
+      image: ghcr.io/elementary/flatpak-platform/runtime:8.2-${{ matrix.configuration.arch }}
       options: --privileged
 
     steps:

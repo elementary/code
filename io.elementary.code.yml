@@ -1,6 +1,6 @@
-app-id: io.elementary.code
+id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '8' # Does not build with version '8.1' for some reason
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
@@ -26,6 +26,8 @@ cleanup:
   - '/share/vala'
   - '*.a'
   - '*.la'
+build-options:
+  libdir: /app/lib
 modules:
   - name: gtksourceview
     buildsystem: meson
@@ -66,7 +68,6 @@ modules:
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
           - '-DBUILD_EXAMPLES:BOOL=OFF'
           - '-DBUILD_TESTING:BOOL=OFF'
-          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         cleanup:
           - '/share/man'
           - '/share/doc'
