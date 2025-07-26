@@ -29,6 +29,12 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
+        public bool loading_required {
+            get {
+                return !children_loaded && n_children <= 1 && file.children.size > 0;
+            }
+        }
+
         public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
@@ -42,6 +48,7 @@ namespace Scratch.FolderManager {
 
             dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
+            dummy.selectable = false;
             ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
@@ -55,50 +62,65 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private async void load_children () {
-            var root = get_root_folder ();
-            foreach (var child in file.children) {
-                Idle.add (() => {
-                    Code.Widgets.SourceList.Item item = null;
-                    if (child.is_valid_directory) {
-                        item = new FolderItem (child, view);
-                    } else if (child.is_valid_textfile) {
-                        item = new FileItem (child, view);
-                    }
 
-                    if (item != null) {
-                        add (item);
-                    }
+        public void load_children () {
+            if (loading_required) {
+                foreach (var child in file.children) {
+                    add_child (child);
+                }
 
-                    load_children.callback ();
-                    return Source.REMOVE;
-                });
+                after_children_loaded ();
+            }
+        }
 
-                yield;
+        private async void load_children_async () {
+            if (loading_required) {
+                foreach (var child in file.children) {
+                    Idle.add (() => {
+                        add_child (child);
+                        load_children_async.callback ();
+                        return Source.REMOVE;
+                    });
+
+                    yield;
+                }
             }
 
+            after_children_loaded ();
+        }
+
+        private void add_child (File child) {
+            Code.Widgets.SourceList.Item item = null;
+            if (child.is_valid_directory) {
+                item = new FolderItem (child, view);
+            } else if (child.is_valid_textfile) {
+                item = new FileItem (child, view);
+            }
+
+            if (item != null) {
+                add (item);
+            }
+        }
+
+        private void after_children_loaded () {
             children_loaded = true;
+            var root = get_root_folder ();
             if (root != null) {
-                root.child_folder_loaded (this);
+                root.child_folder_loaded (this); //Updates child status emblens
             }
         }
 
         private void on_toggled () {
-            if (!children_loaded &&
-                 expanded &&
-                 n_children <= 1 &&
-                 file.children.size > 0) {
-
-                load_children.begin ();
+            if (expanded) {
+                load_children_async.begin ();
                 return;
-            }
-
-            var root = get_root_folder ();
-            if (!expanded &&
-                root != null &&
-                root.monitored_repo != null) {
-                //When toggled closed, update status to reflect hidden contents
-                root.update_item_status (this);
+            } else {
+                var root = get_root_folder ();
+                if (root != null &&
+                    root.monitored_repo != null) {
+                    //When toggled closed, update status to reflect hidden contents
+                    root.update_item_status (this);
+                }
             }
         }
 

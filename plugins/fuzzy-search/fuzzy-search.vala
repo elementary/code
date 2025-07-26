@@ -7,7 +7,7 @@
 
 
 public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
 

@@ -21,7 +21,7 @@
 public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     public const uint INTERACTIVE_DELAY = 500;
 
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
     public Euclide.Completion.Parser parser {get; private set;}
