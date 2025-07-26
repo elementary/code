@@ -29,6 +29,8 @@ cleanup:
 modules:
   - name: gtksourceview
     buildsystem: meson
+    config-opts:
+      - --libdir=/app/lib
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
