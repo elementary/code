@@ -41,6 +41,7 @@ modules:
     config-opts:
       - -Dlua51=false
       - -Dgjs=false
+      - --libdir=/app/lib
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz
