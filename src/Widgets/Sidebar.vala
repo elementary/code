@@ -27,7 +27,19 @@ public class Code.Sidebar : Gtk.Grid {
     public Hdy.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
 
+    // May show progress in different way in future
+    public bool cloning_in_progress {
+        get {
+            return choose_project_button.cloning_in_progress;
+        }
+
+        set {
+            choose_project_button.cloning_in_progress = value;
+        }
+    }
+
     private Gtk.StackSwitcher stack_switcher;
+    private Granite.Widgets.Toast cloning_success_toast;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -37,6 +49,8 @@ public class Code.Sidebar : Gtk.Grid {
             hexpand = true,
             valign = Gtk.Align.CENTER
         };
+
+        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete"));
 
         headerbar = new Hdy.HeaderBar () {
             custom_title = choose_project_button,
@@ -80,6 +94,7 @@ public class Code.Sidebar : Gtk.Grid {
         actionbar.pack_start (project_menu_button);
 
         add (headerbar);
+        add (cloning_success_toast);
         add (stack_switcher);
         add (stack);
         add (actionbar);
@@ -160,5 +175,9 @@ public class Code.Sidebar : Gtk.Grid {
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
+    }
+
+    public void notify_cloning_success () {
+        cloning_success_toast.send_notification ();
     }
 }
