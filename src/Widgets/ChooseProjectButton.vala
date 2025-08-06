@@ -75,6 +75,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
             action_target = new Variant.string (""),
             icon_name = "folder-open-symbolic",
+            accel_string = Scratch.MainWindow.ACTION_OPEN_FOLDER_ACCEL
         };
 
         var clone_button = new PopoverMenuItem (_("Clone Git Repository…")) {
