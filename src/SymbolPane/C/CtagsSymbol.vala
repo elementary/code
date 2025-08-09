@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.CtagsSymbol : Code.Widgets.SourceList.ExpandableItem {
+public class Scratch.Services.CtagsSymbol : Code.Widgets.SourceList.ExpandableItem, Scratch.Services.SymbolItem {
     public Scratch.Services.Document doc { get; construct set; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public int line { get; construct set; }
