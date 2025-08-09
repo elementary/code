@@ -199,6 +199,41 @@ namespace Scratch {
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
+        public async void handle_quit_window (MainWindow window_to_close) {
+            if (!yield window_to_close.check_unsaved_changes ()) {
+                return;
+            }
+
+            unowned List<Gtk.Window> windows = get_windows ();
+            var n_windows = windows.length ();
+
+            if (n_windows == 1) {
+                // Close app as usual
+                window_to_close.before_quit (); // Update settings
+                quit ();
+            } else {
+                // Find window to move docs into
+                unowned var windows_head = windows.first ();
+                var target_window = (MainWindow)(windows_head.data);
+                if (target_window == window_to_close) {
+                    target_window = (MainWindow)(windows_head.next.data);
+                }
+
+                // Reopen each doc in target window (we know they have been saved)
+                var doc_list = window_to_close.document_view.docs.copy ();
+                foreach (var doc in doc_list) {
+                    var new_doc = new Services.Document (
+                        target_window.actions,
+                        doc.file
+                    );
+                    yield target_window.open_document (new_doc, false);
+                }
+
+                remove_window (window_to_close);
+                window_to_close.destroy ();
+            }
+        }
+
         public static int main (string[] args) {
             return new Application ().run (args);
         }
