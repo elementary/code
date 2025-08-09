@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-18 19:55+0000\n"
+"POT-Creation-Date: 2025-07-23 15:37+0000\n"
+"PO-Revision-Date: 2025-07-26 19:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/"
 "plugins/be/>\n"
@@ -34,67 +34,68 @@ msgstr "Выяўляць водступы"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Эўрыстычнае вызначэнне налад табуляцыі або прабелаў"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Загружаць налады з файла EditorConfig"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Find Project Files"
-msgstr ""
+msgstr "Пошук файлаў праекта"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:7
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
+"Неакрэслены пошук файлаў ва ўсіх адкрытых праектах (Паказваецца праз ALT + F)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Падсвечваць вылучаныя словы"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Падсвечвае ўсе з'яўленні вылучаных слоў"
 
 #: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Markdown Actions"
-msgstr ""
+msgstr "Дзеянні Markdown"
 
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
-msgstr ""
+msgstr "Дадае спалучэнні клавіш для хуткай працы з файламі Markdown"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Абагульвайце файлы з дапамогай сэрвісу pastebin"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Захоўваць водступы"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Захоўвае адносныя водступы ўстаўленага тэксту"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Праверка правапісу"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Правярае правапіс у вашых дакументах"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Эмуляцыя Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
