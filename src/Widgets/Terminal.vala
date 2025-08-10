@@ -261,7 +261,7 @@ public class Code.Terminal : Gtk.Box {
             Gdk.RGBA foreground_color = Gdk.RGBA ();
             foreground_color.parse (foreground_setting);
 
-            string palette_setting = terminal_settings.get_string ("palette");
+            string palette_setting = terminal_settings.get_string (TERMINAL_PALETTE_KEY);
 
             string[] hex_palette = {"#000000", "#FF6C60", "#A8FF60", "#FFFFCC", "#96CBFE",
                                     "#FF73FE", "#C6C5FE", "#EEEEEE", "#000000", "#FF6C60",
