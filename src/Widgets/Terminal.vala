@@ -29,8 +29,8 @@ public class Code.Terminal : Gtk.Box {
     private Gtk.EventControllerKey key_controller;
 
     private Settings? terminal_settings = null;
-    private Settings gnome_interface_settings;
-    private Settings gnome_wm_settings;
+    private Settings? gnome_interface_settings = null;
+    private Settings? gnome_wm_settings = null;
 
     public SimpleActionGroup actions { get; construct; }
 
