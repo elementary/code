@@ -239,13 +239,13 @@ public class Code.Terminal : Gtk.Box {
             var cursor_shape_setting = terminal_settings.get_string (TERMINAL_CURSOR_KEY);
             switch (cursor_shape_setting) {
                 case "Block":
-                    this.terminal.cursor_shape = Vte.CursorShape.BLOCK;
+                    terminal.cursor_shape = Vte.CursorShape.BLOCK;
                     break;
                 case "I-Beam":
-                    this.terminal.cursor_shape = Vte.CursorShape.IBEAM;
+                    terminal.cursor_shape = Vte.CursorShape.IBEAM;
                     break;
                 case "Underline":
-                    this.terminal.cursor_shape = Vte.CursorShape.UNDERLINE;
+                    terminal.cursor_shape = Vte.CursorShape.UNDERLINE;
                     break;
             }
         } //No corresponding system keymap
