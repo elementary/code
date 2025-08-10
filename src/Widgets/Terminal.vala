@@ -236,7 +236,7 @@ public class Code.Terminal : Gtk.Box {
 
     private void update_cursor () {
         if (terminal_settings != null) {
-            var cursor_shape_setting = terminal_settings.get_string ("cursor-shape");
+            var cursor_shape_setting = terminal_settings.get_string (TERMINAL_CURSOR_KEY);
             switch (cursor_shape_setting) {
                 case "Block":
                     this.terminal.cursor_shape = Vte.CursorShape.BLOCK;
