@@ -253,7 +253,7 @@ public class Code.Terminal : Gtk.Box {
 
     private void update_colors () {
         if (terminal_settings != null) {
-            string background_setting = terminal_settings.get_string ("background");
+            string background_setting = terminal_settings.get_string (TERMINAL_BACKGROUND_KEY);
             Gdk.RGBA background_color = Gdk.RGBA ();
             background_color.parse (background_setting);
 
