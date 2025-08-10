@@ -188,7 +188,7 @@ namespace Scratch.FolderManager {
             var open_in_terminal_pane_item = new GLib.MenuItem (
                 (_("Terminal Pane")),
                 GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL_PANE,
                     new Variant.string (file.path)
                 )
             );

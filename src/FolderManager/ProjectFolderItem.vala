@@ -154,7 +154,7 @@ namespace Scratch.FolderManager {
                 set_active_folder_item = new GLib.MenuItem (
                     _("Open in Terminal Pane"),
                     GLib.Action.print_detailed_name (
-                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL_PANE,
                         new Variant.string (
                             Services.GitManager.get_instance ().get_default_build_dir (path)
                         )
@@ -166,7 +166,7 @@ namespace Scratch.FolderManager {
                 "accel",
                 Utils.get_accel_for_action (
                     GLib.Action.print_detailed_name (
-                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL_PANE,
                         ""
                     )
                 )

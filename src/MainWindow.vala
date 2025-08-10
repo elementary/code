@@ -108,7 +108,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
-        public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
+        public const string ACTION_OPEN_IN_TERMINAL_PANE = "action-open-in-terminal-pane";
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
@@ -166,7 +166,7 @@ namespace Scratch {
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
-            { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
+            { ACTION_OPEN_IN_TERMINAL_PANE, action_open_in_terminal_pane, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
@@ -235,7 +235,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
-            action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
+            action_accelerators.set (ACTION_OPEN_IN_TERMINAL_PANE + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
@@ -634,7 +634,7 @@ namespace Scratch {
             sidebar.choose_project_button.project_chosen.connect (() => {
                 folder_manager_view.collapse_other_projects ();
                 if (terminal.visible) {
-                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
+                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL_PANE, actions);
                     var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
                     open_in_terminal_action.activate (param);
                 }
@@ -1440,7 +1440,7 @@ namespace Scratch {
             }
         }
 
-        private void action_open_in_terminal (SimpleAction action, Variant? param) {
+        private void action_open_in_terminal_pane (SimpleAction action, Variant? param) {
             // Ensure terminal is visible
             if (terminal == null || !terminal.visible) {
                 var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
