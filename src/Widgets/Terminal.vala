@@ -130,8 +130,7 @@ public class Code.Terminal : Gtk.Box {
         Posix.kill (child_pid, Posix.Signal.TERM);
         terminal.reset (true, true);
         spawn_shell (dir);
-        var settings = new Settings (Constants.PROJECT_NAME + ".saved-state");
-        settings.set_string ("last-opened-path", dir);
+        Scratch.saved_state.set_string ("last-opened-path", dir);
     }
 
     private string get_shell_location () {
