@@ -17,6 +17,8 @@
  */
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
+    public bool cloning_in_progress { get; set; }
+
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
@@ -35,12 +37,17 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             xalign = 0.0f
         };
 
-        var grid = new Gtk.Grid () {
-            halign = Gtk.Align.START
+        var cloning_spinner = new Gtk.Spinner ();
+        bind_property ("cloning-in-progress", cloning_spinner, "active");
+
+        var box = new Gtk.Box (HORIZONTAL, 3) {
+            hexpand = true,
+            vexpand = false
         };
-        grid.add (img);
-        grid.add (label_widget);
-        add (grid);
+        box.add (img);
+        box.add (label_widget);
+        box.add (cloning_spinner);
+        add (box);
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
