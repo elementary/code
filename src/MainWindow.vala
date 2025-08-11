@@ -207,7 +207,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
-            action_accelerators.set (ACTION_OPEN_FOLDER, "<Control><Shift>o");
+            action_accelerators.set (ACTION_OPEN_FOLDER + "::", "<Control><Shift>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>r");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
