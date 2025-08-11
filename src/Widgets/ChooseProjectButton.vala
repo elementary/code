@@ -34,10 +34,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             ellipsize = Pango.EllipsizeMode.MIDDLE,
-            xalign = 0.0f
+            xalign = 0.0f,
+            hexpand = true
         };
 
-        var cloning_spinner = new Gtk.Spinner ();
+        var cloning_spinner = new Gtk.Spinner () {
+            halign = END
+        };
         bind_property ("cloning-in-progress", cloning_spinner, "active");
 
         var box = new Gtk.Box (HORIZONTAL, 3) {

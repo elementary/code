@@ -49,7 +49,9 @@ public class Code.Sidebar : Gtk.Grid {
             valign = Gtk.Align.CENTER
         };
 
-        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete"));
+        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
+            halign = END
+        };
 
         headerbar = new Hdy.HeaderBar () {
             custom_title = choose_project_button,
