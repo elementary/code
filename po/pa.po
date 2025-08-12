@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 22:16+0000\n"
+"POT-Creation-Date: 2025-07-23 15:37+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -437,24 +437,23 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "ਨਾਂ ਬਦਲੋ"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "ਕੂੜੇਦਾਨ ਵਿੱਚ (ਭੇਜੋ) ਸਥਾਨਅੰਤਰਨ ਕਰੋ"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
 msgid "Other Application…"
 msgstr "ਹੋਰ ਐਪ…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
 msgid "Open In"
 msgstr "ਇਸ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
@@ -462,37 +461,37 @@ msgstr "ਇਸ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 msgid "Folders"
 msgstr "ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "ਫ਼ੋਲਡਰ ਵਿੱਚ ਲੱਭੋ…"
 
-#: src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FolderItem.vala:189
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "ਟਰਮੀਨਲ"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
 msgstr "ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:231
+#: src/FolderManager/FolderItem.vala:232
 msgid "Empty File"
 msgstr "ਖ਼ਾਲੀ ਫ਼ਾਇਲ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:242
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:243
+#: src/FolderManager/ProjectFolderItem.vala:427
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "New"
 msgstr "ਨਵੀਂ"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "untitled folder"
 msgstr "ਬੇਨਾਮ ਫ਼ੋਲਡਰ"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "new file"
 msgstr "ਨਵੀਂ ਫ਼ਾਇਲ"
 
@@ -536,31 +535,31 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਲੱਭੋ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
 msgstr "ਨਵੀਂ ਸ਼ਾਖ਼…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
 msgstr "ਸ਼ਾਖ਼"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
 msgstr "ਤਬਦੀਲ"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "ਨਵੀਂ ਸ਼ਾਖ਼ “%s” ਬਣਾਉਂਦੇ ਵਕ਼ਤ ਖ਼ਰਾਬੀ ਰਹੀ"
@@ -760,26 +759,26 @@ msgid "Templates"
 msgstr "ਫਰਮੇ"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:195
-#: src/SymbolPane/SymbolOutline.vala:100
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "ਨਿਸ਼ਾਨ/ਚਿੰਨ੍ਹ"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 #, fuzzy
 #| msgid "Symbols"
 msgid "Too Many Symbols"
 msgstr "ਨਿਸ਼ਾਨ/ਚਿੰਨ੍ਹ"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:196
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
 msgid "Vala symbols found in %s"
 msgstr ""
@@ -824,23 +823,23 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:104
+#: src/SymbolPane/SymbolOutline.vala:131
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "ਨਿਸ਼ਾਨ/ਚਿੰਨ੍ਹ"
 
-#: src/SymbolPane/SymbolOutline.vala:113
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:160
 #, fuzzy
 #| msgid "Select Format"
 msgid "Select All"
 msgstr "ਫ਼ਾਰਮੈਟ ਚੁਣੋ"
 
-#: src/SymbolPane/SymbolOutline.vala:139
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr ""
 

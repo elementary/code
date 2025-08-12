@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 22:16+0000\n"
+"POT-Creation-Date: 2025-07-23 15:37+0000\n"
 "PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -422,24 +422,23 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
 msgid "Other Application…"
 msgstr "Diğer Uygulamalar…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
 msgid "Open In"
 msgstr "İçinde Aç"
 
@@ -447,37 +446,37 @@ msgstr "İçinde Aç"
 msgid "Folders"
 msgstr "Klasörler"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "Klasörde Bul…"
 
-#: src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FolderItem.vala:189
 #, fuzzy
 #| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
 msgstr "Terminal Bölmesinde Aç"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
 msgstr "Klasör"
 
-#: src/FolderManager/FolderItem.vala:231
+#: src/FolderManager/FolderItem.vala:232
 msgid "Empty File"
 msgstr "Boş Dosya"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:242
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:243
+#: src/FolderManager/ProjectFolderItem.vala:427
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "New"
 msgstr "Yeni"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "untitled folder"
 msgstr "adsız klasör"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "new file"
 msgstr "yeni dosya"
 
@@ -520,31 +519,31 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u Gizli Belgeyi Yeniden Göster"
 msgstr[1] "%u Gizli Belgeyi Yeniden Göster"
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Projede Bul…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
 msgstr "Yeni Dal…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
 msgstr "Dal"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Yeni dal oluşturulurken hata meydana geldi: \"%s\""
@@ -725,26 +724,26 @@ msgid "Templates"
 msgstr "Şablonlar"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:195
-#: src/SymbolPane/SymbolOutline.vala:100
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "Semboller"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 #, fuzzy
 #| msgid "Symbols"
 msgid "Too Many Symbols"
 msgstr "Semboller"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:196
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, fuzzy, c-format
 #| msgid "No Symbols Found"
 msgid "Vala symbols found in %s"
@@ -790,19 +789,19 @@ msgstr "Ad alanı"
 msgid "Other"
 msgstr "Diğer"
 
-#: src/SymbolPane/SymbolOutline.vala:104
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Find Symbol"
 msgstr "Sembol Bul"
 
-#: src/SymbolPane/SymbolOutline.vala:113
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr "Sembol türünü filtrele"
 
-#: src/SymbolPane/SymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:160
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: src/SymbolPane/SymbolOutline.vala:139
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr "Tümünü Seçimden Çıkar"
 
