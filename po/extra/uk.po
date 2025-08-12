@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-23 15:37+0000\n"
-"PO-Revision-Date: 2025-06-24 16:16+0000\n"
+"PO-Revision-Date: 2025-08-01 07:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -151,6 +151,8 @@ msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
 msgstr ""
+"Контекстне меню вибору проєкту відтепер містить опцію клонування віддаленого "
+"git-репозиторію"
 
 #: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:108
 #: data/code.metainfo.xml.in:150 data/code.metainfo.xml.in:171
@@ -163,16 +165,15 @@ msgstr "Незначні оновлення:"
 msgid ""
 "The \"Open Folder\" action now appears in the Project Chooser context menu"
 msgstr ""
+"Дія «Відкрити теку» відтепер з'являється в контекстному меню Обирача проєктів"
 
 #: data/code.metainfo.xml.in:80
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The Vala symbol pane now shows a spinner while loading"
-msgstr "Панель символів Vala тепер надає більше інформації у підказках"
+msgstr "На панелі символів Vala відтепер показується дзиґа під час завантаження"
 
 #: data/code.metainfo.xml.in:81
 msgid "The filter in the C symbol pane now works"
-msgstr ""
+msgstr "Фільтр на панелі символів C тепер працює"
 
 #: data/code.metainfo.xml.in:82 data/code.metainfo.xml.in:122
 #: data/code.metainfo.xml.in:153 data/code.metainfo.xml.in:173

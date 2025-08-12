@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-23 15:37+0000\n"
-"PO-Revision-Date: 2025-07-18 12:55+0000\n"
+"PO-Revision-Date: 2025-08-08 23:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/extra/"
 "ja/>\n"
@@ -151,7 +151,8 @@ msgstr "改善点:"
 msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
-msgstr ""
+msgstr "プロジェクト選択コンテキストメニューに、リモートの Git "
+"リポジトリをクローンするオプションを追加"
 
 #: data/code.metainfo.xml.in:77 data/code.metainfo.xml.in:108
 #: data/code.metainfo.xml.in:150 data/code.metainfo.xml.in:171
@@ -163,18 +164,16 @@ msgstr "マイナーアップデート:"
 #: data/code.metainfo.xml.in:79
 msgid ""
 "The \"Open Folder\" action now appears in the Project Chooser context menu"
-msgstr ""
+msgstr "\"フォルダーを開く\" "
+"アクションを、プロジェクト選択コンテキストメニューの中に移動"
 
 #: data/code.metainfo.xml.in:80
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The Vala symbol pane now shows a spinner while loading"
-msgstr ""
-"Vala シンボルペインでのツールチップにより多くの情報を表示するように修正"
+msgstr "Vala シンボルペインの読み込み中にスピナーを表示するように修正"
 
 #: data/code.metainfo.xml.in:81
 msgid "The filter in the C symbol pane now works"
-msgstr ""
+msgstr "C 言語シンボルペインでのフィルター機能が動作するように修正"
 
 #: data/code.metainfo.xml.in:82 data/code.metainfo.xml.in:122
 #: data/code.metainfo.xml.in:153 data/code.metainfo.xml.in:173
