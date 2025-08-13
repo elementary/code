@@ -99,7 +99,8 @@ namespace Scratch {
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
         public const string ACTION_DUPLICATE = "action-duplicate";
         public const string ACTION_FULLSCREEN = "action-fullscreen";
-        public const string ACTION_QUIT = "action-quit";
+        public const string ACTION_QUIT = "action-quit-app";
+        public const string ACTION_CLOSE_WINDOW = "action-close-window";
         public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
@@ -159,7 +160,8 @@ namespace Scratch {
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
-            { ACTION_QUIT, action_quit },
+            { ACTION_QUIT, action_quit_app },
+            { ACTION_CLOSE_WINDOW, action_close_window },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
@@ -223,6 +225,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
+            action_accelerators.set (ACTION_CLOSE_WINDOW, "<Control>F4");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
@@ -720,7 +723,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            action_quit ();
+            action_close_window ();
             return true;
         }
 
@@ -867,7 +870,7 @@ namespace Scratch {
 
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
-            action_quit ();
+            action_quit_app ();
             return false;
         }
 
@@ -961,8 +964,12 @@ namespace Scratch {
             preferences_dialog.present ();
         }
 
-        private void action_quit () {
-            app.handle_quit_window (this);
+        private void action_close_window () {
+            app.handle_quit_window.begin (this);
+        }
+
+        private void action_quit_app () {
+            app.handle_quit_app.begin ();
         }
 
         private void action_open () {

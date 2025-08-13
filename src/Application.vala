@@ -199,21 +199,36 @@ namespace Scratch {
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
-        public async void handle_quit_window (MainWindow window_to_close) {
+        public async void handle_quit_app () {
+            unowned List<Gtk.Window> windows;
+            windows = get_windows ();
+            //NOTE This yields the last opened window at head of list (may change in future?)
+            while (windows.length () > 0) {
+                if (!yield handle_quit_window ((MainWindow) (windows.first ().data))) {
+                    return;
+                }
+
+                windows = get_windows ();
+            }
+
+            return;
+        }
+
+        public async bool handle_quit_window (MainWindow window_to_close) {
             unowned List<Gtk.Window> windows = get_windows ();
             var n_windows = windows.length ();
             if (!yield window_to_close.check_unsaved_changes (n_windows == 1)) {
-                return;
+                return false;
             }
+
             if (n_windows == 1) {
-                // Close app as usual
                 window_to_close.before_quit (); // Update settings
-                quit ();
-            } else {
-                // Just close window - we have already checked whether any docs need saving
-                remove_window (window_to_close);
-                window_to_close.destroy ();
             }
+            // Just destroy window - we have already checked whether any docs need saving
+            // When the last window is removed and destroyed the app quits.
+            remove_window (window_to_close);
+            window_to_close.destroy ();
+            return true;
         }
 
         public static int main (string[] args) {
