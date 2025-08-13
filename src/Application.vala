@@ -200,13 +200,11 @@ namespace Scratch {
         }
 
         public async void handle_quit_window (MainWindow window_to_close) {
-            if (!yield window_to_close.check_unsaved_changes ()) {
-                return;
-            }
-
             unowned List<Gtk.Window> windows = get_windows ();
             var n_windows = windows.length ();
-
+            if (!yield window_to_close.check_unsaved_changes (n_windows == 1)) {
+                return;
+            }
             if (n_windows == 1) {
                 // Close app as usual
                 window_to_close.before_quit (); // Update settings

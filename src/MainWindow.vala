@@ -208,7 +208,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_OPEN_FOLDER, "<Control><Shift>o");
-            action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
+            action_accelerators.set (ACTION_REVERT, "<Control><shift>r");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
@@ -808,10 +808,10 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        public async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes (bool app_closing) {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!yield (doc.do_close (true))) {
+                if (!yield (doc.do_close (app_closing))) {
                     document_view.current_document = doc;
                     return false;
                 }
