@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-18 14:40+0000\n"
-"PO-Revision-Date: 2025-08-08 23:55+0000\n"
+"PO-Revision-Date: 2025-08-30 22:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/extra/"
 "ja/>\n"
@@ -159,13 +159,14 @@ msgstr "マイナーアップデート:"
 msgid ""
 "The terminal pane is now synchronized with the Terminal app foreground, "
 "background and palette settings"
-msgstr ""
+msgstr "“ターミナル”ペインが“ターミナル”アプリの文字色・背景色・パレットカラー設定に"
+"従うように修正"
 
 #: data/code.metainfo.xml.in:80
 msgid ""
 "The terminal pane is now synchronized with GNOME font and cursor blink "
 "settings"
-msgstr ""
+msgstr "“ターミナル”ペインが GNOME 側のフォントとカーソル点滅設定に従うように修正"
 
 #: data/code.metainfo.xml.in:81 data/code.metainfo.xml.in:101
 #: data/code.metainfo.xml.in:141 data/code.metainfo.xml.in:172
@@ -241,9 +242,8 @@ msgstr ""
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
-msgstr ""
-"ターミナルペインにスマートコピー & ペースト機能を実装し、“ターミナル” の \"ナ"
-"チュラルコピー & ペースト\" の設定に従うように修正"
+msgstr "ターミナルペインにスマートコピー & ペースト機能を実装し、“ターミナル” の "
+"\"ナチュラルコピー & ペースト\" 設定に従うように修正"
 
 #: data/code.metainfo.xml.in:125
 msgid "The Vala symbol pane now gives more information in the tooltips"
@@ -359,7 +359,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:222
 msgid "\"Follow System Style\" is now fully respected"
-msgstr "\"システムのスタイルに従う\"の設定が常に反映されるように修正"
+msgstr "\"システムのスタイルに従う\"設定が常に反映されるように修正"
 
 #: data/code.metainfo.xml.in:223
 msgid "The \"--new-tab\" commandline option now works"
