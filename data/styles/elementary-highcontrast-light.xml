@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<style-scheme id="elementary-highcontrast-light" _name="elementary High Contrast Light" version="1.0">
+  <author>Elementary Developers</author>
+  <_description>High Contrast color scheme using the elementary color palette</_description>
+
+  <!-- Background Colors Palette -->
+  <color name="bg-0"    value="#abacae"/> <!-- SILVER700-->
+  <color name="bg-1"    value="#d4d4d4"/> <!-- SILVER300-->
+  <color name="bg-2"    value="#fafafa"/> <!-- SILVER100-->
+  <color name="bg-3"    value="#f7efe1"/> <!-- 50% LATTE100 + 50% WHITE
+  
+   -->
+
+  <!--Foreground Colors Palette -->
+  <color name="fg-0"    value="#000000"/> <!-- BLACK900 -->
+  <color name="fg-1"    value="#1a1a1a"/> <!-- BLACK700 -->
+  <color name="fg-2"    value="#abacae"/> <!-- SILVER500 -->
+
+  <!--Highlight Colors Palette -->
+  <color name="mud"   value="#804b00"/> <!-- LATTE900 -->
+  <color name="latte"   value="#e7c591"/> <!-- LATTE300 -->
+  <color name="yellow"  value="#d48e15"/> <!--   BANANA700 -->
+  <color name="orange"  value="#cc3b02"/> <!-- ORANGE700 -->
+  <color name="pink"    value="#bc245d"/> <!-- BUBBLEGUM700 -->
+  <color name="purple"  value="#452981"/> <!-- GRAPE900 -->
+  <color name="cyan"    value="#3689e6"/> <!-- BLUEBERRY500 -->
+  <color name="blue"    value="#0d52bf"/> <!-- BLUEBERRY700 -->
+  <color name="lime"    value="#68b723"/> <!-- LIME500 -->
+  <color name="green"   value="#206b00"/> <!-- LIME900 -->
+  <color name="red"     value="#FF0000"/>
+  <color name="black"   value="#000000"/>
+
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="fg-0" background="bg-2"/>
+  <style name="selection"                   background="latte"/>
+  <style name="cursor"                      foreground="fg-0"/>
+  <style name="secondary-cursor"            foreground="fg-1"/>
+  <style name="current-line"                background="bg-1"/>
+  <style name="line-numbers"                foreground="fg-1" background="bg-3"/>
+  <style name="background-pattern"          background="bg-3"/>
+  <style name="draw-spaces"                 foreground="fg-2"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="lime" background="bg-2" bold="true"/>
+  <style name="bracket-mismatch"            foreground="red" background="fg-2" bold="true"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="bg-3" background="fg-1"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="black" background="yellow"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="fg-1"/>
+  <style name="def:shebang"                 foreground="fg-1" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="cyan"/>
+  <style name="def:special-char"            foreground="green"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="blue" bold="true"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="orange"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="green" bold="true"/>
+  <style name="def:string"                  foreground="pink"/>
+  <style name="def:keyword"                  foreground="mud" bold="true"/>
+
+  <!-- Markup -->
+  <style name="def:emphasis"                italic="true"/>
+  <style name="def:strong-emphasis"         foreground="orange"/>
+  <style name="def:inline-code"             foreground="blue"/>
+  <style name="def:insertion"               underline="single"/>
+  <style name="def:deletion"                strikethrough="true"/>
+  <style name="def:link-text"               foreground="fg-1"/>
+  <style name="def:link-symbol"             foreground="fg-1" bold="true"/>
+  <style name="def:link-destination"        italic="true" underline="single"/>
+  <style name="def:heading"                 foreground="yellow"/>
+  <style name="def:thematic-break"          foreground="yellow"/>
+  <style name="def:preformatted-section"    foreground="blue"/>
+  <style name="def:list-marker"             foreground="orange"/>
+
+  <!-- Operators -->
+  <style name="def:operator"                foreground="lime" bold="true" />
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="purple"/>
+  <style name="def:error"                   foreground="red" bold="true"/>
+  <style name="def:note"                    foreground="pink" bold="true"/>
+  <style name="def:net-address"             italic="true" underline="single"/>
+
+  <!-- Language specific styles -->
+  <style name="diff:added-line"             foreground="green"/>
+  <style name="diff:removed-line"           foreground="red"/>
+  <style name="diff:changed-line"           foreground="yellow"/>
+  <style name="diff:special-case"           use-style="def:constant"/>
+  <style name="diff:location"               use-style="def:statement"/>
+  <style name="diff:diff-file"              use-style="def:type"/>
+
+  <style name="xml:tags"                    foreground="cyan"  bold="true"/>
+  <style name="xml:attribute-name"          foreground="purple"  bold="true"/>
+  <style name="xml:namespace"               foreground="lime" bold="true"/>
+
+  <style name="js:built-in-constructor"     use-style="def:identifier"/>
+
+  <style name="latex:display-math"          foreground="purple"/>
+  <style name="latex:command"               foreground="green" bold="true"/>
+  <style name="latex:include"               use-style="def:preprocessor"/>
+
+  <style name="sh:variable"                 foreground="purple"/>
+
+  <!-- legacy styles for old lang files -->
+  <style name="Others"                      foreground="green" bold="true"/>
+  <style name="Others 2"                    foreground="cyan"/>
+  <style name="Others 3"                    foreground="purple"/>
+
+</style-scheme>
