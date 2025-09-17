@@ -51,8 +51,19 @@ namespace Scratch.Services {
         }
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
-            var root_path = root_folder.file.file.get_path ();
+            var root_path = root_folder.path;
             MonitoredRepository? monitored_repo = null;
+            uint position;
+            if (project_liststore.find_with_equal_func (
+                    root_folder,
+                    (a, b) => { return ((FolderManager.Item) a).equal ((FolderManager.Item) b); },
+                    out position
+                )) {
+
+                var repo = project_gitrepo_map.@get (root_path);
+                return repo;
+            }
+
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (!project_gitrepo_map.has_key (root_path)) {
