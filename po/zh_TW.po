@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-10 19:35+0000\n"
-"PO-Revision-Date: 2025-06-03 03:55+0000\n"
+"POT-Creation-Date: 2025-09-07 16:45+0000\n"
+"PO-Revision-Date: 2025-08-22 15:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_Hant/>\n"
@@ -43,90 +43,154 @@ msgstr "<起始行[.起始欄][-結束行[.結束欄]]>"
 msgid "[FILE…]"
 msgstr "[檔案…]"
 
-#: src/MainWindow.vala:258
+#: src/MainWindow.vala:261
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:263
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:394
+#: src/MainWindow.vala:397
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:399 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "在頁面上尋找…"
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:413
 msgid "Hide Projects Sidebar"
 msgstr "隱藏專案側邊欄"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:418
 msgid "Show Projects Sidebar"
 msgstr "顯示專案側邊欄"
 
-#: src/MainWindow.vala:424
+#: src/MainWindow.vala:427
 msgid "Hide Symbol Outline"
 msgstr "隱藏符號大綱"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:432
 msgid "Show Symbol Outline"
 msgstr "顯示符號大綱"
 
-#: src/MainWindow.vala:438
+#: src/MainWindow.vala:441
 msgid "Hide Terminal"
 msgstr "隱藏終端機"
 
-#: src/MainWindow.vala:443 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "顯示終端機"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:613
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:668
+#: src/MainWindow.vala:975 src/Services/Document.vala:668
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:672
+#: src/MainWindow.vala:979 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:980
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:510
-#: src/Services/Document.vala:680 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:1024
+#: src/MainWindow.vala:1027
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:1025
+#: src/MainWindow.vala:1028
 msgid "_Cancel"
 msgstr "取消(_C)"
+
+#: src/MainWindow.vala:1075
+#, c-format
+msgid "Repository %s successfully cloned"
+msgstr "版本庫 %s 成功複製"
+
+#: src/MainWindow.vala:1076
+#, c-format
+msgid "Local repository working directory is %s"
+msgstr "本地版本庫工作目錄是 %s"
+
+#: src/MainWindow.vala:1087
+#, c-format
+msgid "Unable to clone %s"
+msgstr "無法複製 %s"
+
+#: src/MainWindow.vala:1094
+msgid "Retry"
+msgstr "重試"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
 msgstr "用預設應用程式來開啟 '%s'"
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/CloneRepositoryDialog.vala:55
+msgid "Create a local clone of a Git repository"
+msgstr "建立 Git 版本庫的本地複本"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:56
+msgid ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
+msgstr "來源版本庫與本地資料夾都必須存在，也必須持有需要的讀寫權限"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:59
+msgid "Clone Repository"
+msgstr "複製版本庫"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:69
+msgid "https://example.com/username/projectname.git"
+msgstr "https://example.com/username/projectname.git"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:93
+msgid "Select folder where the cloned repository will be created"
+msgstr "選取版本庫複本的上層資料夾"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:96
+msgid "Select"
+msgstr "選取"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:118
+msgid "Repository URL"
+msgstr "版本庫 URL"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:119
+msgid "Location"
+msgstr "位置"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:120
+msgid "Name of Clone"
+msgstr "複本名稱"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:122
+msgid "Cloning in progress"
+msgstr "正在複製版本庫"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -347,24 +411,23 @@ msgstr "不要簽出"
 msgid "Checkout and Overwrite"
 msgstr "簽出並覆寫"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "其他選項"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
 msgid "Open In"
 msgstr "開啟於"
 
@@ -372,35 +435,35 @@ msgstr "開啟於"
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "在資料夾中尋找…"
 
-#: src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FolderItem.vala:189
 msgid "Terminal Pane"
 msgstr "終端機面板"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:231
+#: src/FolderManager/FolderItem.vala:232
 msgid "Empty File"
 msgstr "空白檔案"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:242
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:243
+#: src/FolderManager/ProjectFolderItem.vala:427
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "untitled folder"
 msgstr "未命名資料夾"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "new file"
 msgstr "新檔案"
 
@@ -438,31 +501,31 @@ msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "復原 %u 個已隱藏的文件"
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "在專案中尋找…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
 msgstr "本地"
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
 msgstr "遠端"
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
 msgstr "新增分支…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
 msgstr "分支"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
 msgstr "已修改"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "建立新分支時發生錯誤：「%s」"
@@ -638,17 +701,17 @@ msgid "Templates"
 msgstr "範本"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:169
-#: src/SymbolPane/SymbolOutline.vala:99
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "符號"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 msgid "Too Many Symbols"
 msgstr "太多符號"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
@@ -657,10 +720,10 @@ msgstr ""
 "%s 內含太多 Vala 符號。\n"
 "剖析與顯示它們花了太多時間。"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
 msgid "Vala symbols found in %s"
-msgstr ""
+msgstr "在 %s 找到的 Vala 符號"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -702,19 +765,19 @@ msgstr "命名空間"
 msgid "Other"
 msgstr "其他"
 
-#: src/SymbolPane/SymbolOutline.vala:103
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Find Symbol"
 msgstr "尋找符號"
 
-#: src/SymbolPane/SymbolOutline.vala:112
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr "過濾符號類型"
 
-#: src/SymbolPane/SymbolOutline.vala:132
+#: src/SymbolPane/SymbolOutline.vala:160
 msgid "Select All"
 msgstr "全部選取"
 
-#: src/SymbolPane/SymbolOutline.vala:138
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr "全部取消選取"
 
@@ -730,6 +793,14 @@ msgstr "作用中 Git 專案：%s"
 #: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "過濾專案"
+
+#: src/Widgets/ChooseProjectButton.vala:74
+msgid "Open Folder…"
+msgstr "開啟資料夾…"
+
+#: src/Widgets/ChooseProjectButton.vala:80
+msgid "Clone Git Repository…"
+msgstr "複製 Git 版本庫…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -852,21 +923,17 @@ msgstr "跟隨系統風格"
 msgid "Menu"
 msgstr "選單"
 
-#: src/Widgets/Sidebar.vala:63
-msgid "Open Folder…"
-msgstr "開啟資料夾…"
-
-#: src/Widgets/Sidebar.vala:66
+#: src/Widgets/Sidebar.vala:59
 msgid "Collapse All"
 msgstr "收折所有檔案"
 
-#: src/Widgets/Sidebar.vala:69
+#: src/Widgets/Sidebar.vala:62
 msgid "Alphabetize"
 msgstr "依字母排序"
 
-#: src/Widgets/Sidebar.vala:81
-msgid "Manage project folders"
-msgstr "管理專案目錄"
+#: src/Widgets/Sidebar.vala:70
+msgid "Manage project folders…"
+msgstr "管理專案資料夾…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
@@ -957,11 +1024,11 @@ msgstr "前往下一個編輯標記"
 msgid "Toggle Comment"
 msgstr "切換註釋"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "複製"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "貼上"
 
@@ -1229,9 +1296,6 @@ msgstr "%s - 單字補完"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "無法載入圖示主題：%s\n"
-
-#~ msgid "Current working directory"
-#~ msgstr "目前的工作目錄"
 
 #, fuzzy
 #~ msgid "directory"

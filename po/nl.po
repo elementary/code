@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-10 19:35+0000\n"
+"POT-Creation-Date: 2025-09-07 16:45+0000\n"
 "PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -43,89 +43,156 @@ msgstr ""
 msgid "[FILE…]"
 msgstr "[BESTAND…]"
 
-#: src/MainWindow.vala:258
+#: src/MainWindow.vala:261
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:263
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:394
+#: src/MainWindow.vala:397
 msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
-#: src/MainWindow.vala:399 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Zoek op pagina…"
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:413
 msgid "Hide Projects Sidebar"
 msgstr "Verberg projectenzijbalk"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:418
 msgid "Show Projects Sidebar"
 msgstr "Toon projectenzijbalk"
 
-#: src/MainWindow.vala:424
+#: src/MainWindow.vala:427
 msgid "Hide Symbol Outline"
 msgstr "Verberg symbooloverzicht"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:432
 msgid "Show Symbol Outline"
 msgstr "Toon symbooloverzicht"
 
-#: src/MainWindow.vala:438
+#: src/MainWindow.vala:441
 msgid "Hide Terminal"
 msgstr "Terminal verbergen"
 
-#: src/MainWindow.vala:443 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Terminal weergeven"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:613
+#: src/MainWindow.vala:616
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:668
+#: src/MainWindow.vala:975 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:672
+#: src/MainWindow.vala:979 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Tekstbestanden"
 
-#: src/MainWindow.vala:980
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "Open meerdere bestanden"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "Openen"
 
-#: src/MainWindow.vala:984 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:510
-#: src/Services/Document.vala:680 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: src/MainWindow.vala:1024
+#: src/MainWindow.vala:1027
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:1025
+#: src/MainWindow.vala:1028
 msgid "_Cancel"
 msgstr "_Annuleer"
+
+#: src/MainWindow.vala:1075
+#, c-format
+msgid "Repository %s successfully cloned"
+msgstr ""
+
+#: src/MainWindow.vala:1076
+#, fuzzy, c-format
+#| msgid "Current working directory"
+msgid "Local repository working directory is %s"
+msgstr "Huidige werkmap"
+
+#: src/MainWindow.vala:1087
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
+#: src/MainWindow.vala:1094
+msgid "Retry"
+msgstr ""
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
+msgstr ""
+
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/CloneRepositoryDialog.vala:55
+msgid "Create a local clone of a Git repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:56
+msgid ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:59
+msgid "Clone Repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:69
+msgid "https://example.com/username/projectname.git"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:93
+msgid "Select folder where the cloned repository will be created"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:96
+#, fuzzy
+#| msgid "Select Format"
+msgid "Select"
+msgstr "Selecteer formaat"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:118
+msgid "Repository URL"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:119
+msgid "Location"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:120
+msgid "Name of Clone"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:122
+msgid "Cloning in progress"
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
@@ -377,24 +444,23 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "Andere acties"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "Hernoem"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "Naar de prullenbak verplaatsen"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
 msgid "Other Application…"
 msgstr "Andere applicatie…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
 msgid "Open In"
 msgstr "Openen met"
 
@@ -402,37 +468,37 @@ msgstr "Openen met"
 msgid "Folders"
 msgstr "Mappen"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "Vind in map…"
 
-#: src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FolderItem.vala:189
 #, fuzzy
 #| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
 msgstr "Openen in terminalvenster"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
 msgstr "Map"
 
-#: src/FolderManager/FolderItem.vala:231
+#: src/FolderManager/FolderItem.vala:232
 msgid "Empty File"
 msgstr "Leeg bestand"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:242
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:243
+#: src/FolderManager/ProjectFolderItem.vala:427
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "untitled folder"
 msgstr "naamloze map"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "new file"
 msgstr "nieuw bestand"
 
@@ -475,31 +541,31 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Herstel %u verborgen document"
 msgstr[1] "Herstel %u verborgen documenten"
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Vind in project…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
 msgstr "Nieuwe Tak…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
 msgstr "Aangepast"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fout bij het aanmaken van een nieuwe tak: “%s”"
@@ -683,26 +749,26 @@ msgid "Templates"
 msgstr "Sjablonen"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:169
-#: src/SymbolPane/SymbolOutline.vala:99
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "Symbolen"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 #, fuzzy
 #| msgid "Symbols"
 msgid "Too Many Symbols"
 msgstr "Symbolen"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:170
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
 msgid "Vala symbols found in %s"
 msgstr ""
@@ -749,23 +815,23 @@ msgstr ""
 msgid "Other"
 msgstr "Andere…"
 
-#: src/SymbolPane/SymbolOutline.vala:103
+#: src/SymbolPane/SymbolOutline.vala:131
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "Symbolen"
 
-#: src/SymbolPane/SymbolOutline.vala:112
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:132
+#: src/SymbolPane/SymbolOutline.vala:160
 #, fuzzy
 #| msgid "Select Format"
 msgid "Select All"
 msgstr "Selecteer formaat"
 
-#: src/SymbolPane/SymbolOutline.vala:138
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr ""
 
@@ -782,6 +848,14 @@ msgstr "Actief Git project: %s"
 #: src/Widgets/ChooseProjectButton.vala:51
 msgid "Filter projects"
 msgstr "Projecten filteren"
+
+#: src/Widgets/ChooseProjectButton.vala:74
+msgid "Open Folder…"
+msgstr "Map openen…"
+
+#: src/Widgets/ChooseProjectButton.vala:80
+msgid "Clone Git Repository…"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:109
 #, fuzzy
@@ -916,20 +990,18 @@ msgstr "Volg systeemstijl"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Sidebar.vala:63
-msgid "Open Folder…"
-msgstr "Map openen…"
-
-#: src/Widgets/Sidebar.vala:66
+#: src/Widgets/Sidebar.vala:59
 msgid "Collapse All"
 msgstr "Alles inklappen"
 
-#: src/Widgets/Sidebar.vala:69
+#: src/Widgets/Sidebar.vala:62
 msgid "Alphabetize"
 msgstr "Alfabetiseer"
 
-#: src/Widgets/Sidebar.vala:81
-msgid "Manage project folders"
+#: src/Widgets/Sidebar.vala:70
+#, fuzzy
+#| msgid "Manage project folders"
+msgid "Manage project folders…"
 msgstr "Projectmappen beheren"
 
 #: src/Widgets/SearchBar.vala:99
@@ -1025,11 +1097,11 @@ msgstr "Tekstverwerker"
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Plakken"
 
@@ -1292,9 +1364,6 @@ msgstr "%s - Woorden aanvullen"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Kon pictogram thema niet laden: %s\n"
-
-#~ msgid "Current working directory"
-#~ msgstr "Huidige werkmap"
 
 #, fuzzy
 #~ msgid "directory"
