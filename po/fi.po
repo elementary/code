@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-07 16:45+0000\n"
-"PO-Revision-Date: 2024-12-01 18:10+0000\n"
+"PO-Revision-Date: 2025-09-29 19:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
+"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -140,22 +141,22 @@ msgstr "Nykyinen työskentelyhakemisto"
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Ei voitu kloonata %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "Yritä uudelleen"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Näytä '%s' oletussovelluksella"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Luo paikallinen klooni Git-tietovarastosta"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
@@ -165,7 +166,7 @@ msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Kloonaa tietovarasto"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
@@ -176,26 +177,24 @@ msgid "Select folder where the cloned repository will be created"
 msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select"
-msgstr "Valitse muoto"
+msgstr "Valitse"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "Tietovaraston URL-osoite"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "Sijainti"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Kloonin nimi"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Kloonaus käynnissä"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -243,16 +242,12 @@ msgid "General"
 msgstr "Yleiset"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Tallenna tiedostot muutoksien jälkeen:"
+msgstr "Tallenna tiedostot muutoksien jälkeen"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit:"
+msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit"
 
 #: src/Dialogs/PreferencesDialog.vala:27
 #, fuzzy
@@ -313,10 +308,8 @@ msgid "Editor"
 msgstr "Muokkain"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Korosta toisiaan vastaavat hakasulut:"
+msgstr "Korosta toisiaan vastaavat hakasulut"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Mini Map"
@@ -324,13 +317,11 @@ msgstr "Pienoiskartta"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Rivitä rivit"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Rivileveyden merkki:"
+msgstr "Rivileveyden merkki"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -390,8 +381,8 @@ msgstr[1] ""
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sulje lapsiprojekti"
+msgstr[1] "Sulje lapsiprojektit"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -406,10 +397,8 @@ msgid "Close Parent Project"
 msgstr ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Älä palauta"
+msgstr "Älä avaa"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
@@ -495,10 +484,8 @@ msgid "new file"
 msgstr "uusi tiedosto"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Aktiivinen Git-projekti: %s"
+msgstr "Aseta aktiiviseksi projektiksi"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
@@ -539,11 +526,11 @@ msgstr "Etsi projektista…"
 
 #: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
-msgstr ""
+msgstr "Paikallinen"
 
 #: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
-msgstr ""
+msgstr "Etä"
 
 #: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
@@ -720,7 +707,7 @@ msgstr "Tallenna asiakirja muualle"
 #: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Etähaaraa '%s' ei löydy"
 
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
@@ -749,10 +736,8 @@ msgid "Symbols"
 msgstr "Symbolit"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symbolit"
+msgstr "Liian monta symbolia"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
@@ -768,19 +753,19 @@ msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Luokka"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Ominaisuus"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Signaali"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Metodi"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
@@ -796,45 +781,38 @@ msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Konstruktori"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Nimiavaruus"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Muut…"
+msgstr "Muu"
 
 #: src/SymbolPane/SymbolOutline.vala:131
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Symbolit"
+msgstr "Etsi symboli"
 
 #: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:160
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Valitse muoto"
+msgstr "Valitse kaikki"
 
 #: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
-msgstr ""
+msgstr "Älä valitse mitään"
 
 #: src/Widgets/ChooseProjectButton.vala:20
 msgid "No Project Selected"
 msgstr "Projektia ei ole valittu"
 
 #: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktiivinen Git-projekti: %s"
 
@@ -848,13 +826,11 @@ msgstr "Avaa kansio…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Kloonaa Git-tietovarasto…"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Sulje"
+msgstr "Suljetut välilehdet"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -863,31 +839,23 @@ msgstr "Tekstitiedosto lähteestä %s:%d"
 
 #: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Sulje välilehdet oikealta"
 
 #: src/Widgets/DocumentView.vala:626
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Sulje muut kansiot"
+msgstr "Sulje muut välilehdet"
 
 #: src/Widgets/DocumentView.vala:627
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Sulje"
+msgstr "Sulje välilehti"
 
 #: src/Widgets/DocumentView.vala:630
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Uusi ikkuna"
+msgstr "Uusi uudessa ikkunassa"
 
 #: src/Widgets/DocumentView.vala:631
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Tallenna kaksoiskappale…"
+msgstr "Monista välilehti"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -992,10 +960,8 @@ msgid "Alphabetize"
 msgstr "Aakkosta"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Hallitse projektikansioita"
+msgstr "Hallitse projektikansioita…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
@@ -1071,10 +1037,8 @@ msgid "Sort Selected Lines"
 msgstr "Järjestä valitut rivit"
 
 #: src/Widgets/SourceView.vala:594
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Nykyinen rivi"
+msgstr "Merkitse nykyinen rivi"
 
 #: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
