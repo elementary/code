@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 14:40+0000\n"
-"PO-Revision-Date: 2025-04-16 13:55+0000\n"
+"POT-Creation-Date: 2025-09-07 16:45+0000\n"
+"PO-Revision-Date: 2025-10-06 12:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/"
-">\n"
+"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -128,22 +128,21 @@ msgstr "_ביטול"
 #: src/MainWindow.vala:1075
 #, c-format
 msgid "Repository %s successfully cloned"
-msgstr ""
+msgstr "המאגר %s שוכפל בהצלחה"
 
 #: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
+#, c-format
 msgid "Local repository working directory is %s"
-msgstr "תיקיית העבודה הנוכחית"
+msgstr "תיקיית העבודה של המאגר המקומי היא %s"
 
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "לא ניתן לשכפל את %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "לנסות שוב"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -154,49 +153,47 @@ msgstr "הצגת ‚%s’ עם יישום ברירת המחדל"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "יצירת עותק מקומי של מאגר Git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"המאגר המקומי והתיקייה המקומית חייבים להיות קיימים ועם הרשאות הקריאה והכתיבה "
+"הנכונות"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "שכפול מאגר"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "נא לבחור תיקייה בה ייווצר המאגר המשוכפל"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "בחירה בהכול"
+msgstr "בחירה"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "כתובת מאגר"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "מקומי"
+msgstr "מקום"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "שם העותק"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "מתבצע שכפול"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -725,22 +722,18 @@ msgid "Too Many Symbols"
 msgstr "יותר מדי סמלים"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
-#, fuzzy, c-format
-#| msgid ""
-#| "%s contains too many Vala symbols.\n"
-#| "Parsing and showing them took long"
+#, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
 "%s מכיל יותר מדי סמלים של Vala.\n"
-"פענוחם והצגתם ארכו זמן רב"
+"פענוחם והצגתם ארכו זמן רב מדי."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
-#, fuzzy, c-format
-#| msgid "No Symbols Found"
+#, c-format
 msgid "Vala symbols found in %s"
-msgstr "לא נמצאו סמלים"
+msgstr "סמלים של Vala נמצאו ב־%s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -817,7 +810,7 @@ msgstr "פתיחת תיקייה…"
 
 #: src/Widgets/ChooseProjectButton.vala:80
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "שכפול מאגר Git…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -951,10 +944,8 @@ msgid "Alphabetize"
 msgstr "סידור אלפביתי"
 
 #: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "ניהול תיקיות המיזם"
+msgstr "ניהול תיקיות המיזם…"
 
 #: src/Widgets/SearchBar.vala:99
 msgid "Find"
@@ -1030,20 +1021,16 @@ msgid "Sort Selected Lines"
 msgstr "סידור השורות הנבחרות"
 
 #: src/Widgets/SourceView.vala:594
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "שורה נוכחית"
+msgstr "סימון השורה הנוכחית"
 
 #: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
-msgstr ""
+msgstr "קפיצה לסמן העריכה הקודם"
 
 #: src/Widgets/SourceView.vala:616
-#, fuzzy
-#| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
-msgstr "עורך טקסט"
+msgstr "קפיצה לסמן העריכה הבא"
 
 #: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"

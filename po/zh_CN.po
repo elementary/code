@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 14:40+0000\n"
-"PO-Revision-Date: 2025-08-03 10:55+0000\n"
+"POT-Creation-Date: 2025-09-07 16:45+0000\n"
+"PO-Revision-Date: 2025-09-11 00:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_Hans/>\n"
@@ -34,7 +34,7 @@ msgstr "打印版本信息并退出"
 
 #: src/Application.vala:44
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "打开文件中指定的选择范围"
 
 #: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
@@ -139,17 +139,17 @@ msgstr "当前工作目录"
 #: src/MainWindow.vala:1087
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "无法克隆 %s"
 
 #: src/MainWindow.vala:1094
 msgid "Retry"
-msgstr ""
+msgstr "重试"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "用默认应用程序来打开 '%s'"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -164,7 +164,7 @@ msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "克隆仓库"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
@@ -175,18 +175,16 @@ msgid "Select folder where the cloned repository will be created"
 msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select"
-msgstr "选择格式"
+msgstr "选择"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "仓库 URL"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
@@ -240,10 +238,8 @@ msgid "General"
 msgstr "一般设置"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "自动保存："
+msgstr "更改时储存文件"
 
 #: src/Dialogs/PreferencesDialog.vala:25
 #, fuzzy
@@ -270,16 +266,12 @@ msgid "Indentation width"
 msgstr "边距宽度："
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "自动缩进"
+msgstr "缩进"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "自动缩进："
+msgstr "自动缩进"
 
 #: src/Dialogs/PreferencesDialog.vala:48
 #, fuzzy
@@ -292,14 +284,12 @@ msgid "Default build directory"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:67
-#, fuzzy
-#| msgid "Project"
 msgid "Projects"
 msgstr "项目"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: src/Dialogs/PreferencesDialog.vala:79
 #, fuzzy
@@ -309,7 +299,7 @@ msgstr "删除此视图"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
@@ -347,7 +337,7 @@ msgstr "字体"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr ""
+msgstr "使用系统字体"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
@@ -410,10 +400,8 @@ msgid "Close Parent Project"
 msgstr ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "停止恢复"
+msgstr "不要打开"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
@@ -469,10 +457,8 @@ msgid "Find in Folder…"
 msgstr "在文件夹中查找…"
 
 #: src/FolderManager/FolderItem.vala:189
-#, fuzzy
-#| msgid "Terminal"
 msgid "Terminal Pane"
-msgstr "终端"
+msgstr "终端面板"
 
 #: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
@@ -540,7 +526,7 @@ msgstr "在项目中查找…"
 
 #: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
-msgstr ""
+msgstr "本地"
 
 #: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
@@ -742,10 +728,8 @@ msgid "Symbols"
 msgstr "符号"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "符号"
+msgstr "太多符号"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
@@ -797,26 +781,20 @@ msgid "Namespace"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "其它…"
+msgstr "其它"
 
 #: src/SymbolPane/SymbolOutline.vala:131
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "符号"
+msgstr "寻找符号"
 
 #: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:160
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "选择格式"
+msgstr "选择全部"
 
 #: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
@@ -845,10 +823,8 @@ msgid "Clone Git Repository…"
 msgstr ""
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "关闭"
+msgstr "已关闭的标签页"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -860,28 +836,20 @@ msgid "Close Tabs to the Right"
 msgstr ""
 
 #: src/Widgets/DocumentView.vala:626
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "关闭其他文件夹"
+msgstr "关闭其他标签页"
 
 #: src/Widgets/DocumentView.vala:627
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "关闭"
+msgstr "关闭标签页"
 
 #: src/Widgets/DocumentView.vala:630
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "新窗口"
+msgstr "在新窗口打开"
 
 #: src/Widgets/DocumentView.vala:631
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "保存副本…"
+msgstr "创建标签页副本"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
