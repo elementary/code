@@ -72,8 +72,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_scrolled.add (project_listbox);
 
         var add_folder_button = new PopoverMenuItem (_("Open Folder…")) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
-            action_target = new Variant.string (""),
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_PROJECT,
             icon_name = "folder-open-symbolic",
         };
 
