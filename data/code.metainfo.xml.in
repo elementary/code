@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/8.1.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.1.1/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/8.1.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.1.1/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -68,6 +68,21 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.1.1" date="2025-09-06" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>The terminal pane is now synchronized with the Terminal app foreground, background and palette settings</li>
+          <li>The terminal pane is now synchronized with GNOME font and cursor blink settings</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1586">Relies on external Terminal settings keys</issue>
+        <issue url="https://github.com/elementary/code/issues/457">Exiting process running in terminal leaves terminal useless</issue>
+        <issue url="https://github.com/elementary/code/issues/276">Listen for changes to Terminal color scheme</issue>
+      </issues>
+    </release>
     <release version="8.1.0" date="2025-08-01" urgency="medium">
       <description>
         <p>Improvements:</p>
