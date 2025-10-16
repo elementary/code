@@ -71,7 +71,7 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         var box = new Gtk.Box (VERTICAL, 0);
         if (!use_regex) {
             box.add (new Gtk.Label (case_text) { halign = START });
-            if (wholeword_text != "") {
+            if (wholeword) {
                 box.add (new Gtk.Label (wholeword_text) { halign = START });
             }
         } else {
