@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-16 17:18+0000\n"
-"PO-Revision-Date: 2025-07-02 20:55+0000\n"
+"PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,12 +127,12 @@ msgstr "_Annuler"
 
 #: src/MainWindow.vala:1077
 msgid "Cloning completed"
-msgstr ""
+msgstr "Clonage terminé"
 
 #: src/MainWindow.vala:1078
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Le clone a bien été créé dans %s"
 
 #: src/MainWindow.vala:1084
 #, c-format
@@ -195,22 +195,20 @@ msgid "Cloning in progress"
 msgstr "Clonage en cours"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "La recherche doit faire au moins 3 caractères de long."
+msgstr "La recherche sera traitée en temps qu'expression régulière"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "La recherche sera sensible à la casse"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "La recherche ne sera pas sensible à la casse"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "La recherche ne correspondra qu'aux mots entiers"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -967,7 +965,7 @@ msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "Clonage terminé"
 
 #: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
