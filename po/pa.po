@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 15:37+0000\n"
+"POT-Creation-Date: 2025-10-16 17:18+0000\n"
 "PO-Revision-Date: 2021-08-16 03:26+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/code/pa/>\n"
@@ -113,7 +113,7 @@ msgstr "ਖੋਲ੍ਹੋ"
 
 #: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -128,22 +128,21 @@ msgstr "_ਖੋਲ੍ਹੋ"
 msgid "_Cancel"
 msgstr "_ਰੱਦ ਕਰੋ"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
+#: src/MainWindow.vala:1077
+msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1076
+#: src/MainWindow.vala:1078
 #, c-format
-msgid "Local repository working directory is %s"
+msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1091
 msgid "Retry"
 msgstr ""
 
@@ -198,24 +197,34 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "ਖੋਜਿਆ ਜਾਣ ਵਾਲ਼ਾ ਲਫ਼ਜ਼ ਘੱਟੋ-ਘੱਟ 3 ਅੱਖਰਾਂ ਦਾ ਹੋਣਾ ਚਾਹੀਦੈ।"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "“%s” ਵਿੱਚ ਟੈਕਸਟ (ਲਿਖਤ) ਦੀ ਖੋਜ ਕਰੋ"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "ਖੋਜਿਆ ਜਾਣ ਵਾਲ਼ਾ ਲਫ਼ਜ਼ ਘੱਟੋ-ਘੱਟ 3 ਅੱਖਰਾਂ ਦਾ ਹੋਣਾ ਚਾਹੀਦੈ।"
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "ਵੱਡੇ ਅਤੇ ਛੋਟੇ ਅੱਖਰਾਂ ਨੂੰ ਵੱਖ ਸਮਝੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ):"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "ਆਮ ਸਮੀਕਰਨਾਂ ਵਰਤੋ:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "ਖੋਜੋ"
 
@@ -843,27 +852,27 @@ msgstr "ਫ਼ਾਰਮੈਟ ਚੁਣੋ"
 msgid "Deselect All"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "ਕੋਈ ਵੀ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਚੁਣਿਆ ਹੋਇਆ"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, fuzzy, c-format
 #| msgid "Active Git project: %s"
 msgid "Active Git Project: %s"
 msgstr "ਸਰਗਰਮ Git ਪ੍ਰੋਜੈਕਟ: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਛਾਣਨੀ"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Open Folder…"
 msgstr "ਫ਼ੋਲਡਰ ਖੋਲ੍ਹੋ"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -1004,90 +1013,94 @@ msgstr ""
 msgid "Menu"
 msgstr "ਮੈਨਿਊ"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
 msgstr "ਸਾਰਿਆਂ ਦੀ ਤਹਿ ਬੰਦ ਕਰੋ"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:77
 msgid "Alphabetize"
 msgstr "ਅੱਖਰ-ਤਰਤੀਬ ਮੁਤਾਬਕ"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:85
 #, fuzzy
 #| msgid "Manage project folders"
 msgid "Manage project folders…"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਫ਼ੋਲਡਰਾਂ ਦਾ ਰੱਖ-ਰਖਾਓ"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "ਲੱਭੋ"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "ਅਗਲਾ ਖੋਜੋ"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "ਪਿਛਲਾ ਖੋਜੋ"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "ਚੱਕਰੀ ਖੋਜ"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "ਕਦੇ ਵੀ ਨਹੀਂ"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "ਹਮੇਸ਼ਾ"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "ਵੱਡੇ, ਛੋਟੇ ਅੱਖਰਾਂ ਵਿੱਚ ਫ਼ਰਕ ਕਰੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ)"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 #, fuzzy
 #| msgid "Use regular expressions:"
 msgid "Use Regular Expressions"
 msgstr "ਆਮ ਸਮੀਕਰਨਾਂ ਵਰਤੋ:"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "ਪਿਛਲਾ ਖੋਜੋ"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "ਇਸ ਨਾਲ਼ ਵਟਾਓ"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "ਵਟਾਓ"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "ਸਾਰੇ/ਸਾਰੀਆਂ ਵਟਾਓ"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr ""
 
@@ -1111,11 +1124,11 @@ msgstr ""
 msgid "Toggle Comment"
 msgstr "ਟਿੱਪਣੀ ਨੂੰ ਬੰਦ ਜਾਂ ਚਾਲੂ ਕਰੋ"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "ਨਕਲ ਕਰੋ"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "ਪੇਸਟ ਕਰੋ"
 
@@ -1213,6 +1226,12 @@ msgstr "ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ [
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - ਲਫ਼ਜ਼ ਮੁਕੰਮਲ"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "ਵੱਡੇ ਅਤੇ ਛੋਟੇ ਅੱਖਰਾਂ ਨੂੰ ਵੱਖ ਸਮਝੋ (ਅੰਗਰੇਜ਼ੀ ਲਈ):"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "ਆਮ ਸਮੀਕਰਨਾਂ ਵਰਤੋ:"
 
 #~ msgid "Tabs"
 #~ msgstr "ਟੈਬਾਂ"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 15:37+0000\n"
-"PO-Revision-Date: 2025-06-26 09:55+0000\n"
+"POT-Creation-Date: 2025-10-16 17:18+0000\n"
+"PO-Revision-Date: 2025-10-12 23:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -110,7 +110,7 @@ msgstr "開く"
 
 #: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -125,22 +125,21 @@ msgstr "開く(_O)"
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
-msgstr "リポジトリ %s のクローンに成功しました"
+#: src/MainWindow.vala:1077
+msgid "Cloning completed"
+msgstr ""
 
-#: src/MainWindow.vala:1076
+#: src/MainWindow.vala:1078
 #, c-format
-msgid "Local repository working directory is %s"
-msgstr "ローカルリポジトリの作業ディレクトリは以下です: %s"
+msgid "Clone successfully created in %s"
+msgstr ""
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Unable to clone %s"
 msgstr "%s をクローンできません"
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1091
 msgid "Retry"
 msgstr "再試行"
 
@@ -195,24 +194,34 @@ msgstr "クローン先フォルダー"
 msgid "Cloning in progress"
 msgstr "クローン中"
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "検索語句は 3 文字以上にする必要があります。"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "フォルダー“%s”内のテキストを検索"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "検索語句は 3 文字以上にする必要があります。"
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "大文字と小文字を区別:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "正規表現を使う:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "検索"
 
@@ -793,24 +802,24 @@ msgstr "すべて選択"
 msgid "Deselect All"
 msgstr "すべて選択解除"
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "プロジェクト未選択"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, c-format
 msgid "Active Git Project: %s"
 msgstr "アクティブな Git プロジェクト: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "プロジェクトをフィルター"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 msgid "Open Folder…"
 msgstr "フォルダーを開く…"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Clone Git Repository…"
 msgstr "Git リポジトリをクローン…"
 
@@ -935,84 +944,88 @@ msgstr "システムのスタイルに従う"
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:77
 msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:85
 msgid "Manage project folders…"
 msgstr "プロジェクトフォルダーを管理…"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "検索"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "結果なし"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "次を検索"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "前を検索"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "循環検索"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "なし"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr "検索用語に大文字も小文字も含まれる場合"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "常に"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
 msgstr "正規表現を使う"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr "完全一致"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "検索オプション"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "置換後の文字"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "置換"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d 件"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "結果なし"
 
@@ -1036,11 +1049,11 @@ msgstr "次のブックマークに移動"
 msgid "Toggle Comment"
 msgstr "コメントアウト/コメント解除"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "コピー"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "貼り付け"
 
@@ -1050,7 +1063,7 @@ msgstr "開いているファイルなし"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
-msgstr "編集を開始するにはファイルを開いてください。"
+msgstr "編集を始めるにはファイルを開いてください。"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
@@ -1138,6 +1151,20 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "大文字と小文字を区別:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "正規表現を使う:"
+
+#, c-format
+#~ msgid "Repository %s successfully cloned"
+#~ msgstr "リポジトリ %s のクローンに成功しました"
+
+#, c-format
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "ローカルリポジトリの作業ディレクトリは以下です: %s"
 
 #, c-format
 #~ msgid "This folder is the parent of %u open projects"
