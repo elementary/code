@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-16 17:18+0000\n"
-"PO-Revision-Date: 2025-06-26 09:55+0000\n"
+"PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -127,12 +127,12 @@ msgstr "_Mégse"
 
 #: src/MainWindow.vala:1077
 msgid "Cloning completed"
-msgstr ""
+msgstr "Klónozás befejezve"
 
 #: src/MainWindow.vala:1078
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Klón sikeresen létrehozva itt: %s"
 
 #: src/MainWindow.vala:1084
 #, c-format
@@ -195,22 +195,20 @@ msgid "Cloning in progress"
 msgstr "Klónozás folyamatban"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "A keresési kifejezés legalább 3 karakter hosszú kell legyen."
+msgstr "A keresési kifejezés reguláris kifejezésként lesz értelmezve"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "A keresés kis- és nagybetűérzékeny lesz"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "A keresés nem lesz kis- és nagybetűérzékeny"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "A keresés csak teljes szavakat fog megtalálni"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -959,7 +957,7 @@ msgstr "Menü"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "Klónozás kész"
 
 #: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
