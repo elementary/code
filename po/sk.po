@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 15:37+0000\n"
+"POT-Creation-Date: 2025-10-16 17:18+0000\n"
 "PO-Revision-Date: 2022-12-26 20:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/code/code/sk/>\n"
@@ -118,7 +118,7 @@ msgstr "Otvoriť"
 
 #: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -133,23 +133,21 @@ msgstr "_Otvoriť"
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
+#: src/MainWindow.vala:1077
+msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
-msgid "Local repository working directory is %s"
-msgstr "Aktuálny pracovný adresár"
+#: src/MainWindow.vala:1078
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1091
 msgid "Retry"
 msgstr ""
 
@@ -204,24 +202,34 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "Vyhľadávaný pojem musí byť dlhý aspoň 3 znaky."
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Vyhľadať text v „%s“"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "Vyhľadávaný pojem musí byť dlhý aspoň 3 znaky."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Rozlišovať malé a veľké písmená:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Používať bežné výrazy:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Hľadať"
 
@@ -870,27 +878,27 @@ msgstr "Vybrať formát"
 msgid "Deselect All"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Žiadny zvolený projekt"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, fuzzy, c-format
 #| msgid "Active Git project: %s"
 msgid "Active Git Project: %s"
 msgstr "Aktívny Git projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Filtrovať projekty"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Open Folder…"
 msgstr "Otvoriť priečinok"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -1033,92 +1041,96 @@ msgstr "Rešpektovať systémovú tému"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
 msgstr "Zbaliť všetko"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:77
 msgid "Alphabetize"
 msgstr "Zoradiť abecedne"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:85
 #, fuzzy
 #| msgid "Manage project folders"
 msgid "Manage project folders…"
 msgstr "Spravovať priečinky projektu"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Nájsť"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 #, fuzzy
 #| msgid "no results"
 msgid "No Results"
 msgstr "žiadne výsledky"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Hľadať ďalšie"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Hľadať predchádzajúce"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Opakované hľadanie"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Nikdy"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Vždy"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Rozlišovať malé a veľké písmená"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 #, fuzzy
 #| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Používať bežné výrazy"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "Hľadať predchádzajúce"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Nahradiť s"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Nahradiť"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Nahradiť všetko"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d z %d"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "žiadne výsledky"
 
@@ -1146,11 +1158,11 @@ msgstr "Textový editor"
 msgid "Toggle Comment"
 msgstr "Zobraziť/Skryť komentár"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Vložiť"
 
@@ -1248,6 +1260,17 @@ msgstr "Nainštalujte prosím aspoň jeden [aspell] slovník."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "Dokončovanie slov: %s"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Rozlišovať malé a veľké písmená:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Používať bežné výrazy:"
+
+#, fuzzy, c-format
+#~| msgid "Current working directory"
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Aktuálny pracovný adresár"
 
 #~ msgid "Tabs"
 #~ msgstr "Karty"
