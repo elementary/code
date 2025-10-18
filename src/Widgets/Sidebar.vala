@@ -66,7 +66,6 @@ public class Code.Sidebar : Gtk.Grid {
         var overlay = new Gtk.Overlay () {
             child = stack
         };
-
         overlay.add_overlay (cloning_success_toast);
 
         stack_switcher = new Gtk.StackSwitcher ();
