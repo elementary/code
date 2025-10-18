@@ -50,7 +50,8 @@ public class Code.Sidebar : Gtk.Grid {
         };
 
         cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
-            halign = END
+            halign = CENTER,
+            valign = START
         };
 
         headerbar = new Hdy.HeaderBar () {
@@ -61,6 +62,11 @@ public class Code.Sidebar : Gtk.Grid {
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
+        var overlay = new Gtk.Overlay () {
+            child = stack
+        };
+        overlay.add_overlay (cloning_success_toast);
 
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
@@ -95,9 +101,8 @@ public class Code.Sidebar : Gtk.Grid {
         actionbar.pack_start (project_menu_button);
 
         add (headerbar);
-        add (cloning_success_toast);
         add (stack_switcher);
-        add (stack);
+        add (overlay);
         add (actionbar);
 
         stack.add.connect (() => {
