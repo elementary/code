@@ -40,7 +40,7 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
             } else if (i == 1) {
                 Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
             } else if (i == 2) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_FOLDER, window.actions).activate ("");
+                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_PROJECT, window.actions).activate (null);
             }
         });
     }
