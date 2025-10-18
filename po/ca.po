@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-16 17:18+0000\n"
-"PO-Revision-Date: 2025-06-26 09:55+0000\n"
+"PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,12 +127,12 @@ msgstr "_Cancel·la"
 
 #: src/MainWindow.vala:1077
 msgid "Cloning completed"
-msgstr ""
+msgstr "Clonació completada"
 
 #: src/MainWindow.vala:1078
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Clon creat correctament a %s"
 
 #: src/MainWindow.vala:1084
 #, c-format
@@ -195,22 +195,20 @@ msgid "Cloning in progress"
 msgstr "Clonació en curs"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "El terme de la cerca ha de tenir com a mínim 3 caràcters."
+msgstr "El terme de cerca es tractarà com a expressió regular."
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "La cerca distingirà entre majúscules i minúscules."
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "La cerca no distingirà entre majúscules i minúscules."
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "La cerca només coincidirà amb paraules senceres."
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -961,7 +959,7 @@ msgstr "Menú"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "Clonació completada"
 
 #: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
