@@ -68,6 +68,21 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.1.2" date="2025-10-18" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>The tooltips for C symbols are now more informative</li>
+          <li>Cloning success is now indicated by toast instead of a dialog</li>
+          <li>Global search and local search now have the same case sensitivity</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1628">Git clone success dialog should be a toast</issue>
+        <issue url="https://github.com/elementary/code/issues/1277">Global Search case sensitivity behaviour differs from local search</issue>
+      </issues>
+    </release>
     <release version="8.1.1" date="2025-09-06" urgency="medium">
       <description>
         <p>Minor updates:</p>
