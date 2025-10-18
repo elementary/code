@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-07 16:45+0000\n"
-"PO-Revision-Date: 2025-06-26 09:55+0000\n"
+"POT-Creation-Date: 2025-10-16 17:18+0000\n"
+"PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -110,7 +110,7 @@ msgstr "Megnyitás"
 
 #: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -125,22 +125,21 @@ msgstr "Meg_nyitás"
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
-msgstr "A(z) %s tároló sikeresen klónozva"
+#: src/MainWindow.vala:1077
+msgid "Cloning completed"
+msgstr "Klónozás befejezve"
 
-#: src/MainWindow.vala:1076
+#: src/MainWindow.vala:1078
 #, c-format
-msgid "Local repository working directory is %s"
-msgstr "Az aktuális munkakönyvtár: %s"
+msgid "Clone successfully created in %s"
+msgstr "Klón sikeresen létrehozva itt: %s"
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Nem sikerült a(z) %s klónozása"
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1091
 msgid "Retry"
 msgstr "Újra"
 
@@ -195,24 +194,32 @@ msgstr "Klón neve"
 msgid "Cloning in progress"
 msgstr "Klónozás folyamatban"
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+msgid "The search term will be treated as a regex expression"
+msgstr "A keresési kifejezés reguláris kifejezésként lesz értelmezve"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr "A keresés kis- és nagybetűérzékeny lesz"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr "A keresés nem lesz kis- és nagybetűérzékeny"
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr "A keresés csak teljes szavakat fog megtalálni"
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Szöveg keresése itt: \"%s\""
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "A keresési kifejezés legalább 3 karakter hosszú kell legyen."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Kis-nagybetű érzékenység:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Reguláris kifejezések használata:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Keresés"
 
@@ -804,24 +811,24 @@ msgstr "Összes kiválasztása"
 msgid "Deselect All"
 msgstr "Összes kiválasztásának megszüntetése"
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Nincs kiválasztott projekt"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktív Git projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Projektek szűrése"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 msgid "Open Folder…"
 msgstr "Mappa megnyitása…"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Clone Git Repository…"
 msgstr "Git tároló klónozása…"
 
@@ -948,84 +955,88 @@ msgstr "Rendszertéma követése"
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr "Klónozás kész"
+
+#: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
 msgstr "Összes becsukása"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:77
 msgid "Alphabetize"
 msgstr "Betűrendbe"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:85
 msgid "Manage project folders…"
 msgstr "Projekt mappáinak kezelése…"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Keresés"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "Nincs találat"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Következő keresése"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Előző keresése"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Ciklikus keresés"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Soha"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr "Kevert"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Mindig"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Kis-nagybetű érzékenység"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
 msgstr "Reguláris kifejezések használata"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr "Teljes szavak illesztése"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "Keresési beállítások"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Csere ezzel"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Csere"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Összes cseréje"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "nincs találat"
 
@@ -1151,6 +1162,20 @@ msgstr "Telepítsen legalább egy [aspell] szótárt."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Kis-nagybetű érzékenység:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Reguláris kifejezések használata:"
+
+#, c-format
+#~ msgid "Repository %s successfully cloned"
+#~ msgstr "A(z) %s tároló sikeresen klónozva"
+
+#, c-format
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Az aktuális munkakönyvtár: %s"
 
 #, c-format
 #~ msgid "This folder is the parent of %u open projects"
