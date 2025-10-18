@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 15:37+0000\n"
+"POT-Creation-Date: 2025-10-16 17:18+0000\n"
 "PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -115,7 +115,7 @@ msgstr "Åpne"
 
 #: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
@@ -130,23 +130,21 @@ msgstr "_Åpne"
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
+#: src/MainWindow.vala:1077
+msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
-msgid "Local repository working directory is %s"
-msgstr "Gjeldende arbeidsmappe"
+#: src/MainWindow.vala:1078
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1091
 msgid "Retry"
 msgstr ""
 
@@ -201,24 +199,34 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "Søket må inneholde minst tre tegn."
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Søk etter tekst i «%s»"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "Søket må inneholde minst tre tegn."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Forskjell på store og små bokstaver:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Bruk regulære uttrykk:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Søk"
 
@@ -851,25 +859,25 @@ msgstr "Velg format"
 msgid "Deselect All"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Prosjekt ikke valgt"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, fuzzy, c-format
 #| msgid "Active Git project: %s"
 msgid "Active Git Project: %s"
 msgstr "Aktivt Git-prosjekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Filtrer prosjekter"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 msgid "Open Folder…"
 msgstr "Åpne mappe …"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -996,88 +1004,92 @@ msgstr "Følg systemets stil"
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:74
 msgid "Collapse All"
 msgstr "Fold sammen alle"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:77
 msgid "Alphabetize"
 msgstr "Alfabetiser"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:85
 #, fuzzy
 #| msgid "Manage project folders"
 msgid "Manage project folders…"
 msgstr "Håndter prosjektmapper"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Søk"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "Resultatløst"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Søk neste"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Søk forrige"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Syklisk søk"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Aldri"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr "Små og store bokstaver"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Alltid"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Forskjell på store og små bokstaver"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 #, fuzzy
 #| msgid "Use regular expressions"
 msgid "Use Regular Expressions"
 msgstr "Bruk regulære uttrykk"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr "Jamfør hele ord"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "Søkealternativer"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Erstatt med"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Erstatt"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Erstatt alle"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d av %d"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "resultatløst"
 
@@ -1105,11 +1117,11 @@ msgstr "Tekstredigerer"
 msgid "Toggle Comment"
 msgstr "Veksle kommentar"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Kopier"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Lim inn"
 
@@ -1207,6 +1219,17 @@ msgstr "Installer minst én [aspel]-ordbok."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordfullføring"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Forskjell på store og små bokstaver:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Bruk regulære uttrykk:"
+
+#, fuzzy, c-format
+#~| msgid "Current working directory"
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Gjeldende arbeidsmappe"
 
 #~ msgid "Tabs"
 #~ msgstr "Faner"
