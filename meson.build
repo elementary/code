@@ -2,7 +2,7 @@ project(
     'io.elementary.code',
     'vala', 'c',
     meson_version: '>= 0.58.0',
-    version: '8.0.0'
+    version: '8.1.1'
 )
 
 add_project_arguments([
@@ -72,6 +72,40 @@ if get_option('development') and git.found ()
     output = run_command('git','branch','--show-current', check: false)
     branch = output.stdout().strip()
 endif
+
+# Profiler linking code taken from https://github.com/RidgeRun/gst-inference/blob/master/meson.build
+# with some amendments
+# 'libprofiler' and 'libtcmalloc' are provided by installing (e.g.) 'google-perftools' and 'libgoogle-pertools-dev'
+# Profiling is not active unless either the correct environment variables are set at runtime
+# or the profiling is switched on/off in the code using the CPU_PROFILING and HEAP_PROFILING conditional compilation flags
+# with the commands Profiler.start (<path-to-profile-output>) and Profiler.stop () and the corresponding HeapProfiler functions
+# It is advisable not to run cpu profiling at the same time as heap profiling
+# If meson options are changed then rebuild with 'cd .. && sudo rm -R ./build && build'
+# See https://github.com/gperftools/gperftools/blob/master/docs/cpuprofile.adoc
+# and https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.adoc
+if get_option('cpu-profiling-enabled')
+  profiler_dep = dependency ('libprofiler')
+  if(profiler_dep.found())
+    message('CPU profiling enabled: Building with profiling support.')
+    add_global_link_arguments ('-lprofiler', language: 'c')
+    add_project_arguments ('--define=PROFILING', language: 'vala')
+    dependencies += profiler_dep
+  else
+    message('MESON_FAIL: CPU profiling requested but libprofiler (gperftools) not found.')
+  endif
+endif
+if get_option('heap-profiling-enabled')
+  heap_profiler_dep = dependency ('libtcmalloc')
+  if(heap_profiler_dep.found())
+    message('Heap profiling enabled: Building with heap profiling support.')
+    add_global_link_arguments ('-ltcmalloc', language: 'c')
+    add_project_arguments ('--define=HEAP_PROFILING', language: 'vala')
+    dependencies += heap_profiler_dep
+  else
+    message('MESON_FAIL: Heap profiling requested but libtcmalloc (gperftools) not found.')
+  endif
+endif
+
 
 subdir('data')
 subdir('src')
