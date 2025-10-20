@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-09-14 18:55+0000\n"
+"PO-Revision-Date: 2025-10-21 00:55+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/extra/es/"
 ">\n"
@@ -156,20 +156,21 @@ msgid "Minor updates:"
 msgstr "Actualizaciones menores:"
 
 #: data/code.metainfo.xml.in:75
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The tooltips for C symbols are now more informative"
 msgstr ""
-"El panel de símbolos de Vala ahora ofrece más información en la descripción "
-"emergente"
+"Las descripciones emergentes de los símbolos de C ahora son más informativos"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
 msgstr ""
+"Una clonación exitosa ahora se indica mediante un mensaje emergente tipo "
+"«toast», en vez de un cuadro de diálogo"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
 msgstr ""
+"La búsqueda global y local ahora usan la misma configuración de distinción "
+"entre mayúsculas y minúsculas"
 
 #: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:92
 #: data/code.metainfo.xml.in:112 data/code.metainfo.xml.in:152
@@ -245,7 +246,7 @@ msgid ""
 "uncommitted changes"
 msgstr ""
 "Ahora se ofrecen opciones para sobrescribir o cancelar cambios no "
-"persistidos («uncomitted») cuando se cambia a otra rama"
+"confirmados («uncommitted») cuando se cambia a otra rama"
 
 #: data/code.metainfo.xml.in:132
 msgid "The network can now be accessed from within the Flatpak"
