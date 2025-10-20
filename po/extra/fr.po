@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-08-21 13:55+0000\n"
+"PO-Revision-Date: 2025-10-21 00:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/extra/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/extra/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -157,20 +157,20 @@ msgid "Minor updates:"
 msgstr "Mises à jour mineures :"
 
 #: data/code.metainfo.xml.in:75
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The tooltips for C symbols are now more informative"
-msgstr ""
-"Le panneau des symboles Vala donne désormais plus d'information sur les "
-"infobulles"
+msgstr "Les infobulles pour les symboles C donnent désormais plus d'information"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
 msgstr ""
+"La réussite du clonage est désormais indiquée par un toast au lieu d'une "
+"boîte de dialogue"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
 msgstr ""
+"La recherche globale et la recherche locale ont désormais la même "
+"sensibilité à la casse"
 
 #: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:92
 #: data/code.metainfo.xml.in:112 data/code.metainfo.xml.in:152
