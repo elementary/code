@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2018-10-21 10:19+0000\n"
-"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
-"Language-Team: Swedish <https://weblate.elementary.io/projects/code/plugins/"
+"PO-Revision-Date: 2025-10-22 08:07+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/plugins/"
 "sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,11 @@ msgstr "Ladda inställningar från en EditorConfig-fil"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Find Project Files"
-msgstr ""
+msgstr "Hitta projektfiler"
 
 #: plugins/fuzzy-search/fuzzy-search.plugin:7
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
-msgstr ""
+msgstr "Fuzzy-sökning efter filer i alla öppna projekt (Visa med ALT + F)"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -61,11 +61,11 @@ msgstr "Markera alla förekomster av ord som är valda"
 
 #: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Markdown Actions"
-msgstr ""
+msgstr "Markdown-åtgärder"
 
 #: plugins/markdown-actions/markdown-actions.plugin:7
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
-msgstr ""
+msgstr "Lägger till kortkommandon för snabb redigering av Markdown-filer"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -96,9 +96,8 @@ msgid "Vim Emulation"
 msgstr "Vim-emulering"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-#, fuzzy
 msgid "Use Vim commands in Code"
-msgstr "Använd Vim-kommandon i Scratch"
+msgstr "Använda Vim-kommandon i kod"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
