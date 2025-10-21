@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-21 00:55+0000\n"
+"PO-Revision-Date: 2025-10-22 08:07+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/>"
 "\n"
@@ -417,20 +417,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
-"Los cambios sin confirmar se perderán de forma permanente si se hace "
-"«checkout» de <b>'%s'</b>.\n"
+"Los cambios sin confirmar se perderán de forma permanente si se descarga "
+"<b>'%s'</b> ahora.\n"
 "\n"
-"<i>Se recomienda que los cambios sin confirmar se guarden localmente "
-"(«stash»), confirmen («commit») o reviertan («revert») antes de continuar.</"
-"i>"
+"<i>Se recomienda que los cambios sin confirmar se confirmen, se reserven, o "
+"se reviertan antes de continuar.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr "No hacer «checkout»"
+msgstr "No descargar"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr "Hacer «checkout» y sobreescribir"
+msgstr "Descargar y sobreescribir"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
@@ -539,7 +538,7 @@ msgstr "Remota"
 
 #: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
-msgstr "Rama nueva…"
+msgstr "Nueva rama…"
 
 #: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
