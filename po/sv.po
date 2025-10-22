@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-22 08:07+0000\n"
+"PO-Revision-Date: 2025-10-22 10:00+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
 "\n"
@@ -38,7 +38,7 @@ msgstr "Öppna fil inom angivet urvalsområde"
 
 #: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<START_RAD[.START_KOLUMN][-SLUT_RAD[.SLUT_KOLUMN]]>"
 
 #: src/Application.vala:45
 msgid "[FILE…]"
@@ -204,7 +204,7 @@ msgstr "Sökningen kommer att vara skiftlägeskänslig"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr "Sökningen kommer att vara skiftlägeskänslig"
+msgstr "Sökningen kommer inte att vara skiftlägeskänslig"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
@@ -371,20 +371,20 @@ msgstr "Återställ ändå"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Den här mappen är överordnad ett öppet projekt"
+msgstr[1] "Denna mapp är överordnad öppna projekt"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Om du öppnar den här mappen stängs barnprojektet"
+msgstr[1] "Om du öppnar den här mappen stängs alla barnprojekt"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Stäng barnprojekt"
+msgstr[1] "Stäng barnprojekt"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -506,23 +506,22 @@ msgstr "Stäng andra mappar"
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Stäng %u öppet dokument"
+msgstr[1] "Stäng %u öppna dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:223
-#, fuzzy, c-format
-#| msgid "New Document"
+#, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
-msgstr[0] "Nytt dokument"
-msgstr[1] "Nytt dokument"
+msgstr[0] "Dölj %u öppet dokument"
+msgstr[1] "Dölj %u öppna dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:246
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Återställ %u dolt dokument"
+msgstr[1] "Återställ %u dolda dokument"
 
 #: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
@@ -1035,7 +1034,7 @@ msgstr "Ersätt alla"
 #: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
-msgstr "Sidvisning %d av %d"
+msgstr "%d av %d"
 
 #: src/Widgets/SearchBar.vala:619
 msgid "no results"
