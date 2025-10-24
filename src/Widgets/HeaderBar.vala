@@ -329,7 +329,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             scheme = sssm.get_scheme (style_id);
             // We currently ship and hard-code the style schemes so can assume the "text" key
             // is present but if in future we permit the user to specify their own default
-            // schemes(e.g. through separate settings keys) then this may not be the case.
+            // schemes (e.g. through separate settings keys) then this may not be the case.
             // so do a certain amount of validity checking
             var text_style = scheme.get_style ("text");
             var background_pattern_style = scheme.get_style ("background-pattern");
@@ -355,11 +355,11 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
             //Fallback to white and grey  if necessary
             if (background == "" || background.contains ("rgba")) {
-                background ="";
+                background = "";
             }
 
             if (foreground == "" || foreground.contains ("rgba")) {
-                foreground ="";
+                foreground = "";
             }
         }
 
@@ -386,7 +386,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             color_button.tooltip_text = scheme.name;
         } else if (scheme != null || background == "" || foreground == "") {
-            //Fallback to standard radio buttons (shouldnt happen)
+            //Fallback to standard radio buttons (should not happen)
             switch (style_id) {
                 case STYLE_SCHEME_LIGHT:
                     color_button.label = _("Light");
