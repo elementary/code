@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-07-07 18:55+0000\n"
+"PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/code/code/ka/"
 ">\n"
@@ -190,10 +190,8 @@ msgid "Cloning in progress"
 msgstr ""
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "მოსაძებნი სტრიქონი 3 სიმბოლოს მაინც უნდა შეიცავდეს."
+msgstr "მოსაძებნი სტრიქონი რეგულარულ გამოსახულებად იქნება აღქმული"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
