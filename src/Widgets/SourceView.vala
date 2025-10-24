@@ -44,9 +44,9 @@ namespace Scratch.Widgets {
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
+        // "selection_changed" signal now only emitted when the selected text changes (position ignored).
+        // Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
-        public signal void deselected ();
 
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
@@ -679,13 +679,7 @@ namespace Scratch.Widgets {
                 selection_changed_timer = 0;
             }
 
-            // Fire deselected immediately
-            if (start.equal (end)) {
-                deselected ();
-            // Don't fire signal till we think select movement is done
-            } else {
-                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
-            }
+            selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
         }
 
         private void on_mark_deleted (Gtk.TextMark mark) {
@@ -698,15 +692,12 @@ namespace Scratch.Widgets {
 
         private bool selection_changed_event () {
             Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start, out end);
-            if (selected) {
-                var prev_selected_text = selected_text;
-                selected_text = buffer.get_text (start, end, true);
-                if (selected_text != prev_selected_text) {
-                    selection_changed (start, end);
-                }
-            } else {
-                deselected ();
+            buffer.get_selection_bounds (out start, out end);
+            // No selection now treated as a potential selection change
+            var prev_selected_text = selected_text;
+            selected_text = buffer.get_text (start, end, true);
+            if (selected_text != prev_selected_text) {
+                selection_changed (start, end);
             }
 
             selection_changed_timer = 0;

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 22:16+0000\n"
-"PO-Revision-Date: 2025-06-26 09:55+0000\n"
+"POT-Creation-Date: 2025-10-19 12:22+0000\n"
+"PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -44,103 +44,102 @@ msgstr "<KEZDŐSOR[.KEZDŐOSZLOP][-ZÁRÓSOR[.ZÁRÓOSZLOP]]>"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Kód (%s)"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Kód"
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Keresés az oldalon…"
 
-#: src/MainWindow.vala:413
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "A Projektek oldalsáv elrejtése"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "A Projektek oldalsáv megjelenítése"
 
-#: src/MainWindow.vala:427
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "Szimbólumkiemelés elrejtése"
 
-#: src/MainWindow.vala:432
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "Szimbólumkiemelés megjelenítése"
 
-#: src/MainWindow.vala:441
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Terminál elrejtése"
 
-#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Terminál megjelenítése"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:668
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:672
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
-msgstr "A(z) %s tároló sikeresen klónozva"
+#: src/MainWindow.vala:1088
+msgid "Cloning completed"
+msgstr "Klónozás befejezve"
 
-#: src/MainWindow.vala:1076
+#: src/MainWindow.vala:1089
 #, c-format
-msgid "Local repository working directory is %s"
-msgstr "Az aktuális munkakönyvtár: %s"
+msgid "Clone successfully created in %s"
+msgstr "Klón sikeresen létrehozva itt: %s"
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Nem sikerült a(z) %s klónozása"
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1102
 msgid "Retry"
 msgstr "Újra"
 
@@ -195,24 +194,32 @@ msgstr "Klón neve"
 msgid "Cloning in progress"
 msgstr "Klónozás folyamatban"
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:62
+msgid "The search term will be treated as a regex expression"
+msgstr "A keresési kifejezés reguláris kifejezésként lesz értelmezve"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr "A keresés kis- és nagybetűérzékeny lesz"
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr "A keresés nem lesz kis- és nagybetűérzékeny"
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr "A keresés csak teljes szavakat fog megtalálni"
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Szöveg keresése itt: \"%s\""
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "A keresési kifejezés legalább 3 karakter hosszú kell legyen."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Kis-nagybetű érzékenység:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Reguláris kifejezések használata:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Keresés"
 
@@ -423,24 +430,23 @@ msgstr "Ne váltson"
 msgid "Checkout and Overwrite"
 msgstr "Váltás és felülírás"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "Egyéb műveletek"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:197
+#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:217
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
@@ -448,35 +454,35 @@ msgstr "Megnyitás ezzel"
 msgid "Folders"
 msgstr "Mappák"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "Keresés a mappában…"
 
-#: src/FolderManager/FolderItem.vala:188
+#: src/FolderManager/FolderItem.vala:189
 msgid "Terminal Pane"
 msgstr "Terminál panel"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:224
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:231
+#: src/FolderManager/FolderItem.vala:232
 msgid "Empty File"
 msgstr "Üres fájl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:242
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:243
+#: src/FolderManager/ProjectFolderItem.vala:427
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:398
+#: src/FolderManager/FolderItem.vala:399
 msgid "new file"
 msgstr "új fájl"
 
@@ -517,31 +523,31 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u elrejtett dokumentum visszaállítása"
 msgstr[1] "%u elrejtett dokumentum visszaállítása"
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Keresés a projektben…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
 msgstr "Helyi"
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
 msgstr "Távoli"
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
 msgstr "Új ág…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
 msgstr "Ág"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
 msgstr "Módosítva"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Hiba az ág létrehozása közben: \"%s\""
@@ -725,17 +731,17 @@ msgid "Templates"
 msgstr "Sablonok"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:195
-#: src/SymbolPane/SymbolOutline.vala:100
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "Szimbólumok"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 msgid "Too Many Symbols"
 msgstr "Túl sok szimbólum"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
@@ -744,7 +750,7 @@ msgstr ""
 "%s túl sok Vala szimbólumot tartalmaz.\n"
 "Az elemzésük és megjelenítésük túl sok ideig tartott."
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:196
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
 msgid "Vala symbols found in %s"
 msgstr "Vala szimbólumok ebben: %s"
@@ -789,40 +795,40 @@ msgstr "Névtér"
 msgid "Other"
 msgstr "Egyéb"
 
-#: src/SymbolPane/SymbolOutline.vala:104
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Find Symbol"
 msgstr "Szimbólum keresése"
 
-#: src/SymbolPane/SymbolOutline.vala:113
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr "Szimbólumtípus szűrése"
 
-#: src/SymbolPane/SymbolOutline.vala:133
+#: src/SymbolPane/SymbolOutline.vala:160
 msgid "Select All"
 msgstr "Összes kiválasztása"
 
-#: src/SymbolPane/SymbolOutline.vala:139
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr "Összes kiválasztásának megszüntetése"
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Nincs kiválasztott projekt"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktív Git projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Projektek szűrése"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 msgid "Open Folder…"
 msgstr "Mappa megnyitása…"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
 msgstr "Git tároló klónozása…"
 
@@ -949,84 +955,88 @@ msgstr "Rendszertéma követése"
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr "Klónozás kész"
+
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "Összes becsukása"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "Betűrendbe"
 
-#: src/Widgets/Sidebar.vala:70
+#: src/Widgets/Sidebar.vala:91
 msgid "Manage project folders…"
 msgstr "Projekt mappáinak kezelése…"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Keresés"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "Nincs találat"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Következő keresése"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Előző keresése"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Ciklikus keresés"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Soha"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr "Kevert"
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Mindig"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Kis-nagybetű érzékenység"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
 msgstr "Reguláris kifejezések használata"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr "Teljes szavak illesztése"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "Keresési beállítások"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Csere ezzel"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Csere"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Összes cseréje"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "nincs találat"
 
@@ -1050,11 +1060,11 @@ msgstr "Következő szerkesztési jelöléshez ugrás"
 msgid "Toggle Comment"
 msgstr "Megjegyzés megjelenítése/elrejtése"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Másolás"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Beillesztés"
 
@@ -1152,6 +1162,20 @@ msgstr "Telepítsen legalább egy [aspell] szótárt."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Kis-nagybetű érzékenység:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Reguláris kifejezések használata:"
+
+#, c-format
+#~ msgid "Repository %s successfully cloned"
+#~ msgstr "A(z) %s tároló sikeresen klónozva"
+
+#, c-format
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Az aktuális munkakönyvtár: %s"
 
 #, c-format
 #~ msgid "This folder is the parent of %u open projects"
