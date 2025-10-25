@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-12 23:55+0000\n"
+"PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -127,12 +127,12 @@ msgstr "キャンセル(_C)"
 
 #: src/MainWindow.vala:1088
 msgid "Cloning completed"
-msgstr ""
+msgstr "クローンが完了しました"
 
 #: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "クローンを次の場所に作成しました: %s"
 
 #: src/MainWindow.vala:1095
 #, c-format
@@ -195,22 +195,20 @@ msgid "Cloning in progress"
 msgstr "クローン中"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "検索語句は 3 文字以上にする必要があります。"
+msgstr "検索語句は正規表現として処理されます"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "大文字小文字を区別して検索します"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "大文字小文字を区別せずに検索します"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "完全一致のみ検索します"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -946,7 +944,7 @@ msgstr "メニュー"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "クローン完了"
 
 #: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
