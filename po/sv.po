@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-23 13:55+0000\n"
+"PO-Revision-Date: 2025-10-26 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
 "\n"
@@ -159,12 +159,12 @@ msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
-"Källförvaret och den lokala mappen måste finnas och ha nödvändiga läs- och "
+"Källarkivet och den lokala mappen måste finnas och ha nödvändiga läs- och "
 "skrivbehörigheter"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr "Klonad förvaringsplats"
+msgstr "Klonat arkiv"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
@@ -564,20 +564,20 @@ msgstr "Kod kan inte ladda den här filtypen."
 
 #: src/Services/Document.vala:387
 msgid "Load Anyway"
-msgstr "Ladda ändå"
+msgstr "Läs in ändå"
 
 #: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
-msgstr "Laddar fil \"%s\" Tar lång tid"
+msgstr "Inläsning av filen \"%s\" tar lång tid"
 
 #: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
-msgstr "Vänta medan Kod laddar in filen."
+msgstr "Vänta medan Kod läser in filen."
 
 #: src/Services/Document.vala:411
 msgid "Cancel Loading"
-msgstr "Avbryt laddning"
+msgstr "Avbryt inläsning"
 
 #: src/Services/Document.vala:500
 #, c-format
@@ -668,7 +668,7 @@ msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
-"Det finns också osparade ändringar. Om du laddar om dokumentet skrivs de "
+"Det finns också osparade ändringar. Om du uppdaterar dokumentet skrivs de "
 "osparade ändringarna över."
 
 #: src/Services/Document.vala:983
@@ -694,7 +694,7 @@ msgstr "Fortsätt"
 
 #: src/Services/Document.vala:1061
 msgid "Reload"
-msgstr "Ladda om"
+msgstr "Uppdatera"
 
 #: src/Services/Document.vala:1064
 msgid "Overwrite"
@@ -1103,7 +1103,7 @@ msgstr "Lägg till projektmapp till sidopanelen."
 #: plugins/pastebin/pastebin_dialog.vala:248
 #: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
-msgstr "Ladda upp till Pastebin"
+msgstr "Skicka upp till Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
