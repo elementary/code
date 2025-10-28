@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 15:37+0000\n"
-"PO-Revision-Date: 2024-12-01 18:10+0000\n"
+"POT-Creation-Date: 2025-10-19 12:22+0000\n"
+"PO-Revision-Date: 2025-09-29 19:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
+"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -43,119 +44,117 @@ msgstr ""
 msgid "[FILE…]"
 msgstr "[TIEDOSTO…]"
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Koodi (%s)"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Koodi"
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
-#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Etsi sivulta…"
 
-#: src/MainWindow.vala:413
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "Piilota projektipalkki"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "Näytä projektipalkki"
 
-#: src/MainWindow.vala:427
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:432
+#: src/MainWindow.vala:434
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Symboleja ei löytynyt"
 
-#: src/MainWindow.vala:441
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Piilota pääte"
 
-#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Näytä pääte"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:668
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:672
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "Avaa tiedostoja"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "Avaa"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:109 src/Dialogs/NewBranchDialog.vala:42
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "_Avaa"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: src/MainWindow.vala:1075
-#, c-format
-msgid "Repository %s successfully cloned"
+#: src/MainWindow.vala:1088
+msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1076
-#, fuzzy, c-format
-#| msgid "Current working directory"
-msgid "Local repository working directory is %s"
-msgstr "Nykyinen työskentelyhakemisto"
+#: src/MainWindow.vala:1089
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Ei voitu kloonata %s"
 
-#: src/MainWindow.vala:1094
+#: src/MainWindow.vala:1102
 msgid "Retry"
-msgstr ""
+msgstr "Yritä uudelleen"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Näytä '%s' oletussovelluksella"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Luo paikallinen klooni Git-tietovarastosta"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
@@ -165,7 +164,7 @@ msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Kloonaa tietovarasto"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
@@ -176,45 +175,53 @@ msgid "Select folder where the cloned repository will be created"
 msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select"
-msgstr "Valitse muoto"
+msgstr "Valitse"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "Tietovaraston URL-osoite"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "Sijainti"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Kloonin nimi"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
+msgstr "Kloonaus käynnissä"
+
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "Hakuehdon tulee olla vähintään kolme merkkiä."
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Etsi tekstiä kohteesta “%s”"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "Hakuehdon tulee olla vähintään kolme merkkiä."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Huomioi kirjainkoko:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Käytä säännöllisiä lausekkeita:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Etsi"
 
@@ -243,16 +250,12 @@ msgid "General"
 msgstr "Yleiset"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Tallenna tiedostot muutoksien jälkeen:"
+msgstr "Tallenna tiedostot muutoksien jälkeen"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit:"
+msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit"
 
 #: src/Dialogs/PreferencesDialog.vala:27
 #, fuzzy
@@ -313,10 +316,8 @@ msgid "Editor"
 msgstr "Muokkain"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Korosta toisiaan vastaavat hakasulut:"
+msgstr "Korosta toisiaan vastaavat hakasulut"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Mini Map"
@@ -324,13 +325,11 @@ msgstr "Pienoiskartta"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr ""
+msgstr "Rivitä rivit"
 
 #: src/Dialogs/PreferencesDialog.vala:116
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Rivileveyden merkki:"
+msgstr "Rivileveyden merkki"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
@@ -390,8 +389,8 @@ msgstr[1] ""
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sulje lapsiprojekti"
+msgstr[1] "Sulje lapsiprojektit"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
@@ -406,10 +405,8 @@ msgid "Close Parent Project"
 msgstr ""
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Älä palauta"
+msgstr "Älä avaa"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
@@ -495,10 +492,8 @@ msgid "new file"
 msgstr "uusi tiedosto"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Aktiivinen Git-projekti: %s"
+msgstr "Aseta aktiiviseksi projektiksi"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
@@ -539,11 +534,11 @@ msgstr "Etsi projektista…"
 
 #: src/FolderManager/ProjectFolderItem.vala:320
 msgid "Local"
-msgstr ""
+msgstr "Paikallinen"
 
 #: src/FolderManager/ProjectFolderItem.vala:337
 msgid "Remote"
-msgstr ""
+msgstr "Etä"
 
 #: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
@@ -720,7 +715,7 @@ msgstr "Tallenna asiakirja muualle"
 #: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "Etähaaraa '%s' ei löydy"
 
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
@@ -749,10 +744,8 @@ msgid "Symbols"
 msgstr "Symbolit"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symbolit"
+msgstr "Liian monta symbolia"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
@@ -768,19 +761,19 @@ msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Luokka"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Ominaisuus"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Signaali"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Metodi"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
@@ -796,65 +789,56 @@ msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Konstruktori"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Nimiavaruus"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Muut…"
+msgstr "Muu"
 
 #: src/SymbolPane/SymbolOutline.vala:131
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Symbolit"
+msgstr "Etsi symboli"
 
 #: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:160
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Valitse muoto"
+msgstr "Valitse kaikki"
 
 #: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
-msgstr ""
+msgstr "Älä valitse mitään"
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Projektia ei ole valittu"
 
-#: src/Widgets/ChooseProjectButton.vala:21
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#: src/Widgets/ChooseProjectButton.vala:23
+#, c-format
 msgid "Active Git Project: %s"
 msgstr "Aktiivinen Git-projekti: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Suodata projekteja"
 
-#: src/Widgets/ChooseProjectButton.vala:74
+#: src/Widgets/ChooseProjectButton.vala:84
 msgid "Open Folder…"
 msgstr "Avaa kansio…"
 
-#: src/Widgets/ChooseProjectButton.vala:80
+#: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Kloonaa Git-tietovarasto…"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Sulje"
+msgstr "Suljetut välilehdet"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -863,31 +847,23 @@ msgstr "Tekstitiedosto lähteestä %s:%d"
 
 #: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Sulje välilehdet oikealta"
 
 #: src/Widgets/DocumentView.vala:626
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Sulje muut kansiot"
+msgstr "Sulje muut välilehdet"
 
 #: src/Widgets/DocumentView.vala:627
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Sulje"
+msgstr "Sulje välilehti"
 
 #: src/Widgets/DocumentView.vala:630
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Uusi ikkuna"
+msgstr "Uusi uudessa ikkunassa"
 
 #: src/Widgets/DocumentView.vala:631
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Tallenna kaksoiskappale…"
+msgstr "Monista välilehti"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -983,86 +959,88 @@ msgstr "Seuraa järjestelmän tyyliä"
 msgid "Menu"
 msgstr "Valikko"
 
-#: src/Widgets/Sidebar.vala:59
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "Supista kaikki"
 
-#: src/Widgets/Sidebar.vala:62
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "Aakkosta"
 
-#: src/Widgets/Sidebar.vala:70
-#, fuzzy
-#| msgid "Manage project folders"
+#: src/Widgets/Sidebar.vala:91
 msgid "Manage project folders…"
-msgstr "Hallitse projektikansioita"
+msgstr "Hallitse projektikansioita…"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Etsi"
 
-#: src/Widgets/SearchBar.vala:102
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "Ei tuloksia"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Etsi seuraava"
 
-#: src/Widgets/SearchBar.vala:124
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Etsi seuraava"
 
-#: src/Widgets/SearchBar.vala:127
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Syklinen haku"
 
-#: src/Widgets/SearchBar.vala:130 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: src/Widgets/SearchBar.vala:131
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:132
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Aina"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Huomioi kirjainkoko"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
 msgstr "Käytä säännöllisiä lausekkeita"
 
-#: src/Widgets/SearchBar.vala:143
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "Hakuvalinnat"
 
-#: src/Widgets/SearchBar.vala:196
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Korvaava merkkijono"
 
-#: src/Widgets/SearchBar.vala:199
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Korvaa"
 
-#: src/Widgets/SearchBar.vala:202
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Korvaa kaikki"
 
-#: src/Widgets/SearchBar.vala:607
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:612
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "ei tuloksia"
 
@@ -1071,10 +1049,8 @@ msgid "Sort Selected Lines"
 msgstr "Järjestä valitut rivit"
 
 #: src/Widgets/SourceView.vala:594
-#, fuzzy
-#| msgid "Current Line"
 msgid "Mark Current Line"
-msgstr "Nykyinen rivi"
+msgstr "Merkitse nykyinen rivi"
 
 #: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
@@ -1090,11 +1066,11 @@ msgstr "Tekstieditori"
 msgid "Toggle Comment"
 msgstr "Kytke kommentti"
 
-#: src/Widgets/Terminal.vala:62
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Kopioi"
 
-#: src/Widgets/Terminal.vala:63
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Liitä"
 
@@ -1192,6 +1168,17 @@ msgstr "Asenna vähintään yksi [aspell]-sanakirja."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Huomioi kirjainkoko:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Käytä säännöllisiä lausekkeita:"
+
+#, fuzzy, c-format
+#~| msgid "Current working directory"
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Nykyinen työskentelyhakemisto"
 
 #~ msgid "Tabs"
 #~ msgstr "Sarkaimet"

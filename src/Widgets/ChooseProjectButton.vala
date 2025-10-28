@@ -17,6 +17,8 @@
  */
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
+    public bool cloning_in_progress { get; set; }
+
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
@@ -32,15 +34,23 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             ellipsize = Pango.EllipsizeMode.MIDDLE,
-            xalign = 0.0f
+            xalign = 0.0f,
+            hexpand = true
         };
 
-        var grid = new Gtk.Grid () {
-            halign = Gtk.Align.START
+        var cloning_spinner = new Gtk.Spinner () {
+            halign = END
         };
-        grid.add (img);
-        grid.add (label_widget);
-        add (grid);
+        bind_property ("cloning-in-progress", cloning_spinner, "active");
+
+        var box = new Gtk.Box (HORIZONTAL, 3) {
+            hexpand = true,
+            vexpand = false
+        };
+        box.add (img);
+        box.add (label_widget);
+        box.add (cloning_spinner);
+        add (box);
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
@@ -72,8 +82,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_scrolled.add (project_listbox);
 
         var add_folder_button = new PopoverMenuItem (_("Open Folder…")) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
-            action_target = new Variant.string (""),
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_PROJECT,
             icon_name = "folder-open-symbolic",
         };
 

@@ -1,0 +1,530 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-19 12:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_HANT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/code.metainfo.xml.in:9
+msgid "Code"
+msgstr ""
+
+#: data/code.metainfo.xml.in:10
+msgid "The editor that works for you"
+msgstr ""
+
+#: data/code.metainfo.xml.in:12
+msgid ""
+"Whether you're writing in Markdown or managing a complex app codebase, Code "
+"is the lightweight but full-featured editor for you. It auto-saves your "
+"files to ensure they're always up-to-date, and it remembers your tabs so you "
+"never lose your spot—even between sessions."
+msgstr ""
+
+#: data/code.metainfo.xml.in:13
+msgid ""
+"Designed around a project-based workflow, Code knows about your separate "
+"codebases. It comes with helpful Git integration to create and switch "
+"between branches and show changed files and lines within your projects."
+msgstr ""
+
+#: data/code.metainfo.xml.in:14
+msgid ""
+"Work with your language: whether you're crafting code in Vala, scripting "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
+"full syntax highlighting with nearly all programming, scripting, and markup "
+"languages."
+msgstr ""
+
+#: data/code.metainfo.xml.in:15
+msgid ""
+"Find anything in your current file, specific folders, or your whole project "
+"with options for case-sensitivity and regular expressions."
+msgstr ""
+
+#: data/code.metainfo.xml.in:16
+msgid ""
+"Smart features throughout: automatic indentation, smart cut/copy behavior, "
+"visible whitespace for selected text and at the end of lines by default, and "
+"optional extensions for Markdown actions, spell checking, whitespace "
+"trimming, word completion, and more."
+msgstr ""
+
+#: data/code.metainfo.xml.in:17
+msgid ""
+"Adapt Code to your workflow: you can tweak the behavior and interface as "
+"needed with a handful of useful and well-considered extensions and "
+"preferences."
+msgstr ""
+
+#: data/code.metainfo.xml.in:18
+msgid "There's a ton more:"
+msgstr ""
+
+#: data/code.metainfo.xml.in:20
+msgid ""
+"Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
+"the whole UI"
+msgstr ""
+
+#: data/code.metainfo.xml.in:21
+msgid "Togglable sidebar to fit your workflow"
+msgstr ""
+
+#: data/code.metainfo.xml.in:22
+msgid "Smart indentation and .editorconfig support"
+msgstr ""
+
+#: data/code.metainfo.xml.in:23
+msgid ""
+"Browser-class tabs with drag-and-drop, duplication, undo closing, and tab "
+"history"
+msgstr ""
+
+#: data/code.metainfo.xml.in:24
+msgid "Display the current line and character—and quickly jump to a new line"
+msgstr ""
+
+#: data/code.metainfo.xml.in:25
+msgid ""
+"Scroll past the end of the file so you can keep the current line where it's "
+"comfortable"
+msgstr ""
+
+#: data/code.metainfo.xml.in:26
+msgid "Optional mini-map to make navigating large files easier"
+msgstr ""
+
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr ""
+
+#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:88
+#: data/code.metainfo.xml.in:107 data/code.metainfo.xml.in:138
+#: data/code.metainfo.xml.in:180 data/code.metainfo.xml.in:201
+#: data/code.metainfo.xml.in:230 data/code.metainfo.xml.in:269
+#: data/code.metainfo.xml.in:318 data/code.metainfo.xml.in:358
+msgid "Minor updates:"
+msgstr ""
+
+#: data/code.metainfo.xml.in:75
+msgid "The tooltips for C symbols are now more informative"
+msgstr ""
+
+#: data/code.metainfo.xml.in:76
+msgid "Cloning success is now indicated by toast instead of a dialog"
+msgstr ""
+
+#: data/code.metainfo.xml.in:77
+msgid "Global search and local search now have the same case sensitivity"
+msgstr ""
+
+#: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:92
+#: data/code.metainfo.xml.in:112 data/code.metainfo.xml.in:152
+#: data/code.metainfo.xml.in:183 data/code.metainfo.xml.in:203
+#: data/code.metainfo.xml.in:239 data/code.metainfo.xml.in:280
+#: data/code.metainfo.xml.in:328 data/code.metainfo.xml.in:360
+msgid "Updated translations"
+msgstr ""
+
+#: data/code.metainfo.xml.in:90
+msgid ""
+"The terminal pane is now synchronized with the Terminal app foreground, "
+"background and palette settings"
+msgstr ""
+
+#: data/code.metainfo.xml.in:91
+msgid ""
+"The terminal pane is now synchronized with GNOME font and cursor blink "
+"settings"
+msgstr ""
+
+#: data/code.metainfo.xml.in:103 data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:196 data/code.metainfo.xml.in:224
+#: data/code.metainfo.xml.in:263 data/code.metainfo.xml.in:311
+#: data/code.metainfo.xml.in:343
+msgid "Improvements:"
+msgstr ""
+
+#: data/code.metainfo.xml.in:105
+msgid ""
+"The Project Chooser context menu now includes an option to clone a remote "
+"git repository"
+msgstr ""
+
+#: data/code.metainfo.xml.in:109
+msgid ""
+"The \"Open Folder\" action now appears in the Project Chooser context menu"
+msgstr ""
+
+#: data/code.metainfo.xml.in:110
+msgid "The Vala symbol pane now shows a spinner while loading"
+msgstr ""
+
+#: data/code.metainfo.xml.in:111
+msgid "The filter in the C symbol pane now works"
+msgstr ""
+
+#: data/code.metainfo.xml.in:129
+msgid ""
+"A new gutter is added for adding/removing edit marks that can be navigated "
+"between with keyboard shortcuts"
+msgstr ""
+
+#: data/code.metainfo.xml.in:130
+msgid "Remote branches may now be opened from the \"Branch\" menu"
+msgstr ""
+
+#: data/code.metainfo.xml.in:131
+msgid ""
+"Options to overwrite or cancel are given when switching branch with "
+"uncommitted changes"
+msgstr ""
+
+#: data/code.metainfo.xml.in:132
+msgid "The network can now be accessed from within the Flatpak"
+msgstr ""
+
+#: data/code.metainfo.xml.in:133
+msgid ""
+"The branch names in the \"Branch\" submenus are now sorted alphabetically"
+msgstr ""
+
+#: data/code.metainfo.xml.in:134
+msgid ""
+"The extension list now has switches instead of checkboxes in order to "
+"provide a larger target"
+msgstr ""
+
+#: data/code.metainfo.xml.in:135
+msgid ""
+"The terminal pane now implements smart copy-paste and follows the \"natural-"
+"copy-paste\" setting of Terminal"
+msgstr ""
+
+#: data/code.metainfo.xml.in:136
+msgid "The Vala symbol pane now gives more information in the tooltips"
+msgstr ""
+
+#: data/code.metainfo.xml.in:140
+msgid "Launcher actions now have icons"
+msgstr ""
+
+#: data/code.metainfo.xml.in:141
+msgid ""
+"Opening and immediately closing a new document no longer prevents further "
+"documents being opened"
+msgstr ""
+
+#: data/code.metainfo.xml.in:142
+msgid ""
+"The Vala symbol pane may only block the UI for a limited time if there are a "
+"large number of symbols"
+msgstr ""
+
+#: data/code.metainfo.xml.in:143
+msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
+msgstr ""
+
+#: data/code.metainfo.xml.in:144
+msgid "The search term now persists until editing or closing the search bar."
+msgstr ""
+
+#: data/code.metainfo.xml.in:145
+msgid ""
+"No longer allow the parent or child of an open project to be itself opened "
+"as a project"
+msgstr ""
+
+#: data/code.metainfo.xml.in:146
+msgid "The active project dropdown now keeps in sync"
+msgstr ""
+
+#: data/code.metainfo.xml.in:147
+msgid "Numbered lists are now handled correctly by Markdown plugin"
+msgstr ""
+
+#: data/code.metainfo.xml.in:148
+msgid "The highlighting plugin now works with selections of more than one word"
+msgstr ""
+
+#: data/code.metainfo.xml.in:149
+msgid ""
+"The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
+msgstr ""
+
+#: data/code.metainfo.xml.in:150
+msgid "Folders containing may items now expand faster without blocking the UI"
+msgstr ""
+
+#: data/code.metainfo.xml.in:151
+msgid "Symbol Pane now always scrolls document to selected symbol"
+msgstr ""
+
+#: data/code.metainfo.xml.in:182
+msgid "Add symbol filter to Outline pane"
+msgstr ""
+
+#: data/code.metainfo.xml.in:198
+msgid "The Terminal pane now has a settable default directory"
+msgstr ""
+
+#: data/code.metainfo.xml.in:199
+msgid "New Tab Bar with improved animations and Drag-n-Drop"
+msgstr ""
+
+#: data/code.metainfo.xml.in:226
+msgid ""
+"When opening a file in Code from the commandline or another app, a line/char "
+"position or selection range may be specified"
+msgstr ""
+
+#: data/code.metainfo.xml.in:227
+msgid "Add a fuzzy-find plugin which finds files in all open projects"
+msgstr ""
+
+#: data/code.metainfo.xml.in:228
+msgid "Save and restore the state of the terminal pane"
+msgstr ""
+
+#: data/code.metainfo.xml.in:232
+msgid ""
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
+msgstr ""
+
+#: data/code.metainfo.xml.in:233
+msgid "\"Follow System Style\" is now fully respected"
+msgstr ""
+
+#: data/code.metainfo.xml.in:234
+msgid "The \"--new-tab\" commandline option now works"
+msgstr ""
+
+#: data/code.metainfo.xml.in:235
+msgid "The symbol pane width is now synchronised and saved"
+msgstr ""
+
+#: data/code.metainfo.xml.in:236
+msgid ""
+"Project folders are automatically closed if they are externally renamed, "
+"moved or deleted"
+msgstr ""
+
+#: data/code.metainfo.xml.in:237
+msgid "Fixed temporary backup files persisting under some circumstances"
+msgstr ""
+
+#: data/code.metainfo.xml.in:238
+msgid "The Show-Replace action has been improved"
+msgstr ""
+
+#: data/code.metainfo.xml.in:265
+msgid "Search options transferred to searchbar menu"
+msgstr ""
+
+#: data/code.metainfo.xml.in:266
+msgid "Whole word search option added"
+msgstr ""
+
+#: data/code.metainfo.xml.in:267
+msgid ""
+"Whole word, case sensitive mode and use regex search settings now persist"
+msgstr ""
+
+#: data/code.metainfo.xml.in:271
+msgid "The search bar now updates properly after changing the active document"
+msgstr ""
+
+#: data/code.metainfo.xml.in:272
+msgid ""
+"Trying to save a document to an unwritable location is now handled better"
+msgstr ""
+
+#: data/code.metainfo.xml.in:273
+msgid ""
+"The system style is now followed by the symbol outline and when launched "
+"without open documents"
+msgstr ""
+
+#: data/code.metainfo.xml.in:274
+msgid "Mixed case sensitive search now works as expected"
+msgstr ""
+
+#: data/code.metainfo.xml.in:275
+msgid ""
+"The search results no longer change unexpectedly when focusing a document"
+msgstr ""
+
+#: data/code.metainfo.xml.in:276
+msgid ""
+"Now there is always an active project at startup if there are projects in "
+"the sidebar"
+msgstr ""
+
+#: data/code.metainfo.xml.in:277
+msgid ""
+"If a development branch is running this shows in the window title and in the "
+"dock tooltip"
+msgstr ""
+
+#: data/code.metainfo.xml.in:278
+msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
+msgstr ""
+
+#: data/code.metainfo.xml.in:279
+msgid "Ensure active project at startup (include non-git folders)"
+msgstr ""
+
+#: data/code.metainfo.xml.in:313
+msgid "Redesigned app icon"
+msgstr ""
+
+#: data/code.metainfo.xml.in:314
+msgid "New custom dark and light elementary styles for the source view"
+msgstr ""
+
+#: data/code.metainfo.xml.in:315
+msgid "Option to follow the system dark style preference"
+msgstr ""
+
+#: data/code.metainfo.xml.in:316
+msgid "Ability to half tile on small notebook displays"
+msgstr ""
+
+#: data/code.metainfo.xml.in:320
+msgid ""
+"Both Find on Page and Find in Project are now available from the app's menu "
+"instead of in the headerbar"
+msgstr ""
+
+#: data/code.metainfo.xml.in:321
+msgid ""
+"Options for hiding and showing panels are now all present in a compact set "
+"of linked buttons in the app's menu"
+msgstr ""
+
+#: data/code.metainfo.xml.in:322
+msgid ""
+"The sidebar now contains the project chooser button and fills the height of "
+"the window"
+msgstr ""
+
+#: data/code.metainfo.xml.in:323
+msgid "Starting a global search with text selected now pre-fills that text"
+msgstr ""
+
+#: data/code.metainfo.xml.in:324
+msgid ""
+"The symbol outline pane is now shown to the right of the source view and can "
+"be shown and hidden with the keyboard shortcut \"Alt + \\\""
+msgstr ""
+
+#: data/code.metainfo.xml.in:325
+msgid ""
+"Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
+"part of the main codebase"
+msgstr ""
+
+#: data/code.metainfo.xml.in:326
+msgid ""
+"Show an infobar when tab width settings are being overwritten by an "
+"EditorConfig file"
+msgstr ""
+
+#: data/code.metainfo.xml.in:327
+msgid ""
+"The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
+msgstr ""
+
+#: data/code.metainfo.xml.in:345
+msgid ""
+"The current document filename is now shown as the window title in "
+"multitasking view"
+msgstr ""
+
+#: data/code.metainfo.xml.in:346
+msgid "Hidden folders are now shown in the project sidebar"
+msgstr ""
+
+#: data/code.metainfo.xml.in:347
+msgid ""
+"The currently selected result and the number of results is displayed while "
+"searching"
+msgstr ""
+
+#: data/code.metainfo.xml.in:348
+msgid "The search bar now has a regular expression mode"
+msgstr ""
+
+#: data/code.metainfo.xml.in:350
+msgid "Fixes:"
+msgstr ""
+
+#: data/code.metainfo.xml.in:352
+msgid ""
+"It is now possible to change Git branch with untracked files present in a "
+"project"
+msgstr ""
+
+#: data/code.metainfo.xml.in:353
+msgid "Crashes are prevented while searching in large projects"
+msgstr ""
+
+#: data/code.metainfo.xml.in:354
+msgid ""
+"The correct document is now focused after opening Code from an external "
+"program"
+msgstr ""
+
+#: data/code.metainfo.xml.in:355
+msgid ""
+"Line duplication is now actioned correctly if there is no selection present"
+msgstr ""
+
+#: data/code.metainfo.xml.in:356
+msgid "Code no longer crashes when asked to open an unknown URI format"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:4
+msgid "@NAME@"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+msgid "Edit code files"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+msgid "text;IDE;scratch;code;"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New File"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:22
+msgid "New Window"
+msgstr ""
+
+#: data/code.policy.in.in:10
+msgid "Run Code as Administrator"
+msgstr ""
+
+#: data/code.policy.in.in:11
+msgid "Authentication is required to run Code as Administrator"
+msgstr ""
