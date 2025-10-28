@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-23 13:55+0000\n"
+"PO-Revision-Date: 2025-10-29 18:21+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/extra/sv/"
 ">\n"
@@ -26,7 +26,7 @@ msgstr "Kod"
 
 #: data/code.metainfo.xml.in:10
 msgid "The editor that works for you"
-msgstr "Redaktören som arbetar för dig"
+msgstr "Redigeraren som arbetar åt dig"
 
 #: data/code.metainfo.xml.in:12
 msgid ""
@@ -35,7 +35,7 @@ msgid ""
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Oavsett om du skriver i Markdown eller hanterar en komplex appkodbas är Code "
+"Oavsett om du skriver i Markdown eller hanterar en komplex appkodbas är Kod "
 "den lätta men fullt utrustade redigeraren för dig. Den sparar dina filer "
 "automatiskt så att de alltid är uppdaterade, och den kommer ihåg dina flikar "
 "så att du aldrig tappar bort din plats - inte ens mellan sessioner."
@@ -46,7 +46,7 @@ msgid ""
 "codebases. It comes with helpful Git integration to create and switch "
 "between branches and show changed files and lines within your projects."
 msgstr ""
-"Code är utformat kring ett projektbaserat arbetsflöde och känner till dina "
+"Kod är utformat kring ett projektbaserat arbetsflöde och känner till dina "
 "separata kodbaser. Den levereras med en användbar Git-integration för att "
 "skapa och växla mellan grenar och visa ändrade filer och rader inom dina "
 "projekt."
@@ -59,7 +59,7 @@ msgid ""
 "languages."
 msgstr ""
 "Arbeta med ditt språk: oavsett om du skapar kod i Vala, skriptar med PHP "
-"eller markerar saker i HTML, så har Code allt du behöver. Upplev fullständig "
+"eller markerar saker i HTML, så har Kod allt du behöver. Upplev fullständig "
 "syntaxmarkering med nästan alla programmerings-, skript- och markeringsspråk."
 
 #: data/code.metainfo.xml.in:15
@@ -88,9 +88,9 @@ msgid ""
 "needed with a handful of useful and well-considered extensions and "
 "preferences."
 msgstr ""
-"Anpassa Code till ditt arbetsflöde: du kan justera beteendet och "
-"gränssnittet efter behov med en handfull användbara och väl genomtänkta "
-"tillägg och inställningar."
+"Anpassa Kod till ditt arbetsflöde: du kan justera beteendet och gränssnittet "
+"efter behov med en handfull användbara och väl genomtänkta tillägg och "
+"inställningar."
 
 #: data/code.metainfo.xml.in:18
 msgid "There's a ton more:"
@@ -101,12 +101,12 @@ msgid ""
 "Solarized Light, Solarized Dark, and High Contrast color schemes that affect "
 "the whole UI"
 msgstr ""
-"Färgscheman för Solarized Light, Solarized Dark och High Contrast som "
+"Färgscheman för Solariserat ljus, Solariserat mörk och Hög kontrast som "
 "påverkar hela användargränssnittet"
 
 #: data/code.metainfo.xml.in:21
 msgid "Togglable sidebar to fit your workflow"
-msgstr "Omkopplingsbart sidofält för att passa ditt arbetsflöde"
+msgstr "Växlingsbart sidofält för att passa ditt arbetsflöde"
 
 #: data/code.metainfo.xml.in:22
 msgid "Smart indentation and .editorconfig support"
@@ -155,7 +155,7 @@ msgstr "Verktygstipsen för C-symboler är nu mer informativa"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
-msgstr "Kloningsframgång indikeras nu av en skål istället för en dialog"
+msgstr "Lyckade kloningar indikeras nu av en skål istället för en dialog"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
@@ -197,8 +197,8 @@ msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
 msgstr ""
-"Kontextmenyn Project Chooser innehåller nu ett alternativ för att klona ett "
-"fjärranslutet git-repository"
+"Kontextmenyn Projektväljare innehåller nu ett alternativ för att klona ett "
+"fjärranslutet git-arkiv"
 
 #: data/code.metainfo.xml.in:109
 msgid ""
@@ -223,7 +223,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:130
 msgid "Remote branches may now be opened from the \"Branch\" menu"
-msgstr "Fjärrfilialer kan nu öppnas från menyn \"Filial\""
+msgstr "Fjärrgrenar kan nu öppnas från menyn \"Gren\""
 
 #: data/code.metainfo.xml.in:131
 msgid ""
@@ -231,33 +231,32 @@ msgid ""
 "uncommitted changes"
 msgstr ""
 "Alternativ för att skriva över eller avbryta ges när du byter gren med "
-"okommitterade ändringar"
+"ändringar som inte arkiverats"
 
 #: data/code.metainfo.xml.in:132
 msgid "The network can now be accessed from within the Flatpak"
-msgstr "Nätverket kan nu nås från Flatpak"
+msgstr "Nätverket kan nu nås inifrån Flatpak"
 
 #: data/code.metainfo.xml.in:133
 msgid ""
 "The branch names in the \"Branch\" submenus are now sorted alphabetically"
 msgstr ""
-"Filialnamnen i undermenyerna \"Filial\" är nu sorterade i alfabetisk ordning"
+"Grennamnen i undermenyerna \"Gren\" är nu sorterade i alfabetisk ordning"
 
 #: data/code.metainfo.xml.in:134
 msgid ""
 "The extension list now has switches instead of checkboxes in order to "
 "provide a larger target"
 msgstr ""
-"Tilläggslistan har nu omkopplare istället för kryssrutor för att ge en "
-"större målgrupp"
+"Tilläggslistan har nu växlar istället för kryssrutor för att ge en större mål"
 
 #: data/code.metainfo.xml.in:135
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
 msgstr ""
-"Terminalfönstret implementerar nu smart copy-paste och följer inställningen "
-"\"natural-copy-paste\" i Terminal"
+"Terminalfönstret implementerar nu smart kopiera-klistra in och följer "
+"inställningen \"natural-copy-paste\" i Terminal"
 
 #: data/code.metainfo.xml.in:136
 msgid "The Vala symbol pane now gives more information in the tooltips"
@@ -272,8 +271,8 @@ msgid ""
 "Opening and immediately closing a new document no longer prevents further "
 "documents being opened"
 msgstr ""
-"Att öppna och omedelbart stänga ett nytt dokument förhindrar inte längre att "
-"ytterligare dokument öppnas"
+"Öppning och omedelbar stängning av ett nytt dokument förhindrar inte längre "
+"att ytterligare dokument öppnas"
 
 #: data/code.metainfo.xml.in:142
 msgid ""
@@ -296,8 +295,8 @@ msgid ""
 "No longer allow the parent or child of an open project to be itself opened "
 "as a project"
 msgstr ""
-"Tillåter inte längre att ett öppet projekts förälder eller barn öppnas som "
-"ett eget projekt"
+"Tillåter inte längre att ett öppet projekt överliggande projekt eller barn "
+"öppnas som ett eget projekt"
 
 #: data/code.metainfo.xml.in:146
 msgid "The active project dropdown now keeps in sync"
@@ -305,11 +304,11 @@ msgstr "Rullgardinsmenyn för aktivt projekt är nu synkroniserad"
 
 #: data/code.metainfo.xml.in:147
 msgid "Numbered lists are now handled correctly by Markdown plugin"
-msgstr "Numrerade listor hanteras nu korrekt av Markdown-plugin"
+msgstr "Numrerade listor hanteras nu korrekt av Markdown-tillägg"
 
 #: data/code.metainfo.xml.in:148
 msgid "The highlighting plugin now works with selections of more than one word"
-msgstr "Plugin för markering fungerar nu med markeringar av mer än ett ord"
+msgstr "Tillägg för markering fungerar nu med markeringar av mer än ett ord"
 
 #: data/code.metainfo.xml.in:149
 msgid ""
@@ -330,7 +329,7 @@ msgstr "Symbolfönstret rullar nu alltid dokumentet till den valda symbolen"
 
 #: data/code.metainfo.xml.in:182
 msgid "Add symbol filter to Outline pane"
-msgstr "Lägg till symbolfilter i rutan Outline"
+msgstr "Lägg till symbolfilter i översiktspanel"
 
 #: data/code.metainfo.xml.in:198
 msgid "The Terminal pane now has a settable default directory"
@@ -338,20 +337,20 @@ msgstr "Terminalfönstret har nu en inställbar standardkatalog"
 
 #: data/code.metainfo.xml.in:199
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
-msgstr "Nytt flikfält med förbättrade animationer och Drag-n-Drop"
+msgstr "Nytt flikfält med förbättrade animationer och dra-och-släpp"
 
 #: data/code.metainfo.xml.in:226
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
 msgstr ""
-"När du öppnar en fil i Code från kommandoraden eller ett annat program kan "
-"du ange en rad/teckensnitts-position eller ett urvalsområde"
+"När du öppnar en fil i Kod från kommandoraden eller ett annat program kan du "
+"ange en rad/teckensnitts-position eller ett urvalsområde"
 
 #: data/code.metainfo.xml.in:227
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
-"Lägg till ett plugin för fuzzy-find som hittar filer i alla öppna projekt"
+"Lägg till ett tillägg för fuzzy-find som hittar filer i alla öppna projekt"
 
 #: data/code.metainfo.xml.in:228
 msgid "Save and restore the state of the terminal pane"
@@ -367,11 +366,11 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:233
 msgid "\"Follow System Style\" is now fully respected"
-msgstr "\"Follow System Style\" är nu fullt ut respekterat"
+msgstr "\"Följ systemstil\" är nu fullt ut respekterat"
 
 #: data/code.metainfo.xml.in:234
 msgid "The \"--new-tab\" commandline option now works"
-msgstr "Kommandoradsalternativet \"--new-tab\" fungerar nu"
+msgstr "Kommandoradsflaggan \"--new-tab\" fungerar nu"
 
 #: data/code.metainfo.xml.in:235
 msgid "The symbol pane width is now synchronised and saved"
@@ -387,7 +386,9 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:237
 msgid "Fixed temporary backup files persisting under some circumstances"
-msgstr "Fixade temporära backup-filer som kvarstod under vissa omständigheter"
+msgstr ""
+"Fixade temporära säkerhetskopieringsfiler som kvarstod under vissa "
+"omständigheter"
 
 #: data/code.metainfo.xml.in:238
 msgid "The Show-Replace action has been improved"
@@ -405,8 +406,8 @@ msgstr "Sökalternativ för hela ord har lagts till"
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
-"Inställningarna för hela ord, skiftlägeskänslighet och användning av regex-"
-"sökning kvarstår nu"
+"Inställningarna för hela ord, läge för skiftlägeskänslighet och användning "
+"av regex-sökning kvarstår nu"
 
 #: data/code.metainfo.xml.in:271
 msgid "The search bar now updates properly after changing the active document"
@@ -425,7 +426,7 @@ msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
-"Systemstilen följs nu av symbolens kontur och när den startas utan öppna "
+"Systemstilen följs nu av symbolöversikten och när den startas utan öppna "
 "dokument"
 
 #: data/code.metainfo.xml.in:274
@@ -456,7 +457,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:278
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr "Genvägarna Ctrl+PageUp och Ctrl+PageDown byter nu flikar"
+msgstr "Genvägarna Ctrl+PageUp och Ctrl+PageDown växlar nu flikar"
 
 #: data/code.metainfo.xml.in:279
 msgid "Ensure active project at startup (include non-git folders)"
@@ -472,11 +473,11 @@ msgstr "Nya anpassade mörka och ljusa elementary-stilar för källvyn"
 
 #: data/code.metainfo.xml.in:315
 msgid "Option to follow the system dark style preference"
-msgstr "Möjlighet att följa systemets mörka stilpreferens"
+msgstr "Möjlighet att följa systemets mörka stilinställning"
 
 #: data/code.metainfo.xml.in:316
 msgid "Ability to half tile on small notebook displays"
-msgstr "Möjlighet till halvkakling på små bärbara skärmar"
+msgstr "Möjlighet till halvfönster på små bärbara skärmar"
 
 #: data/code.metainfo.xml.in:320
 msgid ""
@@ -503,14 +504,14 @@ msgstr "Sidofältet innehåller nu projektväljarknappen och fyller fönstrets h
 #: data/code.metainfo.xml.in:323
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
-"När du startar en global sökning med markerad text fylls texten nu i i förväg"
+"När du startar en global sökning med markerad text fylls texten nu i förväg"
 
 #: data/code.metainfo.xml.in:324
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
-"Symbolöversiktsfönstret visas nu till höger om källvyn och kan visas och "
+"Panelen för symbolöversikt visas nu till höger om källvyn och kan visas och "
 "döljas med kortkommandot \"Alt + \\\""
 
 #: data/code.metainfo.xml.in:325
@@ -518,7 +519,7 @@ msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
-"Plugin-programmen Terminal, Symbol outline och Strip Trailing Whitespace är "
+"Tilläggen Terminal, Symbolöversikt och Avlägsna efterföljande blanksteg är "
 "nu en del av huvudkodbasen"
 
 #: data/code.metainfo.xml.in:326
@@ -526,7 +527,7 @@ msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
-"Visa en infobar när inställningarna för flikbredd skrivs över av en "
+"Visa ett infofält när inställningarna för flikbredd skrivs över av en "
 "EditorConfig-fil"
 
 #: data/code.metainfo.xml.in:327
@@ -541,7 +542,7 @@ msgid ""
 "multitasking view"
 msgstr ""
 "Filnamnet på det aktuella dokumentet visas nu som fönstertitel i "
-"multitasking-vyn"
+"multitaskingvyn"
 
 #: data/code.metainfo.xml.in:346
 msgid "Hidden folders are now shown in the project sidebar"
@@ -578,16 +579,16 @@ msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
 msgstr ""
-"Rätt dokument är nu fokuserat efter att Code öppnats från ett externt program"
+"Rätt dokument är nu fokuserat efter att Kod öppnats från ett externt program"
 
 #: data/code.metainfo.xml.in:355
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
-msgstr "Linjeduplicering utförs nu korrekt om det inte finns något val"
+msgstr "Radduplicering utförs nu korrekt om det inte finns något val"
 
 #: data/code.metainfo.xml.in:356
 msgid "Code no longer crashes when asked to open an unknown URI format"
-msgstr "Koden kraschar inte längre när den ombeds öppna ett okänt URI-format"
+msgstr "Kod kraschar inte längre när den ombeds öppna ett okänt URI-format"
 
 #: data/io.elementary.code.desktop.in.in:4
 msgid "@NAME@"
@@ -599,7 +600,7 @@ msgstr "Redigera kodfiler"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr "Kod textredigerare"
+msgstr "Kodredigerare"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;code;"
@@ -615,11 +616,11 @@ msgstr "Nytt fönster"
 
 #: data/code.policy.in.in:10
 msgid "Run Code as Administrator"
-msgstr "Kör koden som administratör"
+msgstr "Kör Kod som administratör"
 
 #: data/code.policy.in.in:11
 msgid "Authentication is required to run Code as Administrator"
-msgstr "Autentisering krävs för att köra Code som administratör"
+msgstr "Autentisering krävs för att köra Kod som administratör"
 
 #, fuzzy
 #~| msgid "syntax highlighting with gtksourceview-3"
