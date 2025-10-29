@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-08-30 22:55+0000\n"
+"PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/extra/"
 "ja/>\n"
@@ -149,19 +149,17 @@ msgid "Minor updates:"
 msgstr "マイナーアップデート:"
 
 #: data/code.metainfo.xml.in:75
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The tooltips for C symbols are now more informative"
-msgstr ""
-"Vala シンボルペインでのツールチップにより多くの情報を表示するように修正"
+msgstr "C 言語のシンボルに対するツールチップにより多くの情報を表示するように修正"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
-msgstr ""
+msgstr "クローン成功をダイアログではなくトーストで通知するように変更"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
-msgstr ""
+msgstr "プロジェクト内検索とファイル内検索において大文字小文字を区別する設定が同じに"
+"なるように修正"
 
 #: data/code.metainfo.xml.in:78 data/code.metainfo.xml.in:92
 #: data/code.metainfo.xml.in:112 data/code.metainfo.xml.in:152
