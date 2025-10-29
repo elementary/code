@@ -2,7 +2,7 @@ project(
     'io.elementary.code',
     'vala', 'c',
     meson_version: '>= 0.58.0',
-    version: '8.1.1'
+    version: '8.1.2'
 )
 
 add_project_arguments([
