@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-29 18:21+0000\n"
-"PO-Revision-Date: 2025-10-29 18:21+0000\n"
+"PO-Revision-Date: 2025-10-30 19:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/extra/sv/"
 ">\n"
@@ -166,6 +166,8 @@ msgid ""
 "Opening a second window no longer results in duplicate project entries in "
 "the project chooser"
 msgstr ""
+"Öppna ett andra fönster resulterar inte längre i dubbla projektposter i "
+"projektväljaren"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:114 data/code.metainfo.xml.in:154
@@ -467,7 +469,7 @@ msgstr "Genvägarna Ctrl+PageUp och Ctrl+PageDown växlar nu flikar"
 
 #: data/code.metainfo.xml.in:281
 msgid "Ensure active project at startup (include non-git folders)"
-msgstr "Säkerställ aktivt projekt vid start (inkludera icke-git-mappar)"
+msgstr "Säkerställ aktivt projekt vid uppstart (inkludera icke-git-mappar)"
 
 #: data/code.metainfo.xml.in:315
 msgid "Redesigned app icon"
