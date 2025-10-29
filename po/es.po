@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 17:18+0000\n"
-"PO-Revision-Date: 2025-10-18 07:55+0000\n"
+"POT-Creation-Date: 2025-10-19 12:22+0000\n"
+"PO-Revision-Date: 2025-10-22 08:07+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/>"
 "\n"
@@ -44,71 +44,71 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ARCHIVO…]"
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Ocultar la barra de búsqueda"
 
-#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Buscar en la página…"
 
-#: src/MainWindow.vala:413
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "Ocultar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "Mostrar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:427
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "Ocultar la vista de esquema"
 
-#: src/MainWindow.vala:432
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "Mostrar la vista de esquema"
 
-#: src/MainWindow.vala:441
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Ocultar terminal"
 
-#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "Mostrar terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:668
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:672
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "Abra algunos archivos"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "Abrir"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/MainWindow.vala:1077
+#: src/MainWindow.vala:1088
 msgid "Cloning completed"
 msgstr "Clonación terminada"
 
-#: src/MainWindow.vala:1078
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Clon creado con éxito en %s"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
 msgstr "No se pudo clonar %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1102
 msgid "Retry"
 msgstr "Reintentar"
 
@@ -405,7 +405,7 @@ msgstr "No abrir"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
-msgstr "Hay cambios sin guardar en la rama actual"
+msgstr "Hay cambios sin confirmar en la rama actual"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -417,20 +417,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
-"Los cambios sin confirmar se perderán de forma permanente si se hace "
-"«checkout» de <b>'%s'</b>.\n"
+"Los cambios sin confirmar se perderán de forma permanente si se descarga "
+"<b>'%s'</b> ahora.\n"
 "\n"
-"<i>Se recomienda que los cambios sin confirmar se guarden localmente "
-"(«stash»), confirmen («commit») o reviertan («revert») antes de continuar.</"
-"i>"
+"<i>Se recomienda que los cambios sin confirmar se confirmen, se reserven, o "
+"se reviertan antes de continuar.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr "No hacer «checkout»"
+msgstr "No descargar"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr "Hacer «checkout» y sobreescribir"
+msgstr "Descargar y sobreescribir"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
@@ -539,7 +538,7 @@ msgstr "Remota"
 
 #: src/FolderManager/ProjectFolderItem.vala:352
 msgid "New Branch…"
-msgstr "Rama nueva…"
+msgstr "Nueva rama…"
 
 #: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
@@ -832,7 +831,7 @@ msgstr "Filtrar proyectos"
 msgid "Open Folder…"
 msgstr "Abrir carpeta…"
 
-#: src/Widgets/ChooseProjectButton.vala:90
+#: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
 msgstr "Clonar repositorio de Git…"
 
@@ -963,15 +962,15 @@ msgstr "Menú"
 msgid "Cloning complete"
 msgstr "Clonación completa"
 
-#: src/Widgets/Sidebar.vala:74
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "Contraer todo"
 
-#: src/Widgets/Sidebar.vala:77
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "Ordenar alfabéticamente"
 
-#: src/Widgets/Sidebar.vala:85
+#: src/Widgets/Sidebar.vala:91
 msgid "Manage project folders…"
 msgstr "Gestionar carpetas del proyecto…"
 
