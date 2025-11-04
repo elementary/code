@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-19 12:22+0000\n"
-"PO-Revision-Date: 2025-10-26 09:55+0000\n"
+"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"PO-Revision-Date: 2025-10-29 18:21+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
-"\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,23 +67,23 @@ msgstr "Dölj sidofältet för projekt"
 
 #: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
-msgstr "Visa projekt i sidofältet"
+msgstr "Visa sidofältet för projekt"
 
 #: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
-msgstr "Dölj symbolens kontur"
+msgstr "Dölj symbolöversikt"
 
 #: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
-msgstr "Visa symbolens konturer"
+msgstr "Visa symbolöversikt"
 
 #: src/MainWindow.vala:443
 msgid "Hide Terminal"
-msgstr "Dölj Terminal"
+msgstr "Dölj terminal"
 
 #: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
-msgstr "Visa Terminal"
+msgstr "Visa terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
@@ -119,7 +119,7 @@ msgstr "Avbryt"
 
 #: src/MainWindow.vala:1032
 msgid "_Open"
-msgstr "_Öppna"
+msgstr "Ö_ppna"
 
 #: src/MainWindow.vala:1033
 msgid "_Cancel"
@@ -132,7 +132,7 @@ msgstr "Kloning slutförd"
 #: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr "Klon skapades framgångsrikt i %s"
+msgstr "Klon skapades i %s"
 
 #: src/MainWindow.vala:1095
 #, c-format
@@ -152,7 +152,7 @@ msgstr "Visa '%s' med standardapp"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr "Skapa en lokal klon av ett Git-repository"
+msgstr "Skapa en lokal klon av ett Git-arkiv"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
@@ -164,11 +164,11 @@ msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr "Klonat arkiv"
+msgstr "Klona arkiv"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr "https://example.com/username/projectname.git"
+msgstr "https://exempel.se/användarnamn/projektnamn.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
@@ -235,7 +235,7 @@ msgstr "Grennamnet måste vara unikt och följa Gits namngivningsregler."
 
 #: src/Dialogs/NewBranchDialog.vala:56
 msgid "Create Branch"
-msgstr "Skapa filial"
+msgstr "Skapa gren"
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
 msgid "Preferences"
@@ -271,7 +271,7 @@ msgstr "Indragningsbredd"
 
 #: src/Dialogs/PreferencesDialog.vala:46
 msgid "Indentation"
-msgstr "Indrag"
+msgstr "Indragning"
 
 #: src/Dialogs/PreferencesDialog.vala:47
 msgid "Automatic indentation"
@@ -295,7 +295,7 @@ msgstr "Ingen"
 
 #: src/Dialogs/PreferencesDialog.vala:79
 msgid "Current Line"
-msgstr "Aktuell linje"
+msgstr "Aktuell rad"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
@@ -303,7 +303,7 @@ msgstr "Alla"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
-msgstr "Whitespace synlig när den inte är markerad"
+msgstr "Blanktecken synliga när de inte är markerade"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
@@ -319,19 +319,19 @@ msgstr "Minikarta"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Wrap lines"
-msgstr "Omslagslinjer"
+msgstr "Radbryt rader"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Line width guide"
-msgstr "Linjebreddsguide"
+msgstr "Radbreddsguide"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Font"
-msgstr "Teckensnitt"
+msgstr "Typsnitt"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Use system font"
-msgstr "Använd systemteckensnitt"
+msgstr "Använd systemtypsnitt"
 
 #: src/Dialogs/PreferencesDialog.vala:136
 msgid "Behavior"
@@ -396,7 +396,7 @@ msgstr "Om du öppnar den här mappen stängs det överordnade projektet"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr "Stäng föräldraprojekt"
+msgstr "Stäng överordnat projekt"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
 msgid "Don't Open"
@@ -404,7 +404,7 @@ msgstr "Öppna inte"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 msgid "There are uncommitted changes in the current branch"
-msgstr "Det finns okommitterade ändringar i den aktuella grenen"
+msgstr "Det finns ändringar som inte arkiverats i den aktuella grenen"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -416,11 +416,11 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
-"Ej bekräftade ändringar kommer att förloras permanent om <b>'%s</b> ' "
+"Icke-bekräftade ändringar kommer att förloras permanent om <b>'%s</b> ' "
 "checkas ut nu.\n"
 "\n"
-"<i>Vi rekommenderar att okommitterade ändringar stashas, committas eller "
-"reverseras innan du fortsätter.</i>"
+"<i>Vi rekommenderar att ändringar som inte arkiverats stashas, committas "
+"eller reverseras innan du fortsätter.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
@@ -541,7 +541,7 @@ msgstr "Ny gren…"
 
 #: src/FolderManager/ProjectFolderItem.vala:377
 msgid "Branch"
-msgstr "Avdelning"
+msgstr "Gren"
 
 #: src/FolderManager/ProjectFolderItem.vala:433
 msgid "Modified"
@@ -550,7 +550,7 @@ msgstr "Ändrad"
 #: src/FolderManager/ProjectFolderItem.vala:471
 #, c-format
 msgid "Error while creating new branch: “%s”"
-msgstr "Fel vid skapande av ny filial: \"%s\""
+msgstr "Fel vid skapande av ny gren: \"%s\""
 
 #. Empty files are valid text files
 #: src/Services/Document.vala:384
@@ -560,7 +560,7 @@ msgstr "%s är inte en textfil"
 
 #: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
-msgstr "Kod kan inte ladda den här filtypen."
+msgstr "Kod kan inte läsa in den här filtypen."
 
 #: src/Services/Document.vala:387
 msgid "Load Anyway"
@@ -633,7 +633,7 @@ msgstr "Filen kan vara skadad eller kanske inte är en textfil"
 #. in new document in that case.
 #: src/Services/Document.vala:881
 msgid "Show Anyway"
-msgstr "Visa hur som helst"
+msgstr "Visa ändå"
 
 #: src/Services/Document.vala:912
 #, c-format
@@ -686,7 +686,7 @@ msgstr "Ignorera"
 
 #: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
-msgstr "Spara duplikat…"
+msgstr "Spara dubblett…"
 
 #: src/Services/Document.vala:1059
 msgid "Continue"
@@ -707,24 +707,24 @@ msgstr "Spara dokument någon annanstans"
 #: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr "Fjärrfilial '%s' hittades inte"
+msgstr "Fjärrgrenen '%s' hittades inte"
 
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
-"Den begärda grenen hittades inte i någon fjärrkontroll som är länkad till "
+"Den begärda grenen hittades inte i någon fjärrserver som är länkad till "
 "detta arkiv"
 
 #: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
-msgstr "Ett fel inträffade när du checkade ut den begärda filialen"
+msgstr "Ett fel inträffade när du checkade ut den begärda grenen"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
-msgstr "%.8s (fristående)"
+msgstr "%.8s (frånkopplad)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -761,7 +761,7 @@ msgstr "Klass"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr "Fastighet"
+msgstr "Egenskap"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
@@ -773,7 +773,7 @@ msgstr "Metod"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr "Struktur"
+msgstr "Struct"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
@@ -805,7 +805,7 @@ msgstr "Typ av filtersymbol"
 
 #: src/SymbolPane/SymbolOutline.vala:160
 msgid "Select All"
-msgstr "Välj alla"
+msgstr "Markera alla"
 
 #: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
@@ -843,7 +843,7 @@ msgstr "Textfil från %s:%d"
 
 #: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
-msgstr "Stäng flikarna till höger"
+msgstr "Stäng flikar till höger"
 
 #: src/Widgets/DocumentView.vala:626
 msgid "Close Other Tabs"
@@ -851,7 +851,7 @@ msgstr "Stäng andra flikar"
 
 #: src/Widgets/DocumentView.vala:627
 msgid "Close Tab"
-msgstr "Stäng fliken"
+msgstr "Stäng flik"
 
 #: src/Widgets/DocumentView.vala:630
 msgid "Open in New Window"
@@ -859,7 +859,7 @@ msgstr "Öppna i nytt fönster"
 
 #: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
-msgstr "Fliken Duplicera"
+msgstr "Duplicera flik"
 
 #: src/Widgets/FormatBar.vala:50
 msgid "Syntax Highlighting"
@@ -867,7 +867,7 @@ msgstr "Syntaxmarkering"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
-msgstr "Radnumrering"
+msgstr "Radnummer"
 
 #: src/Widgets/FormatBar.vala:87
 msgid "Filter languages"
@@ -921,11 +921,11 @@ msgstr "Projektmallar"
 
 #: src/Widgets/HeaderBar.vala:51
 msgid "Save this file"
-msgstr "Spara filen"
+msgstr "Spara denna fil"
 
 #: src/Widgets/HeaderBar.vala:59
 msgid "Save this file with a different name"
-msgstr "Spara filen med ett annat namn"
+msgstr "Spara denna fil med ett annat namn"
 
 #: src/Widgets/HeaderBar.vala:67
 msgid "Restore this file"
@@ -977,7 +977,7 @@ msgstr "Sök"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "No Results"
-msgstr "Hittade inget"
+msgstr "Hittade ingenting"
 
 #: src/Widgets/SearchBar.vala:116
 msgid "Search next"
@@ -997,7 +997,7 @@ msgstr "Aldrig"
 
 #: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
-msgstr "Blandat fall"
+msgstr "Blandade skiftlägen"
 
 #: src/Widgets/SearchBar.vala:134
 msgid "Always"
@@ -1005,7 +1005,7 @@ msgstr "Alltid"
 
 #: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
-msgstr "Fallkänsligt"
+msgstr "Skiftlägeskänslig"
 
 #: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
@@ -1042,23 +1042,23 @@ msgstr "inga resultat"
 
 #: src/Widgets/SourceView.vala:583
 msgid "Sort Selected Lines"
-msgstr "Sortera valda rader"
+msgstr "Sortera markerade rader"
 
 #: src/Widgets/SourceView.vala:594
 msgid "Mark Current Line"
-msgstr "Markera aktuell linje"
+msgstr "Markera aktuell rad"
 
 #: src/Widgets/SourceView.vala:605
 msgid "Goto Previous Edit Mark"
-msgstr "Gå till föregående Edit Mark"
+msgstr "Gå till föregående redigeringsmarkering"
 
 #: src/Widgets/SourceView.vala:616
 msgid "Goto Next Edit Mark"
-msgstr "Gå till Nästa Redigera Mark"
+msgstr "Gå till nästa redigeringsmarkering"
 
 #: src/Widgets/SourceView.vala:635
 msgid "Toggle Comment"
-msgstr "Visa/dölj kommentarer"
+msgstr "Växla kommentar"
 
 #: src/Widgets/Terminal.vala:140
 msgid "Copy"
@@ -1070,7 +1070,7 @@ msgstr "Klistra in"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr "Inga öppna filer"
+msgstr "Inga filer öppna"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."

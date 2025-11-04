@@ -68,18 +68,20 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="8.1.2" date="2025-10-24" urgency="medium">
+    <release version="8.1.2" date="2025-11-05" urgency="medium">
       <description>
         <p>Minor updates:</p>
         <ul>
           <li>The tooltips for C symbols are now more informative</li>
           <li>Cloning success is now indicated by toast instead of a dialog</li>
           <li>Global search and local search now have the same case sensitivity</li>
+          <li>Opening a second window no longer results in duplicate project entries in the project chooser</li>
           <li>Updated translations</li>
         </ul>
       </description>
       <issues>
         <issue url="https://github.com/elementary/code/issues/1628">Git clone success dialog should be a toast</issue>
+        <issue url="https://github.com/elementary/code/issues/1507">Duplicate projects in dropdown after opening second window from duplicate tab</issue>
         <issue url="https://github.com/elementary/code/issues/1277">Global Search case sensitivity behaviour differs from local search</issue>
       </issues>
     </release>
