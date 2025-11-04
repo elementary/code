@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 17:18+0000\n"
-"PO-Revision-Date: 2025-10-06 12:55+0000\n"
+"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"PO-Revision-Date: 2025-10-29 18:21+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/"
 ">\n"
@@ -44,71 +44,71 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "קוד (%s)"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "איתור בעמוד…"
 
-#: src/MainWindow.vala:413
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "הסתרת סרגל המיזמים"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "הצגת סרגל המיזמים"
 
-#: src/MainWindow.vala:427
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "הסתרת קווי מתאר של סמלים"
 
-#: src/MainWindow.vala:432
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "הצגת קווי מתאר של סמלים"
 
-#: src/MainWindow.vala:441
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "הסתרת המסוף"
 
-#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr "הצגת המסוף"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:668
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:672
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "פתיחה"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_ביטול"
 
-#: src/MainWindow.vala:1077
+#: src/MainWindow.vala:1088
 msgid "Cloning completed"
-msgstr ""
+msgstr "השכפול הושלם"
 
-#: src/MainWindow.vala:1078
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "השכפול נוצר בהצלחה תחת %s"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
 msgstr "לא ניתן לשכפל את %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1102
 msgid "Retry"
 msgstr "לנסות שוב"
 
@@ -195,22 +195,20 @@ msgid "Cloning in progress"
 msgstr "מתבצע שכפול"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "על ביטוי החיפוש להיות באורך 3 תווים לפחות."
+msgstr "הביטוי לחיפוש ייחשב כביטוי רגולרי"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "החיפוש יהיה תלוי רישיות (אותיות גדולות/קטנות)"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "החיפוש לא יהיה תלוי רישיות"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "החיפוש ילכוד מילים שלמות בלבד"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -817,7 +815,7 @@ msgstr "סינון מיזמים"
 msgid "Open Folder…"
 msgstr "פתיחת תיקייה…"
 
-#: src/Widgets/ChooseProjectButton.vala:90
+#: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
 msgstr "שכפול מאגר Git…"
 
@@ -946,17 +944,17 @@ msgstr "תפריט"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "שכפול הושלם"
 
-#: src/Widgets/Sidebar.vala:74
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "לצמצם הכול"
 
-#: src/Widgets/Sidebar.vala:77
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "סידור אלפביתי"
 
-#: src/Widgets/Sidebar.vala:85
+#: src/Widgets/Sidebar.vala:91
 msgid "Manage project folders…"
 msgstr "ניהול תיקיות המיזם…"
 

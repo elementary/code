@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 17:18+0000\n"
+"POT-Creation-Date: 2025-10-29 18:21+0000\n"
 "PO-Revision-Date: 2016-05-03 15:08+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Macedonian <mk@li.org>\n"
@@ -42,74 +42,74 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:397
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Скриј поле за пребарување"
 
-#: src/MainWindow.vala:402 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 msgid "Find on Page…"
 msgstr "Отвори датотека"
 
-#: src/MainWindow.vala:413
+#: src/MainWindow.vala:415
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Скриј поле за пребарување"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:427
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:432
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:441
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/MainWindow.vala:446 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
 msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:616
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:668
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Сите датотеки"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:672
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Текстуални датотеки"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "Отвори неколку датотеки"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "Отвори"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -118,29 +118,29 @@ msgstr "Отвори"
 msgid "Cancel"
 msgstr "Откажи"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:1077
+#: src/MainWindow.vala:1088
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1078
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1102
 msgid "Retry"
 msgstr ""
 
@@ -857,7 +857,7 @@ msgstr ""
 msgid "Open Folder…"
 msgstr "Отвори датотека"
 
-#: src/Widgets/ChooseProjectButton.vala:90
+#: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -1002,15 +1002,15 @@ msgstr ""
 msgid "Cloning complete"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:74
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:77
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:85
+#: src/Widgets/Sidebar.vala:91
 #, fuzzy
 msgid "Manage project folders…"
 msgstr "Отвори датотека"
