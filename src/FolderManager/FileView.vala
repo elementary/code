@@ -145,7 +145,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     public async void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            yield add_folder (new File (path), false);
+            yield add_folder (new File (path), false, true);
         }
     }
 
@@ -507,7 +507,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private async void add_folder (File folder, bool expand) {
+    private async void add_folder (File folder, bool expand, bool restoring = false) {
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
@@ -584,7 +584,13 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 write_settings ();
             });
 
-            write_settings ();
+            // We do not want to rewrite settings while restoring from settings
+            // This interferes with fuzzy-finder plugins_manager
+            // See https://github.com/elementary/code/issues/1533
+            if (!restoring) {
+                write_settings (true);
+            }
+
             add_folder.callback ();
             return Source.REMOVE;
         });
