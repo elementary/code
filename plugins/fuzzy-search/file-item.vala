@@ -7,7 +7,7 @@
  */
 
 public class FileItem : Gtk.ListBoxRow {
-    private SearchResult result;
+    public  SearchResult result { get; private set; }
 
     public string filepath {
         get {
