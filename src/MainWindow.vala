@@ -347,9 +347,8 @@ namespace Scratch {
             sidebar_action.set_state (saved_state.get_boolean ("sidebar-visible"));
             update_toolbar_button (ACTION_TOGGLE_SIDEBAR, saved_state.get_boolean ("sidebar-visible"));
 
-            // var order_folders_action = Utils.action_from_group (ACTION_ORDER_FOLDERS, actions);
-            // order_folders_action.set_state (saved_state.get_boolean ("order-folders"));
-            // update_toolbar_button (ACTION_ORDER_FOLDERS, saved_state.get_boolean ("order-folders"));
+            var order_folders_action = Utils.action_from_group (ACTION_ORDER_FOLDERS, actions);
+            order_folders_action.set_state (saved_state.get_boolean ("order-folders"));
 
             var outline_action = Utils.action_from_group (ACTION_TOGGLE_OUTLINE, actions);
             outline_action.set_state (saved_state.get_boolean ("outline-visible"));
@@ -571,6 +570,7 @@ namespace Scratch {
                 Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
                 Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("order-folders", folder_manager_view, "order-folders", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
