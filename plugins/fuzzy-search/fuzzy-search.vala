@@ -90,7 +90,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         handle_opened_projects_change ();
 
-        var label = new Granite.AccelLabel (_("Search Project Files…")) {
+        var label = new Granite.AccelLabel (_("Find Project Files")) {
             action_name = ACTION_PREFIX + ACTION_SHOW,
             accel_string = accel_string
         };
