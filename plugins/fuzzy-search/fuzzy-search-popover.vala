@@ -266,13 +266,19 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             scrolled.set_max_content_height (45 /* height */ * max_items);
 
             current_doc_project = get_current_project (); // This will not change while popover is showing
-            search_result_container.set_sort_func ((a ,b) => {
-                var project_a_is_current = ((FileItem)a).result.project == current_doc_project;
-                var project_b_is_current = ((FileItem)b).result.project == current_doc_project;
+            search_result_container.set_sort_func ((a , b) => {
+                var result_a = ((FileItem)a).result;
+                var result_b = ((FileItem)b).result;
+                var project_a_is_current = result_a.project == current_doc_project;
+                var project_b_is_current = result_b.project == current_doc_project;
                 if (project_a_is_current && !project_b_is_current) {
                     return 1;
                 } else if (project_b_is_current && !project_a_is_current) {
                     return -1;
+                } else if (result_a.score > result_b.score) {
+                    return -1;
+                } else if (result_b.score > result_a.score) {
+                    return 1;
                 } else {
                     return strcmp (((FileItem)a).result.full_path, ((FileItem)b).result.full_path);
                 }
