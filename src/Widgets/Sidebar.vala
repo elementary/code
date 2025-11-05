@@ -25,7 +25,8 @@ public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
-    public GLib.MenuModel project_menu_model { get; construct; }
+    public Gtk.Box project_menu { get; private set; }
+    private HashTable<string, Gtk.Widget> project_menu_map;
     // May show progress in different way in future
     public bool cloning_in_progress {
         get {
@@ -87,7 +88,7 @@ public class Code.Sidebar : Gtk.Grid {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_ORDER_FOLDERS
         };
 
-        var project_menu = new Gtk.Box (VERTICAL, 0);
+        project_menu = new Gtk.Box (VERTICAL, 0);
         project_menu.add (collapse_all_menu_item);
         project_menu.add (order_projects_menu_item);
         project_menu.show_all ();
@@ -134,6 +135,20 @@ public class Code.Sidebar : Gtk.Grid {
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
         Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         drag_data_received.connect (drag_received);
+
+        project_menu_map = new HashTable<string, Gtk.Widget> (str_hash, str_equal);
+    }
+
+    public void add_project_menu_widget (string id, Gtk.Widget widget) {
+        project_menu.add (widget);
+        project_menu_map.@set (id, widget);
+    }
+
+    public void remove_project_menu_widget (string id) {
+        var item = project_menu_map.take (id);
+        if (item != null) {
+            item.destroy ();
+        }
     }
 
     private void drag_received (Gtk.Widget w,

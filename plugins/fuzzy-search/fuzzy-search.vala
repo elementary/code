@@ -10,11 +10,12 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     public Object object { owned get; set construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
+    private const string FUZZY_FINDER_ID = "fuzzy-finder";
 
     private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
     private Scratch.Services.Interface plugins;
-    private GLib.MenuItem fuzzy_menuitem;
+    // private GLib.MenuItem fuzzy_menuitem;
     private GLib.Cancellable cancellable;
 
     private const string ACTION_GROUP = "fuzzysearch";
@@ -88,25 +89,18 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         handle_opened_projects_change ();
 
-        fuzzy_menuitem = new GLib.MenuItem (_("Find Project Files"), ACTION_PREFIX + ACTION_SHOW );
+        var fuzzy_menuitem = new Gtk.ModelButton () {
+            text = _("Find Project Files"),
+            action_name = ACTION_PREFIX + ACTION_SHOW
+        };
 
-        var menu = window.sidebar.project_menu_model as GLib.Menu;
-        menu.append_item (fuzzy_menuitem);
+        fuzzy_menuitem.show ();
+        window.sidebar.add_project_menu_widget (FUZZY_FINDER_ID, fuzzy_menuitem);
     }
 
     private void remove_actions () {
-        var sidebar_menu = window.sidebar.project_menu_model as GLib.Menu;
-        int length = sidebar_menu.get_n_items ();
-        for (var i = length - 1; i >= 0; i--) {
-            var action_name = sidebar_menu.get_item_attribute_value (
-                i,
-                GLib.Menu.ATTRIBUTE_ACTION,
-                GLib.VariantType.STRING
-            ).get_string ();
-            if (action_name.has_prefix (ACTION_PREFIX)) {
-                sidebar_menu.remove (i);
-            }
-        }
+        var sidebar_menu = window.sidebar.project_menu;
+        window.sidebar.remove_project_menu_widget (FUZZY_FINDER_ID);
 
         var application = (Gtk.Application) GLib.Application.get_default ();
         var app = (Scratch.Application) application;
