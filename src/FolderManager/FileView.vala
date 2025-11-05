@@ -63,6 +63,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public ActionGroup toplevel_action_group { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
+    public bool order_folders { get; set; default = true; }
 
     public FileView (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
@@ -84,6 +85,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         realize.connect (() => {
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
+        });
+
+        notify["order-folders"].connect (() => {
+            if (order_folders) {
+                reorder_folders ();
+            }
         });
     }
 
@@ -168,9 +175,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    public void order_folders () {
+    private void reorder_folders () {
+        // This is not efficient but SourceList does not currently allow `insert_sorted` or setting a sort function
         var list = new Gee.ArrayList<ProjectFolderItem> ();
-
         foreach (var child in root.children) {
             root.remove (child as ProjectFolderItem);
             list.add (child as ProjectFolderItem);
@@ -567,8 +574,12 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
             var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
-            this.root.add (folder_root);
+            this.root.add (folder_root); // TODO Implement add_sorted;
             rename_items_with_same_name (folder_root);
+            if (order_folders) {
+                reorder_folders ();
+            }
+
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {

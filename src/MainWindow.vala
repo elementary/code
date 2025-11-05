@@ -141,7 +141,7 @@ namespace Scratch {
             { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
-            { ACTION_ORDER_FOLDERS, action_order_folders },
+            { ACTION_ORDER_FOLDERS, action_order_folders, null, "true" },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
@@ -346,6 +346,10 @@ namespace Scratch {
             var sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
             sidebar_action.set_state (saved_state.get_boolean ("sidebar-visible"));
             update_toolbar_button (ACTION_TOGGLE_SIDEBAR, saved_state.get_boolean ("sidebar-visible"));
+
+            // var order_folders_action = Utils.action_from_group (ACTION_ORDER_FOLDERS, actions);
+            // order_folders_action.set_state (saved_state.get_boolean ("order-folders"));
+            // update_toolbar_button (ACTION_ORDER_FOLDERS, saved_state.get_boolean ("order-folders"));
 
             var outline_action = Utils.action_from_group (ACTION_TOGGLE_OUTLINE, actions);
             outline_action.set_state (saved_state.get_boolean ("outline-visible"));
@@ -1126,7 +1130,10 @@ namespace Scratch {
         }
 
         private void action_order_folders () {
-            folder_manager_view.order_folders ();
+            var action = Utils.action_from_group (ACTION_ORDER_FOLDERS, actions);
+            var to_show = !action.get_state ().get_boolean ();
+            action.set_state (to_show);
+            folder_manager_view.order_folders = to_show;
         }
 
         private void action_save () {
