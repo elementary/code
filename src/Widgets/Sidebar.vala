@@ -77,25 +77,28 @@ public class Code.Sidebar : Gtk.Grid {
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
-        var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
-        + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
-
-        var order_projects_menu_item = new GLib.MenuItem (_("Alphabetize"), Scratch.MainWindow.ACTION_PREFIX
-                + Scratch.MainWindow.ACTION_ORDER_FOLDERS);
-
-        var project_menu = new GLib.Menu ();
-        project_menu.append_item (collapse_all_menu_item);
-        project_menu.append_item (order_projects_menu_item);
-        project_menu_model = project_menu;
-
-        var label = new Gtk.Label ( _("Manage project folders…")) {
-            halign = START
+        var collapse_all_menu_item = new Gtk.ModelButton () {
+            text = _("Collapse All"),
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS
         };
+
+        var order_projects_menu_item = new Gtk.ModelButton () {
+            text = _("Alphabetize"),
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_ORDER_FOLDERS
+        };
+
+        var project_menu = new Gtk.Box (VERTICAL, 0);
+        project_menu.add (collapse_all_menu_item);
+        project_menu.add (order_projects_menu_item);
+        project_menu.show_all ();
+        var project_menu_model = new Gtk.Popover (null);
+        project_menu_model.add (project_menu);
+
         var project_menu_button = new Gtk.MenuButton () {
             hexpand = true,
-            use_popover = false,
-            menu_model = project_menu_model,
-            child = label
+            halign = START,
+            popover = project_menu_model,
+            label = _("Manage project folders…")
         };
 
         actionbar.pack_start (project_menu_button);
