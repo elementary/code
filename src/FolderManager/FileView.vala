@@ -32,8 +32,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    // public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
-    // public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
     public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
@@ -339,26 +337,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             }
         }
     }
-
-    // public void new_branch (string active_project_path) {
-    //     unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
-    //     if (active_project == null || !active_project.is_git_repo) {
-    //         Gdk.beep ();
-    //         return;
-    //     }
-
-    //     string? branch_name = null;
-    //     var dialog = new Dialogs.NewBranchDialog (active_project);
-    //     dialog.show_all ();
-    //     if (dialog.run () == Gtk.ResponseType.APPLY) {
-    //         branch_name = dialog.new_branch_name;
-    //     }
-
-    //     dialog.destroy ();
-    //     if (branch_name != null) {
-    //         active_project.new_branch (branch_name);
-    //     }
-    // }
 
     public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
         plugins.hook_folder_item_change (source, dest, event);
