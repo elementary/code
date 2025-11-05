@@ -15,7 +15,6 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
     private Scratch.Services.Interface plugins;
-    // private GLib.MenuItem fuzzy_menuitem;
     private GLib.Cancellable cancellable;
 
     private const string ACTION_GROUP = "fuzzysearch";
@@ -29,9 +28,11 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     private GLib.Settings folder_settings;
 
     private static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+    private static string accel_string;
 
     static construct {
-        action_accelerators.set (ACTION_SHOW, @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))");
+        accel_string = @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))";
+        action_accelerators.set (ACTION_SHOW, accel_string);
     }
 
     public void update_state () {
@@ -89,12 +90,16 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         handle_opened_projects_change ();
 
-        var fuzzy_menuitem = new Gtk.ModelButton () {
-            text = _("Find Project Files"),
-            action_name = ACTION_PREFIX + ACTION_SHOW
+        var label = new Granite.AccelLabel (_("Search Project Files…")) {
+            action_name = ACTION_PREFIX + ACTION_SHOW,
+            accel_string = accel_string
         };
+        var fuzzy_menuitem = new Gtk.Button () { // Cannot change child of ModelButton
+            action_name = ACTION_PREFIX + ACTION_SHOW,
+            child = label
+        };
+        fuzzy_menuitem.get_style_context ().add_class ("flat");
 
-        fuzzy_menuitem.show ();
         window.sidebar.add_project_menu_widget (FUZZY_FINDER_ID, fuzzy_menuitem);
     }
 

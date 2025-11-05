@@ -27,6 +27,7 @@ public class Code.Sidebar : Gtk.Grid {
     public Hdy.HeaderBar headerbar { get; private set; }
     public Gtk.Box project_menu { get; private set; }
     private HashTable<string, Gtk.Widget> project_menu_map;
+    private Gtk.Separator project_menu_separator; // Divides plugin items from core items
     // May show progress in different way in future
     public bool cloning_in_progress {
         get {
@@ -140,8 +141,14 @@ public class Code.Sidebar : Gtk.Grid {
     }
 
     public void add_project_menu_widget (string id, Gtk.Widget widget) {
+        if (project_menu_map.size () == 0) {
+            project_menu_separator = new Gtk.Separator (HORIZONTAL);
+            project_menu.add (project_menu_separator);
+        }
+
         project_menu.add (widget);
         project_menu_map.@set (id, widget);
+        project_menu.show_all ();
     }
 
     public void remove_project_menu_widget (string id) {
@@ -149,6 +156,11 @@ public class Code.Sidebar : Gtk.Grid {
         if (item != null) {
             item.destroy ();
         }
+
+        if (project_menu_map.size () == 0) {
+            project_menu_separator.destroy ();
+        }
+
     }
 
     private void drag_received (Gtk.Widget w,
