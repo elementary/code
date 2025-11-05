@@ -10,11 +10,11 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     public Object object { owned get; set construct; }
     private const uint ACCEL_KEY = Gdk.Key.F;
     private const Gdk.ModifierType ACCEL_MODTYPE = Gdk.ModifierType.MOD1_MASK;
+    private const string FUZZY_FINDER_ID = "fuzzy-finder";
 
     private Scratch.Services.FuzzySearchIndexer indexer;
     private MainWindow window = null;
     private Scratch.Services.Interface plugins;
-    private GLib.MenuItem fuzzy_menuitem;
     private GLib.Cancellable cancellable;
 
     private const string ACTION_GROUP = "fuzzysearch";
@@ -28,9 +28,11 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     private GLib.Settings folder_settings;
 
     private static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+    private static string accel_string;
 
     static construct {
-        action_accelerators.set (ACTION_SHOW, @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))");
+        accel_string = @"<Alt>$(Gdk.keyval_name (ACCEL_KEY))";
+        action_accelerators.set (ACTION_SHOW, accel_string);
     }
 
     public void update_state () {
@@ -88,25 +90,22 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         handle_opened_projects_change ();
 
-        fuzzy_menuitem = new GLib.MenuItem (_("Find Project Files"), ACTION_PREFIX + ACTION_SHOW );
+        var label = new Granite.AccelLabel (_("Find Project Files")) {
+            action_name = ACTION_PREFIX + ACTION_SHOW,
+            accel_string = accel_string
+        };
+        var fuzzy_menuitem = new Gtk.Button () { // Cannot change child of ModelButton
+            action_name = ACTION_PREFIX + ACTION_SHOW,
+            child = label
+        };
+        fuzzy_menuitem.get_style_context ().add_class ("flat");
 
-        var menu = window.sidebar.project_menu_model as GLib.Menu;
-        menu.append_item (fuzzy_menuitem);
+        window.sidebar.add_project_menu_widget (FUZZY_FINDER_ID, fuzzy_menuitem);
     }
 
     private void remove_actions () {
-        var sidebar_menu = window.sidebar.project_menu_model as GLib.Menu;
-        int length = sidebar_menu.get_n_items ();
-        for (var i = length - 1; i >= 0; i--) {
-            var action_name = sidebar_menu.get_item_attribute_value (
-                i,
-                GLib.Menu.ATTRIBUTE_ACTION,
-                GLib.VariantType.STRING
-            ).get_string ();
-            if (action_name.has_prefix (ACTION_PREFIX)) {
-                sidebar_menu.remove (i);
-            }
-        }
+        var sidebar_menu = window.sidebar.project_menu;
+        window.sidebar.remove_project_menu_widget (FUZZY_FINDER_ID);
 
         var application = (Gtk.Application) GLib.Application.get_default ();
         var app = (Scratch.Application) application;
