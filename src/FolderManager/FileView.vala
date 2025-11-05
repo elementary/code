@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
  * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- *
+ 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -145,7 +145,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     public async void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            yield add_folder (new File (path), false);
+            yield add_folder (new File (path), false, true);
         }
     }
 
@@ -507,7 +507,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private async void add_folder (File folder, bool expand) {
+    private async void add_folder (File folder, bool expand, bool restoring = false) {
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
@@ -584,7 +584,13 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 write_settings ();
             });
 
-            write_settings ();
+            // We do not want to rewrite settings while restoring from settings
+            // This interferes with fuzzy-finder plugins_manager
+            // See https://github.com/elementary/code/issues/1533
+            if (!restoring) {
+                write_settings ();
+            }
+
             add_folder.callback ();
             return Source.REMOVE;
         });
