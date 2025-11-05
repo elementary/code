@@ -574,10 +574,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     }
                 }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-                save_opened_folders ();
+                write_settings ();
             });
 
-            save_opened_folders ();
+            write_settings ();
             add_folder.callback ();
             return Source.REMOVE;
         });
@@ -592,7 +592,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         return false;
     }
 
-    private void save_opened_folders () {
+    private void write_settings () {
         string[] to_save = {};
 
         foreach (var main_folder in root.children) {
