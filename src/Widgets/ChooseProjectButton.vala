@@ -108,7 +108,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         popover = project_popover;
 
+        // Initialise with any pre-existing projects (needed for second and subsequent window)
         var git_manager = Scratch.Services.GitManager.get_instance ();
+        var src = git_manager.project_liststore;
+        for (int index = 0; index < src.n_items; index++) {
+            var item = src.get_object (index);
+            if (item is Scratch.FolderManager.ProjectFolderItem) {
+                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+                project_listbox.insert (row, index);
+            }
+        }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
             var rows = project_listbox.get_children ();
