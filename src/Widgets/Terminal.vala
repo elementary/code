@@ -149,6 +149,20 @@ public class Code.Terminal : Gtk.Box {
         };
         key_controller.key_pressed.connect (key_pressed);
 
+        // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
+        terminal.enter_notify_event.connect (() => {
+            if (!terminal.has_focus) {
+                terminal.grab_focus ();
+                // Use Idle to avoid critical warning 
+                Idle.add (() => {
+                    var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+                    win_group.activate_action (Scratch.MainWindow.ACTION_SAVE, null);
+
+                    return Gdk.EVENT_STOP;
+                });
+            }
+        });
+
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 paste_action.set_enabled (current_clipboard.wait_is_text_available ());
