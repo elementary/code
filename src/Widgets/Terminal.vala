@@ -153,13 +153,7 @@ public class Code.Terminal : Gtk.Box {
         terminal.enter_notify_event.connect (() => {
             if (!terminal.has_focus) {
                 terminal.grab_focus ();
-                // Use Idle to avoid critical warning 
-                Idle.add (() => {
-                    var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-                    win_group.activate_action (Scratch.MainWindow.ACTION_SAVE, null);
 
-                    return Gdk.EVENT_STOP;
-                });
             }
         });
 
