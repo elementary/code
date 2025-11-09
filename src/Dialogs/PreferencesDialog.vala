@@ -28,6 +28,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
             "smart-cut-copy",
             _("Cutting or copying without an active selection will cut or copy the entire current line")
         ));
+        general_box.add (new SettingSwitch (_("Highlight syntax"), "highlight-syntax"));
 
         var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
         Scratch.settings.bind ("indent-width", indent_width, "value", DEFAULT);
