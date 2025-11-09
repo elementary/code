@@ -313,7 +313,6 @@ namespace Scratch.Services {
                 }
             });
 
-
             loaded = file == null;
 
             add (main_stack);
