@@ -238,6 +238,7 @@ namespace Scratch.Services {
             set_strip_trailing_whitespace ();
             settings.changed["show-mini-map"].connect (set_minimap);
             settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
+            settings.changed["highlight-syntax"].connect (set_syntax_highlighting);
 
             var source_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.HORIZONTAL,
@@ -450,7 +451,7 @@ namespace Scratch.Services {
             }
 
             // Change syntax highlight
-            this.source_view.change_syntax_highlight_from_file (this.file);
+            set_syntax_highlighting ();
 
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
@@ -711,7 +712,8 @@ namespace Scratch.Services {
                     }
 
                     delete_backup (current_file.get_uri () + "~");
-                    this.source_view.change_syntax_highlight_from_file (this.file);
+                    set_syntax_highlighting ();
+
                 }
                 // Calling function responsible for restoring original
             }
@@ -723,7 +725,13 @@ namespace Scratch.Services {
             return is_saved;
         }
 
-        public bool move (File new_dest) {
+        private void set_syntax_highlighting () {
+            this.source_view.change_syntax_highlight_from_file (
+                settings.get_boolean ("highlight-syntax") ? this.file : null
+            );
+        }
+
+         public bool move (File new_dest) {
             this.file = new_dest;
             this.save.begin ();
 

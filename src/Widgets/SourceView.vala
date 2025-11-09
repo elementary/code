@@ -213,7 +213,12 @@ namespace Scratch.Widgets {
             return !start.equal (end);
         }
 
-        public void change_syntax_highlight_from_file (File file) {
+        public void change_syntax_highlight_from_file (File? file) {
+            if (file == null) {
+                // Remove all highlighting
+                language = null;
+            }
+
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
                 var mime_type = ContentType.get_mime_type (

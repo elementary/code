@@ -207,6 +207,11 @@
       <summary>Whether to automatically remove trailing whitespace on saving</summary>
       <description>Whether trailing whitespace should be removed from a document whenever it is saved, including on autosave.</description>
     </key>
+    <key name="highlight-syntax" type="b">
+      <default>true</default>
+      <summary>Show source language syntax highlighting</summary>
+      <description>Whether the document should display the style scheme for the associated language.</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
