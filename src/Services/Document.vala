@@ -307,8 +307,7 @@ namespace Scratch.Services {
             });
 
             source_view.focus_out_event.connect (() => {
-                if (source_view.buffer.get_modified () &&
-                    Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
 
                     strip_trailing_spaces ();
                 }
