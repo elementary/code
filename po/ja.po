@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-10 12:52+0000\n"
 "PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
@@ -311,39 +311,45 @@ msgstr "エディター"
 msgid "Highlight matching brackets"
 msgstr "対となるカッコをハイライト"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "シンタックスハイライト"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "ミニマップ"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "行の折り返し"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "行の幅のガイド"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "フォント"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "システムフォントを使う"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "挙動"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "インターフェース"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "閉じる"
@@ -851,8 +857,10 @@ msgid "Duplicate Tab"
 msgstr "タブを複製"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "シンタックスハイライト"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "言語をフィルター"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1027,23 +1035,23 @@ msgstr "%d / %d 件"
 msgid "no results"
 msgstr "結果なし"
 
-#: src/Widgets/SourceView.vala:583
+#: src/Widgets/SourceView.vala:584
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:595
 msgid "Mark Current Line"
 msgstr "現在の行をブックマークする"
 
-#: src/Widgets/SourceView.vala:605
+#: src/Widgets/SourceView.vala:606
 msgid "Goto Previous Edit Mark"
 msgstr "前のブックマークに移動"
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:617
 msgid "Goto Next Edit Mark"
 msgstr "次のブックマークに移動"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:636
 msgid "Toggle Comment"
 msgstr "コメントアウト/コメント解除"
 

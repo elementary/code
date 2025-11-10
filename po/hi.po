@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-10 12:52+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -336,43 +336,49 @@ msgstr "एडीटर"
 msgid "Highlight matching brackets"
 msgstr "सामान कोष्ठकों को हाईलाइट करें:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "सिंटेक्स हाईलाइटिंग"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "लघु मानचित्र चित्रित करें:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "पंक्ति चौड़ाई गाइड:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "फॉन्ट"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "व्‍यवहार"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "इंटरफ़ेस"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "एक्सटेंशन्स"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "बंद करें"
@@ -929,8 +935,10 @@ msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "सिंटेक्स हाईलाइटिंग"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "भाषाएं फ़िल्टर करें"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1117,27 +1125,27 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:583
+#: src/Widgets/SourceView.vala:584
 msgid "Sort Selected Lines"
 msgstr "चयनित लाइनों को क्रमबद्ध करें"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:595
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Current Line"
 msgstr "वर्तमान दृश्य को निकालें"
 
-#: src/Widgets/SourceView.vala:605
+#: src/Widgets/SourceView.vala:606
 msgid "Goto Previous Edit Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:617
 #, fuzzy
 #| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
 msgstr "लेख संपादक"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:636
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल करें"
 

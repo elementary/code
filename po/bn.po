@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-10 12:52+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -330,43 +330,49 @@ msgstr "সম্পাদক"
 msgid "Highlight matching brackets"
 msgstr "একই ধরনের ব্র্যাকেট হাইলাইট করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "বাক্যরীতি হাইলাইট করা"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "ছোট ম্যাপ দেখানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "লাইন এর প্রস্থ নির্দেশিকাঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "বৈশিষ্ট্য"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "এক্সটেনশানসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "বন্ধ করুন"
@@ -927,8 +933,8 @@ msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "বাক্যরীতি হাইলাইট করা"
+msgid "Document language"
+msgstr ""
 
 #: src/Widgets/FormatBar.vala:60
 #, fuzzy
@@ -1118,27 +1124,27 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:583
+#: src/Widgets/SourceView.vala:584
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:595
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Current Line"
 msgstr "বর্তমান ভিউ সরিয়ে দিন"
 
-#: src/Widgets/SourceView.vala:605
+#: src/Widgets/SourceView.vala:606
 msgid "Goto Previous Edit Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:617
 #, fuzzy
 #| msgid "Text Editor"
 msgid "Goto Next Edit Mark"
 msgstr "টেক্সট ইডিটর"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:636
 msgid "Toggle Comment"
 msgstr ""
 

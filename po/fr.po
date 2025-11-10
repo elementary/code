@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-10 12:52+0000\n"
 "PO-Revision-Date: 2025-10-18 07:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
@@ -314,39 +314,45 @@ msgstr "Éditeur"
 msgid "Highlight matching brackets"
 msgstr "Surligner les crochets correspondants"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Coloration syntaxique"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "Aperçu du fichier"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "Retour à la ligne"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "Guide de largeur de ligne"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Police"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "Utiliser la police du système"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Comportement"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Interface"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Fermer"
@@ -870,8 +876,10 @@ msgid "Duplicate Tab"
 msgstr "Dupliquer l'onglet"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Coloration syntaxique"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "Filtrer les langages"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1048,23 +1056,23 @@ msgstr "%d sur %d"
 msgid "no results"
 msgstr "Aucun résultat"
 
-#: src/Widgets/SourceView.vala:583
+#: src/Widgets/SourceView.vala:584
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:595
 msgid "Mark Current Line"
 msgstr "Marquer la ligne courante"
 
-#: src/Widgets/SourceView.vala:605
+#: src/Widgets/SourceView.vala:606
 msgid "Goto Previous Edit Mark"
 msgstr "Revenir à la marque d'édition précédente"
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:617
 msgid "Goto Next Edit Mark"
 msgstr "Aller à la marque d'édition suivante"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:636
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 
