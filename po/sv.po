@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-29 18:21+0000\n"
+"PO-Revision-Date: 2025-11-11 13:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/"
-">\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -314,8 +314,6 @@ msgid "Highlight matching brackets"
 msgstr "Markera matchande parenteser"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Syntaxmarkering"
 
@@ -868,10 +866,8 @@ msgid "Duplicate Tab"
 msgstr "Duplicera flik"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Filtrera språk"
+msgstr "Dokumentspråk"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
