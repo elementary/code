@@ -95,7 +95,7 @@ namespace Scratch.Widgets {
 
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
-            source_buffer.highlight_syntax = true;
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             source_buffer.mark_set.connect (on_mark_set);
             source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
@@ -239,6 +239,7 @@ namespace Scratch.Widgets {
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
