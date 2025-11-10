@@ -117,6 +117,13 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         editor_box.add (new SettingSwitch (_("Line width guide"), "show-right-margin"));
         editor_box.add (right_margin_position);
 
+        var application = ((Scratch.Application) (GLib.Application.get_default ()));
+        var font_switch = new SettingSwitch (
+            _("Use system font (%s)").printf (application.system_document_font),
+            "use-system-font"
+        );
+        // We assume the system font will not change while dialog open
+
         var select_font = new Gtk.FontButton ();
         Scratch.settings.bind ("font", select_font, "font-name", DEFAULT);
         Scratch.settings.bind ("use-system-font", select_font, "sensitive", INVERT_BOOLEAN);
