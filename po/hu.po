@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-18 07:55+0000\n"
+"PO-Revision-Date: 2025-11-11 13:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -315,8 +315,6 @@ msgid "Highlight matching brackets"
 msgstr "Zárójelpárok kiemelése"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Szintaxiskiemelés"
 
@@ -868,10 +866,8 @@ msgid "Duplicate Tab"
 msgstr "Lap megkettőzése"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Nyelvek szűrése"
+msgstr "A dokumentum nyelve"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
