@@ -522,6 +522,7 @@ namespace Scratch.FolderManager {
             var wholeword_search = Scratch.settings.get_boolean ("wholeword-search");
             var case_mode = (CaseSensitiveMode)(Scratch.settings.get_enum ("case-sensitive-search"));
             var use_regex = Scratch.settings.get_boolean ("regex-search");
+
             switch (case_mode) {
                 case NEVER:
                     case_sensitive = false;
@@ -575,6 +576,7 @@ namespace Scratch.FolderManager {
                 win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
+                    search_term = Regex.escape_string (search_term);
                     if (wholeword_search) {
                         search_term = "\\b%s\\b".printf (search_term);
                     }
