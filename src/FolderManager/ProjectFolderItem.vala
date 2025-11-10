@@ -569,6 +569,10 @@ namespace Scratch.FolderManager {
             dialog.run ();
 
             if (search_term != null) {
+                // Remove results of previous search before attempting a new one
+                remove_all_badges ();
+                collapse_all ();
+
                 /* Put search term in search bar to help user locate the position of the matches in each doc */
                 var search_variant = new Variant.string (search_term);
                 var app = (Gtk.Application)GLib.Application.get_default ();
@@ -609,9 +613,6 @@ namespace Scratch.FolderManager {
                 Ggit.StatusShow.WORKDIR_ONLY,
                 path_spec
             );
-
-            remove_all_badges ();
-            collapse_all ();
 
             if (monitored_repo != null && !is_explicit) {
                 try {
