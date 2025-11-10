@@ -19,7 +19,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
     }
 
     construct {
-        set_default_size (100, 200);
+        resizable = false;
         var general_box = new Gtk.Box (VERTICAL, 12);
         general_box.add (new Granite.HeaderLabel (_("General")));
         general_box.add (new SettingSwitch (_("Save files when changed"), "autosave"));
