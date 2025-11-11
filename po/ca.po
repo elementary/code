@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-18 07:55+0000\n"
+"PO-Revision-Date: 2025-11-11 13:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,10 +316,8 @@ msgid "Highlight matching brackets"
 msgstr "Realça la parella de claudàtors"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
-msgstr "Realçat de sintaxi"
+msgstr "Ressaltament de la sintaxi"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
@@ -870,10 +868,8 @@ msgid "Duplicate Tab"
 msgstr "Duplica la pestanya"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Filtra llenguatges"
+msgstr "Llengua del document"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
