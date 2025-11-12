@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-25 00:24+0000\n"
+"PO-Revision-Date: 2025-11-13 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -312,8 +312,6 @@ msgid "Highlight matching brackets"
 msgstr "対となるカッコをハイライト"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "シンタックスハイライト"
 
@@ -857,10 +855,8 @@ msgid "Duplicate Tab"
 msgstr "タブを複製"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "言語をフィルター"
+msgstr "言語"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
