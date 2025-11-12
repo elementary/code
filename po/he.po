@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-29 18:21+0000\n"
+"PO-Revision-Date: 2025-11-13 07:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/"
-">\n"
+"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,8 +313,6 @@ msgid "Highlight matching brackets"
 msgstr "הדגשת הסוגר התואם"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "הדגשת תחביר"
 
@@ -855,10 +853,8 @@ msgid "Duplicate Tab"
 msgstr "שכפול לשונית"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "סינון שפות"
+msgstr "שפת המסמך"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
