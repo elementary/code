@@ -24,7 +24,7 @@ public class Code.Sidebar : Gtk.Grid {
 
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
-    public Hdy.HeaderBar headerbar { get; private set; }
+    public Adw.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
     // May show progress in different way in future
     public bool cloning_in_progress {
@@ -54,7 +54,7 @@ public class Code.Sidebar : Gtk.Grid {
             valign = START
         };
 
-        headerbar = new Hdy.HeaderBar () {
+        headerbar = new Adw.HeaderBar () {
             custom_title = choose_project_button,
             show_close_button = true
         };

@@ -19,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Hdy.Window {
+    public class MainWindow : Gtk.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
@@ -265,7 +265,7 @@ namespace Scratch {
                 base_title = _("Code");
             }
 
-            Hdy.init ();
+            Adw.init ();
         }
 
         construct {
@@ -555,7 +555,7 @@ namespace Scratch {
 
             add (hp1);
 
-            var header_group = new Hdy.HeaderGroup ();
+            var header_group = new Adw.HeaderGroup ();
             header_group.add_header_bar (sidebar.headerbar);
             header_group.add_header_bar (toolbar);
 
