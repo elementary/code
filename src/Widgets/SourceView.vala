@@ -578,11 +578,11 @@ namespace Scratch.Widgets {
         private void on_context_menu (Gtk.Menu menu) {
             scroll_mark_onscreen (buffer.get_mark ("insert"));
 
-            var sort_item = new Gtk.MenuItem.with_label (_("Sort Alphabetically")) {
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Lines")) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
             };
 
-            var add_edit_item = new Gtk.MenuItem.with_label (_("Mark Current Line")) {
+            var add_edit_item = new Gtk.MenuItem.with_label (_("Mark Line")) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ADD_MARK
             };
 
