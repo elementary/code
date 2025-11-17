@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/code/code/fa/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "تب جدید"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "پنجره جدید"
 
@@ -469,11 +469,11 @@ msgstr ""
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 #, fuzzy
 msgid "Open In"
 msgstr "باز کردن"
@@ -487,32 +487,32 @@ msgstr ""
 msgid "Find in Folder…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 #, fuzzy
 msgid "New"
 msgstr "تب جدید"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 #, fuzzy
 msgid "new file"
 msgstr "پرونده جدید"
@@ -561,29 +561,29 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "باز کردن پرونده"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 #, fuzzy
 msgid "New Branch…"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 #, fuzzy
 msgid "Branch"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -1104,27 +1104,31 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:595
+#: src/Widgets/SourceView.vala:581
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Sort Lines"
 msgstr "حذف نمای کنونی"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr ""
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Mark Line"
+msgstr "حذف نمای کنونی"
 
-#: src/Widgets/SourceView.vala:617
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Search"
+msgid "Previous Mark"
+msgstr "جستجوی قبلی"
+
+#: src/Widgets/SourceView.vala:593
 #, fuzzy
 #| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
+msgid "Next Mark"
 msgstr "ویرایشگر متن"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "نمایش دیدگاه"
 
@@ -1403,9 +1407,6 @@ msgstr ""
 
 #~ msgid "Create a new document in a new tab"
 #~ msgstr "ساخت یک سند جدید در یک برگه جدید"
-
-#~ msgid "Previous Search"
-#~ msgstr "جستجوی قبلی"
 
 #~ msgid "Save as"
 #~ msgstr "ذخیره به نام"
