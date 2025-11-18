@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/code/code/ka/"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "ახალი ჩანართი"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "ახალი ფანჯარა"
 
@@ -309,39 +309,45 @@ msgstr "რედაქტორი"
 msgid "Highlight matching brackets"
 msgstr "შესაბამისი ბრჭყალების გამოკვეთა"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "სინტაქსის გამოკვეთა"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "მინირუკა"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "ხაზის სიგანის გიდი"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "ფონტი"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "ქცევა"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "ინტერფეისი"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "დახურვა"
@@ -433,11 +439,11 @@ msgstr "გადარქმევა"
 msgid "Move to Trash"
 msgstr "ფაილის ნაგავში გადატანა"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "სხვა პროგრამა…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "გახსნა, როგორც"
 
@@ -449,33 +455,33 @@ msgstr "საქაღალდეები"
 msgid "Find in Folder…"
 msgstr "საქაღალდეში ძებნა…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "ტერმინალი"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "საქაღალდე"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "ცარიელი ფაილი"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "ახალი"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "ახალი დასტა"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "ახალი ფაილი"
 
@@ -522,27 +528,27 @@ msgstr[1] "%u დამალული დოკუმენტის აღდ�
 msgid "Find in Project…"
 msgstr "პროექტში ძებნა…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "ახალი ბრენჩი…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "ბრენჩი"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "შეიცვალა"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "შეცდომა ახალი ბრენჩის შექმნისას: \"%s\""
@@ -860,8 +866,10 @@ msgid "Duplicate Tab"
 msgstr "ჩანართის დუბლირება"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "სინტაქსის გამოკვეთა"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "ენების გაფილტვრა"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1038,27 +1046,31 @@ msgstr "%d-დან %d"
 msgid "no results"
 msgstr "შედეგების გარეშე"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "მონიშნული ხაზების დალაგება"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Current Line"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "მიმდინარე ხაზი"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "ტექსტის რედაქტორი"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "წინა ჩანართი"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "შემდეგი ჩანართი"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "კომენტარის გადართვა"
 
@@ -1164,6 +1176,11 @@ msgstr "გთხოვთ, დააყენოთ სულ ცოტა ე�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - სიტყვის დაბოლოება"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "ტექსტის რედაქტორი"
 
 #~ msgid "Case sensitive:"
 #~ msgstr "რეგისტრზე-დამოკიდებული:"
@@ -1355,12 +1372,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "ახალი ფაილი გაცვლის ბუფერიდან"
-
-#~ msgid "Next Tab"
-#~ msgstr "შემდეგი ჩანართი"
-
-#~ msgid "Previous Tab"
-#~ msgstr "წინა ჩანართი"
 
 #~ msgid "Fullscreen"
 #~ msgstr "სრული ეკრანი"

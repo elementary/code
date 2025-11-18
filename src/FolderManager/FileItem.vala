@@ -31,7 +31,7 @@ namespace Scratch.FolderManager {
             view.activate (file.path);
         }
 
-        public override Gtk.Menu? get_context_menu () {
+        public override GLib.Menu? get_context_menu () {
             GLib.FileInfo info = null;
 
             try {
@@ -77,9 +77,7 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, external_actions_section);
             menu_model.append_section (null, direct_actions_section);
 
-            var menu = new Gtk.Menu.from_model (menu_model);
-            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
-            return menu;
+            return menu_model;
         }
 
         private GLib.MenuItem create_submenu_for_open_in (string? file_type) {

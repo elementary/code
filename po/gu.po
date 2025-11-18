@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "નવી ટેબ"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "નવી વિંડો"
 
@@ -329,41 +329,47 @@ msgstr ""
 msgid "Highlight matching brackets"
 msgstr "પ્રકાશિત બંધબેસતા કૌંસ"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "વાક્યરચનાને પ્રકાશિત કરી રહ્યુ છે"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "વાક્ય પહોળાઈની માર્ગદર્શિકા"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "વર્તણુક"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "ઇન્ટરફેસ"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "એક્સ્ટેન્શન્સ"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "બંધ કરો"
@@ -453,11 +459,11 @@ msgstr ""
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 #, fuzzy
 msgid "Open In"
 msgstr "ખોલો"
@@ -471,32 +477,32 @@ msgstr ""
 msgid "Find in Folder…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 #, fuzzy
 msgid "New"
 msgstr "નવી ટેબ"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 #, fuzzy
 msgid "new file"
 msgstr "નવી ફાઈલ"
@@ -544,29 +550,29 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 #, fuzzy
 msgid "New Branch…"
 msgstr "Scratch ના સેટિંગ્સ બદલો"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch ના સેટિંગ્સ બદલો"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -886,8 +892,8 @@ msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "વાક્યરચનાને પ્રકાશિત કરી રહ્યુ છે"
+msgid "Document language"
+msgstr ""
 
 #: src/Widgets/FormatBar.vala:60
 #, fuzzy
@@ -1072,25 +1078,31 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:581
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Sort Lines"
 msgstr "વર્તમાન દેખાવને દુર કરો"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr ""
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Mark Line"
+msgstr "વર્તમાન દેખાવને દુર કરો"
 
-#: src/Widgets/SourceView.vala:616
-msgid "Goto Next Edit Mark"
-msgstr ""
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "આગળની ટેબ"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "પછીની ટેબ"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr ""
 
@@ -1271,12 +1283,6 @@ msgstr ""
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "પસંદ કરેલ સ્ટ્રીંગની નકલ કરો"
-
-#~ msgid "Next Tab"
-#~ msgstr "પછીની ટેબ"
-
-#~ msgid "Previous Tab"
-#~ msgstr "આગળની ટેબ"
 
 #~ msgid "Fullscreen"
 #~ msgstr "પૂર્ણ સ્ક્રીન"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2020-07-17 12:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/code/"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Ny fane"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nytt vindauge"
 
@@ -336,43 +336,49 @@ msgstr "Teksthandsamar"
 msgid "Highlight matching brackets"
 msgstr "Framhev klammer som høyrer saman:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Syntaksframheving"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "Vis minikart:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "Linjebreidde-guide:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Skrift"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Åtferd"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Brukargrensesnitt"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Utvidingar"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Lukk"
@@ -463,11 +469,11 @@ msgstr "Gje nytt namn"
 msgid "Move to Trash"
 msgstr "Flytt til papirkorg"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Anna program…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Opne i"
 
@@ -481,33 +487,33 @@ msgstr "Mapper"
 msgid "Find in Folder…"
 msgstr "Opne ei mappe"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Terminal"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Tom fil"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "mappe utan namn"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "ny fil"
 
@@ -557,27 +563,27 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "Opne ei mappe"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -931,8 +937,10 @@ msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Syntaksframheving"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "Filtrer språk"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1119,27 +1127,31 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Sorter valde linjer"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Fjern den noverande visninga"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "Tekstbehandlar"
+#| msgid "Previous Search"
+msgid "Previous Mark"
+msgstr "Forrige søk"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Search"
+msgid "Next Mark"
+msgstr "Neste søk"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Veksle kommentar"
 
@@ -1252,6 +1264,11 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Ordfullføring"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Tekstbehandlar"
 
 #, fuzzy, c-format
 #~| msgid "Current working directory"
@@ -1489,9 +1506,3 @@ msgstr "%s – Ordfullføring"
 
 #~ msgid "New document"
 #~ msgstr "Nytt dokument"
-
-#~ msgid "Previous Search"
-#~ msgstr "Forrige søk"
-
-#~ msgid "Next Search"
-#~ msgstr "Neste søk"

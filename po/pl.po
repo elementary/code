@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2025-07-07 18:55+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementaryos.org/projects/code/code/pl/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nowa karta"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nowe okno"
 
@@ -318,39 +318,45 @@ msgstr "Edytor"
 msgid "Highlight matching brackets"
 msgstr "Podświetlanie pasujących nawiasów"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Wyróżnienie składni"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "Mini mapa"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "Łamanie linii"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "Szerokość prawego marginesu"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Czcionka"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "Użyj fontu systemowego"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Zachowanie"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Interfejs"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Wtyczki"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Zamknij"
@@ -450,11 +456,11 @@ msgstr "Zmień nazwę"
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Inny program…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Otwórz w"
 
@@ -466,31 +472,31 @@ msgstr "Foldery"
 msgid "Find in Folder…"
 msgstr "Znajdź w folderze…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "Panel terminala"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Katalog"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Pusty plik"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Nowy"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "Katalog bez nazwy"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "nowy plik"
 
@@ -538,27 +544,27 @@ msgstr[2] "Przywróć %u otwartych dokumentów"
 msgid "Find in Project…"
 msgstr "Znajdź w projekcie…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "Lokalne"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "Zdalne"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Nowy branch…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Gałąź"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Zmodyfikowano"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Błąd podczas tworzenia nowego brancha: “%s”"
@@ -875,8 +881,10 @@ msgid "Duplicate Tab"
 msgstr "Zduplikuj kartę"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Wyróżnienie składni"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "Filtrowanie języków"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1055,23 +1063,31 @@ msgstr "%d z %d"
 msgid "no results"
 msgstr "brak wyników"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Sortuj wybrane wiersze"
 
-#: src/Widgets/SourceView.vala:594
-msgid "Mark Current Line"
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Zaznacz aktualną linię"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr "Idź do poprzedniej zakładki edycyjnej"
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Poprzednia karta"
 
-#: src/Widgets/SourceView.vala:616
-msgid "Goto Next Edit Mark"
-msgstr "Idź do następnej zakładki edycyjnej"
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Następna karta"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Przełącz komentarze"
 
@@ -1177,6 +1193,12 @@ msgstr "Proszę zainstalować chociaż jeden słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - uzupełnienie słowa"
+
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Idź do poprzedniej zakładki edycyjnej"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Idź do następnej zakładki edycyjnej"
 
 #~ msgid "Case sensitive:"
 #~ msgstr "Wielkość liter ma znaczenie:"
@@ -1466,12 +1488,6 @@ msgstr "%s - uzupełnienie słowa"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nowy plik ze schowka"
-
-#~ msgid "Next Tab"
-#~ msgstr "Następna karta"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Poprzednia karta"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Pełny ekran"

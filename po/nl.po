@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-17 13:30+0000\n"
 "PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nieuwe tab"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nieuw venster"
 
@@ -332,43 +332,49 @@ msgstr "Bewerker"
 msgid "Highlight matching brackets"
 msgstr "Markeer overeenkomende haakjes:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Syntaxiskleuring"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "Toon overzicht:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "Rechtermarge:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Lettertype"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Uiterlijk"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Uitbreidingen"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Sluiten"
@@ -464,11 +470,11 @@ msgstr "Hernoem"
 msgid "Move to Trash"
 msgstr "Naar de prullenbak verplaatsen"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Andere applicatie…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Openen met"
 
@@ -480,33 +486,33 @@ msgstr "Mappen"
 msgid "Find in Folder…"
 msgstr "Vind in map…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
 msgstr "Openen in terminalvenster"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Map"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Leeg bestand"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "naamloze map"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "nieuw bestand"
 
@@ -553,27 +559,27 @@ msgstr[1] "Herstel %u verborgen documenten"
 msgid "Find in Project…"
 msgstr "Vind in project…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Nieuwe Tak…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Aangepast"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fout bij het aanmaken van een nieuwe tak: “%s”"
@@ -905,8 +911,10 @@ msgid "Duplicate Tab"
 msgstr "Duplicaat opslaan…"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Syntaxiskleuring"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "Filter talen"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1085,27 +1093,31 @@ msgstr "%d van %d"
 msgid "no results"
 msgstr "geen resultaten"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Sorteer geselecteerde lijnen"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Huidige weergave verwijderen"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "Tekstverwerker"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Vorige tab"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Volgende tab"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
@@ -1211,6 +1223,11 @@ msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Woorden aanvullen"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Tekstverwerker"
 
 #~ msgid "Case sensitive:"
 #~ msgstr "Hoofdlettergevoelig:"
@@ -1489,12 +1506,6 @@ msgstr "%s - Woorden aanvullen"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nieuw bestand vanuit klembord"
-
-#~ msgid "Next Tab"
-#~ msgstr "Volgende tab"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Vorige tab"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Volledig scherm"

@@ -95,7 +95,7 @@ namespace Scratch.Widgets {
 
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
-            source_buffer.highlight_syntax = true;
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             source_buffer.mark_set.connect (on_mark_set);
             source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
@@ -239,6 +239,7 @@ namespace Scratch.Widgets {
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
@@ -577,72 +578,50 @@ namespace Scratch.Widgets {
         private void on_context_menu (Gtk.Menu menu) {
             scroll_mark_onscreen (buffer.get_mark ("insert"));
 
-            var sort_item = new Gtk.MenuItem ();
-            sort_item.sensitive = get_selected_line_count () > 1;
-            sort_item.add (new Granite.AccelLabel.from_action_name (
-                _("Sort Selected Lines"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
-            ));
-            sort_item.activate.connect (sort_selected_lines);
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Lines")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
+            };
 
-            menu.add (sort_item);
-
-            var add_edit_item = new Gtk.MenuItem () {
+            var add_edit_item = new Gtk.MenuItem.with_label (_("Mark Line")) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ADD_MARK
             };
-            add_edit_item.add (new Granite.AccelLabel.from_action_name (
-                _("Mark Current Line"),
-                add_edit_item.action_name
 
-            ));
-            menu.add (add_edit_item);
-
-            var previous_edit_item = new Gtk.MenuItem () {
-                sensitive = navmark_gutter_renderer.has_marks,
+            var previous_edit_item = new Gtk.MenuItem.with_label (_("Previous Mark")) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
             };
-            previous_edit_item.add (new Granite.AccelLabel.from_action_name (
-                _("Goto Previous Edit Mark"),
-                previous_edit_item.action_name
 
-            ));
-            menu.add (previous_edit_item);
-
-            var next_edit_item = new Gtk.MenuItem () {
-                sensitive = navmark_gutter_renderer.has_marks,
+            var next_edit_item = new Gtk.MenuItem.with_label (_("Next Mark")) {
                 action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
             };
-            next_edit_item.add (new Granite.AccelLabel.from_action_name (
-                _("Goto Next Edit Mark"),
-                next_edit_item.action_name
 
-            ));
+            menu.add (sort_item);
+            menu.add (add_edit_item);
+            menu.add (previous_edit_item);
             menu.add (next_edit_item);
 
-            if (!navmark_gutter_renderer.has_marks) {
-                previous_edit_item.action_name = "";
-                previous_edit_item.sensitive = false;
-                next_edit_item.action_name = "";
-                next_edit_item.sensitive = false;
-            }
-
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment")) {
+                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
+                };
 
-                var comment_item = new Gtk.MenuItem ();
-                comment_item.sensitive = can_comment;
-                comment_item.add (new Granite.AccelLabel.from_action_name (
-                    _("Toggle Comment"),
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
-                ));
-                comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
-                });
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+                if (!can_comment) {
+                    comment_item.action_name = "";
+                }
 
                 menu.add (comment_item);
             }
 
             menu.show_all ();
+
+            if (!(get_selected_line_count () > 1)) {
+                sort_item.action_name = "";
+            }
+
+            if (!navmark_gutter_renderer.has_marks) {
+                previous_edit_item.action_name = "";
+                next_edit_item.action_name = "";
+            }
         }
 
         private static int calculate_bottom_margin (int height_in_px) {
