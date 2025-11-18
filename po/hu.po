@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-17 13:30+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -1045,28 +1045,20 @@ msgid "no results"
 msgstr "nincs találat"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "A kiválasztott sorok sorrendbe rakása"
+msgstr "A sorok sorrendbe rakása"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Jelenlegi sor megjelölése"
+msgstr "A sor megjelölése"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Előző lap"
+msgstr "Előző jelölés"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Következő lap"
+msgstr "Következő jelölés"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
