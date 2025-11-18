@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-05-15 14:35+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementaryos.org/"
@@ -81,7 +81,7 @@ msgstr "Show Symbol Outline"
 msgid "Hide Terminal"
 msgstr "Hide Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Show Terminal"
 
@@ -241,7 +241,7 @@ msgstr "The branch name must be unique and follow Git naming rules."
 msgid "Create Branch"
 msgstr "Create Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -958,9 +958,23 @@ msgstr "Zoom In"
 msgid "Follow System Style"
 msgstr "Follow System Style"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "High Contrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1281,9 +1295,6 @@ msgstr "%s - Word Completion"
 
 #~ msgid "For selected text"
 #~ msgstr "For selected text"
-
-#~ msgid "High Contrast"
-#~ msgstr "High Contrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarised Light"

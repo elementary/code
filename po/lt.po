@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -91,7 +91,7 @@ msgstr "Simboliai"
 msgid "Hide Terminal"
 msgstr "Slėpti terminalą"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Rodyti terminalą"
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Šaka"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Nuostatos"
 
@@ -1057,9 +1057,23 @@ msgstr "Didinti"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meniu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Didelis kontrastas"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1366,9 +1380,6 @@ msgstr "%s - Žodžių užbaigimas"
 
 #~ msgid "For selected text"
 #~ msgstr "Pažymėtam tekstui"
-
-#~ msgid "High Contrast"
-#~ msgstr "Didelis kontrastas"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Apšviesta šviesi"

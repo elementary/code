@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2024-02-12 06:41+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
@@ -80,7 +80,7 @@ msgstr "Toon symbooloverzicht"
 msgid "Hide Terminal"
 msgstr "Terminal verbergen"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminal weergeven"
 
@@ -238,7 +238,7 @@ msgstr "De taknaam moet uniek zijn en de Git naamgevingsregels volgen."
 msgid "Create Branch"
 msgstr "Tak aanmaken"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Instellingen"
 
@@ -1002,9 +1002,23 @@ msgstr "Inzoomen"
 msgid "Follow System Style"
 msgstr "Volg systeemstijl"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Hoog contrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1314,9 +1328,6 @@ msgstr "%s - Woorden aanvullen"
 
 #~ msgid "For selected text"
 #~ msgstr "Voor de geselecteerde tekst"
-
-#~ msgid "High Contrast"
-#~ msgstr "Hoog contrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Gesolarizeerd Licht"

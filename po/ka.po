@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-10-25 00:24+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/code/code/ka/"
@@ -76,7 +76,7 @@ msgstr "სიმბოლოების მონახაზის ჩვე�
 msgid "Hide Terminal"
 msgstr "ტერმინალის დამალვა"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "ტერმინალის ჩვენება"
 
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "ბრენჩის შექმნა"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "გამართვა"
 
@@ -957,9 +957,21 @@ msgstr "გადიდება"
 msgid "Follow System Style"
 msgstr "სისტემის სტილის მიყოლა"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "მენიუ"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr ""
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"

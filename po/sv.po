@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/"
 ">\n"
@@ -81,7 +81,7 @@ msgstr "Visa symbolöversikt"
 msgid "Hide Terminal"
 msgstr "Dölj terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Visa terminal"
 
@@ -237,7 +237,7 @@ msgstr "Grennamnet måste vara unikt och följa Gits namngivningsregler."
 msgid "Create Branch"
 msgstr "Skapa gren"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -955,9 +955,23 @@ msgstr "Zooma in"
 msgid "Follow System Style"
 msgstr "Följ systemets stil"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meny"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Hög kontrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1045,28 +1059,20 @@ msgid "no results"
 msgstr "inga resultat"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Sortera markerade rader"
+msgstr "Sortera rader"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Markera aktuell rad"
+msgstr "Markera rad"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Föregående flik"
+msgstr "Föregående markering"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Nästa flik"
+msgstr "Nästa markering"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
@@ -1255,9 +1261,6 @@ msgstr "%s - Ordförslag"
 
 #~ msgid "For selected text"
 #~ msgstr "För markerad text"
-
-#~ msgid "High Contrast"
-#~ msgstr "Hög kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solariserat ljus"

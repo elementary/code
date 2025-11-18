@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -80,7 +80,7 @@ msgstr "Sembol Listesini Göster"
 msgid "Hide Terminal"
 msgstr "Terminal'i Gizle"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminal'i Göster"
 
@@ -238,7 +238,7 @@ msgstr "Dal adı benzersiz olmalı ve Git adlandırma kurallarına uymalıdır."
 msgid "Create Branch"
 msgstr "Dal Oluştur"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -962,9 +962,23 @@ msgstr "Yakınlaştır"
 msgid "Follow System Style"
 msgstr "Sistem Temasını Takip Et"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menü"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Yüksek Karşıtlık"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1280,9 +1294,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "For selected text"
 #~ msgstr "Seçili metin için"
-
-#~ msgid "High Contrast"
-#~ msgstr "Yüksek Karşıtlık"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Açık Renk Tema"

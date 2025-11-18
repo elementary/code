@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -83,7 +83,7 @@ msgstr "Simboluri"
 msgid "Hide Terminal"
 msgstr "Ascundeți terminalul"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Arătați terminalul"
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferințe"
 
@@ -1027,9 +1027,23 @@ msgstr "Mărește"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meniul"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Contrast mare"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1313,9 +1327,6 @@ msgstr "%s - Finalizarea cuvintelor"
 
 #~ msgid "For selected text"
 #~ msgstr "Pentru textul selectat"
-
-#~ msgid "High Contrast"
-#~ msgstr "Contrast mare"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Lumină solară"

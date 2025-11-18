@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2023-07-19 08:07+0000\n"
 "Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -80,7 +80,7 @@ msgstr "Zobrazit přehled symbolů"
 msgid "Hide Terminal"
 msgstr "Skrýt terminál"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Zobrazit terminál"
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Vytvořit větev"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Předvolby"
 
@@ -1007,9 +1007,23 @@ msgstr "Přiblížit"
 msgid "Follow System Style"
 msgstr "Podle vzhledu systému"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Vysoký kontrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1320,9 +1334,6 @@ msgstr "%s – dokončování slov"
 
 #~ msgid "For selected text"
 #~ msgstr "Pro vybraný text"
-
-#~ msgid "High Contrast"
-#~ msgstr "Vysoký kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarizovaný světlý"

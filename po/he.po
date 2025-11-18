@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-11-13 07:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/code/code/he/"
@@ -81,7 +81,7 @@ msgstr "הצגת קווי מתאר של סמלים"
 msgid "Hide Terminal"
 msgstr "הסתרת המסוף"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "הצגת המסוף"
 
@@ -237,7 +237,7 @@ msgstr "שם הענף חייב להיות ייחודי ולהיצמד לכללי
 msgid "Create Branch"
 msgstr "יצירת ענף"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -942,9 +942,23 @@ msgstr "התקרבות"
 msgid "Follow System Style"
 msgstr "כמו ערכת העיצוב של המערכת"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "תפריט"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "ניגודיות גבוהה"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1262,9 +1276,6 @@ msgstr "%s - השלמת מילים"
 
 #~ msgid "For selected text"
 #~ msgstr "עבור הטקסט הנבחר"
-
-#~ msgid "High Contrast"
-#~ msgstr "ניגודיות גבוהה"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized בהיר"

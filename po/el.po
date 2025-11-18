@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -89,7 +89,7 @@ msgstr "Σύμβολα"
 msgid "Hide Terminal"
 msgstr "Απόκρυψη τερματικού"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Προβολή τερματικού"
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
@@ -1046,9 +1046,23 @@ msgstr "Μεγέθυνση"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Μενού"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Υψηλό Contrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1355,9 +1369,6 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 
 #~ msgid "For selected text"
 #~ msgstr "Για το επιλεγμένο κείμενο"
-
-#~ msgid "High Contrast"
-#~ msgstr "Υψηλό Contrast"
 
 #, fuzzy
 #~| msgid "Add a project folder to the sidebar."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
 ">\n"
@@ -81,7 +81,7 @@ msgstr "Mostra el contorn del símbol"
 msgid "Hide Terminal"
 msgstr "Amaga el terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Mostra el terminal"
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Crea'n una branca"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferències"
 
@@ -957,9 +957,23 @@ msgstr "Apropa"
 msgid "Follow System Style"
 msgstr "Segueix l'estil del sistema"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menú"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Contrast alt"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1047,28 +1061,20 @@ msgid "no results"
 msgstr "sense resultats"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Classifica les línies seleccionades"
+msgstr "Classifica les línies"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Marca la línia actual"
+msgstr "Marca la línia"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Pestanya anterior"
+msgstr "Marca anterior"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Pestanya següent"
+msgstr "Marca següent"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
@@ -1280,9 +1286,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "For selected text"
 #~ msgstr "Per al text seleccionat"
-
-#~ msgid "High Contrast"
-#~ msgstr "Contrast alt"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Llum de dia clara"

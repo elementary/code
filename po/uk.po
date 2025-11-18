@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-08-01 07:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
@@ -82,7 +82,7 @@ msgstr "Показати контур символу"
 msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Показати термінал"
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Створити гілку"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Налаштування"
 
@@ -966,9 +966,23 @@ msgstr "Збільшити"
 msgid "Follow System Style"
 msgstr "Використовувати стиль системи"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Меню"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Висококонтрастна"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1289,9 +1303,6 @@ msgstr "%s - завершення слів"
 
 #~ msgid "For selected text"
 #~ msgstr "Для вибраного тексту"
-
-#~ msgid "High Contrast"
-#~ msgstr "Висококонтрастна"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized світла"
