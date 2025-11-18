@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-17 13:30+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/"
-">\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1045,28 +1045,20 @@ msgid "no results"
 msgstr "inga resultat"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Sortera markerade rader"
+msgstr "Sortera rader"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Markera aktuell rad"
+msgstr "Markera rad"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Föregående flik"
+msgstr "Föregående markering"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Nästa flik"
+msgstr "Nästa markering"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
