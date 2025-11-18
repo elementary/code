@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-17 13:30+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1047,28 +1047,20 @@ msgid "no results"
 msgstr "sense resultats"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Classifica les línies seleccionades"
+msgstr "Classifica les línies"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Marca la línia actual"
+msgstr "Marca la línia"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Pestanya anterior"
+msgstr "Marca anterior"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Pestanya següent"
+msgstr "Marca següent"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
