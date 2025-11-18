@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2021-03-21 11:04+0000\n"
 "Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/code/uz/>\n"
@@ -84,7 +84,7 @@ msgstr "Belgilar topilmadi"
 msgid "Hide Terminal"
 msgstr "Terminalni yashirish"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminalni ko'rsatish"
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Brench"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Sozlamalar"
 
@@ -1031,9 +1031,23 @@ msgstr "Masshtabni oshirish"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menyu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Yuqori kontrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1326,9 +1340,6 @@ msgstr "%s - so'zlarni avtomatik tugatish"
 
 #~ msgid "For selected text"
 #~ msgstr "Belgilangan matn uchun"
-
-#~ msgid "High Contrast"
-#~ msgstr "Yuqori kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Light"

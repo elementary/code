@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2024-06-16 12:29+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
@@ -86,7 +86,7 @@ msgstr "Vis symbolomriss"
 msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Vis terminal"
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Opprett forgrening"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Innstillinger"
 
@@ -1008,9 +1008,23 @@ msgstr "Forstørr"
 msgid "Follow System Style"
 msgstr "Følg systemets stil"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meny"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Høy kontrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1329,9 +1343,6 @@ msgstr "%s - Ordfullføring"
 
 #~ msgid "For selected text"
 #~ msgstr "For valgt tekst"
-
-#~ msgid "High Contrast"
-#~ msgstr "Høy kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarisert lys"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-11-13 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
@@ -81,7 +81,7 @@ msgstr "シンボルアウトラインを表示"
 msgid "Hide Terminal"
 msgstr "ターミナルを非表示"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
@@ -237,7 +237,7 @@ msgstr "ブランチ名は一意かつ Git の命名規則に従う必要があ�
 msgid "Create Branch"
 msgstr "ブランチを作成"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "設定"
 
@@ -942,9 +942,23 @@ msgstr "拡大"
 msgid "Follow System Style"
 msgstr "システムのスタイルに従う"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "メニュー"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "ハイコントラスト"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1265,9 +1279,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "For selected text"
 #~ msgstr "選択されたテキストに対して表示"
-
-#~ msgid "High Contrast"
-#~ msgstr "ハイコントラスト"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Light"

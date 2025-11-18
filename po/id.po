@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -80,7 +80,7 @@ msgstr "Tampikan Simbol Garis Tepi Luar"
 msgid "Hide Terminal"
 msgstr "Sembunyikan Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Tampilkan Terminal"
 
@@ -238,7 +238,7 @@ msgstr "Nama cabang harus unik dan mengikuti aturan penamaan Git."
 msgid "Create Branch"
 msgstr "Buat Cabang"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferensi"
 
@@ -993,9 +993,23 @@ msgstr "Perbesar"
 msgid "Follow System Style"
 msgstr "Ikuti Gaya Sistem"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Kontras Tinggi"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1301,9 +1315,6 @@ msgstr "%s - Pelengkapan Kata"
 
 #~ msgid "For selected text"
 #~ msgstr "Untuk teks terpilih"
-
-#~ msgid "High Contrast"
-#~ msgstr "Kontras Tinggi"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Terang"

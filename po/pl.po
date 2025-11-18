@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-07-07 18:55+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementaryos.org/projects/code/code/pl/"
@@ -83,7 +83,7 @@ msgstr "Pokaż przegląd symboli"
 msgid "Hide Terminal"
 msgstr "Ukryj terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Pokaż terminal"
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Utwórz branch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferencje"
 
@@ -974,9 +974,23 @@ msgstr "Powiększenie"
 msgid "Follow System Style"
 msgstr "Na podstawie stylu systemu"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Wysoki kontrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1302,9 +1316,6 @@ msgstr "%s - uzupełnienie słowa"
 
 #~ msgid "For selected text"
 #~ msgstr "Dla wybranego tekstu"
-
-#~ msgid "High Contrast"
-#~ msgstr "Wysoki kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarna jasność"

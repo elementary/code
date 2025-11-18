@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-06-29 18:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/code/"
@@ -77,7 +77,7 @@ msgstr "Паказаць абводку сімвалаў"
 msgid "Hide Terminal"
 msgstr "Схаваць Тэрмінал"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Паказаць Тэрмінал"
 
@@ -235,7 +235,7 @@ msgstr "Назва веткі павінна быць унікальнай і п
 msgid "Create Branch"
 msgstr "Стварыць галіну"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Налады"
 
@@ -960,9 +960,21 @@ msgstr "Павялічыць маштаб"
 msgid "Follow System Style"
 msgstr "Выкарыстоўваць сістэмны стыль"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Меню"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr ""
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"

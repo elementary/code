@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-08-22 15:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -80,7 +80,7 @@ msgstr "顯示符號大綱"
 msgid "Hide Terminal"
 msgstr "隱藏終端機"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "顯示終端機"
 
@@ -236,7 +236,7 @@ msgstr "分支名稱不能有重複且必須遵循 Git 的命名規則。"
 msgid "Create Branch"
 msgstr "建立分支"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "偏好設定"
 
@@ -936,9 +936,23 @@ msgstr "放大"
 msgid "Follow System Style"
 msgstr "跟隨系統風格"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "選單"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "高對比"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1257,9 +1271,6 @@ msgstr "%s - 單字補完"
 
 #~ msgid "For selected text"
 #~ msgstr "針對選取文字"
-
-#~ msgid "High Contrast"
-#~ msgstr "高對比"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized 亮色"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-11-18 12:15+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
@@ -81,7 +81,7 @@ msgstr "Szimbólumkiemelés megjelenítése"
 msgid "Hide Terminal"
 msgstr "Terminál elrejtése"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminál megjelenítése"
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ág létrehozása"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -955,9 +955,23 @@ msgstr "Nagyítás"
 msgid "Follow System Style"
 msgstr "Rendszertéma követése"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menü"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Magas kontraszt"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1271,9 +1285,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "For selected text"
 #~ msgstr "A kiválasztott szöveghez"
-
-#~ msgid "High Contrast"
-#~ msgstr "Magas kontraszt"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarizált világos"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:30+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -90,7 +90,7 @@ msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( va
 msgid "Hide Terminal"
 msgstr "اخفي الطرفية"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "اظهر الطرفية"
 
@@ -248,7 +248,7 @@ msgstr "اسم الفرع يجب أن يكون مميز وأن يتبع قواع
 msgid "Create Branch"
 msgstr "إنشاء فرع"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "التفضيلات"
 
@@ -1070,9 +1070,23 @@ msgstr "تكبير للداخل"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "القائمة"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "تباين عالي"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1385,9 +1399,6 @@ msgstr "اتمام %s من الكلمات"
 
 #~ msgid "For selected text"
 #~ msgstr "للنصوص المختارة"
-
-#~ msgid "High Contrast"
-#~ msgstr "تباين عالي"
 
 #~ msgid "Solarized Light"
 #~ msgstr "الوضع الفاتح"
