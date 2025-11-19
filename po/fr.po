@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-20 08:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -969,17 +969,15 @@ msgstr "Menu"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Contraste élevé"
+msgstr "Contrasté"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
