@@ -755,7 +755,7 @@ namespace Scratch.Widgets {
             )) {
                 new_index += step;
             }
-}
+
             return new_index != start_index;
         }
 
