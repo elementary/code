@@ -216,6 +216,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
+            action_accelerators.set (ACTION_GO_TO_MATCHING, "<Control><Shift>i");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
