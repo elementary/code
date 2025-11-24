@@ -21,7 +21,8 @@ public class Scratch.CommentToggler {
     private enum CommentType {
         NONE,
         LINE,
-        BLOCK
+        BLOCK,
+        EMPTY
     }
 
     private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
@@ -73,6 +74,20 @@ public class Scratch.CommentToggler {
         return type != CommentType.NONE;
     }
 
+    public static bool line_is_commented_or_empty (
+        Gtk.SourceBuffer buffer,
+        int line_index,
+        Gtk.SourceLanguage lang) {
+
+        bool commented = false;
+        Gtk.TextIter start_iter, end_iter;
+        buffer.get_iter_at_line_index (out start_iter, line_index, 0);
+        buffer.get_iter_at_line_index (out end_iter, line_index, int.MAX); //Returns end of line iter
+        return lines_already_commented (
+            buffer, start_iter, end_iter, 1, lang
+        ) != CommentType.NONE;
+    }
+
     // Returns whether or not all lines within a region are already commented.
     // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
     // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
@@ -86,6 +101,10 @@ public class Scratch.CommentToggler {
         string start_tag, end_tag;
         var type = get_comment_tags_for_lang (lang, CommentType.BLOCK, out start_tag, out end_tag);
         var selection = buffer.get_slice (start, end, true);
+        if (selection.length == 0) {
+            return CommentType.EMPTY;
+        }
+
         if (type == CommentType.BLOCK) {
             var regex_string = """^\s*(?:%s)+[\s\S]*(?:%s)+$""";
             regex_string = regex_string.printf (Regex.escape_string (start_tag), Regex.escape_string (end_tag));
