@@ -748,7 +748,8 @@ namespace Scratch.Widgets {
         }
 
         public void goto_matching () {
-            uint start_indent = 0, end_indent = 0;
+            uint start_indent = 0, end_indent = 0, same = 0;
+            bool found = false;
             var insert_mark = buffer.get_mark ("insert");
             Gtk.TextIter insert_iter;
             buffer.get_iter_at_mark (out insert_iter, insert_mark);
@@ -763,14 +764,15 @@ namespace Scratch.Widgets {
                 while (end.forward_char ()) {
                     c = end.get_char ();
                     if (is_open_bracket (c, out matching)) {
-                        opening++;
+                        same++;
                     } else if (is_close_bracket (c, out matching)) {
-                        if (opening > 0) {
-                            opening--;
+                        if (same > 0) {
+                            same--;
                         } else {
                             end_indent = get_indent (end);
                             end.forward_char ();
                             buffer.place_cursor (end);
+                            found = true;
                             break;
                         }
                     }
@@ -782,24 +784,35 @@ namespace Scratch.Widgets {
                 while (end.backward_char ()) {
                     c = end.get_char ();
                     if (is_close_bracket (c, out matching)) {
-                        closing++;
+                        same++;
                     } else if (is_open_bracket (c, out matching)) {
-                        if (closing > 0) {
-                            closing--;
+                        if (same > 0) {
+                            same--;
                         } else {
                             end_indent = get_indent (end);
                             end.forward_char ();
                             buffer.place_cursor (end);
+                            found = true;
                             break;
                         }
                     }
                 }
             } else {
-                warning ("not found");
+                warning ("not bracket");
+                return;
             }
 
-            if (start_indent != end_indent) {
-                critical ("Mismatched bracket");
+            if (start_indent != end_indent || !found) {
+                var parent_window = get_toplevel () as Gtk.Window;
+                var dialog = new Granite.MessageDialog (
+                    found ? _("Matching bracket has incorrect indent") : _("No matching bracket found"),
+                    _("You may have omitted a required bracket"),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.CLOSE
+                );
+                dialog.transient_for = parent_window;
+                dialog.response.connect (dialog.destroy);
+                dialog.present ();
             }
         }
     }
