@@ -610,6 +610,13 @@ namespace Scratch.Widgets {
                 }
 
                 menu.add (comment_item);
+
+                if (true) {//TODO Check preceding char is bracket
+                    var match_item = new Gtk.MenuItem.with_label (_("Goto Matching Bracket")) {
+                        action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_GO_TO_MATCHING
+                    };
+                    menu.add (match_item);
+                }
             }
 
             menu.show_all ();
@@ -703,6 +710,97 @@ namespace Scratch.Widgets {
 
                 return Source.REMOVE;
             });
+        }
+
+        private const string OPEN_BRACKETS = "{([";
+        private const string CLOSE_BRACKETS = "})]";
+        private bool is_open_bracket (unichar c, out unichar matching) {
+            var index = OPEN_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = CLOSE_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool is_close_bracket (unichar c, out unichar matching) {
+            var index = CLOSE_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = OPEN_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private uint get_indent (Gtk.TextIter t) {
+            var indent_iter = t.copy ();
+            if (indent_iter.backward_line ()) {
+                indent_iter.forward_line ();
+            };
+            uint spaces = 0;
+            while (indent_iter.forward_char () && indent_iter.get_char ().isspace ()) {
+                spaces++;
+            }
+
+            return spaces;
+        }
+
+        public void goto_matching () {
+            uint start_indent = 0, end_indent = 0;
+            var insert_mark = buffer.get_mark ("insert");
+            Gtk.TextIter insert_iter;
+            buffer.get_iter_at_mark (out insert_iter, insert_mark);
+            insert_iter.backward_char ();
+            var insert_char = insert_iter.get_char ();
+            var end = insert_iter.copy ();
+            unichar matching;
+            if (is_open_bracket (insert_char, out matching)) {
+                start_indent = get_indent (insert_iter);
+                uint opening = 0;
+                unichar c;
+                while (end.forward_char ()) {
+                    c = end.get_char ();
+                    if (is_open_bracket (c, out matching)) {
+                        opening++;
+                    } else if (is_close_bracket (c, out matching)) {
+                        if (opening > 0) {
+                            opening--;
+                        } else {
+                            end_indent = get_indent (end);
+                            end.forward_char ();
+                            buffer.place_cursor (end);
+                            break;
+                        }
+                    }
+                }
+            } else if (is_close_bracket (insert_char, out matching)) {
+                start_indent = get_indent (insert_iter);
+                uint closing = 0;
+                unichar c;
+                while (end.backward_char ()) {
+                    c = end.get_char ();
+                    if (is_close_bracket (c, out matching)) {
+                        closing++;
+                    } else if (is_open_bracket (c, out matching)) {
+                        if (closing > 0) {
+                            closing--;
+                        } else {
+                            end_indent = get_indent (end);
+                            end.forward_char ();
+                            buffer.place_cursor (end);
+                            break;
+                        }
+                    }
+                }
+            } else {
+                warning ("not found");
+            }
+
+            if (start_indent != end_indent) {
+                critical ("Mismatched bracket");
+            }
         }
     }
 }
