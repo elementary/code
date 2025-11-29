@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-08-22 15:58+0000\n"
+"PO-Revision-Date: 2025-11-30 07:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
-"l10n.elementaryos.org/projects/code/code/zh_Hant/>\n"
+"l10n.elementaryos.org/projects/code/code/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,22 +192,20 @@ msgid "Cloning in progress"
 msgstr "正在複製版本庫"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "搜尋字串至少要有三個字元長。"
+msgstr "搜尋字串會被視為正則表達式"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "搜尋會區分大小寫"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "搜尋會將大小寫視為相同文字"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "搜尋會只符合完整單詞"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -311,8 +309,6 @@ msgid "Highlight matching brackets"
 msgstr "標明對應括號"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "語法標明"
 
@@ -847,10 +843,8 @@ msgid "Duplicate Tab"
 msgstr "建立分頁副本"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "過濾語言"
+msgstr "文件語言"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -942,17 +936,15 @@ msgstr "選單"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "亮色"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "高對比"
+msgstr "對比"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1040,28 +1032,20 @@ msgid "no results"
 msgstr "無結果"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "排序所選取的行"
+msgstr "排序行數"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "標記目前的行"
+msgstr "標記行數"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "前個分頁"
+msgstr "上一個標記"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "後個分頁"
+msgstr "下一個標記"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
