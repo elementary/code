@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2022-08-06 12:21+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "새 탭"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "새 창"
 
@@ -89,7 +89,7 @@ msgstr "심볼이 없습니다"
 msgid "Hide Terminal"
 msgstr "터미널 숨기기"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "터미널 보이기"
 
@@ -247,7 +247,7 @@ msgstr "브랜치 이름은 고유해야 하며 Git 명명 규칙을 따라야 �
 msgid "Create Branch"
 msgstr "브랜치 만들기"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -475,11 +475,11 @@ msgstr "이름 바꾸기"
 msgid "Move to Trash"
 msgstr "휴지통에 버리기"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "다른 애플리케이션…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "열기"
 
@@ -491,33 +491,33 @@ msgstr "폴더"
 msgid "Find in Folder…"
 msgstr "폴더에서 찾기…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "터미널"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "폴더"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "빈 파일"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "이름 없는 폴더"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "새 파일"
 
@@ -562,27 +562,27 @@ msgstr[0] ""
 msgid "Find in Project…"
 msgstr "프로젝트에서 찾기…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "새 브랜치…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "브랜치"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "수정함"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "새 브랜치를 만드는 동안 생긴 오류: \"%s\""
@@ -1028,9 +1028,23 @@ msgstr "확대"
 msgid "Follow System Style"
 msgstr "시스템 스타일 따르기"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "메뉴"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "고 대비"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1125,27 +1139,31 @@ msgstr "%d / %d"
 msgid "no results"
 msgstr "결과 없음"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "선택한 줄 정렬"
 
-#: src/Widgets/SourceView.vala:595
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "이 페이지 닫기"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:617
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "텍스트 편집기"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "이전 탭"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "다음 탭"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "코멘트 여닫기"
 
@@ -1252,6 +1270,11 @@ msgstr "적어도 맞춤법 사전 [aspell] 한 개는 설치해주세요."
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
 
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "텍스트 편집기"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "대소문자 구분:"
 
@@ -1341,9 +1364,6 @@ msgstr "%s - 단어 완성"
 
 #~ msgid "For selected text"
 #~ msgstr "선택한 텍스트"
-
-#~ msgid "High Contrast"
-#~ msgstr "고 대비"
 
 #~ msgid "Solarized Light"
 #~ msgstr "솔라 라이트"
@@ -1527,12 +1547,6 @@ msgstr "%s - 단어 완성"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "클립보드의 새 파일"
-
-#~ msgid "Next Tab"
-#~ msgstr "다음 탭"
-
-#~ msgid "Previous Tab"
-#~ msgstr "이전 탭"
 
 #~ msgid "Fullscreen"
 #~ msgstr "전체화면"

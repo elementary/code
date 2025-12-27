@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2021-02-15 11:35+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/code/code/sr/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Нова картица"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Нови прозор"
 
@@ -90,7 +90,7 @@ msgstr "Нисам нашао симболе"
 msgid "Hide Terminal"
 msgstr "Сакриј терминал"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Прикажи терминал"
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Грана"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Поставке"
 
@@ -486,11 +486,11 @@ msgstr "Преименуј"
 msgid "Move to Trash"
 msgstr "Премести у смеће"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Другим програмом…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Отвори у"
 
@@ -504,33 +504,33 @@ msgstr "Фасцикле"
 msgid "Find in Folder…"
 msgstr "Отвори фасциклу пројекта…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Терминал"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Фасцикла"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Празна датотека"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "неименована фасцикла"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "нова датотека"
 
@@ -581,31 +581,31 @@ msgstr[2] ""
 msgid "Find in Project…"
 msgstr "Отвори фасциклу пројекта…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "Грана"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Грана"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, измењена"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -1055,9 +1055,23 @@ msgstr "Увећај"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Изборник"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Велики контраст"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1148,27 +1162,31 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Поређај изабране редове"
 
-#: src/Widgets/SourceView.vala:595
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Уклони тренутни приказ"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:617
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "Уређивач текста"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Претходна картица"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Следећа картица"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Окини напомену"
 
@@ -1276,6 +1294,11 @@ msgid "%s - Word Completion"
 msgstr "%s – завршавање речи"
 
 #, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Уређивач текста"
+
+#, fuzzy
 #~| msgid "Case Insensitive"
 #~ msgid "Case sensitive:"
 #~ msgstr "Не разликуј величину слова"
@@ -1360,9 +1383,6 @@ msgstr "%s – завршавање речи"
 
 #~ msgid "For selected text"
 #~ msgstr "За изабрани текст"
-
-#~ msgid "High Contrast"
-#~ msgstr "Велики контраст"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Осунчана светла"
@@ -1457,12 +1477,6 @@ msgstr "%s – завршавање речи"
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "Удвостручи означени низ"
-
-#~ msgid "Next Tab"
-#~ msgstr "Следећа картица"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Претходна картица"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Цео екран"
