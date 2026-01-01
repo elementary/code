@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
-"PO-Revision-Date: 2025-10-18 07:55+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-21 14:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
 "hu/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Új lap"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Új ablak"
 
@@ -81,7 +81,7 @@ msgstr "Szimbólumkiemelés megjelenítése"
 msgid "Hide Terminal"
 msgstr "Terminál elrejtése"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminál megjelenítése"
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Ág létrehozása"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -314,39 +314,43 @@ msgstr "Szerkesztő"
 msgid "Highlight matching brackets"
 msgstr "Zárójelpárok kiemelése"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+msgid "Syntax highlighting"
+msgstr "Szintaxiskiemelés"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "Minitérkép"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "Sortörés"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "Sorhosszúság-mutató"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Betűtípus"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "A rendszer betűtípusának használata"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Viselkedés"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Felület"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Bővítmények"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Bezárás"
@@ -442,11 +446,11 @@ msgstr "Átnevezés"
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
@@ -458,31 +462,31 @@ msgstr "Mappák"
 msgid "Find in Folder…"
 msgstr "Keresés a mappában…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "Terminál panel"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Üres fájl"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "új fájl"
 
@@ -527,27 +531,27 @@ msgstr[1] "%u elrejtett dokumentum visszaállítása"
 msgid "Find in Project…"
 msgstr "Keresés a projektben…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "Helyi"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "Távoli"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Új ág…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Ág"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Módosítva"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Hiba az ág létrehozása közben: \"%s\""
@@ -862,8 +866,8 @@ msgid "Duplicate Tab"
 msgstr "Lap megkettőzése"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Szintaxiskiemelés"
+msgid "Document language"
+msgstr "A dokumentum nyelve"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -951,9 +955,21 @@ msgstr "Nagyítás"
 msgid "Follow System Style"
 msgstr "Rendszertéma követése"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menü"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr "Világos"
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr "Sötét"
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr "Kontrasztos"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1040,23 +1056,23 @@ msgstr "%d/%d"
 msgid "no results"
 msgstr "nincs találat"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
-msgstr "A kiválasztott sorok sorrendbe rakása"
+#: src/Widgets/SourceView.vala:581
+msgid "Sort Lines"
+msgstr "A sorok sorrendbe rakása"
 
-#: src/Widgets/SourceView.vala:594
-msgid "Mark Current Line"
-msgstr "Jelenlegi sor megjelölése"
+#: src/Widgets/SourceView.vala:585
+msgid "Mark Line"
+msgstr "A sor megjelölése"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr "Előző szerkesztési jelöléshez ugrás"
+#: src/Widgets/SourceView.vala:589
+msgid "Previous Mark"
+msgstr "Előző jelölés"
 
-#: src/Widgets/SourceView.vala:616
-msgid "Goto Next Edit Mark"
-msgstr "Következő szerkesztési jelöléshez ugrás"
+#: src/Widgets/SourceView.vala:593
+msgid "Next Mark"
+msgstr "Következő jelölés"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Megjegyzés megjelenítése/elrejtése"
 
@@ -1163,6 +1179,12 @@ msgstr "Telepítsen legalább egy [aspell] szótárt."
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
 
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Előző szerkesztési jelöléshez ugrás"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Következő szerkesztési jelöléshez ugrás"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "Kis-nagybetű érzékenység:"
 
@@ -1261,9 +1283,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "For selected text"
 #~ msgstr "A kiválasztott szöveghez"
-
-#~ msgid "High Contrast"
-#~ msgstr "Magas kontraszt"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarizált világos"
@@ -1452,12 +1471,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Új fájl a vágólapról"
-
-#~ msgid "Next Tab"
-#~ msgstr "Következő lap"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Előző lap"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Teljes képernyő"

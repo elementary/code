@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2022-07-31 11:42+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/code/"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "تابی نوێ"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "پەنجەرەی نوێ"
 
@@ -85,7 +85,7 @@ msgstr "هیچ سمبولێک نەدۆزرایەوە"
 msgid "Hide Terminal"
 msgstr "شاردنەوەی تێرمیناڵ"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "پیشاندانی تێرمیناڵ"
 
@@ -243,7 +243,7 @@ msgstr "ناوی لق دەبێت بێ هاوتا بێت و شوێن یاساکا
 msgid "Create Branch"
 msgstr "دروستکردنی لق"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "هەڵبژاردەکان"
 
@@ -336,43 +336,49 @@ msgstr "دەستکاریکەر"
 msgid "Highlight matching brackets"
 msgstr "بەرچاوکردنی کەوانە لەیەکچووەکان:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "بەرچاوکردنی ڕستەکار"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "پیشاندانی نەخشۆکە:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "ڕێبەری پانایی دێڕەکان:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "فۆنت"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "هەڵسوکەوت"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "ڕووكار"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "زیادکراوەکان"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "داخستن"
@@ -466,11 +472,11 @@ msgstr "ناوگۆڕین"
 msgid "Move to Trash"
 msgstr "ناردنی بۆ تەنەکە"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "ئەپڵیکەیشنەکانی تر…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "كردنەوە لە"
 
@@ -482,33 +488,33 @@ msgstr "بوخچەکان"
 msgid "Find in Folder…"
 msgstr "دۆزینەوە لە بوخچەدا…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "تێرمیناڵ"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "بوخچە"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "پەڕگەی بەتاڵ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "نوێ"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "بوخچەی بێ ناو"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "پەڕگەیەکی نوێ"
 
@@ -556,27 +562,27 @@ msgstr[1] ""
 msgid "Find in Project…"
 msgstr "دۆزینەوە لە پرۆژەدا…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "برانچی نوێ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "برانچ"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "دەستکاریکراو"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "هەڵەیەک ڕوویدا لە کاتی دروستکردنی برانچێکی نوێ: \"%s\""
@@ -924,8 +930,10 @@ msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "بەرچاوکردنی ڕستەکار"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "فلتەرکردنی زمانەکان"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -1019,9 +1027,21 @@ msgstr "هێنانەپێش (زووم)"
 msgid "Follow System Style"
 msgstr "هەمان ستایلی سیستەم هەڵگرە"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "لیست"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr ""
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1116,27 +1136,31 @@ msgstr "%d ی %d"
 msgid "no results"
 msgstr "هیچ ئەنجامێک نییە"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "ڕیزکردنی هێڵە دیاریکراوەکان"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "لابردنی پیشاندانی هەنووکەیی"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "دەستکاریکەری دەق"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "پەنجەرەی پێشتر"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "پەنجەرەی دواتر"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "کردنەوەی/داخستنی کۆمێنت"
 
@@ -1242,6 +1266,11 @@ msgstr "تکایە لانیەکم یەک فەرهەنگی [aspell] دابمەز�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - تەواوکاری وشە"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "دەستکاریکەری دەق"
 
 #~ msgid "Case sensitive:"
 #~ msgstr "هەستیاری کەیس:"
@@ -1420,12 +1449,6 @@ msgstr "%s - تەواوکاری وشە"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "کردنەوەی پەڕگەیەکی نوێ لە دۆڵابەوە"
-
-#~ msgid "Next Tab"
-#~ msgstr "پەنجەرەی دواتر"
-
-#~ msgid "Previous Tab"
-#~ msgstr "پەنجەرەی پێشتر"
 
 #~ msgid "Fullscreen"
 #~ msgstr "پڕکردنەوەی شاشە"
