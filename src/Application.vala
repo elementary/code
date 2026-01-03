@@ -216,12 +216,12 @@ namespace Scratch {
 
         public async bool handle_quit_window (MainWindow window_to_close) {
             unowned List<Gtk.Window> windows = get_windows ();
-            var n_windows = windows.length ();
-            if (!yield window_to_close.check_unsaved_changes (n_windows == 1)) {
+            var is_last_window = windows.length () == 1;
+            if (!yield window_to_close.check_unsaved_changes (is_last_window)) {
                 return false;
             }
 
-            if (n_windows == 1) {
+            if (is_last_window) {
                 window_to_close.before_quit (); // Update settings
             }
             // Just destroy window - we have already checked whether any docs need saving
