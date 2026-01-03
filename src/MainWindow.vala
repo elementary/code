@@ -325,6 +325,8 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
+                    // Ensure window can restore the correct size
+                    unfullscreen ();
                     break;
             }
 
