@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-11-30 07:55+0000\n"
+"PO-Revision-Date: 2026-01-06 13:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_TW/>\n"
@@ -126,17 +126,17 @@ msgstr "取消(_C)"
 
 #: src/MainWindow.vala:1088
 msgid "Cloning completed"
-msgstr ""
+msgstr "已完成拓製"
 
 #: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "已成功拓製到 %s"
 
 #: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
-msgstr "無法複製 %s"
+msgstr "無法拓製 %s"
 
 #: src/MainWindow.vala:1102
 msgid "Retry"
@@ -151,7 +151,7 @@ msgstr "用預設應用程式來開啟 '%s'"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr "建立 Git 版本庫的本地複本"
+msgstr "將 Git 版本庫拓製到本地端"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
@@ -161,7 +161,7 @@ msgstr "來源版本庫與本地資料夾都必須存在，也必須持有需要
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr "複製版本庫"
+msgstr "拓製版本庫"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
@@ -169,7 +169,7 @@ msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr "選取版本庫複本的上層資料夾"
+msgstr "選取版本庫拓製後複本的上層資料夾"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
 msgid "Select"
@@ -185,7 +185,7 @@ msgstr "位置"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr "複本名稱"
+msgstr "拓製後資料夾名稱"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
@@ -811,7 +811,7 @@ msgstr "開啟資料夾…"
 
 #: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
-msgstr "複製 Git 版本庫…"
+msgstr "拓製 Git 版本庫…"
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
@@ -948,7 +948,7 @@ msgstr "對比"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "拓製完成"
 
 #: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
