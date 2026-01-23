@@ -24,6 +24,10 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
     Scratch.HeaderBar? toolbar = null;
     Gtk.ToggleButton? preview_button = null;
     
+    // Signal handler IDs
+    ulong hook_toolbar_id = 0;
+    ulong hook_document_id = 0;
+    
     // Store preview state per document
     private Gee.HashMap<Scratch.Services.Document, PreviewState> preview_states;
     
@@ -37,6 +41,7 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         public Gtk.Paned? paned = null;
         public Gtk.ScrolledWindow? original_scroll = null;
         public bool visible = false;
+        public ulong buffer_changed_id = 0;
         
         public PreviewState () {
             web_view = new WebKit.WebView ();
@@ -73,6 +78,25 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
                 }
                 return false;
             });
+            
+            // Handle navigation requests - Open links in external browser
+            web_view.decide_policy.connect ((decision, type) => {
+                if (type == WebKit.PolicyDecisionType.NAVIGATION_ACTION) {
+                    var nav_decision = (WebKit.NavigationPolicyDecision) decision;
+                    var action = nav_decision.navigation_action;
+                    
+                    if (action.get_navigation_type () == WebKit.NavigationType.LINK_CLICKED) {
+                        try {
+                            Gtk.show_uri (null, action.get_request ().uri, Gdk.CURRENT_TIME);
+                        } catch (Error e) {
+                            warning ("Failed to open URI: %s", e.message);
+                        }
+                        decision.ignore ();
+                        return true;
+                    }
+                }
+                return false;
+            });
         }
     }
 
@@ -88,12 +112,12 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         preview_button.no_show_all = true;
         
         // Hook into toolbar
-        plugins.hook_toolbar.connect ((t) => {
+        hook_toolbar_id = plugins.hook_toolbar.connect ((t) => {
             toolbar = t;
         });
         
         // Hook into document changes
-        plugins.hook_document.connect ((doc) => {
+        hook_document_id = plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.notify["language"].disconnect (on_language_changed);
             }
@@ -191,6 +215,10 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
             warning ("Could not find parent of scroll window");
             return;
         }
+
+        // Capture width BEFORE removing from parent
+        int width = scroll.get_allocated_width ();
+        if (width <= 0) width = 600; // Fallback width
         
         // Store reference to original scroll window
         state.original_scroll = scroll;
@@ -206,7 +234,7 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         state.paned.pack2 (state.scrolled_window, true, false);
         
         // Set initial position to 50/50 split
-        state.paned.position = scroll.get_allocated_width () / 2;
+        state.paned.position = width / 2;
         
         // Add the paned widget back to the parent
         if (scroll_parent is Gtk.Grid) {
@@ -222,9 +250,11 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         update_preview (doc, state);
         
         // Connect to buffer changes for live updates
-        doc.source_view.buffer.changed.connect (() => {
-            on_text_changed (doc);
-        });
+        if (state.buffer_changed_id == 0) {
+            state.buffer_changed_id = doc.source_view.buffer.changed.connect (() => {
+                on_text_changed (doc);
+            });
+        }
     }
 
     private void hide_preview (Scratch.Services.Document doc) {
@@ -246,6 +276,10 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         // Remove the scroll window from the paned
         state.paned.remove (state.original_scroll);
         
+        // CRITICAL: Remove the preview scrolled window too, otherwise it gets destroyed
+        // when state.paned is removed/destroyed.
+        state.paned.remove (state.scrolled_window);
+        
         // Remove the paned from its parent
         paned_parent.remove (state.paned);
         
@@ -254,6 +288,12 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
             ((Gtk.Grid) paned_parent).add (state.original_scroll);
         } else if (paned_parent is Gtk.Box) {
             ((Gtk.Box) paned_parent).pack_start (state.original_scroll, true, true, 0);
+        }
+        
+        // Disconnect signal
+        if (state.buffer_changed_id > 0) {
+            doc.source_view.buffer.disconnect (state.buffer_changed_id);
+            state.buffer_changed_id = 0;
         }
         
         state.visible = false;
@@ -290,7 +330,21 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
         var markdown_text = buffer.get_text (start, end, false);
         
         var html = markdown_to_html (markdown_text);
-        state.web_view.load_html (html, null);
+        
+        // Fix relative paths by providing a base URI
+        string? base_uri = null;
+        if (doc.file != null) {
+            var parent = doc.file.get_parent ();
+            if (parent != null) {
+                base_uri = parent.get_uri ();
+                // Ensure URI ends with a slash so relative files resolve correctly
+                if (!base_uri.has_suffix ("/")) {
+                     base_uri += "/";
+                }
+            }
+        }
+        
+        state.web_view.load_html (html, base_uri);
     }
 
     private string markdown_to_html (string markdown) {
@@ -550,13 +604,13 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
             var code_regex = new Regex ("`(.+?)`");
             result = code_regex.replace (result, -1, 0, "<code>\\1</code>");
             
+            // Images ![alt](url) - MUST BE BEFORE LINKS
+            var img_regex = new Regex ("!\\[(.+?)\\]\\((.+?)\\)");
+            result = img_regex.replace (result, -1, 0, "<img src=\"\\2\" alt=\"\\1\">");
+
             // Links [text](url)
             var link_regex = new Regex ("\\[(.+?)\\]\\((.+?)\\)");
             result = link_regex.replace (result, -1, 0, "<a href=\"\\2\">\\1</a>");
-            
-            // Images ![alt](url)
-            var img_regex = new Regex ("!\\[(.+?)\\]\\((.+?)\\)");
-            result = img_regex.replace (result, -1, 0, "<img src=\"\\2\" alt=\"\\1\">");
         } catch (RegexError e) {
             warning ("Regex error: %s", e.message);
         }
@@ -572,6 +626,24 @@ public class Code.Plugins.MarkdownPreview : Peas.ExtensionBase, Scratch.Services
             }
         }
         preview_states.clear ();
+        
+        // Disconnect main signal handlers
+        if (plugins != null) {
+            if (hook_toolbar_id > 0) {
+                plugins.disconnect (hook_toolbar_id);
+                hook_toolbar_id = 0;
+            }
+            if (hook_document_id > 0) {
+                plugins.disconnect (hook_document_id);
+                hook_document_id = 0;
+            }
+        }
+        
+        // Disconnect from current source
+        if (current_source != null) {
+            current_source.notify["language"].disconnect (on_language_changed);
+            current_source = null;
+        }
         
         if (toolbar != null && preview_button != null && preview_button.parent != null) {
             toolbar.remove (preview_button);
