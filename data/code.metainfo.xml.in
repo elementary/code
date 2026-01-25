@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/8.0.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.1.2/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/8.0.0/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.1.2/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -68,6 +68,62 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.1.2" date="2025-11-05" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>The tooltips for C symbols are now more informative</li>
+          <li>Cloning success is now indicated by toast instead of a dialog</li>
+          <li>Global search and local search now have the same case sensitivity</li>
+          <li>Opening a second window no longer results in duplicate project entries in the project chooser</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1628">Git clone success dialog should be a toast</issue>
+        <issue url="https://github.com/elementary/code/issues/1507">Duplicate projects in dropdown after opening second window from duplicate tab</issue>
+        <issue url="https://github.com/elementary/code/issues/1277">Global Search case sensitivity behaviour differs from local search</issue>
+      </issues>
+    </release>
+    <release version="8.1.1" date="2025-09-06" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>The terminal pane is now synchronized with the Terminal app foreground, background and palette settings</li>
+          <li>The terminal pane is now synchronized with GNOME font and cursor blink settings</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1586">Relies on external Terminal settings keys</issue>
+        <issue url="https://github.com/elementary/code/issues/457">Exiting process running in terminal leaves terminal useless</issue>
+        <issue url="https://github.com/elementary/code/issues/276">Listen for changes to Terminal color scheme</issue>
+      </issues>
+    </release>
+    <release version="8.1.0" date="2025-08-01" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The Project Chooser context menu now includes an option to clone a remote git repository</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>The "Open Folder" action now appears in the Project Chooser context menu</li>
+          <li>The Vala symbol pane now shows a spinner while loading</li>
+          <li>The filter in the C symbol pane now works</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/1629">Markdown plug: Extending an ordered list at end of document causes infinite loop</issue>
+        <issue url="https://github.com/elementary/code/issues/1603">8.0.0 FTBFS with GCC 14 (-Wimplicit-function-declaration)</issue>
+        <issue url="https://github.com/elementary/code/issues/1597">Symbol pane filter should work for C symbols too</issue>
+        <issue url="https://github.com/elementary/code/issues/1443">Code crashes when deleting lines</issue>
+        <issue url="https://github.com/elementary/code/issues/740">Blank tooltip on hovering expanded empty folder</issue>
+        <issue url="https://github.com/elementary/code/issues/385">Do not allow projects to be moved to trash from the sidebar</issue>
+        <issue url="https://github.com/elementary/code/issues/26">Outline plugin does not indicate when it is loading</issue>
+      </issues>
+    </release>
     <release version="8.0.0" date="2025-06-20" urgency="medium">
       <description>
         <p>Improvements:</p>

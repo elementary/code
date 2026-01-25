@@ -155,6 +155,25 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
                 var to_insert = "%d".printf (count);
                 current_buffer.insert (ref next, to_insert, to_insert.length);
             }
+        var line = get_current_line (next).strip ();
+        // Get list item number from current line
+        parse_ordered_list_item (line, ref count, out item_text);
+        while (
+            next.forward_line () &&
+            parse_ordered_list_item (get_current_line (next).strip (), ref count, out item_text)
+        ) {
+            count++;
+            var next_mark = current_buffer.create_mark (null, next, true);
+            var point_offset = line.index_of_char ('.');
+            var start = next;
+            var end = start;
+            end.forward_chars (point_offset);
+
+            current_buffer.delete (ref start, ref end);
+            current_buffer.get_iter_at_mark (out next, next_mark);
+
+            var to_insert = "%d".printf (count);
+            current_buffer.insert (ref next, to_insert, to_insert.length);
         }
     }
 

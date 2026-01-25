@@ -422,10 +422,10 @@ public class SourceList : Gtk.ScrolledWindow {
          * any context menu items should be actioned on the item instance rather than the selected item
          * in the SourceList
          *
-         * @return A {@link Gtk.Menu} or //null// if nothing should be displayed.
+         * @return A {@link GLib.Menu} or //null// if nothing should be displayed.
          * @since 0.2
          */
-        public virtual Gtk.Menu? get_context_menu () {
+        public virtual GLib.Menu? get_context_menu () {
             return null;
         }
     }
@@ -1891,8 +1891,10 @@ public class SourceList : Gtk.ScrolledWindow {
                 set_tooltip_row (tooltip, path);
 
                 if (item.tooltip == null) {
-                    tooltip.set_markup (item.name);
-                    should_show = true;
+                    if (item.name != "") {
+                        tooltip.set_markup (item.name);
+                        should_show = true;
+                    }
                 } else if (item.tooltip != "") {
                     tooltip.set_markup (item.tooltip);
                     should_show = true;
@@ -2019,8 +2021,9 @@ public class SourceList : Gtk.ScrolledWindow {
 
             if (item != null) {
                 // Main categories ARE NOT selectable, so check for that
-                if (!data_model.is_category (item, null, path))
+                if (!data_model.is_category (item, null, path)) {
                     selectable = item.selectable;
+                }
             }
 
             return selectable;
@@ -2404,10 +2407,13 @@ public class SourceList : Gtk.ScrolledWindow {
             if (item != null) {
                 var menu = item.get_context_menu ();
                 if (menu != null) {
-                    menu.attach_widget = this;
-                    menu.popup_at_pointer (event);
+                    var gtk_menu = new Gtk.Menu.from_model (menu) {
+                        attach_widget = this
+                    };
+
+                    gtk_menu.popup_at_pointer (event);
                     if (event == null) {
-                        menu.select_first (false);
+                        gtk_menu.select_first (false);
                     }
 
                     return true;
