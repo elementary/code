@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-01-27 23:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Yeni Sekme"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Yeni Pencere"
 
@@ -43,84 +43,104 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[DOSYA…]"
 
-#: src/MainWindow.vala:249
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Kod (%s)"
 
-#: src/MainWindow.vala:251
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:385
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:390 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Sayfada Bul…"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "Proje Kenar Çubuğunu Gizle"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "Proje Kenar Çubuğunu Göster"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "Sembol Listesini Gizle"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "Sembol Listesini Göster"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Terminal'i Gizle"
 
-#: src/MainWindow.vala:434 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminal'i Göster"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:621
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:953 src/Services/Document.vala:664
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:957 src/Services/Document.vala:668
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:961
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:964
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
-#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
+#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:1005
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:1006
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_İptal"
+
+#: src/MainWindow.vala:1088
+msgid "Cloning completed"
+msgstr ""
+
+#: src/MainWindow.vala:1089
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1095
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
+#: src/MainWindow.vala:1102
+msgid "Retry"
+msgstr ""
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -128,24 +148,79 @@ msgstr "_İptal"
 msgid "Show '%s' with default app"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/CloneRepositoryDialog.vala:55
+msgid "Create a local clone of a Git repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:56
+msgid ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:59
+msgid "Clone Repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:69
+msgid "https://example.com/username/projectname.git"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:93
+msgid "Select folder where the cloned repository will be created"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:96
+#, fuzzy
+#| msgid "Select All"
+msgid "Select"
+msgstr "Tümünü Seç"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:118
+msgid "Repository URL"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:119
+msgid "Location"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:120
+msgid "Name of Clone"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:122
+msgid "Cloning in progress"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "Arama terimi en az 3 karakter uzunluğunda olmalıdır."
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "“%s” içinde metin ara"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "Arama terimi en az 3 karakter uzunluğunda olmalıdır."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "Büyük/küçük harfe duyarlı:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "Normal ifadeleri kullan:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "Ara"
 
@@ -163,7 +238,7 @@ msgstr "Dal adı benzersiz olmalı ve Git adlandırma kurallarına uymalıdır."
 msgid "Create Branch"
 msgstr "Dal Oluştur"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -239,39 +314,45 @@ msgstr "Düzenleyici"
 msgid "Highlight matching brackets"
 msgstr "Eşleşen parantezleri vurgula"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Sözdizimi Vurgulaması"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "Küçük harita"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "Satırları Kaydır"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "Satır genişliği kılavuzu"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "Yazı Tipi"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "Sistem yazı tipini kullan"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "Davranış"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Kapat"
@@ -355,24 +436,23 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Diğer Uygulamalar…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "İçinde Aç"
 
@@ -380,37 +460,37 @@ msgstr "İçinde Aç"
 msgid "Folders"
 msgstr "Klasörler"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:156
 msgid "Find in Folder…"
 msgstr "Klasörde Bul…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
 msgstr "Terminal Bölmesinde Aç"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Klasör"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Boş Dosya"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Yeni"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "adsız klasör"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "yeni dosya"
 
@@ -453,119 +533,119 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "%u Gizli Belgeyi Yeniden Göster"
 msgstr[1] "%u Gizli Belgeyi Yeniden Göster"
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Projede Bul…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Yeni Dal…"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Dal"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Yeni dal oluşturulurken hata meydana geldi: \"%s\""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Bir Metin Dosyası Değil"
 
-#: src/Services/Document.vala:381
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "Kod bu tip bir dosyayı yüklemeyecek."
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "Yine de Yükle"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:408
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "“%s” Dosyasının Yüklenmesi Uzun Sürüyor"
 
-#: src/Services/Document.vala:405
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
-#: src/Services/Document.vala:407
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "Yüklemeyi İptal Et"
 
-#: src/Services/Document.vala:496
+#: src/Services/Document.vala:500
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Kapatmadan önce “%s” üzerinde yapılan değişiklikler kaydedilsin mi?"
 
-#: src/Services/Document.vala:497
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Kaydetmezseniz, değişiklikler kalıcı olarak kaybedilir."
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "Kaydetmeden Kapat"
 
-#: src/Services/Document.vala:507 src/Services/Document.vala:675
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/Services/Document.vala:634
+#: src/Services/Document.vala:638
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "“%s” dosyasına kaydedilemedi."
 
-#: src/Services/Document.vala:672
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "Dosyayı Kaydet"
 
-#: src/Services/Document.vala:759 src/Services/Document.vala:777
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "Yeni Belge"
 
 #. No path for a new document
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Bu belge %s konumuna kaydedilemiyor"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:870
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "“%s” dosyasındaki metin okunamıyor"
 
-#: src/Services/Document.vala:848
+#: src/Services/Document.vala:873
 msgid "You may not have permission to read the file."
 msgstr "Dosyayı okuma izniniz olmayabilir."
 
-#: src/Services/Document.vala:850
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Dosya bozuk olabilir veya bir metin dosyası olmayabilir"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:856
+#: src/Services/Document.vala:881
 msgid "Show Anyway"
 msgstr "Yine de Göster"
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:912
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -573,7 +653,7 @@ msgid ""
 msgstr ""
 "“%s” dosyasını içeren konum kaldırıldı ve kaydedilmemiş değişiklikler var."
 
-#: src/Services/Document.vala:889
+#: src/Services/Document.vala:914
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -582,17 +662,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:928
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "“%s” dosyasının yazma izni yok."
 
-#: src/Services/Document.vala:949
+#: src/Services/Document.vala:974
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "“%s” dosyası başka bir uygulama tarafından değiştirilmiş"
 
-#: src/Services/Document.vala:954
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -600,55 +680,55 @@ msgstr ""
 "Kaydedilmemiş değişiklikler de var. Belgeyi yeniden yüklemek kaydedilmemiş "
 "değişikliklerin üzerine yazacaktır."
 
-#: src/Services/Document.vala:958
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr "Belge son kaydettiğinizden bu yana harici olarak değişti."
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” burada kaydedilemez. Başka bir yere kopyası kaydedilsin mi?"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: src/Services/Document.vala:985
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr "Kopyayı Kaydet…"
 
-#: src/Services/Document.vala:1034
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "Devam Et"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1061
 msgid "Reload"
 msgstr "Yeniden Yükle"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr "Üzerine yaz"
 
-#: src/Services/Document.vala:1042
+#: src/Services/Document.vala:1067
 msgid "Save Document elsewhere"
 msgstr "Belgeyi başka bir yere kaydet"
 
-#: src/Services/MonitoredRepository.vala:238
+#: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:239
+#: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:276
+#: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:324
+#: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -658,24 +738,30 @@ msgid "Templates"
 msgstr "Şablonlar"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
-#: src/SymbolPane/SymbolOutline.vala:99
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "Semboller"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 #, fuzzy
 #| msgid "Symbols"
 msgid "Too Many Symbols"
 msgstr "Semboller"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
-"Parsing and showing them took long"
+"Parsing and showing them took too long."
 msgstr ""
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
+#, fuzzy, c-format
+#| msgid "No Symbols Found"
+msgid "Vala symbols found in %s"
+msgstr "Hiçbir Sembol Bulunamadı"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
@@ -717,68 +803,78 @@ msgstr "Ad alanı"
 msgid "Other"
 msgstr "Diğer"
 
-#: src/SymbolPane/SymbolOutline.vala:103
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Find Symbol"
 msgstr "Sembol Bul"
 
-#: src/SymbolPane/SymbolOutline.vala:112
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr "Sembol türünü filtrele"
 
-#: src/SymbolPane/SymbolOutline.vala:132
+#: src/SymbolPane/SymbolOutline.vala:160
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: src/SymbolPane/SymbolOutline.vala:138
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr "Tümünü Seçimden Çıkar"
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Proje Seçilmedi"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, fuzzy, c-format
 #| msgid "Active Git project: %s"
 msgid "Active Git Project: %s"
 msgstr "Etkin Git projesi: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
 msgstr "Projeleri filtrele"
+
+#: src/Widgets/ChooseProjectButton.vala:84
+msgid "Open Folder…"
+msgstr "Klasör Aç…"
+
+#: src/Widgets/ChooseProjectButton.vala:89
+msgid "Clone Git Repository…"
+msgstr ""
 
 #: src/Widgets/DocumentView.vala:109
 msgid "Closed Tabs"
 msgstr "Kapatılan Sekmeler"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Metin dosyası %s:%d"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr "Sağdaki Sekmeleri Kapat"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Other Tabs"
 msgstr "Diğer Sekmeleri Kapat"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Tab"
 msgstr "Sekmeyi Kapat"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 msgid "Open in New Window"
 msgstr "Yeni Pencerede Aç"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr "Sekmeyi Kopyala"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "Sözdizimi Vurgulaması"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "Dilleri filtrele"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -866,108 +962,144 @@ msgstr "Yakınlaştır"
 msgid "Follow System Style"
 msgstr "Sistem Temasını Takip Et"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Sidebar.vala:63
-msgid "Open Folder…"
-msgstr "Klasör Aç…"
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
 
-#: src/Widgets/Sidebar.vala:66
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Yüksek Karşıtlık"
+
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "Tümünü Daralt"
 
-#: src/Widgets/Sidebar.vala:69
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "Alfabetik"
 
-#: src/Widgets/Sidebar.vala:81
-msgid "Manage project folders"
+#: src/Widgets/Sidebar.vala:91
+#, fuzzy
+#| msgid "Manage project folders"
+msgid "Manage project folders…"
 msgstr "Proje klasörlerini yönet"
 
-#: src/Widgets/SearchBar.vala:71
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "Bul"
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr "Sonuç Yok"
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "Sonrakini bul"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "Öncekini bul"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "Döngüsel Arama"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Asla"
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr "Karışık"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "Her zaman"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "Büyük/Küçük Harfe Duyarlı"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:144
 msgid "Use Regular Expressions"
 msgstr "Normal İfadeleri Kullan"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr "Sözcüklerin Tümünü Eşleştir"
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
 msgstr "Arama Seçenekleri"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "Şununla Değiştir"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "Değiştir"
 
-#: src/Widgets/SearchBar.vala:174
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "Tümünü değiştir"
 
-#: src/Widgets/SearchBar.vala:569
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d"
 
-#: src/Widgets/SearchBar.vala:574
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr "sonuç yok"
 
-#: src/Widgets/SourceView.vala:558
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Seçili Satırları Sırala"
 
-#: src/Widgets/SourceView.vala:571
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Current Line"
+msgid "Mark Line"
+msgstr "Etkin satır"
+
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Önceki Sekme"
+
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Sonraki Sekme"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Yorum Aç/Kapat"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "Yapıştır"
 
@@ -1004,7 +1136,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Kenar çubuğuna bir proje klasörü ekle."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "Pastebin'e Yükle"
 
@@ -1061,9 +1193,26 @@ msgid "Please install at least one [aspell] dictionary."
 msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 
 #: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Metin Düzenleyici"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "Büyük/küçük harfe duyarlı:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "Normal ifadeleri kullan:"
+
+#, fuzzy, c-format
+#~| msgid "Current working directory"
+#~ msgid "Local repository working directory is %s"
+#~ msgstr "Geçerli çalışma dizini"
 
 #~ msgid "Tabs"
 #~ msgstr "Sekmeler"
@@ -1140,17 +1289,11 @@ msgstr "%s - Kelime Tamamlama"
 #~ msgid "Find…"
 #~ msgstr "Bul…"
 
-#~ msgid "No Symbols Found"
-#~ msgstr "Hiçbir Sembol Bulunamadı"
-
 #~ msgid "Draw Spaces:"
 #~ msgstr "Boşlukları Göster:"
 
 #~ msgid "For selected text"
 #~ msgstr "Seçili metin için"
-
-#~ msgid "High Contrast"
-#~ msgstr "Yüksek Karşıtlık"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Açık Renk Tema"
@@ -1250,9 +1393,6 @@ msgstr "%s - Kelime Tamamlama"
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Simge teması yüklenemedi: %s\n"
 
-#~ msgid "Current working directory"
-#~ msgstr "Geçerli çalışma dizini"
-
 #~ msgid "directory"
 #~ msgstr "dizin"
 
@@ -1299,9 +1439,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "Edit text files"
 #~ msgstr "Metin dosyalarını düzenle"
-
-#~ msgid "Text Editor"
-#~ msgstr "Metin Düzenleyici"
 
 #~ msgid "About Scratch"
 #~ msgstr "Scratch Hakkında"
@@ -1356,12 +1493,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Panodan yeni dosya yükle"
-
-#~ msgid "Next Tab"
-#~ msgstr "Sonraki Sekme"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Önceki Sekme"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Tam ekran"

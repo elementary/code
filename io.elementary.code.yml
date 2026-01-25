@@ -1,6 +1,6 @@
-app-id: io.elementary.code
+id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '7.1'
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
@@ -8,6 +8,7 @@ finish-args:
   - '--filesystem=host'
 
   - '--share=ipc'
+  - '--share=network'
   - '--socket=fallback-x11'
   - '--socket=wayland'
 
@@ -25,6 +26,8 @@ cleanup:
   - '/share/vala'
   - '*.a'
   - '*.la'
+build-options:
+  libdir: /app/lib
 modules:
   - name: gtksourceview
     buildsystem: meson
@@ -33,16 +36,20 @@ modules:
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: '4.8.4'
 
-  - name: peas
+  - name: libpeas
     buildsystem: meson
     config-opts:
-      - '-Dgtk_doc=false'
-      - '-Ddemos=false'
-      - '-Dvapi=true'
+      - -Dlua51=false
+      - -Dgjs=false
     sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libpeas.git
-        tag: libpeas-1.34.0
+      - type: archive
+        url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz
+        sha256: 376f2f73d731b54e13ddbab1d91b6382cf6a980524def44df62add15489de6dd
+        x-checker-data:
+          type: gnome
+          versions:
+            <: '2.0.6'
+          name: libpeas
 
   - name: git2-glib
     buildsystem: meson
@@ -52,7 +59,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libgit2-glib.git
-        tag: v1.1.0
+        tag: v1.2.0
     modules:
       - name: ssh2
         buildsystem: cmake-ninja
@@ -61,7 +68,6 @@ modules:
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
           - '-DBUILD_EXAMPLES:BOOL=OFF'
           - '-DBUILD_TESTING:BOOL=OFF'
-          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         cleanup:
           - '/share/man'
           - '/share/doc'
@@ -76,7 +82,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
-            tag: 'v1.5.1'
+            tag: 'v1.7.2'
 
   - name: editorconfig
     buildsystem: cmake-ninja

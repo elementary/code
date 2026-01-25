@@ -15,7 +15,9 @@ Actions=NewWindow;NewFile;
 [Desktop Action NewFile]
 Name=New File
 Exec=@EXEC_NAME@ --new-tab
+Icon=document-new
 
 [Desktop Action NewWindow]
 Name=New Window
 Exec=@EXEC_NAME@ --new-window
+Icon=window-new

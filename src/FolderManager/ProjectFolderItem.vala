@@ -130,7 +130,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public override Gtk.Menu? get_context_menu () {
+        public override GLib.Menu? get_context_menu () {
             string file_type = "";
             try {
                 var info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
@@ -146,7 +146,7 @@ namespace Scratch.FolderManager {
                 set_active_folder_item = new GLib.MenuItem (
                     _("Set as Active Project"),
                     GLib.Action.print_detailed_name (
-                        FileView.ACTION_PREFIX + FileView.ACTION_SET_ACTIVE_PROJECT,
+                        MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
                         new Variant.string (file.path)
                     )
                 );
@@ -275,17 +275,6 @@ namespace Scratch.FolderManager {
                 direct_actions_section.append_item (close_item);
             }
 
-            var delete_item = new GLib.MenuItem (
-                _("Move to Trash"),
-                GLib.Action.print_detailed_name (
-                    FileView.ACTION_PREFIX + FileView.ACTION_DELETE,
-                    new Variant.string (file.path)
-                )
-            );
-
-            var delete_actions_section = new GLib.Menu ();
-            delete_actions_section.append_item (delete_item);
-
             var search_item = new GLib.MenuItem (
                 _("Find in Project…"),
                 GLib.Action.print_detailed_name (
@@ -312,12 +301,9 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, folder_actions_section);
             menu_model.append_section (null, close_actions_section);
             menu_model.append_section (null, direct_actions_section);
-            menu_model.append_section (null, delete_actions_section);
             menu_model.append_section (null, search_actions_section);
 
-            var menu = new Gtk.Menu.from_model (menu_model);
-            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
-            return menu;
+            return menu_model;
         }
 
         protected GLib.MenuItem create_submenu_for_branch () {
@@ -511,6 +497,10 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
         }
 
+        // The parameter "is_explicit" indicates whether a global search was requested
+        // via a context menu on an explicitly chosen folder, in which case everything in that
+        // folder will be searched, or whether the hot-key was used in which case the search will
+        // take place on the active project and will omit certain folders
         public void global_search (
             GLib.File start_folder = this.file.file,
             string? term = null,
@@ -519,7 +509,6 @@ namespace Scratch.FolderManager {
             /* For now set all options to the most inclusive (except case).
              * The ability to set these in the dialog (or by parameter) may be added later. */
             string? search_term = null;
-            bool use_regex = false;
             bool search_tracked_only = false;
             bool recurse_subfolders = true;
             bool check_is_text = true;
@@ -528,6 +517,23 @@ namespace Scratch.FolderManager {
             bool case_sensitive = false;
             Regex? pattern = null;
 
+            var wholeword_search = Scratch.settings.get_boolean ("wholeword-search");
+            var case_mode = (CaseSensitiveMode)(Scratch.settings.get_enum ("case-sensitive-search"));
+            var use_regex = Scratch.settings.get_boolean ("regex-search");
+            switch (case_mode) {
+                case NEVER:
+                    case_sensitive = false;
+                    break;
+                case MIXED:
+                    case_sensitive = (term != term.ascii_up () && term != term.ascii_down ());
+                    break;
+                case ALWAYS:
+                    case_sensitive = true;
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+
             var folder_name = start_folder.get_basename ();
             if (this.file.file.equal (start_folder)) {
                 folder_name = name;
@@ -535,10 +541,11 @@ namespace Scratch.FolderManager {
 
             var dialog = new Scratch.Dialogs.GlobalSearchDialog (
                 folder_name,
-                monitored_repo != null && monitored_repo.git_repo != null
+                monitored_repo != null && monitored_repo.git_repo != null,
+                case_sensitive,
+                wholeword_search,
+                use_regex
             ) {
-                case_sensitive = case_sensitive,
-                use_regex = use_regex,
                 search_term = term
             };
 
@@ -546,8 +553,6 @@ namespace Scratch.FolderManager {
                 switch (response) {
                     case Gtk.ResponseType.ACCEPT:
                         search_term = dialog.search_term;
-                        use_regex = dialog.use_regex;
-                        case_sensitive = dialog.case_sensitive;
                         break;
 
                     default:
@@ -568,8 +573,10 @@ namespace Scratch.FolderManager {
                 win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
-                    search_term = Regex.escape_string (search_term);
-                }
+                    if (wholeword_search) {
+                        search_term = "\\b%s\\b".printf (search_term);
+                    }
+                } // else use search_term as is - TODO do we need to escape it?
 
                 try {
                     var flags = RegexCompileFlags.MULTILINE;
@@ -655,7 +662,7 @@ namespace Scratch.FolderManager {
         }
 
         private void perform_match (GLib.File target,
-                                    Regex pattern,
+                                    Regex search_regex,
                                     bool check_is_text = false,
                                     FileInfo? target_info = null) {
             string contents;
@@ -699,7 +706,7 @@ namespace Scratch.FolderManager {
             MatchInfo? match_info = null;
             int match_count = 0;
             try {
-                for (pattern.match (contents, 0, out match_info);
+                for (search_regex.match (contents, RegexMatchFlags.NOTEMPTY, out match_info);
                     match_info.matches ();
                     match_info.next ()) {
 

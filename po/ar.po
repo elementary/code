@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "لسان جديد"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "نافذة جديدة"
 
@@ -44,93 +44,113 @@ msgstr ""
 msgid "[FILE…]"
 msgstr "[ملف...]"
 
-#: src/MainWindow.vala:249
+#: src/MainWindow.vala:263
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "كود"
 
-#: src/MainWindow.vala:251
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "كود"
 
-#: src/MainWindow.vala:385
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:390 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:415
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:406
+#: src/MainWindow.vala:420
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "اظهر المعاينة"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:434
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "اخفي الطرفية"
 
-#: src/MainWindow.vala:434 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "اظهر الطرفية"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:621
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:953 src/Services/Document.vala:664
+#: src/MainWindow.vala:977 src/Services/Document.vala:668
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:957 src/Services/Document.vala:668
+#: src/MainWindow.vala:981 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:961
+#: src/MainWindow.vala:985
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:964
+#: src/MainWindow.vala:988
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:965 src/Dialogs/GlobalSearchDialog.vala:109
-#: src/Dialogs/NewBranchDialog.vala:42 src/Services/Document.vala:506
-#: src/Services/Document.vala:676 plugins/pastebin/pastebin_dialog.vala:327
+#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
+#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:1005
+#: src/MainWindow.vala:1032
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:1006
+#: src/MainWindow.vala:1033
 msgid "_Cancel"
 msgstr "_الغاء"
+
+#: src/MainWindow.vala:1088
+msgid "Cloning completed"
+msgstr ""
+
+#: src/MainWindow.vala:1089
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1095
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
+#: src/MainWindow.vala:1102
+msgid "Retry"
+msgstr ""
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -138,24 +158,79 @@ msgstr "_الغاء"
 msgid "Show '%s' with default app"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#. /TRANSLATORS "Git" is a proper name and must not be translated
+#: src/Dialogs/CloneRepositoryDialog.vala:55
+msgid "Create a local clone of a Git repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:56
+msgid ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:59
+msgid "Clone Repository"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:69
+msgid "https://example.com/username/projectname.git"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:93
+msgid "Select folder where the cloned repository will be created"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:96
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select"
+msgstr "إختر الخط :"
+
+#: src/Dialogs/CloneRepositoryDialog.vala:118
+msgid "Repository URL"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:119
+msgid "Location"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:120
+msgid "Name of Clone"
+msgstr ""
+
+#: src/Dialogs/CloneRepositoryDialog.vala:122
+msgid "Cloning in progress"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:62
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "كلمة البحث يجب أن تحتوي على ٣ أحرف على الأقل."
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:64
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "بحث عن نص في ”%s“"
 
-#: src/Dialogs/GlobalSearchDialog.vala:70
+#: src/Dialogs/GlobalSearchDialog.vala:69
 msgid "The search term must be at least 3 characters long."
 msgstr "كلمة البحث يجب أن تحتوي على ٣ أحرف على الأقل."
 
-#: src/Dialogs/GlobalSearchDialog.vala:83
-msgid "Case sensitive:"
-msgstr "حساسية حالة الأحرف:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:92
-msgid "Use regular expressions:"
-msgstr "استخدام التعابير النمطية:"
-
-#: src/Dialogs/GlobalSearchDialog.vala:111
+#: src/Dialogs/GlobalSearchDialog.vala:88
 msgid "Search"
 msgstr "بحث"
 
@@ -173,7 +248,7 @@ msgstr "اسم الفرع يجب أن يكون مميز وأن يتبع قواع
 msgid "Create Branch"
 msgstr "إنشاء فرع"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "التفضيلات"
 
@@ -265,43 +340,49 @@ msgstr "المحرر"
 msgid "Highlight matching brackets"
 msgstr "إبراز الاقواس :"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "إبراز تراكيب الجمله"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "اظهر خارطة مصغرة:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "دليل سمك الخط:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "الخط"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "السلوك"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "الواجهة"
 
-#: src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "الامتدادات"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "اغلق"
@@ -393,24 +474,23 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:127
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
 msgstr "اجراءات اخرى"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
 msgid "Rename"
 msgstr "إعادة التسمية"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:109
-#: src/FolderManager/ProjectFolderItem.vala:279
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
 msgid "Move to Trash"
 msgstr "انقل الى سلة المهملات"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:159
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "تطبيقات أخرى…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:179
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "إفتح في"
 
@@ -418,39 +498,39 @@ msgstr "إفتح في"
 msgid "Folders"
 msgstr "المجلدات"
 
-#: src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FolderItem.vala:156
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Folder…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "الطرفية"
 
-#: src/FolderManager/FolderItem.vala:185
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "مجلد"
 
-#: src/FolderManager/FolderItem.vala:193
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "ملف فارغ"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:204
-#: src/FolderManager/ProjectFolderItem.vala:439
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "جديد"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "ملف غير مسمى"
 
-#: src/FolderManager/FolderItem.vala:360
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "ملف جديد"
 
@@ -504,133 +584,133 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:290 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find in Project…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/FolderManager/ProjectFolderItem.vala:332
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:349
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:364
+#: src/FolderManager/ProjectFolderItem.vala:350
 #, fuzzy
 #| msgid "Branch"
 msgid "New Branch…"
 msgstr "تفرع"
 
-#: src/FolderManager/ProjectFolderItem.vala:389
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "تفرع"
 
-#: src/FolderManager/ProjectFolderItem.vala:445
+#: src/FolderManager/ProjectFolderItem.vala:431
 #, fuzzy
 #| msgid "%s, Modified"
 msgid "Modified"
 msgstr "%s, المعدل"
 
-#: src/FolderManager/ProjectFolderItem.vala:483
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:380
+#: src/Services/Document.vala:384
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ليس بملف نصي"
 
-#: src/Services/Document.vala:381
+#: src/Services/Document.vala:385
 msgid "Code will not load this type of file."
 msgstr "الشيفرة البرمجية لن يحمل نوع الملفات هذا."
 
-#: src/Services/Document.vala:383
+#: src/Services/Document.vala:387
 msgid "Load Anyway"
 msgstr "حمل على أي حال"
 
-#: src/Services/Document.vala:404
+#: src/Services/Document.vala:408
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "جاري العمل على الملف “%s” قد يستغرق بعض الوقت"
 
-#: src/Services/Document.vala:405
+#: src/Services/Document.vala:409
 msgid "Please wait while Code is loading the file."
 msgstr "الرجاء الانتظار بينما الشيفرة البرمجية يقوم بتحميل الملف."
 
-#: src/Services/Document.vala:407
+#: src/Services/Document.vala:411
 msgid "Cancel Loading"
 msgstr "الغاء التحميل"
 
-#: src/Services/Document.vala:496
+#: src/Services/Document.vala:500
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "حفظ التغيرات الخاصة بـ “%s” قبل اﻹغلاق؟"
 
-#: src/Services/Document.vala:497
+#: src/Services/Document.vala:501
 msgid "If you don't save, changes will be permanently lost."
 msgstr "إن لم تحفظ فستختفى نهائيا جميع التغيرات."
 
-#: src/Services/Document.vala:503
+#: src/Services/Document.vala:507
 msgid "Close Without Saving"
 msgstr "اغلق بدون حفظ"
 
-#: src/Services/Document.vala:507 src/Services/Document.vala:675
+#: src/Services/Document.vala:511 src/Services/Document.vala:679
 msgid "Save"
 msgstr "إحفظ"
 
-#: src/Services/Document.vala:634
+#: src/Services/Document.vala:638
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "حفظ التغيرات الخاصة بـ “%s” قبل اﻹغلاق؟"
 
-#: src/Services/Document.vala:672
+#: src/Services/Document.vala:676
 msgid "Save File"
 msgstr "حفظ الملف"
 
-#: src/Services/Document.vala:759 src/Services/Document.vala:777
+#: src/Services/Document.vala:763 src/Services/Document.vala:781
 msgid "New Document"
 msgstr "مُستند جديد"
 
 #. No path for a new document
-#: src/Services/Document.vala:779
+#: src/Services/Document.vala:783
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:870
 #, fuzzy, c-format
 #| msgid "Search for text in “%s”"
 msgid "Cannot read text in file “%s”"
 msgstr "بحث عن نص في ”%s“"
 
-#: src/Services/Document.vala:848
+#: src/Services/Document.vala:873
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "قد يكون تالفا أو أنك ليس لديك الصلاحيات لقراءته."
 
-#: src/Services/Document.vala:850
+#: src/Services/Document.vala:875
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:856
+#: src/Services/Document.vala:881
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "حمل على أي حال"
 
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:912
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -640,7 +720,7 @@ msgid ""
 "changes."
 msgstr "المكان يحتوي على الملف “%s” ولم يكن مركبا. هل تريد حفظه فيه مكان آخر؟"
 
-#: src/Services/Document.vala:889
+#: src/Services/Document.vala:914
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -652,13 +732,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:903
+#: src/Services/Document.vala:928
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "الملف “%s” قد تم حذفه. هل تريد حفظه على اية حال؟"
 
-#: src/Services/Document.vala:949
+#: src/Services/Document.vala:974
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -668,65 +748,65 @@ msgstr ""
 "الملف “%s” قد تم تعديله من طرف خارجي. هل تريد إعادة تحميله أم تريد اكمال "
 "التعديل عليه؟"
 
-#: src/Services/Document.vala:954
+#: src/Services/Document.vala:979
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:958
+#: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:999
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1008
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:985
+#: src/Services/Document.vala:1010
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1034
+#: src/Services/Document.vala:1059
 msgid "Continue"
 msgstr "استمرار"
 
-#: src/Services/Document.vala:1036
+#: src/Services/Document.vala:1061
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "رفع"
 
-#: src/Services/Document.vala:1039
+#: src/Services/Document.vala:1064
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1042
+#: src/Services/Document.vala:1067
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
 msgstr "إحفظ الملف الحالى"
 
-#: src/Services/MonitoredRepository.vala:238
+#: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:239
+#: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:276
+#: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:324
+#: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -736,23 +816,28 @@ msgid "Templates"
 msgstr "القوالب"
 
 #. Remove fake fields created by the vala parser.
-#: src/SymbolPane/C/CtagsSymbolOutline.vala:75
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:168
-#: src/SymbolPane/SymbolOutline.vala:99
+#: src/SymbolPane/C/CtagsSymbolOutline.vala:79
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
+#: src/SymbolPane/SymbolOutline.vala:127
 msgid "Symbols"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
 #, fuzzy
 #| msgid "Symbols"
 msgid "Too Many Symbols"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/SymbolPane/Vala/ValaSymbolOutline.vala:124
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
 msgid ""
 "%s contains too many Vala symbols.\n"
-"Parsing and showing them took long"
+"Parsing and showing them took too long."
+msgstr ""
+
+#: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
+#, c-format
+msgid "Vala symbols found in %s"
 msgstr ""
 
 #: src/SymbolPane/SymbolOutline.vala:35
@@ -797,39 +882,49 @@ msgstr ""
 msgid "Other"
 msgstr "اخرى…"
 
-#: src/SymbolPane/SymbolOutline.vala:103
+#: src/SymbolPane/SymbolOutline.vala:131
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/SymbolPane/SymbolOutline.vala:112
+#: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:132
+#: src/SymbolPane/SymbolOutline.vala:160
 #, fuzzy
 #| msgid "Select font:"
 msgid "Select All"
 msgstr "إختر الخط :"
 
-#: src/SymbolPane/SymbolOutline.vala:138
+#: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:20
+#: src/Widgets/ChooseProjectButton.vala:22
 #, fuzzy
 #| msgid "Project templates"
 msgid "No Project Selected"
 msgstr "قوالب المشروع"
 
-#: src/Widgets/ChooseProjectButton.vala:21
+#: src/Widgets/ChooseProjectButton.vala:23
 #, c-format
 msgid "Active Git Project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:51
+#: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
+msgstr ""
+
+#: src/Widgets/ChooseProjectButton.vala:84
+#, fuzzy
+#| msgid "Open Folder"
+msgid "Open Folder…"
+msgstr "افتح مجلد"
+
+#: src/Widgets/ChooseProjectButton.vala:89
+msgid "Clone Git Repository…"
 msgstr ""
 
 #: src/Widgets/DocumentView.vala:109
@@ -838,40 +933,42 @@ msgstr ""
 msgid "Closed Tabs"
 msgstr "اغلق"
 
-#: src/Widgets/DocumentView.vala:454
+#: src/Widgets/DocumentView.vala:449
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "ملف نصي من %s:%d"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:626
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "اغلق المجلدات الاخرى"
 
-#: src/Widgets/DocumentView.vala:632
+#: src/Widgets/DocumentView.vala:627
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "اغلق"
 
-#: src/Widgets/DocumentView.vala:635
+#: src/Widgets/DocumentView.vala:630
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "نافذة جديدة"
 
-#: src/Widgets/DocumentView.vala:636
+#: src/Widgets/DocumentView.vala:631
 msgid "Duplicate Tab"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "إبراز تراكيب الجمله"
+#, fuzzy
+#| msgid "Filter languages"
+msgid "Document language"
+msgstr "ترشيح اللغات"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -973,114 +1070,148 @@ msgstr "تكبير للداخل"
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "القائمة"
 
-#: src/Widgets/Sidebar.vala:63
-#, fuzzy
-#| msgid "Open Folder"
-msgid "Open Folder…"
-msgstr "افتح مجلد"
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
 
-#: src/Widgets/Sidebar.vala:66
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "تباين عالي"
+
+#: src/Widgets/Sidebar.vala:52
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
 msgstr "طي الكل"
 
-#: src/Widgets/Sidebar.vala:69
+#: src/Widgets/Sidebar.vala:83
 msgid "Alphabetize"
 msgstr "ترتيب بالأبجدية"
 
-#: src/Widgets/Sidebar.vala:81
-msgid "Manage project folders"
+#: src/Widgets/Sidebar.vala:91
+#, fuzzy
+#| msgid "Manage project folders"
+msgid "Manage project folders…"
 msgstr "إدارة مجلدات المشروع"
 
-#: src/Widgets/SearchBar.vala:71
+#: src/Widgets/SearchBar.vala:101
 msgid "Find"
 msgstr "بحث"
 
-#: src/Widgets/SearchBar.vala:74
+#: src/Widgets/SearchBar.vala:104
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:86
+#: src/Widgets/SearchBar.vala:116
 msgid "Search next"
 msgstr "البحث عن التالي"
 
-#: src/Widgets/SearchBar.vala:96
+#: src/Widgets/SearchBar.vala:126
 msgid "Search previous"
 msgstr "البحث عن السابق"
 
-#: src/Widgets/SearchBar.vala:99
+#: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
 msgstr "دورة البحث"
 
-#: src/Widgets/SearchBar.vala:102 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "أبداً"
 
-#: src/Widgets/SearchBar.vala:103
+#: src/Widgets/SearchBar.vala:133
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:134
 msgid "Always"
 msgstr "دائما"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:137
 msgid "Case Sensitive"
 msgstr "حساسة لحالة الأحرف (يهم إذا الأحرف كبيرة أو صغيرة)"
 
-#: src/Widgets/SearchBar.vala:114
+#: src/Widgets/SearchBar.vala:144
 #, fuzzy
 #| msgid "Use regular expressions:"
 msgid "Use Regular Expressions"
 msgstr "استخدام التعابير النمطية:"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:136
+#: src/Widgets/SearchBar.vala:166
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "البحث عن السابق"
 
-#: src/Widgets/SearchBar.vala:168
+#: src/Widgets/SearchBar.vala:203
 msgid "Replace With"
 msgstr "استبدل بـ"
 
-#: src/Widgets/SearchBar.vala:171
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace"
 msgstr "إستبدال"
 
-#: src/Widgets/SearchBar.vala:174
+#: src/Widgets/SearchBar.vala:209
 msgid "Replace all"
 msgstr "استبدال الكل"
 
-#: src/Widgets/SearchBar.vala:569
+#: src/Widgets/SearchBar.vala:614
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:574
+#: src/Widgets/SearchBar.vala:619
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:558
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "رتب الأسطر التي تم اختيارها"
 
-#: src/Widgets/SourceView.vala:571
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Mark Line"
+msgstr "إحذف منطقه العرض الحاليه"
+
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Search"
+msgid "Previous Mark"
+msgstr "السابق"
+
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Search"
+msgid "Next Mark"
+msgstr "التالي"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "تحويل لتعليق"
 
-#: src/Widgets/Terminal.vala:59
+#: src/Widgets/Terminal.vala:140
 msgid "Copy"
 msgstr "نسخ"
 
-#: src/Widgets/Terminal.vala:60
+#: src/Widgets/Terminal.vala:141
 msgid "Paste"
 msgstr "لصق"
 
@@ -1117,7 +1248,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "اضف مجلد المشروع للشريط الجانبي."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:117
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
 msgid "Upload to Pastebin"
 msgstr "رفع إلى Pastebin"
 
@@ -1178,9 +1309,21 @@ msgid "Please install at least one [aspell] dictionary."
 msgstr "رجاءً قم بتثبيت قاموس [aspell] واحد على الأقل."
 
 #: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "اتمام %s من الكلمات"
+
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "مُحرر النصوص"
+
+#~ msgid "Case sensitive:"
+#~ msgstr "حساسية حالة الأحرف:"
+
+#~ msgid "Use regular expressions:"
+#~ msgstr "استخدام التعابير النمطية:"
 
 #~ msgid "Tabs"
 #~ msgstr "التبويبات"
@@ -1256,9 +1399,6 @@ msgstr "اتمام %s من الكلمات"
 
 #~ msgid "For selected text"
 #~ msgstr "للنصوص المختارة"
-
-#~ msgid "High Contrast"
-#~ msgstr "تباين عالي"
 
 #~ msgid "Solarized Light"
 #~ msgstr "الوضع الفاتح"
@@ -1347,9 +1487,6 @@ msgstr "اتمام %s من الكلمات"
 #~ "lost."
 #~ msgstr "إن لم تحفظ, فستختفى نهائياً جميع التغييرات فى آخر 4 ثواني."
 
-#~ msgid "Text Editor"
-#~ msgstr "مُحرر النصوص"
-
 #~ msgid "Trash"
 #~ msgstr "المُهملات"
 
@@ -1436,12 +1573,6 @@ msgstr "اتمام %s من الكلمات"
 
 #~ msgid "Create a new document in a new tab"
 #~ msgstr "انشأ مستند جديد في لسان جديد"
-
-#~ msgid "Previous Search"
-#~ msgstr "السابق"
-
-#~ msgid "Next Search"
-#~ msgstr "التالي"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "انشاء مستند جديد إنطلاقا من نموذج"

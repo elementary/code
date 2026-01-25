@@ -34,6 +34,7 @@ namespace Scratch.Services {
                                      string paste_private, string paste_expire_date,
                                      string paste_format) {
 
+            link = null;
             if (paste_code.length == 0) { link = "No text to paste"; return false; }
 
             string api_url = "https://pastebin.com/api/api_post.php";
@@ -50,15 +51,21 @@ namespace Scratch.Services {
                 "api_paste_expire_date", paste_expire_date,
                 "api_paste_format", paste_format);
 
-            message.set_request ("application/x-www-form-urlencoded", Soup.MemoryUse.COPY, request.data);
+            message.set_request_body_from_bytes ("application/x-www-form-urlencoded", new Bytes (request.data));
             message.set_flags (Soup.MessageFlags.NO_REDIRECT);
 
-            session.send_message (message);
+            Bytes output;
+            try {
+                output = session.send_and_read (message);
+            } catch (Error e) {
+                return false;
+            }
 
-            var output = (string) message.response_body.data;
-            link = output;
 
-            if (Uri.parse_scheme (output) == null || message.status_code != 200) {
+            var output_s = (string) output.get_data ();
+            link = output_s;
+
+            if (Uri.parse_scheme (output_s) == null || message.status_code != 200) {
                 // A URI was not returned
                 return false;
             }
@@ -68,10 +75,11 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
-    public Object object { owned get; construct; }
+    public Object object { owned get; set construct; }
+    Dialogs.PasteBinDialog? pastebin_dialog = null;
 
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
@@ -135,8 +143,15 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     }
 
     void show_paste_bin_upload_dialog () {
-        MainWindow window = plugins.manager.window;
-        new Dialogs.PasteBinDialog (window, doc);
+        if (pastebin_dialog != null) {
+            pastebin_dialog.present ();
+        } else {
+            MainWindow window = plugins.manager.window;
+            pastebin_dialog = new Dialogs.PasteBinDialog (window, doc);
+            pastebin_dialog.destroy.connect (() => {
+                pastebin_dialog = null;
+            });
+        }
     }
 
     public void deactivate () {
@@ -147,6 +162,6 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Scratch.Services.ActivatablePlugin),
                                      typeof (Scratch.Plugins.Pastebin));
 }

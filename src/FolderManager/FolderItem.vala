@@ -29,6 +29,12 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
+        public bool loading_required {
+            get {
+                return !children_loaded && n_children <= 1 && file.children.size > 0;
+            }
+        }
+
         public FolderItem (File file, FileView view) {
             Object (file: file, view: view);
         }
@@ -42,6 +48,7 @@ namespace Scratch.FolderManager {
 
             dummy = new Code.Widgets.SourceList.Item ("");
             // Must add dummy on unexpanded folders else expander will not show
+            dummy.selectable = false;
             ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
             has_dummy = true;
 
@@ -55,37 +62,68 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void on_toggled () {
-            var root = get_root_folder ();
-            if (!children_loaded &&
-                 expanded &&
-                 n_children <= 1 &&
-                 file.children.size > 0) {
-
+        public void load_children () {
+            if (loading_required) {
                 foreach (var child in file.children) {
-                    Code.Widgets.SourceList.Item? item = null;
-                    if (child.is_valid_directory) {
-                        item = new FolderItem (child, view);
-                    } else if (child.is_valid_textfile) {
-                        item = new FileItem (child, view);
-                    }
-
-                    add (item); // ignores null parameter
+                    add_child (child);
                 }
 
-                children_loaded = true;
-                if (root != null) {
-                    root.child_folder_loaded (this);
-                }
-            } else if (!expanded &&
-                       root != null &&
-                       root.monitored_repo != null) {
-                //When toggled closed, update status to reflect hidden contents
-                root.update_item_status (this);
+                after_children_loaded ();
             }
         }
 
-        public override Gtk.Menu? get_context_menu () {
+        private async void load_children_async () {
+            if (loading_required) {
+                foreach (var child in file.children) {
+                    Idle.add (() => {
+                        add_child (child);
+                        load_children_async.callback ();
+                        return Source.REMOVE;
+                    });
+
+                    yield;
+                }
+            }
+
+            after_children_loaded ();
+        }
+
+        private void add_child (File child) {
+            Code.Widgets.SourceList.Item item = null;
+            if (child.is_valid_directory) {
+                item = new FolderItem (child, view);
+            } else if (child.is_valid_textfile) {
+                item = new FileItem (child, view);
+            }
+
+            if (item != null) {
+                add (item);
+            }
+        }
+
+        private void after_children_loaded () {
+            children_loaded = true;
+            var root = get_root_folder ();
+            if (root != null) {
+                root.child_folder_loaded (this); //Updates child status emblens
+            }
+        }
+
+        private void on_toggled () {
+            if (expanded) {
+                load_children_async.begin ();
+                return;
+            } else {
+                var root = get_root_folder ();
+                if (root != null &&
+                    root.monitored_repo != null) {
+                    //When toggled closed, update status to reflect hidden contents
+                    root.update_item_status (this);
+                }
+            }
+        }
+
+        public override GLib.Menu? get_context_menu () {
             GLib.FileInfo info = null;
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
@@ -140,9 +178,7 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, direct_actions_section);
             menu_model.append_section (null, search_section);
 
-            var menu = new Gtk.Menu.from_model (menu_model);
-            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
-            return menu;
+            return menu_model;
         }
 
         protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {

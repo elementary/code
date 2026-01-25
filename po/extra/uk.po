@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 09:20+0000\n"
-"PO-Revision-Date: 2024-10-22 05:04+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-08-01 07:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/"
-">\n"
+"Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
+"uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -135,37 +135,216 @@ msgstr "Прокрутіть у кінець файлу, щоб зберегти
 msgid "Optional mini-map to make navigating large files easier"
 msgstr "Опційна міні-карта для полегшення навігації у великих файлах"
 
-#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:94
-#: data/code.metainfo.xml.in:123 data/code.metainfo.xml.in:162
-#: data/code.metainfo.xml.in:211 data/code.metainfo.xml.in:251
+#: data/code.metainfo.xml.in:65
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/code.metainfo.xml.in:73 data/code.metainfo.xml.in:90
+#: data/code.metainfo.xml.in:109 data/code.metainfo.xml.in:140
+#: data/code.metainfo.xml.in:182 data/code.metainfo.xml.in:203
+#: data/code.metainfo.xml.in:232 data/code.metainfo.xml.in:271
+#: data/code.metainfo.xml.in:320 data/code.metainfo.xml.in:360
 msgid "Minor updates:"
 msgstr "Незначні оновлення:"
 
 #: data/code.metainfo.xml.in:75
-msgid "Add symbol filter to Outline pane"
-msgstr "Додавання фільтра символів на панель Контур"
+#, fuzzy
+#| msgid "The Vala symbol pane now gives more information in the tooltips"
+msgid "The tooltips for C symbols are now more informative"
+msgstr "Панель символів Vala тепер надає більше інформації у підказках"
 
-#: data/code.metainfo.xml.in:76 data/code.metainfo.xml.in:96
-#: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:173
-#: data/code.metainfo.xml.in:221 data/code.metainfo.xml.in:253
+#: data/code.metainfo.xml.in:76
+msgid "Cloning success is now indicated by toast instead of a dialog"
+msgstr ""
+
+#: data/code.metainfo.xml.in:77
+msgid "Global search and local search now have the same case sensitivity"
+msgstr ""
+
+#: data/code.metainfo.xml.in:78
+msgid ""
+"Opening a second window no longer results in duplicate project entries in "
+"the project chooser"
+msgstr ""
+
+#: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:94
+#: data/code.metainfo.xml.in:114 data/code.metainfo.xml.in:154
+#: data/code.metainfo.xml.in:185 data/code.metainfo.xml.in:205
+#: data/code.metainfo.xml.in:241 data/code.metainfo.xml.in:282
+#: data/code.metainfo.xml.in:330 data/code.metainfo.xml.in:362
 msgid "Updated translations"
 msgstr "Оновлено переклади"
 
-#: data/code.metainfo.xml.in:89 data/code.metainfo.xml.in:117
-#: data/code.metainfo.xml.in:156 data/code.metainfo.xml.in:204
-#: data/code.metainfo.xml.in:236
+#: data/code.metainfo.xml.in:92
+msgid ""
+"The terminal pane is now synchronized with the Terminal app foreground, "
+"background and palette settings"
+msgstr ""
+
+#: data/code.metainfo.xml.in:93
+msgid ""
+"The terminal pane is now synchronized with GNOME font and cursor blink "
+"settings"
+msgstr ""
+
+#: data/code.metainfo.xml.in:105 data/code.metainfo.xml.in:129
+#: data/code.metainfo.xml.in:198 data/code.metainfo.xml.in:226
+#: data/code.metainfo.xml.in:265 data/code.metainfo.xml.in:313
+#: data/code.metainfo.xml.in:345
 msgid "Improvements:"
 msgstr "Удосконалення:"
 
-#: data/code.metainfo.xml.in:91
+#: data/code.metainfo.xml.in:107
+msgid ""
+"The Project Chooser context menu now includes an option to clone a remote "
+"git repository"
+msgstr ""
+"Контекстне меню вибору проєкту відтепер містить опцію клонування віддаленого "
+"git-репозиторію"
+
+#: data/code.metainfo.xml.in:111
+msgid ""
+"The \"Open Folder\" action now appears in the Project Chooser context menu"
+msgstr ""
+"Дія «Відкрити теку» відтепер з'являється в контекстному меню Обирача проєктів"
+
+#: data/code.metainfo.xml.in:112
+msgid "The Vala symbol pane now shows a spinner while loading"
+msgstr ""
+"На панелі символів Vala відтепер показується дзиґа під час завантаження"
+
+#: data/code.metainfo.xml.in:113
+msgid "The filter in the C symbol pane now works"
+msgstr "Фільтр на панелі символів C тепер працює"
+
+#: data/code.metainfo.xml.in:131
+msgid ""
+"A new gutter is added for adding/removing edit marks that can be navigated "
+"between with keyboard shortcuts"
+msgstr ""
+"Додано новий лоток для додавання/видалення міток редагування, між якими "
+"можна переміщатися за допомогою комбінацій клавіш"
+
+#: data/code.metainfo.xml.in:132
+msgid "Remote branches may now be opened from the \"Branch\" menu"
+msgstr "Віддалені гілки тепер можна відкривати з меню «Гілка»"
+
+#: data/code.metainfo.xml.in:133
+msgid ""
+"Options to overwrite or cancel are given when switching branch with "
+"uncommitted changes"
+msgstr ""
+"Опції перезаписати або скасувати надаються під час перемикання гілки з "
+"нефіксованими змінами"
+
+#: data/code.metainfo.xml.in:134
+msgid "The network can now be accessed from within the Flatpak"
+msgstr "Тепер доступ до мережі можна отримати безпосередньо з Flatpak"
+
+#: data/code.metainfo.xml.in:135
+msgid ""
+"The branch names in the \"Branch\" submenus are now sorted alphabetically"
+msgstr "Назви гілок у підменю «Гілка» тепер відсортовано за абеткою"
+
+#: data/code.metainfo.xml.in:136
+msgid ""
+"The extension list now has switches instead of checkboxes in order to "
+"provide a larger target"
+msgstr ""
+"Список розширень тепер має перемикачі замість прапорців, щоб забезпечити "
+"більше цілей"
+
+#: data/code.metainfo.xml.in:137
+msgid ""
+"The terminal pane now implements smart copy-paste and follows the \"natural-"
+"copy-paste\" setting of Terminal"
+msgstr ""
+"Панель термінала тепер реалізує розумне копіювання-вставлення і дотримується "
+"налаштувань «природне копіювання-вставлення» у Терміналі"
+
+#: data/code.metainfo.xml.in:138
+msgid "The Vala symbol pane now gives more information in the tooltips"
+msgstr "Панель символів Vala тепер надає більше інформації у підказках"
+
+#: data/code.metainfo.xml.in:142
+msgid "Launcher actions now have icons"
+msgstr "Дії панелі запуску тепер мають піктограми"
+
+#: data/code.metainfo.xml.in:143
+msgid ""
+"Opening and immediately closing a new document no longer prevents further "
+"documents being opened"
+msgstr ""
+"Відкриття та негайне закриття нового документа більше не перешкоджає "
+"відкриттю інших документів"
+
+#: data/code.metainfo.xml.in:144
+msgid ""
+"The Vala symbol pane may only block the UI for a limited time if there are a "
+"large number of symbols"
+msgstr ""
+"Панель символів Vala може блокувати інтерфейс лише на обмежений час, якщо є "
+"велика кількість символів"
+
+#: data/code.metainfo.xml.in:145
+msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
+msgstr "Меню «Відкрити в ...» більше не порожня під час запуску як Flatpak"
+
+#: data/code.metainfo.xml.in:146
+msgid "The search term now persists until editing or closing the search bar."
+msgstr ""
+"Пошуковий термін тепер зберігається до редагування або закриття панелі "
+"пошуку."
+
+#: data/code.metainfo.xml.in:147
+msgid ""
+"No longer allow the parent or child of an open project to be itself opened "
+"as a project"
+msgstr ""
+"Більше не дозволяється проєктам вищого рівня або дочірнім відкритих проєктів "
+"відкриватися як проєкти"
+
+#: data/code.metainfo.xml.in:148
+msgid "The active project dropdown now keeps in sync"
+msgstr "Спадне меню активного проєкту тепер синхронізується"
+
+#: data/code.metainfo.xml.in:149
+msgid "Numbered lists are now handled correctly by Markdown plugin"
+msgstr "Нумеровані списки тепер коректно обробляються плагіном Markdown"
+
+#: data/code.metainfo.xml.in:150
+msgid "The highlighting plugin now works with selections of more than one word"
+msgstr "Плагін виділення тепер працює з виділенням більш ніж одного слова"
+
+#: data/code.metainfo.xml.in:151
+msgid ""
+"The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
+msgstr ""
+"Меню «Відкрити в ...» тепер відсортовано і містить пункт «Термінальна панель»"
+
+#: data/code.metainfo.xml.in:152
+msgid "Folders containing may items now expand faster without blocking the UI"
+msgstr ""
+"Теки, що містять багато елементів, тепер розгортаються швидше, не блокуючи "
+"інтерфейс користувача"
+
+#: data/code.metainfo.xml.in:153
+msgid "Symbol Pane now always scrolls document to selected symbol"
+msgstr "Панель символів тепер завжди прокручує документ до вибраного символу"
+
+#: data/code.metainfo.xml.in:184
+msgid "Add symbol filter to Outline pane"
+msgstr "Додавання фільтра символів на панель Контур"
+
+#: data/code.metainfo.xml.in:200
 msgid "The Terminal pane now has a settable default directory"
 msgstr "Панель термінала відтепер має налаштовувану усталену директорію"
 
-#: data/code.metainfo.xml.in:92
+#: data/code.metainfo.xml.in:201
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
 msgstr "Нова панель вкладок з покращеною анімацією та перетягуванням"
 
-#: data/code.metainfo.xml.in:119
+#: data/code.metainfo.xml.in:228
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
@@ -173,36 +352,36 @@ msgstr ""
 "Під час відкриття файлу в Код з командного рядка або іншого застосунку можна "
 "вказати позицію рядка/символу або діапазон виділення"
 
-#: data/code.metainfo.xml.in:120
+#: data/code.metainfo.xml.in:229
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
 "Додано плагін неточного пошуку, який шукає файли у всіх відкритих проєктах"
 
-#: data/code.metainfo.xml.in:121
+#: data/code.metainfo.xml.in:230
 msgid "Save and restore the state of the terminal pane"
 msgstr "Збереження й відновлення стану в панелі термінала"
 
-#: data/code.metainfo.xml.in:125
+#: data/code.metainfo.xml.in:234
 msgid ""
-"\"Find in Folder\" now works for all folders and text files, not only \"."
-"vala\" files"
+"\"Find in Folder\" now works for all folders and text files, not only "
+"\".vala\" files"
 msgstr ""
 "\"Знайти в теці\" відтепер працює для всіх тек і текстових файлів, а не "
 "тільки для файлів \".vala\""
 
-#: data/code.metainfo.xml.in:126
+#: data/code.metainfo.xml.in:235
 msgid "\"Follow System Style\" is now fully respected"
 msgstr "\"Дотримуватись стилю системи\" відтепер повністю дотримано"
 
-#: data/code.metainfo.xml.in:127
+#: data/code.metainfo.xml.in:236
 msgid "The \"--new-tab\" commandline option now works"
 msgstr "Опція командного рядка \"--new-tab\" тепер працює"
 
-#: data/code.metainfo.xml.in:128
+#: data/code.metainfo.xml.in:237
 msgid "The symbol pane width is now synchronised and saved"
 msgstr "Ширину панелі символів синхронізовано та збережено"
 
-#: data/code.metainfo.xml.in:129
+#: data/code.metainfo.xml.in:238
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
@@ -210,44 +389,44 @@ msgstr ""
 "Теки проєктів автоматично закриваються, якщо їх перейменовано, переміщено "
 "або видалено ззовні"
 
-#: data/code.metainfo.xml.in:130
+#: data/code.metainfo.xml.in:239
 msgid "Fixed temporary backup files persisting under some circumstances"
 msgstr ""
 "Виправлено збереження тимчасових файлів резервних копій за певних обставин"
 
-#: data/code.metainfo.xml.in:131
+#: data/code.metainfo.xml.in:240
 msgid "The Show-Replace action has been improved"
 msgstr "Покращено дію Показати-замінити"
 
-#: data/code.metainfo.xml.in:158
+#: data/code.metainfo.xml.in:267
 msgid "Search options transferred to searchbar menu"
 msgstr "Опції пошуку перенесено до меню панелі пошуку"
 
-#: data/code.metainfo.xml.in:159
+#: data/code.metainfo.xml.in:268
 msgid "Whole word search option added"
 msgstr "Додано опцію пошуку цілого слова"
 
-#: data/code.metainfo.xml.in:160
+#: data/code.metainfo.xml.in:269
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
 "Налаштування пошуку за цілим словом, із врахуванням регістру та за допомогою "
 "регулярних виразів тепер зберігаються"
 
-#: data/code.metainfo.xml.in:164
+#: data/code.metainfo.xml.in:273
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
 "Панель пошуку відтепер оновлюється належним чином після зміни активного "
 "документа"
 
-#: data/code.metainfo.xml.in:165
+#: data/code.metainfo.xml.in:274
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
 "Спроба зберегти документ у місці, недоступному для запису, тепер "
 "обробляється краще"
 
-#: data/code.metainfo.xml.in:166
+#: data/code.metainfo.xml.in:275
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
@@ -255,18 +434,18 @@ msgstr ""
 "За стилем системи відтепер слідує контур символів, а також під час запуску "
 "без відкритих документів"
 
-#: data/code.metainfo.xml.in:167
+#: data/code.metainfo.xml.in:276
 msgid "Mixed case sensitive search now works as expected"
 msgstr "Пошук з урахуванням змішаного регістру відтепер працює належним чином"
 
-#: data/code.metainfo.xml.in:168
+#: data/code.metainfo.xml.in:277
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
 msgstr ""
 "Результати пошуку більше не змінюються несподівано при фокусуванні на "
 "документі"
 
-#: data/code.metainfo.xml.in:169
+#: data/code.metainfo.xml.in:278
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
@@ -274,7 +453,7 @@ msgstr ""
 "Відтепер під час запуску завжди є активний проєкт, якщо в бічній панелі є "
 "проєкти"
 
-#: data/code.metainfo.xml.in:170
+#: data/code.metainfo.xml.in:279
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
@@ -282,33 +461,33 @@ msgstr ""
 "Якщо запущено гілку розробки, це показується у заголовку вікна та у спливній "
 "підказці доку"
 
-#: data/code.metainfo.xml.in:171
+#: data/code.metainfo.xml.in:280
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
 msgstr ""
 "Комбінації клавіш Ctrl+PageUp та Ctrl+PageDown відтепер перемикають вкладки"
 
-#: data/code.metainfo.xml.in:172
+#: data/code.metainfo.xml.in:281
 msgid "Ensure active project at startup (include non-git folders)"
 msgstr ""
 "Забезпечення активності проєкту під час запуску (включно з теками, не з git)"
 
-#: data/code.metainfo.xml.in:206
+#: data/code.metainfo.xml.in:315
 msgid "Redesigned app icon"
 msgstr "Оновлений дизайн піктограми застосунку"
 
-#: data/code.metainfo.xml.in:207
+#: data/code.metainfo.xml.in:316
 msgid "New custom dark and light elementary styles for the source view"
 msgstr "Нові користувацькі темні та світлі стилі elementary для перегляду коду"
 
-#: data/code.metainfo.xml.in:208
+#: data/code.metainfo.xml.in:317
 msgid "Option to follow the system dark style preference"
 msgstr "Опція дотримання темного стилю системи"
 
-#: data/code.metainfo.xml.in:209
+#: data/code.metainfo.xml.in:318
 msgid "Ability to half tile on small notebook displays"
 msgstr "Можливість розділення плитки навпіл на невеликих дисплеях ноутбуків"
 
-#: data/code.metainfo.xml.in:213
+#: data/code.metainfo.xml.in:322
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
@@ -316,7 +495,7 @@ msgstr ""
 "Функції «Знайти на сторінці» та «Знайти в проєкті» відтепер доступні з меню "
 "застосунку, а не з панелі заголовка"
 
-#: data/code.metainfo.xml.in:214
+#: data/code.metainfo.xml.in:323
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
@@ -324,7 +503,7 @@ msgstr ""
 "Опції приховування та показу панелей відтепер представлені у вигляді "
 "компактного набору пов'язаних кнопок у меню застосунку"
 
-#: data/code.metainfo.xml.in:215
+#: data/code.metainfo.xml.in:324
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
@@ -332,13 +511,13 @@ msgstr ""
 "Бічна панель відтепер містить кнопку вибору проєкту та заповнює всю висоту "
 "вікна"
 
-#: data/code.metainfo.xml.in:216
+#: data/code.metainfo.xml.in:325
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
 "Початок глобального пошуку з виділеним текстом, який тепер попередньо "
 "заповнює цей текст"
 
-#: data/code.metainfo.xml.in:217
+#: data/code.metainfo.xml.in:326
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
@@ -346,7 +525,7 @@ msgstr ""
 "Панель контуру символу відтепер показана праворуч від початкового вигляду і "
 "може бути показана і схована комбінацією клавіш «Alt + \\»"
 
-#: data/code.metainfo.xml.in:218
+#: data/code.metainfo.xml.in:327
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
@@ -354,7 +533,7 @@ msgstr ""
 "Плагіни Terminal, Symbol outline та Strip Trailing Whitespace стали частиною "
 "основної кодової бази"
 
-#: data/code.metainfo.xml.in:219
+#: data/code.metainfo.xml.in:328
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
@@ -362,14 +541,14 @@ msgstr ""
 "Показ інфопанелі під час перезапису налаштувань ширини вкладки файлом "
 "EditorConfig"
 
-#: data/code.metainfo.xml.in:220
+#: data/code.metainfo.xml.in:329
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
 "Відтепер «Ctrl + |» — це комбінація клавіш для перебудови списку слів "
 "доповнення"
 
-#: data/code.metainfo.xml.in:238
+#: data/code.metainfo.xml.in:347
 msgid ""
 "The current document filename is now shown as the window title in "
 "multitasking view"
@@ -377,11 +556,11 @@ msgstr ""
 "Назва поточного файлу документів тепер показуватиметься назвою вікна у "
 "багатозадачному огляді"
 
-#: data/code.metainfo.xml.in:239
+#: data/code.metainfo.xml.in:348
 msgid "Hidden folders are now shown in the project sidebar"
 msgstr "Сховані теки відтепер показуються на бічній панелі проєкту"
 
-#: data/code.metainfo.xml.in:240
+#: data/code.metainfo.xml.in:349
 msgid ""
 "The currently selected result and the number of results is displayed while "
 "searching"
@@ -389,15 +568,15 @@ msgstr ""
 "Під час пошуку показується поточний вибраний результат і кількість "
 "результатів"
 
-#: data/code.metainfo.xml.in:241
+#: data/code.metainfo.xml.in:350
 msgid "The search bar now has a regular expression mode"
 msgstr "Панель пошуку тепер має режим регулярних виразів"
 
-#: data/code.metainfo.xml.in:243
+#: data/code.metainfo.xml.in:352
 msgid "Fixes:"
 msgstr "Виправлення:"
 
-#: data/code.metainfo.xml.in:245
+#: data/code.metainfo.xml.in:354
 msgid ""
 "It is now possible to change Git branch with untracked files present in a "
 "project"
@@ -405,11 +584,11 @@ msgstr ""
 "Тепер можна змінити гілку Git з не відстежуваними файлами, присутніми в "
 "проєкті"
 
-#: data/code.metainfo.xml.in:246
+#: data/code.metainfo.xml.in:355
 msgid "Crashes are prevented while searching in large projects"
 msgstr "Усунуто збої під час пошуку у великих проєктах"
 
-#: data/code.metainfo.xml.in:247
+#: data/code.metainfo.xml.in:356
 msgid ""
 "The correct document is now focused after opening Code from an external "
 "program"
@@ -417,12 +596,12 @@ msgstr ""
 "Тепер фокусування відбувається на правильному документі після відкриття коду "
 "із зовнішнього застосунку"
 
-#: data/code.metainfo.xml.in:248
+#: data/code.metainfo.xml.in:357
 msgid ""
 "Line duplication is now actioned correctly if there is no selection present"
 msgstr "Дублювання рядка тепер працює правильно, якщо нічого не вибрано"
 
-#: data/code.metainfo.xml.in:249
+#: data/code.metainfo.xml.in:358
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr "Усунуто збої Коду під час запиту відкриття URI невідомого формату"
 
@@ -446,7 +625,7 @@ msgstr "текст;редактор;код;text;IDE;code;"
 msgid "New File"
 msgstr "Новий файл"
 
-#: data/io.elementary.code.desktop.in.in:21
+#: data/io.elementary.code.desktop.in.in:22
 msgid "New Window"
 msgstr "Нове вікно"
 
@@ -507,9 +686,6 @@ msgstr "Потрібна автентифікація для запуску Ко
 
 #~ msgid "Ensure all copy is translatable"
 #~ msgstr "Усі копії придатні для перетворення"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show when running a development branch of Code"
 #~ msgstr "Показується, коли запущено розробницьку гілку Коду"
@@ -774,8 +950,8 @@ msgstr "Потрібна автентифікація для запуску Ко
 #~ "послідовність. Він привабливий, але не відвертає."
 
 #~ msgid ""
-#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, ."
-#~ "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+#~ "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, "
+#~ "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 #~ "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 #~ msgstr ""
 #~ "Інші підтримувані мови: Bash, C, C #, C ++. Cmake, CSS, .Desktop, Diff, "

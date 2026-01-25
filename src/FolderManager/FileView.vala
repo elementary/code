@@ -36,7 +36,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
-    public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -48,8 +47,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
-        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
     private GLib.Settings settings;
@@ -115,32 +113,23 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                toplevel_action_group.activate_action (
+                    MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    new Variant.string (project_folder_item.path)
+                );
                 root.remove (project_folder_item);
                 git_manager.remove_project (project_folder_item);
             }
         }
-
         //Make remaining project the active one
-        git_manager.active_project_path = path;
-
-        write_settings ();
+        set_project_active (path);
     }
 
-    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
-
-        var folder_root = find_path (root, path) as ProjectFolderItem;
-        if (folder_root == null) {
-            return;
-        }
-
-        git_manager.active_project_path = path;
-
-        write_settings ();
+    private void set_project_active (string path) {
+        toplevel_action_group.activate_action (
+            MainWindow.ACTION_SET_ACTIVE_PROJECT,
+            new Variant.string (path)
+        );
     }
 
     public async void restore_saved_state () {
@@ -159,7 +148,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             return;
         }
 
-        add_folder (folder, true);
+        add_folder.begin (folder, true);
     }
 
     public void collapse_all () {
@@ -209,9 +198,14 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private unowned Code.Widgets.SourceList.Item? find_path (Code.Widgets.SourceList.ExpandableItem list,
-                                                                string path,
-                                                                bool expand = false) {
+    private unowned Code.Widgets.SourceList.Item? find_path (
+        Code.Widgets.SourceList.ExpandableItem list,
+        string path,
+        bool expand = false,
+        GLib.File? target_file = null) {
+
+        var target = target_file ?? GLib.File.new_for_path (path);
+
         foreach (var item in list.children) {
             if (item is Item) {
                 var code_item = (Item)item;
@@ -219,21 +213,23 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     return (!)item;
                 }
 
-                if (item is Code.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Code.Widgets.SourceList.ExpandableItem;
-                    if (!path.has_prefix (code_item.path)) {
+                if (item is FolderItem) {
+                    var folder = item as FolderItem;
+                    var folder_root = folder.file.file;
+                    if (folder_root.get_relative_path (target) == null) {
                         continue;
                     }
 
-                    if (!expander.expanded) {
+                    if (!folder.expanded) {
                          if (expand) {
-                             expander.expanded = true;
+                             folder.load_children (); //Synchronous
+                             folder.expanded = true;
                          } else {
                              continue;
                          }
                      }
 
-                    unowned var recurse_item = find_path (expander, path, expand);
+                    unowned var recurse_item = find_path (folder, path, expand, target);
                     if (recurse_item != null) {
                         return recurse_item;
                     }
@@ -244,11 +240,15 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         return null;
     }
 
+    public bool project_is_open (string project_path) {
+        return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
+    }
+
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
         foreach (var item in root.children) {
             if (item is ProjectFolderItem) {
                 var folder = (ProjectFolderItem)item;
-                if (folder.contains_file (file)) {
+                if (folder.file.file.equal (file) || folder.contains_file (file)) {
                     return folder;
                 }
             }

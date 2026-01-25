@@ -26,8 +26,19 @@ public class Code.Sidebar : Gtk.Grid {
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
+    // May show progress in different way in future
+    public bool cloning_in_progress {
+        get {
+            return choose_project_button.cloning_in_progress;
+        }
+
+        set {
+            choose_project_button.cloning_in_progress = value;
+        }
+    }
 
     private Gtk.StackSwitcher stack_switcher;
+    private Granite.Widgets.Toast cloning_success_toast;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -36,6 +47,11 @@ public class Code.Sidebar : Gtk.Grid {
         choose_project_button = new Code.ChooseProjectButton () {
             hexpand = true,
             valign = Gtk.Align.CENTER
+        };
+
+        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
+            halign = CENTER,
+            valign = START
         };
 
         headerbar = new Hdy.HeaderBar () {
@@ -47,6 +63,11 @@ public class Code.Sidebar : Gtk.Grid {
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
+        var overlay = new Gtk.Overlay () {
+            child = stack
+        };
+        overlay.add_overlay (cloning_success_toast);
+
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
@@ -55,13 +76,6 @@ public class Code.Sidebar : Gtk.Grid {
 
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
-
-        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
-            action_target = new Variant.string (""),
-            always_show_image = true,
-            label = _("Open Folder…")
-        };
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
@@ -74,18 +88,21 @@ public class Code.Sidebar : Gtk.Grid {
         project_menu.append_item (order_projects_menu_item);
         project_menu_model = project_menu;
 
-        var project_more_button = new Gtk.MenuButton ();
-        project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        project_more_button.use_popover = false;
-        project_more_button.menu_model = project_menu_model;
-        project_more_button.tooltip_text = _("Manage project folders");
+        var label = new Gtk.Label ( _("Manage project folders…")) {
+            halign = START
+        };
+        var project_menu_button = new Gtk.MenuButton () {
+            hexpand = true,
+            use_popover = false,
+            menu_model = project_menu_model,
+            child = label
+        };
 
-        actionbar.add (add_folder_button);
-        actionbar.pack_end (project_more_button);
+        actionbar.pack_start (project_menu_button);
 
         add (headerbar);
         add (stack_switcher);
-        add (stack);
+        add (overlay);
         add (actionbar);
 
         stack.add.connect (() => {
@@ -164,5 +181,9 @@ public class Code.Sidebar : Gtk.Grid {
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
+    }
+
+    public void notify_cloning_success () {
+        cloning_success_toast.send_notification ();
     }
 }

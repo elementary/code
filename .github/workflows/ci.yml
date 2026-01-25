@@ -18,11 +18,11 @@ jobs:
       image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgit2-glib-1.0-dev libgranite-dev libgtk-3-dev libgtksourceview-4-dev libgtkspell3-3-dev libhandy-1-dev libpeas-dev libsoup2.4-dev libvala-dev libvte-2.91-dev meson valac polkitd libpolkit-gobject-1-dev
+        apt install -y exuberant-ctags libeditorconfig-dev libgail-3-dev libgee-0.8-dev libgit2-glib-1.0-dev libgranite-dev libgtk-3-dev libgtksourceview-4-dev libgtkspell3-3-dev libhandy-1-dev libpeas-2-dev libsoup-3.0-dev libvala-dev libvte-2.91-dev meson valac polkitd libpolkit-gobject-1-dev
     - name: Build
       env:
         DESTDIR: out
@@ -45,15 +45,15 @@ jobs:
       fail-fast: false
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:8-${{ matrix.configuration.arch }}
+      image: ghcr.io/elementary/flatpak-platform/runtime:8.2-${{ matrix.configuration.arch }}
       options: --privileged
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.5
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.6
         with:
           bundle: code.flatpak
           manifest-path: io.elementary.code.yml
@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Lint
         run: io.elementary.vala-lint -d .

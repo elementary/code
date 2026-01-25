@@ -110,6 +110,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         var editor_box = new Gtk.Box (VERTICAL, 12);
         editor_box.add (new Granite.HeaderLabel (_("Editor")));
         editor_box.add (new SettingSwitch (_("Highlight matching brackets"), "highlight-matching-brackets"));
+        editor_box.add (new SettingSwitch (_("Syntax highlighting"), "syntax-highlighting"));
         editor_box.add (draw_spaces_box);
         editor_box.add (new SettingSwitch (_("Mini Map"), "show-mini-map"));
         editor_box.add (new SettingSwitch (_("Wrap lines"), "line-wrap"));
@@ -144,9 +145,9 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         main_box.add (stackswitcher);
         main_box.add (stack);
 
-        plugins.hook_preferences_dialog (this);
+        plugins.hook_preferences_dialog (this); // Unused?
 
-        if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
+        if (plugins.get_n_plugins () > 0) {
             var pbox = plugins.get_view ();
             pbox.vexpand = true;
 
@@ -159,6 +160,11 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
         close_button.clicked.connect (() => {
             destroy ();
+        });
+
+        //Ensure appearance correct after using libpeas-2
+        realize.connect (() => {
+            stack.set_visible_child_name ("behavior");
         });
     }
 

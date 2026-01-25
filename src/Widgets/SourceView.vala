@@ -36,16 +36,17 @@ namespace Scratch.Widgets {
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
         private string selected_text = "";
-        private SourceGutterRenderer git_diff_gutter_renderer;
+        private GitGutterRenderer git_diff_gutter_renderer;
+        private NavMarkGutterRenderer navmark_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
         private double total_delta = 0;
         private const double SCROLL_THRESHOLD = 1.0;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        // "selection_changed" signal now only emitted when the selected text changes (position ignored).  Listened to by searchbar and highlight word selection plugin
+        // "selection_changed" signal now only emitted when the selected text changes (position ignored).
+        // Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
-        public signal void deselected ();
 
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
@@ -83,10 +84,6 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter_renderer = new SourceGutterRenderer ();
-            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 1);
-
             space_drawer.enable_matrix = true;
 
             expand = true;
@@ -98,13 +95,21 @@ namespace Scratch.Widgets {
 
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
-            source_buffer.highlight_syntax = true;
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             source_buffer.mark_set.connect (on_mark_set);
+            source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
 
             var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
             draw_spaces_tag.draw_spaces = true;
             source_buffer.tag_table.add (draw_spaces_tag);
+
+            // Make the gutter renderer and insert into the left side of the source view.
+            git_diff_gutter_renderer = new GitGutterRenderer ();
+            navmark_gutter_renderer = new NavMarkGutterRenderer (source_buffer);
+
+            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
+            get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
 
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
@@ -196,16 +201,6 @@ namespace Scratch.Widgets {
                     });
                 }
             });
-
-            notify["project"].connect (() => {
-                //Assuming project will not change again
-                if (project.is_git_repo) {
-                    schedule_refresh_diff ();
-                    project.monitored_repo.file_content_changed.connect (() => {
-                        schedule_refresh_diff ();
-                    });
-                }
-            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -244,6 +239,7 @@ namespace Scratch.Widgets {
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
+            source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
@@ -310,7 +306,7 @@ namespace Scratch.Widgets {
                 }
             } else {
                 var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("elementary-highcontrast-light");
             }
 
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
@@ -527,6 +523,34 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        public void add_mark_at_cursor () {
+            Gtk.TextIter? cur_iter = null;
+            buffer.get_iter_at_offset (out cur_iter, cursor_position);
+            var cur_line = cur_iter.get_line ();
+            navmark_gutter_renderer.add_mark_at_line (cur_line);
+        }
+
+        public void goto_previous_mark () {
+            goto_nearest_mark (true);
+        }
+
+        public void goto_next_mark () {
+            goto_nearest_mark (false);
+        }
+
+        private void goto_nearest_mark (bool before) {
+            Gtk.TextIter? start, end;
+            int line;
+            if (get_current_line (out start, out end)) {
+                navmark_gutter_renderer.get_nearest_marked_line (start.get_line (), before, out line);
+                    Gtk.TextIter? iter;
+                    buffer.get_iter_at_line (out iter, line);
+                    if (iter != null) {
+                        cursor_position = iter.get_offset ();
+                    }
+            }
+        }
+
         private void update_draw_spaces () {
             Gtk.TextIter doc_start, doc_end;
             buffer.get_start_iter (out doc_start);
@@ -552,33 +576,52 @@ namespace Scratch.Widgets {
         }
 
         private void on_context_menu (Gtk.Menu menu) {
-            var sort_item = new Gtk.MenuItem ();
-            sort_item.sensitive = get_selected_line_count () > 1;
-            sort_item.add (new Granite.AccelLabel.from_action_name (
-                _("Sort Selected Lines"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
-            ));
-            sort_item.activate.connect (sort_selected_lines);
+            scroll_mark_onscreen (buffer.get_mark ("insert"));
+
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Lines")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
+            };
+
+            var add_edit_item = new Gtk.MenuItem.with_label (_("Mark Line")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ADD_MARK
+            };
+
+            var previous_edit_item = new Gtk.MenuItem.with_label (_("Previous Mark")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
+            };
+
+            var next_edit_item = new Gtk.MenuItem.with_label (_("Next Mark")) {
+                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
+            };
 
             menu.add (sort_item);
+            menu.add (add_edit_item);
+            menu.add (previous_edit_item);
+            menu.add (next_edit_item);
 
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment")) {
+                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
+                };
 
-                var comment_item = new Gtk.MenuItem ();
-                comment_item.sensitive = can_comment;
-                comment_item.add (new Granite.AccelLabel.from_action_name (
-                    _("Toggle Comment"),
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
-                ));
-                comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
-                });
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
+                if (!can_comment) {
+                    comment_item.action_name = "";
+                }
 
                 menu.add (comment_item);
             }
 
             menu.show_all ();
+
+            if (!(get_selected_line_count () > 1)) {
+                sort_item.action_name = "";
+            }
+
+            if (!navmark_gutter_renderer.has_marks) {
+                previous_edit_item.action_name = "";
+                next_edit_item.action_name = "";
+            }
         }
 
         private static int calculate_bottom_margin (int height_in_px) {
@@ -597,7 +640,7 @@ namespace Scratch.Widgets {
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
-        void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
+        private void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
@@ -615,44 +658,49 @@ namespace Scratch.Widgets {
                 selection_changed_timer = 0;
             }
 
-            // Fire deselected immediately
-            if (start.equal (end)) {
-                deselected ();
-            // Don't fire signal till we think select movement is done
-            } else {
-                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
-            }
-
+            selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
         }
 
-        bool selection_changed_event () {
+        private void on_mark_deleted (Gtk.TextMark mark) {
+            var name = mark.get_name ();
+            if (name != null && name.has_prefix ("NavMark")) {
+                warning ("NavMark deleted");
+                navmark_gutter_renderer.remove_mark (mark);
+            }
+        }
+
+        private bool selection_changed_event () {
             Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start, out end);
-            if (selected) {
-                var prev_selected_text = selected_text;
-                selected_text = buffer.get_text (start, end, true);
-                if (selected_text != prev_selected_text) {
-                    selection_changed (start, end);
-                }
-            } else {
-                deselected ();
+            buffer.get_selection_bounds (out start, out end);
+            // No selection now treated as a potential selection change
+            var prev_selected_text = selected_text;
+            selected_text = buffer.get_text (start, end, true);
+            if (selected_text != prev_selected_text) {
+                selection_changed (start, end);
             }
 
             selection_changed_timer = 0;
             return false;
         }
 
-        uint refresh_diff_timeout_id = 0;
-        private void schedule_refresh_diff () {
-            if (refresh_diff_timeout_id > 0) {
-                Source.remove (refresh_diff_timeout_id);
+        uint refresh_timeout_id = 0;
+        public void schedule_refresh () {
+            if (refresh_timeout_id > 0) {
+                Source.remove (refresh_timeout_id);
             }
 
-            refresh_diff_timeout_id = Timeout.add (250, () => {
-                refresh_diff_timeout_id = 0;
-                git_diff_gutter_renderer.line_status_map.clear ();
-                project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
-                git_diff_gutter_renderer.queue_draw ();
+            refresh_timeout_id = Timeout.add (250, () => {
+                refresh_timeout_id = 0;
+                if (project != null && project.is_git_repo) {
+                    git_diff_gutter_renderer.line_status_map.clear ();
+                    project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
+                    git_diff_gutter_renderer.queue_draw ();
+                }
+
+                if (navmark_gutter_renderer.has_marks) {
+                    navmark_gutter_renderer.queue_draw ();
+                }
+
                 return Source.REMOVE;
             });
         }
