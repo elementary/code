@@ -422,10 +422,10 @@ public class SourceList : Gtk.ScrolledWindow {
          * any context menu items should be actioned on the item instance rather than the selected item
          * in the SourceList
          *
-         * @return A {@link Gtk.Menu} or //null// if nothing should be displayed.
+         * @return A {@link GLib.Menu} or //null// if nothing should be displayed.
          * @since 0.2
          */
-        public virtual Gtk.Menu? get_context_menu () {
+        public virtual GLib.Menu? get_context_menu () {
             return null;
         }
     }
@@ -2408,10 +2408,13 @@ public class SourceList : Gtk.ScrolledWindow {
             if (item != null) {
                 var menu = item.get_context_menu ();
                 if (menu != null) {
-                    menu.attach_widget = this;
-                    menu.popup_at_pointer (event);
+                    var gtk_menu = new Gtk.Menu.from_model (menu) {
+                        attach_widget = this
+                    };
+
+                    gtk_menu.popup_at_pointer (event);
                     if (event == null) {
-                        menu.select_first (false);
+                        gtk_menu.select_first (false);
                     }
 
                     return true;

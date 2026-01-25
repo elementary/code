@@ -110,6 +110,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         var editor_box = new Gtk.Box (VERTICAL, 12);
         editor_box.add (new Granite.HeaderLabel (_("Editor")));
         editor_box.add (new SettingSwitch (_("Highlight matching brackets"), "highlight-matching-brackets"));
+        editor_box.add (new SettingSwitch (_("Syntax highlighting"), "syntax-highlighting"));
         editor_box.add (draw_spaces_box);
         editor_box.add (new SettingSwitch (_("Mini Map"), "show-mini-map"));
         editor_box.add (new SettingSwitch (_("Wrap lines"), "line-wrap"));
