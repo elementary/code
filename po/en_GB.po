@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-05-15 14:35+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementaryos.org/"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "New Window"
 
@@ -81,7 +81,7 @@ msgstr "Show Symbol Outline"
 msgid "Hide Terminal"
 msgstr "Hide Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Show Terminal"
 
@@ -241,7 +241,7 @@ msgstr "The branch name must be unique and follow Git naming rules."
 msgid "Create Branch"
 msgstr "Create Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -450,11 +450,11 @@ msgstr "Rename"
 msgid "Move to Trash"
 msgstr "Move to Rubbish Bin"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Open In"
 
@@ -466,31 +466,31 @@ msgstr "Folders"
 msgid "Find in Folder…"
 msgstr "Find in Folder…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "Terminal Pane"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Folder"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Empty File"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "new file"
 
@@ -535,27 +535,27 @@ msgstr[1] "Restore %u Hidden Documents"
 msgid "Find in Project…"
 msgstr "Find in Project…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "Local"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "Remote"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "New Branch…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Branch"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Modified"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Error while creating new branch: “%s”"
@@ -958,9 +958,23 @@ msgstr "Zoom In"
 msgid "Follow System Style"
 msgstr "Follow System Style"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "High Contrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1049,23 +1063,31 @@ msgstr "%d of %d"
 msgid "no results"
 msgstr "no results"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Sort Selected Lines"
 
-#: src/Widgets/SourceView.vala:595
-msgid "Mark Current Line"
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Mark Current Line"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr "Goto Previous Edit Mark"
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Previous Tab"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr "Goto Next Edit Mark"
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Next Tab"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Toggle Comment"
 
@@ -1172,6 +1194,12 @@ msgstr "Please install at least one [aspell] dictionary."
 msgid "%s - Word Completion"
 msgstr "%s - Word Completion"
 
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Goto Previous Edit Mark"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Goto Next Edit Mark"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "Case sensitive:"
 
@@ -1267,9 +1295,6 @@ msgstr "%s - Word Completion"
 
 #~ msgid "For selected text"
 #~ msgstr "For selected text"
-
-#~ msgid "High Contrast"
-#~ msgstr "High Contrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarised Light"
@@ -1441,12 +1466,6 @@ msgstr "%s - Word Completion"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "New file from Clipboard"
-
-#~ msgid "Next Tab"
-#~ msgstr "Next Tab"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Previous Tab"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Fullscreen"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2025-05-17 17:55+0000\n"
 "Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nova aba"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nova Janela"
 
@@ -81,7 +81,7 @@ msgstr "Exibir o contorno do símbolo"
 msgid "Hide Terminal"
 msgstr "Esconder o Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Mostrar o Terminal"
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Criar Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -453,11 +453,11 @@ msgstr "Renomear"
 msgid "Move to Trash"
 msgstr "Mover para lixeira"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Outra aplicação…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Abrir em"
 
@@ -469,31 +469,31 @@ msgstr "Pastas"
 msgid "Find in Folder…"
 msgstr "Encontrar na pasta …"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "Abrir em um painel de terminal"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Pasta"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Arquivo vazio"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Novo(a)"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "pasta sem título"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "novo arquivo"
 
@@ -538,27 +538,27 @@ msgstr[1] "Restaurar %u Documentos Escondidos"
 msgid "Find in Project…"
 msgstr "Encontrar no projeto…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "Local"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "Remoto"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Novo ramo…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Ramo"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Modificado"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Erro ao criar novo ramo: “%s”"
@@ -964,9 +964,23 @@ msgstr "Aumentar Zoom"
 msgid "Follow System Style"
 msgstr "Seguir o estilo do sistema"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Alto Contraste"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1055,23 +1069,31 @@ msgstr "%d de %d"
 msgid "no results"
 msgstr "sem resultados"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Ordenar Linhas Selecionadas"
 
-#: src/Widgets/SourceView.vala:595
-msgid "Mark Current Line"
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Marcar linha atual"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr "Ir para a marca de edição anterior"
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Aba anterior"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr "Ir para a próxima marca de edição"
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Próxima aba"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Alternar Comentário"
 
@@ -1178,6 +1200,12 @@ msgstr "Por favor, instale pelo menos um dicionário [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - Conclusão de Palavras"
 
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Ir para a marca de edição anterior"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Ir para a próxima marca de edição"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "Difere maiúsculas de minúsculas:"
 
@@ -1270,9 +1298,6 @@ msgstr "%s - Conclusão de Palavras"
 
 #~ msgid "For selected text"
 #~ msgstr "Para o texto selecionado"
-
-#~ msgid "High Contrast"
-#~ msgstr "Alto Contraste"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarizado Claro"
@@ -1435,12 +1460,6 @@ msgstr "%s - Conclusão de Palavras"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Novo arquivo da área de transferência"
-
-#~ msgid "Next Tab"
-#~ msgstr "Próxima aba"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Aba anterior"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Tela cheia"
