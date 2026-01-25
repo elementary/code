@@ -127,6 +127,7 @@ namespace Scratch.Services {
         public async bool clone_repository (
             string uri,
             string local_folder,
+            bool update_submodules,
             out File? repo_workdir,
             out string? error
         ) {
@@ -155,9 +156,15 @@ namespace Scratch.Services {
                         folder_file,
                         clone_options
                     );
+
+                    if (update_submodules) {
+                        new_repo.submodule_foreach ((submodule, name) => {
+                            submodule.update (true, null);
+                            return 0;
+                        });
+                    }
                 } catch (Error e) {
                     e_message = e.message;
-                    new_repo = null;
                 }
 
                 Idle.add ((owned)callback);
@@ -166,7 +173,9 @@ namespace Scratch.Services {
             yield;
             if (new_repo != null) {
                 repo_workdir = new_repo.get_workdir ();
-            } else {
+            }
+
+            if (e_message != "") {
                 error = e_message;
             }
 
