@@ -201,7 +201,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     private unowned Code.Widgets.SourceList.Item? find_path (
         Code.Widgets.SourceList.ExpandableItem list,
         string path,
-        bool expand = false) {
+        bool expand = false,
+        GLib.File? target_file = null) {
+
+        var target = target_file ?? GLib.File.new_for_path (path);
 
         foreach (var item in list.children) {
             if (item is Item) {
@@ -210,22 +213,23 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     return (!)item;
                 }
 
-                if (item is Code.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Code.Widgets.SourceList.ExpandableItem;
-                    if (!path.has_prefix (code_item.path)) {
+                if (item is FolderItem) {
+                    var folder = item as FolderItem;
+                    var folder_root = folder.file.file;
+                    if (folder_root.get_relative_path (target) == null) {
                         continue;
                     }
 
-                    if (!expander.expanded) {
+                    if (!folder.expanded) {
                          if (expand) {
-                             ((FolderItem)expander).load_children (); //Synchronous
-                             expander.expanded = true;
+                             folder.load_children (); //Synchronous
+                             folder.expanded = true;
                          } else {
                              continue;
                          }
                      }
 
-                    unowned var recurse_item = find_path (expander, path, expand);
+                    unowned var recurse_item = find_path (folder, path, expand, target);
                     if (recurse_item != null) {
                         return recurse_item;
                     }

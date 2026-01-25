@@ -123,7 +123,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public override Gtk.Menu? get_context_menu () {
+        public override GLib.Menu? get_context_menu () {
             GLib.FileInfo info = null;
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
@@ -178,9 +178,7 @@ namespace Scratch.FolderManager {
             menu_model.append_section (null, direct_actions_section);
             menu_model.append_section (null, search_section);
 
-            var menu = new Gtk.Menu.from_model (menu_model);
-            menu.insert_action_group (FileView.ACTION_GROUP, view.actions);
-            return menu;
+            return menu_model;
         }
 
         protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
