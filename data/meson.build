@@ -16,6 +16,7 @@ endforeach
 install_data([
   'styles/elementary-dark.xml',
   'styles/elementary-light.xml',
+  'styles/elementary-highcontrast-light.xml',
 ], install_dir: get_option('datadir') / 'gtksourceview-4' / 'styles')
 
 install_data([

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:21+0000\n"
-"PO-Revision-Date: 2025-10-25 00:24+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-21 14:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
@@ -81,7 +81,7 @@ msgstr "シンボルアウトラインを表示"
 msgid "Hide Terminal"
 msgstr "ターミナルを非表示"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
@@ -237,7 +237,7 @@ msgstr "ブランチ名は一意かつ Git の命名規則に従う必要があ�
 msgid "Create Branch"
 msgstr "ブランチを作成"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "設定"
 
@@ -311,39 +311,43 @@ msgstr "エディター"
 msgid "Highlight matching brackets"
 msgstr "対となるカッコをハイライト"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:113
+msgid "Syntax highlighting"
+msgstr "シンタックスハイライト"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Mini Map"
 msgstr "ミニマップ"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
 msgstr "行の折り返し"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line width guide"
 msgstr "行の幅のガイド"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
 msgstr "フォント"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
 msgstr "システムフォントを使う"
 
-#: src/Dialogs/PreferencesDialog.vala:136
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
 msgstr "挙動"
 
-#: src/Dialogs/PreferencesDialog.vala:137 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "インターフェース"
 
-#: src/Dialogs/PreferencesDialog.vala:153 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: src/Dialogs/PreferencesDialog.vala:159
+#: src/Dialogs/PreferencesDialog.vala:160
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "閉じる"
@@ -436,11 +440,11 @@ msgstr "名前を変更"
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "指定した方法で開く"
 
@@ -452,31 +456,31 @@ msgstr "フォルダー"
 msgid "Find in Folder…"
 msgstr "フォルダー内を検索…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "ターミナルペイン"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "空のファイル"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "名称未設定フォルダー"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "新しいファイル"
 
@@ -518,27 +522,27 @@ msgstr[0] "%u 項目の非表示にしたドキュメントを復元"
 msgid "Find in Project…"
 msgstr "プロジェクト内を検索…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "ローカル"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "リモート"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "新しいブランチ…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "変更済み"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "新しいブランチの作成中にエラーが発生しました: “%s”"
@@ -851,8 +855,8 @@ msgid "Duplicate Tab"
 msgstr "タブを複製"
 
 #: src/Widgets/FormatBar.vala:50
-msgid "Syntax Highlighting"
-msgstr "シンタックスハイライト"
+msgid "Document language"
+msgstr "言語"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -938,9 +942,21 @@ msgstr "拡大"
 msgid "Follow System Style"
 msgstr "システムのスタイルに従う"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "メニュー"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr "ライト"
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr "ダーク"
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr "コントラスト"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1027,23 +1043,23 @@ msgstr "%d / %d 件"
 msgid "no results"
 msgstr "結果なし"
 
-#: src/Widgets/SourceView.vala:583
-msgid "Sort Selected Lines"
-msgstr "選択された行を並べ替え"
+#: src/Widgets/SourceView.vala:581
+msgid "Sort Lines"
+msgstr "行を並べ替え"
 
-#: src/Widgets/SourceView.vala:594
-msgid "Mark Current Line"
-msgstr "現在の行をブックマークする"
+#: src/Widgets/SourceView.vala:585
+msgid "Mark Line"
+msgstr "行をブックマークする"
 
-#: src/Widgets/SourceView.vala:605
-msgid "Goto Previous Edit Mark"
-msgstr "前のブックマークに移動"
+#: src/Widgets/SourceView.vala:589
+msgid "Previous Mark"
+msgstr "前のブックマーク"
 
-#: src/Widgets/SourceView.vala:616
-msgid "Goto Next Edit Mark"
-msgstr "次のブックマークに移動"
+#: src/Widgets/SourceView.vala:593
+msgid "Next Mark"
+msgstr "次のブックマーク"
 
-#: src/Widgets/SourceView.vala:635
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "コメントアウト/コメント解除"
 
@@ -1150,6 +1166,12 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
 
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "前のブックマークに移動"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "次のブックマークに移動"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "大文字と小文字を区別:"
 
@@ -1247,9 +1269,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "For selected text"
 #~ msgstr "選択されたテキストに対して表示"
-
-#~ msgid "High Contrast"
-#~ msgstr "ハイコントラスト"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Light"
@@ -1452,12 +1471,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "クリップボードより新しいファイル"
-
-#~ msgid "Next Tab"
-#~ msgstr "次のタブ"
-
-#~ msgid "Previous Tab"
-#~ msgstr "前のタブ"
 
 #~ msgid "Fullscreen"
 #~ msgstr "全画面表示"
