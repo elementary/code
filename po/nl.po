@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2024-02-12 06:41+0000\n"
-"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
+"PO-Revision-Date: 2025-12-06 18:55+0000\n"
+"Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
+"Language-Team: Dutch <https://l10n.elementaryos.org/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:99
@@ -33,11 +33,11 @@ msgstr "Toon versie-informatie en verlaat applicatie"
 
 #: src/Application.vala:44
 msgid "Open file at specified selection range"
-msgstr ""
+msgstr "Open bestand in opgegeven selectiebereik"
 
 #: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
 #: src/Application.vala:45
 msgid "[FILE…]"
@@ -126,90 +126,88 @@ msgstr "_Annuleer"
 
 #: src/MainWindow.vala:1088
 msgid "Cloning completed"
-msgstr ""
+msgstr "Klonen voltooid"
 
 #: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Succesvol kloon aangemaakt in %s"
 
 #: src/MainWindow.vala:1095
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Onmogelijk om %s te klonen"
 
 #: src/MainWindow.vala:1102
 msgid "Retry"
-msgstr ""
+msgstr "Probeer opnieuw"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
 #, c-format
 msgid "Show '%s' with default app"
-msgstr ""
+msgstr "Toon '%s' met de standaardapp"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Maak een lokale kloon van een Git-repositorie"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"De bronrepositorie en de lokale map moeten bestaan en de vereiste lees- en "
+"schrijfrechten hebben"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Repositorie klonen"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://voorbeeld.com/gebruikersnaam/projectnaam.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Selecteer de map waar de gekloonde repositorie wordt aangemaakt"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select"
-msgstr "Selecteer formaat"
+msgstr "Selecteer"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "Repositorie URL"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Naam van de kloon"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Klonen is bezig"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "De zoekterm moet minimaal 3 karakters bevatten."
+msgstr "De zoekterm wordt behandeld als een regex-expressie"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "De zoekopdracht is hoofdlettergevoelig"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "De zoekopdracht is niet hoofdlettergevoelig"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "De zoekopdracht zal alleen hele woorden vinden"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -247,22 +245,16 @@ msgid "General"
 msgstr "Algemeen"
 
 #: src/Dialogs/PreferencesDialog.vala:24
-#, fuzzy
-#| msgid "Save files when changed:"
 msgid "Save files when changed"
-msgstr "Bestanden opslaan indien gewijzigd:"
+msgstr "Bestanden opslaan indien gewijzigd"
 
 #: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
 msgid "Strip trailing whitespace on save"
-msgstr "Witruimte aan regeleind wegsnijden:"
+msgstr "Witruimte aan regeleind verwijderen"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Slim knippen/kopiëren van regels:"
+msgstr "Slim knippen/kopiëren van regels"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -273,28 +265,20 @@ msgstr ""
 "gekopieerd"
 
 #: src/Dialogs/PreferencesDialog.vala:35
-#, fuzzy
-#| msgid "Margin width:"
 msgid "Indentation width"
-msgstr "Kantlijnbreedte:"
+msgstr "Inspringbreedte"
 
 #: src/Dialogs/PreferencesDialog.vala:46
-#, fuzzy
-#| msgid "Automatic Indentation"
 msgid "Indentation"
-msgstr "Automatische insprong"
+msgstr "Inspringing"
 
 #: src/Dialogs/PreferencesDialog.vala:47
-#, fuzzy
-#| msgid "Automatic indentation:"
 msgid "Automatic indentation"
-msgstr "Automatische insprong:"
+msgstr "Automatische inspringing"
 
 #: src/Dialogs/PreferencesDialog.vala:48
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
-msgstr "Spaties invoegen in plaats van tabs:"
+msgstr "Spaties invoegen in plaats van tabs"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
@@ -306,53 +290,43 @@ msgstr "Projecten"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: src/Dialogs/PreferencesDialog.vala:79
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Current Line"
-msgstr "Huidige weergave verwijderen"
+msgstr "Huidige lijn"
 
 #: src/Dialogs/PreferencesDialog.vala:80
 msgid "All"
-msgstr ""
+msgstr "Alles"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
-msgstr ""
+msgstr "Witruimte is zichtbaar indien niet geselecteerd"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
 msgstr "Bewerker"
 
 #: src/Dialogs/PreferencesDialog.vala:112
-#, fuzzy
-#| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
-msgstr "Markeer overeenkomende haakjes:"
+msgstr "Markeer overeenkomende haakjes"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
-msgstr "Syntaxiskleuring"
+msgstr "Syntaxkleuring"
 
 #: src/Dialogs/PreferencesDialog.vala:115
-#, fuzzy
-#| msgid "Show Mini Map:"
 msgid "Mini Map"
-msgstr "Toon overzicht:"
+msgstr "Mini kaart"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "Wrap lines"
-msgstr ""
+msgstr "Regels aan elkaar knopen"
 
 #: src/Dialogs/PreferencesDialog.vala:117
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Rechtermarge:"
+msgstr "Gids voor regelbreedte"
 
 #: src/Dialogs/PreferencesDialog.vala:125
 msgid "Font"
@@ -360,7 +334,7 @@ msgstr "Lettertype"
 
 #: src/Dialogs/PreferencesDialog.vala:126
 msgid "Use system font"
-msgstr ""
+msgstr "Gebruik systeemlettertype"
 
 #: src/Dialogs/PreferencesDialog.vala:137
 msgid "Behavior"
@@ -400,44 +374,40 @@ msgstr "Toch herstellen"
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deze map is de bovenliggende map van open project"
+msgstr[1] "Deze map is de bovenliggende map van open projecten"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Het open van deze map zal het onderliggende project sluiten"
+msgstr[1] "Het open van deze map zal de onderliggende projecten sluiten"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sluit onderliggend project"
+msgstr[1] "Sluit onderliggend projecten"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
 msgid "This folder is a child of an open project"
-msgstr ""
+msgstr "Dit is de onderliggende map van een open project"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "Opening this folder will close the parent project"
-msgstr ""
+msgstr "Deze map openen zal het bovenliggende project sluiten"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Close Parent Project"
-msgstr ""
+msgstr "Sluit bovenliggend project"
 
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
-#, fuzzy
-#| msgid "Don't Restore"
 msgid "Don't Open"
-msgstr "Niet herstellen"
+msgstr "Niet openen"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Er zijn onopgeslagen instellingen in Scratch!"
+msgstr "Er zijn niet-opgeslagen wijzigingen in de huidige branche"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -449,14 +419,19 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
+"Niet-vastgelegde wijzigingen gaan permanent verloren als <b>'%s'</b> nu "
+"wordt uitgecheckt.\n"
+"\n"
+"<i>Het is aan te raden om niet-vastgelegde wijzigingen te bewaren, vast te "
+"leggen of terug te draaien alvorens verder te gaan.</i>"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Check niet uit"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Uitchecken en overschrijven"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
 msgid "Other Actions"
@@ -487,10 +462,8 @@ msgid "Find in Folder…"
 msgstr "Vind in map…"
 
 #: src/FolderManager/FolderItem.vala:187
-#, fuzzy
-#| msgid "Open in Terminal Pane"
 msgid "Terminal Pane"
-msgstr "Openen in terminalvenster"
+msgstr "Terminalvenster"
 
 #: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
@@ -517,10 +490,8 @@ msgid "new file"
 msgstr "nieuw bestand"
 
 #: src/FolderManager/ProjectFolderItem.vala:147
-#, fuzzy
-#| msgid "Active Git project: %s"
 msgid "Set as Active Project"
-msgstr "Actief Git project: %s"
+msgstr "Instellen als Actief Project"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
@@ -561,11 +532,11 @@ msgstr "Vind in project…"
 
 #: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
-msgstr ""
+msgstr "Lokaal"
 
 #: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
-msgstr ""
+msgstr "Op afstand"
 
 #: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
@@ -677,11 +648,11 @@ msgstr ""
 "wijzigingen."
 
 #: src/Services/Document.vala:914
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
-"Het bestand “%s” werd verwijdert en er zijn niet opgeslagen wijzigingen."
+"Het bestand “%s” werd verwijderd, hernoemd of verplaatst en er zijn niet-"
+"opgeslagen wijzigingen."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -741,22 +712,24 @@ msgstr "Document elders opslaan"
 #: src/Services/MonitoredRepository.vala:246
 #, c-format
 msgid "Remote Branch '%s' not found"
-msgstr ""
+msgstr "De externe branch '%s' is niet gevonden"
 
 #: src/Services/MonitoredRepository.vala:247
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"De gevraagde branch is geen enkele remote gevonden die aan deze repositorie "
+"is gekoppeld"
 
 #: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Een fout is opgetreden tijdens het uitchecken van de gevraagde branch"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:332
 #, c-format
 msgid "%.8s (detached)"
-msgstr ""
+msgstr "%.8s (losgemaakt)"
 
 #: src/Services/TemplateManager.vala:198
 msgid "Templates"
@@ -770,10 +743,8 @@ msgid "Symbols"
 msgstr "Symbolen"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:122
-#, fuzzy
-#| msgid "Symbols"
 msgid "Too Many Symbols"
-msgstr "Symbolen"
+msgstr "Te Veel Symbolen"
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:123
 #, c-format
@@ -781,83 +752,78 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
+"%s bevat te veel Vala symbolen.\n"
+"Het ontleden en weergeven ervan duurde te lang."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
 msgid "Vala symbols found in %s"
-msgstr ""
+msgstr "Vala symbolen gevonden in %s"
 
 #: src/SymbolPane/SymbolOutline.vala:35
 msgid "Class"
-msgstr ""
+msgstr "Klasse"
 
 #: src/SymbolPane/SymbolOutline.vala:37
 msgid "Property"
-msgstr ""
+msgstr "Eigenschap"
 
 #: src/SymbolPane/SymbolOutline.vala:39
 msgid "Signal"
-msgstr ""
+msgstr "Signaal"
 
 #: src/SymbolPane/SymbolOutline.vala:41
 msgid "Method"
-msgstr ""
+msgstr "Methode"
 
 #: src/SymbolPane/SymbolOutline.vala:43
 msgid "Struct"
-msgstr ""
+msgstr "Struct"
 
 #: src/SymbolPane/SymbolOutline.vala:45
 msgid "Enum"
-msgstr ""
+msgstr "Enum"
 
 #: src/SymbolPane/SymbolOutline.vala:47
 msgid "Constant"
-msgstr ""
+msgstr "Constante"
 
 #: src/SymbolPane/SymbolOutline.vala:49
 msgid "Constructor"
-msgstr ""
+msgstr "Constructor"
 
 #: src/SymbolPane/SymbolOutline.vala:53
 msgid "Namespace"
-msgstr ""
+msgstr "Naamruimte"
 
 #: src/SymbolPane/SymbolOutline.vala:55
-#, fuzzy
-#| msgid "Others…"
 msgid "Other"
-msgstr "Andere…"
+msgstr "Ander"
 
 #: src/SymbolPane/SymbolOutline.vala:131
-#, fuzzy
-#| msgid "Symbols"
 msgid "Find Symbol"
-msgstr "Symbolen"
+msgstr "Symbool"
 
 #: src/SymbolPane/SymbolOutline.vala:140
 msgid "Filter symbol type"
-msgstr ""
+msgstr "Filter symbooltype"
 
 #: src/SymbolPane/SymbolOutline.vala:160
-#, fuzzy
-#| msgid "Select Format"
 msgid "Select All"
-msgstr "Selecteer formaat"
+msgstr "Selecteer alles"
 
 #: src/SymbolPane/SymbolOutline.vala:166
 msgid "Deselect All"
-msgstr ""
+msgstr "Deselecteer alles"
 
 #: src/Widgets/ChooseProjectButton.vala:22
 msgid "No Project Selected"
 msgstr "Geen project geselecteerd"
 
 #: src/Widgets/ChooseProjectButton.vala:23
-#, fuzzy, c-format
-#| msgid "Active Git project: %s"
+#, c-format
 msgid "Active Git Project: %s"
-msgstr "Actief Git project: %s"
+msgstr "Actief Git-project: %s"
 
 #: src/Widgets/ChooseProjectButton.vala:61
 msgid "Filter projects"
@@ -869,13 +835,11 @@ msgstr "Map openen…"
 
 #: src/Widgets/ChooseProjectButton.vala:89
 msgid "Clone Git Repository…"
-msgstr ""
+msgstr "Kloon Git-repositorie…"
 
 #: src/Widgets/DocumentView.vala:109
-#, fuzzy
-#| msgid "Close"
 msgid "Closed Tabs"
-msgstr "Sluiten"
+msgstr "Tabbladen Sluiten"
 
 #: src/Widgets/DocumentView.vala:449
 #, c-format
@@ -884,37 +848,27 @@ msgstr "Tekstbestand van %s:%d"
 
 #: src/Widgets/DocumentView.vala:625
 msgid "Close Tabs to the Right"
-msgstr ""
+msgstr "Sluit Tabbladen aan de Rechterkant"
 
 #: src/Widgets/DocumentView.vala:626
-#, fuzzy
-#| msgid "Close Other Folders"
 msgid "Close Other Tabs"
-msgstr "Andere mappen sluiten"
+msgstr "Andere Tabbladen Sluiten"
 
 #: src/Widgets/DocumentView.vala:627
-#, fuzzy
-#| msgid "Close"
 msgid "Close Tab"
-msgstr "Sluiten"
+msgstr "Tabblad Sluiten"
 
 #: src/Widgets/DocumentView.vala:630
-#, fuzzy
-#| msgid "New Window"
 msgid "Open in New Window"
-msgstr "Nieuw venster"
+msgstr "Open in Nieuw Venster"
 
 #: src/Widgets/DocumentView.vala:631
-#, fuzzy
-#| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
-msgstr "Duplicaat opslaan…"
+msgstr "Dupliceer Tabblad"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Filter talen"
+msgstr "Documenttaal"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -938,7 +892,7 @@ msgstr "Automatische insprong"
 
 #: src/Widgets/FormatBar.vala:154
 msgid "Insert Spaces Instead Of Tabs"
-msgstr "Spaties invoegen in plaats van tabs"
+msgstr "Spaties invoegen in plaats van Tabs"
 
 #: src/Widgets/FormatBar.vala:156
 msgid "Tab width"
@@ -1008,21 +962,19 @@ msgstr "Menu"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "Licht"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "Donker"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Hoog contrast"
+msgstr "Contrast"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "Klonen voltooid"
 
 #: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
@@ -1033,10 +985,8 @@ msgid "Alphabetize"
 msgstr "Alfabetiseer"
 
 #: src/Widgets/Sidebar.vala:91
-#, fuzzy
-#| msgid "Manage project folders"
 msgid "Manage project folders…"
-msgstr "Projectmappen beheren"
+msgstr "Projectmappen beheren…"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Find"
@@ -1108,28 +1058,20 @@ msgid "no results"
 msgstr "geen resultaten"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Sorteer geselecteerde lijnen"
+msgstr "Regels sorteren"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Remove Current View"
 msgid "Mark Line"
-msgstr "Huidige weergave verwijderen"
+msgstr "Markeer regel"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Vorige tab"
+msgstr "Vorige Markering"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Volgende tab"
+msgstr "Volgende markering"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
