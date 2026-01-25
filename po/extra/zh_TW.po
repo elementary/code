@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-11-30 07:55+0000\n"
+"PO-Revision-Date: 2026-01-06 13:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/extra/zh_TW/>\n"
@@ -144,7 +144,7 @@ msgstr "在 C 語言符號的工具提示裡提供更多資訊"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
-msgstr ""
+msgstr "用 toast 而非對話框來顯示拓製成功"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
@@ -187,26 +187,26 @@ msgstr "改善："
 msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
-msgstr ""
+msgstr "新增拓製遠端 Git 版本庫的選項到專案挑選器內文選單"
 
 #: data/code.metainfo.xml.in:111
 msgid ""
 "The \"Open Folder\" action now appears in the Project Chooser context menu"
-msgstr ""
+msgstr "將「開啟資料夾」動作移動到專案挑選器內文選單"
 
 #: data/code.metainfo.xml.in:112
 msgid "The Vala symbol pane now shows a spinner while loading"
-msgstr ""
+msgstr "Vala 符號面板在載入中的時候現在會顯示旋轉圖示"
 
 #: data/code.metainfo.xml.in:113
 msgid "The filter in the C symbol pane now works"
-msgstr ""
+msgstr "修正 C 符號面板的過濾器無法正常運作的問題"
 
 #: data/code.metainfo.xml.in:131
 msgid ""
 "A new gutter is added for adding/removing edit marks that can be navigated "
 "between with keyboard shortcuts"
-msgstr ""
+msgstr "新增用來加入/移除編輯標記的標示區域，這些標記可以用鍵盤快捷鍵瀏覽"
 
 #: data/code.metainfo.xml.in:132
 msgid "Remote branches may now be opened from the \"Branch\" menu"
@@ -231,72 +231,73 @@ msgstr "在「分支」子選單以分支名稱順序排序分支"
 msgid ""
 "The extension list now has switches instead of checkboxes in order to "
 "provide a larger target"
-msgstr ""
+msgstr "讓擴充元件列表使用切換開關而非勾選方塊，這樣點擊目標比較大"
 
 #: data/code.metainfo.xml.in:137
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
-msgstr ""
+msgstr "新增智慧複製貼上的功能到終端機面板，並讓它跟隨《終端機》應用程式的「自然複製"
+"貼上」設定值"
 
 #: data/code.metainfo.xml.in:138
 msgid "The Vala symbol pane now gives more information in the tooltips"
-msgstr ""
+msgstr "讓 Vala 符號面板在工具提示裡提供更多資訊"
 
 #: data/code.metainfo.xml.in:142
 msgid "Launcher actions now have icons"
-msgstr ""
+msgstr "為啟動器動作加上圖示"
 
 #: data/code.metainfo.xml.in:143
 msgid ""
 "Opening and immediately closing a new document no longer prevents further "
 "documents being opened"
-msgstr ""
+msgstr "修正開啟新文件後馬上關閉它會使應用程式無法開啟更多文件的問題"
 
 #: data/code.metainfo.xml.in:144
 msgid ""
 "The Vala symbol pane may only block the UI for a limited time if there are a "
 "large number of symbols"
-msgstr ""
+msgstr "修正 Vala 符號面板在有非常多符號時會擋住介面更新太久的問題"
 
 #: data/code.metainfo.xml.in:145
 msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
-msgstr ""
+msgstr "修正 Flatpak 版的「開啟於…」選單是空的的問題"
 
 #: data/code.metainfo.xml.in:146
 msgid "The search term now persists until editing or closing the search bar."
-msgstr ""
+msgstr "讓搜尋字詞只有在編輯搜尋列或關閉搜尋列的時候才會改變或清空。"
 
 #: data/code.metainfo.xml.in:147
 msgid ""
 "No longer allow the parent or child of an open project to be itself opened "
 "as a project"
-msgstr ""
+msgstr "不再允許將已開啟專案的上層目錄或子目錄本身同時作為專案開啟"
 
 #: data/code.metainfo.xml.in:148
 msgid "The active project dropdown now keeps in sync"
-msgstr ""
+msgstr "維持作用中專案下拉式選單內容同步"
 
 #: data/code.metainfo.xml.in:149
 msgid "Numbered lists are now handled correctly by Markdown plugin"
-msgstr ""
+msgstr "讓 Markdown 外掛程式正確處理編號清單"
 
 #: data/code.metainfo.xml.in:150
 msgid "The highlighting plugin now works with selections of more than one word"
-msgstr ""
+msgstr "讓標明外掛程式在選取不只一個單詞時也能正常運作"
 
 #: data/code.metainfo.xml.in:151
 msgid ""
 "The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
-msgstr ""
+msgstr "排序「開啟於…」選單並在其中包含「終端機面板」項目"
 
 #: data/code.metainfo.xml.in:152
 msgid "Folders containing may items now expand faster without blocking the UI"
-msgstr ""
+msgstr "展開內含非常多項目的資料夾時介面不會再被阻擋更新而卡住"
 
 #: data/code.metainfo.xml.in:153
 msgid "Symbol Pane now always scrolls document to selected symbol"
-msgstr ""
+msgstr "讓符號面板總是把文件捲動到所選符號"
 
 #: data/code.metainfo.xml.in:184
 msgid "Add symbol filter to Outline pane"
@@ -447,7 +448,7 @@ msgstr "將顯示/隱藏面板的各按鈕全部整理成應用程式選單裡�
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
-msgstr "將專案選擇按鈕加入側邊欄中，並讓側邊欄填滿視窗高度"
+msgstr "將專案挑選按鈕加入側邊欄中，並讓側邊欄填滿視窗高度"
 
 #: data/code.metainfo.xml.in:325
 msgid "Starting a global search with text selected now pre-fills that text"
