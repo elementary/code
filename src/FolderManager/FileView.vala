@@ -34,7 +34,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_NEW_FOLDER = "new-folder";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
-    public const string ACTION_SET_ACTIVE_PROJECT = "set-active-project";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -46,8 +45,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"},
-        { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"}
+        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
     private GLib.Settings settings;
@@ -113,16 +111,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (project_folder_item.path));
+                toplevel_action_group.activate_action (
+                    MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    new Variant.string (project_folder_item.path)
+                );
                 root.remove (project_folder_item);
                 git_manager.remove_project (project_folder_item);
             }
         }
-
         //Make remaining project the active one
-        git_manager.active_project_path = path;
-
-        write_settings ();
+        set_project_active (path);
     }
 
     private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
@@ -145,6 +143,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         write_settings ();
 
         return folder_root;
+    private void set_project_active (string path) {
+        toplevel_action_group.activate_action (
+            MainWindow.ACTION_SET_ACTIVE_PROJECT,
+            new Variant.string (path)
+        );
     }
 
     public async void restore_saved_state () {
@@ -301,11 +304,15 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         return null;
     }
 
+    public bool project_is_open (string project_path) {
+        return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
+    }
+
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
         foreach (var item in root.children) {
             if (item is ProjectFolderItem) {
                 var folder = (ProjectFolderItem)item;
-                if (folder.contains_file (file)) {
+                if (folder.file.file.equal (file) || folder.contains_file (file)) {
                     return folder;
                 }
             }
