@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-10-18 07:55+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"PO-Revision-Date: 2025-11-20 08:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
@@ -81,7 +81,7 @@ msgstr "Afficher le contour des symboles"
 msgid "Hide Terminal"
 msgstr "Cacher le terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Afficher le terminal"
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Créer une branche"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -315,8 +315,6 @@ msgid "Highlight matching brackets"
 msgstr "Surligner les crochets correspondants"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Coloration syntaxique"
 
@@ -450,11 +448,11 @@ msgstr "Renommer"
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Ouvrir dans"
 
@@ -466,31 +464,31 @@ msgstr "Dossiers"
 msgid "Find in Folder…"
 msgstr "Rechercher dans le dossier…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 msgid "Terminal Pane"
 msgstr "Panneau du Terminal"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "nouveau fichier"
 
@@ -535,27 +533,27 @@ msgstr[1] "Afficher %u documents cachés"
 msgid "Find in Project…"
 msgstr "Rechercher dans le projet…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr "Local"
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr "Distant"
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Nouvelle branche…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Branche"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Modifié"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Erreur lors de la création de la nouvelle branche : « %s »"
@@ -876,10 +874,8 @@ msgid "Duplicate Tab"
 msgstr "Dupliquer l'onglet"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Filtrer les langages"
+msgstr "Langage du document"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -967,9 +963,21 @@ msgstr "Zoom avant"
 msgid "Follow System Style"
 msgstr "Suivre le thème du système"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr "Clair"
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr "Sombre"
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr "Contrasté"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1056,23 +1064,23 @@ msgstr "%d sur %d"
 msgid "no results"
 msgstr "Aucun résultat"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
-msgstr "Trier les lignes sélectionnées"
+#: src/Widgets/SourceView.vala:581
+msgid "Sort Lines"
+msgstr "Trier les lignes"
 
-#: src/Widgets/SourceView.vala:595
-msgid "Mark Current Line"
-msgstr "Marquer la ligne courante"
+#: src/Widgets/SourceView.vala:585
+msgid "Mark Line"
+msgstr "Marquer la ligne"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr "Revenir à la marque d'édition précédente"
+#: src/Widgets/SourceView.vala:589
+msgid "Previous Mark"
+msgstr "Marque précédente"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr "Aller à la marque d'édition suivante"
+#: src/Widgets/SourceView.vala:593
+msgid "Next Mark"
+msgstr "Marque suivante"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 
@@ -1179,6 +1187,12 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
 
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Revenir à la marque d'édition précédente"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Aller à la marque d'édition suivante"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "Sensible à la casse :"
 
@@ -1277,9 +1291,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "For selected text"
 #~ msgstr "Pour le texte sélectionné"
-
-#~ msgid "High Contrast"
-#~ msgstr "Contraste élevé"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Light"
@@ -1482,12 +1493,6 @@ msgstr "%s - Autocomplétion"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nouveau fichier à partir du presse-papier"
-
-#~ msgid "Next Tab"
-#~ msgstr "Onglet suivant"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Onglet précédent"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Plein écran"

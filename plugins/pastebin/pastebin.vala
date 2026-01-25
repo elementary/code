@@ -79,6 +79,7 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
     GLib.MenuItem? menuitem = null;
     GLib.Menu? share_menu = null;
     public Object object { owned get; set construct; }
+    Dialogs.PasteBinDialog? pastebin_dialog = null;
 
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
@@ -142,8 +143,15 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
     }
 
     void show_paste_bin_upload_dialog () {
-        MainWindow window = plugins.manager.window;
-        new Dialogs.PasteBinDialog (window, doc);
+        if (pastebin_dialog != null) {
+            pastebin_dialog.present ();
+        } else {
+            MainWindow window = plugins.manager.window;
+            pastebin_dialog = new Dialogs.PasteBinDialog (window, doc);
+            pastebin_dialog.destroy.connect (() => {
+                pastebin_dialog = null;
+            });
+        }
     }
 
     public void deactivate () {

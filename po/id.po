@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2025-11-18 12:15+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Tab Baru"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Jendela Baru"
 
@@ -80,7 +80,7 @@ msgstr "Tampikan Simbol Garis Tepi Luar"
 msgid "Hide Terminal"
 msgstr "Sembunyikan Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Tampilkan Terminal"
 
@@ -238,7 +238,7 @@ msgstr "Nama cabang harus unik dan mengikuti aturan penamaan Git."
 msgid "Create Branch"
 msgstr "Buat Cabang"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferensi"
 
@@ -469,11 +469,11 @@ msgstr "Ubah Nama"
 msgid "Move to Trash"
 msgstr "Pindahkan ke Keranjang Sampah"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
 msgid "Other Application…"
 msgstr "Aplikasi Lain…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
 msgid "Open In"
 msgstr "Buka Pada"
 
@@ -485,33 +485,33 @@ msgstr "Folder"
 msgid "Find in Folder…"
 msgstr "Temukan pada Folder…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:187
 #, fuzzy
 #| msgid "Terminal"
 msgid "Terminal Pane"
 msgstr "Aplikasi Terminal"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:222
 msgid "Folder"
 msgstr "Folder"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:230
 msgid "Empty File"
 msgstr "File Kosong"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/ProjectFolderItem.vala:425
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Baru"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "untitled folder"
 msgstr "folder tanpa judul"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:397
 msgid "new file"
 msgstr "berkas baru"
 
@@ -555,27 +555,27 @@ msgstr[0] "Pulihkan %u Dokumen Tersembunyi"
 msgid "Find in Project…"
 msgstr "Temukan pada Proyek…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
+#: src/FolderManager/ProjectFolderItem.vala:318
 msgid "Local"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:337
+#: src/FolderManager/ProjectFolderItem.vala:335
 msgid "Remote"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:352
+#: src/FolderManager/ProjectFolderItem.vala:350
 msgid "New Branch…"
 msgstr "Cabang Baru…"
 
-#: src/FolderManager/ProjectFolderItem.vala:377
+#: src/FolderManager/ProjectFolderItem.vala:375
 msgid "Branch"
 msgstr "Cabang"
 
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:431
 msgid "Modified"
 msgstr "Diubah"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:469
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Kesalahan saat membuat cabang baru: “%s”"
@@ -993,9 +993,23 @@ msgstr "Perbesar"
 msgid "Follow System Style"
 msgstr "Ikuti Gaya Sistem"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menu"
+
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+#, fuzzy
+#| msgid "High Contrast"
+msgid "Contrast"
+msgstr "Kontras Tinggi"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1084,27 +1098,31 @@ msgstr "%d dari %d"
 msgid "no results"
 msgstr "tidak ada hasil"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
+#: src/Widgets/SourceView.vala:581
+#, fuzzy
+#| msgid "Sort Selected Lines"
+msgid "Sort Lines"
 msgstr "Urutkan Baris yang Dipilih"
 
-#: src/Widgets/SourceView.vala:595
+#: src/Widgets/SourceView.vala:585
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Mark Line"
 msgstr "Singkirkan Tinjauan Tertampil"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:617
+#: src/Widgets/SourceView.vala:589
 #, fuzzy
-#| msgid "Text Editor"
-msgid "Goto Next Edit Mark"
-msgstr "Penyunting Teks"
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "Tab Sebelumnya"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "Tab Selanjutnya"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Munculkan Komentar"
 
@@ -1211,6 +1229,11 @@ msgstr "Harap pasang setidaknya satu kamus [aspell]."
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Kata"
 
+#, fuzzy
+#~| msgid "Text Editor"
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Penyunting Teks"
+
 #~ msgid "Case sensitive:"
 #~ msgstr "Abjad kapital sensitif:"
 
@@ -1292,9 +1315,6 @@ msgstr "%s - Pelengkapan Kata"
 
 #~ msgid "For selected text"
 #~ msgstr "Untuk teks terpilih"
-
-#~ msgid "High Contrast"
-#~ msgstr "Kontras Tinggi"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solarized Terang"
@@ -1454,12 +1474,6 @@ msgstr "%s - Pelengkapan Kata"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Berkas baru dari Papan Klip"
-
-#~ msgid "Next Tab"
-#~ msgstr "Tab Selanjutnya"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Tab Sebelumnya"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Layar Penuh"
