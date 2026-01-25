@@ -143,6 +143,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         write_settings ();
 
         return folder_root;
+    }
+
     private void set_project_active (string path) {
         toplevel_action_group.activate_action (
             MainWindow.ACTION_SET_ACTIVE_PROJECT,
