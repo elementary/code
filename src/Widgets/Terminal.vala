@@ -173,11 +173,6 @@ public class Code.Terminal : Gtk.Box {
         scrolled_window.add (terminal);
 
         add (scrolled_window);
-
-        destroy.connect (() => {
-            Scratch.saved_state.set_string ("last-opened-path", get_shell_location ());
-        });
-
         show_all ();
     }
 
@@ -296,6 +291,10 @@ public class Code.Terminal : Gtk.Box {
 
             terminal.set_colors (foreground_color, background_color, palette);
         } //No suitable system keys
+    }
+
+    public void save_settings () {
+        Scratch.saved_state.set_string ("last-opened-path", get_shell_location ());
     }
 
     public void increment_size () {

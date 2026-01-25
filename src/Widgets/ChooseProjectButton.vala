@@ -17,14 +17,22 @@
  */
 
 public class Code.ChooseProjectButton : Gtk.MenuButton {
+    public bool cloning_in_progress { get; set; }
+
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
 
+    public ActionGroup toplevel_action_group { get; construct; }
     public signal void project_chosen ();
 
     construct {
+        realize.connect (() => {
+            toplevel_action_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+            assert_nonnull (toplevel_action_group);
+        });
+
         var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
             icon_size = Gtk.IconSize.SMALL_TOOLBAR
@@ -32,15 +40,23 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
             ellipsize = Pango.EllipsizeMode.MIDDLE,
-            xalign = 0.0f
+            xalign = 0.0f,
+            hexpand = true
         };
 
-        var grid = new Gtk.Grid () {
-            halign = Gtk.Align.START
+        var cloning_spinner = new Gtk.Spinner () {
+            halign = END
         };
-        grid.add (img);
-        grid.add (label_widget);
-        add (grid);
+        bind_property ("cloning-in-progress", cloning_spinner, "active");
+
+        var box = new Gtk.Box (HORIZONTAL, 3) {
+            hexpand = true,
+            vexpand = false
+        };
+        box.add (img);
+        box.add (label_widget);
+        box.add (cloning_spinner);
+        add (box);
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
@@ -72,8 +88,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         project_scrolled.add (project_listbox);
 
         var add_folder_button = new PopoverMenuItem (_("Open Folder…")) {
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
-            action_target = new Variant.string (""),
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_PROJECT,
             icon_name = "folder-open-symbolic",
         };
 
@@ -99,7 +114,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         popover = project_popover;
 
+        // Initialise with any pre-existing projects (needed for second and subsequent window)
         var git_manager = Scratch.Services.GitManager.get_instance ();
+        var src = git_manager.project_liststore;
+        for (int index = 0; index < src.n_items; index++) {
+            var item = src.get_object (index);
+            if (item is Scratch.FolderManager.ProjectFolderItem) {
+                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+                project_listbox.insert (row, index);
+            }
+        }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
             var rows = project_listbox.get_children ();
@@ -128,8 +152,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         project_listbox.row_activated.connect ((row) => {
             var project_entry = ((ProjectRow) row);
-            git_manager.active_project_path = project_entry.project_path;
-            project_chosen ();
+            toplevel_action_group.activate_action (
+                Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
+                new Variant.string (project_entry.project_path)
+            );
         });
 
         toggled.connect (() => {

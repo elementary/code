@@ -47,7 +47,7 @@ public class Code.FormatBar : Gtk.Box {
 
         lang_menubutton = new FormatButton () {
             icon = new ThemedIcon ("application-x-class-file-symbolic"),
-            tooltip_text = _("Syntax Highlighting")
+            tooltip_text = _("Document language")
         };
 
         line_menubutton = new FormatButton () {

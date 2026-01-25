@@ -76,6 +76,7 @@ namespace Scratch {
         public const string ACTION_FIND_GLOBAL = "action-find-global";
         public const string ACTION_OPEN = "action-open";
         public const string ACTION_OPEN_FOLDER = "action-open-folder";
+        public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
         public const string ACTION_ORDER_FOLDERS = "action-order-folders";
         public const string ACTION_GO_TO = "action-go-to";
@@ -109,6 +110,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
+        public const string ACTION_SET_ACTIVE_PROJECT = "action-set-active-project";
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
@@ -138,6 +140,7 @@ namespace Scratch {
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder, "s" },
+            { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -167,6 +170,7 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
+            { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
@@ -207,8 +211,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
-            action_accelerators.set (ACTION_OPEN_FOLDER, "<Control><Shift>o");
-            action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
+            action_accelerators.set (ACTION_OPEN_PROJECT, "<Control><Shift>o");
+            action_accelerators.set (ACTION_REVERT, "<Control><shift>r");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
@@ -631,14 +635,6 @@ namespace Scratch {
                 }
             });
 
-            sidebar.choose_project_button.project_chosen.connect (() => {
-                folder_manager_view.collapse_other_projects ();
-                if (terminal.visible) {
-                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
-                    var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
-                    open_in_terminal_action.activate (param);
-                }
-            });
 
             set_widgets_sensitive (false);
         }
@@ -863,6 +859,8 @@ namespace Scratch {
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
             Scratch.saved_state.set_int ("vp-size", vp.get_position ());
+
+            terminal.save_settings ();
         }
 
         // SIGTERM/SIGINT Handling
@@ -1019,25 +1017,34 @@ namespace Scratch {
             new_window.open_document.begin (doc, true);
         }
 
+
+        private void action_open_project (SimpleAction action) {
+            choose_folder ();
+        }
+
+        private void choose_folder () {
+            var chooser = new Gtk.FileChooserNative (
+                "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("_Open"),
+                _("_Cancel")
+            );
+
+            chooser.select_multiple = true;
+
+            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                chooser.get_files ().foreach ((glib_file) => {
+                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                    folder_manager_view.open_folder (foldermanager_file);
+                });
+            }
+
+            chooser.destroy ();
+        }
+
         private void action_open_folder (SimpleAction action, Variant? param) {
             var path = param.get_string ();
             if (path == "") {
-                var chooser = new Gtk.FileChooserNative (
-                    "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                    _("_Open"),
-                    _("_Cancel")
-                );
-
-                chooser.select_multiple = true;
-
-                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                    chooser.get_files ().foreach ((glib_file) => {
-                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                        folder_manager_view.open_folder (foldermanager_file);
-                    });
-                }
-
-                chooser.destroy ();
+                choose_folder ();
             } else {
                 folder_manager_view.open_folder (new FolderManager.File (path));
             }
@@ -1055,10 +1062,10 @@ namespace Scratch {
                 // Persist last entries (not necessarily valid)
                 Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
                 Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
-                // Clone dialog show spinner during cloning so keep visible
                 //TODO Show more information re progress using Ggit callbacks
                 if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) {
-                    clone_dialog.cloning_in_progress = true;
+                    sidebar.cloning_in_progress = true;
+                    clone_dialog.hide ();
                     var uri = clone_dialog.get_valid_source_repository_uri ();
                     var target = clone_dialog.get_valid_target ();
                     git_manager.clone_repository.begin (
@@ -1066,36 +1073,21 @@ namespace Scratch {
                         target,
                         clone_dialog.update_submodules,
                         (obj, res) => {
-                            clone_dialog.cloning_in_progress = false;
+                            sidebar.cloning_in_progress = false;
                             File? workdir = null;
                             string? error = null;
                             if (git_manager.clone_repository.end (res, out workdir, out error)) {
                                 open_folder (workdir);
                                 clone_dialog.destroy ();
-                                var primary_text = "";
-                                if (error == null) {
-                                    primary_text = _("Repository %s successfully cloned").printf (uri);
+                                if (this.is_active) {
+                                    sidebar.notify_cloning_success ();
                                 } else {
-                                    // e.g. Problem updating submodules
-                                    primary_text = _("Repository %s cloned with error").printf (uri);
+                                    var notification = new Notification (_("Cloning completed"));
+                                    notification.set_body (_("Clone successfully created in %s").printf (target));
+                                    notification.set_icon (new ThemedIcon ("process-completed-symbolic"));
+                                    app.send_notification ("cloning-finished-%s".printf (target), notification);
                                 }
-                                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    primary_text,
-                                    _("Local repository working directory is %s").printf (workdir.get_uri ()),
-                                    "dialog-information",
-                                    Gtk.ButtonsType.CLOSE
-                                ) {
-                                    transient_for = this
-                                };
-
-                                if (error != null) {
-                                    message_dialog.show_error_details (error);
-                                }
-
-                                message_dialog.response.connect (message_dialog.destroy);
-                                message_dialog.present ();
                             } else {
-                                clone_dialog.hide ();
                                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                                     _("Unable to clone %s").printf (uri),
                                     error,
@@ -1455,7 +1447,7 @@ namespace Scratch {
 
         private void action_open_in_terminal (SimpleAction action, Variant? param) {
             // Ensure terminal is visible
-            if (terminal == null || !terminal.visible) {
+            if (!terminal.visible) {
                 var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
                 toggle_terminal_action.activate (null);
             }
@@ -1465,6 +1457,24 @@ namespace Scratch {
             var target_path = get_target_path_for_actions (param, true);
             terminal.change_location (target_path);
             terminal.terminal.grab_focus ();
+        }
+
+        private void action_set_active_project (SimpleAction action, Variant? param) {
+            var project_path = param.get_string ();
+            if (folder_manager_view.project_is_open (project_path)) {
+                git_manager.active_project_path = project_path;
+                folder_manager_view.collapse_other_projects ();
+                //The opened folders are not changed so no need to update "opened-folders" setting
+            } else {
+                warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
+                //TODO Handle this by opening the folder
+            }
+
+            var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
+            terminal.change_location (new_build_dir);
+            if (terminal.visible) {
+                terminal.terminal.grab_focus ();
+            }
         }
 
         private void action_toggle_outline (SimpleAction action) {
