@@ -34,12 +34,10 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
-                current_source.deselected.disconnect (on_deselection);
                 current_source.selection_changed.disconnect (on_selection_changed);
             }
 
             current_source = doc.source_view;
-            current_source.deselected.connect (on_deselection);
             current_source.selection_changed.connect (on_selection_changed);
         });
 
@@ -48,16 +46,18 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
         });
     }
 
-    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) requires (main_window != null) {
-        if (!main_window.has_successful_search ()) {
-            // Perform plugin selection when there is no ongoing and successful search 
-            current_search_context = new Gtk.SourceSearchContext (
-                (Gtk.SourceBuffer)current_source.buffer,
-                null
-            );
-            current_search_context.settings.search_text = "";
+    // A deselection is now treated as a selection change
+    private void on_selection_changed () requires (main_window != null) {
+        if (current_search_context != null) {
+            // Cancel existing search
             current_search_context.set_highlight (false);
+            current_search_context = null;
+        }
 
+        // Only highlight (extended) selection if non-zero length and search highlighting not happening
+        Gtk.TextIter start, end;
+        if (current_source.buffer.get_selection_bounds (out start, out end) &&
+            !main_window.has_successful_search ()) {
             var original_start = start.copy ();
 
             // Ignore leading space
@@ -114,29 +114,20 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
             // Ensure no leading or trailing space
             var selected_text = start.get_text (end).strip ();
 
-            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
-                return;
+            // We know the selected text is non-zero length, check not too long
+            if (selected_text.char_count () <= SELECTION_HIGHLIGHT_MAX_CHARS) {
+                current_search_context = new Gtk.SourceSearchContext (
+                    (Gtk.SourceBuffer)current_source.buffer,
+                    null
+                );
+                current_search_context.settings.search_text = selected_text;
+                current_search_context.set_highlight (true);
             }
-
-            current_search_context.settings.search_text = selected_text;
-            current_search_context.set_highlight (true);
-        } else if (current_search_context != null) {
-            // Cancel existing search
-            current_search_context.set_highlight (false);
-            current_search_context = null;
-        }
-    }
-
-    public void on_deselection () {
-        if (current_search_context != null) {
-            current_search_context.set_highlight (false);
-            current_search_context = null;
         }
     }
 
     public void deactivate () {
         if (current_source != null) {
-            current_source.deselected.disconnect (on_deselection);
             current_source.selection_changed.disconnect (on_selection_changed);
         }
     }
