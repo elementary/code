@@ -55,6 +55,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     public override void parse_symbols () {
+        before_parse ();
         if (current_subprocess != null)
             current_subprocess.force_exit ();
 
@@ -64,9 +65,12 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                 "ctags", "-f", "-", "--format=2", "--excmd=n", "--fields=nstK", "--extra=", "--sort=no", doc.file.get_path ()
             );
 
-            parse_output.begin (current_subprocess);
+            parse_output.begin (current_subprocess, (obj, res) => {
+                after_parse ();
+            });
         } catch (GLib.Error e) {
             critical (e.message);
+            after_parse ();
         }
     }
 
@@ -271,8 +275,40 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
             destroy_root (root);
             root = new_root;
 
+            add_tooltips (store.root);
             return false;
         });
+    }
+
+    protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
+        foreach (var parent in root.children) {
+            if (parent is Code.Widgets.SourceList.ExpandableItem) {
+                add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
+            }
+        }
+    }
+
+    private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
+        if (parent is CtagsSymbol) {
+            var item = ((CtagsSymbol)parent);
+            var start = item.line;
+            var end = item.line;
+            // The type of a method is often on the previous line
+            if (item.symbol_type == SymbolType.METHOD) {
+                start = start > 0 ? start - 1 : start;
+            }
+
+            item.tooltip = Markup.escape_text ("%s".printf (
+                doc.get_slice (
+                    start,
+                    0,
+                    end,
+                    0
+                )
+            ));
+        }
+
+        add_tooltips (parent);
     }
 
     private void destroy_root (Code.Widgets.SourceList.ExpandableItem to_destroy) {

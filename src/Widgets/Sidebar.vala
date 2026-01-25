@@ -26,8 +26,19 @@ public class Code.Sidebar : Gtk.Grid {
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
+    // May show progress in different way in future
+    public bool cloning_in_progress {
+        get {
+            return choose_project_button.cloning_in_progress;
+        }
+
+        set {
+            choose_project_button.cloning_in_progress = value;
+        }
+    }
 
     private Gtk.StackSwitcher stack_switcher;
+    private Granite.Widgets.Toast cloning_success_toast;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -38,6 +49,11 @@ public class Code.Sidebar : Gtk.Grid {
             valign = Gtk.Align.CENTER
         };
 
+        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
+            halign = CENTER,
+            valign = START
+        };
+
         headerbar = new Hdy.HeaderBar () {
             custom_title = choose_project_button,
             show_close_button = true
@@ -46,6 +62,11 @@ public class Code.Sidebar : Gtk.Grid {
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
+        var overlay = new Gtk.Overlay () {
+            child = stack
+        };
+        overlay.add_overlay (cloning_success_toast);
 
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
@@ -81,7 +102,7 @@ public class Code.Sidebar : Gtk.Grid {
 
         add (headerbar);
         add (stack_switcher);
-        add (stack);
+        add (overlay);
         add (actionbar);
 
         stack.add.connect (() => {
@@ -160,5 +181,9 @@ public class Code.Sidebar : Gtk.Grid {
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
+    }
+
+    public void notify_cloning_success () {
+        cloning_success_toast.send_notification ();
     }
 }
