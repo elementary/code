@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2023-04-13 17:59+0000\n"
-"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/code/extra/nl/>\n"
+"PO-Revision-Date: 2025-12-14 08:55+0000\n"
+"Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
+"Language-Team: Dutch <https://l10n.elementaryos.org/projects/code/extra/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -153,21 +154,26 @@ msgstr "Kleine updates:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The tooltips for C symbols are now more informative"
-msgstr ""
+msgstr "De tooltips voor C-symbolen zijn nu informatiever"
 
 #: data/code.metainfo.xml.in:76
 msgid "Cloning success is now indicated by toast instead of a dialog"
 msgstr ""
+"Succesvol klonen wordt nu aangegeven met een melding in plaats van een "
+"dialoogvenster"
 
 #: data/code.metainfo.xml.in:77
 msgid "Global search and local search now have the same case sensitivity"
 msgstr ""
+"Algemene en lokale zoekopdrachten hebben nu dezelfde hoofdlettergevoeligheid"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "Opening a second window no longer results in duplicate project entries in "
 "the project chooser"
 msgstr ""
+"Een tweede venster openen leidt niet langer tot dubbele projectvermeldingen "
+"in de projectkiezer"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:94
 #: data/code.metainfo.xml.in:114 data/code.metainfo.xml.in:154
@@ -182,12 +188,16 @@ msgid ""
 "The terminal pane is now synchronized with the Terminal app foreground, "
 "background and palette settings"
 msgstr ""
+"Het terminalvenster is nu gesynchroniseerd met de voorgrond-, achtergrond- "
+"en paletinstellingen van de Terminal-app"
 
 #: data/code.metainfo.xml.in:93
 msgid ""
 "The terminal pane is now synchronized with GNOME font and cursor blink "
 "settings"
 msgstr ""
+"Het terminalvenster is nu gesynchroniseerd met GNOME's lettertype- en "
+"cursorknipperinstellingen"
 
 #: data/code.metainfo.xml.in:105 data/code.metainfo.xml.in:129
 #: data/code.metainfo.xml.in:198 data/code.metainfo.xml.in:226
@@ -201,238 +211,290 @@ msgid ""
 "The Project Chooser context menu now includes an option to clone a remote "
 "git repository"
 msgstr ""
+"Het contextmenu van de Projectkiezer heeft nu de mogelijkheid een externe "
+"git-repositorie te klonen"
 
 #: data/code.metainfo.xml.in:111
 msgid ""
 "The \"Open Folder\" action now appears in the Project Chooser context menu"
 msgstr ""
+"De actie \"Open Map\" verschijnt nu in het contextmenu van de Projectkiezer"
 
 #: data/code.metainfo.xml.in:112
 msgid "The Vala symbol pane now shows a spinner while loading"
-msgstr ""
+msgstr "Het Vala-symboolvenster toont een laadpictogram tijdens het laden"
 
 #: data/code.metainfo.xml.in:113
 msgid "The filter in the C symbol pane now works"
-msgstr ""
+msgstr "Het filter in het C-symboolvenster werkt nu"
 
 #: data/code.metainfo.xml.in:131
 msgid ""
 "A new gutter is added for adding/removing edit marks that can be navigated "
 "between with keyboard shortcuts"
 msgstr ""
+"Er is een nieuwe balk toegevoegd voor het toevoegen/verwijderen van "
+"bewerkingsmarkeringen, waartussen met sneltoetsen kan worden genavigeerd"
 
 #: data/code.metainfo.xml.in:132
 msgid "Remote branches may now be opened from the \"Branch\" menu"
-msgstr ""
+msgstr "Externe branche kunnen nu geopend worden vanuit het \"Branch\"-menu"
 
 #: data/code.metainfo.xml.in:133
 msgid ""
 "Options to overwrite or cancel are given when switching branch with "
 "uncommitted changes"
 msgstr ""
+"Opties voor het overschrijven of verwijderen worden gegeven bij het wisselen "
+"van branch in het geval van niet-opgeslagen wijzigingen"
 
 #: data/code.metainfo.xml.in:134
 msgid "The network can now be accessed from within the Flatpak"
-msgstr ""
+msgstr "Het netwerk kan nu worden benaderd vanuit de Flatpak"
 
 #: data/code.metainfo.xml.in:135
 msgid ""
 "The branch names in the \"Branch\" submenus are now sorted alphabetically"
-msgstr ""
+msgstr "De branchnamen in de \"Branch\"-submenu's zijn nu alfabetisch geordend"
 
 #: data/code.metainfo.xml.in:136
 msgid ""
 "The extension list now has switches instead of checkboxes in order to "
 "provide a larger target"
 msgstr ""
+"De extensielijst heeft nu schakelaars in plaats van selectievakjes om een "
+"bredere doel te bieden"
 
 #: data/code.metainfo.xml.in:137
 msgid ""
 "The terminal pane now implements smart copy-paste and follows the \"natural-"
 "copy-paste\" setting of Terminal"
 msgstr ""
+"Het terminalvenster implementeert nu slim kopiëren en plakken en volgt de "
+"\"natuurlijke kopieer- en plak\"-instellingen van de Terminal"
 
 #: data/code.metainfo.xml.in:138
 msgid "The Vala symbol pane now gives more information in the tooltips"
-msgstr ""
+msgstr "Het Vala-symboolvenster geeft nu meer informatie in de tooltips"
 
 #: data/code.metainfo.xml.in:142
 msgid "Launcher actions now have icons"
-msgstr ""
+msgstr "De startesacties hebben nu pictogrammen"
 
 #: data/code.metainfo.xml.in:143
 msgid ""
 "Opening and immediately closing a new document no longer prevents further "
 "documents being opened"
 msgstr ""
+"Het openen en onmiddellijk sluiten van een nieuw document voorkomt niet "
+"langer dat andere documenten kunnen worden geopend"
 
 #: data/code.metainfo.xml.in:144
 msgid ""
 "The Vala symbol pane may only block the UI for a limited time if there are a "
 "large number of symbols"
 msgstr ""
+"Het Vala-symboolvenster kan de gebruiksersinterface slechts voor een korte "
+"tijd blokkeren als er veel symbolen zijn"
 
 #: data/code.metainfo.xml.in:145
 msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
 msgstr ""
+"Het menu \"Open in ...\" is niet langer leeg wanneer het programma als "
+"Flatpak wordt uitgevoerd"
 
 #: data/code.metainfo.xml.in:146
 msgid "The search term now persists until editing or closing the search bar."
 msgstr ""
+"De zoekterm blijft nu staan tot de zoekbalk wordt aangepast of gesloten."
 
 #: data/code.metainfo.xml.in:147
 msgid ""
 "No longer allow the parent or child of an open project to be itself opened "
 "as a project"
 msgstr ""
+"Sta niet langer toe dat van een open project een bovenliggend of "
+"onderliggend project zelf als project wordt geopend"
 
 #: data/code.metainfo.xml.in:148
 msgid "The active project dropdown now keeps in sync"
-msgstr ""
+msgstr "Het keuzemenu van het actieve project blijft nu gesynchroniseerd"
 
 #: data/code.metainfo.xml.in:149
 msgid "Numbered lists are now handled correctly by Markdown plugin"
-msgstr ""
+msgstr "Genummerde lijsten worden nu correct verwerkt door de Markdown-plugin"
 
 #: data/code.metainfo.xml.in:150
 msgid "The highlighting plugin now works with selections of more than one word"
-msgstr ""
+msgstr "De makeerplug-in werkt nu met selecties van meer dan één woord"
 
 #: data/code.metainfo.xml.in:151
 msgid ""
 "The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
 msgstr ""
+"Het \"Open in ...\"-menu is nu geordend en bevat een \"Terminalvenster\""
+"-optie"
 
 #: data/code.metainfo.xml.in:152
 msgid "Folders containing may items now expand faster without blocking the UI"
 msgstr ""
+"Mappen met veel items worden nu sneller uitgebouwd zonder de "
+"gebruikersinterface te blokkeren"
 
 #: data/code.metainfo.xml.in:153
 msgid "Symbol Pane now always scrolls document to selected symbol"
 msgstr ""
+"Het symboolvenster scrollt het document nu altijd naar het geselecteerde "
+"symbool"
 
 #: data/code.metainfo.xml.in:184
 msgid "Add symbol filter to Outline pane"
-msgstr ""
+msgstr "Een symboolfilter toevoegen aan het Overzichtsvenster"
 
 #: data/code.metainfo.xml.in:200
 msgid "The Terminal pane now has a settable default directory"
-msgstr ""
+msgstr "Het terminalvenster heeft nu een instelbare standaardmap"
 
 #: data/code.metainfo.xml.in:201
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
-msgstr ""
+msgstr "Een nieuwe tabbalk met verbeterde animaties en slepen-en-neerzetten"
 
 #: data/code.metainfo.xml.in:228
 msgid ""
 "When opening a file in Code from the commandline or another app, a line/char "
 "position or selection range may be specified"
 msgstr ""
+"Bij het openen van een bestand in Code vanuit de opdrachtregel of een andere "
+"app kan een regel/karakterpositie of een selectiebereik worden opgegeven"
 
 #: data/code.metainfo.xml.in:229
 msgid "Add a fuzzy-find plugin which finds files in all open projects"
 msgstr ""
+"Voeg een fuzzy-find plug-in toe die bestanden in alle open projecten vindt"
 
 #: data/code.metainfo.xml.in:230
 msgid "Save and restore the state of the terminal pane"
-msgstr ""
+msgstr "Bewaar of herstel de status van het terminalvenster"
 
 #: data/code.metainfo.xml.in:234
 msgid ""
 "\"Find in Folder\" now works for all folders and text files, not only "
 "\".vala\" files"
 msgstr ""
+"\"Zoeken in map\" werkt nu voor alle mappen en tekstbestanden, niet alleen "
+"voor \".vala\"-bestanden"
 
 #: data/code.metainfo.xml.in:235
 msgid "\"Follow System Style\" is now fully respected"
-msgstr ""
+msgstr "\"Volg systeemstijl\" wordt nu volledig gerespecteerd"
 
 #: data/code.metainfo.xml.in:236
 msgid "The \"--new-tab\" commandline option now works"
-msgstr ""
+msgstr "De \"--new-tab\" opdrachtregeloptie werkt nu"
 
 #: data/code.metainfo.xml.in:237
 msgid "The symbol pane width is now synchronised and saved"
-msgstr ""
+msgstr "De breedte van het symboolvenster is nu gesynchroniseerd en opgeslagen"
 
 #: data/code.metainfo.xml.in:238
 msgid ""
 "Project folders are automatically closed if they are externally renamed, "
 "moved or deleted"
 msgstr ""
+"Projectmappen worden automatisch gesloten als ze extern worden hernoemd, "
+"verplaatst of verwijderd"
 
 #: data/code.metainfo.xml.in:239
 msgid "Fixed temporary backup files persisting under some circumstances"
 msgstr ""
+"Probleem opgelost van tijdelijke back-upbestanden die onder bepaalde "
+"omstandigheden blijven bestaan"
 
 #: data/code.metainfo.xml.in:240
 msgid "The Show-Replace action has been improved"
-msgstr ""
+msgstr "De Toon-Vervang actie is verbeterd"
 
 #: data/code.metainfo.xml.in:267
 msgid "Search options transferred to searchbar menu"
-msgstr ""
+msgstr "Zoekopties verplaats naar het zoekbalkmenu"
 
 #: data/code.metainfo.xml.in:268
 msgid "Whole word search option added"
-msgstr ""
+msgstr "Hele woord zoekopties toegevoegd"
 
 #: data/code.metainfo.xml.in:269
 msgid ""
 "Whole word, case sensitive mode and use regex search settings now persist"
 msgstr ""
+"Instellingen voor zoeken op heel woord, hoofdlettergevoeligheid en het "
+"gebruik van regex blijven nu behouden"
 
 #: data/code.metainfo.xml.in:273
 msgid "The search bar now updates properly after changing the active document"
 msgstr ""
+"De zoekbalk wordt nu correct bijgewerkt na het veranderen van het actieve "
+"document"
 
 #: data/code.metainfo.xml.in:274
 msgid ""
 "Trying to save a document to an unwritable location is now handled better"
 msgstr ""
+"Een document proberen op te slaan naar locatie waartoe niet geschreven mag "
+"worden, wordt nu beter afgehandeld"
 
 #: data/code.metainfo.xml.in:275
 msgid ""
 "The system style is now followed by the symbol outline and when launched "
 "without open documents"
 msgstr ""
+"De systeemstijl wordt nu gevolgd door het systeemoverzicht en wanneer deze "
+"geopend zonder open documenten"
 
 #: data/code.metainfo.xml.in:276
 msgid "Mixed case sensitive search now works as expected"
-msgstr ""
+msgstr "Zoeken met gemengde hoofd- en kleine letters werkt nu zoals verwacht"
 
 #: data/code.metainfo.xml.in:277
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
 msgstr ""
+"De zoekresultaten veranderen nu niet meer onverwachts als een document wordt "
+"geselecteerd"
 
 #: data/code.metainfo.xml.in:278
 msgid ""
 "Now there is always an active project at startup if there are projects in "
 "the sidebar"
 msgstr ""
+"Nu is er altijd een actief project bij het opstarten als er projecten in de "
+"zijbalk staan"
 
 #: data/code.metainfo.xml.in:279
 msgid ""
 "If a development branch is running this shows in the window title and in the "
 "dock tooltip"
 msgstr ""
+"Als een ontwikkelbranch actief is, wordt dat weergegeven in de venstertitel "
+"en in de tooltip van het dock"
 
 #: data/code.metainfo.xml.in:280
 msgid "Ctrl+PageUp and Ctrl+PageDown shortcuts now switch tabs"
-msgstr ""
+msgstr "De sneltoetsen Ctrl+PageUp en Ctrl+PageDown schakelen tussen tabbladen"
 
 #: data/code.metainfo.xml.in:281
 msgid "Ensure active project at startup (include non-git folders)"
 msgstr ""
+"Zorg ervoor dat het project actief is tijdens het opstarten (inclusief niet-"
+"git mappen)"
 
 #: data/code.metainfo.xml.in:315
 msgid "Redesigned app icon"
-msgstr ""
+msgstr "Herontworpen app pictogram"
 
 #: data/code.metainfo.xml.in:316
 msgid "New custom dark and light elementary styles for the source view"
 msgstr ""
+"Nieuw aangepaste donkere en lichte elementary stijlen voor de bronweergave"
 
 #: data/code.metainfo.xml.in:317
 msgid "Option to follow the system dark style preference"
@@ -440,52 +502,68 @@ msgstr "Optie om het donkere thema van het systeem te volgen"
 
 #: data/code.metainfo.xml.in:318
 msgid "Ability to half tile on small notebook displays"
-msgstr ""
+msgstr "De mogelijkheid om kleine notebookschermen in tweeën te splitsen"
 
 #: data/code.metainfo.xml.in:322
 msgid ""
 "Both Find on Page and Find in Project are now available from the app's menu "
 "instead of in the headerbar"
 msgstr ""
+"Zowel Zoeken op Pagina als Zoeken in Project zijn nu beschikbaar in het menu "
+"van de app in plaats van de kopbalk"
 
 #: data/code.metainfo.xml.in:323
 msgid ""
 "Options for hiding and showing panels are now all present in a compact set "
 "of linked buttons in the app's menu"
 msgstr ""
+"Opties voor het verbergen en tonen van panelen zijn nu aanwezig in een "
+"compacte set gekoppelde knoppen in het menu van de app"
 
 #: data/code.metainfo.xml.in:324
 msgid ""
 "The sidebar now contains the project chooser button and fills the height of "
 "the window"
 msgstr ""
+"De zijbalk bevat nu de knop voor het kiezen van projecten en vult de hoogte "
+"van het venster"
 
 #: data/code.metainfo.xml.in:325
 msgid "Starting a global search with text selected now pre-fills that text"
 msgstr ""
+"Bij een algemene zoekopdracht met geselecteerde tekst, wordt die tekst nu "
+"automatisch ingevuld"
 
 #: data/code.metainfo.xml.in:326
 msgid ""
 "The symbol outline pane is now shown to the right of the source view and can "
 "be shown and hidden with the keyboard shortcut \"Alt + \\\""
 msgstr ""
+"Het symbooloverzichtsvenster is nu zichtbaar aan de rechterkant van de "
+"bronweergave en kan getoond of verborgen worden met de sneltoets \"Alt + \\\""
 
 #: data/code.metainfo.xml.in:327
 msgid ""
 "Terminal, Symbol outline, and the Strip Trailing Whitespace plugins are now "
 "part of the main codebase"
 msgstr ""
+"De plug-ins Terminal, Symboolweergave en Verwijder blanco spaties, zijn nu "
+"onderdeel van de hoofdcodebasis"
 
 #: data/code.metainfo.xml.in:328
 msgid ""
 "Show an infobar when tab width settings are being overwritten by an "
 "EditorConfig file"
 msgstr ""
+"Toon een infobalk wanneer de instellingen voor de tabbreedte worden "
+"overschreven door een EditorConfig-bestand"
 
 #: data/code.metainfo.xml.in:329
 msgid ""
 "The shortcut for rebuilding the completion word list is now \"Ctrl + |\""
 msgstr ""
+"De sneltoets voor het opnieuw opstellen van de lijst met woordsuggesties is "
+"nu \"Ctrl + |\""
 
 #: data/code.metainfo.xml.in:347
 msgid ""
@@ -560,10 +638,8 @@ msgid "Code Editor"
 msgstr "Code Editor"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
-#| msgid "text;IDE;scratch;"
 msgid "text;IDE;scratch;code;"
-msgstr "tekst;IDE;scratch;"
+msgstr "tekst;IDE;scratch;code;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"

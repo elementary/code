@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-10-22 08:07+0000\n"
+"PO-Revision-Date: 2025-11-20 08:55+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
-"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/"
-">\n"
+"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,8 +316,6 @@ msgid "Highlight matching brackets"
 msgstr "Resaltar corchetes correspondientes"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Resaltado de sintaxis"
 
@@ -871,10 +869,8 @@ msgid "Duplicate Tab"
 msgstr "Duplicar pestaña"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Filtrar lenguajes"
+msgstr "Lenguaje del documento"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -968,17 +964,15 @@ msgstr "Menú"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Contraste alto"
+msgstr "Contraste"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1066,28 +1060,20 @@ msgid "no results"
 msgstr "sin resultados"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Ordenar líneas seleccionadas"
+msgstr "Ordenar líneas"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Marcar línea actual"
+msgstr "Marcar línea"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Pestaña anterior"
+msgstr "Marcador anterior"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Pestaña siguiente"
+msgstr "Marcador siguiente"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"

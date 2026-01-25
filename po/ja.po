@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-11-13 07:55+0000\n"
+"PO-Revision-Date: 2025-11-21 14:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -948,17 +948,15 @@ msgstr "メニュー"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "ライト"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "ダーク"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "ハイコントラスト"
+msgstr "コントラスト"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
@@ -1046,28 +1044,20 @@ msgid "no results"
 msgstr "結果なし"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "選択された行を並べ替え"
+msgstr "行を並べ替え"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "現在の行をブックマークする"
+msgstr "行をブックマークする"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "前のタブ"
+msgstr "前のブックマーク"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "次のタブ"
+msgstr "次のブックマーク"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"

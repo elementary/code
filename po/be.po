@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-06-29 18:55+0000\n"
+"PO-Revision-Date: 2025-12-04 09:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/code/"
 "be/>\n"
@@ -123,12 +123,12 @@ msgstr "_Скасаваць"
 
 #: src/MainWindow.vala:1088
 msgid "Cloning completed"
-msgstr ""
+msgstr "Кланіраванне завершана"
 
 #: src/MainWindow.vala:1089
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Клон створаны ў %s"
 
 #: src/MainWindow.vala:1095
 #, c-format
@@ -191,22 +191,20 @@ msgid "Cloning in progress"
 msgstr "Ідзе кланіраванне"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "Пошукавы запыт патрэбны быць як мінімум 3 сімвалы."
+msgstr "Пошукавы запыт будзе лічыцца за рэгулярны выраз"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "Пошук будзе з улікам рэгістра"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "Пошук будзе без уліку рэгістра"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "Пошук будзе распазнаваць толькі поўныя словы"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -312,8 +310,6 @@ msgid "Highlight matching brackets"
 msgstr "Падсвечваць парныя дужкі"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Падсветка сінтаксісу"
 
@@ -867,10 +863,8 @@ msgid "Duplicate Tab"
 msgstr "Дубліраваць укладку"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Фільтраваць мовы"
+msgstr "Мовы дакумента"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -966,19 +960,19 @@ msgstr "Меню"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "Светлая"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "Цёмная"
 
 #: src/Widgets/HeaderBar.vala:398
 msgid "Contrast"
-msgstr ""
+msgstr "Кантрасная"
 
 #: src/Widgets/Sidebar.vala:52
 msgid "Cloning complete"
-msgstr ""
+msgstr "Кланіраванне скончана"
 
 #: src/Widgets/Sidebar.vala:80
 msgid "Collapse All"
@@ -1062,28 +1056,20 @@ msgid "no results"
 msgstr "няма рэзультатаў"
 
 #: src/Widgets/SourceView.vala:581
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Адсартаваць вылучаныя радкі"
+msgstr "Адсартаваць радкі"
 
 #: src/Widgets/SourceView.vala:585
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Адзначыць бягучы радок"
+msgstr "Адзначыць радок"
 
 #: src/Widgets/SourceView.vala:589
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Папярэдняя ўкладка"
+msgstr "Папярэдняя пазнака"
 
 #: src/Widgets/SourceView.vala:593
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Наступная ўкладка"
+msgstr "Наступная пазнака"
 
 #: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
