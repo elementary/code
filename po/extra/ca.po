@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 20:29+0000\n"
-"PO-Revision-Date: 2025-10-30 19:55+0000\n"
+"PO-Revision-Date: 2026-01-27 06:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/extra/ca/"
 ">\n"
@@ -158,20 +158,18 @@ msgid ""
 "The high-contrast style-scheme is replaced by an elementary version with "
 "improved contrast for line numbers"
 msgstr ""
+"L'esquema d'estil d'alt contrast s'ha substituït per una versió d'elementary "
+"amb un contrast millorat per als números de línia."
 
 #: data/code.metainfo.xml.in:76
-#, fuzzy
-#| msgid ""
-#| "The terminal pane is now synchronized with the Terminal app foreground, "
-#| "background and palette settings"
 msgid "The terminal pane now follows Terminal app color-scheme setting"
 msgstr ""
-"El plafó del terminal ara està sincronitzat amb la configuració de primer "
-"pla, fons i paleta de l'aplicació Terminal."
+"El plafó del terminal ara segueix la configuració de l'esquema de colors de "
+"l'aplicació Terminal."
 
 #: data/code.metainfo.xml.in:77
 msgid "It is now possible to disable syntax highlighting"
-msgstr ""
+msgstr "Ara és possible desactivar el ressaltament de la sintaxi."
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:104
 #: data/code.metainfo.xml.in:121 data/code.metainfo.xml.in:140
@@ -185,28 +183,30 @@ msgstr "Actualitzacions menors:"
 #: data/code.metainfo.xml.in:81
 msgid "Absence of Terminal or Gnome settings no longer causes a crash"
 msgstr ""
+"L'absència de la configuració del Terminal o del Gnome ja no provoca un "
+"blocatge."
 
 #: data/code.metainfo.xml.in:82
-#, fuzzy
-#| msgid "The Terminal pane now has a settable default directory"
 msgid "The terminal pane now handles the shell exiting gracefully"
-msgstr ""
-"El plafó del Terminal ara té un directori predeterminat que es pot "
-"configurar."
+msgstr "El plafó del terminal ara gestiona la sortida de l'intèrpret d'ordres."
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "The terminal pane now follows the current active project path on start or "
 "opening"
 msgstr ""
+"El plafó del terminal ara segueix el camí del projecte actiu actual en "
+"iniciar-lo o obrir-lo."
 
 #: data/code.metainfo.xml.in:84
 msgid "It is no longer possible to open multiple PasteBin dialogs"
-msgstr ""
+msgstr "Ja no és possible obrir diversos diàlegs de PasteBin."
 
 #: data/code.metainfo.xml.in:85
 msgid "A cause of possible crashing by the sidebar on startup was fixed"
 msgstr ""
+"S'ha corregit una causa que provocava que la barra lateral es bloqués a "
+"l'inici."
 
 #: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:110
 #: data/code.metainfo.xml.in:125 data/code.metainfo.xml.in:145
