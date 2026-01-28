@@ -149,6 +149,14 @@ public class Code.Terminal : Gtk.Box {
         };
         key_controller.key_pressed.connect (key_pressed);
 
+        // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
+        terminal.enter_notify_event.connect (() => {
+            if (!terminal.has_focus) {
+                terminal.grab_focus ();
+
+            }
+        });
+
         terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 paste_action.set_enabled (current_clipboard.wait_is_text_available ());
