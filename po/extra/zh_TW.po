@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 20:29+0000\n"
-"PO-Revision-Date: 2026-01-06 13:55+0000\n"
+"PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/extra/zh_TW/>\n"
@@ -141,19 +141,15 @@ msgstr "改善："
 msgid ""
 "The high-contrast style-scheme is replaced by an elementary version with "
 "improved contrast for line numbers"
-msgstr ""
+msgstr "將高對比風格方案改為 elementary 的版本，並改善行數對比"
 
 #: data/code.metainfo.xml.in:76
-#, fuzzy
-#| msgid ""
-#| "The terminal pane is now synchronized with the Terminal app foreground, "
-#| "background and palette settings"
 msgid "The terminal pane now follows Terminal app color-scheme setting"
-msgstr "終端機面板的前景、背景和調色盤設定值現在與終端機應用程式同步"
+msgstr "終端機面板的配色方案設定值現在與終端機應用程式同步"
 
 #: data/code.metainfo.xml.in:77
 msgid "It is now possible to disable syntax highlighting"
-msgstr ""
+msgstr "提供停用語法突顯的選項"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:104
 #: data/code.metainfo.xml.in:121 data/code.metainfo.xml.in:140
@@ -166,27 +162,25 @@ msgstr "小型更新："
 
 #: data/code.metainfo.xml.in:81
 msgid "Absence of Terminal or Gnome settings no longer causes a crash"
-msgstr ""
+msgstr "修正沒有《終端機》或 GNOME 設定值時會崩潰的問題"
 
 #: data/code.metainfo.xml.in:82
-#, fuzzy
-#| msgid "The Terminal pane now has a settable default directory"
 msgid "The terminal pane now handles the shell exiting gracefully"
-msgstr "終端機面板現在提供設定預設目錄的選項"
+msgstr "終端機面板現在能正常處理 shell 退出的情況"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "The terminal pane now follows the current active project path on start or "
 "opening"
-msgstr ""
+msgstr "終端機面板現在在啟動或開啟時會進入目前作用中專案的路徑"
 
 #: data/code.metainfo.xml.in:84
 msgid "It is no longer possible to open multiple PasteBin dialogs"
-msgstr ""
+msgstr "修正能夠開啟多個 Pastebin 對話框的問題"
 
 #: data/code.metainfo.xml.in:85
 msgid "A cause of possible crashing by the sidebar on startup was fixed"
-msgstr ""
+msgstr "修正可能在會讓側邊欄在啟動時造成崩潰的一個問題"
 
 #: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:110
 #: data/code.metainfo.xml.in:125 data/code.metainfo.xml.in:145
