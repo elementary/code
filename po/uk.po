@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 20:29+0000\n"
-"PO-Revision-Date: 2025-08-01 07:55+0000\n"
+"PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -128,12 +128,12 @@ msgstr "_Скасувати"
 
 #: src/MainWindow.vala:1084
 msgid "Cloning completed"
-msgstr ""
+msgstr "Клонування завершено"
 
 #: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Клон створено в %s"
 
 #: src/MainWindow.vala:1091
 #, c-format
@@ -196,10 +196,8 @@ msgid "Cloning in progress"
 msgstr "Триває клонування"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
 msgid "The search term will be treated as a regex expression"
-msgstr "Пошукова фраза повинна містити щонайменше 3 символи."
+msgstr "Пошуковий термін розглядатиметься як вираз регулярного виразу"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
