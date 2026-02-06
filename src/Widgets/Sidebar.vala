@@ -83,7 +83,7 @@ public class Code.Sidebar : Gtk.Grid {
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
 
         var action_group = new SimpleActionGroup ();
-        var sort_action = (SimpleAction) Scratch.saved_state.create_action ("order-folders");
+        var sort_action = Scratch.saved_state.create_action ("order-folders");
         action_group.add_action (sort_action);
         insert_action_group (SIDEBAR_ACTION_GROUP, action_group);
 
