@@ -22,6 +22,8 @@ public class Code.Sidebar : Gtk.Grid {
         URI_LIST
     }
 
+    public const string SIDEBAR_ACTION_GROUP = "sidebar";
+    public const string SIDEBAR_ACTION_PREFIX = SIDEBAR_ACTION_GROUP + ".";
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
     public Hdy.HeaderBar headerbar { get; private set; }
@@ -80,8 +82,15 @@ public class Code.Sidebar : Gtk.Grid {
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
 
-        var order_projects_menu_item = new GLib.MenuItem (_("Alphabetize"), Scratch.MainWindow.ACTION_PREFIX
-                + Scratch.MainWindow.ACTION_ORDER_FOLDERS);
+        var action_group = new SimpleActionGroup ();
+        var sort_action = (SimpleAction) Scratch.saved_state.create_action ("order-folders");
+        action_group.add_action (sort_action);
+        insert_action_group (SIDEBAR_ACTION_GROUP, action_group);
+
+        var order_projects_menu_item = new GLib.MenuItem (
+            _("Keep Sorted"),
+            SIDEBAR_ACTION_PREFIX + sort_action.name
+        );
 
         var project_menu = new GLib.Menu ();
         project_menu.append_item (collapse_all_menu_item);
