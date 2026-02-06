@@ -68,6 +68,37 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.2.0" date="2026-01-31" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The high-contrast style-scheme is replaced by an elementary version with improved contrast for line numbers</li>
+          <li>The terminal pane now follows Terminal app color-scheme setting</li>
+          <li>It is now possible to disable syntax highlighting</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Absence of Terminal or Gnome settings no longer causes a crash</li>
+          <li>The terminal pane now handles the shell exiting gracefully</li>
+          <li>The terminal pane now follows the current active project path on start or opening</li>
+          <li>It is no longer possible to open multiple PasteBin dialogs</li>
+          <li>A cause of possible crashing by the sidebar on startup was fixed</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/276">Listen for changes to Terminal color scheme</issue>
+        <issue url="https://github.com/elementary/code/issues/457">Exiting process running in terminal leaves terminal useless</issue>
+        <issue url="https://github.com/elementary/code/issues/548">Line numbers in high contrast theme</issue>
+        <issue url="https://github.com/elementary/code/issues/949">Pastebin Dialog: Can open infinite format dialogs</issue>
+        <issue url="https://github.com/elementary/code/issues/1507">Duplicate projects in dropdown after opening second window from duplicate tab</issue>
+        <issue url="https://github.com/elementary/code/issues/1523">Terminal Pane does not follow current active project path on startup or when reopened</issue>
+        <issue url="https://github.com/elementary/code/issues/1586">Relies on external Terminal settings keys</issue>
+        <issue url="https://github.com/elementary/code/issues/1654">Segmentation Fault when starting Code</issue>
+        <issue url="https://github.com/elementary/code/issues/1662">Crash on Global search when a file name is a prefix of a folder which is a parent of a matched file</issue>
+        <issue url="https://github.com/elementary/code/issues/1664">Add an option in Preferences to disable syntax highlighting globally</issue>
+      </issues>
+    </release>
     <release version="8.1.2" date="2025-11-05" urgency="medium">
       <description>
         <p>Minor updates:</p>
