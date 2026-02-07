@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 20:29+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
 "PO-Revision-Date: 2021-09-06 18:12+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -44,80 +44,80 @@ msgstr ""
 msgid "[FILE…]"
 msgstr "[ملف...]"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:263
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "كود"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "كود"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Find on Page…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:415
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "إخفاء شريط البحث"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:420
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "اظهر المعاينة"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:434
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "ازالة الاماكن الوهمية المنشأة من قبل ( vala parser )"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "اخفي الطرفية"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "اظهر الطرفية"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -126,29 +126,29 @@ msgstr "إفتح"
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_الغاء"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr ""
 
@@ -1088,19 +1088,19 @@ msgstr ""
 msgid "Contrast"
 msgstr "تباين عالي"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "طي الكل"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "ترتيب بالأبجدية"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:100
 #, fuzzy
 #| msgid "Manage project folders"
 msgid "Manage project folders…"
@@ -1313,6 +1313,9 @@ msgstr "رجاءً قم بتثبيت قاموس [aspell] واحد على الأ�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "اتمام %s من الكلمات"
+
+#~ msgid "Alphabetize"
+#~ msgstr "ترتيب بالأبجدية"
 
 #, fuzzy
 #~| msgid "Text Editor"

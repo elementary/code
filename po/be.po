@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 20:29+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
 "PO-Revision-Date: 2025-12-04 09:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/code/code/"
@@ -40,71 +40,71 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Схаваць поле пошуку"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Знайсці на старонцы…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "Схаваць панэль праектаў"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "Паказаць панэль праектаў"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "Схаваць абводку сімвалаў"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "Паказаць абводку сімвалаў"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Схаваць Тэрмінал"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Паказаць Тэрмінал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Усе файлы"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Тэкставыя файлы"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "Адкрыць некалькі файлаў"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "Адкрыць"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -113,29 +113,29 @@ msgstr "Адкрыць"
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Адкрыць"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Скасаваць"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr "Кланіраванне завершана"
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Клон створаны ў %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Не атрымалася кланіраваць %s"
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr "Паспрабаваць зноў"
 
@@ -970,19 +970,19 @@ msgstr "Цёмная"
 msgid "Contrast"
 msgstr "Кантрасная"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "Кланіраванне скончана"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "Згарнуць усё"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "Па алфавіту"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Кіраванне папкамі праекта…"
 
@@ -1177,6 +1177,9 @@ msgstr "Калі ласка, усталюйце прынамсі адзін сл
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Дапаўненне слоў"
+
+#~ msgid "Alphabetize"
+#~ msgstr "Па алфавіту"
 
 #~ msgid "Goto Previous Edit Mark"
 #~ msgstr "Перайсці да мінулай пазнакі"
