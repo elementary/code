@@ -14,7 +14,7 @@ finish-args:
 
   - '--talk-name=org.gtk.vfs.*'
   - '--talk-name=org.gnome.SettingsDaemon'
-  - '--talk-name=org.elementary.Contractor'
+  - '--talk-name=io.elementary.Contractor'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
 cleanup:
