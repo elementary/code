@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-06 18:19+0000\n"
-"PO-Revision-Date: 2024-07-15 08:16+0000\n"
+"PO-Revision-Date: 2026-02-12 03:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/plugins/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/plugins/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -55,11 +55,11 @@ msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr "選択された単語をハイライト"
+msgstr "選択された単語を強調表示"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr "選択された単語の出現をハイライトします"
+msgstr "選択された単語の全使用箇所を強調表示します"
 
 #: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Markdown Actions"
