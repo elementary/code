@@ -20,8 +20,6 @@ Build-Depends: appstream,
                libvte-2.91-dev,
                libxml2-utils,
                meson (>= 0.44.0),
-# Required to generate translation of .policy files in focal+
-               policykit-1,
 # Required to generate translation of .policy files in jammy+
                polkitd,
 # Required to generate translation of .policy files in mantic+
