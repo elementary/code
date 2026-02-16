@@ -162,6 +162,11 @@
       <summary>Remember the last focused document.</summary>
       <description>Restore the focused document from a previous session when opening Code.</description>
     </key>
+    <key name="embolden-highcontrast" type="b">
+      <default>true</default>
+      <summary>Embolden the high contrast theme</summary>
+      <description>Always use bold font when using the high contrast style scheme</description>
+    </key>
     <key name="active-project-path" type="s">
       <default>''</default>
       <summary>The active project path.</summary>
