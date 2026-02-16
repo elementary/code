@@ -83,6 +83,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
         });
+
+        Scratch.saved_state.changed["order-folders"].connect (() => {
+            order_folders ();
+        });
     }
 
     private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
@@ -158,6 +162,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     public void order_folders () {
+        if (!Scratch.saved_state.get_boolean ("order-folders")) {
+            return;
+        }
+
         var list = new Gee.ArrayList<ProjectFolderItem> ();
 
         foreach (var child in root.children) {
@@ -593,6 +601,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         });
 
         yield;
+
+        order_folders ();
     }
 
     private bool is_open (File folder) {
