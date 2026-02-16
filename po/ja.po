@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 20:29+0000\n"
-"PO-Revision-Date: 2025-11-21 14:55+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
+"PO-Revision-Date: 2026-02-12 03:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -44,71 +44,71 @@ msgstr "<開始行[.開始位置][-終了行[.終了位置]]>"
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "コード (%s)"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "コード"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "検索バーを非表示"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "ページ内を検索…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "プロジェクトサイドバーを非表示"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "プロジェクトサイドバーを表示"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "シンボルアウトラインを非表示"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "シンボルアウトラインを表示"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "ターミナルを非表示"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "複数のファイルを開く"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "開く"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr "クローンが完了しました"
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "クローンを次の場所に作成しました: %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr "%s をクローンできません"
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr "再試行"
 
@@ -309,7 +309,7 @@ msgstr "エディター"
 
 #: src/Dialogs/PreferencesDialog.vala:112
 msgid "Highlight matching brackets"
-msgstr "対となるカッコをハイライト"
+msgstr "対となるカッコを強調表示"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Syntax highlighting"
@@ -958,19 +958,19 @@ msgstr "ダーク"
 msgid "Contrast"
 msgstr "コントラスト"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "クローン完了"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "アルファベット順に並び替え"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr "アルファベット順で並べ替える"
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "プロジェクトフォルダーを管理…"
 
@@ -1165,6 +1165,9 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "Alphabetize"
+#~ msgstr "アルファベット順に並び替え"
 
 #~ msgid "Goto Previous Edit Mark"
 #~ msgstr "前のブックマークに移動"

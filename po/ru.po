@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 20:29+0000\n"
-"PO-Revision-Date: 2025-11-23 11:55+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
+"PO-Revision-Date: 2026-02-08 05:52+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,71 +45,71 @@ msgstr "<НАЧ_СТРОКА[.НАЧ_СТОЛБЕЦ][-КОНЕЧ_СТРОКА[.�
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:263
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:265
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:399
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Найти на странице…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:415
 msgid "Hide Projects Sidebar"
 msgstr "Скрыть панель проекта"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:420
 msgid "Show Projects Sidebar"
 msgstr "Показать панель проекта"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:429
 msgid "Hide Symbol Outline"
 msgstr "Скрыть структуру символов"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:434
 msgid "Show Symbol Outline"
 msgstr "Показать структуру символов"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:443
 msgid "Hide Terminal"
 msgstr "Скрыть Терминал"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Показать Терминал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:618
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -118,29 +118,29 @@ msgstr "Открыть"
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Отменить"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr "Клонирование завершено"
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Клон успешно создан в %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Не удалось клонировать «%s»"
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr "Попробовать снова"
 
@@ -977,19 +977,19 @@ msgstr "Тёмная"
 msgid "Contrast"
 msgstr "Контрастная"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "Клонирование завершено"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "Свернуть всё"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "По алфавиту"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr "Сохранять сортировку"
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Управление папками проекта…"
 
@@ -1184,6 +1184,9 @@ msgstr "Пожалуйста, установите хотя бы один [aspel
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s — Автозавершение слов"
+
+#~ msgid "Alphabetize"
+#~ msgstr "По алфавиту"
 
 #~ msgid "Goto Previous Edit Mark"
 #~ msgstr "Перейти к предыдущей метке"

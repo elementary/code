@@ -520,6 +520,7 @@ namespace Scratch.FolderManager {
             var wholeword_search = Scratch.settings.get_boolean ("wholeword-search");
             var case_mode = (CaseSensitiveMode)(Scratch.settings.get_enum ("case-sensitive-search"));
             var use_regex = Scratch.settings.get_boolean ("regex-search");
+
             switch (case_mode) {
                 case NEVER:
                     case_sensitive = false;
@@ -566,6 +567,10 @@ namespace Scratch.FolderManager {
             dialog.run ();
 
             if (search_term != null) {
+                // Remove results of previous search before attempting a new one
+                remove_all_badges ();
+                collapse_all ();
+
                 /* Put search term in search bar to help user locate the position of the matches in each doc */
                 var search_variant = new Variant.string (search_term);
                 var app = (Gtk.Application)GLib.Application.get_default ();
@@ -573,6 +578,7 @@ namespace Scratch.FolderManager {
                 win.actions.lookup_action ("action-find").activate (search_variant);
 
                 if (!use_regex) {
+                    search_term = Regex.escape_string (search_term);
                     if (wholeword_search) {
                         search_term = "\\b%s\\b".printf (search_term);
                     }
@@ -605,9 +611,6 @@ namespace Scratch.FolderManager {
                 Ggit.StatusShow.WORKDIR_ONLY,
                 path_spec
             );
-
-            remove_all_badges ();
-            collapse_all ();
 
             if (monitored_repo != null && !is_explicit) {
                 try {
