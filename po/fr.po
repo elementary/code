@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18 12:15+0000\n"
-"PO-Revision-Date: 2025-11-20 08:55+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
+"PO-Revision-Date: 2026-02-09 14:43+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/code/code/fr/>"
 "\n"
@@ -92,23 +92,23 @@ msgstr "Afficher le terminal"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:985
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:988
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "Ouvrir"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:1032
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:1033
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr "Clonage terminé"
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Le clone a bien été créé dans %s"
 
-#: src/MainWindow.vala:1095
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Impossible de cloner %s"
 
-#: src/MainWindow.vala:1102
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr "Réessayer"
 
@@ -436,59 +436,59 @@ msgstr "Ne pas basculer"
 msgid "Checkout and Overwrite"
 msgstr "Basculer et écraser"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileView.vala:74
+#: src/FolderManager/FileView.vala:72
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:156
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Rechercher dans le dossier…"
 
-#: src/FolderManager/FolderItem.vala:187
+#: src/FolderManager/FolderItem.vala:186
 msgid "Terminal Pane"
 msgstr "Panneau du Terminal"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:230
+#: src/FolderManager/FolderItem.vala:229
 msgid "Empty File"
 msgstr "Fichier vide"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/FolderItem.vala:240
 #: src/FolderManager/ProjectFolderItem.vala:425
 #: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:397
+#: src/FolderManager/FolderItem.vala:396
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:397
+#: src/FolderManager/FolderItem.vala:396
 msgid "new file"
 msgstr "nouveau fichier"
 
@@ -832,15 +832,15 @@ msgstr "Aucun projet sélectionné"
 msgid "Active Git Project: %s"
 msgstr "Projet Git actif : %s"
 
-#: src/Widgets/ChooseProjectButton.vala:61
+#: src/Widgets/ChooseProjectButton.vala:67
 msgid "Filter projects"
 msgstr "Filtrer les projets"
 
-#: src/Widgets/ChooseProjectButton.vala:84
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Open Folder…"
 msgstr "Ouvrir un dossier…"
 
-#: src/Widgets/ChooseProjectButton.vala:89
+#: src/Widgets/ChooseProjectButton.vala:95
 msgid "Clone Git Repository…"
 msgstr "Cloner un dépôt Git…"
 
@@ -979,19 +979,19 @@ msgstr "Sombre"
 msgid "Contrast"
 msgstr "Contrasté"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "Clonage terminé"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "Tout réduire"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "Trier par ordre alphabétique"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr "Conserver l'ordre"
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Gérer les dossiers du projet…"
 
@@ -1125,7 +1125,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Ajouter le dossier d'un projet dans la barre latérale."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr "Envoyer vers Pastebin"
 
@@ -1186,6 +1186,9 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
+
+#~ msgid "Alphabetize"
+#~ msgstr "Trier par ordre alphabétique"
 
 #~ msgid "Goto Previous Edit Mark"
 #~ msgstr "Revenir à la marque d'édition précédente"
