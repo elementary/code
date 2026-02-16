@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18 12:15+0000\n"
+"POT-Creation-Date: 2026-02-06 18:19+0000\n"
 "PO-Revision-Date: 2018-05-27 00:04+0000\n"
 "Last-Translator: Hugh Hoang <hugh.hoang@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/code/code/"
@@ -97,23 +97,23 @@ msgstr ""
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:668
+#: src/MainWindow.vala:971 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:672
+#: src/MainWindow.vala:975 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
-#: src/MainWindow.vala:985
+#: src/MainWindow.vala:979
 msgid "Open some files"
 msgstr "Mở vài tệp"
 
-#: src/MainWindow.vala:988
+#: src/MainWindow.vala:982
 msgid "Open"
 msgstr "Mở"
 
-#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -122,29 +122,29 @@ msgstr "Mở"
 msgid "Cancel"
 msgstr "Bỏ qua"
 
-#: src/MainWindow.vala:1032
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Mở"
 
-#: src/MainWindow.vala:1033
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Bỏ qua"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1082
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1083
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1095
+#: src/MainWindow.vala:1089
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1102
+#: src/MainWindow.vala:1096
 msgid "Retry"
 msgstr ""
 
@@ -453,61 +453,61 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 #, fuzzy
 msgid "Other Actions"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Đổi tên"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 msgid "Move to Trash"
 msgstr "Xóa vào Thùng rác"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:196
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
 msgid "Other Application…"
 msgstr "Nhưng ứng dụng khác…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:216
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
 msgid "Open In"
 msgstr "Mở tại"
 
-#: src/FolderManager/FileView.vala:74
+#: src/FolderManager/FileView.vala:72
 msgid "Folders"
 msgstr "Các thư mục"
 
-#: src/FolderManager/FolderItem.vala:156
+#: src/FolderManager/FolderItem.vala:155
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "Mở tập tin"
 
-#: src/FolderManager/FolderItem.vala:187
+#: src/FolderManager/FolderItem.vala:186
 msgid "Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
 msgstr "Thư mục"
 
-#: src/FolderManager/FolderItem.vala:230
+#: src/FolderManager/FolderItem.vala:229
 msgid "Empty File"
 msgstr "Tệp rỗng"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:241
+#: src/FolderManager/FolderItem.vala:240
 #: src/FolderManager/ProjectFolderItem.vala:425
 #: src/FolderManager/ProjectFolderItem.vala:431
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:397
+#: src/FolderManager/FolderItem.vala:396
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:397
+#: src/FolderManager/FolderItem.vala:396
 #, fuzzy
 msgid "new file"
 msgstr "Tập tin mới"
@@ -851,16 +851,16 @@ msgstr "Dành cho từ đã chọn"
 msgid "Active Git Project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:61
+#: src/Widgets/ChooseProjectButton.vala:67
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:84
+#: src/Widgets/ChooseProjectButton.vala:90
 #, fuzzy
 msgid "Open Folder…"
 msgstr "Mở tập tin"
 
-#: src/Widgets/ChooseProjectButton.vala:89
+#: src/Widgets/ChooseProjectButton.vala:95
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -1013,19 +1013,19 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
+#: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:91
+#: src/Widgets/Sidebar.vala:100
 #, fuzzy
 msgid "Manage project folders…"
 msgstr "Mở tập tin"
@@ -1172,7 +1172,7 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr ""
 
