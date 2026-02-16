@@ -5,7 +5,9 @@
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
 */
 private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
+
     public signal void branch_changed (string branch_name);
+
     public string text {
         get {
             return search_entry.text;
@@ -32,6 +34,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         list_box = new Gtk.ListBox () {
             activate_on_single_click = false
         };
+
         var scrolled_window = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
@@ -39,12 +42,15 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
             vexpand = true
         };
         scrolled_window.child = list_box;
+
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Enter search term")
         };
+
         var box = new Gtk.Box (VERTICAL, 6);
         box.add (search_entry);
         box.add (scrolled_window);
+
         child = box;
 
         recent_header = new Granite.HeaderLabel (_("Recent Branches"));
@@ -58,9 +64,11 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
                 if (dialog.project.is_recent_ref (branch_ref)) {
                     row.is_recent = true;
                 }
+
                 list_box.add (row);
             }
         }
+
         list_box.set_sort_func (listbox_sort_func);
         list_box.set_header_func (listbox_header_func);
         list_box.row_selected.connect ((listboxrow) => {
@@ -75,12 +83,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         list_box.set_filter_func ((listboxrow) => {
             return (((BranchNameRow)(listboxrow)).branch_name.contains (search_entry.text));
         });
+
         search_entry.changed.connect (() => {
             list_box.invalidate_filter ();
-            // recent_header.unparent ();
-            // local_header.unparent ();
-            // remote_header.unparent ();
-            // list_box.invalidate_headers ();
             branch_changed (text);
         });
         search_entry.activate.connect (() => {

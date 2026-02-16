@@ -61,12 +61,16 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
                 project.file.file.get_basename ()
             );
             primary_label.can_focus = false;
+
             image_icon = new ThemedIcon ("git");
+
             var apply_button = add_button (_("Apply"), Gtk.ResponseType.APPLY);
             bind_property ("can-apply", apply_button, "sensitive", SYNC_CREATE);
-            stack = new Gtk.Stack ();
+
             var checkout_page = new BranchCheckoutPage (this);
             var create_page = new BranchCreatePage (this);
+
+            stack = new Gtk.Stack ();
             stack.add_titled (checkout_page, BranchAction.CHECKOUT.to_string (), _("Checkout"));
             stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("New"));
 
