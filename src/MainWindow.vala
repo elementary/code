@@ -78,7 +78,6 @@ namespace Scratch {
         public const string ACTION_OPEN_FOLDER = "action-open-folder";
         public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
-        public const string ACTION_ORDER_FOLDERS = "action-order-folders";
         public const string ACTION_GO_TO = "action-go-to";
         public const string ACTION_SORT_LINES = "action-sort-lines";
         public const string ACTION_NEW_TAB = "action-new-tab";
@@ -143,7 +142,6 @@ namespace Scratch {
             { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
-            { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
@@ -1121,10 +1119,6 @@ namespace Scratch {
 
         private void action_collapse_all_folders () {
             folder_manager_view.collapse_all ();
-        }
-
-        private void action_order_folders () {
-            folder_manager_view.order_folders ();
         }
 
         private void action_save () {
