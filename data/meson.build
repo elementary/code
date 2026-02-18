@@ -42,7 +42,7 @@ endif
 configure_file(
     input: 'code.service.in',
     output: meson.project_name() + '.service',
-    configuration: conf_data,
+    configuration: config_data,
     install_dir: get_option('datadir') / 'dbus-1' / 'services',
     install: true
 )
