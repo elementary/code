@@ -610,6 +610,13 @@ namespace Scratch.Widgets {
                 }
 
                 menu.add (comment_item);
+
+                if (true) {//TODO Check preceding char is bracket
+                    var match_item = new Gtk.MenuItem.with_label (_("Goto Matching Bracket")) {
+                        action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_GO_TO_MATCHING
+                    };
+                    menu.add (match_item);
+                }
             }
 
             menu.show_all ();
@@ -703,6 +710,144 @@ namespace Scratch.Widgets {
 
                 return Source.REMOVE;
             });
+        }
+
+        private const string OPEN_BRACKETS = "{([";
+        private const string CLOSE_BRACKETS = "})]";
+        private bool is_open_bracket (unichar c, out unichar matching) {
+            var index = OPEN_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = CLOSE_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool is_close_bracket (unichar c, out unichar matching) {
+            var index = CLOSE_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = OPEN_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private uint get_indent_spaces (Gtk.TextIter t) {
+            var indent_iter = t.copy ();
+            if (indent_iter.backward_line ()) {
+                indent_iter.forward_line ();
+            };
+            uint spaces = 0;
+            while (indent_iter.forward_char () && indent_iter.get_char ().isspace ()) {
+                spaces++;
+            }
+
+            return spaces;
+        }
+
+        // Return index of next uncommented, not empty line
+        private bool skip_commented_lines (out int new_index, int start_index, int step = 1) {
+            new_index = start_index;
+            while (CommentToggler.line_is_commented_or_empty (
+                (Gtk.SourceBuffer)buffer, new_index, language
+            )) {
+                new_index += step;
+            }
+
+            return new_index != start_index;
+        }
+
+        public void goto_matching () {
+            uint start_indent = 0, end_indent = 0, same = 0;
+            int start_line = -1, end_line = -1, new_line = -1;
+            unichar c;
+            bool found = false;
+            var insert_mark = buffer.get_mark ("insert");
+            Gtk.TextIter insert_iter, start_iter, end_iter;
+            buffer.get_iter_at_mark (out insert_iter, insert_mark);
+            start_line = insert_iter.get_line ();
+            if (skip_commented_lines (out new_line, start_line)) {
+                return;
+            }
+
+            start_line++; // Change from index to visible number
+            insert_iter.backward_char ();
+            var insert_char = insert_iter.get_char ();
+            var end = insert_iter.copy ();
+            unichar matching;
+            if (is_open_bracket (insert_char, out matching)) {
+                start_indent = get_indent_spaces (insert_iter);
+                end_line = buffer.get_line_count ();
+                while (end.forward_char ()) {
+                    if (end.starts_line () && skip_commented_lines (out new_line, end.get_line ())) {
+                        end.set_line (new_line);
+                        continue;
+                    }
+                    c = end.get_char ();
+
+                    if (is_open_bracket (c, out matching)) {
+                        same++;
+                    } else if (is_close_bracket (c, out matching)) {
+                        if (same > 0) {
+                            same--;
+                        } else {
+                            end_indent = get_indent_spaces (end);
+                            end_line = end.get_line () + 1;
+                            warning ("end line %i", end_line);
+                            end.forward_char ();
+                            buffer.place_cursor (end);
+                            scroll_to_iter (end, 0.1, false, 0.0, 0.0);
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+            } else if (is_close_bracket (insert_char, out matching)) {
+                start_indent = get_indent_spaces (insert_iter);
+                end_line = 0;
+                while (end.backward_char ()) {
+                    if (end.ends_line () && skip_commented_lines (out new_line, end.get_line (), -1)) {
+                        end.set_line (new_line);
+                        end.forward_to_line_end ();
+                        continue;
+                    }
+                    c = end.get_char ();
+                    if (is_close_bracket (c, out matching)) {
+                        same++;
+                    } else if (is_open_bracket (c, out matching)) {
+                        if (same > 0) {
+                            same--;
+                        } else {
+                            end_indent = get_indent_spaces (end);
+                            end_line = end.get_line () + 1;
+                            end.forward_char ();
+                            buffer.place_cursor (end);
+                            scroll_to_iter (end, 0.1, false, 0.0, 0.0);
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                return;
+            }
+
+            if (start_indent != end_indent || !found) {
+                var min_line = int.min (start_line, end_line);
+                var max_line = int.max (start_line, end_line);
+                var parent_window = get_toplevel () as Gtk.Window;
+                var dialog = new Granite.MessageDialog (
+                    found ? _("Matching bracket has incorrect indent") : _("No matching bracket found"),
+                    _("You may have omitted a required bracket or inserted an extra bracket between lines %i and %i").printf (min_line, max_line),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.CLOSE
+                );
+                dialog.transient_for = parent_window;
+                dialog.response.connect (dialog.destroy);
+                dialog.present ();
+            }
         }
     }
 }

@@ -79,6 +79,7 @@ namespace Scratch {
         public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
         public const string ACTION_GO_TO = "action-go-to";
+        public const string ACTION_GO_TO_MATCHING = "action-go-to-matching";
         public const string ACTION_SORT_LINES = "action-sort-lines";
         public const string ACTION_NEW_TAB = "action-new-tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
@@ -148,6 +149,7 @@ namespace Scratch {
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
+            { ACTION_GO_TO_MATCHING, action_go_to_matching },
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
@@ -214,6 +216,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
+            action_accelerators.set (ACTION_GO_TO_MATCHING, "<Control><Shift>i");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
@@ -1359,6 +1362,15 @@ namespace Scratch {
 
         private void action_go_to () {
             toolbar.format_bar.line_menubutton.active = true;
+        }
+
+        private void action_go_to_matching () {
+            var doc = document_view.current_document;
+            if (doc == null) {
+                return;
+            } else {
+                doc.source_view.goto_matching ();
+            }
         }
 
         private void action_templates () {
