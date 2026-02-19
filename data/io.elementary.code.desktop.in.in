@@ -12,7 +12,7 @@ Actions=NewWindow;NewFile;
 Icon=io.elementary.code
 Exec=@EXEC_NAME@ %U
 DBusActivatable=true
-SingleMainWindow=true
+SingleMainWindow=false
 StartupNotify=true
 Terminal=false
 
