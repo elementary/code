@@ -26,8 +26,8 @@ namespace Scratch.FolderManager {
 
         private static Icon added_icon;
         private static Icon modified_icon;
-        // private SimpleAction checkout_local_branch_action;
-        // private SimpleAction checkout_remote_branch_action;
+
+
 
         public signal void closed ();
 
@@ -69,7 +69,7 @@ namespace Scratch.FolderManager {
                     );
                 }
 
-                // checkout_local_branch_action.set_state (monitored_repo.branch_name);
+
             }
         }
 

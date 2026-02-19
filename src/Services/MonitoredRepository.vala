@@ -300,7 +300,7 @@ namespace Scratch.Services {
 
             if (confirm && has_uncommitted) {
                 var parent = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
-                // var new_branch_name = new_head_branch.get_name ();
+
                 string project_diff;
                 try {
                     project_diff = get_project_diff ();
@@ -322,7 +322,7 @@ namespace Scratch.Services {
                 });
 
                 dialog.present ();
-                // confirm_checkout_branch (new_head_branch);
+
                 return false;
             }
 
@@ -359,6 +359,7 @@ namespace Scratch.Services {
                 git_repo.set_head (((Ggit.Ref)new_branch).get_name ());
             } catch (Error e) {
                 warning ("Failed to create new branch. %s", e.message);
+                return false;
             }
 
             return true;
