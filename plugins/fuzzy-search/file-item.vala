@@ -7,13 +7,14 @@
  */
 
 public class FileItem : Gtk.ListBoxRow {
-    private SearchResult result;
+    public SearchResult result { get; private set; }
 
     public string filepath {
         get {
             return result.full_path;
         }
     }
+
     public FileItem (SearchResult res, bool should_distinguish_project = false) {
         this.get_style_context ().add_class ("fuzzy-item");
         this.get_style_context ().add_class ("flat");

@@ -19,7 +19,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private Gee.LinkedList<GLib.Cancellable> cancellables;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
+    private string current_doc_project;
     public Scratch.MainWindow current_window { get; construct; }
+    public Scratch.Services.FuzzySearchIndexer search_indexer { get; construct; }
     public bool sidebar_is_visible { get; set; }
 
     public signal void open_file (string filepath);
@@ -27,29 +29,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
     public FuzzySearchPopover (Scratch.Services.FuzzySearchIndexer search_indexer, Scratch.MainWindow window) {
         Object (
-            modal: true,
-            relative_to: window.document_view,
-            width_request: 500,
-            current_window: window
+            current_window: window,
+            search_indexer: search_indexer
         );
-
-        int height;
-        current_window.get_size (null, out height);
-        window_height = height;
-
-        fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
-        indexer = search_indexer;
-        items = new Gee.ArrayList<FileItem> ();
-        cancellables = new Gee.LinkedList<GLib.Cancellable> ();
-
-        // Limit the shown results if the window height is too small
-        if (window_height > 400) {
-            max_items = 5;
-        } else {
-            max_items = 3;
-        }
-
-        scrolled.set_max_content_height (45 /* height */ * max_items);
     }
 
     private void calculate_scroll_offset (int old_position, int new_position) {
@@ -81,7 +63,11 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     }
 
     construct {
+        modal = true;
+        relative_to = current_window.document_view;
+        width_request = 500;
         pointing_to = { 0, 32, 1, 1 };
+
         this.get_style_context ().add_class ("fuzzy-popover");
 
         title_label = new Gtk.Label (_("Find project files"));
@@ -183,7 +169,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         }
 
                         fuzzy_finder.fuzzy_find_async.begin (term, dir_length,
-                                                             get_current_project (),
+                                                             current_doc_project,
                                                              next_cancellable,
                                                              (obj, res) => {
                         if (next_cancellable.is_cancelled ()) {
@@ -260,6 +246,44 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         scrolled.hide ();
         this.add (box);
+
+        fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
+        indexer = search_indexer;
+        items = new Gee.ArrayList<FileItem> ();
+        cancellables = new Gee.LinkedList<GLib.Cancellable> ();
+
+        search_term_entry.realize.connect_after (() => {
+            int height;
+            current_window.get_size (null, out height);
+
+            // Limit the shown results if the window height is too small
+            if (height > 400) {
+                max_items = height / 80;
+            } else {
+                max_items = 3;
+            }
+
+            scrolled.set_max_content_height (45 /* height */ * max_items);
+
+            current_doc_project = get_current_project (); // This will not change while popover is showing
+            search_result_container.set_sort_func ((a , b) => {
+                var result_a = ((FileItem)a).result;
+                var result_b = ((FileItem)b).result;
+                var project_a_is_current = result_a.project == current_doc_project;
+                var project_b_is_current = result_b.project == current_doc_project;
+                if (project_a_is_current && !project_b_is_current) {
+                    return 1;
+                } else if (project_b_is_current && !project_a_is_current) {
+                    return -1;
+                } else if (result_a.score > result_b.score) {
+                    return -1;
+                } else if (result_b.score > result_a.score) {
+                    return 1;
+                } else {
+                    return strcmp (((FileItem)a).result.full_path, ((FileItem)b).result.full_path);
+                }
+            });
+        });
     }
 
     private void handle_item_selection (int index) {
