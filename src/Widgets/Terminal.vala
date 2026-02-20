@@ -22,7 +22,6 @@ public class Code.Terminal : Gtk.Box {
     private const string TERMINAL_FOREGROUND_KEY = "foreground";
     private const string TERMINAL_BACKGROUND_KEY = "background";
     private const string TERMINAL_PALETTE_KEY = "palette";
-    private const string GNOME_FONT_KEY = "monospace-font-name";
     private const string GNOME_BELL_KEY = "audible-bell";
 
     public Vte.Terminal terminal { get; construct; }
@@ -37,7 +36,10 @@ public class Code.Terminal : Gtk.Box {
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
 
+    private Scratch.Application application;
+
     construct {
+        application = (Scratch.Application) (GLib.Application.get_default ());
         terminal = new Vte.Terminal () {
             hexpand = true,
             vexpand = true,
@@ -95,20 +97,11 @@ public class Code.Terminal : Gtk.Box {
             // "org.gnome.desktop.interface.color-scheme"
         }
 
-        // Always monitor changes in default font as that is what Terminal usually follows
-        var gnome_interface_settings_schema = schema_source.lookup (GNOME_DESKTOP_INTERFACE_SCHEMA, true);
-        if (gnome_interface_settings_schema != null) {
-            gnome_interface_settings = new Settings.full (gnome_interface_settings_schema, null, null);
-            gnome_interface_settings.changed.connect ((key) => {
-                switch (key) {
-                    case GNOME_FONT_KEY:
-                        update_font ();
-                        break;
-                    default:
-                        break;
-                }
-            });
-        }
+        // Always monitor changes in systen font as that is what Terminal usually follows
+        // The terminal font key is by default "" and can only be changed by editing the settings externally
+        application.notify["system-monospace-font"].connect (() => {
+            update_font ();
+        });
 
         update_font ();
         update_audible_bell ();
@@ -216,8 +209,8 @@ public class Code.Terminal : Gtk.Box {
             font_name = terminal_settings.get_string (TERMINAL_FONT_KEY);
         }
 
-        if (font_name == "" && gnome_interface_settings != null) {
-            font_name = gnome_interface_settings.get_string (GNOME_FONT_KEY);
+        if (font_name == "" ) {
+            font_name = application.system_monospace_font;
         }
 
         var fd = Pango.FontDescription.from_string (font_name);
