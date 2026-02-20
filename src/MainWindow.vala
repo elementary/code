@@ -1069,6 +1069,7 @@ namespace Scratch {
                     git_manager.clone_repository.begin (
                         uri,
                         target,
+                        clone_dialog.update_submodules,
                         (obj, res) => {
                             sidebar.cloning_in_progress = false;
                             File? workdir = null;
