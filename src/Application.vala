@@ -199,6 +199,38 @@ namespace Scratch {
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
+        public async void handle_quit_app () {
+            unowned List<Gtk.Window> windows;
+            windows = get_windows ();
+            //NOTE This yields the last opened window at head of list (may change in future?)
+            while (windows.length () > 0) {
+                if (!yield handle_quit_window ((MainWindow) (windows.first ().data))) {
+                    return;
+                }
+
+                windows = get_windows ();
+            }
+
+            return;
+        }
+
+        public async bool handle_quit_window (MainWindow window_to_close) {
+            unowned List<Gtk.Window> windows = get_windows ();
+            var is_last_window = windows.length () == 1;
+            if (!yield window_to_close.check_unsaved_changes (is_last_window)) {
+                return false;
+            }
+
+            if (is_last_window) {
+                window_to_close.before_quit (); // Update settings
+            }
+            // Just destroy window - we have already checked whether any docs need saving
+            // When the last window is removed and destroyed the app quits.
+            remove_window (window_to_close);
+            window_to_close.destroy ();
+            return true;
+        }
+
         public static int main (string[] args) {
 // By default, profile whole app when profiling is enabled in meson_options.txt
 // These conditional statements can be moved to profile sections of code

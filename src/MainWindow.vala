@@ -99,7 +99,8 @@ namespace Scratch {
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
         public const string ACTION_DUPLICATE = "action-duplicate";
         public const string ACTION_FULLSCREEN = "action-fullscreen";
-        public const string ACTION_QUIT = "action-quit";
+        public const string ACTION_QUIT = "action-quit-app";
+        public const string ACTION_CLOSE_WINDOW = "action-close-window";
         public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
@@ -160,7 +161,8 @@ namespace Scratch {
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
-            { ACTION_QUIT, action_quit },
+            { ACTION_QUIT, action_quit_app },
+            { ACTION_CLOSE_WINDOW, action_close_window },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
@@ -225,6 +227,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
+            action_accelerators.set (ACTION_CLOSE_WINDOW, "<Control>F4");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
@@ -714,7 +717,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            action_quit ();
+            action_close_window ();
             return true;
         }
 
@@ -802,10 +805,10 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        private async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes (bool app_closing) {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!yield (doc.do_close (true))) {
+                if (!yield (doc.do_close (app_closing))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -839,7 +842,7 @@ namespace Scratch {
             }
         }
 
-        private void update_saved_state () {
+        private void update_window_state_setting () {
             // Save window state
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
@@ -863,14 +866,14 @@ namespace Scratch {
 
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
-            action_quit ();
+            action_quit_app ();
             return false;
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        public void before_quit () {
+            document_view.update_opened_files_setting ();
+            update_window_state_setting ();
         }
 
         public void set_default_zoom () {
@@ -957,13 +960,12 @@ namespace Scratch {
             preferences_dialog.present ();
         }
 
-        private void action_quit () {
-            handle_quit ();
-            check_unsaved_changes.begin ((obj, res) => {
-                if (check_unsaved_changes.end (res)) {
-                    app.quit ();
-                }
-            });
+        private void action_close_window () {
+            app.handle_quit_window.begin (this);
+        }
+
+        private void action_quit_app () {
+            app.handle_quit_app.begin ();
         }
 
         private void action_open () {
