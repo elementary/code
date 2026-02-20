@@ -30,6 +30,7 @@ install_data(
 )
 
 config_data = configuration_data()
+config_data.set('BINDIR', get_option('bindir'))
 config_data.set('EXEC_NAME', meson.project_name())
 
 if (branch != '')
@@ -37,6 +38,14 @@ if (branch != '')
 else
     config_data.set('NAME', 'Code')
 endif
+
+configure_file(
+    input: 'code.service.in',
+    output: meson.project_name() + '.service',
+    configuration: config_data,
+    install_dir: get_option('datadir') / 'dbus-1' / 'services',
+    install: true
+)
 
 # Set the executable name and translate the desktop files
 desktop_in_file = configure_file(
