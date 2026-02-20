@@ -32,8 +32,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
-    public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
 
@@ -129,6 +127,28 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         set_project_active (path);
     }
 
+    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        set_active_project (path);
+    }
+
+    private ProjectFolderItem? set_active_project (string path) {
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
+            return null;
+        }
+
+        git_manager.active_project_path = path;
+
+        write_settings ();
+
+        return folder_root;
+    }
+
     private void set_project_active (string path) {
         toplevel_action_group.activate_action (
             MainWindow.ACTION_SET_ACTIVE_PROJECT,
@@ -203,6 +223,52 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 project_folder.expanded = true;
                 toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
             }
+        }
+    }
+
+    public void branch_actions (string path) {
+        // Must only carry out branch actions on active project so switch if necessary.
+        //TODO Warn before switching active project?
+        var active_project = set_active_project (path);
+        if (active_project == null || !active_project.is_git_repo) {
+            Gdk.beep ();
+            return;
+        }
+
+        var dialog = new Dialogs.BranchActionDialog (active_project);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.APPLY) {
+                perform_branch_action (dialog);
+            }
+
+            dialog.destroy ();
+        });
+
+        dialog.present ();
+    }
+
+    private void perform_branch_action (
+        Scratch.Dialogs.BranchActionDialog dialog
+    ) {
+        switch (dialog.action) {
+            case CHECKOUT:
+                dialog.project.checkout_branch_ref (dialog.branch_ref);
+                break;
+            case COMMIT:
+                break;
+            case PUSH:
+                break;
+            case PULL:
+                break;
+            case MERGE:
+                break;
+            case DELETE:
+                break;
+            case CREATE:
+                dialog.project.new_branch (dialog.new_branch_name);
+                break;
+            default:
+                assert_not_reached ();
         }
     }
 
@@ -290,26 +356,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (child is ProjectFolderItem) {
                 ((FolderItem)child).remove_all_badges ();
             }
-        }
-    }
-
-    public void new_branch (string active_project_path) {
-        unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
-        if (active_project == null || !active_project.is_git_repo) {
-            Gdk.beep ();
-            return;
-        }
-
-        string? branch_name = null;
-        var dialog = new Dialogs.NewBranchDialog (active_project);
-        dialog.show_all ();
-        if (dialog.run () == Gtk.ResponseType.APPLY) {
-            branch_name = dialog.new_branch_name;
-        }
-
-        dialog.destroy ();
-        if (branch_name != null) {
-            active_project.new_branch (branch_name);
         }
     }
 
