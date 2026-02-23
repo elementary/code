@@ -741,6 +741,8 @@ namespace Scratch {
             var focused = terminal.terminal.has_focus;
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (!focused);
             Utils.action_from_group (ACTION_RESTORE_PROJECT_DOCS, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_UNDO, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_REDO, actions).set_enabled (!focused);
             return false;
         }
 
