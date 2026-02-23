@@ -748,6 +748,10 @@ namespace Scratch {
 
             //<Control>u
             Utils.action_from_group (ACTION_TO_UPPER_CASE, actions).set_enabled (!focused);
+
+            //<Control>k +- shift
+            Utils.action_from_group (ACTION_DUPLICATE_TAB, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_CLEAR_LINES, actions).set_enabled (!focused);
             return false;
         }
 
