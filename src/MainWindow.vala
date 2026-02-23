@@ -739,10 +739,15 @@ namespace Scratch {
 
         private bool on_terminal_focus_change () {
             var focused = terminal.terminal.has_focus;
+            //<Control>r +- shift
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (!focused);
             Utils.action_from_group (ACTION_RESTORE_PROJECT_DOCS, actions).set_enabled (!focused);
+            //<Control>z +- shift
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (!focused);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (!focused);
+
+            //<Control>u
+            Utils.action_from_group (ACTION_TO_UPPER_CASE, actions).set_enabled (!focused);
             return false;
         }
 
