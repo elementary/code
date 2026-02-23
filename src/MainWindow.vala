@@ -521,6 +521,9 @@ namespace Scratch {
                 visible = false
             };
 
+            terminal.terminal.focus_in_event.connect (on_terminal_focus_change);
+            terminal.terminal.focus_out_event.connect (on_terminal_focus_change);
+
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
             };
@@ -732,6 +735,13 @@ namespace Scratch {
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             search_bar.sensitive = val;
             toolbar.share_menu_button.sensitive = val;
+        }
+
+        private bool on_terminal_focus_change () {
+            var focused = terminal.terminal.has_focus;
+            Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_RESTORE_PROJECT_DOCS, actions).set_enabled (!focused);
+            return false;
         }
 
         // Get current document
@@ -1282,6 +1292,10 @@ namespace Scratch {
         }
 
         private void action_show_replace (SimpleAction action) {
+            if (terminal.terminal.has_focus) {
+                return;
+            }
+
             find ();
             // May have to wait for the search bar to be revealed before we can grab focus
 
