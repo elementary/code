@@ -30,7 +30,7 @@ install_data(
 )
 
 config_data = configuration_data()
-config_data.set('BINDIR', get_option('bindir'))
+config_data.set('BINDIR', get_option('prefix') / get_option('bindir'))
 config_data.set('EXEC_NAME', meson.project_name())
 
 if (branch != '')
