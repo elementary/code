@@ -77,7 +77,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
         if (evt.keyval == Gdk.Key.Return) {
             char ul_marker;
-            int ol_number = 1;
+            int indent_spaces, ol_number;
             string item_text;
             var line = get_current_line ();
             if (parse_unordered_list_item (line, out ul_marker)) {
@@ -88,13 +88,14 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
                 }
                 return true;
-            } else if (parse_ordered_list_item (line, ref ol_number, out item_text)) {
+            } else if (parse_ordered_list_item (line, out ol_number, out item_text, out indent_spaces, null)) {
                 if (item_text.length == 0) {
                     delete_empty_item ();
                 } else {
-                    string to_insert = "\n%d. ".printf (ol_number + 1);
+                    string to_insert = "\n%s%d. ".printf (string.nfill (indent_spaces, ' '), ++ol_number);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
-                    fix_ordered_list_numbering ();
+                    // Check following lines to see if renumbering required
+                    fix_ordered_list_numbering (indent_spaces, ol_number);
                 }
                 return true;
             }
@@ -111,34 +112,43 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         end.forward_to_line_end ();
         current_buffer.delete (ref start, ref end);
         current_buffer.insert_at_cursor ("\n", 1);
+        current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
     }
 
-    private void fix_ordered_list_numbering () {
+    // Starting on the line where a numered list item was inserted, check if renumbering required
+    private void fix_ordered_list_numbering (int indent_spaces, int inserted_number) {
         Gtk.TextIter next;
-        var count = 1;
-        var item_text = "";
         var current_buffer = current_source.buffer;
 
         current_buffer.get_iter_at_offset (out next, current_buffer.cursor_position);
-        var line = get_current_line (next).strip ();
-        // Get list item number from current line
-        parse_ordered_list_item (line, ref count, out item_text);
-        while (
-            next.forward_line () &&
-            parse_ordered_list_item (get_current_line (next).strip (), ref count, out item_text)
+        int point_offset = 0, next_indent_spaces = 0, count = inserted_number, next_count = 0;
+        string item_text = "";
+        // Search for ordered list lines at the same level until level falls below or end of doc
+        while (next.forward_line () &&
+               parse_ordered_list_item (
+                    get_current_line (next),
+                    out next_count,
+                    out item_text,
+                    out next_indent_spaces,
+                    out point_offset
+                ) &&
+               next_indent_spaces >= indent_spaces
         ) {
-            count++;
-            var next_mark = current_buffer.create_mark (null, next, true);
-            var point_offset = line.index_of_char ('.');
-            var start = next;
-            var end = start;
-            end.forward_chars (point_offset);
+            // Only update lines at same indent within same block
+            if (next_indent_spaces == indent_spaces) {
+                count++;
+                next.forward_chars (indent_spaces);
+                var next_mark = current_buffer.create_mark (null, next, true);
+                var start = next;
+                var end = start;
+                end.forward_chars (point_offset);
 
-            current_buffer.delete (ref start, ref end);
-            current_buffer.get_iter_at_mark (out next, next_mark);
+                current_buffer.delete (ref start, ref end);
+                current_buffer.get_iter_at_mark (out next, next_mark);
 
-            var to_insert = "%d".printf (count);
-            current_buffer.insert (ref next, to_insert, to_insert.length);
+                var to_insert = "%d".printf (count);
+                current_buffer.insert (ref next, to_insert, to_insert.length);
+            }
         }
     }
 
@@ -157,27 +167,42 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         return current_buffer.get_text (start, end, false);
     }
 
-    private bool parse_ordered_list_item (string line, ref int current_number, out string item_text) {
+    private bool parse_ordered_list_item (
+        string line,
+        out int current_number,
+        out string item_text,
+        out int indent_spaces,
+        out int first_point_pos
+    ) {
+
         item_text = "";
-        int first_point_character = line.index_of_char ('.');
-        if (first_point_character < 0) {
+        indent_spaces = -1;
+        current_number = -1;
+        first_point_pos = line.index_of_char ('.'); //TODO Handle ")"  Ignored escaped?
+
+        if (first_point_pos < 0) {
             return false;
         }
 
-        item_text = line.substring (first_point_character + 1).strip ();
 
-        var line_start = line.substring (0, first_point_character);
+        item_text = line.substring (first_point_pos + 1).strip ();
+
+        var line_start = line.substring (0, first_point_pos);
+        indent_spaces = line_start.last_index_of_char (' ') + 1;
         if (!int.try_parse (line_start, out current_number)) {
             return false;
         }
-        return true;
+
+        return indent_spaces >= 0 && current_number >= 1;
     }
 
     private bool parse_unordered_list_item (string line, out char ul_marker) {
+        line.chug (); // Remove leading spaces
         if ((line[0] == '*' || line[0] == '-') && line[1] == ' ') {
             ul_marker = line[0];
             return true;
         }
+
         ul_marker = '\0';
         return false;
     }
