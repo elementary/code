@@ -6,28 +6,25 @@
  */
 
 public class Scratch.FolderManager.ProjectFolderItem : FolderItem {
-    struct VisibleItem {
-        public string rel_path;
-        public Item item;
-    }
-
-    private static Icon added_icon;
-    private static Icon modified_icon;
-    private SimpleAction checkout_local_branch_action;
-    private SimpleAction checkout_remote_branch_action;
-
     public signal void closed ();
 
     public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
-    // Cache the visible item in the project.
-    private List<VisibleItem?> visible_item_list = null;
-
     public bool is_git_repo {
         get {
             return monitored_repo != null;
         }
     }
 
+    private struct VisibleItem {
+        public string rel_path;
+        public Item item;
+    }
+    private static Icon added_icon;
+    private static Icon modified_icon;
+    private SimpleAction checkout_local_branch_action;
+    private SimpleAction checkout_remote_branch_action;
+    // Cache the visible item in the project.
+    private List<VisibleItem?> visible_item_list = null;
     private Ggit.Repository? git_repo {
         get {
             return (is_git_repo ? monitored_repo.git_repo : null);
