@@ -56,23 +56,6 @@ namespace Scratch.FolderManager {
             modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
         }
 
-        private void branch_or_name_changed () {
-            if (monitored_repo != null) {
-                //As SourceList items are not widgets we have to use markup to change appearance of text.
-                if (monitored_repo.head_is_branch) {
-                    markup = "%s\n<span size='small' weight='normal'>%s</span>".printf (
-                        name, monitored_repo.branch_name
-                    );
-                } else { //Distinguish detached heads visually
-                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
-                        name, monitored_repo.branch_name
-                    );
-                }
-
-                checkout_local_branch_action.set_state (monitored_repo.branch_name);
-            }
-        }
-
         construct {
             monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
             notify["name"].connect (branch_or_name_changed);
@@ -94,6 +77,23 @@ namespace Scratch.FolderManager {
                 monitored_repo.branch_changed ();
                 checkout_local_branch_action.activate.connect (handle_checkout_local_branch_action);
                 checkout_remote_branch_action.activate.connect (handle_checkout_remote_branch_action);
+            }
+        }
+
+        private void branch_or_name_changed () {
+            if (monitored_repo != null) {
+                //As SourceList items are not widgets we have to use markup to change appearance of text.
+                if (monitored_repo.head_is_branch) {
+                    markup = "%s\n<span size='small' weight='normal'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                } else { //Distinguish detached heads visually
+                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                        name, monitored_repo.branch_name
+                    );
+                }
+
+                checkout_local_branch_action.set_state (monitored_repo.branch_name);
             }
         }
 
