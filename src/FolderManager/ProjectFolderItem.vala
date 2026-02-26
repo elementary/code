@@ -78,6 +78,8 @@ namespace Scratch.FolderManager {
                 checkout_local_branch_action.activate.connect (handle_checkout_local_branch_action);
                 checkout_remote_branch_action.activate.connect (handle_checkout_remote_branch_action);
             }
+
+            ProjectInfoManager.get_project_info (this);
         }
 
         private void branch_or_name_changed () {
