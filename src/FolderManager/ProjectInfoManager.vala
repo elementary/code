@@ -9,7 +9,7 @@
 // We keep a separate list of project infos for future use in e.g. recently closed project list
 // and for re-opening projects without recreating info object
 public class Scratch.FolderManager.ProjectInfoManager : Object {
-    private class ProjectInfo : Object {
+    public class ProjectInfo : Object {
         const string PROJECT_INFO_SCHEMA_ID = "io.elementary.code.Projects";
         const string PROJECT_INFO_SCHEMA_PATH_PREFIX = "/io/elementary/code/Projects/";
         public string path {
@@ -64,6 +64,20 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
             this.settings.set_value ("open-files", vb.end ());
         }
 
+        public delegate void OpenFileCallback (string uri, uint pos);
+        public void get_open_file_infos (OpenFileCallback cb) {
+            if (privacy_settings.get_boolean ("remember-recent-files")) {
+                var doc_infos = this.settings.get_value ("open-files");
+                var doc_info_iter = new VariantIter (doc_infos);
+                //TODO Restore focused doc per project
+                string uri;
+                int pos;
+                while (doc_info_iter.next ("(si)", out uri, out pos)) {
+                    cb (uri, pos);
+                }
+            }
+        }
+
         //Combine basename and parent folder name and convert to camelcase
         private string schema_name_from_path (string path) {
             var dir = Path.get_basename (Path.get_dirname (path)).normalize ();
@@ -89,13 +103,15 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
     }
 
     //Called when folder created
-    public static void get_project_info (ProjectFolderItem project_folder) {
+    public static ProjectInfo get_project_info (ProjectFolderItem project_folder) {
         //TODO Should we only store info for code (git) projects?
         var info = project_info_map[project_folder.path];
         if (info == null) {
             info = new ProjectInfo (project_folder);
             project_info_map[project_folder.path] = info;
         }
+
+        return info;
     }
 
     //Called when a project closed
