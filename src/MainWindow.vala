@@ -870,6 +870,7 @@ namespace Scratch {
         // For exit cleanup
         private void handle_quit () {
             document_view.save_opened_files ();
+            Scratch.FolderManager.ProjectInfoManager.prepare_to_quit ();
             update_saved_state ();
         }
 

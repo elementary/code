@@ -40,6 +40,30 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
             settings.bind ("expanded", project, "expanded", DEFAULT);
         }
 
+        public void save_doc_info () {
+            var doc_manager = Scratch.Services.DocumentManager.get_instance ();
+            var vb = new VariantBuilder (new VariantType ("a(si)"));
+
+            //NOTE `foreach (var x in y) {}` syntax does not work here!
+            doc_manager.get_open_paths (path).@foreach ((path) => {
+                //Need to save cursor position in Document Manager
+                //Default to 0 for now
+                //Assume path exists for now (do we need check - it might disappear later anyway)
+                vb.add ("(si)", path, 0);
+                return true;
+            });
+
+            doc_manager.take_restorable_paths (path).@foreach ((path) => {
+                //Need to save cursor position in Document Manager
+                //Default to 0 for now
+                //Assume path exists for now (do we need check - it might disappear later anyway)
+                vb.add ("(si)", path, 0);
+                return true;
+            });
+
+            this.settings.set_value ("open-files", vb.end ());
+        }
+
         //Combine basename and parent folder name and convert to camelcase
         private string schema_name_from_path (string path) {
             var dir = Path.get_basename (Path.get_dirname (path)).normalize ();
@@ -66,10 +90,31 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
 
     //Called when folder created
     public static void get_project_info (ProjectFolderItem project_folder) {
+        //TODO Should we only store info for code (git) projects?
         var info = project_info_map[project_folder.path];
         if (info == null) {
             info = new ProjectInfo (project_folder);
             project_info_map[project_folder.path] = info;
         }
+    }
+
+    //Called when a project closed
+    //We do not bind open doc info so update settings here
+    //TODO closed doc info too?
+    public static void prepare_close_project (ProjectFolderItem project_folder) {
+        var info = project_info_map[project_folder.path];
+        if (info != null) {
+            info.save_doc_info ();
+        }
+
+        //We keep info in case project re-opened
+    }
+
+    public static void prepare_to_quit () {
+        foreach (var info in project_info_map.values) {
+            info.save_doc_info ();
+        }
+
+        //Assume destructor will take care of map when app closes?
     }
 }

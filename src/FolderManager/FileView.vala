@@ -577,7 +577,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                ProjectInfoManager.prepare_close_project (folder_root);
+
                 toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
+
                 root.remove (folder_root);
                 foreach (var child in root.children) {
                     var child_folder = (ProjectFolderItem) child;

@@ -66,6 +66,11 @@
         return docs;
     }
 
+    public Gee.Collection<string> get_open_paths (string project_path) {
+        var docs = project_open_docs_map.@get (project_path);
+        return docs;
+    }
+
     public uint restorable_for_project (string project_path) {
         return project_restorable_docs_map.@get (project_path).size;
     }
