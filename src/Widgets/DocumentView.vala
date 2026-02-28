@@ -329,42 +329,47 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                if (focus) {
-                    current_document = nth_doc;
-                }
+                after_insert_document (nth_doc, focus, cursor_position, range);
 
-                debug ("This Document was already opened! Not opening a duplicate!");
-                if (range != SelectionRange.EMPTY) {
-                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
-                        current_document.source_view.select_range (range);
-                        save_opened_files ();
-
-                        return false;
-                    });
-                }
 
                 return;
             }
         }
 
         insert_document (doc, (int) docs.length ());
+        yield doc.open (false);
+        after_insert_document (doc, focus, cursor_position, range);
+    }
+
+    private void after_insert_document (Scratch.Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
+        warning ("after insert doc %s", doc.file.get_path ());
         if (focus) {
             current_document = doc;
-        }
-
-        yield doc.open (false);
-
-        if (focus && doc == current_document) {
             doc.focus ();
         }
 
         if (range != SelectionRange.EMPTY) {
             doc.source_view.select_range (range);
+            // It is recommended to run scroll to mark in a low priority idle otherwise may not work
+            Idle.add_full (Priority.LOW, () => {
+                warning ("scroll to insert mark");
+                doc.source_view.scroll_to_mark (doc.source_view.buffer.get_insert (), 0.1, true, 0.5, 0.5);
+                return Source.REMOVE;
+            });
         } else if (cursor_position > 0) {
+            warning ("set cursor at %i", cursor_position);
             doc.source_view.cursor_position = cursor_position;
         }
 
+        if (Scratch.saved_state.get_boolean ("outline-visible")) {
+            debug ("setting outline visible");
+            doc.show_outline (true);
+        }
+
         save_opened_files ();
+
+
+
     }
 
     public void next_document () {
@@ -437,10 +442,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     private void insert_document (Scratch.Services.Document doc, int pos) {
         tab_view.insert (doc, pos);
-        if (Scratch.saved_state.get_boolean ("outline-visible")) {
-            debug ("setting outline visible");
-            doc.show_outline (true);
-        }
+        after_insert_document (doc, true, pos);
     }
 
     private string unsaved_file_path_builder (string extension = "txt") {
