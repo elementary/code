@@ -244,4 +244,14 @@
       <description>Opened folders that should be restored in startup.</description>
     </key>
   </schema>
+
+  <!--Relocatable schema for per project info-->
+  <schema id="io.elementary.code.Projects">
+    <key name="expanded" type="b">
+      <default>false</default>
+      <summary>Project Folder expanded</summary>
+      <description>Whether the project folder in the sidebar should be expanded on loading</description>
+    </key>
+  </schema>
+
 </schemalist>
