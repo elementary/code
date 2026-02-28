@@ -19,7 +19,7 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
         }
 
         public ProjectFolderItem project { get; construct; }
-        private Settings settings;
+        private Settings project_settings;
 
         public ProjectInfo (ProjectFolderItem project) {
             Object (
@@ -32,7 +32,7 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
                                 schema_name_from_path (path) +
                                 Path.DIR_SEPARATOR_S;
 
-            settings = new Settings.with_path (
+            project_settings = new Settings.with_path (
                 PROJECT_INFO_SCHEMA_ID,
                 settings_path
             );
@@ -43,31 +43,34 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
         public void save_doc_info () {
             var doc_manager = Scratch.Services.DocumentManager.get_instance ();
             var vb = new VariantBuilder (new VariantType ("a(si)"));
+            // This will erase any existing open-files setting if history is off
+            if (privacy_settings.get_boolean ("remember-recent-files")) {
+                //NOTE `foreach (var x in y) {}` syntax does not work here!
+                doc_manager.get_open_paths (path).@foreach ((path) => {
+                    //Need to save cursor position in Document Manager
+                    //Default to 0 for now
+                    //Assume path exists for now (do we need check - it might disappear later anyway)
+                    vb.add ("(si)", path, 0);
+                    return true;
+                });
 
-            //NOTE `foreach (var x in y) {}` syntax does not work here!
-            doc_manager.get_open_paths (path).@foreach ((path) => {
-                //Need to save cursor position in Document Manager
-                //Default to 0 for now
-                //Assume path exists for now (do we need check - it might disappear later anyway)
-                vb.add ("(si)", path, 0);
-                return true;
-            });
+                doc_manager.take_restorable_paths (path).@foreach ((path) => {
+                    //Need to save cursor position in Document Manager
+                    //Default to 0 for now
+                    //Assume path exists for now (do we need check - it might disappear later anyway)
+                    vb.add ("(si)", path, 0);
+                    return true;
+                });
+            }
 
-            doc_manager.take_restorable_paths (path).@foreach ((path) => {
-                //Need to save cursor position in Document Manager
-                //Default to 0 for now
-                //Assume path exists for now (do we need check - it might disappear later anyway)
-                vb.add ("(si)", path, 0);
-                return true;
-            });
-
-            this.settings.set_value ("open-files", vb.end ());
+            project_settings.set_value ("open-files", vb.end ());
         }
 
+        //Combine basename and parent folder name and convert to camelcase
         public delegate void OpenFileCallback (string uri, uint pos);
         public void get_open_file_infos (OpenFileCallback cb) {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
-                var doc_infos = this.settings.get_value ("open-files");
+                var doc_infos = project_settings.get_value ("open-files");
                 var doc_info_iter = new VariantIter (doc_infos);
                 //TODO Restore focused doc per project
                 string uri;
