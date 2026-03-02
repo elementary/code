@@ -300,6 +300,19 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
+            source_view.enter_notify_event.connect (() => {
+                if (!source_view.has_focus) {
+                    source_view.grab_focus ();
+                }
+            });
+
+            source_view.focus_out_event.connect (() => {
+                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    strip_trailing_spaces ();
+                }
+            });
+
             loaded = file == null;
 
             add (main_stack);
