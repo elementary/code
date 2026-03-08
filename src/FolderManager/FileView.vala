@@ -140,6 +140,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
             yield add_folder (new File (path), false);
         }
+
+        set_project_active (Scratch.Services.GitManager.get_instance ().active_project_path);
     }
 
     public void open_folder (File folder) {
@@ -577,7 +579,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                ProjectInfoManager.prepare_close_project (folder_root);
+
                 toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
+
                 root.remove (folder_root);
                 foreach (var child in root.children) {
                     var child_folder = (ProjectFolderItem) child;
@@ -589,6 +594,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 write_settings ();
             });
 
+            //Make all docs restorable - those of the active project will be loaded later
+            ProjectInfoManager.get_project_info (folder_root).get_open_file_infos ((uri, pos) => {
+                //TODO Make cursor pos restorable
+                Scratch.Services.DocumentManager.get_instance ().make_uri_restorable (folder_root.path, uri);
+            });
             write_settings ();
             add_folder.callback ();
             return Source.REMOVE;

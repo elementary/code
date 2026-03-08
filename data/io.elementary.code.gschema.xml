@@ -244,4 +244,19 @@
       <description>Opened folders that should be restored in startup.</description>
     </key>
   </schema>
+
+  <!--Relocatable schema for per project info-->
+  <schema id="io.elementary.code.Projects">
+    <key name="expanded" type="b">
+      <default>false</default>
+      <summary>Project Folder expanded</summary>
+      <description>Whether the project folder in the sidebar should be expanded on loading</description>
+    </key>
+    <key name="open-files" type="a(si)">
+      <default>[]</default>
+      <summary>Open files in project with cursor position</summary>
+      <description>Array of paths to files currently being edited in project with the current cursor position (char offset)</description>
+    </key>
+  </schema>
+
 </schemalist>

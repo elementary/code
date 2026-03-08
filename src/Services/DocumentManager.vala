@@ -37,7 +37,11 @@
     }
 
     public void make_restorable (Document doc) {
-        project_restorable_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+        make_uri_restorable (doc.source_view.project.path, doc.file.get_path ());
+    }
+
+    public void make_uri_restorable (string project_path, string uri) {
+        project_restorable_docs_map.@set (project_path, uri);
     }
 
     public void add_open_document (Document doc) {
@@ -63,6 +67,11 @@
     public Gee.Collection<string> take_restorable_paths (string project_path) {
         var docs = project_restorable_docs_map.@get (project_path);
         project_restorable_docs_map.remove_all (project_path);
+        return docs;
+    }
+
+    public Gee.Collection<string> get_open_paths (string project_path) {
+        var docs = project_open_docs_map.@get (project_path);
         return docs;
     }
 

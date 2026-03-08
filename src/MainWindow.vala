@@ -649,54 +649,6 @@ namespace Scratch {
             }
         }
 
-        private async void restore_opened_documents () {
-            File? focused_file = null;
-            if (privacy_settings.get_boolean ("remember-recent-files")) {
-                var doc_infos = settings.get_value ("opened-files");
-                var doc_info_iter = new VariantIter (doc_infos);
-                string focused_uri = settings.get_string ("focused-document");
-                string uri;
-                int pos;
-                bool was_restore_overriden = false;
-                while (doc_info_iter.next ("(si)", out uri, out pos)) {
-                   if (uri != "") {
-                        GLib.File file;
-                        if (Uri.parse_scheme (uri) != null) {
-                            file = File.new_for_uri (uri);
-                        } else {
-                            file = File.new_for_commandline_arg (uri);
-                        }
-                        /* Leave it to doc to handle problematic files properly
-                           But for files that do not exist we need to make sure that doc won't create a new file
-                        */
-                        if (file.query_exists ()) {
-                            var is_focused = uri == focused_uri;
-                            if (is_focused) {
-                                focused_file = file;
-                            }
-                            //TODO Check files valid (settings could have been manually altered)
-                            var doc = new Scratch.Services.Document (actions, file);
-                            if (doc.exists () || !doc.is_file_temporary) {
-                                if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
-                                    yield open_document_at_selected_range (doc, true, restore_override.range, true);
-                                    was_restore_overriden = true;
-                                } else {
-                                    yield open_document (doc, was_restore_overriden ? false : is_focused, pos);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            document_view.request_placeholder_if_empty ();
-            document_view.update_outline_visible ();
-            restore_override = null;
-            if (focused_file != null) {
-                folder_manager_view.expand_to_path (focused_file.get_path ());
-            }
-        }
-
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
             switch (Gdk.keyval_name (keyval)) {
                 case "Escape":
@@ -818,12 +770,10 @@ namespace Scratch {
              // Plugin panes size
              hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
              vp.set_position (Scratch.saved_state.get_int ("vp-size"));
-            // Ensure foldermanager finishes loading projects before start opening documents
             folder_manager_view.restore_saved_state.begin ((obj, res) => {
                 folder_manager_view.restore_saved_state.end (res);
-                if (restore_docs) {
-                    restore_opened_documents.begin ();
-                }
+                document_view.request_placeholder_if_empty ();
+                document_view.update_outline_visible ();
             });
         }
 
@@ -870,6 +820,7 @@ namespace Scratch {
         // For exit cleanup
         private void handle_quit () {
             document_view.save_opened_files ();
+            Scratch.FolderManager.ProjectInfoManager.prepare_to_quit ();
             update_saved_state ();
         }
 
@@ -1456,7 +1407,7 @@ namespace Scratch {
             var project_path = param.get_string ();
             if (folder_manager_view.project_is_open (project_path)) {
                 git_manager.active_project_path = project_path;
-                folder_manager_view.collapse_other_projects ();
+                folder_manager_view.collapse_other_projects (); // triggers restoring project doc action
                 //The opened folders are not changed so no need to update "opened-folders" setting
             } else {
                 warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
