@@ -184,10 +184,10 @@ public class Code.Terminal : Gtk.Box {
                     decrement_size ();
                 }
 
-                return false;
+                return Gdk.EVENT_STOP;
             }
 
-            return true;
+            return Gdk.EVENT_PROPAGATE;
         });
 
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
