@@ -10,8 +10,9 @@ public class Code.Terminal : Gtk.Box {
     public const string ACTION_COPY = "action-copy";
     public const string ACTION_PASTE = "action-paste";
 
-    private const double MAX_SCALE = 5.0;
-    private const double MIN_SCALE = 0.2;
+    private const double SCROLL_THRESHOLD = 1.0;
+    private const double MAX_SCALE = 2.0;
+    private const double MIN_SCALE = 0.5;
     private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
     private const string GNOME_DESKTOP_INTERFACE_SCHEMA = "org.gnome.desktop.interface";
@@ -37,10 +38,13 @@ public class Code.Terminal : Gtk.Box {
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
 
+    private double total_delta_y = 0;
+
     construct {
         terminal = new Vte.Terminal () {
             hexpand = true,
             vexpand = true,
+            scroll_unit_is_pixels = true,
             scrollback_lines = -1,
             cursor_blink_mode = SYSTEM  // There is no Terminal setting so follow Gnome
         };
@@ -165,6 +169,25 @@ public class Code.Terminal : Gtk.Box {
 
         terminal.selection_changed.connect (() => {
             copy_action.set_enabled (terminal.get_has_selection ());
+        });
+
+        // Zoom font size independent of the source view
+        terminal.scroll_event.connect ((event) => {
+            var mods = event.state & Gdk.ModifierType.MODIFIER_MASK;
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0) {
+                total_delta_y += event.delta_y;
+                if (total_delta_y > SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    increment_size ();
+                } else if (total_delta_y < -SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    decrement_size ();
+                }
+
+                return Gdk.EVENT_STOP;
+            }
+
+            return Gdk.EVENT_PROPAGATE;
         });
 
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
