@@ -36,8 +36,6 @@ public class Scratch.FolderManager.ProjectInfoManager : Object {
                 PROJECT_INFO_SCHEMA_ID,
                 settings_path
             );
-
-            settings.bind ("expanded", project, "expanded", DEFAULT);
         }
 
         public void save_doc_info () {

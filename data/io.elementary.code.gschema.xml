@@ -247,11 +247,6 @@
 
   <!--Relocatable schema for per project info-->
   <schema id="io.elementary.code.Projects">
-    <key name="expanded" type="b">
-      <default>false</default>
-      <summary>Project Folder expanded</summary>
-      <description>Whether the project folder in the sidebar should be expanded on loading</description>
-    </key>
     <key name="open-files" type="a(si)">
       <default>[]</default>
       <summary>Open files in project with cursor position</summary>
