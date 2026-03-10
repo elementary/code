@@ -321,7 +321,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    public async void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
+    public async void open_document (
+        Services.Document doc,
+        bool focus = true,
+        int cursor_position = 0,
+        SelectionRange range = SelectionRange.EMPTY
+    ) {
        for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -329,39 +334,43 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                if (focus) {
-                    current_document = nth_doc;
-                }
-
-                debug ("This Document was already opened! Not opening a duplicate!");
-                if (range != SelectionRange.EMPTY) {
-                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
-                        current_document.source_view.select_range (range);
-                        save_opened_files ();
-
-                        return false;
-                    });
-                }
-
+                after_insert_document (nth_doc, focus, cursor_position, range);
                 return;
             }
         }
 
         insert_document (doc, (int) docs.length ());
-        if (focus) {
-            current_document = doc;
-        }
 
         yield doc.open (false);
 
-        if (focus && doc == current_document) {
+        after_insert_document (doc, focus, cursor_position, range);
+    }
+
+    private void after_insert_document (
+        Scratch.Services.Document doc,
+        bool focus = true,
+        int cursor_position = 0,
+        SelectionRange range = SelectionRange.EMPTY
+    ) {
+        if (focus) {
+            current_document = doc;
             doc.focus ();
         }
 
         if (range != SelectionRange.EMPTY) {
             doc.source_view.select_range (range);
+            // It is recommended to run scroll to mark in a low priority idle otherwise may not work
+            Idle.add_full (Priority.LOW, () => {
+                doc.source_view.scroll_to_mark (doc.source_view.buffer.get_insert (), 0.1, true, 0.5, 0.5);
+                return Source.REMOVE;
+            });
         } else if (cursor_position > 0) {
             doc.source_view.cursor_position = cursor_position;
+        }
+
+        if (Scratch.saved_state.get_boolean ("outline-visible")) {
+            debug ("setting outline visible");
+            doc.show_outline (true);
         }
 
         save_opened_files ();
