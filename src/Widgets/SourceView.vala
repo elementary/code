@@ -270,31 +270,11 @@ namespace Scratch.Widgets {
             space_drawer.enable_matrix = true;
             update_draw_spaces ();
 
-
             tab_width = (uint) Scratch.settings.get_int ("indent-width");
             if (Scratch.settings.get_boolean ("line-wrap")) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
             } else {
                 set_wrap_mode (Gtk.WrapMode.NONE);
-            }
-
-            if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
-            } else {
-                font = Scratch.settings.get_string ("font");
-            }
-
-            /* Convert font description to css equivalent and apply to the .view node */
-            var font_css = string.join (" ",
-                ".view {",
-                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
-                "}"
-            );
-
-            try {
-                font_css_provider.load_from_data (font_css);
-            } catch (Error e) {
-                critical (e.message);
             }
 
             if (settings.get_boolean ("follow-system-style")) {
@@ -307,6 +287,26 @@ namespace Scratch.Widgets {
             } else {
                 var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
                 source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("elementary-highcontrast-light");
+            }
+
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+            } else {
+                font = Scratch.settings.get_string ("font");
+            }
+
+            var embolden = Scratch.settings.get_boolean ("embolden-highcontrast") && source_buffer.style_scheme.id == "elementary-highcontrast-light";
+            /* Convert font description to css equivalent and apply to the .view node */
+            var font_css = string.join (" ",
+                ".view {",
+                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font), embolden),
+                "}"
+            );
+
+            try {
+                font_css_provider.load_from_data (font_css);
+            } catch (Error e) {
+                critical (e.message);
             }
 
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
