@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-06 18:19+0000\n"
-"PO-Revision-Date: 2025-09-29 19:55+0000\n"
+"POT-Creation-Date: 2026-02-16 16:31+0000\n"
+"PO-Revision-Date: 2026-03-22 15:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/"
-">\n"
+"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +129,7 @@ msgstr "_Peru"
 
 #: src/MainWindow.vala:1082
 msgid "Cloning completed"
-msgstr ""
+msgstr "Kloonaus valmistui"
 
 #: src/MainWindow.vala:1083
 #, c-format
@@ -168,11 +168,11 @@ msgstr "Kloonaa tietovarasto"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Valitse kansio, johon kloonattu tietovarasto luodaan"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
 msgid "Select"
@@ -202,15 +202,15 @@ msgstr "Hakuehdon tulee olla vähintään kolme merkkiä."
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "Kirjainkoko merkitsee haussa"
 
 #: src/Dialogs/GlobalSearchDialog.vala:64
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "Kirjainkoko ei merkitse haussa"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "Haku täsmää vain kokonaisiin sanoihin"
 
 #: src/Dialogs/GlobalSearchDialog.vala:68
 #, c-format
@@ -258,10 +258,8 @@ msgid "Strip trailing whitespace on save"
 msgstr "Poista tekstirivien loppuun jääneet turhat välilyönnit"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
 msgid "Smart cut/copy lines"
-msgstr "Älykäs rivien leikkaus/kopiointi:"
+msgstr "Älykäs rivien leikkaus/kopiointi"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid ""
@@ -289,7 +287,7 @@ msgstr "Käytä välilyöntejä sarkainten tilalla"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Default build directory"
-msgstr ""
+msgstr "Oletusarvoinen koostamishakemisto"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Projects"
@@ -309,7 +307,7 @@ msgstr "Kaikki"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Whitespace visible when not selected"
-msgstr ""
+msgstr "Välilyönnit näkyvissä kun ei valittuna"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Editor"
@@ -320,8 +318,6 @@ msgid "Highlight matching brackets"
 msgstr "Korosta toisiaan vastaavat hakasulut"
 
 #: src/Dialogs/PreferencesDialog.vala:113
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Syntaksin korostus"
 
@@ -415,10 +411,8 @@ msgid "Don't Open"
 msgstr "Älä avaa"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
 msgid "There are uncommitted changes in the current branch"
-msgstr "Asiakirjassa on tallentamattomia muutoksia!"
+msgstr "Nykyinen haara sisältää muutoksia, joita ei ole kommitoitu"
 
 #. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
@@ -433,11 +427,11 @@ msgstr ""
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
 msgid "Do not Checkout"
-msgstr ""
+msgstr "Älä uloskuittaa"
 
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
 msgid "Checkout and Overwrite"
-msgstr ""
+msgstr "Uloskuittaa ja ylikirjoita"
 
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
@@ -468,10 +462,8 @@ msgid "Find in Folder…"
 msgstr "Etsi kansiosta…"
 
 #: src/FolderManager/FolderItem.vala:186
-#, fuzzy
-#| msgid "Terminal"
 msgid "Terminal Pane"
-msgstr "Pääte"
+msgstr "Päätepaneeli"
 
 #: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
@@ -503,7 +495,7 @@ msgstr "Aseta aktiiviseksi projektiksi"
 
 #: src/FolderManager/ProjectFolderItem.vala:155
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Avaa päätepaneelissa"
 
 #: src/FolderManager/ProjectFolderItem.vala:186
 msgid "Close Folder"
@@ -608,10 +600,9 @@ msgid "Save"
 msgstr "Tallenna"
 
 #: src/Services/Document.vala:638
-#, fuzzy, c-format
-#| msgid "Save changes to “%s” before closing?"
+#, c-format
 msgid "Saving to “%s” failed."
-msgstr "Tallennetaanko tiedostoon “%s” tehdyt muutokset ennen sulkemista?"
+msgstr "Tiedostoon “%s” tallentaminen epäonnistui."
 
 #: src/Services/Document.vala:676
 msgid "Save File"
@@ -660,10 +651,11 @@ msgstr ""
 "tiedoston jonnekin muualle?"
 
 #: src/Services/Document.vala:914
-#, fuzzy, c-format
-#| msgid "File “%s” was deleted and there are unsaved changes."
+#, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
-msgstr "Tiedosto “%s” poistettiin ja siihen on tallentamattomia muutoksia."
+msgstr ""
+"Tiedosto “%s” poistettiin, nimettiin uudelleen tai siirrettiin, ja siihen on "
+"tallentamattomia muutoksia."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
@@ -686,6 +678,8 @@ msgstr ""
 #: src/Services/Document.vala:983
 msgid "The document changed externally since you last saved it."
 msgstr ""
+"Tätä asiakirjaa muutettiin ulkoisesti sen jälkeen, kun viimeksi tallensit "
+"sen."
 
 #: src/Services/Document.vala:999
 #, c-format
@@ -727,10 +721,12 @@ msgstr "Etähaaraa '%s' ei löydy"
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
+"Pyydettyä haaraa ei löytynyt mistään tähän tietovarastoon linkitetystä "
+"etätietovarastosta"
 
 #: src/Services/MonitoredRepository.vala:284
 msgid "An error occurred while checking out the requested branch"
-msgstr ""
+msgstr "Pyydetyn haaran uloskuittauksen yhteydessä tapahtui virhe"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
 #: src/Services/MonitoredRepository.vala:332
@@ -759,6 +755,8 @@ msgid ""
 "%s contains too many Vala symbols.\n"
 "Parsing and showing them took too long."
 msgstr ""
+"%s sisältää liian monta Vala-symbolia.\n"
+"Niiden jäsentäminen ja esittäminen kesti liian kauan."
 
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:194
 #, c-format
@@ -872,10 +870,8 @@ msgid "Duplicate Tab"
 msgstr "Monista välilehti"
 
 #: src/Widgets/FormatBar.vala:50
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Suodata kieliä"
+msgstr "Asiakirjan kieli"
 
 #: src/Widgets/FormatBar.vala:60
 msgid "Line number"
@@ -969,21 +965,19 @@ msgstr "Valikko"
 
 #: src/Widgets/HeaderBar.vala:392
 msgid "Light"
-msgstr ""
+msgstr "Vaalea"
 
 #: src/Widgets/HeaderBar.vala:395
 msgid "Dark"
-msgstr ""
+msgstr "Tumma"
 
 #: src/Widgets/HeaderBar.vala:398
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Suuri kontrasti"
+msgstr "Kontrasti"
 
 #: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
-msgstr ""
+msgstr "Kloonaus valmistui"
 
 #: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
@@ -991,7 +985,7 @@ msgstr "Supista kaikki"
 
 #: src/Widgets/Sidebar.vala:91
 msgid "Keep Sorted"
-msgstr ""
+msgstr "Pidä lajiteltuna"
 
 #: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
@@ -1039,7 +1033,7 @@ msgstr "Käytä säännöllisiä lausekkeita"
 
 #: src/Widgets/SearchBar.vala:145
 msgid "Match Whole Words"
-msgstr ""
+msgstr "Täsmää kokonaisiin sanoihin"
 
 #: src/Widgets/SearchBar.vala:166
 msgid "Search Options"
