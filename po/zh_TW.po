@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-05 17:03+0000\n"
-"PO-Revision-Date: 2026-03-02 12:55+0000\n"
+"PO-Revision-Date: 2026-04-07 13:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_TW/>\n"
@@ -487,10 +487,8 @@ msgid "Open in Terminal Pane"
 msgstr "在終端機面板中開啟"
 
 #: src/FolderManager/ProjectFolderItem.vala:171
-#, fuzzy
-#| msgid "Other Actions"
 msgid "Branch Actions…"
-msgstr "其他選項"
+msgstr "分支動作…"
 
 #: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
