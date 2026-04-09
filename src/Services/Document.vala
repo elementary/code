@@ -300,6 +300,22 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
+            source_view.event_after.connect ((root_event) => {
+                if (root_event.type != Gdk.EventType.KEY_PRESS) {
+                    return;
+                }
+
+                var event = root_event.key;
+                if ((event.keyval == Gdk.Key.Return || event.keyval == Gdk.Key.KP_Enter) &&
+                     Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+                    Gtk.TextIter iter;
+                    source_buffer.get_iter_at_offset (out iter, source_buffer.cursor_position);
+                    strip_at_line (iter.get_line () - 1);
+                }
+            });
+
             loaded = file == null;
 
             add (main_stack);
@@ -1287,6 +1303,35 @@ namespace Scratch.Services {
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
         }
 
+        private void strip_at_line (int line_index) {
+            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            Gtk.TextIter iter;
+            source_buffer.get_iter_at_line (out iter, line_index);
+
+            if (iter.ends_line ()) {
+                return;
+            }
+
+            iter.forward_to_line_end ();
+            if (iter.ends_word ()) {
+                return;
+            }
+
+            var end_iter = iter.copy ();
+            iter.backward_word_start ();
+            iter.forward_word_end ();
+
+            if (iter.get_line () != line_index) {
+                source_buffer.get_iter_at_line (out iter, line_index);
+            }
+
+            if (iter.compare (end_iter) < 0) {
+                source_buffer.begin_not_undoable_action ();
+                source_buffer.@delete (ref iter, ref end_iter);
+                source_buffer.end_not_undoable_action ();
+            }
+        }
+
         /* Pull the buffer into an array and then work out which parts are to be deleted.
          * Do not strip line currently being edited unless forced */
         private void strip_trailing_spaces () {
@@ -1315,29 +1360,8 @@ namespace Scratch.Services {
                 return;
             }
 
-            MatchInfo info;
-            Gtk.TextIter start_delete, end_delete;
-            Regex whitespace;
-
-            try {
-                whitespace = new Regex ("[ \t]+$", 0);
-            } catch (RegexError e) {
-                critical ("Error while building regex to replace trailing whitespace: %s", e.message);
-                return;
-            }
-
             for (int line_no = 0; line_no < lines.length; line_no++) {
-                if (whitespace.match (lines[line_no], 0, out info)) {
-
-                    source_buffer.get_iter_at_line (out start_delete, line_no);
-                    start_delete.forward_to_line_end ();
-                    end_delete = start_delete;
-                    end_delete.backward_chars (info.fetch (0).length);
-
-                    source_buffer.begin_not_undoable_action ();
-                    source_buffer.@delete (ref start_delete, ref end_delete);
-                    source_buffer.end_not_undoable_action ();
-                }
+                strip_at_line (line_no);
             }
 
             source_buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
