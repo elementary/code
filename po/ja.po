@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-05 17:03+0000\n"
-"PO-Revision-Date: 2026-02-12 03:55+0000\n"
+"PO-Revision-Date: 2026-04-11 00:48+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
 ">\n"
@@ -493,10 +493,8 @@ msgid "Open in Terminal Pane"
 msgstr "ターミナルペインで開く"
 
 #: src/FolderManager/ProjectFolderItem.vala:171
-#, fuzzy
-#| msgid "Other Actions"
 msgid "Branch Actions…"
-msgstr "他の操作"
+msgstr "ブランチ操作…"
 
 #: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
