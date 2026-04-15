@@ -1728,7 +1728,7 @@ public class SourceList : Gtk.ScrolledWindow {
             has_tooltip = true;
 
             key_controller = new Gtk.EventControllerKey (this);
-            key_controller.key_released.connect (key_release_event);
+            key_controller.key_released.connect (on_key_released);
         }
 
         ~Tree () {
@@ -2243,7 +2243,7 @@ public class SourceList : Gtk.ScrolledWindow {
             }
         }
 
-        private void key_release_event (uint keyval, uint keycode, Gdk.ModifierType state) {
+        private void on_key_released (uint keyval, uint keycode, Gdk.ModifierType state) {
             if (selected_item == null) {
                 return;
             }
