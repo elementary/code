@@ -1571,6 +1571,7 @@ public class SourceList : Gtk.ScrolledWindow {
 
         private Gtk.Entry? editable_entry;
         private Gtk.CellRendererText text_cell;
+        private Gtk.EventControllerKey key_controller;
         private CellRendererIcon icon_cell;
         private CellRendererIcon activatable_cell;
         private CellRendererBadge badge_cell;
@@ -1725,6 +1726,9 @@ public class SourceList : Gtk.ScrolledWindow {
 
             query_tooltip.connect_after (on_query_tooltip);
             has_tooltip = true;
+
+            key_controller = new Gtk.EventControllerKey (this);
+            key_controller.key_released.connect (key_release_event);
         }
 
         ~Tree () {
@@ -2239,19 +2243,19 @@ public class SourceList : Gtk.ScrolledWindow {
             }
         }
 
-        public override bool key_release_event (Gdk.EventKey event) {
-           if (selected_item != null) {
-                switch (event.keyval) {
-                    case Gdk.Key.F2:
-                       var modifiers = Gtk.accelerator_get_default_mod_mask ();
-                        // try to start editing selected item
-                        if ((event.state & modifiers) == 0 && selected_item.editable)
-                            start_editing_item (selected_item);
-                    break;
-                }
+        private void key_release_event (uint keyval, uint keycode, Gdk.ModifierType state) {
+            if (selected_item == null) {
+                return;
             }
 
-            return base.key_release_event (event);
+            switch (keyval) {
+                case Gdk.Key.F2:
+                   var modifiers = Gtk.accelerator_get_default_mod_mask ();
+                    // try to start editing selected item
+                    if ((state & modifiers) == 0 && selected_item.editable)
+                        start_editing_item (selected_item);
+                break;
+            }
         }
 
         public override bool button_release_event (Gdk.EventButton event) {
