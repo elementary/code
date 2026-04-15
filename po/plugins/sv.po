@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2025-10-29 18:21+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/plugins/"
@@ -19,91 +19,91 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: plugins/brackets-completion/brackets-completion.plugin:6
+#: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
 msgstr "Parenteskomplettering"
 
-#: plugins/brackets-completion/brackets-completion.plugin:7
+#: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Complete brackets while typing"
 msgstr "Avsluta parenteser medan du skriver"
 
-#: plugins/detect-indent/detect-indent.plugin:6
+#: plugins/detect-indent/detect-indent.plugin:5
 msgid "Detect Indent"
 msgstr "Upptäck indrag"
 
-#: plugins/detect-indent/detect-indent.plugin:7
+#: plugins/detect-indent/detect-indent.plugin:6
 msgid "Heuristically detect tab or space settings"
 msgstr "Upptäck flik- eller mellanslagsinställningar heuristiskt"
 
-#: plugins/editorconfig/editorconfig.plugin:6
+#: plugins/editorconfig/editorconfig.plugin:5
 msgid "EditorConfig"
 msgstr "EditorConfig"
 
-#: plugins/editorconfig/editorconfig.plugin:7
+#: plugins/editorconfig/editorconfig.plugin:6
 msgid "Load settings from an EditorConfig file"
 msgstr "Läs in inställningar från en EditorConfig-fil"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/fuzzy-search/fuzzy-search.plugin:5
 msgid "Find Project Files"
 msgstr "Hitta projektfiler"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:7
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr "Luddig sökning efter filer i alla öppna projekt (Visa med ALT + F)"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:5
 msgid "Highlight Word Selection"
 msgstr "Markera ordval"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Markera alla förekomster av ord som är valda"
 
-#: plugins/markdown-actions/markdown-actions.plugin:6
+#: plugins/markdown-actions/markdown-actions.plugin:5
 msgid "Markdown Actions"
 msgstr "Markdown-åtgärder"
 
-#: plugins/markdown-actions/markdown-actions.plugin:7
+#: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "Lägger till kortkommandon för snabb redigering av Markdown-filer"
 
-#: plugins/pastebin/pastebin.plugin:6
+#: plugins/pastebin/pastebin.plugin:5
 msgid "Pastebin"
 msgstr "Pastebin"
 
-#: plugins/pastebin/pastebin.plugin:7
+#: plugins/pastebin/pastebin.plugin:6
 msgid "Share files with pastebin service"
 msgstr "Dela filer med pastebin-tjänst"
 
-#: plugins/preserve-indent/preserve-indent.plugin:6
+#: plugins/preserve-indent/preserve-indent.plugin:5
 msgid "Preserve Indent"
 msgstr "Bevara indrag"
 
-#: plugins/preserve-indent/preserve-indent.plugin:7
+#: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Maintains relative indent level of pasted text"
 msgstr "Bibehåller relativa indragsnivåer för inklistrad text"
 
-#: plugins/spell/spell.plugin:6
+#: plugins/spell/spell.plugin:5
 msgid "Spell Checker"
 msgstr "Stavningskontroll"
 
-#: plugins/spell/spell.plugin:7
+#: plugins/spell/spell.plugin:6
 msgid "Checks the spelling of your documents"
 msgstr "Kontrollera stavning i dina dokument"
 
-#: plugins/vim-emulation/vim-emulation.plugin:6
+#: plugins/vim-emulation/vim-emulation.plugin:5
 msgid "Vim Emulation"
 msgstr "Vim-emulering"
 
-#: plugins/vim-emulation/vim-emulation.plugin:7
+#: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Use Vim commands in Code"
 msgstr "Använda Vim-kommandon i Kod"
 
-#: plugins/word-completion/word-completion.plugin:3
+#: plugins/word-completion/word-completion.plugin:2
 msgid "Words Completion"
 msgstr "Ordkomplettering"
 
-#: plugins/word-completion/word-completion.plugin:7
+#: plugins/word-completion/word-completion.plugin:6
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Visa en kompletteringsdialog med de vanligaste orden från dina filer"
 

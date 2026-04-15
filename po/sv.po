@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"PO-Revision-Date: 2026-04-06 19:23+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
 "\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Ny flik"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nytt fönster"
 
@@ -53,62 +53,62 @@ msgstr "Kod (%s)"
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:401
 msgid "Hide search bar"
 msgstr "Dölj sökfältet"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Hitta på sida…"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:417
 msgid "Hide Projects Sidebar"
 msgstr "Dölj sidofältet för projekt"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:422
 msgid "Show Projects Sidebar"
 msgstr "Visa sidofältet för projekt"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Hide Symbol Outline"
 msgstr "Dölj symbolöversikt"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:436
 msgid "Show Symbol Outline"
 msgstr "Visa symbolöversikt"
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:445
 msgid "Hide Terminal"
 msgstr "Dölj terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Visa terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:620
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Alla filer"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Textfiler"
 
-#: src/MainWindow.vala:985
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Öppna några filer"
 
-#: src/MainWindow.vala:988
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Öppna"
 
-#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "Öppna"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MainWindow.vala:1032
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "Ö_ppna"
 
-#: src/MainWindow.vala:1033
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr "Kloning slutförd"
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Klon skapades i %s"
 
-#: src/MainWindow.vala:1095
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Det går inte att klona %s"
 
-#: src/MainWindow.vala:1102
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr "Försök igen"
 
@@ -237,7 +237,7 @@ msgstr "Grennamnet måste vara unikt och följa Gits namngivningsregler."
 msgid "Create Branch"
 msgstr "Skapa gren"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -434,124 +434,112 @@ msgstr "Checka inte ut"
 msgid "Checkout and Overwrite"
 msgstr "Checkout och överskrivning"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Andra åtgärder"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Byt namn"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 msgid "Move to Trash"
 msgstr "Flytta till papperskorgen"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
 msgid "Other Application…"
 msgstr "Annat program…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
 msgid "Open In"
 msgstr "Öppna i"
 
-#: src/FolderManager/FileView.vala:74
+#: src/FolderManager/FileView.vala:70
 msgid "Folders"
 msgstr "Mappar"
 
-#: src/FolderManager/FolderItem.vala:156
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Hitta i mapp…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:186
 msgid "Terminal Pane"
 msgstr "Terminalfönster"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
 msgstr "Mapp"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:229
 msgid "Empty File"
 msgstr "Tom fil"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Nytt"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 msgid "untitled folder"
 msgstr "namnlös mapp"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Set as Active Project"
 msgstr "Ange som aktivt projekt"
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr "Öppna i terminalfönstret"
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+msgid "Branch Actions…"
+msgstr "Grenåtgärder…"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr "Stäng mapp"
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 msgid "Close Other Folders"
 msgstr "Stäng andra mappar"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Stäng %u öppet dokument"
 msgstr[1] "Stäng %u öppna dokument"
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Dölj %u öppet dokument"
 msgstr[1] "Dölj %u öppna dokument"
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Återställ %u dolt dokument"
 msgstr[1] "Återställ %u dolda dokument"
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Hitta i projekt…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
-msgid "Local"
-msgstr "Lokal"
-
-#: src/FolderManager/ProjectFolderItem.vala:337
-msgid "Remote"
-msgstr "Fjärr"
-
-#: src/FolderManager/ProjectFolderItem.vala:352
-msgid "New Branch…"
-msgstr "Ny gren…"
-
-#: src/FolderManager/ProjectFolderItem.vala:377
-msgid "Branch"
-msgstr "Gren"
-
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr "Ändrad"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Fel vid skapande av ny gren: \"%s\""
@@ -708,24 +696,24 @@ msgstr "Skriv över"
 msgid "Save Document elsewhere"
 msgstr "Spara dokument någon annanstans"
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "Fjärrgrenen '%s' hittades inte"
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 "Den begärda grenen hittades inte i någon fjärrserver som är länkad till "
 "detta arkiv"
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr "Ett fel inträffade när du checkade ut den begärda grenen"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (frånkopplad)"
@@ -824,15 +812,15 @@ msgstr "Inget projekt valt"
 msgid "Active Git Project: %s"
 msgstr "Aktivt Git-projekt: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:61
+#: src/Widgets/ChooseProjectButton.vala:67
 msgid "Filter projects"
 msgstr "Filtrera projekt"
 
-#: src/Widgets/ChooseProjectButton.vala:84
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Open Folder…"
 msgstr "Öppna mapp…"
 
-#: src/Widgets/ChooseProjectButton.vala:89
+#: src/Widgets/ChooseProjectButton.vala:95
 msgid "Clone Git Repository…"
 msgstr "Klona Git-arkiv…"
 
@@ -955,23 +943,35 @@ msgstr "Zooma in"
 msgid "Follow System Style"
 msgstr "Följ systemets stil"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr "Ljus"
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr "Mörk"
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "Kloning slutförd"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "Minimera alla"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "Alfabetisera"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr "Behåll sorterat"
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Hantera projektmappar…"
 
@@ -1044,23 +1044,23 @@ msgstr "%d av %d"
 msgid "no results"
 msgstr "inga resultat"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
-msgstr "Sortera markerade rader"
+#: src/Widgets/SourceView.vala:581
+msgid "Sort Lines"
+msgstr "Sortera rader"
 
-#: src/Widgets/SourceView.vala:595
-msgid "Mark Current Line"
-msgstr "Markera aktuell rad"
+#: src/Widgets/SourceView.vala:585
+msgid "Mark Line"
+msgstr "Markera rad"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr "Gå till föregående redigeringsmarkering"
+#: src/Widgets/SourceView.vala:589
+msgid "Previous Mark"
+msgstr "Föregående markering"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr "Gå till nästa redigeringsmarkering"
+#: src/Widgets/SourceView.vala:593
+msgid "Next Mark"
+msgstr "Nästa markering"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Växla kommentar"
 
@@ -1105,7 +1105,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Lägg till projektmapp till sidopanelen."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr "Skicka upp till Pastebin"
 
@@ -1166,6 +1166,27 @@ msgstr "Installera minst en [aspell]-ordbok."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordförslag"
+
+#~ msgid "Local"
+#~ msgstr "Lokal"
+
+#~ msgid "Remote"
+#~ msgstr "Fjärr"
+
+#~ msgid "New Branch…"
+#~ msgstr "Ny gren…"
+
+#~ msgid "Branch"
+#~ msgstr "Gren"
+
+#~ msgid "Alphabetize"
+#~ msgstr "Alfabetisera"
+
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Gå till föregående redigeringsmarkering"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Gå till nästa redigeringsmarkering"
 
 #, fuzzy, c-format
 #~| msgid "Current working directory"
@@ -1241,9 +1262,6 @@ msgstr "%s - Ordförslag"
 
 #~ msgid "For selected text"
 #~ msgstr "För markerad text"
-
-#~ msgid "High Contrast"
-#~ msgstr "Hög kontrast"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Solariserat ljus"
@@ -1430,12 +1448,6 @@ msgstr "%s - Ordförslag"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Ny fil från urklipp"
-
-#~ msgid "Next Tab"
-#~ msgstr "Nästa flik"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Föregående flik"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Fullskärmsläge"

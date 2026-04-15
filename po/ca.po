@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"PO-Revision-Date: 2026-04-07 09:34+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
 "\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Pestanya nova"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Finestra nova"
 
@@ -53,62 +53,62 @@ msgstr "Codi (%s)"
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:401
 msgid "Hide search bar"
 msgstr "Amaga la barra de cerca"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Troba a la pàgina…"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:417
 msgid "Hide Projects Sidebar"
 msgstr "Amaga la barra lateral de projectes"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:422
 msgid "Show Projects Sidebar"
 msgstr "Mostra la barra lateral de projectes"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Hide Symbol Outline"
 msgstr "Amaga el contorn del símbol"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:436
 msgid "Show Symbol Outline"
 msgstr "Mostra el contorn del símbol"
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:445
 msgid "Hide Terminal"
 msgstr "Amaga el terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Mostra el terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:620
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:985
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:988
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -117,29 +117,29 @@ msgstr "Obre"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:1032
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:1033
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr "Clonació completada"
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Clon creat correctament a %s"
 
-#: src/MainWindow.vala:1095
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr "No s'ha pogut clonar %s"
 
-#: src/MainWindow.vala:1102
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr "Torna-ho a provar"
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Crea'n una branca"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "Preferències"
 
@@ -435,124 +435,112 @@ msgstr "No en surtis"
 msgid "Checkout and Overwrite"
 msgstr "Surt i sobreescriu"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr "Canvia'n el nom"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
 msgid "Open In"
 msgstr "Obre amb"
 
-#: src/FolderManager/FileView.vala:74
+#: src/FolderManager/FileView.vala:70
 msgid "Folders"
 msgstr "Carpetes"
 
-#: src/FolderManager/FolderItem.vala:156
+#: src/FolderManager/FolderItem.vala:155
 msgid "Find in Folder…"
 msgstr "Troba a la carpeta…"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:186
 msgid "Terminal Pane"
 msgstr "Plafó del terminal"
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
 msgstr "Carpeta"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:229
 msgid "Empty File"
 msgstr "Fitxer buit"
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 msgid "untitled folder"
 msgstr "carpeta sense nom"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 msgid "new file"
 msgstr "fitxer nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Set as Active Project"
 msgstr "Estableix com a projecte actiu"
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr "Obre al plafó del terminal"
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+msgid "Branch Actions…"
+msgstr "Accions de la branca…"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 msgid "Close Other Folders"
 msgstr "Tanca altres carpetes"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Tanca %u document obert"
 msgstr[1] "Tanca %u documents oberts"
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Amaga %u document obert"
 msgstr[1] "Amaga %u documents oberts"
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Restaura %u document amagat"
 msgstr[1] "Restaura %u documents amagats"
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Troba al projecte…"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
-msgid "Local"
-msgstr "Local"
-
-#: src/FolderManager/ProjectFolderItem.vala:337
-msgid "Remote"
-msgstr "Remot"
-
-#: src/FolderManager/ProjectFolderItem.vala:352
-msgid "New Branch…"
-msgstr "Branca nova…"
-
-#: src/FolderManager/ProjectFolderItem.vala:377
-msgid "Branch"
-msgstr "Branca"
-
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr "Modificat"
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Error en crear una branca nova: %s"
@@ -710,24 +698,24 @@ msgstr "Sobreescriu"
 msgid "Save Document elsewhere"
 msgstr "Desa el document en un altre lloc"
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "No s'ha trobat la branca remota %s"
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 "La branca sol·licitada no s'ha trobat a cap lloc remot enllaçat a aquest "
 "repositori."
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr "Hi ha hagut un error en revisar la branca demanada"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (separat)"
@@ -826,15 +814,15 @@ msgstr "No hi ha cap projecte seleccionat"
 msgid "Active Git Project: %s"
 msgstr "Projecte de Git actiu: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:61
+#: src/Widgets/ChooseProjectButton.vala:67
 msgid "Filter projects"
 msgstr "Filtra els projectes"
 
-#: src/Widgets/ChooseProjectButton.vala:84
+#: src/Widgets/ChooseProjectButton.vala:90
 msgid "Open Folder…"
 msgstr "Obre una carpeta…"
 
-#: src/Widgets/ChooseProjectButton.vala:89
+#: src/Widgets/ChooseProjectButton.vala:95
 msgid "Clone Git Repository…"
 msgstr "Clona un repositori de Git…"
 
@@ -957,23 +945,35 @@ msgstr "Apropa"
 msgid "Follow System Style"
 msgstr "Segueix l'estil del sistema"
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr "Menú"
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr "Clar"
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr "Fosc"
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr "Contrast"
+
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr "Clonació completada"
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr "Replega-ho tot"
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
-msgstr "Per ordre alfabètic"
-
 #: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr "Mantén l'ordre"
+
+#: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Gestioneu les carpetes del projecte…"
 
@@ -1046,23 +1046,23 @@ msgstr "%d de %d"
 msgid "no results"
 msgstr "sense resultats"
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
-msgstr "Classifica les línies seleccionades"
+#: src/Widgets/SourceView.vala:581
+msgid "Sort Lines"
+msgstr "Classifica les línies"
 
-#: src/Widgets/SourceView.vala:595
-msgid "Mark Current Line"
-msgstr "Marca la línia actual"
+#: src/Widgets/SourceView.vala:585
+msgid "Mark Line"
+msgstr "Marca la línia"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr "Ves a la marca d'edició anterior"
+#: src/Widgets/SourceView.vala:589
+msgid "Previous Mark"
+msgstr "Marca anterior"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr "Ves a la marca d'edició següent"
+#: src/Widgets/SourceView.vala:593
+msgid "Next Mark"
+msgstr "Marca següent"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
@@ -1107,7 +1107,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Afegeix la carpeta d'un projecte a la barra lateral."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr "Puja al Pastebin"
 
@@ -1168,6 +1168,27 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "Local"
+#~ msgstr "Local"
+
+#~ msgid "Remote"
+#~ msgstr "Remot"
+
+#~ msgid "New Branch…"
+#~ msgstr "Branca nova…"
+
+#~ msgid "Branch"
+#~ msgstr "Branca"
+
+#~ msgid "Alphabetize"
+#~ msgstr "Per ordre alfabètic"
+
+#~ msgid "Goto Previous Edit Mark"
+#~ msgstr "Ves a la marca d'edició anterior"
+
+#~ msgid "Goto Next Edit Mark"
+#~ msgstr "Ves a la marca d'edició següent"
 
 #~ msgid "Case sensitive:"
 #~ msgstr "Distinció de majúscules:"
@@ -1266,9 +1287,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "For selected text"
 #~ msgstr "Per al text seleccionat"
-
-#~ msgid "High Contrast"
-#~ msgstr "Contrast alt"
 
 #~ msgid "Solarized Light"
 #~ msgstr "Llum de dia clara"
@@ -1470,12 +1488,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Fitxer nou del porta-retalls"
-
-#~ msgid "Next Tab"
-#~ msgstr "Pestanya següent"
-
-#~ msgid "Previous Tab"
-#~ msgstr "Pestanya anterior"
 
 #~ msgid "Fullscreen"
 #~ msgstr "Pantalla completa"

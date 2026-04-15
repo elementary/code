@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "નવી ટેબ"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:87
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "નવી વિંડો"
 
@@ -51,67 +51,67 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:401
 msgid "Hide search bar"
 msgstr "શોધ બારને છુપાવો"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 msgid "Find on Page…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:417
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "શોધ બારને છુપાવો"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:422
 #, fuzzy
 #| msgid "Project templates"
 msgid "Show Projects Sidebar"
 msgstr "પ્રોજેક્ટના ટેમ્પલેટ્સ"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:436
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:445
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:196
+#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:620
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:668
 msgid "All files"
 msgstr "બધી ફાઇલો"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:672
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:985
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:988
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "ખોલો"
 
-#: src/MainWindow.vala:989 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -120,29 +120,29 @@ msgstr "ખોલો"
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:1032
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:1033
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1095
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1102
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Scratch ના સેટિંગ્સ બદલો"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:218
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
 msgid "Preferences"
 msgstr "પસંદગીઓ"
 
@@ -447,132 +447,119 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:166
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
 msgid "Move to Trash"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:100 src/FolderManager/FolderItem.vala:198
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
 #, fuzzy
 msgid "Open In"
 msgstr "ખોલો"
 
-#: src/FolderManager/FileView.vala:74
+#: src/FolderManager/FileView.vala:70
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:156
+#: src/FolderManager/FolderItem.vala:155
 #, fuzzy
 msgid "Find in Folder…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/FolderManager/FolderItem.vala:189
+#: src/FolderManager/FolderItem.vala:186
 msgid "Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:224
+#: src/FolderManager/FolderItem.vala:221
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:229
 msgid "Empty File"
 msgstr ""
 
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:243
-#: src/FolderManager/ProjectFolderItem.vala:427
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 #, fuzzy
 msgid "New"
 msgstr "નવી ટેબ"
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:399
+#: src/FolderManager/FolderItem.vala:396
 #, fuzzy
 msgid "new file"
 msgstr "નવી ફાઈલ"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Set as Active Project"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+#, fuzzy
+msgid "Branch Actions…"
+msgstr "Scratch ના સેટિંગ્સ બદલો"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 #, fuzzy
 msgid "Close Other Folders"
 msgstr "ફાઈલ ખોલો"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 #, fuzzy
 msgid "Find in Project…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/FolderManager/ProjectFolderItem.vala:320
-msgid "Local"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:337
-msgid "Remote"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:352
-#, fuzzy
-msgid "New Branch…"
-msgstr "Scratch ના સેટિંગ્સ બદલો"
-
-#: src/FolderManager/ProjectFolderItem.vala:377
-#, fuzzy
-msgid "Branch"
-msgstr "Scratch ના સેટિંગ્સ બદલો"
-
-#: src/FolderManager/ProjectFolderItem.vala:433
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:471
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr ""
@@ -726,22 +713,22 @@ msgstr ""
 msgid "Save Document elsewhere"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -842,16 +829,16 @@ msgstr "પ્રોજેક્ટના ટેમ્પલેટ્સ"
 msgid "Active Git Project: %s"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:61
+#: src/Widgets/ChooseProjectButton.vala:67
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:84
+#: src/Widgets/ChooseProjectButton.vala:90
 #, fuzzy
 msgid "Open Folder…"
 msgstr "ફાઈલ ખોલો"
 
-#: src/Widgets/ChooseProjectButton.vala:89
+#: src/Widgets/ChooseProjectButton.vala:95
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -988,23 +975,35 @@ msgstr ""
 msgid "Follow System Style"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:240
+#: src/Widgets/HeaderBar.vala:239
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:52
+#: src/Widgets/HeaderBar.vala:392
+msgid "Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:395
+msgid "Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:398
+msgid "Contrast"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:80
+#: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:83
-msgid "Alphabetize"
+#: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
 msgstr ""
 
-#: src/Widgets/Sidebar.vala:91
+#: src/Widgets/Sidebar.vala:100
 #, fuzzy
 msgid "Manage project folders…"
 msgstr "ફાઈલ ખોલો"
@@ -1078,25 +1077,31 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:584
-msgid "Sort Selected Lines"
-msgstr ""
-
-#: src/Widgets/SourceView.vala:595
+#: src/Widgets/SourceView.vala:581
 #, fuzzy
 #| msgid "Remove Current View"
-msgid "Mark Current Line"
+msgid "Sort Lines"
 msgstr "વર્તમાન દેખાવને દુર કરો"
 
-#: src/Widgets/SourceView.vala:606
-msgid "Goto Previous Edit Mark"
-msgstr ""
+#: src/Widgets/SourceView.vala:585
+#, fuzzy
+#| msgid "Remove Current View"
+msgid "Mark Line"
+msgstr "વર્તમાન દેખાવને દુર કરો"
 
-#: src/Widgets/SourceView.vala:617
-msgid "Goto Next Edit Mark"
-msgstr ""
+#: src/Widgets/SourceView.vala:589
+#, fuzzy
+#| msgid "Previous Tab"
+msgid "Previous Mark"
+msgstr "આગળની ટેબ"
 
-#: src/Widgets/SourceView.vala:636
+#: src/Widgets/SourceView.vala:593
+#, fuzzy
+#| msgid "Next Tab"
+msgid "Next Mark"
+msgstr "પછીની ટેબ"
+
+#: src/Widgets/SourceView.vala:603
 msgid "Toggle Comment"
 msgstr ""
 
@@ -1144,7 +1149,7 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:124
+#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr ""
 
@@ -1207,6 +1212,10 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Branch"
+#~ msgstr "Scratch ના સેટિંગ્સ બદલો"
 
 #~ msgid "Tab width:"
 #~ msgstr "ટૅબની પહોળાઈ"
@@ -1277,12 +1286,6 @@ msgstr ""
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "પસંદ કરેલ સ્ટ્રીંગની નકલ કરો"
-
-#~ msgid "Next Tab"
-#~ msgstr "પછીની ટેબ"
-
-#~ msgid "Previous Tab"
-#~ msgstr "આગળની ટેબ"
 
 #~ msgid "Fullscreen"
 #~ msgstr "પૂર્ણ સ્ક્રીન"

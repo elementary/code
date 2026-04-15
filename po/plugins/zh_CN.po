@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2024-11-27 10:38+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -19,91 +19,91 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: plugins/brackets-completion/brackets-completion.plugin:6
+#: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
 msgstr "括号补全"
 
-#: plugins/brackets-completion/brackets-completion.plugin:7
+#: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Complete brackets while typing"
 msgstr "在输入时补全括号"
 
-#: plugins/detect-indent/detect-indent.plugin:6
+#: plugins/detect-indent/detect-indent.plugin:5
 msgid "Detect Indent"
 msgstr "检测缩进"
 
-#: plugins/detect-indent/detect-indent.plugin:7
+#: plugins/detect-indent/detect-indent.plugin:6
 msgid "Heuristically detect tab or space settings"
 msgstr "启发式检测制表位或空格设置"
 
-#: plugins/editorconfig/editorconfig.plugin:6
+#: plugins/editorconfig/editorconfig.plugin:5
 msgid "EditorConfig"
 msgstr "编辑器配置"
 
-#: plugins/editorconfig/editorconfig.plugin:7
+#: plugins/editorconfig/editorconfig.plugin:6
 msgid "Load settings from an EditorConfig file"
 msgstr "从编辑器配置文件中加载设置"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/fuzzy-search/fuzzy-search.plugin:5
 msgid "Find Project Files"
 msgstr "查找项目文件"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:7
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr "在所有项目中模糊搜索文件（使用 ALT + F 显示）"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:5
 msgid "Highlight Word Selection"
 msgstr "高亮选中文本"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlights all occurrences of words that are selected"
 msgstr "高亮选中时出现的所有词语"
 
-#: plugins/markdown-actions/markdown-actions.plugin:6
+#: plugins/markdown-actions/markdown-actions.plugin:5
 msgid "Markdown Actions"
 msgstr "Markdown 操作"
 
-#: plugins/markdown-actions/markdown-actions.plugin:7
+#: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "新增快速编辑Markdown文件的快捷键"
 
-#: plugins/pastebin/pastebin.plugin:6
+#: plugins/pastebin/pastebin.plugin:5
 msgid "Pastebin"
 msgstr "Pastebin 服务"
 
-#: plugins/pastebin/pastebin.plugin:7
+#: plugins/pastebin/pastebin.plugin:6
 msgid "Share files with pastebin service"
 msgstr "通过 Pastebin 服务分享文件"
 
-#: plugins/preserve-indent/preserve-indent.plugin:6
+#: plugins/preserve-indent/preserve-indent.plugin:5
 msgid "Preserve Indent"
 msgstr "保持缩进"
 
-#: plugins/preserve-indent/preserve-indent.plugin:7
+#: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Maintains relative indent level of pasted text"
 msgstr "保持粘贴文本的缩进"
 
-#: plugins/spell/spell.plugin:6
+#: plugins/spell/spell.plugin:5
 msgid "Spell Checker"
 msgstr "拼写检查"
 
-#: plugins/spell/spell.plugin:7
+#: plugins/spell/spell.plugin:6
 msgid "Checks the spelling of your documents"
 msgstr "检查文件中的拼写错误"
 
-#: plugins/vim-emulation/vim-emulation.plugin:6
+#: plugins/vim-emulation/vim-emulation.plugin:5
 msgid "Vim Emulation"
 msgstr "Vim 模拟"
 
-#: plugins/vim-emulation/vim-emulation.plugin:7
+#: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Use Vim commands in Code"
 msgstr "使用 Vim 指令"
 
-#: plugins/word-completion/word-completion.plugin:3
+#: plugins/word-completion/word-completion.plugin:2
 msgid "Words Completion"
 msgstr "词语统计"
 
-#: plugins/word-completion/word-completion.plugin:7
+#: plugins/word-completion/word-completion.plugin:6
 msgid "Show a completion dialog with most used words from your files"
 msgstr "显示一个对话框统计文件中使用较多的词汇"
 

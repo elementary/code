@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 12:52+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2021-07-27 12:28+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/code/plugins/pa/"
@@ -19,91 +19,91 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: plugins/brackets-completion/brackets-completion.plugin:6
+#: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
 msgstr "ਬ੍ਰੈਕਟਾਂ ਦਾ ਮੁਕੰਮਲ ਹੋਣਾ"
 
-#: plugins/brackets-completion/brackets-completion.plugin:7
+#: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Complete brackets while typing"
 msgstr "ਟਾਈਪ ਕਰਦੇ ਵਕ਼ਤ ਹੀ ਬ੍ਰੈਕਟਾਂ ਮੁਕੰਮਲ ਕਰੋ"
 
-#: plugins/detect-indent/detect-indent.plugin:6
+#: plugins/detect-indent/detect-indent.plugin:5
 msgid "Detect Indent"
 msgstr "ਹਾਸ਼ੀਏ ਤੋਂ ਫ਼ਾਸਲਾ ਪਛਾਣੋ"
 
-#: plugins/detect-indent/detect-indent.plugin:7
+#: plugins/detect-indent/detect-indent.plugin:6
 msgid "Heuristically detect tab or space settings"
 msgstr "ਸਮਝ ਨਾਲ਼ ਟੈਬ ਜਾਂ ਸਪੇਸ ਸੈਟਿੰਗਾਂ ਪਛਾਣੋ"
 
-#: plugins/editorconfig/editorconfig.plugin:6
+#: plugins/editorconfig/editorconfig.plugin:5
 msgid "EditorConfig"
 msgstr "ਐਡੀਟਰ-ਨੁਹਾਰ"
 
-#: plugins/editorconfig/editorconfig.plugin:7
+#: plugins/editorconfig/editorconfig.plugin:6
 msgid "Load settings from an EditorConfig file"
 msgstr "ਕਿਸੇ ਐਡੀਟਰ-ਨੁਹਾਰ ਫ਼ਾਇਲ 'ਚੋਂ ਸੈਟਿੰਗਾਂ ਲੋਡ ਕਰੋ"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/fuzzy-search/fuzzy-search.plugin:5
 msgid "Find Project Files"
 msgstr ""
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:7
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:5
 msgid "Highlight Word Selection"
 msgstr "ਲਫ਼ਜ਼ਾਂ ਦੀ ਚੋਣ ਉਜਾਗਰ ਕਰੋ"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlights all occurrences of words that are selected"
 msgstr "ਚੁਣੇ ਹੋਏ ਲਫ਼ਜ਼ ਦੇ ਸਾਰੇ ਵਾਕਿਆਤ ਉਜਾਗਰ ਕਰੋ"
 
-#: plugins/markdown-actions/markdown-actions.plugin:6
+#: plugins/markdown-actions/markdown-actions.plugin:5
 msgid "Markdown Actions"
 msgstr "ਮਾਰਕਡਾਊਨ ਦੀਆਂ ਕਾਰਵਾਈਆਂ"
 
-#: plugins/markdown-actions/markdown-actions.plugin:7
+#: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr "ਮਾਰਕਡਾਊਨ ਫ਼ਾਇਲਾਂ ਦੀ ਫੁਰਤੀਲੀ ਐਡਿਟਿੰਗ ਲਈ ਕੀਬੋਰਡ ਦੇ ਸ਼ਾਰਟਕੱਟ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: plugins/pastebin/pastebin.plugin:6
+#: plugins/pastebin/pastebin.plugin:5
 msgid "Pastebin"
 msgstr "ਪੇਸਟ-ਟੋਕਰੀ"
 
-#: plugins/pastebin/pastebin.plugin:7
+#: plugins/pastebin/pastebin.plugin:6
 msgid "Share files with pastebin service"
 msgstr "ਫ਼ਾਇਲਾਂ ਨੂੰ ਪੇਸਟ-ਟੋਕਰੀ ਸੇਵਾਵਾਂ ਨਾਲ਼ ਸਾਂਝਾ ਕਰੋ"
 
-#: plugins/preserve-indent/preserve-indent.plugin:6
+#: plugins/preserve-indent/preserve-indent.plugin:5
 msgid "Preserve Indent"
 msgstr "ਹਾਸ਼ੀਏ-ਤੋਂ-ਫ਼ਾਸਲਾ ਸਲਾਮਤ ਰੱਖੋ"
 
-#: plugins/preserve-indent/preserve-indent.plugin:7
+#: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Maintains relative indent level of pasted text"
 msgstr "ਪੇਸਟ ਕੀਤੀ ਲਿਖਤ ਦਾ ਹਾਸ਼ੀਏ ਤੋਂ ਮੁਨਾਸਬ ਫ਼ਾਸਲਾ ਕਾਇਮ ਰੱਖੋ"
 
-#: plugins/spell/spell.plugin:6
+#: plugins/spell/spell.plugin:5
 msgid "Spell Checker"
 msgstr "ਹਿੱਜੇ/ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚਕ"
 
-#: plugins/spell/spell.plugin:7
+#: plugins/spell/spell.plugin:6
 msgid "Checks the spelling of your documents"
 msgstr "ਆਪਣੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੇ ਹਿੱਜੇ ਜਾਂਚੋ"
 
-#: plugins/vim-emulation/vim-emulation.plugin:6
+#: plugins/vim-emulation/vim-emulation.plugin:5
 msgid "Vim Emulation"
 msgstr "ਵਿਮ ਐਮੁਲੇਸ਼ਨ"
 
-#: plugins/vim-emulation/vim-emulation.plugin:7
+#: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Use Vim commands in Code"
 msgstr "ਕੋਡ ਵਿੱਚ ਵਿਮ ਕਮਾਂਡਾਂ ਵਰਤੋ"
 
-#: plugins/word-completion/word-completion.plugin:3
+#: plugins/word-completion/word-completion.plugin:2
 msgid "Words Completion"
 msgstr "ਲਫ਼ਜ਼ ਦਾ ਮੁਕੰਮਲ ਹੋਣ"
 
-#: plugins/word-completion/word-completion.plugin:7
+#: plugins/word-completion/word-completion.plugin:6
 msgid "Show a completion dialog with most used words from your files"
 msgstr "ਤੁਹਾਡੀਆਂ ਫ਼ਾਇਲਾਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ ਗਏ ਲਫ਼ਜ਼ਾਂ ਨਾਲ਼ ਲਫਜ਼-ਮੁਕੰਮਲ ਡਾਇਲਾਗ ਵਿਖਾਓ"
 

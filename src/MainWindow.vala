@@ -78,7 +78,6 @@ namespace Scratch {
         public const string ACTION_OPEN_FOLDER = "action-open-folder";
         public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
-        public const string ACTION_ORDER_FOLDERS = "action-order-folders";
         public const string ACTION_GO_TO = "action-go-to";
         public const string ACTION_SORT_LINES = "action-sort-lines";
         public const string ACTION_NEW_TAB = "action-new-tab";
@@ -110,10 +109,11 @@ namespace Scratch {
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
+        public const string ACTION_SET_ACTIVE_PROJECT = "action-set-active-project";
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
-        public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_BRANCH_ACTIONS = "action-branch-actions";
         public const string ACTION_CLOSE_TAB = "action-close-tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
         public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
@@ -141,7 +141,6 @@ namespace Scratch {
             { ACTION_OPEN_FOLDER, action_open_folder, "s" },
             { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
-            { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
@@ -169,11 +168,12 @@ namespace Scratch {
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
+            { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
             { ACTION_TOGGLE_OUTLINE, action_toggle_outline, null, "false" },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_BRANCH_ACTIONS, action_branch_actions, "s" },
             { ACTION_ADD_MARK, action_add_mark},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
             { ACTION_NEXT_MARK, action_next_mark},
@@ -245,7 +245,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
-            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_BRANCH_ACTIONS + "::", "<Control>B");
             action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
             action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
             action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
@@ -325,6 +325,8 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
+                    // Ensure window can restore the correct size
+                    unfullscreen ();
                     break;
             }
 
@@ -633,14 +635,6 @@ namespace Scratch {
                 }
             });
 
-            sidebar.choose_project_button.project_chosen.connect (() => {
-                folder_manager_view.collapse_other_projects ();
-                if (terminal.visible) {
-                    var open_in_terminal_action = Utils.action_from_group (ACTION_OPEN_IN_TERMINAL, actions);
-                    var param = new Variant.string (Services.GitManager.get_instance ().get_default_build_dir (null));
-                    open_in_terminal_action.activate (param);
-                }
-            });
 
             set_widgets_sensitive (false);
         }
@@ -865,6 +859,8 @@ namespace Scratch {
             // Plugin panes size
             Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
             Scratch.saved_state.set_int ("vp-size", vp.get_position ());
+
+            terminal.save_settings ();
         }
 
         // SIGTERM/SIGINT Handling
@@ -1123,10 +1119,6 @@ namespace Scratch {
 
         private void action_collapse_all_folders () {
             folder_manager_view.collapse_all ();
-        }
-
-        private void action_order_folders () {
-            folder_manager_view.order_folders ();
         }
 
         private void action_save () {
@@ -1450,7 +1442,7 @@ namespace Scratch {
 
         private void action_open_in_terminal (SimpleAction action, Variant? param) {
             // Ensure terminal is visible
-            if (terminal == null || !terminal.visible) {
+            if (!terminal.visible) {
                 var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
                 toggle_terminal_action.activate (null);
             }
@@ -1460,6 +1452,24 @@ namespace Scratch {
             var target_path = get_target_path_for_actions (param, true);
             terminal.change_location (target_path);
             terminal.terminal.grab_focus ();
+        }
+
+        private void action_set_active_project (SimpleAction action, Variant? param) {
+            var project_path = param.get_string ();
+            if (folder_manager_view.project_is_open (project_path)) {
+                git_manager.active_project_path = project_path;
+                folder_manager_view.collapse_other_projects ();
+                //The opened folders are not changed so no need to update "opened-folders" setting
+            } else {
+                warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
+                //TODO Handle this by opening the folder
+            }
+
+            var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
+            terminal.change_location (new_build_dir);
+            if (terminal.visible) {
+                terminal.terminal.grab_focus ();
+            }
         }
 
         private void action_toggle_outline (SimpleAction action) {
@@ -1484,8 +1494,8 @@ namespace Scratch {
             doc.source_view.clear_selected_lines ();
         }
 
-        private void action_new_branch (SimpleAction action, Variant? param) {
-            folder_manager_view.new_branch (get_target_path_for_actions (param));
+        private void action_branch_actions (SimpleAction action, Variant? param) {
+            folder_manager_view.branch_actions (get_target_path_for_actions (param));
         }
 
         private void action_previous_mark () {
