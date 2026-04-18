@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-05 17:03+0000\n"
-"PO-Revision-Date: 2026-02-09 14:43+0000\n"
+"PO-Revision-Date: 2026-04-19 00:13+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
-"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/"
-">\n"
+"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -500,10 +500,8 @@ msgid "Open in Terminal Pane"
 msgstr "Abrir en el panel de la terminal"
 
 #: src/FolderManager/ProjectFolderItem.vala:171
-#, fuzzy
-#| msgid "Other Actions"
 msgid "Branch Actions…"
-msgstr "Otras acciones"
+msgstr "Acciones de rama…"
 
 #: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
