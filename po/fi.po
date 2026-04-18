@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2026-03-22 15:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/>"
-"\n"
+"Language-Team: Finnish <https://l10n.elementaryos.org/projects/code/code/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,64 +53,64 @@ msgstr "Koodi (%s)"
 msgid "Code"
 msgstr "Koodi"
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:401
 msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Etsi sivulta…"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:417
 msgid "Hide Projects Sidebar"
 msgstr "Piilota projektipalkki"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:422
 msgid "Show Projects Sidebar"
 msgstr "Näytä projektipalkki"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:436
 #, fuzzy
 #| msgid "No Symbols Found"
 msgid "Show Symbol Outline"
 msgstr "Symboleja ei löytynyt"
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:445
 msgid "Hide Terminal"
 msgstr "Piilota pääte"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Näytä pääte"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:620
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:971 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/MainWindow.vala:979
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Avaa tiedostoja"
 
-#: src/MainWindow.vala:982
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Avaa"
 
-#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -119,29 +119,29 @@ msgstr "Avaa"
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/MainWindow.vala:1026
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "_Avaa"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: src/MainWindow.vala:1082
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr "Kloonaus valmistui"
 
-#: src/MainWindow.vala:1083
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Ei voitu kloonata %s"
 
-#: src/MainWindow.vala:1096
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr "Yritä uudelleen"
 
@@ -453,7 +453,7 @@ msgstr "Muu sovellus…"
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileView.vala:72
+#: src/FolderManager/FileView.vala:70
 msgid "Folders"
 msgstr "Kansiot"
 
@@ -476,8 +476,8 @@ msgstr "Tyhjä tiedosto"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:240
-#: src/FolderManager/ProjectFolderItem.vala:425
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Uusi"
 
@@ -489,68 +489,58 @@ msgstr "nimetön kansio"
 msgid "new file"
 msgstr "uusi tiedosto"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Set as Active Project"
 msgstr "Aseta aktiiviseksi projektiksi"
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr "Avaa päätepaneelissa"
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+#, fuzzy
+#| msgid "Other Actions"
+msgid "Branch Actions…"
+msgstr "Muut toiminnot"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr "Sulje kansio"
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 msgid "Close Other Folders"
 msgstr "Sulje muut kansiot"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Sulje %u avoin asiakirja"
 msgstr[1] "Sulje %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Piilota %u avoin asiakirja"
 msgstr[1] "Piilota %u avointa asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Palauta %u piilotettu asiakirja"
 msgstr[1] "Palauta %u piilotettua asiakirjaa"
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Etsi projektista…"
 
-#: src/FolderManager/ProjectFolderItem.vala:318
-msgid "Local"
-msgstr "Paikallinen"
-
-#: src/FolderManager/ProjectFolderItem.vala:335
-msgid "Remote"
-msgstr "Etä"
-
-#: src/FolderManager/ProjectFolderItem.vala:350
-msgid "New Branch…"
-msgstr "Uusi haara…"
-
-#: src/FolderManager/ProjectFolderItem.vala:375
-msgid "Branch"
-msgstr "Haara"
-
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr "Muokattu"
 
-#: src/FolderManager/ProjectFolderItem.vala:469
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Virhe uutta haaraa luotaessa: “%s”"
@@ -712,24 +702,24 @@ msgstr "Korvaa"
 msgid "Save Document elsewhere"
 msgstr "Tallenna asiakirja muualle"
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "Etähaaraa '%s' ei löydy"
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 "Pyydettyä haaraa ei löytynyt mistään tähän tietovarastoon linkitetystä "
 "etätietovarastosta"
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr "Pyydetyn haaran uloskuittauksen yhteydessä tapahtui virhe"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -1190,6 +1180,18 @@ msgstr "Asenna vähintään yksi [aspell]-sanakirja."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
+
+#~ msgid "Local"
+#~ msgstr "Paikallinen"
+
+#~ msgid "Remote"
+#~ msgstr "Etä"
+
+#~ msgid "New Branch…"
+#~ msgstr "Uusi haara…"
+
+#~ msgid "Branch"
+#~ msgstr "Haara"
 
 #~ msgid "Alphabetize"
 #~ msgstr "Aakkosta"

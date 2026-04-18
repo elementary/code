@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -52,62 +52,62 @@ msgstr "Kode (%s)"
 msgid "Code"
 msgstr "Kode"
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:401
 msgid "Hide search bar"
 msgstr "Sembunyikan bilah pencarian"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Temukan pada Halaman…"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:417
 msgid "Hide Projects Sidebar"
 msgstr "Sembunyikan Bilah Sisi Proyek"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:422
 msgid "Show Projects Sidebar"
 msgstr "Tampilkan Bilah Sisi Proyek"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:431
 msgid "Hide Symbol Outline"
 msgstr "Sembunyikan Simbol Garis Tepi Luar"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:436
 msgid "Show Symbol Outline"
 msgstr "Tampikan Simbol Garis Tepi Luar"
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:445
 msgid "Hide Terminal"
 msgstr "Sembunyikan Terminal"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Tampilkan Terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:620
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:971 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:668
 msgid "All files"
 msgstr "Semua berkas"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:672
 msgid "Text files"
 msgstr "Berkas teks"
 
-#: src/MainWindow.vala:979
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Buka beberapa berkas"
 
-#: src/MainWindow.vala:982
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:510 src/Services/Document.vala:680
@@ -116,29 +116,29 @@ msgstr "Buka"
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:1026
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "_Buka"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: src/MainWindow.vala:1082
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1083
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1096
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr ""
 
@@ -477,7 +477,7 @@ msgstr "Aplikasi Lain…"
 msgid "Open In"
 msgstr "Buka Pada"
 
-#: src/FolderManager/FileView.vala:72
+#: src/FolderManager/FileView.vala:70
 msgid "Folders"
 msgstr "Folder"
 
@@ -502,8 +502,8 @@ msgstr "File Kosong"
 #. scan all children
 #. No need to show status when children shown
 #: src/FolderManager/FolderItem.vala:240
-#: src/FolderManager/ProjectFolderItem.vala:425
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Baru"
 
@@ -515,67 +515,57 @@ msgstr "folder tanpa judul"
 msgid "new file"
 msgstr "berkas baru"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 #, fuzzy
 #| msgid "Active Git project: %s"
 msgid "Set as Active Project"
 msgstr "Proyek Git aktif: %s"
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+#, fuzzy
+#| msgid "Other Actions"
+msgid "Branch Actions…"
+msgstr "Aksi Lain"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr "Tutup Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 msgid "Close Other Folders"
 msgstr "Tutup Folder Lainnya"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "Tutup %u Dokumen Terbuka"
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "Sembunyikan %u Dokumen Terbuka"
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Pulihkan %u Dokumen Tersembunyi"
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "Temukan pada Proyek…"
 
-#: src/FolderManager/ProjectFolderItem.vala:318
-msgid "Local"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:335
-msgid "Remote"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:350
-msgid "New Branch…"
-msgstr "Cabang Baru…"
-
-#: src/FolderManager/ProjectFolderItem.vala:375
-msgid "Branch"
-msgstr "Cabang"
-
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr "Diubah"
 
-#: src/FolderManager/ProjectFolderItem.vala:469
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "Kesalahan saat membuat cabang baru: “%s”"
@@ -731,22 +721,22 @@ msgstr ""
 msgid "Save Document elsewhere"
 msgstr "Simpan berkas tertampil"
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -1228,6 +1218,12 @@ msgstr "Harap pasang setidaknya satu kamus [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Pelengkapan Kata"
+
+#~ msgid "New Branch…"
+#~ msgstr "Cabang Baru…"
+
+#~ msgid "Branch"
+#~ msgstr "Cabang"
 
 #~ msgid "Alphabetize"
 #~ msgstr "Alfabetis"
