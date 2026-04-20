@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
-"PO-Revision-Date: 2026-01-31 08:55+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"PO-Revision-Date: 2026-03-02 12:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/extra/zh_TW/>\n"
@@ -153,7 +153,7 @@ msgstr "提供停用語法突顯的選項"
 
 #: data/code.metainfo.xml.in:78
 msgid "There is now an option to keep the project folders sorted"
-msgstr ""
+msgstr "新增讓專案資料夾維持持續排序的選項"
 
 #: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:109
 #: data/code.metainfo.xml.in:126 data/code.metainfo.xml.in:145
@@ -188,7 +188,7 @@ msgstr "修正可能在會讓側邊欄在啟動時造成崩潰的一個問題"
 
 #: data/code.metainfo.xml.in:87
 msgid "Two issues where global search shows incorrect information are fixed"
-msgstr ""
+msgstr "修正兩個全域搜尋會顯示錯誤資訊的問題"
 
 #: data/code.metainfo.xml.in:88 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:150
@@ -575,27 +575,27 @@ msgstr "現在即使沒有選擇行，重製行數的功能也能正確執行"
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr "修正開啟未知的 URI 格式時會崩潰的問題"
 
-#: data/io.elementary.code.desktop.in.in:4
+#: data/io.elementary.code.desktop.in.in:3
 msgid "@NAME@"
 msgstr ""
 
-#: data/io.elementary.code.desktop.in.in:5
+#: data/io.elementary.code.desktop.in.in:4
 msgid "Edit code files"
 msgstr "編輯程式碼檔案"
 
-#: data/io.elementary.code.desktop.in.in:6
+#: data/io.elementary.code.desktop.in.in:5
 msgid "Code Editor"
 msgstr "Code 編輯器"
 
-#: data/io.elementary.code.desktop.in.in:11
+#: data/io.elementary.code.desktop.in.in:10
 msgid "text;IDE;scratch;code;"
 msgstr "text;IDE;scratch;code;程式碼;"
 
-#: data/io.elementary.code.desktop.in.in:17
+#: data/io.elementary.code.desktop.in.in:16
 msgid "New File"
 msgstr "新增檔案"
 
-#: data/io.elementary.code.desktop.in.in:22
+#: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "新增視窗"
 

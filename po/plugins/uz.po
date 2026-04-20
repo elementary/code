@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
 "PO-Revision-Date: 2020-09-26 13:14+0000\n"
 "Last-Translator: Shukrullo <shukrullo@umail.uz>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/code/plugins/uz/>\n"
@@ -18,91 +18,91 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: plugins/brackets-completion/brackets-completion.plugin:6
+#: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
 msgstr "Qavslarni avtomatik yopish"
 
-#: plugins/brackets-completion/brackets-completion.plugin:7
+#: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Complete brackets while typing"
 msgstr "Yozish mobaynida qavslarni avtomatik yopish"
 
-#: plugins/detect-indent/detect-indent.plugin:6
+#: plugins/detect-indent/detect-indent.plugin:5
 msgid "Detect Indent"
 msgstr "Surilishlarni aniqlash"
 
-#: plugins/detect-indent/detect-indent.plugin:7
+#: plugins/detect-indent/detect-indent.plugin:6
 msgid "Heuristically detect tab or space settings"
 msgstr "Bo'shliqlarni yoki tabulyatsiyalarni avtomatik aniqlab olish"
 
-#: plugins/editorconfig/editorconfig.plugin:6
+#: plugins/editorconfig/editorconfig.plugin:5
 msgid "EditorConfig"
 msgstr "EditorConfig"
 
-#: plugins/editorconfig/editorconfig.plugin:7
+#: plugins/editorconfig/editorconfig.plugin:6
 msgid "Load settings from an EditorConfig file"
 msgstr "Fayl sozlamalarini EditorConfig faylidan yuklab olish"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/fuzzy-search/fuzzy-search.plugin:5
 msgid "Find Project Files"
 msgstr ""
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:7
+#: plugins/fuzzy-search/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:5
 msgid "Highlight Word Selection"
 msgstr "Belgilangan so'zlarni ranglarda ajratish"
 
-#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Belgilangan so'zlarda barcha joylarda ranglar bilan ajratish"
 
-#: plugins/markdown-actions/markdown-actions.plugin:6
+#: plugins/markdown-actions/markdown-actions.plugin:5
 msgid "Markdown Actions"
 msgstr ""
 
-#: plugins/markdown-actions/markdown-actions.plugin:7
+#: plugins/markdown-actions/markdown-actions.plugin:6
 msgid "Adds keyboard shortcuts for quick editing Markdown files"
 msgstr ""
 
-#: plugins/pastebin/pastebin.plugin:6
+#: plugins/pastebin/pastebin.plugin:5
 msgid "Pastebin"
 msgstr "Pastebin"
 
-#: plugins/pastebin/pastebin.plugin:7
+#: plugins/pastebin/pastebin.plugin:6
 msgid "Share files with pastebin service"
 msgstr "Fayllarni Pastebin yordamida ulashish"
 
-#: plugins/preserve-indent/preserve-indent.plugin:6
+#: plugins/preserve-indent/preserve-indent.plugin:5
 msgid "Preserve Indent"
 msgstr "Surilishlarni saqlash"
 
-#: plugins/preserve-indent/preserve-indent.plugin:7
+#: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Maintains relative indent level of pasted text"
 msgstr "Joylashtirilgan matnga nisbatan surilishlarni saqlab qolish"
 
-#: plugins/spell/spell.plugin:6
+#: plugins/spell/spell.plugin:5
 msgid "Spell Checker"
 msgstr "Orfografik tekshiruv"
 
-#: plugins/spell/spell.plugin:7
+#: plugins/spell/spell.plugin:6
 msgid "Checks the spelling of your documents"
 msgstr "Hujjatlaringizda to'g'ri yozishga tekshirish"
 
-#: plugins/vim-emulation/vim-emulation.plugin:6
+#: plugins/vim-emulation/vim-emulation.plugin:5
 msgid "Vim Emulation"
 msgstr "Vim emulyatsiyasi"
 
-#: plugins/vim-emulation/vim-emulation.plugin:7
+#: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Use Vim commands in Code"
 msgstr "Vim buyruqlaridan foydalanish"
 
-#: plugins/word-completion/word-completion.plugin:3
+#: plugins/word-completion/word-completion.plugin:2
 msgid "Words Completion"
 msgstr "So'zlarni yakunlash"
 
-#: plugins/word-completion/word-completion.plugin:7
+#: plugins/word-completion/word-completion.plugin:6
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Fayllarda eng ko'p ishlatiladigan so'zlar bilan tugaydiganlarni dialogda "
