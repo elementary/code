@@ -876,20 +876,29 @@ namespace Scratch {
         }
 
         public void set_default_zoom () {
-            terminal.set_default_font_size ();
-            Scratch.settings.set_string ("font", get_current_font () + " " + get_default_font_size ().to_string ());
+            if (terminal.terminal.has_focus) {
+                terminal.set_default_font_size ();
+            } else {
+                Scratch.settings.set_string ("font", get_current_font () + " " + get_default_font_size ().to_string ());
+            }
         }
 
         // Ctrl + scroll
         public void action_zoom_in () {
-            terminal.increment_size ();
-            zooming (Gdk.ScrollDirection.UP);
+            if (terminal.terminal.has_focus) {
+                terminal.increment_size ();
+            } else {
+                zooming (Gdk.ScrollDirection.UP);
+            }
         }
 
         // Ctrl + scroll
         public void action_zoom_out () {
-            terminal.decrement_size ();
-            zooming (Gdk.ScrollDirection.DOWN);
+             if (terminal.terminal.has_focus) {
+                terminal.decrement_size ();
+            } else {
+                zooming (Gdk.ScrollDirection.DOWN);
+            }
         }
 
         private void zooming (Gdk.ScrollDirection direction) {
