@@ -29,7 +29,7 @@ namespace Scratch.FolderManager {
         private bool has_dummy;
         private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
-        public bool loading_required {
+        private bool loading_required {
             get {
                 return !children_loaded && n_children <= 1 && file.children.size > 0;
             }
@@ -63,29 +63,33 @@ namespace Scratch.FolderManager {
         }
 
         public void load_children () {
-            if (loading_required) {
-                foreach (var child in file.children) {
-                    add_child (child);
-                }
+            lock (loading_required) {
+                if (loading_required) {
+                    foreach (var child in file.children) {
+                        add_child (child);
+                    }
 
-                after_children_loaded ();
+                    after_children_loaded ();
+                }
             }
         }
 
         private async void load_children_async () {
-            if (loading_required) {
-                foreach (var child in file.children) {
-                    Idle.add (() => {
-                        add_child (child);
-                        load_children_async.callback ();
-                        return Source.REMOVE;
-                    });
+            lock (loading_required) {
+                if (loading_required) {
+                    foreach (var child in file.children) {
+                        Idle.add (() => {
+                            add_child (child);
+                            load_children_async.callback ();
+                            return Source.REMOVE;
+                        });
 
-                    yield;
+                        yield;
+                    }
                 }
-            }
 
-            after_children_loaded ();
+                after_children_loaded ();
+            }
         }
 
         private void add_child (File child) {
