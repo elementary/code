@@ -262,8 +262,7 @@ namespace Scratch.FolderManager {
             return new_item;
         }
 
-        // Adapted from Files app code
-        // Recursively load templates from folder and subfolders keeping count of total templates
+        // Recursively load templates from folder and subfolders keeping count of total menuitems
         const int MAX_TEMPLATES = 2048;
         private uint load_templates_from_folder (GLib.File template_folder, Menu template_submenu) {
             GLib.List<GLib.File> template_list = null;
@@ -324,23 +323,21 @@ namespace Scratch.FolderManager {
                 return count;
             }
 
-            if (template_list.length () > 0) {
-                template_list.sort ((a, b) => {
-                    return strcmp (a.get_basename ().down (), b.get_basename ().down ());
-                });
+            template_list.sort ((a, b) => {
+                return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+            });
 
-                template_list.@foreach ((template) => {
-                    var template_menuitem = new MenuItem (
-                        template.get_basename (),
-                        GLib.Action.print_detailed_name (
-                            FileView.ACTION_PREFIX + FileView.ACTION_NEW_FROM_TEMPLATE,
-                            new Variant ("(ss)", this.path, template.get_path ())
-                        )
-                    );
+            template_list.@foreach ((template) => {
+                var template_menuitem = new MenuItem (
+                    template.get_basename (),
+                    GLib.Action.print_detailed_name (
+                        FileView.ACTION_PREFIX + FileView.ACTION_NEW_FROM_TEMPLATE,
+                        new Variant ("(ss)", this.path, template.get_path ())
+                    )
+                );
 
-                    template_submenu.append_item (template_menuitem);
-                });
-            }
+                template_submenu.append_item (template_menuitem);
+            });
 
             return count;
         }
