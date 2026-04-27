@@ -295,23 +295,28 @@ namespace Scratch.FolderManager {
                 return 0;
             }
 
-            if (folder_list.length () > 0) {
-                folder_list.sort ((a, b) => {
-                    return strcmp (a.get_basename ().down (), b.get_basename ().down ());
-                });
+            folder_list.sort ((a, b) => {
+                return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+            });
 
-                folder_list.@foreach ((folder) => {
-                    if (count < MAX_TEMPLATES) {
-                        var folder_submenu = new Menu ();
-                        var folder_submenuitem = new MenuItem.submenu (
-                            folder.get_basename (),
-                            folder_submenu
-                        );
-                        template_submenu.append_item (folder_submenuitem);
+            unowned List<GLib.File> fl = folder_list;
+            while (fl != null && count < MAX_TEMPLATES) {
+                var folder = fl.data;
+                var folder_submenu = new Menu ();
+                var folder_submenuitem = new MenuItem.submenu (
+                    folder.get_basename (),
+                    folder_submenu
+                );
 
-                        count += load_templates_from_folder (folder, folder_submenu);
-                    } // else ignore remaining folders
-                });
+                var sub_count = load_templates_from_folder (folder, folder_submenu);
+                if (sub_count > 0) {
+                    template_submenu.append_item (folder_submenuitem);
+                    count += sub_count;
+                } else {
+                    count -= 1;  // Adjust count for ignored folder
+                }
+
+                fl = fl.next;
             }
 
             if (count > MAX_TEMPLATES) {
