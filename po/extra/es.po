@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
-"PO-Revision-Date: 2026-02-09 14:43+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
+"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"PO-Revision-Date: 2026-02-26 01:55+0000\n"
+"Last-Translator: Rubén Vera <rmvercan_dev@proton.me>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/extra/es/"
 ">\n"
 "Language: es\n"
@@ -174,7 +174,7 @@ msgstr "Ahora es posible inhabilitar el resaltado de sintaxis"
 
 #: data/code.metainfo.xml.in:78
 msgid "There is now an option to keep the project folders sorted"
-msgstr ""
+msgstr "Ahora existe la opción de mantener ordenadas las carpetas del proyecto"
 
 #: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:109
 #: data/code.metainfo.xml.in:126 data/code.metainfo.xml.in:145
@@ -215,6 +215,8 @@ msgstr ""
 #: data/code.metainfo.xml.in:87
 msgid "Two issues where global search shows incorrect information are fixed"
 msgstr ""
+"Se han solucionado dos problemas en los que la búsqueda global mostraba "
+"información incorrecta"
 
 #: data/code.metainfo.xml.in:88 data/code.metainfo.xml.in:115
 #: data/code.metainfo.xml.in:130 data/code.metainfo.xml.in:150
@@ -709,27 +711,27 @@ msgstr ""
 msgid "Code no longer crashes when asked to open an unknown URI format"
 msgstr "Code no falla al intentar abrir un formato de URI desconocido"
 
-#: data/io.elementary.code.desktop.in.in:4
+#: data/io.elementary.code.desktop.in.in:3
 msgid "@NAME@"
 msgstr ""
 
-#: data/io.elementary.code.desktop.in.in:5
+#: data/io.elementary.code.desktop.in.in:4
 msgid "Edit code files"
 msgstr "Edite archivos de código"
 
-#: data/io.elementary.code.desktop.in.in:6
+#: data/io.elementary.code.desktop.in.in:5
 msgid "Code Editor"
 msgstr "Editor de código"
 
-#: data/io.elementary.code.desktop.in.in:11
+#: data/io.elementary.code.desktop.in.in:10
 msgid "text;IDE;scratch;code;"
 msgstr "texto;IDE;EID;scratch;código;"
 
-#: data/io.elementary.code.desktop.in.in:17
+#: data/io.elementary.code.desktop.in.in:16
 msgid "New File"
 msgstr "Archivo nuevo"
 
-#: data/io.elementary.code.desktop.in.in:22
+#: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nueva ventana"
 
