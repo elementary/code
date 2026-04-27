@@ -284,8 +284,9 @@ namespace Scratch.FolderManager {
                             folder_list.prepend (location);
                         } else {
                             template_list.prepend (location);
-                            count ++;
                         }
+
+                        count ++;
                     }
 
                     info = enumerator.next_file (null);
