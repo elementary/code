@@ -245,7 +245,15 @@ namespace Scratch.FolderManager {
             //Append any templates/template folders.
             unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
             if (template_path != null) {
-                load_templates_from_folder (GLib.File.new_for_path (template_path), new_menu);
+                var template_submenu = new Menu ();
+                uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
+                if (template_count > 0) {
+                    if (template_count > MAX_TEMPLATES) {
+                        template_submenu.append_item (new MenuItem (_("…too many templates"), null));
+                    }
+
+                    new_menu.append_submenu (_("Templates"), template_submenu);
+                }
             }
 
             var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
@@ -254,14 +262,16 @@ namespace Scratch.FolderManager {
             return new_item;
         }
 
-        //Adapted from Files app code
+        // Adapted from Files app code
+        // Recursively load templates from folder and subfolders keeping count of total templates
         const int MAX_TEMPLATES = 2048;
-        private void load_templates_from_folder (GLib.File template_folder, Menu new_submenu, uint count = 0) {
+        private uint load_templates_from_folder (GLib.File template_folder, Menu template_submenu) {
             GLib.List<GLib.File> template_list = null;
             GLib.List<GLib.File> folder_list = null;
 
             GLib.FileEnumerator enumerator;
             var flags = GLib.FileQueryInfoFlags.NOFOLLOW_SYMLINKS;
+            uint count = 0;
             try {
                 enumerator = template_folder.enumerate_children ("standard::*", flags, null);
                 GLib.File location;
@@ -281,7 +291,7 @@ namespace Scratch.FolderManager {
                     info = enumerator.next_file (null);
                 }
             } catch (GLib.Error error) {
-                return;
+                return 0;
             }
 
             if (folder_list.length () > 0) {
@@ -290,15 +300,22 @@ namespace Scratch.FolderManager {
                 });
 
                 folder_list.@foreach ((folder) => {
-                    var folder_submenu = new Menu ();
-                    var folder_submenuitem = new MenuItem.submenu (
-                        folder.get_basename (),
-                        folder_submenu
-                    );
+                    if (count < MAX_TEMPLATES) {
+                        var folder_submenu = new Menu ();
+                        var folder_submenuitem = new MenuItem.submenu (
+                            folder.get_basename (),
+                            folder_submenu
+                        );
+                        template_submenu.append_item (folder_submenuitem);
 
-                    new_submenu.append_item (folder_submenuitem);
-                    load_templates_from_folder (folder, folder_submenu, count);
+                        count += load_templates_from_folder (folder, folder_submenu);
+                    } // else ignore remaining folders
                 });
+            }
+
+            if (count > MAX_TEMPLATES) {
+                warning ("too many templates! %u", count);
+                return count;
             }
 
             if (template_list.length () > 0) {
@@ -315,9 +332,11 @@ namespace Scratch.FolderManager {
                         )
                     );
 
-                    new_submenu.append_item (template_menuitem);
+                    template_submenu.append_item (template_menuitem);
                 });
             }
+
+            return count;
         }
 
         public void remove_all_badges () {
