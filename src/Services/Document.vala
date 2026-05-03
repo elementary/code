@@ -175,6 +175,7 @@ namespace Scratch.Services {
         private string last_save_content = "";
         public bool saved = true;
         private bool completion_shown = false;
+        private SelectionRange last_selection;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.SourceMap source_map;
@@ -264,6 +265,8 @@ namespace Scratch.Services {
                     check_file_status.begin ();
                 }
 
+                restore_selection ();
+
                 return false;
             });
 
@@ -272,6 +275,8 @@ namespace Scratch.Services {
                 if (!locked && Scratch.settings.get_boolean ("autosave")) {
                     save_with_hold.begin ();
                 }
+
+                save_selection ();
 
                 return false;
             });
@@ -1362,6 +1367,34 @@ namespace Scratch.Services {
             source_view.sensitive = !tab.loading;
             if (!tab.loading && outline != null) {
                 outline.parse_symbols ();
+            }
+        }
+
+        // Only call when document is focusing out
+        private void save_selection () {
+            Gtk.TextIter start,end;
+            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            if (source_buffer.has_selection) {
+                source_buffer.get_selection_bounds (out start, out end);
+                last_selection = SelectionRange () {
+                    start_line = start.get_line (),
+                    start_column = start.get_line_offset (),
+                    end_line = end.get_line (),
+                    end_column = end.get_line_offset ()
+                };
+            } else {
+                last_selection = SelectionRange.EMPTY;
+            }
+        }
+
+        // We assume the selection cannot change while the document is focused out
+        private void restore_selection () {
+            if (last_selection != SelectionRange.EMPTY) {
+                var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+                Gtk.TextIter start, end;
+                source_buffer.get_iter_at_line_offset (out start, last_selection.start_line, last_selection.start_column);
+                source_buffer.get_iter_at_line_offset (out end, last_selection.end_line, last_selection.end_column);
+                source_buffer.select_range (start, end);
             }
         }
     }
