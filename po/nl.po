@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"POT-Creation-Date: 2026-05-03 15:08+0000\n"
 "PO-Revision-Date: 2025-12-06 18:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/code/code/nl/>\n"
@@ -91,11 +91,11 @@ msgstr "Terminal weergeven"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:681
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Tekstbestanden"
 
@@ -110,7 +110,7 @@ msgstr "Openen"
 #: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: src/Services/Document.vala:523 src/Services/Document.vala:693
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -546,89 +546,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Fout bij het aanmaken van een nieuwe tak: “%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:397
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s is geen tekstbestand"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:398
 msgid "Code will not load this type of file."
 msgstr "Code kan dit bestandstype niet laden."
 
-#: src/Services/Document.vala:387
+#: src/Services/Document.vala:400
 msgid "Load Anyway"
 msgstr "Toch laden"
 
-#: src/Services/Document.vala:408
+#: src/Services/Document.vala:421
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Het laden van bestand “%s” duurt zeer lang"
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:422
 msgid "Please wait while Code is loading the file."
 msgstr "Even geduld alstublieft terwijl Code het bestand laadt."
 
-#: src/Services/Document.vala:411
+#: src/Services/Document.vala:424
 msgid "Cancel Loading"
 msgstr "Laden annuleren"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:513
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Veranderingen in document “%s” opslaan alvorens het te sluiten?"
 
-#: src/Services/Document.vala:501
+#: src/Services/Document.vala:514
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Als je niet opslaat, zullen de wijzigingen voor altijd verloren gaan."
 
-#: src/Services/Document.vala:507
+#: src/Services/Document.vala:520
 msgid "Close Without Saving"
 msgstr "Sluiten zonder opslaan"
 
-#: src/Services/Document.vala:511 src/Services/Document.vala:679
+#: src/Services/Document.vala:524 src/Services/Document.vala:692
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/Services/Document.vala:638
+#: src/Services/Document.vala:651
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Opslaan naar “%s” mislukt."
 
-#: src/Services/Document.vala:676
+#: src/Services/Document.vala:689
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: src/Services/Document.vala:763 src/Services/Document.vala:781
+#: src/Services/Document.vala:776 src/Services/Document.vala:794
 msgid "New Document"
 msgstr "Nieuw Document"
 
 #. No path for a new document
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:796
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Kan dit document niet opslaan naar %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:870
+#: src/Services/Document.vala:883
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Kan tekst in bestand niet lezen “%s”"
 
-#: src/Services/Document.vala:873
+#: src/Services/Document.vala:886
 msgid "You may not have permission to read the file."
 msgstr "Mogelijk heeft u de rechten niet om dit bestand te lezen."
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:888
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Dit bestand is mogelijk corrupt of het is geen tekstbestand"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:881
+#: src/Services/Document.vala:894
 msgid "Show Anyway"
 msgstr "Toch tonen"
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:925
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -637,7 +637,7 @@ msgstr ""
 "De locatie met het bestand “%s” werd ontkoppeld en bevat niet opgeslagen "
 "wijzigingen."
 
-#: src/Services/Document.vala:914
+#: src/Services/Document.vala:927
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -646,17 +646,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:928
+#: src/Services/Document.vala:941
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Het bestand “%s” bezit geen schrijfrechten."
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:987
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Het bestand “%s” is aangepast door een externe applicatie"
 
-#: src/Services/Document.vala:979
+#: src/Services/Document.vala:992
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -664,38 +664,38 @@ msgstr ""
 "Er zijn niet opgeslagen wijzigingen. Door het document opnieuw te laden "
 "zullen de niet opgeslagen wijzigingen verloren gaan."
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:996
 msgid "The document changed externally since you last saved it."
 msgstr ""
 "Het document is extern gewijzigd sinds u het voor het laatst heeft "
 "opgeslagen."
 
-#: src/Services/Document.vala:999
+#: src/Services/Document.vala:1012
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” kan hier niet worden opgeslagen. Het bestand elders opslagen?"
 
-#: src/Services/Document.vala:1008
+#: src/Services/Document.vala:1021
 msgid "Ignore"
 msgstr "Negeren"
 
-#: src/Services/Document.vala:1010
+#: src/Services/Document.vala:1023
 msgid "Save Duplicate…"
 msgstr "Duplicaat opslaan…"
 
-#: src/Services/Document.vala:1059
+#: src/Services/Document.vala:1072
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/Services/Document.vala:1061
+#: src/Services/Document.vala:1074
 msgid "Reload"
 msgstr "Herladen"
 
-#: src/Services/Document.vala:1064
+#: src/Services/Document.vala:1077
 msgid "Overwrite"
 msgstr "Overschrijven"
 
-#: src/Services/Document.vala:1067
+#: src/Services/Document.vala:1080
 msgid "Save Document elsewhere"
 msgstr "Document elders opslaan"
 
