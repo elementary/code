@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 15:08+0000\n"
-"PO-Revision-Date: 2026-02-18 07:55+0000\n"
+"PO-Revision-Date: 2026-05-04 09:49+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/extra/ca/"
 ">\n"
@@ -159,16 +159,22 @@ msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
 msgstr ""
+"Els espais finals ara s'eliminen quan el document es descentra (segons la "
+"configuració)."
 
 #: data/code.metainfo.xml.in:76
 msgid "Focus following is implemented between textview and terminal pane"
 msgstr ""
+"El seguiment del focus s'implementa entre la vista de text i el panell del "
+"terminal."
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
 msgstr ""
+"S'implementa un diàleg nou per a les accions de branca (obrir, nova) "
+"vinculat a la combinació de tecles Ctrl-B."
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:99
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:145
@@ -183,6 +189,8 @@ msgstr "Actualitzacions menors:"
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
 msgstr ""
+"La restauració de l'estat de la pantalla ja no es pot blocar restaurant "
+"sempre la pantalla completa."
 
 #: data/code.metainfo.xml.in:82 data/code.metainfo.xml.in:107
 #: data/code.metainfo.xml.in:134 data/code.metainfo.xml.in:149
