@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"POT-Creation-Date: 2026-05-03 15:08+0000\n"
 "PO-Revision-Date: 2023-07-19 08:07+0000\n"
 "Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
@@ -91,11 +91,11 @@ msgstr "Zobrazit terminál"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:681
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Textové soubory"
 
@@ -110,7 +110,7 @@ msgstr "Otevřít"
 #: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: src/Services/Document.vala:523 src/Services/Document.vala:693
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
@@ -582,89 +582,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Chyba při vytváření nové větve: „%s“"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:397
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s není textový soubor"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:398
 msgid "Code will not load this type of file."
 msgstr "Code nenačte tento typ souboru."
 
-#: src/Services/Document.vala:387
+#: src/Services/Document.vala:400
 msgid "Load Anyway"
 msgstr "Přesto načíst"
 
-#: src/Services/Document.vala:408
+#: src/Services/Document.vala:421
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Načítání souboru „%s“ trvá hodně dlouho"
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:422
 msgid "Please wait while Code is loading the file."
 msgstr "Prosím počkejte, než Code načte soubor."
 
-#: src/Services/Document.vala:411
+#: src/Services/Document.vala:424
 msgid "Cancel Loading"
 msgstr "Zrušit načítání"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:513
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Uložit před ukončením změny do „%s“?"
 
-#: src/Services/Document.vala:501
+#: src/Services/Document.vala:514
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Pokud neuložíte, změny budou nenávratně ztraceny."
 
-#: src/Services/Document.vala:507
+#: src/Services/Document.vala:520
 msgid "Close Without Saving"
 msgstr "Zavřít bez uložení"
 
-#: src/Services/Document.vala:511 src/Services/Document.vala:679
+#: src/Services/Document.vala:524 src/Services/Document.vala:692
 msgid "Save"
 msgstr "Uložit"
 
-#: src/Services/Document.vala:638
+#: src/Services/Document.vala:651
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Ukládání do „%s“ selhalo."
 
-#: src/Services/Document.vala:676
+#: src/Services/Document.vala:689
 msgid "Save File"
 msgstr "Uložit soubor"
 
-#: src/Services/Document.vala:763 src/Services/Document.vala:781
+#: src/Services/Document.vala:776 src/Services/Document.vala:794
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. No path for a new document
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:796
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Nelze uložit tento dokument do %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:870
+#: src/Services/Document.vala:883
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Nelze načíst text ze souboru „%s“"
 
-#: src/Services/Document.vala:873
+#: src/Services/Document.vala:886
 msgid "You may not have permission to read the file."
 msgstr "Možná nemáte oprávnění k přečtění tohoto souboru."
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:888
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Soubor může být poškozený nebo se nemusí jednat o textový soubor"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:881
+#: src/Services/Document.vala:894
 msgid "Show Anyway"
 msgstr "Přesto zobrazit"
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:925
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -672,7 +672,7 @@ msgid ""
 msgstr ""
 "Úložiště obsahující soubor „%s“ bylo odpojeno a existují neuložené změny."
 
-#: src/Services/Document.vala:914
+#: src/Services/Document.vala:927
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted and there are unsaved changes."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -680,17 +680,17 @@ msgstr "Soubor „%s“ byl mezitím smazán a existují neuložené změny."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:928
+#: src/Services/Document.vala:941
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Soubor „%s“ je chráněn proti zápisu."
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:987
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Soubor „%s“ byl mezitím pozměněn jinou aplikací"
 
-#: src/Services/Document.vala:979
+#: src/Services/Document.vala:992
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -698,36 +698,36 @@ msgstr ""
 "Existují neuložené změny. Opětovné načtení dokumentu přepíše tyto neuložené "
 "změny."
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:996
 msgid "The document changed externally since you last saved it."
 msgstr "Tento dokument byl od posledního uložení pozměněn jinou aplikací."
 
-#: src/Services/Document.vala:999
+#: src/Services/Document.vala:1012
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "Soubor „%s“ nemůže být uložen zde. Chcete jeho kopii uložit jinam?"
 
-#: src/Services/Document.vala:1008
+#: src/Services/Document.vala:1021
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: src/Services/Document.vala:1010
+#: src/Services/Document.vala:1023
 msgid "Save Duplicate…"
 msgstr "Uložit kopii…"
 
-#: src/Services/Document.vala:1059
+#: src/Services/Document.vala:1072
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: src/Services/Document.vala:1061
+#: src/Services/Document.vala:1074
 msgid "Reload"
 msgstr "Znovu načíst"
 
-#: src/Services/Document.vala:1064
+#: src/Services/Document.vala:1077
 msgid "Overwrite"
 msgstr "Přepsat"
 
-#: src/Services/Document.vala:1067
+#: src/Services/Document.vala:1080
 msgid "Save Document elsewhere"
 msgstr "Uložit dokument jinam"
 
