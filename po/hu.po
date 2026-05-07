@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-03 15:08+0000\n"
+"POT-Creation-Date: 2026-05-07 17:30+0000\n"
 "PO-Revision-Date: 2025-11-21 14:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/code/code/"
@@ -434,59 +434,67 @@ msgstr "Ne váltson"
 msgid "Checkout and Overwrite"
 msgstr "Váltás és felülírás"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:170
 msgid "Other Actions"
 msgstr "Egyéb műveletek"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:144
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:152
 msgid "Move to Trash"
 msgstr "Áthelyezés a kukába"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:200
 msgid "Other Application…"
 msgstr "Másik alkalmazás…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:220
 msgid "Open In"
 msgstr "Megnyitás ezzel"
 
-#: src/FolderManager/FileView.vala:70
+#: src/FolderManager/FileView.vala:72
 msgid "Folders"
 msgstr "Mappák"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:160
 msgid "Find in Folder…"
 msgstr "Keresés a mappában…"
 
-#: src/FolderManager/FolderItem.vala:186
+#: src/FolderManager/FolderItem.vala:191
 msgid "Terminal Pane"
 msgstr "Terminál panel"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:226
 msgid "Folder"
 msgstr "Mappa"
 
-#: src/FolderManager/FolderItem.vala:229
+#: src/FolderManager/FolderItem.vala:234
 msgid "Empty File"
 msgstr "Üres fájl"
 
+#: src/FolderManager/FolderItem.vala:252
+msgid "…too many templates"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:255 src/Services/TemplateManager.vala:198
+msgid "Templates"
+msgstr "Sablonok"
+
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/FolderItem.vala:259
 #: src/FolderManager/ProjectFolderItem.vala:328
 #: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Új"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "untitled folder"
 msgstr "névtelen mappa"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "new file"
 msgstr "új fájl"
 
@@ -719,10 +727,6 @@ msgstr "Hiba lépett fel a kért elágazásra váltáskor"
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (detached)"
-
-#: src/Services/TemplateManager.vala:198
-msgid "Templates"
-msgstr "Sablonok"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-03 15:08+0000\n"
+"POT-Creation-Date: 2026-05-07 17:30+0000\n"
 "PO-Revision-Date: 2026-04-07 13:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -422,59 +422,67 @@ msgstr "不要簽出"
 msgid "Checkout and Overwrite"
 msgstr "簽出並覆寫"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:170
 msgid "Other Actions"
 msgstr "其他選項"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:144
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:152
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:200
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:220
 msgid "Open In"
 msgstr "開啟於"
 
-#: src/FolderManager/FileView.vala:70
+#: src/FolderManager/FileView.vala:72
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:160
 msgid "Find in Folder…"
 msgstr "在資料夾中尋找…"
 
-#: src/FolderManager/FolderItem.vala:186
+#: src/FolderManager/FolderItem.vala:191
 msgid "Terminal Pane"
 msgstr "終端機面板"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:226
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:229
+#: src/FolderManager/FolderItem.vala:234
 msgid "Empty File"
 msgstr "空白檔案"
 
+#: src/FolderManager/FolderItem.vala:252
+msgid "…too many templates"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:255 src/Services/TemplateManager.vala:198
+msgid "Templates"
+msgstr "範本"
+
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/FolderItem.vala:259
 #: src/FolderManager/ProjectFolderItem.vala:328
 #: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "untitled folder"
 msgstr "未命名資料夾"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "new file"
 msgstr "新檔案"
 
@@ -694,10 +702,6 @@ msgstr "遷出指定分支時發生錯誤"
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s（分離狀態）"
-
-#: src/Services/TemplateManager.vala:198
-msgid "Templates"
-msgstr "範本"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
