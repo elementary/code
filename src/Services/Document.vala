@@ -818,6 +818,10 @@ namespace Scratch.Services {
         public void revert () {
             this.source_view.set_text (original_content, false);
             check_undoable_actions ();
+
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
         }
 
         // Get text
@@ -981,6 +985,10 @@ namespace Scratch.Services {
                         set_saved_status (true);
                         source_view.buffer.set_modified (false);
                         loaded = true;
+
+                        if (outline != null) {
+                            outline.parse_symbols ();
+                        }
                         return;
                     }
 
@@ -1102,6 +1110,10 @@ namespace Scratch.Services {
                             last_save_content = source_view.buffer.text;
                             set_saved_status (true);
                             locked = false;
+
+                            if (outline != null) {
+                                outline.parse_symbols ();
+                            }
                             break;
                         case 1: // Overwrite
                             // Force save, unlock to allow saving to same location
