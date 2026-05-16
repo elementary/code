@@ -300,6 +300,19 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
+            source_view.enter_notify_event.connect (() => {
+                if (!source_view.has_focus) {
+                    source_view.grab_focus ();
+                }
+            });
+
+            source_view.focus_out_event.connect (() => {
+                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    strip_trailing_spaces ();
+                }
+            });
+
             loaded = file == null;
 
             add (main_stack);
@@ -805,6 +818,10 @@ namespace Scratch.Services {
         public void revert () {
             this.source_view.set_text (original_content, false);
             check_undoable_actions ();
+
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
         }
 
         // Get text
@@ -968,6 +985,10 @@ namespace Scratch.Services {
                         set_saved_status (true);
                         source_view.buffer.set_modified (false);
                         loaded = true;
+
+                        if (outline != null) {
+                            outline.parse_symbols ();
+                        }
                         return;
                     }
 
@@ -1089,6 +1110,10 @@ namespace Scratch.Services {
                             last_save_content = source_view.buffer.text;
                             set_saved_status (true);
                             locked = false;
+
+                            if (outline != null) {
+                                outline.parse_symbols ();
+                            }
                             break;
                         case 1: // Overwrite
                             // Force save, unlock to allow saving to same location
