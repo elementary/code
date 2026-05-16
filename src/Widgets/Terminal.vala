@@ -99,6 +99,7 @@ public class Code.Terminal : Gtk.Box {
             // "org.gnome.desktop.interface.color-scheme"
         }
 
+        Scratch.settings.bind ("terminal-fontscale", terminal, "font-scale", DEFAULT);
         // Always monitor changes in systen font as that is what Terminal usually follows
         // The terminal font key is by default "" and can only be changed by editing the settings externally
         application.notify["system-monospace-font"].connect (() => {
