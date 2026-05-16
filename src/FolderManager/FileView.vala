@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
  * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- *
+ 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -31,9 +31,8 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_RENAME_FOLDER = "rename-folder";
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CHECKOUT_LOCAL_BRANCH = "checkout-local-branch";
-    public const string ACTION_CHECKOUT_REMOTE_BRANCH = "checkout-remote-branch";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
 
@@ -45,6 +44,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
@@ -82,6 +82,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         realize.connect (() => {
             toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
             assert_nonnull (toplevel_action_group);
+        });
+
+        Scratch.saved_state.changed["order-folders"].connect (() => {
+            order_folders ();
         });
     }
 
@@ -125,6 +129,28 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         set_project_active (path);
     }
 
+    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        set_active_project (path);
+    }
+
+    private ProjectFolderItem? set_active_project (string path) {
+        var folder_root = find_path (root, path) as ProjectFolderItem;
+        if (folder_root == null) {
+            return null;
+        }
+
+        git_manager.active_project_path = path;
+
+        write_settings ();
+
+        return folder_root;
+    }
+
     private void set_project_active (string path) {
         toplevel_action_group.activate_action (
             MainWindow.ACTION_SET_ACTIVE_PROJECT,
@@ -134,7 +160,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     public async void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            yield add_folder (new File (path), false);
+            yield add_folder (new File (path), false, true);
         }
     }
 
@@ -158,6 +184,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     public void order_folders () {
+        if (!Scratch.saved_state.get_boolean ("order-folders")) {
+            return;
+        }
+
         var list = new Gee.ArrayList<ProjectFolderItem> ();
 
         foreach (var child in root.children) {
@@ -195,6 +225,52 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 project_folder.expanded = true;
                 toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
             }
+        }
+    }
+
+    public void branch_actions (string path) {
+        // Must only carry out branch actions on active project so switch if necessary.
+        //TODO Warn before switching active project?
+        var active_project = set_active_project (path);
+        if (active_project == null || !active_project.is_git_repo) {
+            Gdk.beep ();
+            return;
+        }
+
+        var dialog = new Dialogs.BranchActionDialog (active_project);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.APPLY) {
+                perform_branch_action (dialog);
+            }
+
+            dialog.destroy ();
+        });
+
+        dialog.present ();
+    }
+
+    private void perform_branch_action (
+        Scratch.Dialogs.BranchActionDialog dialog
+    ) {
+        switch (dialog.action) {
+            case CHECKOUT:
+                dialog.project.checkout_branch_ref (dialog.branch_ref);
+                break;
+            case COMMIT:
+                break;
+            case PUSH:
+                break;
+            case PULL:
+                break;
+            case MERGE:
+                break;
+            case DELETE:
+                break;
+            case CREATE:
+                dialog.project.new_branch (dialog.new_branch_name);
+                break;
+            default:
+                assert_not_reached ();
         }
     }
 
@@ -285,30 +361,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    public void new_branch (string active_project_path) {
-        unowned var active_project = (ProjectFolderItem)(find_path (root, active_project_path));
-        if (active_project == null || !active_project.is_git_repo) {
-            Gdk.beep ();
-            return;
-        }
-
-        string? branch_name = null;
-        var dialog = new Dialogs.NewBranchDialog (active_project);
-        dialog.show_all ();
-        if (dialog.run () == Gtk.ResponseType.APPLY) {
-            branch_name = dialog.new_branch_name;
-        }
-
-        dialog.destroy ();
-        if (branch_name != null) {
-            active_project.new_branch (branch_name);
-        }
-    }
-
     public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
         plugins.hook_folder_item_change (source, dest, event);
     }
 
+    // This only works when the list is stable (nothing being added, expanded etc)
     private void rename_file (string path) {
         this.select_path (path);
         if (this.start_editing_item (selected)) {
@@ -404,9 +461,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private void add_new_file (SimpleAction action, Variant? param) {
         // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
-        var path = param.get_string ();
+        var path = param != null ? param.get_string () : null;
 
         if (path == null || path == "") {
+            critical ("No path");
             return;
         }
 
@@ -416,6 +474,25 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         folder.on_add_new (false);
+    }
+
+    private void add_new_from_template (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        // var path = param.get_string ();
+        string? parent_path = null, template_path = null;
+        param.@get ("(ss)", out parent_path, out template_path);
+
+        //Do we need this check?
+        if (parent_path == null || parent_path == "") {
+            return;
+        }
+
+        var folder = find_path (root, parent_path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_template (template_path);
     }
 
     private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {
@@ -504,7 +581,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private async void add_folder (File folder, bool expand) {
+    private async void add_folder (File folder, bool expand, bool restoring = false) {
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
@@ -581,12 +658,20 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 write_settings ();
             });
 
-            write_settings ();
+            // We do not want to rewrite settings while restoring from settings
+            // This interferes with fuzzy-finder plugins_manager
+            // See https://github.com/elementary/code/issues/1533
+            if (!restoring) {
+                write_settings ();
+            }
+
             add_folder.callback ();
             return Source.REMOVE;
         });
 
         yield;
+
+        order_folders ();
     }
 
     private bool is_open (File folder) {
