@@ -177,10 +177,10 @@ public class Code.Terminal : Gtk.Box {
                 total_delta_y += event.delta_y;
                 if (total_delta_y > SCROLL_THRESHOLD) {
                     total_delta_y = 0;
-                    increment_size ();
+                    decrement_size ();
                 } else if (total_delta_y < -SCROLL_THRESHOLD) {
                     total_delta_y = 0;
-                    decrement_size ();
+                    increment_size ();
                 }
 
                 return Gdk.EVENT_STOP;
