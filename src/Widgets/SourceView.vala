@@ -286,8 +286,6 @@ namespace Scratch.Widgets {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
-            update_font ();
-
             if (settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
                 if (system_prefers_dark) {
@@ -302,6 +300,8 @@ namespace Scratch.Widgets {
 
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
+
+            update_font ();
         }
 
         private void update_font () {
