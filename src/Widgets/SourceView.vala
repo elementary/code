@@ -311,17 +311,13 @@ namespace Scratch.Widgets {
                 font = Scratch.settings.get_string ("font");
             }
 
+            var font_description = Pango.FontDescription.from_string (font);
             var embolden = Scratch.settings.get_boolean ("embolden-highcontrast");
-            embolden &= ((Gtk.SourceBuffer) buffer).style_scheme.id == "elementary-highcontrast-light";
             /* Convert font description to css equivalent and apply to the .view node */
-            var font_css = string.join (" ",
-                ".view {",
-                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font), embolden),
-                "}"
-            );
-
+            var font_css = Scratch.Utils.pango_font_description_to_css (font_description, embolden);
+            var view_font_css = string.join (" ", ".view {", font_css, "}");
             try {
-                font_css_provider.load_from_data (font_css);
+                font_css_provider.load_from_data (view_font_css);
             } catch (Error e) {
                 critical (e.message);
             }

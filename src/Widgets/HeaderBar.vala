@@ -168,8 +168,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_bottom = 6
         };
 
-        var embolden_revealer = new Gtk.Revealer ();
-        embolden_revealer.add (embolden_switch);
 
         var color_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3) {
             homogeneous = true,
@@ -182,7 +180,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
         var theme_box = new Gtk.Box (VERTICAL, 0);
         theme_box.add (color_box);
-        theme_box.add (embolden_revealer);
 
         var color_revealer = new Gtk.Revealer ();
         color_revealer.add (theme_box);
@@ -236,6 +233,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         menu_box.add (follow_system_switchmodelbutton);
         menu_box.add (color_revealer);
+        menu_box.add (embolden_switch);
         menu_box.add (panels_box);
         menu_box.add (menu_separator);
         menu_box.add (preferences_menuitem);
@@ -288,12 +286,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             GLib.BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN
         );
 
-        color_button_white.bind_property (
-            "active",
-            embolden_revealer,
-            "reveal-child",
-            SYNC_CREATE
-        );
 
         Scratch.settings.bind (
             "follow-system-style",
