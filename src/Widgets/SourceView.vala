@@ -43,6 +43,8 @@ namespace Scratch.Widgets {
         private double total_delta = 0;
         private const double SCROLL_THRESHOLD = 1.0;
 
+        protected static Scratch.Application application;
+
         public signal void style_changed (Gtk.SourceStyleScheme style);
         // "selection_changed" signal now only emitted when the selected text changes (position ignored).
         // Listened to by searchbar and highlight word selection plugin
@@ -84,6 +86,7 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
             expand = true;
@@ -201,6 +204,12 @@ namespace Scratch.Widgets {
                     });
                 }
             });
+
+            application.notify["system-document-font"].connect (() => {
+                if (Scratch.settings.get_boolean ("use-system-font")) {
+                    update_font ();
+                }
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -277,6 +286,8 @@ namespace Scratch.Widgets {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
+            update_font ();
+
             if (settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
                 if (system_prefers_dark) {
@@ -286,16 +297,22 @@ namespace Scratch.Widgets {
                 }
             } else {
                 var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("elementary-highcontrast-light");
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
             }
 
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
+            style_changed (source_buffer.style_scheme);
+        }
+
+        private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+                font = application.system_document_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
 
-            var embolden = Scratch.settings.get_boolean ("embolden-highcontrast") && source_buffer.style_scheme.id == "elementary-highcontrast-light";
+            var embolden = Scratch.settings.get_boolean ("embolden-highcontrast");
+            embolden &= ((Gtk.SourceBuffer) buffer).style_scheme.id == "elementary-highcontrast-light";
             /* Convert font description to css equivalent and apply to the .view node */
             var font_css = string.join (" ",
                 ".view {",
@@ -308,9 +325,6 @@ namespace Scratch.Widgets {
             } catch (Error e) {
                 critical (e.message);
             }
-
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
         }
 
         public void go_to_line (int line, int offset = 0) {
@@ -631,7 +645,7 @@ namespace Scratch.Widgets {
             // Use a default size of 10pt
             double px_per_line = 10 * PT_TO_PX;
 
-            var last_window = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ();
+            var last_window = application.get_last_window ();
             if (last_window != null) {
                 // Get the actual font size
                 px_per_line = last_window.get_current_font_size () * PT_TO_PX;
