@@ -106,6 +106,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
         public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
+        public const string ACTION_FOCUS_SIDEBAR = "action-focus-sidebar";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
@@ -166,6 +167,7 @@ namespace Scratch {
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
+            { ACTION_FOCUS_SIDEBAR, action_focus_sidebar },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
@@ -236,6 +238,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_FOCUS_SIDEBAR, "<Control><Alt>Left");
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
             action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
@@ -1425,6 +1428,19 @@ namespace Scratch {
 
             action.set_state (!action.get_state ().get_boolean ());
             sidebar.visible = action.get_state ().get_boolean ();
+        }
+
+        private void action_focus_sidebar () {
+            if (sidebar == null) {
+                return;
+            }
+
+            if (!sidebar.visible) {
+                var toggle_sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
+                toggle_sidebar_action.activate (null);
+            }
+
+            sidebar.focus_sidebar ();
         }
 
         private void action_toggle_terminal () {
