@@ -45,7 +45,6 @@ public class Code.Sidebar : Gtk.Grid {
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        can_focus = true;
 
         choose_project_button = new Code.ChooseProjectButton () {
             hexpand = true,
@@ -198,10 +197,8 @@ public class Code.Sidebar : Gtk.Grid {
     }
 
     public void focus_sidebar () {
-        if (stack.visible_child != null) {
-            stack.visible_child.grab_focus ();
-        } else {
-            grab_focus ();
+        if (stack.visible_child is Code.Widgets.SourceList) {
+            ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
         }
     }
 }
