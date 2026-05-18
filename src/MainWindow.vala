@@ -107,6 +107,7 @@ namespace Scratch {
         public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
         public const string ACTION_FOCUS_SIDEBAR = "action-focus-sidebar";
+        public const string ACTION_FOCUS_DOCUMENT = "action-focus-document";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
@@ -168,6 +169,7 @@ namespace Scratch {
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_FOCUS_SIDEBAR, action_focus_sidebar },
+            { ACTION_FOCUS_DOCUMENT, action_focus_document },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
@@ -239,6 +241,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_FOCUS_SIDEBAR, "<Control><Alt>Left");
+            action_accelerators.set (ACTION_FOCUS_DOCUMENT, "<Control><Alt>Right");
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
             action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
@@ -1441,6 +1444,13 @@ namespace Scratch {
             }
 
             sidebar.focus_sidebar ();
+        }
+
+        private void action_focus_document () {
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.focus ();
+            }
         }
 
         private void action_toggle_terminal () {
