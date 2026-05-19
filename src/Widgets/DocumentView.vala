@@ -347,7 +347,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     private void after_insert_document (
-        Scratch.Services.Document doc,
+        Services.Document doc,
         bool focus = true,
         int cursor_position = 0,
         SelectionRange range = SelectionRange.EMPTY
