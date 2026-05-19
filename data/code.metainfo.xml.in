@@ -29,10 +29,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/code/8.1.2/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.3.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/code/8.1.2/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/code/8.3.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -68,7 +68,28 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="8.2.0" date="2026-02-31" urgency="medium">
+    <release version="8.3.0" date="2026-05-15" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Trailing spaces are now removed when the document focuses out (subject to setting)</li>
+          <li>Focus following is implemented between textview and terminal pane</li>
+          <li>A new dialog for branch actions (open, new) is implemented linked to hot-key Ctrl-B</li>
+          <li>It is now possible to create a new document from a template</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Restoring screen state no longer can get stuck always restoring full screen</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/297">New file from template</issue>
+        <issue url="https://github.com/elementary/code/issues/581">Automatically remove trailing spaces after pressing Enter when autosave is enabled</issue>
+        <issue url="https://github.com/elementary/code/issues/1577">Quickly open recently worked on projects/branches</issue>
+      </issues>
+    </release>
+    <release version="8.2.0" date="2026-03-16" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
