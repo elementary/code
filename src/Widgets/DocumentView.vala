@@ -372,6 +372,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             debug ("setting outline visible");
             doc.show_outline (true);
         }
+
+        update_opened_files_setting ();
     }
 
     public void next_document () {
