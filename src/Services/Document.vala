@@ -1319,6 +1319,11 @@ namespace Scratch.Services {
                 return;
             }
 
+            var lang_id = source_view.language.id;
+            if (lang_id == "markdown" || lang_id == "yaml") {
+                return;
+            }
+
             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
             Gtk.TextIter iter;
 
