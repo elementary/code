@@ -28,7 +28,8 @@ namespace Scratch {
 
     public class Application : Gtk.Application {
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
-        public string default_font { get; set; }
+        public string system_monospace_font { get; set; }
+        public string system_document_font { get; set; }
         public bool is_running_in_flatpak { get; construct; }
 
         private static string _data_home_folder_unsaved;
@@ -66,11 +67,13 @@ namespace Scratch {
             add_main_option_entries (ENTRIES);
 
             // Init settings
-            default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
             settings = new GLib.Settings (Constants.PROJECT_NAME + ".settings");
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
+            var desktop_interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
+            desktop_interface_settings.bind ("document-font-name", this, "system-document-font", GET);
+            desktop_interface_settings.bind ("monospace-font-name", this, "system-monospace-font", GET);
 
             location_jump_manager = new LocationJumpManager ();
             Environment.set_variable ("GTK_USE_PORTAL", "1", true);
@@ -197,6 +200,38 @@ namespace Scratch {
         public MainWindow? get_last_window () {
             unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
+        }
+
+        public async void handle_quit_app () {
+            unowned List<Gtk.Window> windows;
+            windows = get_windows ();
+            //NOTE This yields the last opened window at head of list (may change in future?)
+            while (windows.length () > 0) {
+                if (!yield handle_quit_window ((MainWindow) (windows.first ().data))) {
+                    return;
+                }
+
+                windows = get_windows ();
+            }
+
+            return;
+        }
+
+        public async bool handle_quit_window (MainWindow window_to_close) {
+            unowned List<Gtk.Window> windows = get_windows ();
+            var is_last_window = windows.length () == 1;
+            if (!yield window_to_close.check_unsaved_changes (is_last_window)) {
+                return false;
+            }
+
+            if (is_last_window) {
+                window_to_close.before_quit (); // Update settings
+            }
+            // Just destroy window - we have already checked whether any docs need saving
+            // When the last window is removed and destroyed the app quits.
+            remove_window (window_to_close);
+            window_to_close.destroy ();
+            return true;
         }
 
         public static int main (string[] args) {

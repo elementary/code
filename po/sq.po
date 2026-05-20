@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 17:54+0000\n"
+"POT-Creation-Date: 2026-05-16 11:48+0000\n"
 "PO-Revision-Date: 2016-09-02 08:23+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -18,103 +18,103 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:00+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Skedë të re"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Dritare e re"
 
-#: src/Application.vala:43
+#: src/Application.vala:44
 msgid "Print version info and exit"
 msgstr "Shtyp informacione mbi versionin dhe dil"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "Open file at specified selection range"
 msgstr ""
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 
-#: src/Application.vala:45
+#: src/Application.vala:46
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:266
 #, c-format
 msgid "Code (%s)"
 msgstr ""
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:268
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:404
 msgid "Hide search bar"
 msgstr "Fshehe shiritin e kërkimit"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Hap një dosje"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:420
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Fshehe shiritin e kërkimit"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:425
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Shfaq shikimin paraprak"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:434
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:439
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Simbolet"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:448
 msgid "Hide Terminal"
 msgstr "Fsheh terminalin"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Shfaq terminalin"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:681
+#: src/MainWindow.vala:975 src/Services/Document.vala:681
 msgid "All files"
 msgstr "Të gjithë skedarët"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:685
+#: src/MainWindow.vala:979 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Skedarë teksti"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "Hap disa skedarë"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "Hap"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -123,29 +123,29 @@ msgstr "Hap"
 msgid "Cancel"
 msgstr "Anulo"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1030
 msgid "_Open"
 msgstr "_Hap"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1031
 msgid "_Cancel"
 msgstr "_Anulo"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1086
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1087
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1093
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1100
 msgid "Retry"
 msgstr ""
 
@@ -358,27 +358,28 @@ msgstr ""
 msgid "Line width guide"
 msgstr "Vijë udhëzuese për gjerësisë:"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:123
+#, c-format
+msgid "Use system font (%s)"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Use system font"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:145
 msgid "Behavior"
 msgstr "Sjellja"
 
-#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Ndërfaqja"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Prapashtesat"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:168
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Mbyll"
@@ -658,29 +659,29 @@ msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:883
+#: src/Services/Document.vala:887
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:890
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr ""
 "Skedari \"%s\" nuk mund të lexohet. Ndoshta është i dëmtuar\n"
 "ose nuk ke të drejtat e mjaftueshme për leximin e tij."
 
-#: src/Services/Document.vala:888
+#: src/Services/Document.vala:892
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:894
+#: src/Services/Document.vala:898
 msgid "Show Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:925
+#: src/Services/Document.vala:929
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -692,7 +693,7 @@ msgstr ""
 "Vendndodhja që përmban skedarin \"%s\" është çmontuar. Dëshiron ta ruash "
 "diku tjetër?"
 
-#: src/Services/Document.vala:927
+#: src/Services/Document.vala:931
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -704,13 +705,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:945
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Skedari \"%s\" është fshirë. Dëshiron ta ruash sidoqoftë?"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:995
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -720,44 +721,44 @@ msgstr ""
 "Skedari \"%s\" është ndryshuar nga një program i jashtëm. Dëshiron ta "
 "ngarkosh përsëri ose të vazhdosh përpunimin?"
 
-#: src/Services/Document.vala:992
+#: src/Services/Document.vala:1000
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:996
+#: src/Services/Document.vala:1004
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:1012
+#: src/Services/Document.vala:1020
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1029
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1031
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1072
+#: src/Services/Document.vala:1080
 msgid "Continue"
 msgstr "Vazdhdo"
 
-#: src/Services/Document.vala:1074
+#: src/Services/Document.vala:1082
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Ngarko"
 
-#: src/Services/Document.vala:1077
+#: src/Services/Document.vala:1085
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1088
 #, fuzzy
 #| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
@@ -1134,39 +1135,39 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:581
+#: src/Widgets/SourceView.vala:594
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Sort Lines"
 msgstr "Hiq pamjen e tanishme"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:598
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "Hiq pamjen e tanishme"
 
-#: src/Widgets/SourceView.vala:589
+#: src/Widgets/SourceView.vala:602
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "Skeda e mëparshme"
 
-#: src/Widgets/SourceView.vala:593
+#: src/Widgets/SourceView.vala:606
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "Skeda pasuese"
 
-#: src/Widgets/SourceView.vala:603
+#: src/Widgets/SourceView.vala:616
 msgid "Toggle Comment"
 msgstr ""
 
-#: src/Widgets/Terminal.vala:140
+#: src/Widgets/Terminal.vala:133
 msgid "Copy"
 msgstr "Kopjo"
 
-#: src/Widgets/Terminal.vala:141
+#: src/Widgets/Terminal.vala:134
 msgid "Paste"
 msgstr "Ngjit"
 

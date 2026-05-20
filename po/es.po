@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 17:54+0000\n"
+"POT-Creation-Date: 2026-05-16 11:48+0000\n"
 "PO-Revision-Date: 2026-04-19 00:13+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/"
@@ -20,95 +20,95 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nueva pestaña"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nueva ventana"
 
-#: src/Application.vala:43
+#: src/Application.vala:44
 msgid "Print version info and exit"
 msgstr "Mostrar información de la versión y salir"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "Open file at specified selection range"
 msgstr "Abrir archivo en el rango de selección especificado"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
-#: src/Application.vala:45
+#: src/Application.vala:46
 msgid "[FILE…]"
 msgstr "[ARCHIVO…]"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:266
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:268
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:404
 msgid "Hide search bar"
 msgstr "Ocultar la barra de búsqueda"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Buscar en la página…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:420
 msgid "Hide Projects Sidebar"
 msgstr "Ocultar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:425
 msgid "Show Projects Sidebar"
 msgstr "Mostrar la barra lateral de proyectos"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:434
 msgid "Hide Symbol Outline"
 msgstr "Ocultar la vista de esquema"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:439
 msgid "Show Symbol Outline"
 msgstr "Mostrar la vista de esquema"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:448
 msgid "Hide Terminal"
 msgstr "Ocultar terminal"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Mostrar terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:681
+#: src/MainWindow.vala:975 src/Services/Document.vala:681
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:685
+#: src/MainWindow.vala:979 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "Abra algunos archivos"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -117,29 +117,29 @@ msgstr "Abrir"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1030
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1031
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1086
 msgid "Cloning completed"
 msgstr "Clonación terminada"
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1087
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Clon creado con éxito en %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1093
 #, c-format
 msgid "Unable to clone %s"
 msgstr "No se pudo clonar %s"
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1100
 msgid "Retry"
 msgstr "Reintentar"
 
@@ -331,27 +331,29 @@ msgstr "Ajuste de línea"
 msgid "Line width guide"
 msgstr "Guía de tamaño de línea"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:123
+#, fuzzy, c-format
+#| msgid "Use system font"
+msgid "Use system font (%s)"
+msgstr "Usar fuentes del sistema"
+
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Font"
 msgstr "Tipo de letra"
 
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Use system font"
-msgstr "Usar fuentes del sistema"
-
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:145
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Interfaz"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:168
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Cerrar"
@@ -617,26 +619,26 @@ msgid "Cannot save this document to %s"
 msgstr "No se puede guardar este documento en «%s»"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:883
+#: src/Services/Document.vala:887
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "No se pudo leer texto en el archivo «%s»"
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:890
 msgid "You may not have permission to read the file."
 msgstr "Puede que no tenga los permisos necesarios para leerlo."
 
-#: src/Services/Document.vala:888
+#: src/Services/Document.vala:892
 msgid "The file may be corrupt or may not be a text file"
 msgstr "El archivo puede estar dañado o no ser un archivo de texto"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:894
+#: src/Services/Document.vala:898
 msgid "Show Anyway"
 msgstr "Mostrar de todos modos"
 
-#: src/Services/Document.vala:925
+#: src/Services/Document.vala:929
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -645,7 +647,7 @@ msgstr ""
 "La ubicación que contiene el archivo «%s» fue desmontada, y existen cambios "
 "sin guardar."
 
-#: src/Services/Document.vala:927
+#: src/Services/Document.vala:931
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -654,17 +656,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:945
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "El archivo «%s» no tiene permisos de escritura."
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:995
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "El archivo «%s» fue modificado por una aplicación externa"
 
-#: src/Services/Document.vala:992
+#: src/Services/Document.vala:1000
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -672,38 +674,38 @@ msgstr ""
 "Existen cambios sin guardar. Cargar el documento de nuevo sobreescribirá "
 "esos cambios."
 
-#: src/Services/Document.vala:996
+#: src/Services/Document.vala:1004
 msgid "The document changed externally since you last saved it."
 msgstr "El documento cambió externamente desde la última vez que se guardó."
 
-#: src/Services/Document.vala:1012
+#: src/Services/Document.vala:1020
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 "El archivo «%s» no se puede guardar aquí. ¿Desea guardar un duplicado en "
 "otro lugar?"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1029
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1031
 msgid "Save Duplicate…"
 msgstr "Guardar duplicado…"
 
-#: src/Services/Document.vala:1072
+#: src/Services/Document.vala:1080
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/Services/Document.vala:1074
+#: src/Services/Document.vala:1082
 msgid "Reload"
 msgstr "Volver a cargar"
 
-#: src/Services/Document.vala:1077
+#: src/Services/Document.vala:1085
 msgid "Overwrite"
 msgstr "Sobreescribir"
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1088
 msgid "Save Document elsewhere"
 msgstr "Guardar el documento en otro lugar"
 
@@ -1051,31 +1053,31 @@ msgstr "%d de %d"
 msgid "no results"
 msgstr "sin resultados"
 
-#: src/Widgets/SourceView.vala:581
+#: src/Widgets/SourceView.vala:594
 msgid "Sort Lines"
 msgstr "Ordenar líneas"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:598
 msgid "Mark Line"
 msgstr "Marcar línea"
 
-#: src/Widgets/SourceView.vala:589
+#: src/Widgets/SourceView.vala:602
 msgid "Previous Mark"
 msgstr "Marcador anterior"
 
-#: src/Widgets/SourceView.vala:593
+#: src/Widgets/SourceView.vala:606
 msgid "Next Mark"
 msgstr "Marcador siguiente"
 
-#: src/Widgets/SourceView.vala:603
+#: src/Widgets/SourceView.vala:616
 msgid "Toggle Comment"
 msgstr "Activar o desactivar comentario"
 
-#: src/Widgets/Terminal.vala:140
+#: src/Widgets/Terminal.vala:133
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/Widgets/Terminal.vala:141
+#: src/Widgets/Terminal.vala:134
 msgid "Paste"
 msgstr "Pegar"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 17:54+0000\n"
+"POT-Creation-Date: 2026-05-16 11:48+0000\n"
 "PO-Revision-Date: 2025-12-06 18:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/code/code/nl/>\n"
@@ -19,95 +19,95 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "Nieuwe tab"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nieuw venster"
 
-#: src/Application.vala:43
+#: src/Application.vala:44
 msgid "Print version info and exit"
 msgstr "Toon versie-informatie en verlaat applicatie"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "Open file at specified selection range"
 msgstr "Open bestand in opgegeven selectiebereik"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
-#: src/Application.vala:45
+#: src/Application.vala:46
 msgid "[FILE…]"
 msgstr "[BESTAND…]"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:266
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:268
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:404
 msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "Zoek op pagina…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:420
 msgid "Hide Projects Sidebar"
 msgstr "Verberg projectenzijbalk"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:425
 msgid "Show Projects Sidebar"
 msgstr "Toon projectenzijbalk"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:434
 msgid "Hide Symbol Outline"
 msgstr "Verberg symbooloverzicht"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:439
 msgid "Show Symbol Outline"
 msgstr "Toon symbooloverzicht"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:448
 msgid "Hide Terminal"
 msgstr "Terminal verbergen"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Terminal weergeven"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:681
+#: src/MainWindow.vala:975 src/Services/Document.vala:681
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:685
+#: src/MainWindow.vala:979 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Tekstbestanden"
 
-#: src/MainWindow.vala:981
+#: src/MainWindow.vala:983
 msgid "Open some files"
 msgstr "Open meerdere bestanden"
 
-#: src/MainWindow.vala:984
+#: src/MainWindow.vala:986
 msgid "Open"
 msgstr "Openen"
 
-#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -116,29 +116,29 @@ msgstr "Openen"
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1030
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:1029
+#: src/MainWindow.vala:1031
 msgid "_Cancel"
 msgstr "_Annuleer"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1086
 msgid "Cloning completed"
 msgstr "Klonen voltooid"
 
-#: src/MainWindow.vala:1085
+#: src/MainWindow.vala:1087
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Succesvol kloon aangemaakt in %s"
 
-#: src/MainWindow.vala:1091
+#: src/MainWindow.vala:1093
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Onmogelijk om %s te klonen"
 
-#: src/MainWindow.vala:1098
+#: src/MainWindow.vala:1100
 msgid "Retry"
 msgstr "Probeer opnieuw"
 
@@ -328,27 +328,29 @@ msgstr "Regels aan elkaar knopen"
 msgid "Line width guide"
 msgstr "Gids voor regelbreedte"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:123
+#, fuzzy, c-format
+#| msgid "Use system font"
+msgid "Use system font (%s)"
+msgstr "Gebruik systeemlettertype"
+
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Font"
 msgstr "Lettertype"
 
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Use system font"
-msgstr "Gebruik systeemlettertype"
-
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:145
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Uiterlijk"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Uitbreidingen"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:168
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Sluiten"
@@ -617,26 +619,26 @@ msgid "Cannot save this document to %s"
 msgstr "Kan dit document niet opslaan naar %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:883
+#: src/Services/Document.vala:887
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Kan tekst in bestand niet lezen “%s”"
 
-#: src/Services/Document.vala:886
+#: src/Services/Document.vala:890
 msgid "You may not have permission to read the file."
 msgstr "Mogelijk heeft u de rechten niet om dit bestand te lezen."
 
-#: src/Services/Document.vala:888
+#: src/Services/Document.vala:892
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Dit bestand is mogelijk corrupt of het is geen tekstbestand"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:894
+#: src/Services/Document.vala:898
 msgid "Show Anyway"
 msgstr "Toch tonen"
 
-#: src/Services/Document.vala:925
+#: src/Services/Document.vala:929
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -645,7 +647,7 @@ msgstr ""
 "De locatie met het bestand “%s” werd ontkoppeld en bevat niet opgeslagen "
 "wijzigingen."
 
-#: src/Services/Document.vala:927
+#: src/Services/Document.vala:931
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -654,17 +656,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:945
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Het bestand “%s” bezit geen schrijfrechten."
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:995
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Het bestand “%s” is aangepast door een externe applicatie"
 
-#: src/Services/Document.vala:992
+#: src/Services/Document.vala:1000
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -672,38 +674,38 @@ msgstr ""
 "Er zijn niet opgeslagen wijzigingen. Door het document opnieuw te laden "
 "zullen de niet opgeslagen wijzigingen verloren gaan."
 
-#: src/Services/Document.vala:996
+#: src/Services/Document.vala:1004
 msgid "The document changed externally since you last saved it."
 msgstr ""
 "Het document is extern gewijzigd sinds u het voor het laatst heeft "
 "opgeslagen."
 
-#: src/Services/Document.vala:1012
+#: src/Services/Document.vala:1020
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” kan hier niet worden opgeslagen. Het bestand elders opslagen?"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1029
 msgid "Ignore"
 msgstr "Negeren"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1031
 msgid "Save Duplicate…"
 msgstr "Duplicaat opslaan…"
 
-#: src/Services/Document.vala:1072
+#: src/Services/Document.vala:1080
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/Services/Document.vala:1074
+#: src/Services/Document.vala:1082
 msgid "Reload"
 msgstr "Herladen"
 
-#: src/Services/Document.vala:1077
+#: src/Services/Document.vala:1085
 msgid "Overwrite"
 msgstr "Overschrijven"
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1088
 msgid "Save Document elsewhere"
 msgstr "Document elders opslaan"
 
@@ -1051,31 +1053,31 @@ msgstr "%d van %d"
 msgid "no results"
 msgstr "geen resultaten"
 
-#: src/Widgets/SourceView.vala:581
+#: src/Widgets/SourceView.vala:594
 msgid "Sort Lines"
 msgstr "Regels sorteren"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:598
 msgid "Mark Line"
 msgstr "Markeer regel"
 
-#: src/Widgets/SourceView.vala:589
+#: src/Widgets/SourceView.vala:602
 msgid "Previous Mark"
 msgstr "Vorige Markering"
 
-#: src/Widgets/SourceView.vala:593
+#: src/Widgets/SourceView.vala:606
 msgid "Next Mark"
 msgstr "Volgende markering"
 
-#: src/Widgets/SourceView.vala:603
+#: src/Widgets/SourceView.vala:616
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
-#: src/Widgets/Terminal.vala:140
+#: src/Widgets/Terminal.vala:133
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: src/Widgets/Terminal.vala:141
+#: src/Widgets/Terminal.vala:134
 msgid "Paste"
 msgstr "Plakken"
 
