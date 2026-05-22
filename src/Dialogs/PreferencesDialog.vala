@@ -25,7 +25,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         general_box.add (new SettingSwitch (
             _("Strip trailing whitespace on save"),
             "strip-trailing-on-save",
-            _("For syntax highlighted files, except Markdown and YAML")
+            _("Except Plain Text, Markdown and YAML")
         ));
         general_box.add (new SettingSwitch (
             _("Smart cut/copy lines"),
