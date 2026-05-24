@@ -1364,6 +1364,10 @@ namespace Scratch.Services {
                     end_delete = start_delete;
                     end_delete.backward_chars (info.fetch (0).length);
 
+                    if (source_buffer.iter_has_context_class (start_delete, "string")) {
+                        continue;
+                    }
+
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);
                     source_buffer.end_not_undoable_action ();
