@@ -22,7 +22,11 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         var general_box = new Gtk.Box (VERTICAL, 12);
         general_box.add (new Granite.HeaderLabel (_("General")));
         general_box.add (new SettingSwitch (_("Save files when changed"), "autosave"));
-        general_box.add (new SettingSwitch (_("Strip trailing whitespace on save"), "strip-trailing-on-save"));
+        general_box.add (new SettingSwitch (
+            _("Strip trailing whitespace on save"),
+            "strip-trailing-on-save",
+            _("Except Plain Text, Markdown and YAML")
+        ));
         general_box.add (new SettingSwitch (
             _("Smart cut/copy lines"),
             "smart-cut-copy",
