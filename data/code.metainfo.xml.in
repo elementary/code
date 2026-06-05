@@ -68,6 +68,37 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.3.1" date="2026-06-15" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>The sidebar can now be focused using a keyboard shortcut</li>
+          <li>Closing a second window by headerbar or shortcut only closes that window, saving its documents</li>
+          <li>The system font is shown and can be selected in the Preferences dialog</li>
+          <li>Improved desktop consistency and contrast by using user accent color for selections</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Closing all windows by shortcut now correctly saves all documents</li>
+          <li>Filetypes excluded from stripping trailing whitespace are shown in the application menu</li>
+          <li>Stripping trailing whitespace now correctly excludes string literals</li>
+          <li>Fuzzy searching for project files now correctly searches active project</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/492">Code Preferences Doesn't Display Default Font</issue>
+        <issue url="https://github.com/elementary/code/issues/721">Ctrl+Q closes second windows with loss of unsaved changes</issue>
+        <issue url="https://github.com/elementary/code/issues/1289">Selected text and Current match styling hard to see with solarized and dark stylesheets</issue>
+        <issue url="https://github.com/elementary/code/issues/1593">Regression: Closing a second window also closes the first</issue>
+        <issue url="https://github.com/elementary/code/issues/1671">When using system font, loaded documents do not react if system font is changed externally</issue>
+        <issue url="https://github.com/elementary/code/issues/1698">Stripping of trailing whitespace affects only some files; no UI indication which types</issue>
+        <issue url="https://github.com/elementary/code/issues/1699">Trailing whitespace is stripped from string literal containing a line break</issue>
+        <issue url="https://github.com/elementary/code/issues/1715">Fix Symbol Pane not updating on external file reversion</issue>
+        <issue url="https://github.com/elementary/code/issues/1719">Feature/sidebar focus</issue>
+        <issue url="https://github.com/elementary/code/issues/1725">NavMarkGutterRenderer: fix crash when deleting edit marks</issue>
+      </issues>
+    </release>
     <release version="8.3.0" date="2026-05-15" urgency="medium">
       <description>
         <p>Improvements:</p>
