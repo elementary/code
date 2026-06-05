@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 11:48+0000\n"
+"POT-Creation-Date: 2026-05-22 14:24+0000\n"
 "PO-Revision-Date: 2019-08-29 15:22+0000\n"
 "Last-Translator: གངས་རྒྱན། <khyon_khangey@outlook.com>\n"
 "Language-Team: Tibetan <https://l10n.elementary.io/projects/code/code/bo/>\n"
@@ -38,72 +38,72 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:272
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Code"
 
-#: src/MainWindow.vala:268
+#: src/MainWindow.vala:274
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:410
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:415 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr ""
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:426
 msgid "Hide Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:425
+#: src/MainWindow.vala:431
 msgid "Show Projects Sidebar"
 msgstr ""
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:440
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:439
+#: src/MainWindow.vala:445
 msgid "Show Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:448
+#: src/MainWindow.vala:454
 msgid "Hide Terminal"
 msgstr ""
 
-#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:459 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr ""
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:623
+#: src/MainWindow.vala:629
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:681
+#: src/MainWindow.vala:981 src/Services/Document.vala:681
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:685
+#: src/MainWindow.vala:985 src/Services/Document.vala:685
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:989
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:992
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:993 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -112,29 +112,29 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:1030
+#: src/MainWindow.vala:1036
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:1031
+#: src/MainWindow.vala:1037
 msgid "_Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:1086
+#: src/MainWindow.vala:1092
 msgid "Cloning completed"
-msgstr ""
-
-#: src/MainWindow.vala:1087
-#, c-format
-msgid "Clone successfully created in %s"
 msgstr ""
 
 #: src/MainWindow.vala:1093
 #, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1099
+#, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1100
+#: src/MainWindow.vala:1106
 msgid "Retry"
 msgstr ""
 
@@ -242,106 +242,110 @@ msgstr ""
 msgid "Save files when changed"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:25
+#: src/Dialogs/PreferencesDialog.vala:26
 msgid "Strip trailing whitespace on save"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:27
+#: src/Dialogs/PreferencesDialog.vala:28
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:31
 msgid "Smart cut/copy lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:29
+#: src/Dialogs/PreferencesDialog.vala:33
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:35
+#: src/Dialogs/PreferencesDialog.vala:39
 msgid "Indentation width"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:50
 msgid "Indentation"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Automatic indentation"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "Insert spaces instead of tabs"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Projects"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:82
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:83
 msgid "Current Line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Whitespace visible when not selected"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Editor"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Syntax highlighting"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Mini Map"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Line width guide"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:127
 #, c-format
 msgid "Use system font (%s)"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:145
+#: src/Dialogs/PreferencesDialog.vala:149
 msgid "Behavior"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:150 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:166 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:172
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr ""
