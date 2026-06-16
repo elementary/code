@@ -56,7 +56,19 @@ namespace Scratch.Widgets {
 
         public bool is_focused {
             get {
-                return search_entry.has_focus || replace_entry.has_focus;
+                return search_is_focused || replace_is_focused;
+            }
+        }
+
+        public bool search_is_focused {
+            get {
+                return search_entry.has_focus;
+            }
+        }
+
+        public bool replace_is_focused {
+            get {
+                return replace_entry.has_focus;
             }
         }
 
@@ -69,6 +81,12 @@ namespace Scratch.Widgets {
         public string entry_text {
             get {
                 return search_entry.text;
+            }
+        }
+
+        public bool has_search_term {
+            get {
+                return search_entry.text != "";
             }
         }
 
@@ -226,7 +244,6 @@ namespace Scratch.Widgets {
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_parameters_changed);
-            search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
@@ -234,7 +251,6 @@ namespace Scratch.Widgets {
                 }
             });
             replace_entry.activate.connect (on_replace_entry_activate);
-            replace_entry.key_press_event.connect (on_replace_entry_key_press);
 
             var entry_path = new Gtk.WidgetPath ();
             entry_path.append_type (typeof (Gtk.Widget));
@@ -522,60 +538,6 @@ namespace Scratch.Widgets {
             search_entry.text = text;
         }
 
-        private bool on_search_entry_key_press (Gdk.EventKey event) {
-            /* We don't need to perform search if there is nothing to search... */
-            if (search_entry.text == "") {
-                return false;
-            }
-
-            string key = Gdk.keyval_name (event.keyval);
-            if (Gdk.ModifierType.SHIFT_MASK in event.state) {
-                key = "<Shift>" + key;
-            }
-
-            switch (key) {
-                case "<Shift>Return":
-                case "Up":
-                    search_previous ();
-                    return true;
-                case "Return":
-                case "Down":
-                    search_next ();
-                    return true;
-                case "Tab":
-                    if (search_entry.is_focus) {
-                        replace_entry.grab_focus ();
-                    }
-
-                    return true;
-            }
-
-            return false;
-        }
-
-        private bool on_replace_entry_key_press (Gdk.EventKey event) {
-            /* We don't need to perform search if there is nothing to search… */
-            if (search_entry.text == "") {
-                return false;
-            }
-
-            switch (Gdk.keyval_name (event.keyval)) {
-                case "Up":
-                    search_previous ();
-                    return true;
-                case "Down":
-                    search_next ();
-                    return true;
-                case "Tab":
-                    if (replace_entry.is_focus) {
-                        search_entry.grab_focus ();
-                    }
-
-                    return true;
-            }
-
-            return false;
-        }
 
         private void cancel_update_search_widgets () {
             if (update_search_label_timeout_id > 0) {

@@ -709,7 +709,12 @@ namespace Scratch {
         }
 
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
-            switch (Gdk.keyval_name (keyval)) {
+                string key = Gdk.keyval_name (keyval);
+                if (Gdk.ModifierType.SHIFT_MASK in state) {
+                    key = "<Shift>" + key;
+                }
+
+            switch (key) {
                 case "Escape":
                     if (search_bar.is_revealed) {
                         var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
@@ -720,6 +725,39 @@ namespace Scratch {
                     break;
             }
 
+            // Handle searchbar key_press events here else consumed by Gtk.Entry widgets
+            if (search_bar.search_is_focused && search_bar.has_search_term) {
+                switch (key) {
+                    case "<Shift>Return":
+                    case "Up":
+                        search_bar.search_previous ();
+                        return true;
+                    case "Return":
+                    case "Down":
+                        search_bar.search_next ();
+                        return true;
+                    case "Tab":
+                        search_bar.focus_replace_entry ();
+                        return true;
+                    default:
+                        return false;
+                }
+            } else if (search_bar.replace_is_focused && search_bar.has_search_term) {
+                switch (Gdk.keyval_name (keyval)) {
+                    case "Up":
+                        search_bar.search_previous ();
+                        return true;
+                    case "Down":
+                        search_bar.search_next ();
+                        return true;
+                    case "Tab":
+                        search_bar.focus_search_entry ();
+
+                        return true;
+                }
+
+                return false;
+            }
             // propagate this event to child widgets
             return false;
         }
