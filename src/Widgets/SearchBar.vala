@@ -227,7 +227,11 @@ namespace Scratch.Widgets {
             // Connecting to some signals
             search_entry.changed.connect (on_search_parameters_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
-            search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.notify["is-focus"].connect (() => {
+                if (search_entry.is_focus) {
+                    on_search_entry_focused_in ();
+                }
+            });
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
@@ -359,18 +363,12 @@ namespace Scratch.Widgets {
             update_search_widgets ();
         }
 
-        private bool on_search_entry_focused_in (Gdk.EventFocus event) {
-            if (text_buffer == null) {
-                return false;
-            }
-
+        private void on_search_entry_focused_in () requires (text_buffer != null) {
             Idle.add (() => {
                 update_search_widgets ();
                 search_entry.select_region (0, -1);
                 return Source.REMOVE;
             });
-
-            return Gdk.EVENT_PROPAGATE;
         }
 
         public bool search () {
