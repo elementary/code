@@ -53,6 +53,7 @@ namespace Scratch.Widgets {
         private Gtk.SourceSearchContext? search_context;
         private uint update_search_label_timeout_id = 0;
         private Gtk.Revealer revealer;
+        private Gtk.EventControllerKey key_controller;
 
         public bool is_focused {
             get {
@@ -275,6 +276,11 @@ namespace Scratch.Widgets {
 
             add (revealer);
             update_search_widgets ();
+
+            key_controller = new Gtk.EventControllerKey (window) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect (on_key_pressed);
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -538,6 +544,49 @@ namespace Scratch.Widgets {
             search_entry.text = text;
         }
 
+        private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+           /* We don't need to perform search if there is nothing to search... */
+            if (search_entry.text == "") {
+                return false;
+            }
+
+            string key = Gdk.keyval_name (keyval);
+            if (Gdk.ModifierType.SHIFT_MASK in state) {
+                key = "<Shift>" + key;
+            }
+
+            if (search_is_focused && has_search_term) {
+                switch (key) {
+                    case "<Shift>Return":
+                    case "Up":
+                        search_previous ();
+                        return true;
+                    case "Return":
+                    case "Down":
+                        search_next ();
+                        return true;
+                    case "Tab":
+                        focus_replace_entry ();
+                        return true;
+                }
+            } else if (replace_is_focused && has_search_term) {
+                switch (Gdk.keyval_name (keyval)) {
+                    case "Up":
+                        search_previous ();
+                        return true;
+                    case "Down":
+                        search_next ();
+                        return true;
+                    case "Tab":
+                        focus_search_entry ();
+                        return true;
+                }
+
+                return false;
+            }
+
+            return false;
+        }
 
         private void cancel_update_search_widgets () {
             if (update_search_label_timeout_id > 0) {
