@@ -128,10 +128,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
         return false;
     }
 
-    // private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
     private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) requires (current_view != null) {
         var kv = keyval;
-        warning ("key");
         /* Pass through any modified keypress except Shift or Capslock */
         Gdk.ModifierType mods = state & Gdk.ModifierType.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
@@ -176,8 +174,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     }
 
     private void cleanup (Gtk.SourceView view) {
-        // current_view.key_press_event.disconnect (on_key_press);
-
         current_view.completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
