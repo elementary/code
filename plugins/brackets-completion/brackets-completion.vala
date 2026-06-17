@@ -11,6 +11,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
 
     public Object object { owned get; set construct; }
 
+    private Gtk.EventControllerKey key_controller;
     private Gee.HashMap<string, string> brackets;
     private Gee.HashMap<uint, string> keys;
     private Gtk.TextBuffer current_buffer;
@@ -40,6 +41,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
 
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect (on_hook_document);
+        plugins.hook_window.connect ((w) => {
+            key_controller = new Gtk.EventControllerKey (w) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect (on_key_down);
+        });
     }
 
     public void deactivate () {
@@ -52,14 +59,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         current_buffer = doc.source_view.buffer;
 
         if (current_source_view != null) {
-            current_source_view.key_press_event.disconnect (on_key_down);
             current_source_view.event_after.disconnect (on_event_after);
             current_source_view.backspace.disconnect (on_backspace);
         }
 
         current_source_view = doc.source_view;
 
-        current_source_view.key_press_event.connect (on_key_down);
         current_source_view.event_after.connect (on_event_after);
         current_source_view.backspace.connect (on_backspace);
     }
@@ -163,8 +168,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         current_buffer.end_user_action ();
     }
 
-    private bool on_key_down (Gdk.EventKey event) {
-        if (Gdk.ModifierType.MOD1_MASK in event.state || Gdk.ModifierType.CONTROL_MASK in event.state) {
+    private bool on_key_down (uint keyval, uint keycode, Gdk.ModifierType state) requires (current_buffer != null) {
+        if (!current_source_view.is_focus) {
+            return false;
+        }
+
+        if (Gdk.ModifierType.MOD1_MASK in state || Gdk.ModifierType.CONTROL_MASK in state) {
             return false;
         }
 
@@ -173,7 +182,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
             return false;
         }
 
-        if (keys.has_key (event.keyval) && current_buffer.has_selection) {
+        if (keys.has_key (keyval) && current_buffer.has_selection) {
             Gtk.TextIter start, end;
             current_buffer.get_selection_bounds (out start, out end);
 
