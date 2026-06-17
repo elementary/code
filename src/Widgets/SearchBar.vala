@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *               2013      Mario Guerriero <mario@elementaryos.org>
-                 2014-2023 elementary, Inc. (https://elementary.io)
+                 2014-2026 elementary, Inc. (https://elementary.io)
  *
  * This file is part of Code.
  *
@@ -545,8 +545,11 @@ namespace Scratch.Widgets {
         }
 
         private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+            if (!(search_is_focused || replace_is_focused)) {
+                return false;
+            }
            /* We don't need to perform search if there is nothing to search... */
-            if (search_entry.text == "") {
+            if (!has_search_term) {
                 return false;
             }
 
@@ -555,7 +558,7 @@ namespace Scratch.Widgets {
                 key = "<Shift>" + key;
             }
 
-            if (search_is_focused && has_search_term) {
+            if (search_is_focused) {
                 switch (key) {
                     case "<Shift>Return":
                     case "Up":
@@ -569,7 +572,7 @@ namespace Scratch.Widgets {
                         focus_replace_entry ();
                         return true;
                 }
-            } else if (replace_is_focused && has_search_term) {
+            } else {
                 switch (Gdk.keyval_name (keyval)) {
                     case "Up":
                         search_previous ();
