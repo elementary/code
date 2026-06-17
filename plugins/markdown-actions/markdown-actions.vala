@@ -27,12 +27,12 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
     public void update_state () {}
 
     private Gtk.EventControllerKey key_controller;
+    private bool is_markdown = false;
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
-                // current_source.key_press_event.disconnect (shortcut_handler);
                 current_source.notify["language"].disconnect (configure_shortcuts);
             }
 
@@ -51,11 +51,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
     private void configure_shortcuts () {
         var lang = current_source.language;
-        if (lang != null && lang.id == "markdown") {
-            // current_source.key_press_event.connect (shortcut_handler);
-        } else {
-            // current_source.key_press_event.disconnect (shortcut_handler);
-        }
+        is_markdown = (lang != null && lang.id == "markdown");
     }
 
     private bool shortcut_handler (
@@ -64,7 +60,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         uint keycode,
         Gdk.ModifierType state
     ) requires (current_source != null) {
-        if (!Gtk.accelerator_valid (keyval, state)) {
+        if (!is_markdown || !Gtk.accelerator_valid (keyval, state)) {
             return false;
         }
 
