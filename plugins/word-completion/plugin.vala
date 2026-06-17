@@ -130,6 +130,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
     private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) requires (current_view != null) {
         var kv = keyval;
+        if (!current_view.is_focus) {
+            return false;
+        }
         /* Pass through any modified keypress except Shift or Capslock */
         Gdk.ModifierType mods = state & Gdk.ModifierType.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
