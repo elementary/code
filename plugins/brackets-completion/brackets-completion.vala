@@ -168,7 +168,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         current_buffer.end_user_action ();
     }
 
-    private bool on_key_down (uint keyval, uint keycode, Gdk.ModifierType state) requires (current_buffer != null) {
+    private bool on_key_down (
+        uint keyval,
+        uint keycode,
+        Gdk.ModifierType state
+    ) requires (current_source_view != null && current_buffer != null) {
+
         if (!current_source_view.is_focus) {
             return false;
         }

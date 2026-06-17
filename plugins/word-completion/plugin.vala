@@ -128,7 +128,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
         return false;
     }
 
-    private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) requires (current_view != null) {
+    private bool on_key_press (
+        uint keyval,
+        uint keycode,
+        Gdk.ModifierType state
+    ) requires (current_view != null) {
+
         var kv = keyval;
         if (!current_view.is_focus) {
             return false;

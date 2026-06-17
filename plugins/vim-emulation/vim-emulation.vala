@@ -61,12 +61,21 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
         });
     }
 
+    public void deactivate () {
+
+    }
+
     private bool handle_key_press (
         Gtk.EventController controller,
         uint keyval,
         uint keycode,
         Gdk.ModifierType state
-    ) {
+    ) requires (view != null) {
+
+        if (!view.is_focus) {
+            return false;
+        }
+
         //some extensions to the default navigating
         bool ctrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
         bool shift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;

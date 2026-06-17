@@ -60,6 +60,11 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         uint keycode,
         Gdk.ModifierType state
     ) requires (current_source != null) {
+
+        if (!current_source.is_focus) {
+            return false;
+        }
+
         if (!is_markdown || !Gtk.accelerator_valid (keyval, state)) {
             return false;
         }
