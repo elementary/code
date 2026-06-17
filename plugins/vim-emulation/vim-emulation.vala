@@ -61,10 +61,6 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
         });
     }
 
-    public void deactivate () {
-        key_controller = null;
-    }
-
     private bool handle_key_press (
         Gtk.EventController controller,
         uint keyval,
