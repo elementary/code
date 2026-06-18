@@ -232,7 +232,7 @@ namespace Scratch.Widgets {
                 toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((Gtk.SourceBuffer)buffer).language));
             });
             buffer.notify_property ("has-selection");
-            buffer.notify_property ("has-language");
+            buffer.notify_property ("language");
 
             navmark_gutter_renderer.notify["has-marks"].connect (() => {
                 next_mark_action.set_enabled (navmark_gutter_renderer.has_marks);
