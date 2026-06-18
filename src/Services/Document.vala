@@ -1315,7 +1315,7 @@ namespace Scratch.Services {
         /* Pull the buffer into an array and then work out which parts are to be deleted.
          * Do not strip line currently being edited unless forced */
         private void strip_trailing_spaces () {
-            if (!loaded || source_view.language == null) {
+            if (!loaded || source_view.language == null || source_view.buffer.has_selection) {
                 return;
             }
 
