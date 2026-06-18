@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 11:48+0000\n"
+"POT-Creation-Date: 2026-06-05 14:23+0000\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -44,80 +44,80 @@ msgstr ""
 msgid "[FILE…]"
 msgstr ""
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:272
 #, fuzzy, c-format
 #| msgid "Code"
 msgid "Code (%s)"
 msgstr "Code"
 
-#: src/MainWindow.vala:268
+#: src/MainWindow.vala:274
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:410
 msgid "Hide search bar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:415 src/Widgets/HeaderBar.vala:122
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Find on Page…"
 msgstr "Open a folder"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:426
 #, fuzzy
 #| msgid "Hide search bar"
 msgid "Hide Projects Sidebar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:425
+#: src/MainWindow.vala:431
 #, fuzzy
 #| msgid "Show Preview"
 msgid "Show Projects Sidebar"
 msgstr "Show Preview"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:440
 msgid "Hide Symbol Outline"
 msgstr ""
 
-#: src/MainWindow.vala:439
+#: src/MainWindow.vala:445
 #, fuzzy
 #| msgid "Symbols"
 msgid "Show Symbol Outline"
 msgstr "Symbols"
 
-#: src/MainWindow.vala:448
+#: src/MainWindow.vala:454
 msgid "Hide Terminal"
 msgstr "Hide Terminal"
 
-#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:459 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "Show Terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:623
+#: src/MainWindow.vala:629
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:681
+#: src/MainWindow.vala:981 src/Services/Document.vala:681
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:685
+#: src/MainWindow.vala:985 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:989
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:992
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:993 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -126,29 +126,29 @@ msgstr "Open"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:1030
+#: src/MainWindow.vala:1036
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:1031
+#: src/MainWindow.vala:1037
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: src/MainWindow.vala:1086
+#: src/MainWindow.vala:1092
 msgid "Cloning completed"
-msgstr ""
-
-#: src/MainWindow.vala:1087
-#, c-format
-msgid "Clone successfully created in %s"
 msgstr ""
 
 #: src/MainWindow.vala:1093
 #, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1099
+#, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1100
+#: src/MainWindow.vala:1106
 msgid "Retry"
 msgstr ""
 
@@ -264,128 +264,132 @@ msgstr "General"
 msgid "Save files when changed"
 msgstr "Save files when changed:"
 
-#: src/Dialogs/PreferencesDialog.vala:25
+#: src/Dialogs/PreferencesDialog.vala:26
 #, fuzzy
 #| msgid "Strip trailing whitespace on save"
 msgid "Strip trailing whitespace on save"
 msgstr "Strip trailing whitespace on save"
 
-#: src/Dialogs/PreferencesDialog.vala:27
+#: src/Dialogs/PreferencesDialog.vala:28
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:31
 msgid "Smart cut/copy lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:29
+#: src/Dialogs/PreferencesDialog.vala:33
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:35
+#: src/Dialogs/PreferencesDialog.vala:39
 #, fuzzy
 #| msgid "Margin width:"
 msgid "Indentation width"
 msgstr "Margin width:"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:50
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Indentation"
 msgstr "Automatic indentation:"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:51
 #, fuzzy
 #| msgid "Automatic indentation:"
 msgid "Automatic indentation"
 msgstr "Automatic indentation:"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:52
 #, fuzzy
 #| msgid "Insert spaces instead of tabs:"
 msgid "Insert spaces instead of tabs"
 msgstr "Insert spaces instead of tabs:"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Default build directory"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:71
 #, fuzzy
 #| msgid "Project"
 msgid "Projects"
 msgstr "Project"
 
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:82
 msgid "None"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:83
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Current Line"
 msgstr "Remove Current View"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "All"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Whitespace visible when not selected"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:116
 #, fuzzy
 #| msgid "Highlight matching brackets:"
 msgid "Highlight matching brackets"
 msgstr "Highlight matching brackets:"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:117
 #, fuzzy
 #| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Syntax Highlighting"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:119
 #, fuzzy
 #| msgid "Show Mini Map:"
 msgid "Mini Map"
 msgstr "Show Mini Map:"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Wrap lines"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:121
 #, fuzzy
 #| msgid "Line width guide:"
 msgid "Line width guide"
 msgstr "Line width guide:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:127
 #, c-format
 msgid "Use system font (%s)"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Font"
 
-#: src/Dialogs/PreferencesDialog.vala:145
+#: src/Dialogs/PreferencesDialog.vala:149
 msgid "Behavior"
 msgstr "Behaviour"
 
-#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:150 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Interface"
 
-#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:166 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:172
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Close"
