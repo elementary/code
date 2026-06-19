@@ -137,7 +137,8 @@ public class Code.Terminal : Gtk.Box {
 
         var menu = new Gtk.PopoverMenu () {
             modal = true,
-            relative_to = terminal
+            relative_to = terminal,
+            position = RIGHT
         };
         menu.bind_model (menu_model, ACTION_GROUP);
 
