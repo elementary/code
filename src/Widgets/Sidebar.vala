@@ -195,4 +195,10 @@ public class Code.Sidebar : Gtk.Grid {
     public void notify_cloning_success () {
         cloning_success_toast.send_notification ();
     }
+
+    public void focus_sidebar () {
+        if (stack.visible_child is Code.Widgets.SourceList) {
+            ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
+        }
+    }
 }

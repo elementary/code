@@ -2937,5 +2937,9 @@ public class SourceList : Gtk.ScrolledWindow {
 
         return null;
     }
+
+    public new void grab_focus () {
+        tree.grab_focus ();
+    }
 }
 }

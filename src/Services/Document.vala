@@ -1319,6 +1319,11 @@ namespace Scratch.Services {
                 return;
             }
 
+            var lang_id = source_view.language.id;
+            if (lang_id == "markdown" || lang_id == "yaml") {
+                return;
+            }
+
             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
             Gtk.TextIter iter;
 
@@ -1358,6 +1363,10 @@ namespace Scratch.Services {
                     start_delete.forward_to_line_end ();
                     end_delete = start_delete;
                     end_delete.backward_chars (info.fetch (0).length);
+
+                    if (source_buffer.iter_has_context_class (start_delete, "string")) {
+                        continue;
+                    }
 
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);
