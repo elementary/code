@@ -35,6 +35,7 @@ public class Code.Terminal : Gtk.Box {
 
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
+    private Gtk.GestureMultiPress secondary_button_controller;
 
     private Scratch.Application application;
 
@@ -150,13 +151,14 @@ public class Code.Terminal : Gtk.Box {
             }
         });
 
-        terminal.button_press_event.connect ((event) => {
-            if (event.button == 3) {
-                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
-                menu.select_first (false);
-                menu.popup_at_pointer (event);
-            }
-            return false;
+        secondary_button_controller = new Gtk.GestureMultiPress (terminal) {
+            propagation_phase = CAPTURE,
+            button = Gdk.BUTTON_SECONDARY
+        };
+        secondary_button_controller.pressed.connect ((n, x, y) => {
+            paste_action.set_enabled (current_clipboard.wait_is_text_available ());
+            menu.select_first (false);
+            menu.popup_at_pointer (secondary_button_controller.get_last_event (null));
         });
 
         realize.connect (() => {
