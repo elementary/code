@@ -2306,7 +2306,7 @@ public class SourceList : Gtk.ScrolledWindow {
 
                     var button = button_controller.get_current_button ();
                     if (button == Gdk.BUTTON_SECONDARY) {
-                        popup_context_menu (item, button_controller.get_last_event (null));
+                        popup_context_menu (item, (int) dx, (int) dy);
                     } else if (button == Gdk.BUTTON_PRIMARY) {
                         // Check whether an expander (or an equivalent area) was clicked.
                         bool is_expandable = item is ExpandableItem;
@@ -2401,26 +2401,26 @@ public class SourceList : Gtk.ScrolledWindow {
         }
 
         public override bool popup_menu () {
-            return popup_context_menu (null, null);
+            return popup_context_menu ();
         }
 
-        private bool popup_context_menu (Item? item, Gdk.Event? event) {
-            if (item == null)
+        private bool popup_context_menu (Item? item = null, int px = 0, int py = 0) {
+            if (item == null) {
                 item = selected_item;
+            }
 
             if (item != null) {
-                var menu = item.get_context_menu ();
-                if (menu != null) {
-                    var gtk_menu = new Gtk.Menu.from_model (menu) {
-                        attach_widget = this
+                var menu_model = item.get_context_menu ();
+                if (menu_model != null) {
+                    var menu = new Gtk.PopoverMenu () {
+                        modal = true,
+                        relative_to = this,
+                        position = RIGHT
                     };
 
-                    gtk_menu.popup_at_pointer (event);
-                    if (event == null) {
-                        gtk_menu.select_first (false);
-                    }
-
-                    return true;
+                    menu.bind_model (menu_model, null);
+                    menu.pointing_to = Gdk.Rectangle () { x = px, y = py };
+                    menu.popup ();
                 }
             }
 
