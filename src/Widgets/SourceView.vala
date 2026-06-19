@@ -39,6 +39,7 @@ namespace Scratch.Widgets {
         private string selected_text = "";
         private GitGutterRenderer git_diff_gutter_renderer;
         private NavMarkGutterRenderer navmark_gutter_renderer;
+        private Gtk.EventControllerKey key_controller;
 
         private const uint THROTTLE_MS = 400;
         private double total_delta = 0;
@@ -254,6 +255,42 @@ namespace Scratch.Widgets {
                     );
                 }
                 menu.show_all ();
+            });
+
+            // Handle context menu shortcuts here.
+            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts
+            key_controller = new Gtk.EventControllerKey (application.get_active_window ()) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect ((kv, kc, state) => {
+                if (!this.is_focus || !Gtk.accelerator_valid (kv, state)) {
+                    return false;
+                }
+
+                var mods = (state & Gtk.accelerator_get_default_mod_mask ());
+                var accel = Gtk.accelerator_name (kv, mods);
+                switch (accel) {
+                    case "F5":
+                        sort_selected_lines ();
+                        return true;
+                    case "<Alt>equal":
+                            add_mark_at_cursor ();
+                            return true;
+                    case "<Alt>Left":
+                            goto_next_mark ();
+                            return true;
+                    case "<Alt>Right":
+                            goto_previous_mark ();
+                            return true;
+                    case "<Primary>m":
+                    case "<Primary>slash":
+                            CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                            return true;
+                    default:
+                        break;
+                }
+
+                return false;
             });
 
             size_allocate.connect ((allocation) => {
