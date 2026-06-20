@@ -137,42 +137,42 @@ public class Code.Sidebar : Gtk.Grid {
             }
         });
 
-        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
-        Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
-        drag_data_received.connect (drag_received);
+        // Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        // Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        // drag_data_received.connect (drag_received);
     }
 
-    private void drag_received (Gtk.Widget w,
-                                Gdk.DragContext ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time) {
+    // private void drag_received (Gtk.Widget w,
+    //                             Gdk.DragContext ctx,
+    //                             int x,
+    //                             int y,
+    //                             Gtk.SelectionData sel,
+    //                             uint info,
+    //                             uint time) {
 
-        if (info == TargetType.URI_LIST) {
-            var uri_list = sel.get_uris ();
-            GLib.List<GLib.File> folder_list = null;
-            foreach (unowned var uri in uri_list) {
-                var file = GLib.File.new_for_uri (uri);
-                // Blocking but for simplicity omit cancellable for now
-                var ftype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
-                if (ftype == GLib.FileType.DIRECTORY) {
-                  folder_list.prepend (file);
-                }
-            }
+    //     if (info == TargetType.URI_LIST) {
+    //         var uri_list = sel.get_uris ();
+    //         GLib.List<GLib.File> folder_list = null;
+    //         foreach (unowned var uri in uri_list) {
+    //             var file = GLib.File.new_for_uri (uri);
+    //             // Blocking but for simplicity omit cancellable for now
+    //             var ftype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
+    //             if (ftype == GLib.FileType.DIRECTORY) {
+    //               folder_list.prepend (file);
+    //             }
+    //         }
 
-            foreach (var folder in folder_list) {
-                var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-                win_group.activate_action (
-                    Scratch.MainWindow.ACTION_OPEN_FOLDER,
-                    new Variant.string (folder.get_path ())
-                );
-            }
+    //         foreach (var folder in folder_list) {
+    //             var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
+    //             win_group.activate_action (
+    //                 Scratch.MainWindow.ACTION_OPEN_FOLDER,
+    //                 new Variant.string (folder.get_path ())
+    //             );
+    //         }
 
-            Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
-        }
-    }
+    //         Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
+    //     }
+    // }
 
     public void add_tab (Code.PaneSwitcher tab) {
         stack.add (tab);

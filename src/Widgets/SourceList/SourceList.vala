@@ -90,7 +90,7 @@ public interface SourceListDragSource : SourceList.Item {
      * @see Gtk.SelectionData.set_uris
      * @see Gtk.SelectionData.set_text
      */
-    public abstract void prepare_selection_data (Gtk.SelectionData selection_data);
+    // public abstract void prepare_selection_data (Gtk.SelectionData selection_data);
 }
 
 /**
@@ -107,7 +107,7 @@ public interface SourceListDragDest : SourceList.Item {
      * @return //true// if the drop is possible; //false// otherwise.
      * @since 0.3
      */
-    public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
+    // public abstract bool data_drop_possible (Gdk.DragContext context, Gtk.SelectionData data);
 
     /**
      * If a data drop is deemed possible, then this method is called
@@ -119,7 +119,7 @@ public interface SourceListDragDest : SourceList.Item {
      * @return The action taken, or //0// to indicate that the dropped data was not accepted.
      * @since 0.3
      */
-    public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
+    // public abstract Gdk.DragAction data_received (Gdk.DragContext context, Gtk.SelectionData data);
 }
 
 /**
@@ -1207,84 +1207,84 @@ public class SourceList : Gtk.ScrolledWindow {
          * TreeDragDest implementation
          */
 
-        public bool drag_data_received (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
-            Gtk.TreeModel model;
-            Gtk.TreePath src_path;
+        // public bool drag_data_received (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+        //     Gtk.TreeModel model;
+        //     Gtk.TreePath src_path;
 
-            // Check if the user is dragging a row:
-            //
-            // Due to Gtk.TreeModelFilter's implementation of drag_data_get the values returned by
-            // tree_row_drag_data for GtkModel and GtkPath correspond to the child model and not the filter.
-            if (Gtk.tree_get_row_drag_data (selection_data, out model, out src_path) && model == child_tree) {
-                // get a child path representation of dest
-                var child_dest = convert_path_to_child_path (dest);
+        //     // Check if the user is dragging a row:
+        //     //
+        //     // Due to Gtk.TreeModelFilter's implementation of drag_data_get the values returned by
+        //     // tree_row_drag_data for GtkModel and GtkPath correspond to the child model and not the filter.
+        //     if (Gtk.tree_get_row_drag_data (selection_data, out model, out src_path) && model == child_tree) {
+        //         // get a child path representation of dest
+        //         var child_dest = convert_path_to_child_path (dest);
 
-                if (child_dest != null) {
-                    // New GtkTreeIters will be assigned to the rows at child_dest and its children.
-                    if (child_tree_drag_data_received (child_dest, src_path))
-                        return true;
-                }
-            }
+        //         if (child_dest != null) {
+        //             // New GtkTreeIters will be assigned to the rows at child_dest and its children.
+        //             if (child_tree_drag_data_received (child_dest, src_path))
+        //                 return true;
+        //         }
+        //     }
 
-            // no new row inserted
-            return false;
-        }
+        //     // no new row inserted
+        //     return false;
+        // }
 
-        private bool child_tree_drag_data_received (Gtk.TreePath dest, Gtk.TreePath src_path) {
-            bool retval = false;
-            Gtk.TreeIter src_iter, dest_iter;
+        // private bool child_tree_drag_data_received (Gtk.TreePath dest, Gtk.TreePath src_path) {
+        //     bool retval = false;
+        //     Gtk.TreeIter src_iter, dest_iter;
 
-            if (!child_tree.get_iter (out src_iter, src_path))
-                return false;
+        //     if (!child_tree.get_iter (out src_iter, src_path))
+        //         return false;
 
-            var prev = dest;
+        //     var prev = dest;
 
-            // Get the path to insert _after_ (dest is the path to insert _before_)
-            if (!prev.prev ()) {
-                // dest was the first spot at the current depth; which means
-                // we are supposed to prepend.
+        //     // Get the path to insert _after_ (dest is the path to insert _before_)
+        //     if (!prev.prev ()) {
+        //         // dest was the first spot at the current depth; which means
+        //         // we are supposed to prepend.
 
-                var parent = dest;
-                Gtk.TreeIter? dest_parent = null;
+        //         var parent = dest;
+        //         Gtk.TreeIter? dest_parent = null;
 
-                if (parent.up () && parent.get_depth () > 0)
-                    child_tree.get_iter (out dest_parent, parent);
+        //         if (parent.up () && parent.get_depth () > 0)
+        //             child_tree.get_iter (out dest_parent, parent);
 
-                child_tree.prepend (out dest_iter, dest_parent);
-                retval = true;
-            } else if (child_tree.get_iter (out dest_iter, prev)) {
-                var tmp_iter = dest_iter;
-                child_tree.insert_after (out dest_iter, null, tmp_iter);
-                retval = true;
-            }
+        //         child_tree.prepend (out dest_iter, dest_parent);
+        //         retval = true;
+        //     } else if (child_tree.get_iter (out dest_iter, prev)) {
+        //         var tmp_iter = dest_iter;
+        //         child_tree.insert_after (out dest_iter, null, tmp_iter);
+        //         retval = true;
+        //     }
 
-            // If we succeeded in creating dest_iter, walk src_iter tree branch,
-            // duplicating it below dest_iter.
-            if (retval) {
-                recursive_node_copy (src_iter, dest_iter);
+        //     // If we succeeded in creating dest_iter, walk src_iter tree branch,
+        //     // duplicating it below dest_iter.
+        //     if (retval) {
+        //         recursive_node_copy (src_iter, dest_iter);
 
-                // notify that the item was moved
-                Item item;
-                child_tree.get (src_iter, Column.ITEM, out item, -1);
-                return_val_if_fail (item != null, retval);
+        //         // notify that the item was moved
+        //         Item item;
+        //         child_tree.get (src_iter, Column.ITEM, out item, -1);
+        //         return_val_if_fail (item != null, retval);
 
-                // XXX Workaround:
-                // GtkTreeView automatically collapses expanded items that
-                // are dragged to a new location. Oddly, GtkTreeView doesn't fire
-                // 'row-collapsed' for the respective path, so we cannot keep track
-                // of that behavior via standard means. For now we'll just have
-                // our tree view check the properties of item again and ensure
-                // they're honored
-                update_item (item);
+        //         // XXX Workaround:
+        //         // GtkTreeView automatically collapses expanded items that
+        //         // are dragged to a new location. Oddly, GtkTreeView doesn't fire
+        //         // 'row-collapsed' for the respective path, so we cannot keep track
+        //         // of that behavior via standard means. For now we'll just have
+        //         // our tree view check the properties of item again and ensure
+        //         // they're honored
+        //         update_item (item);
 
-                var parent = item.parent as SourceListSortable;
-                return_val_if_fail (parent != null, retval);
+        //         var parent = item.parent as SourceListSortable;
+        //         return_val_if_fail (parent != null, retval);
 
-                parent.user_moved_item (item);
-            }
+        //         parent.user_moved_item (item);
+        //     }
 
-            return retval;
-        }
+        //     return retval;
+        // }
 
         private void recursive_node_copy (Gtk.TreeIter src_iter, Gtk.TreeIter dest_iter) {
             move_item (src_iter, dest_iter);
@@ -1311,156 +1311,156 @@ public class SourceList : Gtk.ScrolledWindow {
             items.set (item, new NodeWrapper (child_tree, dest_iter));
         }
 
-        public bool row_drop_possible (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
-            Gtk.TreeModel model;
-            Gtk.TreePath src_path;
+    //     public bool row_drop_possible (Gtk.TreePath dest, Gtk.SelectionData selection_data) {
+    //         Gtk.TreeModel model;
+    //         Gtk.TreePath src_path;
 
-            // Check if the user is dragging a row:
-            // Due to Gtk.TreeModelFilter's implementation of drag_data_get the values returned by
-            // tree_row_drag_data for GtkModel and GtkPath correspond to the child model and not the filter.
-            if (!Gtk.tree_get_row_drag_data (selection_data, out model, out src_path) || model != child_tree)
-                return false;
+    //         // Check if the user is dragging a row:
+    //         // Due to Gtk.TreeModelFilter's implementation of drag_data_get the values returned by
+    //         // tree_row_drag_data for GtkModel and GtkPath correspond to the child model and not the filter.
+    //         if (!Gtk.tree_get_row_drag_data (selection_data, out model, out src_path) || model != child_tree)
+    //             return false;
 
-            // get a representation of dest in the child model
-            var child_dest = convert_path_to_child_path (dest);
+    //         // get a representation of dest in the child model
+    //         var child_dest = convert_path_to_child_path (dest);
 
-            // don't allow dropping an item into itself
-            if (child_dest == null || src_path.compare (child_dest) == 0)
-                return false;
+    //         // don't allow dropping an item into itself
+    //         if (child_dest == null || src_path.compare (child_dest) == 0)
+    //             return false;
 
-            // Only allow DnD between items at the same depth (indentation level)
-            // This doesn't mean their parent is the same.
-            int src_depth = src_path.get_depth ();
-            int dest_depth = child_dest.get_depth ();
+    //         // Only allow DnD between items at the same depth (indentation level)
+    //         // This doesn't mean their parent is the same.
+    //         int src_depth = src_path.get_depth ();
+    //         int dest_depth = child_dest.get_depth ();
 
-            if (src_depth != dest_depth)
-                return false;
+    //         if (src_depth != dest_depth)
+    //             return false;
 
-            // no need to check dest_depth since we know its equal to src_depth
-            if (src_depth < 1)
-                return false;
+    //         // no need to check dest_depth since we know its equal to src_depth
+    //         if (src_depth < 1)
+    //             return false;
 
-            Item? parent = null;
+    //         Item? parent = null;
 
-            // if the depth is 1, we're talking about the items at root level,
-            // and by definition they share the same parent (root). We don't
-            // need to verify anything else for that specific case
-            if (src_depth == 1) {
-                parent = root;
-            } else {
-                // we verified equality above. this must be true
-                assert (dest_depth > 1);
+    //         // if the depth is 1, we're talking about the items at root level,
+    //         // and by definition they share the same parent (root). We don't
+    //         // need to verify anything else for that specific case
+    //         if (src_depth == 1) {
+    //             parent = root;
+    //         } else {
+    //             // we verified equality above. this must be true
+    //             assert (dest_depth > 1);
 
-                // Only allow reordering between siblings, i.e. items with the same
-                // parent. We don't want items to change their parent through DnD
-                // because that would complicate our existing APIs, and may introduce
-                // unpredictable behavior.
-                var src_indices = src_path.get_indices ();
-                var dest_indices = child_dest.get_indices ();
+    //             // Only allow reordering between siblings, i.e. items with the same
+    //             // parent. We don't want items to change their parent through DnD
+    //             // because that would complicate our existing APIs, and may introduce
+    //             // unpredictable behavior.
+    //             var src_indices = src_path.get_indices ();
+    //             var dest_indices = child_dest.get_indices ();
 
-                // parent index is given by indices[depth-2], where depth > 1
-                int src_parent_index = src_indices[src_depth - 2];
-                int dest_parent_index = dest_indices[dest_depth - 2];
+    //             // parent index is given by indices[depth-2], where depth > 1
+    //             int src_parent_index = src_indices[src_depth - 2];
+    //             int dest_parent_index = dest_indices[dest_depth - 2];
 
-                if (src_parent_index != dest_parent_index)
-                    return false;
+    //             if (src_parent_index != dest_parent_index)
+    //                 return false;
 
-                // get parent. Note that we don't use the child path for this
-                var dest_parent = dest;
+    //             // get parent. Note that we don't use the child path for this
+    //             var dest_parent = dest;
 
-                if (!dest_parent.up () || dest_parent.get_depth () < 1)
-                    return false;
+    //             if (!dest_parent.up () || dest_parent.get_depth () < 1)
+    //                 return false;
 
-                parent = get_item_from_path (dest_parent);
-            }
+    //             parent = get_item_from_path (dest_parent);
+    //         }
 
-            var sortable = parent as SourceListSortable;
+    //         var sortable = parent as SourceListSortable;
 
-            if (sortable == null || !sortable.allow_dnd_sorting ())
-                return false;
+    //         if (sortable == null || !sortable.allow_dnd_sorting ())
+    //             return false;
 
-            var dest_item = get_item_from_path (dest);
+    //         var dest_item = get_item_from_path (dest);
 
-            if (dest_item == null)
-                return true;
+    //         if (dest_item == null)
+    //             return true;
 
-            Item? source_item = null;
-            var filter_src_path = convert_child_path_to_path (src_path);
+    //         Item? source_item = null;
+    //         var filter_src_path = convert_child_path_to_path (src_path);
 
-            if (filter_src_path != null)
-                source_item = get_item_from_path (filter_src_path);
+    //         if (filter_src_path != null)
+    //             source_item = get_item_from_path (filter_src_path);
 
-            if (source_item == null)
-                return false;
+    //         if (source_item == null)
+    //             return false;
 
-            // If order isn't indifferent (=0), 'dest' has to sort before 'source'.
-            // Otherwise we'd allow the user to move the 'source_item' to a new
-            // location before 'dest_item', but that location would be changed
-            // later by the sort function, making the whole interaction poinless.
-            // We better prevent such reorderings from the start by giving the
-            // user a visual clue about the invalid drop location.
-            if (sortable.compare (dest_item, source_item) >= 0) {
-                if (!dest.prev ())
-                    return true;
+    //         // If order isn't indifferent (=0), 'dest' has to sort before 'source'.
+    //         // Otherwise we'd allow the user to move the 'source_item' to a new
+    //         // location before 'dest_item', but that location would be changed
+    //         // later by the sort function, making the whole interaction poinless.
+    //         // We better prevent such reorderings from the start by giving the
+    //         // user a visual clue about the invalid drop location.
+    //         if (sortable.compare (dest_item, source_item) >= 0) {
+    //             if (!dest.prev ())
+    //                 return true;
 
-                // 'source_item' also has to sort 'after' or 'equal' the item currently
-                // preceding 'dest_item'
-                var dest_item_prev = get_item_from_path (dest);
+    //             // 'source_item' also has to sort 'after' or 'equal' the item currently
+    //             // preceding 'dest_item'
+    //             var dest_item_prev = get_item_from_path (dest);
 
-                return dest_item_prev != null
-                    && dest_item_prev != source_item
-                    && sortable.compare (dest_item_prev, source_item) <= 0;
-            }
+    //             return dest_item_prev != null
+    //                 && dest_item_prev != source_item
+    //                 && sortable.compare (dest_item_prev, source_item) <= 0;
+    //         }
 
-            return false;
-        }
+    //         return false;
+    //     }
 
-        /**
-         * Override default implementation of TreeDragSource
-         *
-         * drag_data_delete is not overriden because the default implementation
-         * does exactly what we need.
-         */
+    //     /**
+    //      * Override default implementation of TreeDragSource
+    //      *
+    //      * drag_data_delete is not overriden because the default implementation
+    //      * does exactly what we need.
+    //      */
 
-        public bool drag_data_get (Gtk.TreePath path, Gtk.SelectionData selection_data) {
-            // If we're asked for a data about a row, just have the default implementation fill in
-            // selection_data. Please note that it will provide information relative to child_model.
-            if (selection_data.get_target () == Gdk.Atom.intern_static_string ("GTK_TREE_MODEL_ROW"))
-                return base.drag_data_get (path, selection_data);
+    //     public bool drag_data_get (Gtk.TreePath path, Gtk.SelectionData selection_data) {
+    //         // If we're asked for a data about a row, just have the default implementation fill in
+    //         // selection_data. Please note that it will provide information relative to child_model.
+    //         if (selection_data.get_target () == Gdk.Atom.intern_static_string ("GTK_TREE_MODEL_ROW"))
+    //             return base.drag_data_get (path, selection_data);
 
-            // check if the item at path provides DnD source data
-            var drag_source_item = get_item_from_path (path) as SourceListDragSource;
-            if (drag_source_item != null && drag_source_item.draggable ()) {
-                drag_source_item.prepare_selection_data (selection_data);
-                return true;
-            }
+    //         // check if the item at path provides DnD source data
+    //         var drag_source_item = get_item_from_path (path) as SourceListDragSource;
+    //         if (drag_source_item != null && drag_source_item.draggable ()) {
+    //             drag_source_item.prepare_selection_data (selection_data);
+    //             return true;
+    //         }
 
-            return false;
-        }
+    //         return false;
+    //     }
 
-        public bool row_draggable (Gtk.TreePath path) {
-            if (!base.row_draggable (path))
-                return false;
+    //     public bool row_draggable (Gtk.TreePath path) {
+    //         if (!base.row_draggable (path))
+    //             return false;
 
-            var item = get_item_from_path (path);
+    //         var item = get_item_from_path (path);
 
-            if (item != null) {
-                // check if the item's parent allows DnD sorting
-                var sortable_item = item.parent as SourceListSortable;
+    //         if (item != null) {
+    //             // check if the item's parent allows DnD sorting
+    //             var sortable_item = item.parent as SourceListSortable;
 
-                if (sortable_item != null && sortable_item.allow_dnd_sorting ())
-                    return true;
+    //             if (sortable_item != null && sortable_item.allow_dnd_sorting ())
+    //                 return true;
 
-                // Since the parent item does not allow DnD sorting, there's no
-                // reason to allow dragging it unless the row is actually draggable.
-                var drag_source_item = item as SourceListDragSource;
+    //             // Since the parent item does not allow DnD sorting, there's no
+    //             // reason to allow dragging it unless the row is actually draggable.
+    //             var drag_source_item = item as SourceListDragSource;
 
-                if (drag_source_item != null && drag_source_item.draggable ())
-                    return true;
-            }
+    //             if (drag_source_item != null && drag_source_item.draggable ())
+    //                 return true;
+    //         }
 
-            return false;
-        }
+    //         return false;
+    //     }
     }
 
 
@@ -1742,146 +1742,146 @@ public class SourceList : Gtk.ScrolledWindow {
             disable_item_property_monitor ();
         }
 
-        public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
-            // call the base signal to get rows with children to spring open
-            if (!base.drag_motion (context, x, y, time))
-                return false;
+        // public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
+        //     // call the base signal to get rows with children to spring open
+        //     if (!base.drag_motion (context, x, y, time))
+        //         return false;
 
-            Gtk.TreePath suggested_path, current_path;
-            Gtk.TreeViewDropPosition suggested_pos, current_pos;
+        //     Gtk.TreePath suggested_path, current_path;
+        //     Gtk.TreeViewDropPosition suggested_pos, current_pos;
 
-            if (get_dest_row_at_pos (x, y, out suggested_path, out suggested_pos)) {
-                // the base implementation of drag_motion was likely to set a drop
-                // destination row. If that's the case, we configure the row position
-                // to only allow drops before or after it, but not into it
-                get_drag_dest_row (out current_path, out current_pos);
+        //     if (get_dest_row_at_pos (x, y, out suggested_path, out suggested_pos)) {
+        //         // the base implementation of drag_motion was likely to set a drop
+        //         // destination row. If that's the case, we configure the row position
+        //         // to only allow drops before or after it, but not into it
+        //         get_drag_dest_row (out current_path, out current_pos);
 
-                if (current_path != null && suggested_path.compare (current_path) == 0) {
-                    // If the source widget is this treeview, we assume we're
-                    // just dragging rows around, because at the moment dragging
-                    // rows into other rows (re-parenting) is not implemented.
-                    var source_widget = Gtk.drag_get_source_widget (context);
-                    bool dragging_treemodel_row = (source_widget == this);
+        //         if (current_path != null && suggested_path.compare (current_path) == 0) {
+        //             // If the source widget is this treeview, we assume we're
+        //             // just dragging rows around, because at the moment dragging
+        //             // rows into other rows (re-parenting) is not implemented.
+        //             var source_widget = Gtk.drag_get_source_widget (context);
+        //             bool dragging_treemodel_row = (source_widget == this);
 
-                    if (dragging_treemodel_row) {
-                        // we don't allow DnD into other rows, only in between them
-                        // (no row is highlighted)
-                        if (current_pos != Gtk.TreeViewDropPosition.BEFORE) {
-                            if (current_pos == Gtk.TreeViewDropPosition.INTO_OR_BEFORE)
-                                set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.BEFORE);
-                            else
-                                set_drag_dest_row (null, Gtk.TreeViewDropPosition.AFTER);
-                        }
-                    } else {
-                        // for DnD originated on a different widget, we don't want to insert
-                        // between rows, only select the rows themselves
-                        if (current_pos == Gtk.TreeViewDropPosition.BEFORE)
-                            set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.INTO_OR_BEFORE);
-                        else if (current_pos == Gtk.TreeViewDropPosition.AFTER)
-                            set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.INTO_OR_AFTER);
+        //             if (dragging_treemodel_row) {
+        //                 // we don't allow DnD into other rows, only in between them
+        //                 // (no row is highlighted)
+        //                 if (current_pos != Gtk.TreeViewDropPosition.BEFORE) {
+        //                     if (current_pos == Gtk.TreeViewDropPosition.INTO_OR_BEFORE)
+        //                         set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.BEFORE);
+        //                     else
+        //                         set_drag_dest_row (null, Gtk.TreeViewDropPosition.AFTER);
+        //                 }
+        //             } else {
+        //                 // for DnD originated on a different widget, we don't want to insert
+        //                 // between rows, only select the rows themselves
+        //                 if (current_pos == Gtk.TreeViewDropPosition.BEFORE)
+        //                     set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.INTO_OR_BEFORE);
+        //                 else if (current_pos == Gtk.TreeViewDropPosition.AFTER)
+        //                     set_drag_dest_row (current_path, Gtk.TreeViewDropPosition.INTO_OR_AFTER);
 
-                        // determine if external DnD is supported by the item at destination
-                        var dest = data_model.get_item_from_path (current_path) as SourceListDragDest;
+        //                 // determine if external DnD is supported by the item at destination
+        //                 var dest = data_model.get_item_from_path (current_path) as SourceListDragDest;
 
-                        if (dest != null) {
-                            var target_list = Gtk.drag_dest_get_target_list (this);
-                            var target = Gtk.drag_dest_find_target (this, context, target_list);
+        //                 if (dest != null) {
+        //                     var target_list = Gtk.drag_dest_get_target_list (this);
+        //                     var target = Gtk.drag_dest_find_target (this, context, target_list);
 
-                            // have 'drag_get_data' call 'drag_data_received' to determine
-                            // if the data can actually be dropped.
-                            context.set_data<int> ("suggested-dnd-action", context.get_suggested_action ());
-                            Gtk.drag_get_data (this, context, target, time);
-                        } else {
-                            // dropping data here is not supported. Unset dest row
-                            set_drag_dest_row (null, Gtk.TreeViewDropPosition.BEFORE);
-                        }
-                    }
-                }
-            } else {
-                // dropping into blank areas of SourceList is not allowed
-                set_drag_dest_row (null, Gtk.TreeViewDropPosition.AFTER);
-                return false;
-            }
+        //                     // have 'drag_get_data' call 'drag_data_received' to determine
+        //                     // if the data can actually be dropped.
+        //                     context.set_data<int> ("suggested-dnd-action", context.get_suggested_action ());
+        //                     Gtk.drag_get_data (this, context, target, time);
+        //                 } else {
+        //                     // dropping data here is not supported. Unset dest row
+        //                     set_drag_dest_row (null, Gtk.TreeViewDropPosition.BEFORE);
+        //                 }
+        //             }
+        //         }
+        //     } else {
+        //         // dropping into blank areas of SourceList is not allowed
+        //         set_drag_dest_row (null, Gtk.TreeViewDropPosition.AFTER);
+        //         return false;
+        //     }
 
-            return true;
-        }
+        //     return true;
+        // }
 
-        public override void drag_data_received (
-            Gdk.DragContext context,
-            int x,
-            int y,
-            Gtk.SelectionData selection_data,
-            uint info,
-            uint time
-        ) {
-            var target_list = Gtk.drag_dest_get_target_list (this);
-            var target = Gtk.drag_dest_find_target (this, context, target_list);
+        // public override void drag_data_received (
+        //     Gdk.DragContext context,
+        //     int x,
+        //     int y,
+        //     Gtk.SelectionData selection_data,
+        //     uint info,
+        //     uint time
+        // ) {
+        //     var target_list = Gtk.drag_dest_get_target_list (this);
+        //     var target = Gtk.drag_dest_find_target (this, context, target_list);
 
-            if (target == Gdk.Atom.intern_static_string ("GTK_TREE_MODEL_ROW")) {
-                base.drag_data_received (context, x, y, selection_data, info, time);
-                return;
-            }
+        //     if (target == Gdk.Atom.intern_static_string ("GTK_TREE_MODEL_ROW")) {
+        //         base.drag_data_received (context, x, y, selection_data, info, time);
+        //         return;
+        //     }
 
-            Gtk.TreePath path;
-            Gtk.TreeViewDropPosition pos;
+        //     Gtk.TreePath path;
+        //     Gtk.TreeViewDropPosition pos;
 
-            if (context.get_data<int> ("suggested-dnd-action") != 0) {
-                context.set_data<int> ("suggested-dnd-action", 0);
+        //     if (context.get_data<int> ("suggested-dnd-action") != 0) {
+        //         context.set_data<int> ("suggested-dnd-action", 0);
 
-                get_drag_dest_row (out path, out pos);
+        //         get_drag_dest_row (out path, out pos);
 
-                if (path != null) {
-                    // determine if external DnD is allowed by the item at destination
-                    var dest = data_model.get_item_from_path (path) as SourceListDragDest;
+        //         if (path != null) {
+        //             // determine if external DnD is allowed by the item at destination
+        //             var dest = data_model.get_item_from_path (path) as SourceListDragDest;
 
-                    if (dest == null || !dest.data_drop_possible (context, selection_data)) {
-                        // dropping data here is not allowed. unset any previously
-                        // selected destination row
-                        set_drag_dest_row (null, Gtk.TreeViewDropPosition.BEFORE);
-                        Gdk.drag_status (context, 0, time);
-                        return;
-                    }
-                }
+        //             if (dest == null || !dest.data_drop_possible (context, selection_data)) {
+        //                 // dropping data here is not allowed. unset any previously
+        //                 // selected destination row
+        //                 set_drag_dest_row (null, Gtk.TreeViewDropPosition.BEFORE);
+        //                 Gdk.drag_status (context, 0, time);
+        //                 return;
+        //             }
+        //         }
 
-                Gdk.drag_status (context, context.get_suggested_action (), time);
-            } else {
-                if (get_dest_row_at_pos (x, y, out path, out pos)) {
-                    // Data coming from external source/widget was dropped into this item.
-                    // selection_data contains something other than a tree row; most likely
-                    // we're dealing with a DnD not originated within the Source List tree.
-                    // Let's pass the data to the corresponding item, if there's a handler.
+        //         Gdk.drag_status (context, context.get_suggested_action (), time);
+        //     } else {
+        //         if (get_dest_row_at_pos (x, y, out path, out pos)) {
+        //             // Data coming from external source/widget was dropped into this item.
+        //             // selection_data contains something other than a tree row; most likely
+        //             // we're dealing with a DnD not originated within the Source List tree.
+        //             // Let's pass the data to the corresponding item, if there's a handler.
 
-                    var drag_dest = data_model.get_item_from_path (path) as SourceListDragDest;
+        //             var drag_dest = data_model.get_item_from_path (path) as SourceListDragDest;
 
-                    if (drag_dest != null) {
-                        var action = drag_dest.data_received (context, selection_data);
-                        Gtk.drag_finish (context, action != 0, action == Gdk.DragAction.MOVE, time);
-                        return;
-                    }
-                }
+        //             if (drag_dest != null) {
+        //                 var action = drag_dest.data_received (context, selection_data);
+        //                 Gtk.drag_finish (context, action != 0, action == Gdk.DragAction.MOVE, time);
+        //                 return;
+        //             }
+        //         }
 
-                // failure
-                Gtk.drag_finish (context, false, false, time);
-            }
-        }
+        //         // failure
+        //         Gtk.drag_finish (context, false, false, time);
+        //     }
+        // }
 
-        public void configure_drag_source (Gtk.TargetEntry[]? src_entries) {
-            // Append GTK_TREE_MODEL_ROW to src_entries and src_entries to enable row DnD.
-            var entries = append_row_target_entry (src_entries);
+        // public void configure_drag_source (Gtk.TargetEntry[]? src_entries) {
+        //     // Append GTK_TREE_MODEL_ROW to src_entries and src_entries to enable row DnD.
+        //     var entries = append_row_target_entry (src_entries);
 
-            unset_rows_drag_source ();
-            enable_model_drag_source (Gdk.ModifierType.BUTTON1_MASK, entries, Gdk.DragAction.MOVE);
-        }
+        //     unset_rows_drag_source ();
+        //     enable_model_drag_source (Gdk.ModifierType.BUTTON1_MASK, entries, Gdk.DragAction.MOVE);
+        // }
 
-        public void configure_drag_dest (Gtk.TargetEntry[]? dest_entries, Gdk.DragAction actions) {
-            // Append GTK_TREE_MODEL_ROW to dest_entries and dest_entries to enable row DnD.
-            var entries = append_row_target_entry (dest_entries);
+        // public void configure_drag_dest (Gtk.TargetEntry[]? dest_entries, Gdk.DragAction actions) {
+        //     // Append GTK_TREE_MODEL_ROW to dest_entries and dest_entries to enable row DnD.
+        //     var entries = append_row_target_entry (dest_entries);
 
-            unset_rows_drag_dest ();
+        //     unset_rows_drag_dest ();
 
-            // DragAction.MOVE needs to be enabled for row drag-and-drop to work properly
-            enable_model_drag_dest (entries, Gdk.DragAction.MOVE | actions);
-        }
+        //     // DragAction.MOVE needs to be enabled for row drag-and-drop to work properly
+        //     enable_model_drag_dest (entries, Gdk.DragAction.MOVE | actions);
+        // }
 
         private bool on_query_tooltip (int x, int y, bool keyboard_tooltip, Gtk.Tooltip tooltip) {
             Gtk.TreePath path;
@@ -1932,23 +1932,23 @@ public class SourceList : Gtk.ScrolledWindow {
             return false;
         }
 
-        private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
-            const Gtk.TargetEntry row_target_entry = { // vala-lint=naming-convention
-                "GTK_TREE_MODEL_ROW",
-                Gtk.TargetFlags.SAME_WIDGET,
-                0
-            };
+        // private static Gtk.TargetEntry[] append_row_target_entry (Gtk.TargetEntry[]? orig) {
+        //     const Gtk.TargetEntry row_target_entry = { // vala-lint=naming-convention
+        //         "GTK_TREE_MODEL_ROW",
+        //         Gtk.TargetFlags.SAME_WIDGET,
+        //         0
+        //     };
 
-            var entries = new Gtk.TargetEntry[0];
-            entries += row_target_entry;
+        //     var entries = new Gtk.TargetEntry[0];
+        //     entries += row_target_entry;
 
-            if (orig != null) {
-                foreach (var target_entry in orig)
-                    entries += target_entry;
-            }
+        //     if (orig != null) {
+        //         foreach (var target_entry in orig)
+        //             entries += target_entry;
+        //     }
 
-            return entries;
-        }
+        //     return entries;
+        // }
 
         private void enable_item_property_monitor () {
             data_model.item_updated.connect_after (on_model_item_updated);
@@ -2777,9 +2777,9 @@ public class SourceList : Gtk.ScrolledWindow {
      * @see Code.Widgets.SourceList.disable_drag_source
      * @since 0.3
      */
-    public void enable_drag_source (Gtk.TargetEntry[] src_entries) {
-        tree.configure_drag_source (src_entries);
-    }
+    // public void enable_drag_source (Gtk.TargetEntry[] src_entries) {
+    //     tree.configure_drag_source (src_entries);
+    // }
 
     /**
      * Undoes the effect of {@link Code.Widgets.SourceList.enable_drag_source}
@@ -2787,9 +2787,9 @@ public class SourceList : Gtk.ScrolledWindow {
      * @see Code.Widgets.SourceList.enable_drag_source
      * @since 0.3
      */
-    public void disable_drag_source () {
-        tree.configure_drag_source (null);
-    }
+    // public void disable_drag_source () {
+    //     tree.configure_drag_source (null);
+    // }
 
     /**
      * Turns Source List into a //drop destination//.
@@ -2804,9 +2804,9 @@ public class SourceList : Gtk.ScrolledWindow {
      * @see Code.Widgets.SourceList.disable_drag_dest
      * @since 0.3
      */
-    public void enable_drag_dest (Gtk.TargetEntry[] dest_entries, Gdk.DragAction actions) {
-        tree.configure_drag_dest (dest_entries, actions);
-    }
+    // public void enable_drag_dest (Gtk.TargetEntry[] dest_entries, Gdk.DragAction actions) {
+    //     tree.configure_drag_dest (dest_entries, actions);
+    // }
 
     /**
      * Undoes the effect of {@link Code.Widgets.SourceList.enable_drag_dest}
@@ -2814,9 +2814,9 @@ public class SourceList : Gtk.ScrolledWindow {
      * @see Code.Widgets.SourceList.enable_drag_dest
      * @since 0.3
      */
-    public void disable_drag_dest () {
-        tree.configure_drag_dest (null, 0);
-    }
+    // public void disable_drag_dest () {
+    //     tree.configure_drag_dest (null, 0);
+    // }
 
     /**
      * Scrolls the source list tree to make //item// visible.

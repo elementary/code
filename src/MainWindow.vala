@@ -456,26 +456,26 @@ namespace Scratch {
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen
-            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
-            Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            // Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            // Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
-            welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
-                var uris = sel.get_uris ();
-                if (uris.length > 0) {
-                    for (var i = 0; i < uris.length; i++) {
-                        string filename = uris[i];
-                        var file = File.new_for_uri (filename);
-                        bool is_folder;
-                        //TODO Handle folders dropped here
-                        if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
-                            Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                            document_view.open_document.begin (doc);
-                        }
-                    }
+            // welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+            //     var uris = sel.get_uris ();
+            //     if (uris.length > 0) {
+            //         for (var i = 0; i < uris.length; i++) {
+            //             string filename = uris[i];
+            //             var file = File.new_for_uri (filename);
+            //             bool is_folder;
+            //             //TODO Handle folders dropped here
+            //             if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
+            //                 Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+            //                 document_view.open_document.begin (doc);
+            //             }
+            //         }
 
-                    Gtk.drag_finish (ctx, true, false, time);
-                }
-            });
+            //         Gtk.drag_finish (ctx, true, false, time);
+            //     }
+            // });
 
             sidebar = new Code.Sidebar ();
 
