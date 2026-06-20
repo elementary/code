@@ -22,7 +22,11 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         var general_box = new Gtk.Box (VERTICAL, 12);
         general_box.add (new Granite.HeaderLabel (_("General")));
         general_box.add (new SettingSwitch (_("Save files when changed"), "autosave"));
-        general_box.add (new SettingSwitch (_("Strip trailing whitespace on save"), "strip-trailing-on-save"));
+        general_box.add (new SettingSwitch (
+            _("Strip trailing whitespace on save"),
+            "strip-trailing-on-save",
+            _("Except Plain Text, Markdown and YAML")
+        ));
         general_box.add (new SettingSwitch (
             _("Smart cut/copy lines"),
             "smart-cut-copy",
@@ -117,13 +121,21 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         editor_box.add (new SettingSwitch (_("Line width guide"), "show-right-margin"));
         editor_box.add (right_margin_position);
 
+
+        var application = ((Scratch.Application) (GLib.Application.get_default ()));
+        var font_switch = new SettingSwitch (
+            _("Use system font (%s)").printf (application.system_document_font),
+            "use-system-font"
+        );
+        // We assume the system font will not change while dialog open
+
         var select_font = new Gtk.FontButton ();
         Scratch.settings.bind ("font", select_font, "font-name", DEFAULT);
         Scratch.settings.bind ("use-system-font", select_font, "sensitive", INVERT_BOOLEAN);
 
         var font_box = new Gtk.Box (VERTICAL, 12);
         font_box.add (new Granite.HeaderLabel (_("Font")));
-        font_box.add (new SettingSwitch (_("Use system font"), "use-system-font"));
+        font_box.add (font_switch);
         font_box.add (select_font);
 
         var interface_box = new Gtk.Box (VERTICAL, 24);
@@ -191,7 +203,6 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
                 hexpand = true,
                 mnemonic_widget = switch_widget
             };
-
             column_spacing = 12;
             attach (label_widget, 0, 0);
             attach (switch_widget, 1, 0, 1, 2);
