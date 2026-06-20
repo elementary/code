@@ -33,7 +33,6 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
     }
 
     public void remove_mark (Gtk.TextMark mark) {
-        buffer.delete_mark (mark);
         mark_list.remove (mark);
         purge_and_sort_mark_list ();
     }

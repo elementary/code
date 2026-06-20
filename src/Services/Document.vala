@@ -300,6 +300,19 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
+            source_view.enter_notify_event.connect (() => {
+                if (!source_view.has_focus) {
+                    source_view.grab_focus ();
+                }
+            });
+
+            source_view.focus_out_event.connect (() => {
+                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+
+                    strip_trailing_spaces ();
+                }
+            });
+
             loaded = file == null;
 
             add (main_stack);
@@ -805,6 +818,10 @@ namespace Scratch.Services {
         public void revert () {
             this.source_view.set_text (original_content, false);
             check_undoable_actions ();
+
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
         }
 
         // Get text
@@ -968,6 +985,10 @@ namespace Scratch.Services {
                         set_saved_status (true);
                         source_view.buffer.set_modified (false);
                         loaded = true;
+
+                        if (outline != null) {
+                            outline.parse_symbols ();
+                        }
                         return;
                     }
 
@@ -1089,6 +1110,10 @@ namespace Scratch.Services {
                             last_save_content = source_view.buffer.text;
                             set_saved_status (true);
                             locked = false;
+
+                            if (outline != null) {
+                                outline.parse_symbols ();
+                            }
                             break;
                         case 1: // Overwrite
                             // Force save, unlock to allow saving to same location
@@ -1294,6 +1319,11 @@ namespace Scratch.Services {
                 return;
             }
 
+            var lang_id = source_view.language.id;
+            if (lang_id == "markdown" || lang_id == "yaml") {
+                return;
+            }
+
             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
             Gtk.TextIter iter;
 
@@ -1333,6 +1363,10 @@ namespace Scratch.Services {
                     start_delete.forward_to_line_end ();
                     end_delete = start_delete;
                     end_delete.backward_chars (info.fetch (0).length);
+
+                    if (source_buffer.iter_has_context_class (start_delete, "string")) {
+                        continue;
+                    }
 
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);

@@ -99,13 +99,16 @@ namespace Scratch {
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
         public const string ACTION_DUPLICATE = "action-duplicate";
         public const string ACTION_FULLSCREEN = "action-fullscreen";
-        public const string ACTION_QUIT = "action-quit";
+        public const string ACTION_QUIT = "action-quit-app";
+        public const string ACTION_CLOSE_WINDOW = "action-close-window";
         public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
         public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
         public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
+        public const string ACTION_FOCUS_SIDEBAR = "action-focus-sidebar";
+        public const string ACTION_FOCUS_DOCUMENT = "action-focus-document";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
@@ -113,7 +116,7 @@ namespace Scratch {
         public const string ACTION_NEXT_TAB = "action-next-tab";
         public const string ACTION_PREVIOUS_TAB = "action-previous-tab";
         public const string ACTION_CLEAR_LINES = "action-clear-lines";
-        public const string ACTION_NEW_BRANCH = "action-new-branch";
+        public const string ACTION_BRANCH_ACTIONS = "action-branch-actions";
         public const string ACTION_CLOSE_TAB = "action-close-tab";
         public const string ACTION_CLOSE_TABS_TO_RIGHT = "action-close-tabs-to-right";
         public const string ACTION_CLOSE_OTHER_TABS = "action-close-other-tabs";
@@ -160,12 +163,15 @@ namespace Scratch {
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
-            { ACTION_QUIT, action_quit },
+            { ACTION_QUIT, action_quit_app },
+            { ACTION_CLOSE_WINDOW, action_close_window },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
+            { ACTION_FOCUS_SIDEBAR, action_focus_sidebar },
+            { ACTION_FOCUS_DOCUMENT, action_focus_document },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
@@ -173,7 +179,7 @@ namespace Scratch {
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
-            { ACTION_NEW_BRANCH, action_new_branch, "s" },
+            { ACTION_BRANCH_ACTIONS, action_branch_actions, "s" },
             { ACTION_ADD_MARK, action_add_mark},
             { ACTION_PREVIOUS_MARK, action_previous_mark},
             { ACTION_NEXT_MARK, action_next_mark},
@@ -225,6 +231,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
+            action_accelerators.set (ACTION_CLOSE_WINDOW, "<Control>F4");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
@@ -236,6 +243,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_FOCUS_SIDEBAR, "<Control><Alt>Left");
+            action_accelerators.set (ACTION_FOCUS_DOCUMENT, "<Control><Alt>Right");
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
             action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
@@ -245,7 +254,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
-            action_accelerators.set (ACTION_NEW_BRANCH + "::", "<Control>B");
+            action_accelerators.set (ACTION_BRANCH_ACTIONS + "::", "<Control>B");
             action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
             action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
             action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
@@ -325,6 +334,8 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
+                    // Ensure window can restore the correct size
+                    unfullscreen ();
                     break;
             }
 
@@ -714,7 +725,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            action_quit ();
+            action_close_window ();
             return true;
         }
 
@@ -802,10 +813,10 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        private async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes (bool app_closing) {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!yield (doc.do_close (true))) {
+                if (!yield (doc.do_close (app_closing))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -839,7 +850,7 @@ namespace Scratch {
             }
         }
 
-        private void update_saved_state () {
+        private void update_window_state_setting () {
             // Save window state
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
@@ -863,14 +874,14 @@ namespace Scratch {
 
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
-            action_quit ();
+            action_quit_app ();
             return false;
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        public void before_quit () {
+            document_view.update_opened_files_setting ();
+            update_window_state_setting ();
         }
 
         public void set_default_zoom () {
@@ -928,13 +939,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.default_font;
+            string font = app.system_document_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.default_font;
+            string font = app.system_document_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
@@ -957,13 +968,12 @@ namespace Scratch {
             preferences_dialog.present ();
         }
 
-        private void action_quit () {
-            handle_quit ();
-            check_unsaved_changes.begin ((obj, res) => {
-                if (check_unsaved_changes.end (res)) {
-                    app.quit ();
-                }
-            });
+        private void action_close_window () {
+            app.handle_quit_window.begin (this);
+        }
+
+        private void action_quit_app () {
+            app.handle_quit_app.begin ();
         }
 
         private void action_open () {
@@ -1425,6 +1435,26 @@ namespace Scratch {
             sidebar.visible = action.get_state ().get_boolean ();
         }
 
+        private void action_focus_sidebar () {
+            if (sidebar == null) {
+                return;
+            }
+
+            if (!sidebar.visible) {
+                var toggle_sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
+                toggle_sidebar_action.activate (null);
+            }
+
+            sidebar.focus_sidebar ();
+        }
+
+        private void action_focus_document () {
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.focus ();
+            }
+        }
+
         private void action_toggle_terminal () {
             var toggle_terminal_action = Utils.action_from_group (ACTION_TOGGLE_TERMINAL, actions);
             toggle_terminal_action.set_state (!toggle_terminal_action.get_state ().get_boolean ());
@@ -1492,8 +1522,8 @@ namespace Scratch {
             doc.source_view.clear_selected_lines ();
         }
 
-        private void action_new_branch (SimpleAction action, Variant? param) {
-            folder_manager_view.new_branch (get_target_path_for_actions (param));
+        private void action_branch_actions (SimpleAction action, Variant? param) {
+            folder_manager_view.branch_actions (get_target_path_for_actions (param));
         }
 
         private void action_previous_mark () {

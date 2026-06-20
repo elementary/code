@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 16:31+0000\n"
-"PO-Revision-Date: 2026-03-02 12:55+0000\n"
+"POT-Creation-Date: 2026-06-05 14:23+0000\n"
+"PO-Revision-Date: 2026-04-07 13:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_TW/>\n"
@@ -19,126 +19,126 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "新增視窗"
 
-#: src/Application.vala:43
+#: src/Application.vala:44
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "Open file at specified selection range"
 msgstr "開啟檔案中指定的選取範圍"
 
-#: src/Application.vala:44
+#: src/Application.vala:45
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<起始行[.起始欄][-結束行[.結束欄]]>"
 
-#: src/Application.vala:45
+#: src/Application.vala:46
 msgid "[FILE…]"
 msgstr "[檔案…]"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:272
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:274
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:399
+#: src/MainWindow.vala:410
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:404 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:415 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "在頁面上尋找…"
 
-#: src/MainWindow.vala:415
+#: src/MainWindow.vala:426
 msgid "Hide Projects Sidebar"
 msgstr "隱藏專案側邊欄"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:431
 msgid "Show Projects Sidebar"
 msgstr "顯示專案側邊欄"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:440
 msgid "Hide Symbol Outline"
 msgstr "隱藏符號大綱"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:445
 msgid "Show Symbol Outline"
 msgstr "顯示符號大綱"
 
-#: src/MainWindow.vala:443
+#: src/MainWindow.vala:454
 msgid "Hide Terminal"
 msgstr "隱藏終端機"
 
-#: src/MainWindow.vala:448 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:459 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "顯示終端機"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:618
+#: src/MainWindow.vala:629
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:971 src/Services/Document.vala:668
+#: src/MainWindow.vala:981 src/Services/Document.vala:681
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:672
+#: src/MainWindow.vala:985 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:979
+#: src/MainWindow.vala:989
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:982
+#: src/MainWindow.vala:992
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:983 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:993 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:510 src/Services/Document.vala:680
+#: src/Services/Document.vala:523 src/Services/Document.vala:693
 #: plugins/pastebin/pastebin_dialog.vala:327
 #: plugins/pastebin/pastebin_dialog.vala:378
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:1026
+#: src/MainWindow.vala:1036
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1037
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/MainWindow.vala:1082
+#: src/MainWindow.vala:1092
 msgid "Cloning completed"
 msgstr "已完成拓製"
 
-#: src/MainWindow.vala:1083
+#: src/MainWindow.vala:1093
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "已成功拓製到 %s"
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1099
 #, c-format
 msgid "Unable to clone %s"
 msgstr "無法拓製 %s"
 
-#: src/MainWindow.vala:1096
+#: src/MainWindow.vala:1106
 msgid "Retry"
 msgstr "重試"
 
@@ -246,105 +246,111 @@ msgstr "一般"
 msgid "Save files when changed"
 msgstr "變更時儲存檔案"
 
-#: src/Dialogs/PreferencesDialog.vala:25
+#: src/Dialogs/PreferencesDialog.vala:26
 msgid "Strip trailing whitespace on save"
 msgstr "儲存時刪除行尾空白"
 
-#: src/Dialogs/PreferencesDialog.vala:27
+#: src/Dialogs/PreferencesDialog.vala:28
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:31
 msgid "Smart cut/copy lines"
 msgstr "智慧剪下/複製行數"
 
-#: src/Dialogs/PreferencesDialog.vala:29
+#: src/Dialogs/PreferencesDialog.vala:33
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "在沒有手動選擇內容範圍的狀況下，預設將會剪下或複製目前整行內容"
 
-#: src/Dialogs/PreferencesDialog.vala:35
+#: src/Dialogs/PreferencesDialog.vala:39
 msgid "Indentation width"
 msgstr "縮排寬度"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:50
 msgid "Indentation"
 msgstr "縮排"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Automatic indentation"
 msgstr "自動縮排"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "Insert spaces instead of tabs"
 msgstr "插入空格而非 Tab 字元"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Default build directory"
 msgstr "預設編譯目錄"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Projects"
 msgstr "專案"
 
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:82
 msgid "None"
 msgstr "無"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:83
 msgid "Current Line"
 msgstr "目前的行"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "All"
 msgstr "全部"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Whitespace visible when not selected"
 msgstr "未選取時顯示空白字元"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets"
 msgstr "標明對應括號"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Syntax highlighting"
 msgstr "語法標明"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Mini Map"
 msgstr "小地圖"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Wrap lines"
 msgstr "自動換行"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Line width guide"
 msgstr "行寬輔助線"
 
-#: src/Dialogs/PreferencesDialog.vala:125
-msgid "Font"
-msgstr "字型"
-
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Use system font"
+#: src/Dialogs/PreferencesDialog.vala:127
+#, fuzzy, c-format
+#| msgid "Use system font"
+msgid "Use system font (%s)"
 msgstr "使用系統字型"
 
 #: src/Dialogs/PreferencesDialog.vala:137
+msgid "Font"
+msgstr "字型"
+
+#: src/Dialogs/PreferencesDialog.vala:149
 msgid "Behavior"
 msgstr "行為"
 
-#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:150 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "介面"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:166 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "擴充套件"
 
-#: src/Dialogs/PreferencesDialog.vala:160
+#: src/Dialogs/PreferencesDialog.vala:172
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "關閉"
@@ -422,23 +428,23 @@ msgstr "不要簽出"
 msgid "Checkout and Overwrite"
 msgstr "簽出並覆寫"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:170
 msgid "Other Actions"
 msgstr "其他選項"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:144
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:152
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:200
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:220
 msgid "Open In"
 msgstr "開啟於"
 
@@ -446,270 +452,262 @@ msgstr "開啟於"
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:160
 msgid "Find in Folder…"
 msgstr "在資料夾中尋找…"
 
-#: src/FolderManager/FolderItem.vala:186
+#: src/FolderManager/FolderItem.vala:191
 msgid "Terminal Pane"
 msgstr "終端機面板"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:226
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:229
+#: src/FolderManager/FolderItem.vala:234
 msgid "Empty File"
 msgstr "空白檔案"
 
+#: src/FolderManager/FolderItem.vala:252
+msgid "…too many templates"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:255 src/Services/TemplateManager.vala:198
+msgid "Templates"
+msgstr "範本"
+
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:240
-#: src/FolderManager/ProjectFolderItem.vala:425
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/FolderItem.vala:259
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "untitled folder"
 msgstr "未命名資料夾"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "new file"
 msgstr "新檔案"
 
-#: src/FolderManager/ProjectFolderItem.vala:147
+#: src/FolderManager/ProjectFolderItem.vala:135
 msgid "Set as Active Project"
 msgstr "設為作用中專案"
 
-#: src/FolderManager/ProjectFolderItem.vala:155
+#: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
 msgstr "在終端機面板中開啟"
 
-#: src/FolderManager/ProjectFolderItem.vala:186
+#: src/FolderManager/ProjectFolderItem.vala:171
+msgid "Branch Actions…"
+msgstr "分支動作…"
+
+#: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
 msgstr "關閉資料夾"
 
-#: src/FolderManager/ProjectFolderItem.vala:194
+#: src/FolderManager/ProjectFolderItem.vala:189
 msgid "Close Other Folders"
 msgstr "關閉其他資料夾"
 
-#: src/FolderManager/ProjectFolderItem.vala:211
+#: src/FolderManager/ProjectFolderItem.vala:206
 #, c-format
 msgid "Close %u Open Document"
 msgid_plural "Close %u Open Documents"
 msgstr[0] "關閉 %u 個已開啟文件"
 
-#: src/FolderManager/ProjectFolderItem.vala:223
+#: src/FolderManager/ProjectFolderItem.vala:218
 #, c-format
 msgid "Hide %u Open Document"
 msgid_plural "Hide %u Open Documents"
 msgstr[0] "隱藏 %u 個已開啟文件"
 
-#: src/FolderManager/ProjectFolderItem.vala:246
+#: src/FolderManager/ProjectFolderItem.vala:241
 #, c-format
 msgid "Restore %u Hidden Document"
 msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "復原 %u 個已隱藏的文件"
 
-#: src/FolderManager/ProjectFolderItem.vala:279 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
 msgid "Find in Project…"
 msgstr "在專案中尋找…"
 
-#: src/FolderManager/ProjectFolderItem.vala:318
-msgid "Local"
-msgstr "本地"
-
-#: src/FolderManager/ProjectFolderItem.vala:335
-msgid "Remote"
-msgstr "遠端"
-
-#: src/FolderManager/ProjectFolderItem.vala:350
-msgid "New Branch…"
-msgstr "新增分支…"
-
-#: src/FolderManager/ProjectFolderItem.vala:375
-msgid "Branch"
-msgstr "分支"
-
-#: src/FolderManager/ProjectFolderItem.vala:431
+#: src/FolderManager/ProjectFolderItem.vala:334
 msgid "Modified"
 msgstr "已修改"
 
-#: src/FolderManager/ProjectFolderItem.vala:469
+#: src/FolderManager/ProjectFolderItem.vala:395
 #, c-format
 msgid "Error while creating new branch: “%s”"
 msgstr "建立新分支時發生錯誤：「%s」"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:397
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文字檔"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:398
 msgid "Code will not load this type of file."
 msgstr "Code 無法載入這類檔案。"
 
-#: src/Services/Document.vala:387
+#: src/Services/Document.vala:400
 msgid "Load Anyway"
 msgstr "無論如何都要載入"
 
-#: src/Services/Document.vala:408
+#: src/Services/Document.vala:421
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "載入「%s」花得有點久"
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:422
 msgid "Please wait while Code is loading the file."
 msgstr "當 Code 忙著載入檔案時總是等候它。"
 
-#: src/Services/Document.vala:411
+#: src/Services/Document.vala:424
 msgid "Cancel Loading"
 msgstr "取消載入"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:513
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "關閉前要先將變更儲存到「%s」嗎？"
 
-#: src/Services/Document.vala:501
+#: src/Services/Document.vala:514
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若您不儲存，更動皆會永遠消失。"
 
-#: src/Services/Document.vala:507
+#: src/Services/Document.vala:520
 msgid "Close Without Saving"
 msgstr "關閉且不儲存"
 
-#: src/Services/Document.vala:511 src/Services/Document.vala:679
+#: src/Services/Document.vala:524 src/Services/Document.vala:692
 msgid "Save"
 msgstr "儲存"
 
-#: src/Services/Document.vala:638
+#: src/Services/Document.vala:651
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "儲存到「%s」失敗了。"
 
-#: src/Services/Document.vala:676
+#: src/Services/Document.vala:689
 msgid "Save File"
 msgstr "儲存檔案"
 
-#: src/Services/Document.vala:763 src/Services/Document.vala:781
+#: src/Services/Document.vala:776 src/Services/Document.vala:794
 msgid "New Document"
 msgstr "新增文件"
 
 #. No path for a new document
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:796
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "無法將此文件儲存至 %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:870
+#: src/Services/Document.vala:887
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "無法讀取檔案「%s」中的文字"
 
-#: src/Services/Document.vala:873
+#: src/Services/Document.vala:890
 msgid "You may not have permission to read the file."
 msgstr "您可能沒有讀取該檔案的權限。"
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:892
 msgid "The file may be corrupt or may not be a text file"
 msgstr "檔案可能已毀損或者不是文字檔案"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:881
+#: src/Services/Document.vala:898
 msgid "Show Anyway"
 msgstr "無論如何都要顯示"
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:929
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "包含「%s」檔案的位置已被卸載，而該檔案有未儲存的變更。"
 
-#: src/Services/Document.vala:914
+#: src/Services/Document.vala:931
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr "檔案「%s」已被刪除、重新命名或移動，但有未儲存的變更。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:928
+#: src/Services/Document.vala:945
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "沒有寫入檔案「%s」的權限。"
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:995
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "「%s」檔案已被外部程式修改過"
 
-#: src/Services/Document.vala:979
+#: src/Services/Document.vala:1000
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr "還有變更尚未儲存。重新載入文件會覆寫未儲存的變更。"
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1004
 msgid "The document changed externally since you last saved it."
 msgstr "文件在您上次儲存以來已從外部被變更。"
 
-#: src/Services/Document.vala:999
+#: src/Services/Document.vala:1020
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "「%s」無法儲存至此。要存一份副本到別的地方嗎？"
 
-#: src/Services/Document.vala:1008
+#: src/Services/Document.vala:1029
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/Services/Document.vala:1010
+#: src/Services/Document.vala:1031
 msgid "Save Duplicate…"
 msgstr "儲存副本…"
 
-#: src/Services/Document.vala:1059
+#: src/Services/Document.vala:1080
 msgid "Continue"
 msgstr "繼續"
 
-#: src/Services/Document.vala:1061
+#: src/Services/Document.vala:1082
 msgid "Reload"
 msgstr "重新載入"
 
-#: src/Services/Document.vala:1064
+#: src/Services/Document.vala:1085
 msgid "Overwrite"
 msgstr "覆寫"
 
-#: src/Services/Document.vala:1067
+#: src/Services/Document.vala:1088
 msgid "Save Document elsewhere"
 msgstr "將文件儲存到別的地方"
 
-#: src/Services/MonitoredRepository.vala:246
+#: src/Services/MonitoredRepository.vala:254
 #, c-format
 msgid "Remote Branch '%s' not found"
 msgstr "找不到遠端分支「%s」"
 
-#: src/Services/MonitoredRepository.vala:247
+#: src/Services/MonitoredRepository.vala:255
 msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr "要求的分支沒有在任何與此版本庫連結的遠端當中找到"
 
-#: src/Services/MonitoredRepository.vala:284
+#: src/Services/MonitoredRepository.vala:342
 msgid "An error occurred while checking out the requested branch"
 msgstr "遷出指定分支時發生錯誤"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:332
+#: src/Services/MonitoredRepository.vala:382
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s（分離狀態）"
-
-#: src/Services/TemplateManager.vala:198
-msgid "Templates"
-msgstr "範本"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
@@ -1031,31 +1029,31 @@ msgstr "%d/%d"
 msgid "no results"
 msgstr "無結果"
 
-#: src/Widgets/SourceView.vala:581
+#: src/Widgets/SourceView.vala:594
 msgid "Sort Lines"
 msgstr "排序行數"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:598
 msgid "Mark Line"
 msgstr "標記行數"
 
-#: src/Widgets/SourceView.vala:589
+#: src/Widgets/SourceView.vala:602
 msgid "Previous Mark"
 msgstr "上一個標記"
 
-#: src/Widgets/SourceView.vala:593
+#: src/Widgets/SourceView.vala:606
 msgid "Next Mark"
 msgstr "下一個標記"
 
-#: src/Widgets/SourceView.vala:603
+#: src/Widgets/SourceView.vala:616
 msgid "Toggle Comment"
 msgstr "切換註釋"
 
-#: src/Widgets/Terminal.vala:140
+#: src/Widgets/Terminal.vala:133
 msgid "Copy"
 msgstr "複製"
 
-#: src/Widgets/Terminal.vala:141
+#: src/Widgets/Terminal.vala:134
 msgid "Paste"
 msgstr "貼上"
 
@@ -1153,6 +1151,18 @@ msgstr "請安裝至少一本 [aspell] 字典。"
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
+
+#~ msgid "Local"
+#~ msgstr "本地"
+
+#~ msgid "Remote"
+#~ msgstr "遠端"
+
+#~ msgid "New Branch…"
+#~ msgstr "新增分支…"
+
+#~ msgid "Branch"
+#~ msgstr "分支"
 
 #~ msgid "Alphabetize"
 #~ msgstr "依字母排序"
