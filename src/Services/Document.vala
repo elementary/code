@@ -256,24 +256,17 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            // Focus in event for SourceView
-            // Check if file changed externally or permissions changed
-            this.source_view.focus_in_event.connect (() => {
-                if (!locked && !is_file_temporary) {
-                    check_undoable_actions ();
-                    check_file_status.begin ();
+            this.source_view.notify["is-focus"].connect (() => {
+                if (source_view.is_focus) {
+                    if (!locked && !is_file_temporary) {
+                        check_undoable_actions ();
+                        check_file_status.begin ();
+                    }
+                } else {
+                    if (!locked && Scratch.settings.get_boolean ("autosave")) {
+                        save_with_hold.begin ();
+                    }
                 }
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (!locked && Scratch.settings.get_boolean ("autosave")) {
-                    save_with_hold.begin ();
-                }
-
-                return false;
             });
 
             source_view.buffer.changed.connect (() => {
