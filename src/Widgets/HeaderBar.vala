@@ -323,8 +323,8 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         var background = "";
         var foreground = "";
 
-        Gtk.SourceStyleScheme? scheme = null;
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        GtkSource.StyleScheme? scheme = null;
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_id in sssm.scheme_ids) {
             scheme = sssm.get_scheme (style_id);
             // We currently ship and hard-code the style schemes so can assume the "text" key

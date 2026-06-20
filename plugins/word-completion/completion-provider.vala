@@ -19,12 +19,12 @@
  *
  */
 
-public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, GLib.Object {
+public class Scratch.Plugins.CompletionProvider : GtkSource.CompletionProvider, GLib.Object {
     private const int MAX_COMPLETIONS = 10;
     public string name { get; construct; }
     public int priority { get; construct; }
     public int interactive_delay { get; construct; }
-    public Gtk.SourceCompletionActivation activation { get; construct; }
+    public GtkSource.CompletionActivation activation { get; construct; }
 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
@@ -65,7 +65,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
     }
 
-    public bool match (Gtk.SourceCompletionContext context) {
+    public bool match (GtkSource.CompletionContext context) {
         Gtk.TextIter start, end;
         buffer.get_iter_at_offset (out end, buffer.cursor_position);
         start = end.copy ();
@@ -75,15 +75,15 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return parser.match (text);
     }
 
-    public void populate (Gtk.SourceCompletionContext context) {
+    public void populate (GtkSource.CompletionContext context) {
         /*Store current insertion point for use in activate_proposal */
-        GLib.List<Gtk.SourceCompletionItem>? file_props;
-        bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
+        GLib.List<GtkSource.CompletionItem>? file_props;
+        bool no_minimum = (context.get_activation () == GtkSource.CompletionActivation.USER_REQUESTED);
         get_proposals (out file_props, no_minimum);
         context.add_proposals (this, file_props, true);
     }
 
-    public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
+    public bool activate_proposal (GtkSource.CompletionProposal proposal, Gtk.TextIter iter) {
         Gtk.TextIter start;
         Gtk.TextIter end;
         Gtk.TextMark mark;
@@ -99,8 +99,8 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-    public bool get_start_iter (Gtk.SourceCompletionContext context,
-                                Gtk.SourceCompletionProposal proposal,
+    public bool get_start_iter (GtkSource.CompletionContext context,
+                                GtkSource.CompletionProposal proposal,
                                 out Gtk.TextIter iter) {
         var mark = buffer.get_insert ();
         Gtk.TextIter cursor_iter;
@@ -111,7 +111,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-    private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
+    private bool get_proposals (out GLib.List<GtkSource.CompletionItem>? props, bool no_minimum) {
         string to_find = "";
         Gtk.TextBuffer temp_buffer = buffer;
         props = null;
@@ -139,7 +139,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             List<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem ();
+                    var item = new GtkSource.CompletionItem ();
                     item.label = word;
                     item.text = word;
                     props.append (item);

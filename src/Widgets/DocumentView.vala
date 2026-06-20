@@ -191,7 +191,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             style_scheme = Scratch.settings.get_string ("style-scheme");
         }
 
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");

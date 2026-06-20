@@ -21,7 +21,7 @@
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     Scratch.Widgets.SourceView current_source;
     Scratch.MainWindow? main_window = null;
-    Gtk.SourceSearchContext? current_search_context = null;
+    GtkSource.SearchContext? current_search_context = null;
 
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 255;
 
@@ -116,8 +116,8 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
 
             // We know the selected text is non-zero length, check not too long
             if (selected_text.char_count () <= SELECTION_HIGHLIGHT_MAX_CHARS) {
-                current_search_context = new Gtk.SourceSearchContext (
-                    (Gtk.Source.Buffer)current_source.buffer,
+                current_search_context = new GtkSource.SearchContext (
+                    (GtkSource.Buffer)current_source.buffer,
                     null
                 );
                 current_search_context.settings.search_text = selected_text;

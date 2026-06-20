@@ -20,9 +20,9 @@
 */
 
 namespace Scratch.Widgets {
-    public class SourceView : Gtk.SourceView {
-        public Gtk.SourceLanguageManager manager;
-        public Gtk.SourceStyleSchemeManager style_scheme_manager;
+    public class SourceView : GtkSource.View {
+        public GtkSource.LanguageManager manager;
+        public GtkSource.StyleSchemeManager style_scheme_manager;
         public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
@@ -47,19 +47,19 @@ namespace Scratch.Widgets {
 
         protected static Scratch.Application application;
 
-        public signal void style_changed (Gtk.SourceStyleScheme style);
+        public signal void style_changed (GtkSource.StyleScheme style);
         // "selection_changed" signal now only emitted when the selected text changes (position ignored).
         // Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
 
         //lang can be null, in the case of *No highlight style* aka Normal text
-        public Gtk.SourceLanguage? language {
+        public GtkSource.Language? language {
             set {
-                ((Gtk.Source.Buffer) buffer).language = value;
+                ((GtkSource.Buffer) buffer).language = value;
             }
 
             get {
-                return ((Gtk.Source.Buffer) buffer).language;
+                return ((GtkSource.Buffer) buffer).language;
             }
         }
 
@@ -83,7 +83,7 @@ namespace Scratch.Widgets {
             Object (
                 show_line_numbers: true,
                 smart_backspace: true,
-                smart_home_end: Gtk.SourceSmartHomeEndType.BEFORE,
+                smart_home_end: GtkSource.SmartHomeEndType.BEFORE,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
@@ -93,20 +93,20 @@ namespace Scratch.Widgets {
             space_drawer.enable_matrix = true;
 
             expand = true;
-            manager = Gtk.SourceLanguageManager.get_default ();
-            style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+            manager = GtkSource.LanguageManager.get_default ();
+            style_scheme_manager = new GtkSource.StyleSchemeManager ();
 
             font_css_provider = new Gtk.CssProvider ();
             get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            var source_buffer = new Gtk.Source.Buffer (null);
+            var source_buffer = new GtkSource.Buffer (null);
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             source_buffer.mark_set.connect (on_mark_set);
             source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
 
-            var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
+            var draw_spaces_tag = new GtkSource.Tag ("draw_spaces");
             draw_spaces_tag.draw_spaces = true;
             source_buffer.tag_table.add (draw_spaces_tag);
 
@@ -117,7 +117,7 @@ namespace Scratch.Widgets {
             get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
             get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
 
-            smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
+            smart_home_end = GtkSource.SmartHomeEndType.AFTER;
 
             // Create common tags
             warning_tag = new Gtk.TextTag ("warning_bg");
@@ -215,7 +215,7 @@ namespace Scratch.Widgets {
             next_mark_action.activate.connect (goto_next_mark);
             prev_mark_action.activate.connect (goto_previous_mark);
             toggle_comment_action.activate.connect (() => {
-                CommentToggler.toggle_comment (buffer as Gtk.Source.Buffer);
+                CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
             });
 
             var extra_menu = new Menu ();
@@ -230,7 +230,7 @@ namespace Scratch.Widgets {
                 sort_action.set_enabled (buffer.has_selection);
             });
             buffer.notify["language"].connect (() => {
-                toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((Gtk.Source.Buffer)buffer).language));
+                toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((GtkSource.Buffer)buffer).language));
             });
             buffer.notify_property ("has-selection");
             buffer.notify_property ("language");
@@ -284,7 +284,7 @@ namespace Scratch.Widgets {
                             return true;
                     case "<Primary>m":
                     case "<Primary>slash":
-                            CommentToggler.toggle_comment (buffer as Gtk.Source.Buffer);
+                            CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
                             return true;
                     default:
                         break;
@@ -345,32 +345,32 @@ namespace Scratch.Widgets {
             show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
             right_margin_position = Scratch.settings.get_int ("right-margin-position");
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-            var source_buffer = (Gtk.Source.Buffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
             source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.SPACE | GtkSource.SpaceTypeFlags.TAB
                     );
                     break;
                 case ScratchDrawSpacesState.FOR_SELECTION:
                 case ScratchDrawSpacesState.CURRENT:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.NONE
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.NONE
                     );
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.TRAILING,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                        GtkSource.SpaceLocationFlags.TRAILING,
+                        GtkSource.SpaceTypeFlags.SPACE | GtkSource.SpaceTypeFlags.TAB
                     );
                     break;
                 default:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.NONE
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.NONE
                     );
                     break;
             }
@@ -615,7 +615,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_text (string text, bool opening = true) {
-            var source_buffer = (Gtk.Source.Buffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             if (opening) {
                 source_buffer.begin_not_undoable_action ();
             }

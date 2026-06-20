@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
         private Gtk.Button replace_all_tool_button;
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext? search_context;
+        private GtkSource.SearchContext? search_context;
         private uint update_search_label_timeout_id = 0;
         private Gtk.Revealer revealer;
         private Gtk.EventControllerKey key_controller;
@@ -308,7 +308,7 @@ namespace Scratch.Widgets {
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
             this.text_buffer.changed.connect (on_text_buffer_changed);
-            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.Source.Buffer, null);
+            this.search_context = new GtkSource.SearchContext (text_buffer as GtkSource.Buffer, null);
             search_context.settings.wrap_around = cycle_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
             search_context.settings.search_text = search_entry.text;

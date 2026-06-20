@@ -1,4 +1,4 @@
-public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPixbuf {
+public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPixbuf {
     static int navmark_number = 0;
     static int get_next_navmark_number () {
         return navmark_number++;
@@ -130,7 +130,7 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
     public override void query_data (
         Gtk.TextIter start,
         Gtk.TextIter end,
-        Gtk.SourceGutterRendererState state
+        GtkSource.GutterRendererState state
     ) {
         var line = start.get_line ();
         if (sorted_line_list.contains (line)) {

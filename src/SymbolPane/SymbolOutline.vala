@@ -278,11 +278,11 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         );
         // Add a class to distinguish from foldermanager sourcelist
         get_style_context ().add_class ("symbol-outline");
-        update_style_scheme (((Gtk.Source.Buffer)(doc.source_view.buffer)).style_scheme);
+        update_style_scheme (((GtkSource.Buffer)(doc.source_view.buffer)).style_scheme);
         doc.source_view.style_changed.connect (update_style_scheme);
     }
 
-    protected void update_style_scheme (Gtk.SourceStyleScheme style_scheme) {
+    protected void update_style_scheme (GtkSource.StyleScheme style_scheme) {
         var text_color_data = style_scheme.get_style ("text");
 
         // Default gtksourceview background color is white

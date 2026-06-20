@@ -51,7 +51,7 @@ namespace Scratch.Services {
             }
         }
 
-        private Gtk.Source.File source_file;
+        private GtkSource.File source_file;
         public GLib.File file {
             get {
                 return source_file.location;
@@ -177,7 +177,7 @@ namespace Scratch.Services {
         private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
-        private Gtk.Source.Map source_map;
+        private GtkSource.Map source_map;
         private Gtk.Paned outline_widget_pane;
 
         private GLib.Cancellable save_cancellable;
@@ -223,8 +223,8 @@ namespace Scratch.Services {
                 expand = true
             };
             scroll.add (source_view);
-            source_file = new Gtk.Source.File ();
-            source_map = new Gtk.Source.Map ();
+            source_file = new GtkSource.File ();
+            source_map = new GtkSource.Map ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
             if (builder_blocks_font != null && builder_font_map != null) {
@@ -407,7 +407,7 @@ namespace Scratch.Services {
                 Gtk.main_iteration ();
             }
 
-            var buffer = new Gtk.Source.Buffer (null); /* Faster to load into a separate buffer */
+            var buffer = new GtkSource.Buffer (null); /* Faster to load into a separate buffer */
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
@@ -432,9 +432,9 @@ namespace Scratch.Services {
             });
 
             try {
-                var source_file_loader = new Gtk.Source.FileLoader (buffer, source_file);
+                var source_file_loader = new GtkSource.FileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                var source_buffer = source_view.buffer as Gtk.Source.Buffer;
+                var source_buffer = source_view.buffer as GtkSource.Buffer;
                 if (source_buffer != null) {
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.text = buffer.text;
@@ -616,7 +616,7 @@ namespace Scratch.Services {
 
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.Source.FileSaver ((Gtk.Source.Buffer) source_view.buffer, source_file);
+            var source_file_saver = new GtkSource.FileSaver ((GtkSource.Buffer) source_view.buffer, source_file);
             var success = false;
             var error = "";
             try {
@@ -850,7 +850,7 @@ namespace Scratch.Services {
 
         // Get language name
         public string get_language_name () {
-            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.name;
@@ -861,7 +861,7 @@ namespace Scratch.Services {
 
         // Get language id
         public string get_language_id () {
-            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.id;
@@ -946,8 +946,8 @@ namespace Scratch.Services {
                     // If user selects to continue regardless then no further
                     // check made for this document
                     // External changes will be overwritten on next (auto) save
-                    var new_buffer = new Gtk.Source.Buffer (null);
-                    var source_file_loader = new Gtk.Source.FileLoader (
+                    var new_buffer = new GtkSource.Buffer (null);
+                    var source_file_loader = new GtkSource.FileLoader (
                         new_buffer,
                         source_file
                     );
@@ -1129,7 +1129,7 @@ namespace Scratch.Services {
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
-            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
@@ -1317,7 +1317,7 @@ namespace Scratch.Services {
                 return;
             }
 
-            var source_buffer = (Gtk.Source.Buffer)source_view.buffer;
+            var source_buffer = (GtkSource.Buffer)source_view.buffer;
             Gtk.TextIter iter;
 
             var cursor_pos = source_buffer.cursor_position;
