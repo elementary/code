@@ -56,21 +56,35 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
         status_color_map.set (status, color);
     }
 
-    public override void draw (Cairo.Context cr,
-                               Gdk.Rectangle bg,
-                               Gdk.Rectangle area,
-                               Gtk.TextIter start,
-                               Gtk.TextIter end,
-                               GtkSource.GutterRendererState state) {
-
+    public override void snapshot_line (Gtk.Snapshot snapshot, GtkSource.GutterLines lines, uint line) {
         //Gutter and diff lines numbers start at one, source lines start at 0
-        var gutter_line_no = start.get_line () + 1;
+        var gutter_line_no = lines.get_first ();
+        Gdk.RGBA? color;
         if (line_status_map.has_key (gutter_line_no)) {
-            set_background (status_color_map[line_status_map[gutter_line_no]]);
+            color = status_color_map[line_status_map[gutter_line_no]];
         } else {
-            set_background (status_color_map [Services.VCStatus.NONE]);
+            color = status_color_map [Services.VCStatus.NONE];
         }
 
-        base.draw (cr, bg, area, start, end, state);
+        var rect = Gdk.Rectangle () { x = 0, y = 0, width = 6, height = 12 }; //TODO get height from view line height
+        snapshot.append_color (color, rect);
     }
+
+    // public override void draw (Cairo.Context cr,
+    //                            Gdk.Rectangle bg,
+    //                            Gdk.Rectangle area,
+    //                            Gtk.TextIter start,
+    //                            Gtk.TextIter end,
+    //                            GtkSource.GutterRendererState state) {
+
+    //     //Gutter and diff lines numbers start at one, source lines start at 0
+    //     var gutter_line_no = start.get_line () + 1;
+    //     if (line_status_map.has_key (gutter_line_no)) {
+    //         set_background (status_color_map[line_status_map[gutter_line_no]]);
+    //     } else {
+    //         set_background (status_color_map [Services.VCStatus.NONE]);
+    //     }
+
+    //     base.draw (cr, bg, area, start, end, state);
+    // }
 }
