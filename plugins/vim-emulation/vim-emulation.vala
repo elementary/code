@@ -34,6 +34,8 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
     Scratch.Widgets.SourceView? view = null;
 
     Scratch.Services.Interface plugins;
+    private Gtk.EventControllerKey key_controller;
+
     public Object object { owned get; set construct; }
 
     construct {
@@ -48,36 +50,49 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             this.view = doc.source_view;
-            this.view.key_press_event.disconnect (handle_key_press);
-            this.view.key_press_event.connect (handle_key_press);
             this.views.add (view);
+        });
+        plugins.hook_window.connect ((w) => {
+            key_controller = new Gtk.EventControllerKey (w) {
+                propagation_phase = CAPTURE
+            };
+
+            key_controller.key_pressed.connect (handle_key_press);
         });
     }
 
     public void deactivate () {
-        foreach (var v in views) {
-            v.key_press_event.disconnect (handle_key_press);
-        }
+
     }
 
-    private bool handle_key_press (Gdk.EventKey event) {
-        //some extensions to the default navigating
-        bool ctrl = (event.state & Gdk.ModifierType.CONTROL_MASK) != 0;
-        bool shift = (event.state & Gdk.ModifierType.SHIFT_MASK) != 0;
+    private bool handle_key_press (
+        Gtk.EventController controller,
+        uint keyval,
+        uint keycode,
+        Gdk.ModifierType state
+    ) requires (view != null) {
 
-        if (ctrl && event.keyval == Gdk.Key.Up) {
+        if (!view.is_focus) {
+            return false;
+        }
+
+        //some extensions to the default navigating
+        bool ctrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
+        bool shift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
+
+        if (ctrl && (keyval == Gdk.Key.Up)) {
             move_paragraph (true, shift);
             return true;
         }
 
-        if (ctrl && event.keyval == Gdk.Key.Down) {
+        if (ctrl && (keyval == Gdk.Key.Down)) {
             move_paragraph (false, shift);
             return true;
         }
 
         int old_len = number.length;
         // Firstly let's set the mode
-        switch (event.keyval) {
+        switch (keyval) {
             //mode changing
             case Gdk.Key.i:
                 if (mode == Mode.INSERT) {
@@ -97,12 +112,17 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
         }
 
         if (mode == Mode.INSERT) {
-            action += event.str;
+            //NOTE event.str` is gone in Gtk4 so use a different method
+            var uc = (unichar) (Gdk.keyval_to_unicode (keyval));
+            if (uc.isprint ()) {
+                action += uc.to_string ();
+            }
+
             return false;
         }
 
         // Parse commands
-        switch (event.keyval) {
+        switch (keyval) {
             //numbers
             case Gdk.Key.@1:
                 number += "1";
