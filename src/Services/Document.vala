@@ -257,15 +257,14 @@ namespace Scratch.Services {
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
             this.source_view.notify["is-focus"].connect (() => {
+                return_if_fail (!locked);
                 if (source_view.is_focus) {
-                    if (!locked && !is_file_temporary) {
+                    if (!is_file_temporary) {
                         check_undoable_actions ();
                         check_file_status.begin ();
                     }
-                } else {
-                    if (!locked && Scratch.settings.get_boolean ("autosave")) {
+                } else if (Scratch.settings.get_boolean ("autosave")) {
                         save_with_hold.begin ();
-                    }
                 }
             });
 
