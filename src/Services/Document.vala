@@ -892,7 +892,7 @@ namespace Scratch.Services {
                 alert_view.action_activated.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
                         clipboard.set_text (invalid_content, -1);
                         var clipboard_action = Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, actions);
                         clipboard_action.set_enabled (true);
