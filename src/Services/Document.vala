@@ -51,7 +51,7 @@ namespace Scratch.Services {
             }
         }
 
-        private Gtk.SourceFile source_file;
+        private Gtk.Source.File source_file;
         public GLib.File file {
             get {
                 return source_file.location;
@@ -223,7 +223,7 @@ namespace Scratch.Services {
                 expand = true
             };
             scroll.add (source_view);
-            source_file = new Gtk.SourceFile ();
+            source_file = new Gtk.Source.File ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
@@ -432,7 +432,7 @@ namespace Scratch.Services {
             });
 
             try {
-                var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
+                var source_file_loader = new Gtk.Source.FileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
                 var source_buffer = source_view.buffer as Gtk.SourceBuffer;
                 if (source_buffer != null) {
@@ -616,7 +616,7 @@ namespace Scratch.Services {
 
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+            var source_file_saver = new Gtk.Source.FileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
             var success = false;
             var error = "";
             try {
@@ -947,7 +947,7 @@ namespace Scratch.Services {
                     // check made for this document
                     // External changes will be overwritten on next (auto) save
                     var new_buffer = new Gtk.SourceBuffer (null);
-                    var source_file_loader = new Gtk.SourceFileLoader (
+                    var source_file_loader = new Gtk.Source.FileLoader (
                         new_buffer,
                         source_file
                     );
