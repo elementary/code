@@ -127,18 +127,26 @@ public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPix
         queue_draw ();
     }
 
-    public override void query_data (
-        Gtk.TextIter start,
-        Gtk.TextIter end,
-        GtkSource.GutterRendererState state
-    ) {
-        var line = start.get_line ();
+    public override void query_data (Object lines, uint line) {
+        var line = ((GtkSource.GutterLines)lines).get_first ();
         if (sorted_line_list.contains (line)) {
             icon_name = "edit-symbolic";
         } else {
             icon_name = "";
         }
     }
+    // public override void query_data (
+    //     Gtk.TextIter start,
+    //     Gtk.TextIter end,
+    //     GtkSource.GutterRendererState state
+    // ) {
+    //     var line = start.get_line ();
+    //     if (sorted_line_list.contains (line)) {
+    //         icon_name = "edit-symbolic";
+    //     } else {
+    //         icon_name = "";
+    //     }
+    // }
 
     public override void activate (Gtk.TextIter iter, Gdk.Rectangle rect, Gdk.Event event) {
         if (has_mark_at_line (iter.get_line ())) {
