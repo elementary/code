@@ -177,7 +177,7 @@ namespace Scratch.Services {
         private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
-        private Gtk.SourceMap source_map;
+        private Gtk.Source.Map source_map;
         private Gtk.Paned outline_widget_pane;
 
         private GLib.Cancellable save_cancellable;
@@ -224,7 +224,7 @@ namespace Scratch.Services {
             };
             scroll.add (source_view);
             source_file = new Gtk.Source.File ();
-            source_map = new Gtk.SourceMap ();
+            source_map = new Gtk.Source.Map ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
             if (builder_blocks_font != null && builder_font_map != null) {
