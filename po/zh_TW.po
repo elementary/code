@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 11:48+0000\n"
+"POT-Creation-Date: 2026-06-05 14:23+0000\n"
 "PO-Revision-Date: 2026-04-07 13:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -43,71 +43,71 @@ msgstr "<起始行[.起始欄][-結束行[.結束欄]]>"
 msgid "[FILE…]"
 msgstr "[檔案…]"
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:272
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:268
+#: src/MainWindow.vala:274
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:410
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:409 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:415 src/Widgets/HeaderBar.vala:122
 msgid "Find on Page…"
 msgstr "在頁面上尋找…"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:426
 msgid "Hide Projects Sidebar"
 msgstr "隱藏專案側邊欄"
 
-#: src/MainWindow.vala:425
+#: src/MainWindow.vala:431
 msgid "Show Projects Sidebar"
 msgstr "顯示專案側邊欄"
 
-#: src/MainWindow.vala:434
+#: src/MainWindow.vala:440
 msgid "Hide Symbol Outline"
 msgstr "隱藏符號大綱"
 
-#: src/MainWindow.vala:439
+#: src/MainWindow.vala:445
 msgid "Show Symbol Outline"
 msgstr "顯示符號大綱"
 
-#: src/MainWindow.vala:448
+#: src/MainWindow.vala:454
 msgid "Hide Terminal"
 msgstr "隱藏終端機"
 
-#: src/MainWindow.vala:453 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:459 src/Widgets/HeaderBar.vala:195
 msgid "Show Terminal"
 msgstr "顯示終端機"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:623
+#: src/MainWindow.vala:629
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:975 src/Services/Document.vala:681
+#: src/MainWindow.vala:981 src/Services/Document.vala:681
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:979 src/Services/Document.vala:685
+#: src/MainWindow.vala:985 src/Services/Document.vala:685
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:989
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:986
+#: src/MainWindow.vala:992
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:987 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:993 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
 #: src/Services/Document.vala:523 src/Services/Document.vala:693
@@ -116,29 +116,29 @@ msgstr "開啟"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:1030
+#: src/MainWindow.vala:1036
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:1031
+#: src/MainWindow.vala:1037
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/MainWindow.vala:1086
+#: src/MainWindow.vala:1092
 msgid "Cloning completed"
 msgstr "已完成拓製"
 
-#: src/MainWindow.vala:1087
+#: src/MainWindow.vala:1093
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "已成功拓製到 %s"
 
-#: src/MainWindow.vala:1093
+#: src/MainWindow.vala:1099
 #, c-format
 msgid "Unable to clone %s"
 msgstr "無法拓製 %s"
 
-#: src/MainWindow.vala:1100
+#: src/MainWindow.vala:1106
 msgid "Retry"
 msgstr "重試"
 
@@ -246,107 +246,111 @@ msgstr "一般"
 msgid "Save files when changed"
 msgstr "變更時儲存檔案"
 
-#: src/Dialogs/PreferencesDialog.vala:25
+#: src/Dialogs/PreferencesDialog.vala:26
 msgid "Strip trailing whitespace on save"
 msgstr "儲存時刪除行尾空白"
 
-#: src/Dialogs/PreferencesDialog.vala:27
+#: src/Dialogs/PreferencesDialog.vala:28
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:31
 msgid "Smart cut/copy lines"
 msgstr "智慧剪下/複製行數"
 
-#: src/Dialogs/PreferencesDialog.vala:29
+#: src/Dialogs/PreferencesDialog.vala:33
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr "在沒有手動選擇內容範圍的狀況下，預設將會剪下或複製目前整行內容"
 
-#: src/Dialogs/PreferencesDialog.vala:35
+#: src/Dialogs/PreferencesDialog.vala:39
 msgid "Indentation width"
 msgstr "縮排寬度"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:50
 msgid "Indentation"
 msgstr "縮排"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Automatic indentation"
 msgstr "自動縮排"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "Insert spaces instead of tabs"
 msgstr "插入空格而非 Tab 字元"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:61
 msgid "Default build directory"
 msgstr "預設編譯目錄"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Projects"
 msgstr "專案"
 
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:82
 msgid "None"
 msgstr "無"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:83
 msgid "Current Line"
 msgstr "目前的行"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "All"
 msgstr "全部"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Whitespace visible when not selected"
 msgstr "未選取時顯示空白字元"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Highlight matching brackets"
 msgstr "標明對應括號"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Syntax highlighting"
 msgstr "語法標明"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:119
 msgid "Mini Map"
 msgstr "小地圖"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Wrap lines"
 msgstr "自動換行"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Line width guide"
 msgstr "行寬輔助線"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:127
 #, fuzzy, c-format
 #| msgid "Use system font"
 msgid "Use system font (%s)"
 msgstr "使用系統字型"
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "字型"
 
-#: src/Dialogs/PreferencesDialog.vala:145
+#: src/Dialogs/PreferencesDialog.vala:149
 msgid "Behavior"
 msgstr "行為"
 
-#: src/Dialogs/PreferencesDialog.vala:146 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:150 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "介面"
 
-#: src/Dialogs/PreferencesDialog.vala:162 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:166 src/Services/PluginManager.vala:130
 msgid "Extensions"
 msgstr "擴充套件"
 
-#: src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:172
 #: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "關閉"

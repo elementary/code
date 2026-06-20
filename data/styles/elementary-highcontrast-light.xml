@@ -34,7 +34,7 @@
 
   <!-- Global Settings -->
   <style name="text"                        foreground="fg-0" background="bg-2"/>
-  <style name="selection"                   background="latte"/>
+  <style name="selection"                   foreground="fg-0"/> <!-- The user accent color is used for background -->
   <style name="cursor"                      foreground="fg-0"/>
   <style name="secondary-cursor"            foreground="fg-1"/>
   <style name="current-line"                background="bg-1"/>

@@ -4,7 +4,7 @@
 *
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
 */
-private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
+private class Scratch.Dialogs.BranchListBox : Gtk.Box {
 
     public signal void branch_changed (string branch_name);
 
@@ -31,6 +31,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
     }
 
     construct {
+        orientation = VERTICAL;
+        spacing = 6;
+
         list_box = new Gtk.ListBox () {
             activate_on_single_click = false
         };
@@ -46,12 +49,6 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Enter search term")
         };
-
-        var box = new Gtk.Box (VERTICAL, 6);
-        box.add (search_entry);
-        box.add (scrolled_window);
-
-        child = box;
 
         recent_header = new Granite.HeaderLabel (_("Recent Branches"));
         local_header = new Granite.HeaderLabel (_("Local Branches"));
@@ -91,6 +88,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Bin {
         search_entry.activate.connect (() => {
             dialog.page_activated ();
         });
+
+        add (search_entry);
+        add (scrolled_window);
     }
 
     public BranchNameRow? get_selected_row () {
