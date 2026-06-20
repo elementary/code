@@ -407,7 +407,7 @@ namespace Scratch.Services {
                 Gtk.main_iteration ();
             }
 
-            var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
+            var buffer = new Gtk.Source.Buffer (null); /* Faster to load into a separate buffer */
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
@@ -434,7 +434,7 @@ namespace Scratch.Services {
             try {
                 var source_file_loader = new Gtk.Source.FileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+                var source_buffer = source_view.buffer as Gtk.Source.Buffer;
                 if (source_buffer != null) {
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.text = buffer.text;
@@ -616,7 +616,7 @@ namespace Scratch.Services {
 
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.Source.FileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+            var source_file_saver = new Gtk.Source.FileSaver ((Gtk.Source.Buffer) source_view.buffer, source_file);
             var success = false;
             var error = "";
             try {
@@ -850,7 +850,7 @@ namespace Scratch.Services {
 
         // Get language name
         public string get_language_name () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.name;
@@ -861,7 +861,7 @@ namespace Scratch.Services {
 
         // Get language id
         public string get_language_id () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.id;
@@ -946,7 +946,7 @@ namespace Scratch.Services {
                     // If user selects to continue regardless then no further
                     // check made for this document
                     // External changes will be overwritten on next (auto) save
-                    var new_buffer = new Gtk.SourceBuffer (null);
+                    var new_buffer = new Gtk.Source.Buffer (null);
                     var source_file_loader = new Gtk.Source.FileLoader (
                         new_buffer,
                         source_file
@@ -1129,7 +1129,7 @@ namespace Scratch.Services {
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var source_buffer = (Gtk.Source.Buffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
             Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
@@ -1317,7 +1317,7 @@ namespace Scratch.Services {
                 return;
             }
 
-            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            var source_buffer = (Gtk.Source.Buffer)source_view.buffer;
             Gtk.TextIter iter;
 
             var cursor_pos = source_buffer.cursor_position;

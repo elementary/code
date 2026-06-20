@@ -117,7 +117,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Scratc
             // We know the selected text is non-zero length, check not too long
             if (selected_text.char_count () <= SELECTION_HIGHLIGHT_MAX_CHARS) {
                 current_search_context = new Gtk.SourceSearchContext (
-                    (Gtk.SourceBuffer)current_source.buffer,
+                    (Gtk.Source.Buffer)current_source.buffer,
                     null
                 );
                 current_search_context.settings.search_text = selected_text;
