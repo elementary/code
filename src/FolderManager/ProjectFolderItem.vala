@@ -403,7 +403,7 @@ namespace Scratch.FolderManager {
                 dialog.response.connect (() => {
                     dialog.destroy ();
                 });
-                dialog.run ();
+                dialog.show ();
             }
         }
 
@@ -512,7 +512,7 @@ namespace Scratch.FolderManager {
                 dialog.destroy ();
             });
 
-            dialog.run ();
+            dialog.show ();
 
             if (search_term != null) {
                 // Remove results of previous search before attempting a new one
