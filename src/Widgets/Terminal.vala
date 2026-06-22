@@ -34,7 +34,7 @@ public class Code.Terminal : Gtk.Box {
 
     private GLib.Pid child_pid;
     private Gdk.Clipboard current_clipboard;
-    private Gtk.GestureMultiPress secondary_button_controller;
+    private Gtk.GestureClick secondary_button_controller;
     private Menu menu_model;
 
     private Scratch.Application application;
@@ -154,7 +154,7 @@ public class Code.Terminal : Gtk.Box {
             }
         });
 
-        secondary_button_controller = new Gtk.GestureMultiPress (terminal) {
+        secondary_button_controller = new Gtk.GestureClick (terminal) {
             propagation_phase = CAPTURE,
             button = Gdk.BUTTON_SECONDARY
         };

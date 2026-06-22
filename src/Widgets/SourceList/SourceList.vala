@@ -1572,7 +1572,7 @@ public class SourceList : Gtk.ScrolledWindow {
         private Gtk.Entry? editable_entry;
         private Gtk.CellRendererText text_cell;
         private Gtk.EventControllerKey key_controller;
-        private Gtk.GestureMultiPress button_controller;
+        private Gtk.GestureClick button_controller;
         private CellRendererIcon icon_cell;
         private CellRendererIcon activatable_cell;
         private CellRendererBadge badge_cell;
@@ -1731,7 +1731,7 @@ public class SourceList : Gtk.ScrolledWindow {
             key_controller = new Gtk.EventControllerKey (this);
             key_controller.key_released.connect (on_key_released);
 
-            button_controller = new Gtk.GestureMultiPress (this) {
+            button_controller = new Gtk.GestureClick (this) {
                 propagation_phase = CAPTURE,
                 button = 0
             };
