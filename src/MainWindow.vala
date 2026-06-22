@@ -1170,13 +1170,18 @@ namespace Scratch {
 
         private void action_revert () {
             var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
-            if (confirmation_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                var doc = get_current_document ();
-                if (doc != null) {
-                    doc.revert ();
+            confirmation_dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    var doc = get_current_document ();
+                    if (doc != null) {
+                        doc.revert ();
+                    }
                 }
-            }
-            confirmation_dialog.destroy ();
+
+                confirmation_dialog.destroy ();
+            });
+
+            confirmation_dialog.show ();
         }
 
         private void action_duplicate () {
