@@ -1736,6 +1736,7 @@ public class SourceList : Gtk.ScrolledWindow {
                 button = 0
             };
             button_controller.pressed.connect (on_button_pressed);
+            button_controller.released.connect (on_button_released);
         }
 
         ~Tree () {
@@ -2266,13 +2267,13 @@ public class SourceList : Gtk.ScrolledWindow {
             }
         }
 
-        public override bool button_release_event (Gdk.EventButton event) {
-            if (unselectable_item_clicked && event.window == get_bin_window ()) {
+        private void on_button_released (int n_press, double px, double py) {
+             if (unselectable_item_clicked) {
                 unselectable_item_clicked = false;
 
                 Gtk.TreePath path;
                 Gtk.TreeViewColumn column;
-                int x = (int) event.x, y = (int) event.y, cell_x, cell_y;
+                int x = (int) px, y = (int) py, cell_x, cell_y;
 
                 if (get_path_at_pos (x, y, out path, out column, out cell_x, out cell_y)) {
                     var item = data_model.get_item_from_path (path) as ExpandableItem;
@@ -2283,8 +2284,6 @@ public class SourceList : Gtk.ScrolledWindow {
                     }
                 }
             }
-
-            return base.button_release_event (event);
         }
 
         private void on_button_pressed (int n_press, double dx, double dy) {
