@@ -81,7 +81,6 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         box.add (search_term_entry);
 
         custom_bin.add (box);
-        custom_bin.show_all ();
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 

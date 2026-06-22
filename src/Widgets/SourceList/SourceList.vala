@@ -2682,7 +2682,6 @@ public class SourceList : Gtk.ScrolledWindow {
 
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         add (tree);
-        show_all ();
 
         tree.item_selected.connect ((item) => item_selected (item));
     }

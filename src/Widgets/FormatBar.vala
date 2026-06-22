@@ -115,8 +115,6 @@ public class Code.FormatBar : Gtk.Box {
         popover_content.add (lang_selection_filter);
         popover_content.add (lang_scrolled);
 
-        popover_content.show_all ();
-
         var lang_popover = new Gtk.Popover (lang_menubutton);
         lang_popover.position = Gtk.PositionType.BOTTOM;
         lang_popover.add (popover_content);
@@ -175,7 +173,6 @@ public class Code.FormatBar : Gtk.Box {
         box.add (autoindent_modelbutton);
         box.add (space_tab_modelbutton);
         box.add (tab_box);
-        box.show_all ();
 
         var tab_popover = new Gtk.Popover (tab_menubutton) {
             position = Gtk.PositionType.BOTTOM
@@ -243,7 +240,6 @@ public class Code.FormatBar : Gtk.Box {
         line_grid.column_spacing = 12;
         line_grid.attach (goto_label, 0, 0, 1, 1);
         line_grid.attach (goto_entry, 1, 0, 1, 1);
-        line_grid.show_all ();
 
         var line_popover = new Gtk.Popover (line_menubutton);
         line_popover.position = Gtk.PositionType.BOTTOM;

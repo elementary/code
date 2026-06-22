@@ -8,12 +8,12 @@
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Code is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -165,7 +165,6 @@ public class TemplateButton : Gtk.Button {
         main_box.pack_start (text_box, false, true, 0);
 
         this.add (main_box);
-        this.show_all ();
     }
 
     public void set_icon_from_pixbuf (Gdk.Pixbuf pixbuf) {
@@ -216,7 +215,7 @@ public class Scratch.TemplateManager : GLib.Object {
 
     /**
      * Register a new template
-     * 
+     *
      * @param icon_id the icon id used in the IconView which shows all the template.
      * It will be used to launch an icon via Gtk.IconTheme.load_icon, so, any icon is
      * fine.
@@ -236,7 +235,6 @@ public class Scratch.TemplateManager : GLib.Object {
             window.title = label;
             if (parent != null) window.set_transient_for ((Gtk.Window)parent);
             window.add (current_template.get_creation_box ());
-            window.show_all ();
             current_template.loaded.connect ((file) => {
                 template_loaded (current_template, file);
             });
@@ -259,7 +257,7 @@ public class Scratch.TemplateManager : GLib.Object {
 
     /**
      * Show a dialog which contains an #Gtk.IconView with all templates available.
-     * 
+     *
      * @param parent The parent window, or null.
      **/
     public void show_window (Gtk.Widget? parent) {
@@ -267,8 +265,6 @@ public class Scratch.TemplateManager : GLib.Object {
 
         if (template_available) {
             if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
-
-            dialog.show_all ();
         }
     }
 }

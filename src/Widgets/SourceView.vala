@@ -254,7 +254,6 @@ namespace Scratch.Widgets {
                         }
                     );
                 }
-                menu.show_all ();
             });
 
             // Handle context menu shortcuts here.

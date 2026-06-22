@@ -330,8 +330,6 @@ namespace Scratch.Dialogs {
 
             read_settings ();
 
-            show_all ();
-
             format_button.clicked.connect (format_button_clicked);
 
             upload_button.clicked.connect (() => {
@@ -388,7 +386,6 @@ namespace Scratch.Dialogs {
             frame.add (languages_scrolled);
 
             format_dialog.get_content_area ().add (frame);
-            format_dialog.show_all ();
 
             cancel_button.clicked.connect (() => {
                 format_dialog.destroy ();
@@ -448,7 +445,6 @@ namespace Scratch.Dialogs {
                 box.pack_start (err_label, false, true, 0);
             }
 
-            box.show_all ();
             stack.visible_child = box;
         }
 

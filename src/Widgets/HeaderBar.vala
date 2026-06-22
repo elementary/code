@@ -71,7 +71,6 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         share_menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR),
-            no_show_all = true,
             menu_model = share_menu,
             tooltip_text = _("Share")
         };
@@ -228,7 +227,6 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         menu_box.add (panels_box);
         menu_box.add (menu_separator);
         menu_box.add (preferences_menuitem);
-        menu_box.show_all ();
 
         var menu = new Gtk.Popover (null);
         menu.add (menu_box);
@@ -240,7 +238,6 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         };
 
         format_bar = new Code.FormatBar () {
-            no_show_all = true,
             valign = Gtk.Align.CENTER
         };
         set_custom_title (format_bar);
@@ -405,11 +402,8 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
     private void on_share_menu_changed () {
         if (share_menu.get_n_items () > 0) {
-            share_menu_button.no_show_all = false;
             share_menu_button.visible = true;
-            share_menu_button.show_all ();
         } else {
-            share_menu_button.no_show_all = true;
             share_menu_button.visible = false;
             share_menu_button.hide ();
         }
@@ -417,10 +411,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
     public void document_available (bool has_document) {
         if (has_document) {
-            format_bar.no_show_all = false;
-            format_bar.show_all ();
         } else {
-            format_bar.no_show_all = true;
             format_bar.hide ();
         }
     }

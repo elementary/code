@@ -104,8 +104,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         popover_content.add (add_folder_button);
         popover_content.add (clone_button);
 
-        popover_content.show_all ();
-
         var project_popover = new Gtk.Popover (this) {
             position = Gtk.PositionType.BOTTOM
         };
@@ -229,8 +227,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 activate ();
                 return Gdk.EVENT_PROPAGATE;
             });
-
-            show_all ();
         }
     }
 }

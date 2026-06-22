@@ -250,7 +250,6 @@ namespace Scratch.Services {
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
             doc_grid.add (outline_widget_pane);
-            doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
 
@@ -309,7 +308,6 @@ namespace Scratch.Services {
             loaded = file == null;
 
             add (main_stack);
-            this.show_all ();
         }
 
         public void init_tab (Adw.TabPage tab) {
@@ -391,7 +389,6 @@ namespace Scratch.Services {
                 var description = _("Code will not load this type of file.");
                 var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
                 alert_view.show_action (_("Load Anyway"));
-                alert_view.show_all ();
                 main_stack.add_named (alert_view, "load_alert");
                 main_stack.set_visible_child (alert_view);
                 alert_view.action_activated.connect (() => {
@@ -415,7 +412,6 @@ namespace Scratch.Services {
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
                     alert_view.show_action (_("Cancel Loading"));
-                    alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
                     alert_view.action_activated.connect (() => {
@@ -742,7 +738,6 @@ namespace Scratch.Services {
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
             } else {
                 source_map.hide ();
-                source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
         }
@@ -906,7 +901,6 @@ namespace Scratch.Services {
                 });
             }
 
-            alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
             main_stack.set_visible_child (alert_view);
         }

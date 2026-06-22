@@ -135,7 +135,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         stack.visible_child_name = "entries";
 
         custom_bin.add (stack);
-        custom_bin.show_all ();
 
         bind_property ("can-clone", clone_button, "sensitive", DEFAULT | SYNC_CREATE);
         spinner.bind_property ("active", clone_button, "visible", INVERT_BOOLEAN);

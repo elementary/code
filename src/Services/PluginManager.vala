@@ -152,7 +152,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             );
         });
 
-        frame.show_all ();
         return frame;
     }
 

@@ -83,7 +83,6 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             content_box.add (stack);
 
             custom_bin.add (content_box);
-            custom_bin.show_all ();
         } else {
             primary_text = _("'%s' is not a git repository").printf (
                 project.file.file.get_basename ()

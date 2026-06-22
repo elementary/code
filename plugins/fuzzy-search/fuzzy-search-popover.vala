@@ -207,7 +207,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         }
 
                         scrolled.hide ();
-                        scrolled.show_all ();
 
                         // Reset scrolling
                         scrolled.vadjustment.value = 0;
@@ -242,7 +241,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         box.pack_start (entry_layout, false, false);
         box.pack_end (scrolled, true, true);
-        box.show_all ();
 
         scrolled.hide ();
         this.add (box);

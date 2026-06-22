@@ -71,7 +71,6 @@ public class Code.Sidebar : Gtk.Grid {
         overlay.add_overlay (cloning_success_toast);
 
         stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
         stack_switcher.homogeneous = true;
@@ -114,24 +113,12 @@ public class Code.Sidebar : Gtk.Grid {
         add (overlay);
         add (actionbar);
 
-        stack.add.connect (() => {
-            if (stack.get_children ().length () > 1) {
-                stack_switcher.no_show_all = false;
-                stack_switcher.show_all ();
-            }
-
-            stack.no_show_all = false;
-            stack.show_all ();
-        });
-
         stack.remove.connect (() => {
             switch (stack.get_children ().length ()) {
                 case 0:
-                    stack.no_show_all = true;
                     stack.hide ();
                     break;
                 case 1:
-                    stack_switcher.no_show_all = true;
                     stack_switcher.hide ();
                     break;
             }

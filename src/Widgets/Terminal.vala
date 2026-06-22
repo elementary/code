@@ -179,7 +179,6 @@ public class Code.Terminal : Gtk.Box {
         scrolled_window.add (terminal);
 
         add (scrolled_window);
-        show_all ();
     }
 
     private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {

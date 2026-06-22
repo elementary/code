@@ -324,7 +324,6 @@ namespace Scratch {
             }
 
             // Show/Hide widgets
-            show_all ();
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -482,7 +481,6 @@ namespace Scratch {
             folder_manager_view = new FolderManager.FileView (plugins);
 
             sidebar.add_tab (folder_manager_view);
-            folder_manager_view.show_all ();
 
             folder_manager_view.activate.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
@@ -512,7 +510,6 @@ namespace Scratch {
             });
 
             terminal = new Code.Terminal () {
-                no_show_all = true,
                 visible = false
             };
 
@@ -942,7 +939,6 @@ namespace Scratch {
         private void action_preferences () {
             if (preferences_dialog == null) {
                 preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
 
                 preferences_dialog.destroy.connect (() => {
                     preferences_dialog = null;

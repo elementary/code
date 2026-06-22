@@ -184,7 +184,6 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         add (tool_box);
         add (store);
         set_up_css ();
-        show_all ();
 
         realize.connect (() => {
             store.set_filter_func (filter_func, false);
