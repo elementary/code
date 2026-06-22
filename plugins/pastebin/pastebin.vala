@@ -3,6 +3,10 @@
   BEGIN LICENSE
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+                2013 Mario Guerriero <mefrio.g@gmail.com>
+                2014 Viko Adi Rahmawan <vikoadi@gmail.com>
+                2015-2026 elementary Inc. (https://elementary.io)
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
