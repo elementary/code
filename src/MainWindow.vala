@@ -575,9 +575,6 @@ namespace Scratch {
             size_group.add_widget (toolbar);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -591,7 +588,14 @@ namespace Scratch {
 
                 hook_func ();
 
-                restore ();
+                // Allow secondary windows to have a different pane state
+                if (application.get_windows ().length () <= 1) {
+                    Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
+
+                    restore ();
+                }
             });
 
             document_view.realize.connect (() => {
