@@ -719,13 +719,20 @@ namespace Scratch.Services {
             var current_file = file.dup ();
             var is_current_file_temporary = this.is_file_temporary;
 
-            if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-                file = File.new_for_uri (file_chooser.get_uri ());
-                // Update last visited path
-                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
-                success = true;
-            }
+            file_chooser.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    file = File.new_for_uri (file_chooser.get_uri ());
+                    // Update last visited path
+                    Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
+                    success = true;
+                    warning ("dialog success path %s", Utils.last_path);
+                }
 
+                save_as.callback ();
+            });
+
+            file_chooser.show ();
+            yield;
             var is_saved = false;
             if (success) {
                 // Should not set "modified" state of the buffer to true - this is automatic
@@ -747,7 +754,7 @@ namespace Scratch.Services {
                 // Calling function responsible for restoring original
             }
 
-            /* We delay destruction of file chooser dialog til to avoid the document focussing in,
+            /* We delay destruction of file chooser dialog til now to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
             file_chooser.destroy ();
