@@ -708,7 +708,7 @@ namespace Scratch {
             return false;
         }
 
-        protected override bool delete_event (Gdk.EventAny event) {
+        protected override bool close_request () {
             action_close_window ();
             return true;
         }
