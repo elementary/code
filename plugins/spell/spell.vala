@@ -1,6 +1,10 @@
 /*
- * Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com> This program
- * is free software: you can redistribute it and/or modify it under the
+ * Copyright (C) 2011-2014 Mario Guerriero <mefrio.g@gmail.com>
+ * Copyright (C) 2015 Geronimo Bareiro <gero.bare@gmail.com>
+ * Copyright (C) 2016-2025 elementary, Inc. (https://elementary.io)
+
+
+ * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License version 3, as published by
  * the Free Software Foundation.
  *

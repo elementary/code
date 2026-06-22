@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019-2024 elementary, Inc. (https://elementary.io)
  * Copyright 2012–2013 Victor Eduardo <victoreduardm@gmail.com>
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */

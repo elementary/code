@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2021-2025 elementary, Inc. <https://elementary.io>
+ */
 
 namespace Scratch.Plugins {
     public class PrefixTree : Object {
