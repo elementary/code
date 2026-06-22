@@ -99,17 +99,17 @@ public class Code.FormatBar : Gtk.Box {
 
         lang_scrolled.add (lang_selection_listbox);
 
-        unowned string[]? ids = manager.get_language_ids ();
-        unowned SList<Gtk.RadioButton> group = null;
-        foreach (unowned string id in ids) {
-            weak GtkSource.Language lang = manager.get_language (id);
-            var entry = new LangEntry (id, lang.name, group);
-            group = entry.get_radio_group ();
-            lang_selection_listbox.add (entry);
-        }
-
         normal_entry = new LangEntry (null, _("Plain Text"), group);
         lang_selection_listbox.add (normal_entry);
+
+        unowned string[]? ids = manager.get_language_ids ();
+        foreach (unowned string id in ids) {
+            weak GtkSource.Language lang = manager.get_language (id);
+            var entry = new LangEntry (id, lang.name) {
+                group = normal_entry.group
+            };
+            lang_selection_listbox.add (entry);
+        }
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         popover_content.add (lang_selection_filter);
@@ -351,7 +351,7 @@ public class Code.FormatBar : Gtk.Box {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
-        public unowned SList<Gtk.RadioButton> group { get; construct; }
+        // public unowned SList<Gtk.CheckButton> group { get; construct; }
 
         public bool active {
             get {
@@ -375,9 +375,10 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
-        private Gtk.RadioButton lang_radio;
-        public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
-            Object (group: group, lang_id: lang_id, lang_name: lang_name);
+        public Gtk.CheckButton lang_radio { get; private set; }
+
+        public LangEntry (string? lang_id, string lang_name) {
+            Object (lang_id: lang_id, lang_name: lang_name);
         }
 
         class construct {
@@ -385,8 +386,7 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         construct {
-            lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
-
+            lang_radio = new Gtk.CheckButton.with_label (lang_name);
             add (lang_radio);
             lang_radio.toggled.connect (radio_toggled);
         }
@@ -395,10 +395,6 @@ public class Code.FormatBar : Gtk.Box {
             if (lang_radio.active) {
                 activate ();
             }
-        }
-
-        public unowned SList<Gtk.RadioButton> get_radio_group () {
-            return lang_radio.get_group ();
         }
     }
 }
