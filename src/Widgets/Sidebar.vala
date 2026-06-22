@@ -40,7 +40,7 @@ public class Code.Sidebar : Gtk.Grid {
     }
 
     private Gtk.StackSwitcher stack_switcher;
-    private Granite.Widgets.Toast cloning_success_toast;
+    private Granite.Toast cloning_success_toast;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -51,7 +51,7 @@ public class Code.Sidebar : Gtk.Grid {
             valign = Gtk.Align.CENTER
         };
 
-        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
+        cloning_success_toast = new Granite.Toast (_("Cloning complete")) {
             halign = CENTER,
             valign = START
         };
