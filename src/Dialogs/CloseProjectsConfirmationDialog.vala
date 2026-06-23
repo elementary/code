@@ -26,7 +26,8 @@ public class Scratch.Dialogs.CloseProjectsConfirmationDialog : Granite.MessageDi
             buttons: Gtk.ButtonsType.NONE,
             transient_for: parent,
             n_parents: n_parents,
-            n_children: n_children
+            n_children: n_children,
+            modal: true
         );
     }
 

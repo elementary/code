@@ -33,7 +33,8 @@ public class Scratch.Dialogs.NewBranchDialog : Granite.MessageDialog {
         Object (
             transient_for: ((Gtk.Application)(GLib.Application.get_default ())).get_active_window (),
             active_project: project,
-            image_icon: new ThemedIcon ("git")
+            image_icon: new ThemedIcon ("git"),
+            modal: true
         );
     }
 

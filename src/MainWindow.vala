@@ -958,14 +958,13 @@ namespace Scratch {
         private void action_preferences () {
             if (preferences_dialog == null) {
                 preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
 
                 preferences_dialog.destroy.connect (() => {
                     preferences_dialog = null;
                 });
             }
 
-            preferences_dialog.present ();
+            preferences_dialog.show ();
         }
 
         private void action_close_window () {
@@ -1129,7 +1128,7 @@ namespace Scratch {
                 }
             });
 
-            clone_dialog.present ();
+            clone_dialog.show ();
         }
 
         private void action_collapse_all_folders () {

@@ -627,7 +627,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
             });
 
-            dialog.run ();
+            dialog.show ();
 
             if (close_projects) {
                 foreach (var item in parents) {
