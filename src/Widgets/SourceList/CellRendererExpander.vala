@@ -96,7 +96,7 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
         if (is_category_expander)
             ctx.add_class (Granite.STYLE_CLASS_CATEGORY_EXPANDER);
         else
-            ctx.add_class (Gtk.STYLE_CLASS_EXPANDER);
+            ctx.add_class (Granite.STYLE_CLASS_CATEGORY_EXPANDER); //TODO What Granite style is appropriate
 
         return ctx;
     }

@@ -158,7 +158,7 @@ namespace Scratch.Widgets {
             var case_sensitive_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
             case_sensitive_box.append (case_sensitive_search_label);
             case_sensitive_box.append (case_sensitive_search_button);
-            case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+            case_sensitive_box.get_style_context ().add_class (Granite.STYLE_CLASS_MENUITEM);
 
             regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
             whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
@@ -206,7 +206,7 @@ namespace Scratch.Widgets {
                 margin_bottom = 3,
                 margin_start = 6
             };
-            search_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            search_box.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
             search_box.append (search_entry);
             search_box.append (tool_arrow_down);
             search_box.append (tool_arrow_up);
@@ -233,7 +233,7 @@ namespace Scratch.Widgets {
                 margin_bottom = 3,
                 margin_start = 3
             };
-            replace_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            replace_grid.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
             replace_grid.append (replace_entry);
             replace_grid.append (replace_tool_button);
             replace_grid.append (replace_all_tool_button);
@@ -410,18 +410,18 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
-                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.get_style_context ().remove_class (Granite.STYLE_CLASS_ERROR);
                 search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
-                    search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.get_style_context ().remove_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_entry.text);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
-                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.get_style_context ().add_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }
@@ -679,10 +679,10 @@ namespace Scratch.Widgets {
                 var ctx = search_entry.get_style_context ();
 
                 if (search_entry.text != "" && count_of_search == 0) {
-                    ctx.add_class (Gtk.STYLE_CLASS_ERROR);
+                    ctx.add_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "dialog-error-symbolic";
-                } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
-                    ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
+                } else if (ctx.has_class (Granite.STYLE_CLASS_ERROR)) {
+                    ctx.remove_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "edit-find-symbolic";
                 }
 

@@ -529,7 +529,7 @@ namespace Scratch.Services {
             dialog.transient_for = parent_window;
 
             var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
-            no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            no_save_button.get_style_context ().add_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
             dialog.add_button (_("Save"), Gtk.ResponseType.YES);
@@ -1039,7 +1039,7 @@ namespace Scratch.Services {
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
 
             var saveas_button = (Gtk.Button) dialog.add_button (_("Save Duplicate…"), Gtk.ResponseType.ACCEPT);
-            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            saveas_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
             if (error_text != "") {
                 dialog.show_error_details (error_text);
@@ -1090,13 +1090,13 @@ namespace Scratch.Services {
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
 
             var reload_button = (Gtk.Button) (dialog.add_button (_("Reload"), 0));
-            reload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            reload_button.get_style_context ().add_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             var overwrite_button = (Gtk.Button) (dialog.add_button (_("Overwrite"), 1));
-            overwrite_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            overwrite_button.get_style_context ().add_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             var saveas_button = (Gtk.Button) (dialog.add_button (_("Save Document elsewhere"), Gtk.ResponseType.ACCEPT));
-            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            saveas_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
             dialog.response.connect ((id) => {
                 dialog.destroy ();

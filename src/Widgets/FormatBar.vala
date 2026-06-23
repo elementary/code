@@ -37,7 +37,7 @@ public class Code.FormatBar : Gtk.Box {
     private unowned Scratch.Services.Document? doc = null;
 
     construct {
-        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
 
         manager = GtkSource.LanguageManager.get_default ();
 
@@ -145,7 +145,7 @@ public class Code.FormatBar : Gtk.Box {
             margin_start = 9
         };
         editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
-        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
+        editorconfig_infobar.get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
 
         var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
 
@@ -378,7 +378,7 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         class construct {
-            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+            set_css_name (Granite.STYLE_CLASS_MENUITEM);
         }
 
         construct {

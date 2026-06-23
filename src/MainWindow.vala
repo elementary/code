@@ -295,7 +295,7 @@ namespace Scratch {
                 update_style ();
             });
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+            clipboard = Gdk.Display.get_default ().get_clipboard ();
 
             plugins = new Scratch.Services.PluginsManager (this);
 

@@ -174,7 +174,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             xalign = 0
         };
         description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
-        description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        description_label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
 
         var description_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true

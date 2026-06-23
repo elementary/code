@@ -326,7 +326,7 @@ namespace Scratch.Dialogs {
 
             close_button = (Gtk.Button)add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
             upload_button = (Gtk.Button)add_button (_("Upload to Pastebin"), Gtk.ResponseType.OK);
-            upload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            upload_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
             read_settings ();
 
@@ -376,7 +376,7 @@ namespace Scratch.Dialogs {
             var cancel_button = (Gtk.Button)format_dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
             var select_button = (Gtk.Button)format_dialog.add_button (_("Select Format"), Gtk.ResponseType.OK);
-            select_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            select_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
             select_button.clicked.connect (select_button_clicked);
 
             var frame = new Gtk.Frame (null) {

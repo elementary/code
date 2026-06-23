@@ -166,7 +166,7 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
                         string cut_text = iter_start.get_slice (iter_end);
 
                         buffer.begin_user_action ();

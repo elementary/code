@@ -216,7 +216,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
                     wrap = true,
                     xalign = 0
                 };
-                description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+                description_label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
                 description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
                 attach (description_label, 0, 1);

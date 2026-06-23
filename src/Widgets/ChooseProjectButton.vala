@@ -216,7 +216,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         class construct {
-            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+            set_css_name (Granite.STYLE_CLASS_MENUITEM);
         }
 
         construct {
