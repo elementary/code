@@ -233,8 +233,7 @@ namespace Scratch.Services {
                 propagation_phase = CAPTURE
             };
             scroll_controller.scroll.connect ((dx, dy) => {
-                Gdk.ModifierType state;
-                Gtk.get_current_event_state (out state);
+                var state = scroll_controller.get_current_event_state ();
                 if (Gdk.ModifierType.CONTROL_MASK in state) {
                     total_delta += dy;
                     if (total_delta < -SCROLL_THRESHOLD) {
@@ -245,10 +244,10 @@ namespace Scratch.Services {
                         total_delta = 0.0;
                     }
 
-                    return;
+                    return Gdk.EVENT_STOP;
                 }
 
-                Gtk.propagate_event (scroll, Gtk.get_current_event ());
+                return Gdk.EVENT_PROPAGATE;
             });
 
             source_file = new Gtk.SourceFile ();
