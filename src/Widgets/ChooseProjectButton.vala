@@ -65,7 +65,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             margin_top = 12,
             margin_bottom = 6,
             margin_start = 12,
-            margin_end = 12
+            margin_end = 12,
             placeholder_text = _("Filter projects")
         };
 

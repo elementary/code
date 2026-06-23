@@ -242,7 +242,7 @@ public class Code.FormatBar : Gtk.Box {
 
         var line_grid = new Gtk.Grid () {
             margin_top = 12,
-            margin_botton = 12,
+            margin_bottom = 12,
             margin_start = 12,
             margin_end = 12
         };
