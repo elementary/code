@@ -61,9 +61,9 @@ public class Code.FormatBar : Gtk.Box {
         );
 
         homogeneous = true;
-        add (tab_menubutton);
-        add (lang_menubutton);
-        add (line_menubutton);
+        append (tab_menubutton);
+        append (lang_menubutton);
+        append (line_menubutton);
 
         create_tabulation_popover ();
         create_language_popover ();
@@ -100,7 +100,7 @@ public class Code.FormatBar : Gtk.Box {
         lang_scrolled.add (lang_selection_listbox);
 
         normal_entry = new LangEntry (null, _("Plain Text"), group);
-        lang_selection_listbox.add (normal_entry);
+        lang_selection_listbox.append (normal_entry);
 
         unowned string[]? ids = manager.get_language_ids ();
         foreach (unowned string id in ids) {
@@ -108,12 +108,12 @@ public class Code.FormatBar : Gtk.Box {
             var entry = new LangEntry (id, lang.name) {
                 group = normal_entry.group
             };
-            lang_selection_listbox.add (entry);
+            lang_selection_listbox.append (entry);
         }
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (lang_selection_filter);
-        popover_content.add (lang_scrolled);
+        popover_content.append (lang_selection_filter);
+        popover_content.append (lang_scrolled);
 
         var lang_popover = new Gtk.Popover (lang_menubutton);
         lang_popover.position = Gtk.PositionType.BOTTOM;
@@ -163,16 +163,16 @@ public class Code.FormatBar : Gtk.Box {
             margin_end = 12,
             margin_start = 12,
         };
-        tab_box.add (width_label);
-        tab_box.add (width_spinbutton);
+        tab_box.append (width_label);
+        tab_box.append (width_spinbutton);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             margin_bottom = 12
         };
-        box.add (editorconfig_infobar);
-        box.add (autoindent_modelbutton);
-        box.add (space_tab_modelbutton);
-        box.add (tab_box);
+        box.append (editorconfig_infobar);
+        box.append (autoindent_modelbutton);
+        box.append (space_tab_modelbutton);
+        box.append (tab_box);
 
         var tab_popover = new Gtk.Popover (tab_menubutton) {
             position = Gtk.PositionType.BOTTOM
@@ -337,10 +337,10 @@ public class Code.FormatBar : Gtk.Box {
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 halign = Gtk.Align.CENTER
             };
-            box.add (img);
-            box.add (label_widget);
+            box.append (img);
+            box.append (label_widget);
 
-            add (box);
+            child = box;
         }
     }
 
@@ -383,7 +383,7 @@ public class Code.FormatBar : Gtk.Box {
 
         construct {
             lang_radio = new Gtk.CheckButton.with_label (lang_name);
-            add (lang_radio);
+            child = lang_radio;
             lang_radio.toggled.connect (radio_toggled);
         }
 

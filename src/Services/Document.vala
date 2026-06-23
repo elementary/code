@@ -222,7 +222,7 @@ namespace Scratch.Services {
             scroll = new Gtk.ScrolledWindow (null, null) {
                 expand = true
             };
-            scroll.add (source_view);
+            scroll.child = source_view;
             source_file = new GtkSource.File ();
             source_map = new GtkSource.Map ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -239,17 +239,15 @@ namespace Scratch.Services {
             settings.changed["show-mini-map"].connect (set_minimap);
             settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
-            var source_grid = new Gtk.Grid () {
-                orientation = Gtk.Orientation.HORIZONTAL,
+            var source_grid = new Gtk.Box (HORIZONTAL, 0) {
                 column_homogeneous = false
             };
-            source_grid.add (scroll);
-            source_grid.add (source_map);
+            source_grid.append (scroll);
+            source_grid.append (source_map);
             outline_widget_pane.pack1 (source_grid, true, false);
 
-            var doc_grid = new Gtk.Grid ();
-            doc_grid.orientation = Gtk.Orientation.VERTICAL;
-            doc_grid.add (outline_widget_pane);
+            var doc_grid = new Gtk.Box (VERTICAL, 0);
+            doc_grid.append (outline_widget_pane);
 
             main_stack.add_named (doc_grid, "content");
 
@@ -306,7 +304,7 @@ namespace Scratch.Services {
 
             loaded = file == null;
 
-            add (main_stack);
+            append (main_stack);
         }
 
         public void init_tab (Adw.TabPage tab) {

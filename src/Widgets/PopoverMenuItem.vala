@@ -28,8 +28,8 @@ public class Code.PopoverMenuItem : Gtk.Button {
         var label = new Granite.AccelLabel (text);
 
         var box = new Gtk.Box (HORIZONTAL, 6);
-        box.add (image);
-        box.add (label);
+        box.append (image);
+        box.append (label);
 
         child = box;
 

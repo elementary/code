@@ -184,8 +184,8 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         var description_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true
         };
-        description_box.add (name_label);
-        description_box.add (description_label);
+        description_box.append (name_label);
+        description_box.append (description_label);
 
         var content = new Gtk.Box (HORIZONTAL, 6) {
             margin_top = 6,
@@ -193,9 +193,9 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             margin_bottom = 6,
             margin_start = 6
         };
-        content.add (image);
-        content.add (description_box);
-        content.add (load_switch);
+        content.append (image);
+        content.append (description_box);
+        content.append (load_switch);
         content.set_data<string> ("name", info.get_name ());
 
             load_switch.notify["active"].connect (() => {

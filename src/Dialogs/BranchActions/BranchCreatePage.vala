@@ -47,8 +47,8 @@ public class Scratch.Dialogs.BranchCreatePage : Gtk.Box, BranchActionPage {
             placeholder_text = _("Enter new branch name")
         };
 
-        add (label);
-        add (new_branch_name_entry);
+        append (label);
+        append (new_branch_name_entry);
 
         new_branch_name_entry.bind_property ("is-valid", dialog, "can-apply");
 

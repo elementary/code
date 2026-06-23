@@ -80,10 +80,10 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             };
 
             var content_box = new Gtk.Box (HORIZONTAL, 12);
-            content_box.add (sidebar);
-            content_box.add (stack);
+            content_box.append (sidebar);
+            content_box.append (stack);
 
-            custom_bin.add (content_box);
+            custom_bin.append (content_box);
         } else {
             primary_text = _("'%s' is not a git repository").printf (
                 project.file.file.get_basename ()

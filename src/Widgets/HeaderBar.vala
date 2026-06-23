@@ -108,9 +108,9 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_start = 12
         };
         font_size_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        font_size_box.add (zoom_out_button);
-        font_size_box.add (zoom_default_button);
-        font_size_box.add (zoom_in_button);
+        font_size_box.append (zoom_out_button);
+        font_size_box.append (zoom_default_button);
+        font_size_box.append (zoom_in_button);
 
         find_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SHOW_FIND,
@@ -138,8 +138,8 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_start = 12
         };
         find_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        find_box.add (find_button);
-        find_box.add (search_button);
+        find_box.append (find_button);
+        find_box.append (search_button);
 
         var follow_system_switchmodelbutton = new Granite.SwitchModelButton (_("Follow System Style")) {
             margin_top = 3
@@ -168,12 +168,12 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_top = 6,
             margin_bottom = 6
         };
-        color_box.add (color_button_white);
-        color_box.add (color_button_light);
-        color_box.add (color_button_dark);
+        color_box.append (color_button_white);
+        color_box.append (color_button_light);
+        color_box.append (color_button_dark);
 
         var color_revealer = new Gtk.Revealer ();
-        color_revealer.add (color_box);
+        color_revealer.child = color_box;
 
         var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
             margin_bottom = 3,
@@ -207,9 +207,9 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_start = 12
         };
         panels_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        panels_box.add (sidebar_button);
-        panels_box.add (terminal_button);
-        panels_box.add (outline_button);
+        panels_box.append (sidebar_button);
+        panels_box.append (terminal_button);
+        panels_box.append (outline_button);
 
         var preferences_menuitem = new Gtk.ModelButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES,
@@ -219,14 +219,14 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         var menu_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             margin_bottom = 3
         };
-        menu_box.add (font_size_box);
-        menu_box.add (find_box);
-        menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        menu_box.add (follow_system_switchmodelbutton);
-        menu_box.add (color_revealer);
-        menu_box.add (panels_box);
-        menu_box.add (menu_separator);
-        menu_box.add (preferences_menuitem);
+        menu_box.append (font_size_box);
+        menu_box.append (find_box);
+        menu_box.append (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        menu_box.append (follow_system_switchmodelbutton);
+        menu_box.append (color_revealer);
+        menu_box.append (panels_box);
+        menu_box.append (menu_separator);
+        menu_box.append (preferences_menuitem);
 
         var menu = new Gtk.Popover (null);
         menu.add (menu_box);

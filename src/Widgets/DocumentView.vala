@@ -149,8 +149,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.create_window.connect (on_doc_to_new_window);
 
         style_provider = new Gtk.CssProvider ();
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
@@ -174,8 +174,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         // Gtk.drag_dest_set (tab_bar, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         // tab_bar.drag_data_received.connect (drag_received);
 
-        add (tab_bar);
-        add (tab_view);
+        append (tab_bar);
+        append (tab_view);
     }
 
     private void update_inline_tab_colors () {

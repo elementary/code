@@ -248,8 +248,8 @@ namespace Scratch {
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
             if (Constants.BRANCH != "") {
@@ -513,19 +513,17 @@ namespace Scratch {
                 visible = false
             };
 
-            var view_grid = new Gtk.Grid () {
-                orientation = Gtk.Orientation.VERTICAL
-            };
-            view_grid.add (search_bar);
-            view_grid.add (document_view);
+            var view_grid = new Gtk.Box (VERTICAL, 0);
+            view_grid.append (search_bar);
+            view_grid.append (document_view);
 
             content_stack = new Gtk.Stack () {
                 expand = true,
                 width_request = 200
             };
 
-            content_stack.add (view_grid);  // Must be added first to avoid terminal warnings
-            content_stack.add (welcome_view);
+            content_stack.add_child (view_grid);  // Must be added first to avoid terminal warnings
+            content_stack.add_child (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
             // Set a proper position for ThinPaned widgets
@@ -538,14 +536,14 @@ namespace Scratch {
             vp.pack2 (terminal, false, false);
 
             var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            box.add (toolbar);
-            box.add (vp);
+            box.append (toolbar);
+            box.append (vp);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp1.pack1 (sidebar, false, false);
             hp1.pack2 (box, true, false);
 
-            add (hp1);
+            child = hp1;
 
             var header_group = new Hdy.HeaderGroup ();
             header_group.add_header_bar (sidebar.headerbar);

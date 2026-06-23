@@ -53,10 +53,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             hexpand = true,
             vexpand = false
         };
-        box.add (img);
-        box.add (label_widget);
-        box.add (cloning_spinner);
-        add (box);
+        box.append (img);
+        box.append (label_widget);
+        box.append (cloning_spinner);
+        child = box;
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
@@ -98,17 +98,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         };
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (project_filter);
-        popover_content.add (project_scrolled);
-        popover_content.add (new Gtk.Separator (HORIZONTAL));
-        popover_content.add (add_folder_button);
-        popover_content.add (clone_button);
+        popover_content.append (project_filter);
+        popover_content.append (project_scrolled);
+        popover_content.append (new Gtk.Separator (HORIZONTAL));
+        popover_content.append (add_folder_button);
+        popover_content.append (clone_button);
 
         var project_popover = new Gtk.Popover (this) {
-            position = Gtk.PositionType.BOTTOM
+            position = Gtk.PositionType.BOTTOM,
+            child = popover_content
         };
-
-        project_popover.add (popover_content);
 
         popover = project_popover;
 
@@ -222,7 +221,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         construct {
             check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
-            add (check_button);
+            child = check_button;
             check_button.button_release_event.connect (() => {
                 activate ();
                 return Gdk.EVENT_PROPAGATE;

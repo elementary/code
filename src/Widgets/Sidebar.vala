@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.Sidebar : Gtk.Grid {
+public class Code.Sidebar : Gtk.Box {
     public enum TargetType {
         URI_LIST
     }
@@ -108,10 +108,10 @@ public class Code.Sidebar : Gtk.Grid {
 
         actionbar.pack_start (project_menu_button);
 
-        add (headerbar);
-        add (stack_switcher);
-        add (overlay);
-        add (actionbar);
+        append (headerbar);
+        append (stack_switcher);
+        append (overlay);
+        append (actionbar);
 
         stack.remove.connect (() => {
             switch (stack.get_children ().length ()) {
@@ -162,7 +162,7 @@ public class Code.Sidebar : Gtk.Grid {
     // }
 
     public void add_tab (Code.PaneSwitcher tab) {
-        stack.add (tab);
+        stack.add_child (tab);
         stack.child_set_property (tab, "title", tab.title);
         stack.child_set_property (tab, "icon-name", tab.icon_name);
 

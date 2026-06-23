@@ -21,14 +21,14 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
 
     construct {
         var general_box = new Gtk.Box (VERTICAL, 12);
-        general_box.add (new Granite.HeaderLabel (_("General")));
-        general_box.add (new SettingSwitch (_("Save files when changed"), "autosave"));
-        general_box.add (new SettingSwitch (
+        general_box.append (new Granite.HeaderLabel (_("General")));
+        general_box.append (new SettingSwitch (_("Save files when changed"), "autosave"));
+        general_box.append (new SettingSwitch (
             _("Strip trailing whitespace on save"),
             "strip-trailing-on-save",
             _("Except Plain Text, Markdown and YAML")
         ));
-        general_box.add (new SettingSwitch (
+        general_box.append (new SettingSwitch (
             _("Smart cut/copy lines"),
             "smart-cut-copy",
             _("Cutting or copying without an active selection will cut or copy the entire current line")
@@ -44,14 +44,14 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         };
 
         var indent_width_box = new Gtk.Box (HORIZONTAL, 12);
-        indent_width_box.add (indent_width_label);
-        indent_width_box.add (indent_width);
+        indent_width_box.append (indent_width_label);
+        indent_width_box.append (indent_width);
 
         var indentation_box = new Gtk.Box (VERTICAL, 12);
-        indentation_box.add (new Granite.HeaderLabel (_("Indentation")));
-        indentation_box.add (new SettingSwitch (_("Automatic indentation"), "auto-indent"));
-        indentation_box.add (new SettingSwitch (_("Insert spaces instead of tabs"), "spaces-instead-of-tabs"));
-        indentation_box.add (indent_width_box);
+        indentation_box.append (new Granite.HeaderLabel (_("Indentation")));
+        indentation_box.append (new SettingSwitch (_("Automatic indentation"), "auto-indent"));
+        indentation_box.append (new SettingSwitch (_("Insert spaces instead of tabs"), "spaces-instead-of-tabs"));
+        indentation_box.append (indent_width_box);
 
         var build_dir_entry = new Gtk.Entry () {
             hexpand = true,
@@ -65,17 +65,17 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         };
 
         var build_dir_box = new Gtk.Box (HORIZONTAL, 12);
-        build_dir_box.add (buid_dir_label);
-        build_dir_box.add (build_dir_entry);
+        build_dir_box.append (buid_dir_label);
+        build_dir_box.append (build_dir_entry);
 
         var projects_box = new Gtk.Box (VERTICAL, 12);
-        projects_box.add (new Granite.HeaderLabel (_("Projects")));
-        projects_box.add (build_dir_box);
+        projects_box.append (new Granite.HeaderLabel (_("Projects")));
+        projects_box.append (build_dir_box);
 
         var behavior_box = new Gtk.Box (VERTICAL, 24);
-        behavior_box.add (general_box);
-        behavior_box.add (indentation_box);
-        behavior_box.add (projects_box);
+        behavior_box.append (general_box);
+        behavior_box.append (indentation_box);
+        behavior_box.append (projects_box);
 
         var drawspaces_combobox = new Gtk.ComboBoxText () {
             hexpand = true
@@ -105,22 +105,22 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         };
 
         var draw_spaces_box = new Gtk.Box (HORIZONTAL, 12);
-        draw_spaces_box.add (draw_spaces_label);
-        draw_spaces_box.add (drawspaces_combobox);
+        draw_spaces_box.append (draw_spaces_label);
+        draw_spaces_box.append (drawspaces_combobox);
 
         var right_margin_position = new Gtk.SpinButton.with_range (1, 250, 1);
         Scratch.settings.bind ("right-margin-position", right_margin_position, "value", DEFAULT);
         Scratch.settings.bind ("show-right-margin", right_margin_position, "sensitive", DEFAULT);
 
         var editor_box = new Gtk.Box (VERTICAL, 12);
-        editor_box.add (new Granite.HeaderLabel (_("Editor")));
-        editor_box.add (new SettingSwitch (_("Highlight matching brackets"), "highlight-matching-brackets"));
-        editor_box.add (new SettingSwitch (_("Syntax highlighting"), "syntax-highlighting"));
-        editor_box.add (draw_spaces_box);
-        editor_box.add (new SettingSwitch (_("Mini Map"), "show-mini-map"));
-        editor_box.add (new SettingSwitch (_("Wrap lines"), "line-wrap"));
-        editor_box.add (new SettingSwitch (_("Line width guide"), "show-right-margin"));
-        editor_box.add (right_margin_position);
+        editor_box.append (new Granite.HeaderLabel (_("Editor")));
+        editor_box.append (new SettingSwitch (_("Highlight matching brackets"), "highlight-matching-brackets"));
+        editor_box.append (new SettingSwitch (_("Syntax highlighting"), "syntax-highlighting"));
+        editor_box.append (draw_spaces_box);
+        editor_box.append (new SettingSwitch (_("Mini Map"), "show-mini-map"));
+        editor_box.append (new SettingSwitch (_("Wrap lines"), "line-wrap"));
+        editor_box.append (new SettingSwitch (_("Line width guide"), "show-right-margin"));
+        editor_box.append (right_margin_position);
 
 
         var application = ((Scratch.Application) (GLib.Application.get_default ()));
@@ -135,13 +135,13 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         Scratch.settings.bind ("use-system-font", select_font, "sensitive", INVERT_BOOLEAN);
 
         var font_box = new Gtk.Box (VERTICAL, 12);
-        font_box.add (new Granite.HeaderLabel (_("Font")));
-        font_box.add (font_switch);
-        font_box.add (select_font);
+        font_box.append (new Granite.HeaderLabel (_("Font")));
+        font_box.append (font_switch);
+        font_box.append (select_font);
 
         var interface_box = new Gtk.Box (VERTICAL, 24);
-        interface_box.add (editor_box);
-        interface_box.add (font_box);
+        interface_box.append (editor_box);
+        interface_box.append (font_box);
 
         var stack = new Gtk.Stack () {
             margin = 12,
@@ -155,8 +155,8 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         stackswitcher.halign = Gtk.Align.CENTER;
 
         var main_box = new Gtk.Box (VERTICAL, 12);
-        main_box.add (stackswitcher);
-        main_box.add (stack);
+        main_box.append (stackswitcher);
+        main_box.append (stack);
 
         plugins.hook_preferences_dialog (this); // Unused?
 
@@ -168,7 +168,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         }
 
         border_width = 0;
-        get_content_area ().add (main_box);
+        get_content_area ().append (main_box);
 
         var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
         close_button.clicked.connect (() => {

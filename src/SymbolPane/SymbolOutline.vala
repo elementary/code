@@ -174,15 +174,15 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         spinner = new Gtk.Spinner ();
         stack = new Gtk.Stack ();
-        stack.add (filter_button);
-        stack.add (spinner);
+        stack.add_child (filter_button);
+        stack.add_child (spinner);
         stack.visible_child = filter_button;
 
         var tool_box = new Gtk.Box (HORIZONTAL, 3);
-        tool_box.add (search_entry);
-        tool_box.add (stack);
-        add (tool_box);
-        add (store);
+        tool_box.append (search_entry);
+        tool_box.append (stack);
+        append (tool_box);
+        append (store);
         set_up_css ();
 
         realize.connect (() => {
@@ -270,8 +270,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
     protected void set_up_css () {
         source_list_style_provider = new Gtk.CssProvider ();
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
             source_list_style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );

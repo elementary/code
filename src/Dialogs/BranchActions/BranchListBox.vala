@@ -62,7 +62,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
                     row.is_recent = true;
                 }
 
-                list_box.add (row);
+                list_box.append (row);
             }
         }
 
@@ -89,8 +89,8 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             dialog.page_activated ();
         });
 
-        add (search_entry);
-        add (scrolled_window);
+        append (search_entry);
+        append (scrolled_window);
     }
 
     public BranchNameRow? get_selected_row () {

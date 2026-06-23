@@ -178,7 +178,7 @@ public class Code.Terminal : Gtk.Box {
         var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
         scrolled_window.add (terminal);
 
-        add (scrolled_window);
+        append (scrolled_window);
     }
 
     private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
