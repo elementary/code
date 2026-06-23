@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
  * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- 
+
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -511,14 +511,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
         dialog.deletable = false;
 
-        if (dialog.run () == Gtk.ResponseType.OK) {
-            var app_info = dialog.get_app_info ();
-            if (app_info != null) {
-                Utils.launch_app_with_file (app_info.get_id (), path);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.OK) {
+                var app_info = dialog.get_app_info ();
+                if (app_info != null) {
+                    Utils.launch_app_with_file (app_info.get_id (), path);
+                }
             }
-        }
 
-        dialog.destroy ();
+            dialog.destroy ();
+        });
+
+        dialog.show ();
     }
 
     private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
@@ -623,7 +627,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
             });
 
-            dialog.run ();
+            dialog.show ();
 
             if (close_projects) {
                 foreach (var item in parents) {

@@ -245,9 +245,14 @@ namespace Scratch.Widgets {
             // Connecting to some signals
             search_entry.changed.connect (on_search_parameters_changed);
 
+            search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.notify["is-focus"].connect (() => {
-                if (search_entry.is_focus) {
-                    on_search_entry_focused_in ();
+                if (search_entry.is_focus && text_buffer != null) {
+                    Idle.add (() => {
+                        update_search_widgets ();
+                        search_entry.select_region (0, -1);
+                        return Source.REMOVE;
+                    });
                 }
             });
 
@@ -384,14 +389,6 @@ namespace Scratch.Widgets {
             }
 
             update_search_widgets ();
-        }
-
-        private void on_search_entry_focused_in () requires (text_buffer != null) {
-            Idle.add (() => {
-                update_search_widgets ();
-                search_entry.select_region (0, -1);
-                return Source.REMOVE;
-            });
         }
 
         public bool search () {

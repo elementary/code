@@ -41,7 +41,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
         Object (
             suggested_local_folder: _suggested_local_folder,
-            suggested_remote: _suggested_remote
+            suggested_remote: _suggested_remote,
+            modal: true
         );
     }
 
