@@ -167,7 +167,7 @@ namespace Scratch.Services {
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
             get {
-                return ((MainWindow) get_toplevel ()).document_view;
+                return ((MainWindow) get_root ()).document_view;
             }
         }
 
@@ -517,7 +517,7 @@ namespace Scratch.Services {
         }
 
         private async bool ask_save_changes () {
-            var parent_window = source_view.get_toplevel () as Gtk.Window;
+            var parent_window = (Gtk.Window) (source_view.get_root ());
             var dialog = new Granite.MessageDialog (
                 _("Save changes to “%s” before closing?").printf (this.get_basename ()),
                 _("If you don't save, changes will be permanently lost."),
@@ -691,7 +691,7 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                (Gtk.Window) this.get_toplevel (),
+                (Gtk.Window) this.get_root (),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")

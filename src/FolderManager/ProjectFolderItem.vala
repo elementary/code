@@ -400,7 +400,7 @@ namespace Scratch.FolderManager {
                     badge_icon = new ThemedIcon ("dialog-error"),
                     modal = true
                 };
-                dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
+                dialog.transient_for = (Gtk.Window)(view.get_root ());
                 dialog.response.connect (() => {
                     dialog.destroy ();
                 });

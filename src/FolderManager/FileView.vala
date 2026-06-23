@@ -614,7 +614,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             assert (parents.length () <= 1);
             assert (parents.length () == 0 || children.length () == 0);
             var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
-                (MainWindow) get_toplevel (),
+                (MainWindow) get_root (),
                 parents.length (),
                 children.length ()
             );
