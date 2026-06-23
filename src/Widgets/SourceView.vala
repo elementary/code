@@ -138,24 +138,6 @@ namespace Scratch.Widgets {
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                var handled = false;
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    total_delta += key_event.delta_y;
-                    if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
-                        total_delta = 0.0;
-                    } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
-                        total_delta = 0.0;
-                    }
-
-                    return true;
-                }
-
-                return false;
-            });
-
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
                     return;
@@ -257,7 +239,7 @@ namespace Scratch.Widgets {
             });
 
             // Handle context menu shortcuts here.
-            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts
+            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts for accels
             key_controller = new Gtk.EventControllerKey (application.get_active_window ()) {
                 propagation_phase = CAPTURE
             };

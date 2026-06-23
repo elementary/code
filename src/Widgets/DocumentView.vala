@@ -176,6 +176,31 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         append (tab_bar);
         append (tab_view);
+
+        var scroll_controller = new Gtk.EventControllerScroll () {
+            propagation_phase = CAPTURE
+        };
+        add_controller (scroll_controller);
+
+        scroll_controller.scroll.connect ((dx, dy) => {
+            var state = scroll_controller.get_current_event_state ();
+            var mods = (state & Gtk.accelerator_get_default_mod_mask ());
+            if (Gdk.ModifierType.CONTROL_MASK in mods) {
+                total_delta += dy;
+                if (total_delta < -SCROLL_THRESHOLD) {
+                    get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                    total_delta = 0.0;
+                } else if (total_delta > SCROLL_THRESHOLD) {
+                    get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                    total_delta = 0.0;
+                }
+
+                return true;
+            }
+
+            return false;
+        });
+
     }
 
     private void update_inline_tab_colors () {
