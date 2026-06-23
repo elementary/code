@@ -130,7 +130,7 @@ namespace Scratch.Widgets {
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
 
-            Gtk.drag_dest_add_uri_targets (this);
+            // Gtk.drag_dest_add_uri_targets (this);
 
             restore_settings ();
             settings.changed.connect (restore_settings);
@@ -187,7 +187,7 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
                         string copy_text = iter_start.get_slice (iter_end);
 
                         clipboard.set_text (copy_text, -1);
