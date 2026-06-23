@@ -1472,15 +1472,13 @@ public class SourceList : Gtk.ScrolledWindow {
     private class CellRendererIcon : Gtk.CellRendererPixbuf {
         public signal void activated (string path);
 
-        private const Gtk.IconSize ICON_SIZE = Gtk.IconSize.MENU;
-
         public CellRendererIcon () {
 
         }
 
         construct {
             mode = Gtk.CellRendererMode.ACTIVATABLE;
-            stock_size = ICON_SIZE;
+            icon_size = Gtk.IconSize.NORMAL;
         }
 
         public override bool activate (

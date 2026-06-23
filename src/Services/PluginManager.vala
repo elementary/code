@@ -158,7 +158,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             state = info.is_loaded ()
         };
 
-        var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
+        var image = new Gtk.Image.from_icon_name (info.get_icon_name ()) {
             valign = START
         };
 

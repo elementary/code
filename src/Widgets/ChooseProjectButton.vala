@@ -33,9 +33,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             assert_nonnull (toplevel_action_group);
         });
 
-        var img = new Gtk.Image () {
-            gicon = new ThemedIcon ("git-symbolic"),
-            icon_size = Gtk.IconSize.SMALL_TOOLBAR
+        var img = new Gtk.Image.from_gicon (new ThemedIcon ("git-symbolic")) {
+            icon_size = Gtk.IconSize.NORMAL
         };
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {

@@ -332,7 +332,7 @@ public class Code.FormatBar : Gtk.Box {
 
         construct {
             img = new Gtk.Image () {
-                icon_size = Gtk.IconSize.SMALL_TOOLBAR
+                icon_size = Gtk.IconSize.NORMAL
             };
 
             label_widget = new Gtk.Label (null) {

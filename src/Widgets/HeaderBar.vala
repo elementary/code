@@ -29,7 +29,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
     construct {
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
 
-        var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR) {
+        var open_button = new Gtk.Button.from_icon_name ("document-open") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN
         };
         open_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -38,7 +38,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         );
 
 
-        var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR) {
+        var save_button = new Gtk.Button.from_icon_name ("document-save") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE
         };
         save_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -46,7 +46,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             _("Save this file")
         );
 
-        var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR) {
+        var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS
         };
         save_as_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -54,7 +54,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             _("Save this file with a different name")
         );
 
-        var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR) {
+        var revert_button = new Gtk.Button.from_icon_name ("document-revert") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT
         };
         revert_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -65,12 +65,12 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         share_menu = new GLib.Menu ();
 
         share_menu_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR),
+            image = new Gtk.Image.from_icon_name ("document-export"),
             menu_model = share_menu,
             tooltip_text = _("Share")
         };
 
-        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU) {
+        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT
         };
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -86,7 +86,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             _("Zoom 1:1")
         );
 
-        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU) {
+        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN
         };
         zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -109,14 +109,14 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         find_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SHOW_FIND,
-            image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic", Gtk.IconSize.MENU)
+            image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic")
         };
         find_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND + "::"),
             _("Find on Page…")
         );
 
-        var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
+        var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
             action_target = new Variant.string ("")
         };
@@ -180,12 +180,12 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         sidebar_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR,
-            image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
+            image = new Gtk.Image.from_icon_name ("panel-left-symbolic")
         };
 
         terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
-            image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
+            image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic")
         };
         terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (terminal_button.action_name),
@@ -194,7 +194,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         outline_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
-            image = new Gtk.Image.from_icon_name ("panel-right-symbolic", Gtk.IconSize.MENU)
+            image = new Gtk.Image.from_icon_name ("panel-right-symbolic")
         };
 
         var panels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -229,7 +229,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         menu.add (menu_box);
 
         var app_menu = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            image = new Gtk.Image.from_icon_name ("open-menu"),
             popover = menu,
             tooltip_text = _("Menu")
         };

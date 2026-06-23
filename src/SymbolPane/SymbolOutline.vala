@@ -134,8 +134,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         filter_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name (
-                "filter-symbolic",
-                Gtk.IconSize.SMALL_TOOLBAR
+                "filter-symbolic"
             ),
             tooltip_text = _("Filter symbol type"),
         };

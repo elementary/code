@@ -105,7 +105,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         tab_history_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic", Gtk.IconSize.MENU),
+            image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic"),
             tooltip_text = _("Closed Tabs"),
             use_popover = false,
         };

@@ -83,7 +83,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 6);
         folder_chooser_button_child.append (projects_folder_label);
         folder_chooser_button_child.append (
-            new Gtk.Image.from_icon_name ("folder-open-symbolic", BUTTON)
+            new Gtk.Image.from_icon_name ("folder-open-symbolic")
         );
 
         var folder_chooser_button = new Gtk.Button () {

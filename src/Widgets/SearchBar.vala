@@ -125,7 +125,7 @@ namespace Scratch.Widgets {
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
-            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic");
             tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
             tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
@@ -135,7 +135,7 @@ namespace Scratch.Widgets {
                 _("Search next")
             );
 
-            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic");
             tool_arrow_up.clicked.connect (search_previous);
             tool_arrow_up.sensitive = false;
             tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
@@ -177,7 +177,7 @@ namespace Scratch.Widgets {
 
             var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
             search_buttonbox.append (search_occurence_count_label);
-            search_buttonbox.append (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
+            search_buttonbox.append (new Gtk.Image.from_icon_name ("pan-down-symbolic"));
 
             var search_menubutton = new Gtk.MenuButton () {
                 popover = search_popover,

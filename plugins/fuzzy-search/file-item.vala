@@ -41,7 +41,9 @@ public class FileItem : Gtk.ListBoxRow {
             icon = ContentType.get_icon ("text/plain");
         }
 
-        var image = new Gtk.Image.from_gicon (icon, Gtk.IconSize.DND);
+        var image = new Gtk.Image.from_gicon (icon) {
+            icon_size = Gtk.IconSize.NORMAL
+        );
         image.get_style_context ().add_class ("fuzzy-file-icon");
 
         path_box.add (filename_label);
