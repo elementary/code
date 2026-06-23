@@ -44,7 +44,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             is_repo: is_repo,
             case_sensitive: case_sensitive,
             wholeword: wholeword,
-            use_regex: use_regex
+            use_regex: use_regex,
+            modal: true
         );
     }
 

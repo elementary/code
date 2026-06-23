@@ -75,8 +75,11 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
                             new ThemedIcon ("dialog-warning"),
                             Gtk.ButtonsType.CLOSE
                         );
-                        dialog.run ();
-                        dialog.destroy ();
+
+                        dialog.response.connect (() => {
+                            dialog.destroy ();
+                        });
+                        dialog.show ();
 
                         // This fallback to the LC used but might fail.
                         spell.set_language (null);

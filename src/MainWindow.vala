@@ -936,14 +936,13 @@ namespace Scratch {
         private void action_preferences () {
             if (preferences_dialog == null) {
                 preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
 
                 preferences_dialog.destroy.connect (() => {
                     preferences_dialog = null;
                 });
             }
 
-            preferences_dialog.present ();
+            preferences_dialog.show ();
         }
 
         private void action_close_window () {
@@ -975,19 +974,22 @@ namespace Scratch {
             file_chooser.select_multiple = true;
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
-            var response = file_chooser.run ();
-            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
-
-            if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in file_chooser.get_uris ()) {
-                    // Update last visited path
-                    Utils.last_path = Path.get_dirname (uri);
-                    // Open the file
-                    var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (actions, file);
-                    open_document.begin (doc);
+            file_chooser.response.connect ((res) => {
+                var uris = file_chooser.get_uris ();
+                file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    foreach (string uri in file_chooser.get_uris ()) {
+                        // Update last visited path
+                        Utils.last_path = Path.get_dirname (uri);
+                        // Open the file
+                        var file = File.new_for_uri (uri);
+                        var doc = new Scratch.Services.Document (actions, file);
+                        open_document.begin (doc);
+                    }
                 }
-            }
+            });
+
+            file_chooser.show ();
         }
 
         private void action_open_in_new_window (SimpleAction action, Variant? param) {
@@ -1017,14 +1019,18 @@ namespace Scratch {
 
             chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
-            }
+            chooser.response.connect ((res) => {
+                var files = chooser.get_files ();
+                chooser.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    files.foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+            });
 
-            chooser.destroy ();
+            chooser.show ();
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
@@ -1079,7 +1085,8 @@ namespace Scratch {
                                     "dialog-error",
                                     Gtk.ButtonsType.CLOSE
                                 ) {
-                                    transient_for = this
+                                    transient_for = this,
+                                    modal = true
                                 };
                                 message_dialog.add_button (_("Retry"), 1);
                                 message_dialog.response.connect ((res) => {
@@ -1091,7 +1098,7 @@ namespace Scratch {
 
                                     message_dialog.destroy ();
                                 });
-                                message_dialog.present ();
+                                message_dialog.show ();
                             }
                         }
                     );
@@ -1100,7 +1107,7 @@ namespace Scratch {
                 }
             });
 
-            clone_dialog.present ();
+            clone_dialog.show ();
         }
 
         private void action_collapse_all_folders () {
@@ -1141,13 +1148,18 @@ namespace Scratch {
 
         private void action_revert () {
             var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
-            if (confirmation_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                var doc = get_current_document ();
-                if (doc != null) {
-                    doc.revert ();
+            confirmation_dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    var doc = get_current_document ();
+                    if (doc != null) {
+                        doc.revert ();
+                    }
                 }
-            }
-            confirmation_dialog.destroy ();
+
+                confirmation_dialog.destroy ();
+            });
+
+            confirmation_dialog.show ();
         }
 
         private void action_duplicate () {
