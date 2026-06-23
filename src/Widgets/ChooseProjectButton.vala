@@ -62,8 +62,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
         var project_filter = new Gtk.SearchEntry () {
-            margin = 12,
+            margin_top = 12,
             margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12
             placeholder_text = _("Filter projects")
         };
 
