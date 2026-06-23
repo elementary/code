@@ -209,9 +209,8 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         panels_box.append (terminal_button);
         panels_box.append (outline_button);
 
-        var preferences_menuitem = new Gtk.ModelButton () {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES,
-            text = _("Preferences")
+        var preferences_menuitem = new Gtk.Button.with_label (_("Preferences")) {
+            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES
         };
 
         var menu_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
