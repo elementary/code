@@ -188,8 +188,13 @@ namespace Scratch.Services {
         private Mount mount;
         private Icon locked_icon;
 
+        private Gtk.EventControllerScroll scroll_controller;
+
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
+
+        private double total_delta = 0;
+        private const double SCROLL_THRESHOLD = 1.0;
 
         public Document (SimpleActionGroup actions, File file) {
             Object (
@@ -220,11 +225,34 @@ namespace Scratch.Services {
             source_view = new Scratch.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null) {
-                expand = true
+                expand = true,
+                child = source_view
             };
-            scroll.child = source_view;
-            source_file = new GtkSource.File ();
-            source_map = new GtkSource.Map ();
+
+            scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
+                propagation_phase = CAPTURE
+            };
+            scroll_controller.scroll.connect ((dx, dy) => {
+                Gdk.ModifierType state;
+                Gtk.get_current_event_state (out state);
+                if (Gdk.ModifierType.CONTROL_MASK in state) {
+                    total_delta += dy;
+                    if (total_delta < -SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                        total_delta = 0.0;
+                    } else if (total_delta > SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                        total_delta = 0.0;
+                    }
+
+                    return;
+                }
+
+                Gtk.propagate_event (scroll, Gtk.get_current_event ());
+            });
+
+            source_file = new Gtk.SourceFile ();
+            source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
             if (builder_blocks_font != null && builder_font_map != null) {

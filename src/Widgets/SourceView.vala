@@ -42,8 +42,6 @@ namespace Scratch.Widgets {
         private Gtk.EventControllerKey key_controller;
 
         private const uint THROTTLE_MS = 400;
-        private double total_delta = 0;
-        private const double SCROLL_THRESHOLD = 1.0;
 
         protected static Scratch.Application application;
 
