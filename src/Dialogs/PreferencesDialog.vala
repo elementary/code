@@ -144,7 +144,10 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         interface_box.append (font_box);
 
         var stack = new Gtk.Stack () {
-            margin = 12,
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12,
             vhomogeneous = true
         };
         stack.add_titled (behavior_box, "behavior", _("Behavior"));

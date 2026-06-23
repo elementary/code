@@ -82,8 +82,10 @@ public class Code.FormatBar : Gtk.Box {
         });
 
         lang_selection_filter = new Gtk.SearchEntry () {
-            margin = 12,
+            margin_top = 12,
             margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12,
             placeholder_text = _("Filter languages")
         };
 
@@ -235,8 +237,12 @@ public class Code.FormatBar : Gtk.Box {
 
         goto_entry = new Gtk.Entry ();
 
-        var line_grid = new Gtk.Grid ();
-        line_grid.margin = 12;
+        var line_grid = new Gtk.Grid () {
+            margin_top = 12,
+            margin_botton = 12,
+            margin_start = 12,
+            margin_end = 12
+        };
         line_grid.column_spacing = 12;
         line_grid.attach (goto_label, 0, 0, 1, 1);
         line_grid.attach (goto_entry, 1, 0, 1, 1);
