@@ -140,21 +140,24 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_top = 3
         };
 
-        // Intentionally never attached so we can have a non-selected state
-        var color_button_none = new Gtk.RadioButton (null);
+        // Intentionally never attached so we can have a none selected state
+        var color_button_none = new Gtk.CheckButton ();
 
-        var color_button_white = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_white = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_white, STYLE_SCHEME_HIGH_CONTRAST);
 
-        var color_button_light = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_light = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_light, STYLE_SCHEME_LIGHT);
 
-        var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_dark = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
@@ -310,7 +313,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         });
     }
 
-    private void style_color_button (Gtk.ToggleButton color_button, string style_id) {
+    private void style_color_button (Gtk.CheckButton color_button, string style_id) {
         var background = "";
         var foreground = "";
 
