@@ -22,17 +22,12 @@ public class Scratch.Services.Interface : GLib.Object {
     public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
     public signal void hook_folder_item_change (File file, File? other_file, FileMonitorEvent event_type);
 
-    public Scratch.TemplateManager template_manager { get; private set; }
     public Scratch.Services.PluginsManager manager { get; construct; }
 
     public Interface (Scratch.Services.PluginsManager _manager) {
         Object (
             manager: _manager
         );
-    }
-
-    construct {
-        template_manager = new Scratch.TemplateManager ();
     }
 
     public Scratch.Services.Document open_file (File file) {
