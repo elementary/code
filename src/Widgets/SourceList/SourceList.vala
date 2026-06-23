@@ -1131,8 +1131,9 @@ public class SourceList : Gtk.ScrolledWindow {
         }
 
         private void resort () {
-            child_tree.set_sort_column_id (Gtk.SortColumn.UNSORTED, Gtk.SortType.ASCENDING);
-            child_tree.set_sort_column_id (Gtk.SortColumn.DEFAULT, Gtk.SortType.ASCENDING);
+            //TODO Do not use deprecated model and view.
+            child_tree.set_sort_column_id (-1, Gtk.SortType.ASCENDING);
+            child_tree.set_sort_column_id (0, Gtk.SortType.ASCENDING);
         }
 
         private int child_model_sort_func (Gtk.TreeModel model, Gtk.TreeIter a, Gtk.TreeIter b) {
