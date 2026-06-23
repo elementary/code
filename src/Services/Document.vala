@@ -1040,7 +1040,8 @@ namespace Scratch.Services {
                 Gtk.ButtonsType.NONE
             ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
-                transient_for = app_instance.active_window
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
@@ -1073,7 +1074,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
 
         private void ask_external_changes (
@@ -1090,8 +1091,8 @@ namespace Scratch.Services {
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.NONE
                 ) {
-                transient_for = app_instance.active_window
-
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
@@ -1149,7 +1150,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {

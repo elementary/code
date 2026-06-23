@@ -259,7 +259,7 @@ namespace Scratch.Services {
                 };
 
                 dialog.response.connect (() => {dialog.destroy ();});
-                dialog.present ();
+                dialog.show ();
                 return false;
             }
 
@@ -342,10 +342,12 @@ namespace Scratch.Services {
                     _("An error occurred while checking out the requested branch"),
                     e.message,
                     "dialog-warning"
-                );
+                ) {
+                    modal = true
+                };
 
                 dialog.response.connect (dialog.destroy);
-                dialog.present ();
+                dialog.show ();
                 return false;
             }
 

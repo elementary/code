@@ -1107,7 +1107,8 @@ namespace Scratch {
                                     "dialog-error",
                                     Gtk.ButtonsType.CLOSE
                                 ) {
-                                    transient_for = this
+                                    transient_for = this,
+                                    modal = true
                                 };
                                 message_dialog.add_button (_("Retry"), 1);
                                 message_dialog.response.connect ((res) => {
@@ -1119,7 +1120,7 @@ namespace Scratch {
 
                                     message_dialog.destroy ();
                                 });
-                                message_dialog.present ();
+                                message_dialog.show ();
                             }
                         }
                     );
