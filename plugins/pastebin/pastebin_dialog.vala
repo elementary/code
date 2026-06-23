@@ -316,8 +316,10 @@ namespace Scratch.Dialogs {
             };
 
             stack = new Gtk.Stack () {
-                margin = 12,
-                margin_top = 0
+                margin_top = 0,
+                margin_bottom = 12,
+                margin_start = 12,
+                margin_end = 12
             };
             stack.add (grid);
             stack.add (spinner);
@@ -362,7 +364,10 @@ namespace Scratch.Dialogs {
             for (var i=0; i < languages.length[0]; i++) {
                 var label = new Gtk.Label (languages[i, 2]) {
                     halign = Gtk.Align.START,
-                    margin = 6
+                    margin_top = 6,
+                    margin_bottom = 6,
+                    margin_start = 6,
+                    margin_end = 6
                 };
 
                 languages_listbox.add (label);
@@ -382,8 +387,10 @@ namespace Scratch.Dialogs {
             select_button.clicked.connect (select_button_clicked);
 
             var frame = new Gtk.Frame (null) {
-                margin = 12,
-                margin_top = 0
+                margin_top = 0,
+                margin_bottom = 12,
+                margin_start = 12,
+                margin_end = 12
             };
             frame.add (languages_scrolled);
 
