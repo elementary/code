@@ -263,13 +263,6 @@ namespace Scratch.Widgets {
             });
             replace_entry.activate.connect (on_replace_entry_activate);
 
-            var entry_path = new Gtk.WidgetPath ();
-            entry_path.append_type (typeof (Gtk.Widget));
-
-            var entry_context = new Gtk.StyleContext ();
-            entry_context.set_path (entry_path);
-            entry_context.add_class ("entry");
-
             var flowbox = new Gtk.FlowBox () {
                 selection_mode = Gtk.SelectionMode.NONE,
                 column_spacing = 6,
