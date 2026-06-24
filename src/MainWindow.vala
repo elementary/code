@@ -825,10 +825,10 @@ namespace Scratch {
 
         private void update_window_state_setting () {
             // Save window state
-            var state = get_window ().get_state ();
-            if (Gdk.WindowState.MAXIMIZED in state) {
+            var state = ((Gdk.Toplevel) this).state;
+            if (Gdk.ToplevelState.MAXIMIZED in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
-            } else if (Gdk.WindowState.FULLSCREEN in state) {
+            } else if (Gdk.ToplevelState.FULLSCREEN in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.FULLSCREEN);
             } else {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.NORMAL);
@@ -1174,7 +1174,8 @@ namespace Scratch {
         }
 
         private void action_fullscreen () {
-            if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
+            var state = ((Gdk.Toplevel) this).state;
+            if (Gdk.ToplevelState.FULLSCREEN in state) {
                 unfullscreen ();
             } else {
                 fullscreen ();
