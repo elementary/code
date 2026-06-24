@@ -93,7 +93,6 @@ namespace Scratch {
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
-        public const string ACTION_TEMPLATES = "action-templates";
         public const string ACTION_SHOW_REPLACE = "action-show-replace";
         public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
@@ -149,7 +148,6 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
-            { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
@@ -342,10 +340,6 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
-                toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            });
 
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
@@ -1371,9 +1365,6 @@ namespace Scratch {
             toolbar.format_bar.line_menubutton.active = true;
         }
 
-        private void action_templates () {
-            plugins.plugin_iface.template_manager.show_window (this);
-        }
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
