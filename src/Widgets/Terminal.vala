@@ -147,9 +147,10 @@ public class Code.Terminal : Gtk.Box {
         };
         key_controller.key_pressed.connect (key_pressed);
 
-        // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
-        terminal.enter_notify_event.connect (() => {
-            if (!terminal.has_focus) {
+        var focus_controller = new Gtk.EventControllerFocus ();
+        add_controller (focus_controller);
+        focus_controller.enter.connect (() => {
+           if (!terminal.has_focus) {
                 terminal.grab_focus ();
             }
         });
