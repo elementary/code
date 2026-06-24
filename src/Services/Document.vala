@@ -322,8 +322,10 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
-            source_view.enter_notify_event.connect (() => {
-                if (!source_view.has_focus) {
+            var focus_controller = new Gtk.EventControllerFocus ();
+            add_controller (focus_controller);
+            focus_controller.enter.connect (() => {
+               if (!source_view.has_focus) {
                     source_view.grab_focus ();
                 }
             });
