@@ -26,7 +26,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         URI_LIST
     }
 
-    public signal void document_change (Services.Document? document, DocumentView parent);
+    public signal void document_change (Services.Document? document);
     public signal void request_placeholder ();
     public signal void tab_added (Services.Document document);
     public signal void tab_removed (Services.Document document);
@@ -39,12 +39,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return _current_document;
         }
         set {
-            if (is_closing) {
+            if (is_closing || _current_document == value) {
                 return;
             }
 
             _current_document = value;
-            document_change (_current_document, this);
+            document_change (_current_document);
             _current_document.focus ();
             save_focused_document_uri (current_document);
             if (tab_view.selected_page != value.tab && value.tab != null) {

@@ -287,6 +287,8 @@ namespace Scratch.Services {
                         check_undoable_actions ();
                         check_file_status.begin ();
                     }
+
+                    doc_view.current_document = this;
                 } else {
                     if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
                         strip_trailing_spaces ();
@@ -327,7 +329,6 @@ namespace Scratch.Services {
             focus_controller.enter.connect (() => {
                if (!source_view.has_focus) {
                     source_view.grab_focus ();
-                    document_view.document_changed ();
                 }
             });
 
