@@ -293,22 +293,28 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
                 color_button_none.active = true;
         }
 
-        color_button_dark.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", true);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_DARK);
-            gtk_settings.gtk_application_prefer_dark_theme = true;
+        color_button_dark.toggled.connect (() => {
+            if (color_button_dark.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", true);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_DARK);
+                gtk_settings.gtk_application_prefer_dark_theme = true;
+            }
         });
 
-        color_button_light.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", false);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_LIGHT);
-            gtk_settings.gtk_application_prefer_dark_theme = false;
+        color_button_light.toggled.connect (() => {
+            if (color_button_light.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_LIGHT);
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            }
         });
 
-        color_button_white.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", false);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
-            gtk_settings.gtk_application_prefer_dark_theme = false;
+        color_button_white.toggled.connect (() => {
+            if (color_button_white.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            }
         });
     }
 
