@@ -246,7 +246,6 @@ namespace Scratch.Widgets {
             // Connecting to some signals
             search_entry.changed.connect (on_search_parameters_changed);
 
-            search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.notify["is-focus"].connect (() => {
                 if (search_entry.is_focus && text_buffer != null) {
                     Idle.add (() => {
