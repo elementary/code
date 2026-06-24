@@ -327,6 +327,7 @@ namespace Scratch.Services {
             focus_controller.enter.connect (() => {
                if (!source_view.has_focus) {
                     source_view.grab_focus ();
+                    document_view.document_changed ();
                 }
             });
 
