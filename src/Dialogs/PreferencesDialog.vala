@@ -14,7 +14,8 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         Object (
             title: _("Preferences"),
             transient_for: parent,
-            plugins: plugins
+            plugins: plugins,
+            modal: true
         );
     }
 
