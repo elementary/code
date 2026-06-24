@@ -279,15 +279,12 @@ namespace Scratch.Widgets {
             space_drawer.enable_matrix = true;
             update_draw_spaces ();
 
-
             tab_width = (uint) Scratch.settings.get_int ("indent-width");
             if (Scratch.settings.get_boolean ("line-wrap")) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
             } else {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
-
-            update_font ();
 
             if (settings.get_boolean ("follow-system-style")) {
                 var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
@@ -303,6 +300,8 @@ namespace Scratch.Widgets {
 
             git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
+
+            update_font ();
         }
 
         private void update_font () {
@@ -312,15 +311,13 @@ namespace Scratch.Widgets {
                 font = Scratch.settings.get_string ("font");
             }
 
+            var font_description = Pango.FontDescription.from_string (font);
+            var embolden = Scratch.settings.get_boolean ("embolden-highcontrast");
             /* Convert font description to css equivalent and apply to the .view node */
-            var font_css = string.join (" ",
-                ".view {",
-                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
-                "}"
-            );
-
+            var font_css = Scratch.Utils.pango_font_description_to_css (font_description, embolden);
+            var view_font_css = string.join (" ", ".view {", font_css, "}");
             try {
-                font_css_provider.load_from_data (font_css);
+                font_css_provider.load_from_data (view_font_css);
             } catch (Error e) {
                 critical (e.message);
             }
