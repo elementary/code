@@ -263,6 +263,8 @@ namespace Scratch.Services {
                         check_undoable_actions ();
                         check_file_status.begin ();
                     }
+
+                    doc_view.current_document = this;
                 } else {
                     if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
                         strip_trailing_spaces ();
