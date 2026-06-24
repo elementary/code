@@ -291,8 +291,16 @@ namespace Scratch.Services {
                         check_undoable_actions ();
                         check_file_status.begin ();
                     }
-                } else if (Scratch.settings.get_boolean ("autosave")) {
+
+                    doc_view.current_document = this;
+                } else {
+                    if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                        strip_trailing_spaces ();
+                    }
+
+                    if (Scratch.settings.get_boolean ("autosave")) {
                         save_with_hold.begin ();
+                    }
                 }
             });
 
@@ -323,13 +331,6 @@ namespace Scratch.Services {
             source_view.enter_notify_event.connect (() => {
                 if (!source_view.has_focus) {
                     source_view.grab_focus ();
-                }
-            });
-
-            source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-
-                    strip_trailing_spaces ();
                 }
             });
 
