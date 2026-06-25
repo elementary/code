@@ -152,6 +152,14 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
+        project_listbox.row_activated.connect ((row) => {
+            var project_entry = ((ProjectRow) row);
+            toplevel_action_group.activate_action (
+                Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
+                new Variant.string (project_entry.project_path)
+            );
+        });
+
         toggled.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
@@ -217,11 +225,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
-            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path)) {
-                action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
-                action_target = project_path
-            };
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
             add (check_button);
+            check_button.button_release_event.connect (() => {
+                activate ();
+                return Gdk.EVENT_PROPAGATE;
+            });
+
             show_all ();
         }
     }
