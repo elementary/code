@@ -621,13 +621,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             var close_projects = false;
             dialog.response.connect ((res) => {
-                dialog.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
                     close_projects = true;
                 }
+
+                dialog.destroy ();
+                add_folder.callback ();
             });
 
             dialog.show ();
+            yield;
 
             if (close_projects) {
                 foreach (var item in parents) {
