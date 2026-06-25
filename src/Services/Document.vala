@@ -271,7 +271,7 @@ namespace Scratch.Services {
             };
             source_grid.append (scroll);
             source_grid.append (source_map);
-            outline_widget_pane.pack1 (source_grid, true, false);
+            outline_widget_pane.start_child = source_grid;
 
             var doc_grid = new Gtk.Box (VERTICAL, 0);
             doc_grid.append (outline_widget_pane);
@@ -1307,7 +1307,8 @@ namespace Scratch.Services {
                 }
 
                 if (outline != null) {
-                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    // outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    outline_widget_pane.end_child = outline.get_widget ();
                     Idle.add (() => {
                         set_outline_width (doc_view.outline_width);
                         outline_widget_pane.notify["position"].connect (sync_outline_width);
@@ -1320,7 +1321,7 @@ namespace Scratch.Services {
                 }
             } else if (!show && outline != null) {
                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
-               outline_widget_pane.get_child2 ().destroy ();
+               outline_widget_pane.end_child.destroy ();
                outline = null;
             }
         }

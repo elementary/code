@@ -525,16 +525,16 @@ namespace Scratch {
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (content_stack, true, false);
-            vp.pack2 (terminal, false, false);
+            vp.start_child = content_stack;
+            vp.end_child = terminal;
 
             var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             box.append (toolbar);
             box.append (vp);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.pack1 (sidebar, false, false);
-            hp1.pack2 (box, true, false);
+            hp1.start_child = sidebar;
+            hp1.end_child = box;
 
             child = hp1;
 
