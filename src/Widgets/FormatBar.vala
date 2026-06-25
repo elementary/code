@@ -301,12 +301,15 @@ public class Code.FormatBar : Gtk.Box {
         var language = doc.source_view.language;
         if (language != null) {
             var lang_id = language.id;
-            lang_selection_listbox.get_children ().foreach ((child) => {
-                var lang_entry = ((LangEntry) child);
+            var child = lang_selection_listbox.get_first_child ();
+            while (child != null) {
+               var lang_entry = ((LangEntry) child);
                 if (lang_entry.lang_id == lang_id) {
                     select_language (lang_entry, false);
                 }
-            });
+
+                child = child.get_next_sibling ();
+            }
         } else {
             select_language (normal_entry, false);
         }

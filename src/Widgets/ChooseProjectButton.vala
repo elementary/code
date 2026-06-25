@@ -124,10 +124,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
+            var child = project_listbox.get_first_child ();
+            while (child != null) {
+                child.destroy ();
+                child = project_listbox.get_first_child ();
             }
 
             for (int index = (int)pos; index < pos + n_added; index++) {
@@ -159,10 +159,12 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         toggled.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-                foreach (var child in project_listbox.get_children ()) {
+                var child = project_listbox.get_first_child ();
+                while (child != null) {
                     var project_row = ((ProjectRow) child);
                     // All paths must not end in directory separator so can be compared directly
                     project_row.active = active_path == project_row.project_path;
+                    child = child.get_next_sibling ();
                 }
             }
         });

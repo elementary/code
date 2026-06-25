@@ -114,7 +114,7 @@ public class Code.Sidebar : Gtk.Box {
         append (actionbar);
 
         stack.remove.connect (() => {
-            switch (stack.get_children ().length ()) {
+            switch (stack.pages.get_n_items ()) {
                 case 0:
                     stack.hide ();
                     break;
