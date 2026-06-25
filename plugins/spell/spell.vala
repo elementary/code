@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2011-2014 Mario Guerriero <mefrio.g@gmail.com>
- * Copyright (C) 2015 Geronimo Bareiro <gero.bare@gmail.com>
  * Copyright (C) 2016-2025 elementary, Inc. (https://elementary.io)
 
 

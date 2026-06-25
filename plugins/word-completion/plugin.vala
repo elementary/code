@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2011 Lucas Baudin <xapantu@gmail.com>
- * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
  * Copyright (c) 2014-2025 elementary, Inc. (https://elementary.io)
  *
  * This is a free software; you can redistribute it and/or
