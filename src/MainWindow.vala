@@ -55,7 +55,6 @@ namespace Scratch {
         // Widgets for Plugins
         public Code.Sidebar sidebar;
 
-        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -950,14 +949,12 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            if (preferences_dialog == null) {
-                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
+            var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            preferences_dialog.show_all ();
 
-                preferences_dialog.destroy.connect (() => {
-                    preferences_dialog = null;
-                });
-            }
+            preferences_dialog.response.connect (() => {
+                preferences_dialog.destroy ();
+            });
 
             preferences_dialog.present ();
         }
