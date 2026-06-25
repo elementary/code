@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
+  Copyright (C) 2013-2015 Mario Guerriero <mario@elementaryos.org>
   Copyright (C) 2016-2024 elementary LLC. (https://elementary.io)
 
   This program is free software: you can redistribute it and/or modify it

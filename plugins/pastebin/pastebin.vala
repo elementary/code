@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2011-2014 Giulio Collura <random.cpp@gmail.com>
                 2015-2026 elementary Inc. (https://elementary.io)
 
   This program is free software: you can redistribute it and/or modify it

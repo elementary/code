@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Lucas Baudin <xapantu@gmail.com>
+ * Copyright (c) 2011-2013 Lucas Baudin <xapantu@gmail.com>
  * Copyright (c) 2014-2022 elementary Inc. (https://elementary.io)
  *
  * This is a free software; you can redistribute it and/or
