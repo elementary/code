@@ -968,16 +968,20 @@ namespace Scratch {
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             file_chooser.response.connect ((res) => {
-                var uris = file_chooser.get_uris ();
+                var files = file_chooser.get_files (); // Returns ListModel of GFile objects
+                // var uris = file_chooser.get_uris ();
                 file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    foreach (string uri in file_chooser.get_uris ()) {
+                    var index = 0;
+                    var obj = files.get_item (index++);
+                    while (obj != null) {
+                        var file = (GLib.File) obj;
                         // Update last visited path
-                        Utils.last_path = Path.get_dirname (uri);
+                        Utils.last_path = Path.get_dirname (file.get_uri ());
                         // Open the file
-                        var file = File.new_for_uri (uri);
                         var doc = new Scratch.Services.Document (actions, file);
                         open_document.begin (doc);
+                        obj = files.get_item (index++);
                     }
                 }
             });
@@ -1016,10 +1020,14 @@ namespace Scratch {
                 var files = chooser.get_files ();
                 chooser.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    files.foreach ((glib_file) => {
-                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+var index = 0;
+                    var obj = files.get_item (index++);
+                    while (obj != null) {
+                        var file = (GLib.File) obj;
+                        var foldermanager_file = new FolderManager.File (file.get_path ());
                         folder_manager_view.open_folder (foldermanager_file);
-                    });
+                        obj = files.get_item (index++);
+                    }
                 }
             });
 
