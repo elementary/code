@@ -25,7 +25,7 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
-
+    private Gtk.GestureMultiPress button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
     private Settings? gnome_wm_settings = null;
@@ -34,7 +34,7 @@ public class Code.Terminal : Gtk.Box {
 
     private GLib.Pid child_pid;
     private Gdk.Clipboard current_clipboard;
-    private Gtk.GestureClick secondary_button_controller;
+
     private Menu menu_model;
 
     private Scratch.Application application;
@@ -155,14 +155,17 @@ public class Code.Terminal : Gtk.Box {
             }
         });
 
-        secondary_button_controller = new Gtk.GestureClick (terminal) {
+        button_controller = new Gtk.GestureMultiPress (terminal) {
             propagation_phase = CAPTURE,
-            button = Gdk.BUTTON_SECONDARY
+            button = 0
         };
-        secondary_button_controller.pressed.connect ((n, x, y) => {
-            paste_action.set_enabled (current_clipboard.wait_is_text_available ());
-            menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
-            menu.popup ();
+        button_controller.pressed.connect ((n, x, y) => {
+            var event = button_controller.get_last_event (null);
+            if (event.triggers_context_menu ()) {
+                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
+                menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
+                menu.popup ();
+            }
         });
 
         realize.connect (() => {

@@ -348,7 +348,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     : search_root.file.file;
 
                 bool is_explicit = !(item_for_path is ProjectFolderItem);
-                search_root.global_search (start_folder, term, is_explicit);
+                search_root.global_search.begin (start_folder, term, is_explicit);
             }
         }
     }
@@ -621,13 +621,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             var close_projects = false;
             dialog.response.connect ((res) => {
-                dialog.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
                     close_projects = true;
                 }
+
+                dialog.destroy ();
+                add_folder.callback ();
             });
 
             dialog.show ();
+            yield;
 
             if (close_projects) {
                 foreach (var item in parents) {

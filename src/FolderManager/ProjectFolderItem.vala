@@ -450,7 +450,7 @@ namespace Scratch.FolderManager {
         // via a context menu on an explicitly chosen folder, in which case everything in that
         // folder will be searched, or whether the hot-key was used in which case the search will
         // take place on the active project and will omit certain folders
-        public void global_search (
+        public async void global_search (
             GLib.File start_folder = this.file.file,
             string? term = null,
             bool is_explicit = false
@@ -511,9 +511,11 @@ namespace Scratch.FolderManager {
                 }
 
                 dialog.destroy ();
+                global_search.callback ();
             });
 
             dialog.show ();
+            yield;
 
             if (search_term != null) {
                 // Remove results of previous search before attempting a new one
