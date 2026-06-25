@@ -566,7 +566,7 @@ namespace Scratch.Services {
             dialog.show ();
             yield;
 
-            return false;
+            return dialog_response;
         }
 
         // Handle save action (only use for user interaction)
