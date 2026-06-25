@@ -29,7 +29,6 @@ namespace Scratch {
     public class Application : Gtk.Application {
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string system_monospace_font { get; set; }
-        public string system_document_font { get; set; }
         public bool is_running_in_flatpak { get; construct; }
 
         private static string _data_home_folder_unsaved;

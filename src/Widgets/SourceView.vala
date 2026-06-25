@@ -307,7 +307,7 @@ namespace Scratch.Widgets {
 
         private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = application.system_document_font;
+                font = application.system_monospace_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
