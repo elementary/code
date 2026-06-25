@@ -206,16 +206,6 @@ public interface SourceListDragDest : SourceList.Item {
  * {@link Code.Widgets.SourceList.item_selected} the most important, as it indicates that
  * the selection was modified.
  *
- * Pack the source list into the GUI using the {@link Gtk.Paned} widget.
- * This is usually done as follows:
- * {{{
- * var pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
- * pane.pack1 (source_list, false, false);
- * pane.pack2 (content_area, true, false);
- * }}}
- *
- * @since 0.2
- * @see Gtk.Paned
  */
 public class SourceList : Gtk.ScrolledWindow {
 
