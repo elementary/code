@@ -48,7 +48,6 @@ namespace Scratch {
         private Code.Terminal terminal;
         private FolderManager.FileView folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
-        private Gtk.EventControllerKey key_controller;
         // Plugins
         private Scratch.Services.PluginsManager plugins;
 
@@ -298,9 +297,10 @@ namespace Scratch {
 
             plugins = new Scratch.Services.PluginsManager (this);
 
-            key_controller = new Gtk.EventControllerKey (this) {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = TARGET
             };
+            ((Gtk.Widget) this).add_controller (key_controller);
             key_controller.key_pressed.connect (on_key_pressed);
 
             // Set up layout

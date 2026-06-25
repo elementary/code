@@ -188,7 +188,7 @@ namespace Scratch.Services {
         private Mount mount;
         private Icon locked_icon;
 
-        private Gtk.EventControllerScroll scroll_controller;
+        // private Gtk.EventControllerScroll scroll_controller;
 
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
@@ -229,9 +229,10 @@ namespace Scratch.Services {
                 child = source_view
             };
 
-            scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
+            var scroll_controller = new Gtk.EventControllerScroll (VERTICAL) {
                 propagation_phase = CAPTURE
             };
+            scroll.add_controller (scroll_controller);
             scroll_controller.scroll.connect ((dx, dy) => {
                 var state = scroll_controller.get_current_event_state ();
                 if (Gdk.ModifierType.CONTROL_MASK in state) {

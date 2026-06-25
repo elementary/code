@@ -1717,13 +1717,15 @@ public class SourceList : Gtk.ScrolledWindow {
             query_tooltip.connect_after (on_query_tooltip);
             has_tooltip = true;
 
-            key_controller = new Gtk.EventControllerKey (this);
+            var key_controller = new Gtk.EventControllerKey ();
+            this.add_controller (key_controller);
             key_controller.key_released.connect (on_key_released);
 
-            button_controller = new Gtk.GestureClick (this) {
+            var button_controller = new Gtk.GestureClick () {
                 propagation_phase = CAPTURE,
                 button = 0
             };
+            this.add_controller (button_controller);
             button_controller.pressed.connect (on_button_pressed);
             button_controller.released.connect (on_button_released);
         }

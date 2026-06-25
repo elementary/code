@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
         private string selected_text = "";
         private GitGutterRenderer git_diff_gutter_renderer;
         private NavMarkGutterRenderer navmark_gutter_renderer;
-        private Gtk.EventControllerKey key_controller;
+        // private Gtk.EventControllerKey key_controller;
 
         private const uint THROTTLE_MS = 400;
 
@@ -237,10 +237,11 @@ namespace Scratch.Widgets {
             });
 
             // Handle context menu shortcuts here.
-            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts for accels
-            key_controller = new Gtk.EventControllerKey (application.get_active_window ()) {
+            // For port keep the key controller After porting to Gtk4 we may replace with shortcutcontroller
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
+            ((Gtk.Widget) application.get_active_window ()).add_controller (key_controller);
             key_controller.key_pressed.connect ((kv, kc, state) => {
                 if (!this.is_focus || !Gtk.accelerator_valid (kv, state)) {
                     return false;

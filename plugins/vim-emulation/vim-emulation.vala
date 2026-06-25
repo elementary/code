@@ -34,7 +34,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
     Scratch.Widgets.SourceView? view = null;
 
     Scratch.Services.Interface plugins;
-    private Gtk.EventControllerKey key_controller;
+    // private Gtk.EventControllerKey key_controller;
 
     public Object object { owned get; set construct; }
 
@@ -53,10 +53,10 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
             this.views.add (view);
         });
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey (w) {
+            key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
-
+            w.add_controller (key_controller);
             key_controller.key_pressed.connect (handle_key_press);
         });
     }
@@ -66,7 +66,6 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
     }
 
     private bool handle_key_press (
-        Gtk.EventController controller,
         uint keyval,
         uint keycode,
         Gdk.ModifierType state

@@ -177,7 +177,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         append (tab_bar);
         append (tab_view);
 
-        var scroll_controller = new Gtk.EventControllerScroll () {
+        var scroll_controller = new Gtk.EventControllerScroll (VERTICAL) {
             propagation_phase = CAPTURE
         };
         add_controller (scroll_controller);

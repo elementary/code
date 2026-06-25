@@ -53,7 +53,7 @@ namespace Scratch.Widgets {
         private GtkSource.SearchContext? search_context;
         private uint update_search_label_timeout_id = 0;
         private Gtk.Revealer revealer;
-        private Gtk.EventControllerKey key_controller;
+        // private Gtk.EventControllerKey key_controller;
 
         public bool is_focused {
             get {
@@ -279,9 +279,11 @@ namespace Scratch.Widgets {
             append (revealer);
             update_search_widgets ();
 
-            key_controller = new Gtk.EventControllerKey (window) {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
+            //TODO Use ShortcutController?
+            ((Gtk.Widget)window).add_controller (key_controller);
             key_controller.key_pressed.connect (on_key_pressed);
         }
 

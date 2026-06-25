@@ -17,7 +17,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
-    private Gtk.EventControllerKey search_term_entry_key_controller;
+    // private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
     private string current_doc_project;
     public Scratch.MainWindow current_window { get; construct; }
@@ -95,7 +95,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             handle_item_selection (items.index_of (file_item));
         });
 
-        search_term_entry_key_controller = new Gtk.EventControllerKey (search_term_entry);
+        var search_term_entry_key_controller = new Gtk.EventControllerKey ();
+        search_term_entry.add_controller (search_term_entry_key_controller);
         search_term_entry_key_controller.key_pressed.connect ((keyval, keycode, state) => {
             // Handle key up/down to select other files found by fuzzy search
             switch (keyval) {

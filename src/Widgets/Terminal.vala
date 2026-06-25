@@ -24,8 +24,8 @@ public class Code.Terminal : Gtk.Box {
     private const string GNOME_BELL_KEY = "audible-bell";
 
     public Vte.Terminal terminal { get; construct; }
-    private Gtk.EventControllerKey key_controller;
-    private Gtk.GestureClick button_controller;
+    // private Gtk.EventControllerKey key_controller;
+    // private Gtk.GestureClick button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
     private Settings? gnome_wm_settings = null;
@@ -142,9 +142,10 @@ public class Code.Terminal : Gtk.Box {
         };
         menu.bind_model (menu_model, ACTION_GROUP);
 
-        key_controller = new Gtk.EventControllerKey (terminal) {
+        var key_controller = new Gtk.EventControllerKey () {
             propagation_phase = BUBBLE
         };
+        terminal.add_controller (key_controller);
         key_controller.key_pressed.connect (key_pressed);
 
         var focus_controller = new Gtk.EventControllerFocus ();
@@ -155,10 +156,11 @@ public class Code.Terminal : Gtk.Box {
             }
         });
 
-        button_controller = new Gtk.GestureMultiPress (terminal) {
+        var button_controller = new Gtk.GestureClick () {
             propagation_phase = CAPTURE,
             button = 0
         };
+        add_controller (button_controller);
         button_controller.pressed.connect ((n, x, y) => {
             var event = button_controller.get_last_event (null);
             if (event.triggers_context_menu ()) {
