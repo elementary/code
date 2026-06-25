@@ -25,7 +25,7 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
-    private Gtk.GestureMultiPress button_controller;
+    private Gtk.GestureClick button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
     private Settings? gnome_wm_settings = null;
