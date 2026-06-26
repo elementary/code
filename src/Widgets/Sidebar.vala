@@ -73,7 +73,6 @@ public class Code.Sidebar : Gtk.Box {
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
-        stack_switcher.homogeneous = true;
 
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);

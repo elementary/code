@@ -267,7 +267,7 @@ namespace Scratch.Services {
             settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
             var source_grid = new Gtk.Box (HORIZONTAL, 0) {
-                column_homogeneous = false
+                homogeneous = false
             };
             source_grid.append (scroll);
             source_grid.append (source_map);
