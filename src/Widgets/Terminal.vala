@@ -170,7 +170,7 @@ public class Code.Terminal : Gtk.Box {
         });
 
         realize.connect (() => {
-            current_clipboard = terminal.get_clipboard (Gdk.SELECTION_CLIPBOARD);
+            current_clipboard = terminal.get_clipboard ();
             copy_action.set_enabled (terminal.get_has_selection ());
         });
 
@@ -319,36 +319,38 @@ public class Code.Terminal : Gtk.Box {
         terminal.font_scale = 1.0;
     }
 
-    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType modifiers) {
-        // Use hardware keycodes so the key used is unaffected by internationalized layout
-        bool match_keycode (uint keyval, uint code) {
-            Gdk.KeymapKey[] keys;
+    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+        // // Use hardware keycodes so the key used is unaffected by internationalized layout
+        // bool match_keycode (uint keyval, uint code) {
+        //     Gdk.KeymapKey[] keys;
 
-            var keymap = Gdk.Keymap.get_for_display (get_display ());
-            if (keymap.get_entries_for_keyval (keyval, out keys)) {
-                foreach (var key in keys) {
-                    if (code == key.keycode) {
-                        return Gdk.EVENT_STOP;
-                    }
-                }
-            }
+        //     var keymap = Gdk.Keymap.get_for_display (get_display ());
+        //     if (keymap.get_entries_for_keyval (keyval, out keys)) {
+        //         foreach (var key in keys) {
+        //             if (code == key.keycode) {
+        //                 return Gdk.EVENT_STOP;
+        //             }
+        //         }
+        //     }
 
-            return Gdk.EVENT_PROPAGATE;
-        }
+        //     return Gdk.EVENT_PROPAGATE;
+        // }
 
-        if (CONTROL_MASK in modifiers && (SHIFT_MASK in modifiers ||
+
+        if (CONTROL_MASK in state && (SHIFT_MASK in state ||
             terminal_settings != null && terminal_settings.get_boolean ("natural-copy-paste"))) {
 
-            if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
+            // Assume actions already enabled/disabled as appropriate
+            if (keyval = Gdk.Key.c) {
                 actions.activate_action (ACTION_COPY, null);
-                return Gdk.EVENT_STOP;
-            } else if (match_keycode (Gdk.Key.v, keycode) && current_clipboard.wait_is_text_available ()) {
+                return true;
+            } else if (keyval = Gdk.Key.v) {
                 actions.activate_action (ACTION_PASTE, null);
-                return Gdk.EVENT_STOP;
+                return true;
             }
         }
 
 
-        return Gdk.EVENT_PROPAGATE;
+        return false;
     }
 }

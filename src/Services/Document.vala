@@ -250,8 +250,8 @@ namespace Scratch.Services {
                 return Gdk.EVENT_PROPAGATE;
             });
 
-            source_file = new Gtk.SourceFile ();
-            source_map = new Gtk.SourceMap ();
+            source_file = new GtkSource.File ();
+            source_map = new GtkSource.Map ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
             if (builder_blocks_font != null && builder_font_map != null) {
@@ -841,18 +841,18 @@ namespace Scratch.Services {
             }
         }
 
-        // SourceView related functions
-        // Undo
-        public void undo () {
-            this.source_view.undo ();
-            check_undoable_actions ();
-        }
+        // // SourceView related functions
+        // // Undo
+        // public void undo () {
+        //     this.source_view.undo ();
+        //     check_undoable_actions ();
+        // }
 
-        // Redo
-        public void redo () {
-            this.source_view.redo ();
-            check_undoable_actions ();
-        }
+        // // Redo
+        // public void redo () {
+        //     this.source_view.redo ();
+        //     check_undoable_actions ();
+        // }
 
         // Revert
         public void revert () {

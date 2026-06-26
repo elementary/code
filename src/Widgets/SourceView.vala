@@ -168,7 +168,7 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gdk.Display.get_default ().clipboard ();
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
                         string copy_text = iter_start.get_slice (iter_end);
 
                         clipboard.set_text (copy_text, -1);
@@ -272,10 +272,6 @@ namespace Scratch.Widgets {
                 }
 
                 return false;
-            });
-
-            size_allocate.connect ((allocation) => {
-
             });
 
             application.notify["system-monospace-font"].connect (() => {

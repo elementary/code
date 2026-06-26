@@ -64,6 +64,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private weak Adw.TabPage? tab_menu_target = null;
     private Gtk.CssProvider style_provider;
     private Gtk.MenuButton tab_history_button;
+    private double total_delta = 0.0;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (

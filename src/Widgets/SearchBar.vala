@@ -44,7 +44,9 @@ namespace Scratch.Widgets {
         private Granite.SwitchModelButton regex_search_button;
         private Granite.SwitchModelButton whole_word_search_button;
         private Gtk.SearchEntry search_entry;
+        private Gtk.Entry entry_for_search;
         private Gtk.SearchEntry replace_entry;
+        private Gtk.Entry entry_for_replace
         private Gtk.Label search_occurence_count_label;
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
@@ -63,13 +65,13 @@ namespace Scratch.Widgets {
 
         public bool search_is_focused {
             get {
-                return search_entry.has_focus;
+                return entry_for_search.has_focus;
             }
         }
 
         public bool replace_is_focused {
             get {
-                return replace_entry.has_focus;
+                return entry_for_replace.has_focus;
             }
         }
 
@@ -81,13 +83,13 @@ namespace Scratch.Widgets {
 
         public string entry_text {
             get {
-                return search_entry.text;
+                return entry_for_search.text;
             }
         }
 
         public bool has_search_term {
             get {
-                return search_entry.text != "";
+                return entry_for_search.text != "";
             }
         }
 
@@ -115,9 +117,12 @@ namespace Scratch.Widgets {
 
         construct {
             this.orientation = HORIZONTAL;
+            entry_for_search = new Gtk.Entry ();
             search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
-                placeholder_text = _("Find")
+                placeholder_text = _("Find"),
+                child = entry_for_search,
+                key_capture_widget = entry_for_search
             };
 
             search_occurence_count_label = new Gtk.Label (_("No Results"));
@@ -216,10 +221,14 @@ namespace Scratch.Widgets {
             search_flow_box_child.can_focus = false;
             search_flow_box_child.child = search_box;
 
-            replace_entry = new Gtk.SearchEntry ();
-            replace_entry.hexpand = true;
-            replace_entry.placeholder_text = _("Replace With");
-            replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
+            entry_for_replace = new Gtk.Entry () ;
+            replace_entry = new Gtk.SearchEntry () {
+                hexpand = true,
+                placeholder_text = _("Replace With").
+                child = entry_for_replace,
+                key_capture_widget = entry_for_replace
+            };
+            entry_for_replace.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
 
             replace_tool_button = new Gtk.Button.with_label (_("Replace"));
             replace_tool_button.clicked.connect (on_replace_entry_activate);
@@ -243,23 +252,24 @@ namespace Scratch.Widgets {
             replace_flow_box_child.child = replace_grid;
 
             // Connecting to some signals
-            search_entry.changed.connect (on_search_parameters_changed);
+            search_entry.search_changed.connect (on_search_parameters_changed);
 
             search_entry.notify["is-focus"].connect (() => {
                 if (search_entry.is_focus && text_buffer != null) {
                     Idle.add (() => {
                         update_search_widgets ();
-                        search_entry.select_region (0, -1);
+                        entry_for_search.select_region (0, -1);
                         return Source.REMOVE;
                     });
                 }
             });
 
-            search_entry.icon_release.connect ((p0, p1) => {
+            entry_for_search.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
                 }
             });
+
             replace_entry.activate.connect (on_replace_entry_activate);
 
             var flowbox = new Gtk.FlowBox () {
@@ -670,14 +680,14 @@ namespace Scratch.Widgets {
                 }
 
                 // Update appearance of search entry
-                var ctx = search_entry.get_style_context ();
+                var ctx = entry_for_search.get_style_context ();
 
-                if (search_entry.text != "" && count_of_search == 0) {
+                if (entry_for_search.text != "" && count_of_search == 0) {
                     ctx.add_class (Granite.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
+                    entry_for_search.primary_icon_name = "dialog-error-symbolic";
                 } else if (ctx.has_class (Granite.STYLE_CLASS_ERROR)) {
                     ctx.remove_class (Granite.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "edit-find-symbolic";
+                    entry_for_search.primary_icon_name = "edit-find-symbolic";
                 }
 
                 return Source.REMOVE;
