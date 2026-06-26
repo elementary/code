@@ -1635,7 +1635,8 @@ public class SourceList : Gtk.ScrolledWindow {
             set_model (data_model);
 
             halign = valign = Gtk.Align.FILL;
-            expand = true;
+            hexpand = true;
+            vexpand = true;
 
             enable_search = false;
             headers_visible = false;

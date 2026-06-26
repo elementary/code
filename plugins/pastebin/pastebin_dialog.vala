@@ -374,7 +374,8 @@ namespace Scratch.Dialogs {
             var languages_scrolled = new Gtk.ScrolledWindow (null, null) {
                 hscrollbar_policy = Gtk.PolicyType.NEVER,
                 height_request = 250,
-                expand = true
+                hexpand = true,
+                vexpand = true
             };
             languages_scrolled.add (languages_listbox);
 
