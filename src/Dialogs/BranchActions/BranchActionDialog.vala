@@ -92,7 +92,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
             image_icon = new ThemedIcon ("dialog-error");
         }
 
-        realize.connect (() => {
+        ((Gtk.Widget) this).realize.connect (() => {
             ((BranchActionPage)stack.get_visible_child ()).focus_start_widget ();
         });
 

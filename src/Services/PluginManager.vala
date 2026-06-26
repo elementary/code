@@ -122,7 +122,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     // Return an emulation of the discontinued libpeas-1.0 widget
     public Gtk.Widget get_view () {
         var list_box = new Gtk.ListBox ();
-        list_box.get_accessible ().accessible_name = _("Extensions");
+        ((Gtk.Accessible)list_box).update_property (Gtk.AccessibleProperty.LABEL, _("Extensions"), -1);
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = NEVER,

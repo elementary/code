@@ -170,7 +170,6 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
             stack.add_titled (pbox, "extensions", _("Extensions"));
         }
 
-        border_width = 0;
         get_content_area ().append (main_box);
 
         var close_button = (Gtk.Button) add_button (_("Close"), Gtk.ResponseType.CLOSE);
@@ -179,11 +178,9 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         });
 
         //Ensure appearance correct after using libpeas-2
-        realize.connect (() => {
+        ((Gtk.Widget) this).realize.connect (() => {
             stack.set_visible_child_name ("behavior");
         });
-
-        show_all ();
     }
 
     private class SettingSwitch : Gtk.Grid {
@@ -224,7 +221,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
 
                 attach (description_label, 0, 1);
 
-                switch_widget.get_accessible ().accessible_description = description;
+                ((Gtk.Accessible)switch_widget).update_property (Gtk.AccessibleProperty.DESCRIPTION, description, -1);
             }
 
             Scratch.settings.bind (settings_key, switch_widget, "active", DEFAULT);

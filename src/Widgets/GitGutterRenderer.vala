@@ -20,7 +20,6 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
         line_status_map = new Gee.HashMap<int, Services.VCStatus> ();
         status_color_map = new Gee.HashMap<Services.VCStatus, Gdk.RGBA?> ();
 
-        set_size (5);
         set_visible (true);
     }
 

@@ -168,7 +168,7 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Display.get_default ().clipboard ();
                         string copy_text = iter_start.get_slice (iter_end);
 
                         clipboard.set_text (copy_text, -1);
@@ -222,20 +222,20 @@ namespace Scratch.Widgets {
             });
             navmark_gutter_renderer.notify_property ("has-marks");
 
-            // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
-            populate_popup.connect_after ((menu) => {
-                scroll_mark_onscreen (buffer.get_mark ("insert")); //TODO Check if still needed in Gtk4
-                for (int i = 0; i < extra_menu.get_n_items (); i++) {
-                    var name = extra_menu.get_item_attribute_value (i, "label", VariantType.STRING).get_string ();
-                    var action = extra_menu.get_item_attribute_value (i, "action", VariantType.STRING).get_string ();
-                    // warning ("adding menuitem name %s, action_name %s", name, action);
-                    menu.add (
-                        new Gtk.MenuItem.with_label (name) {
-                            action_name = "sourceview." + action
-                        }
-                    );
-                }
-            });
+            // // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
+            // populate_popup.connect_after ((menu) => {
+            //     scroll_mark_onscreen (buffer.get_mark ("insert")); //TODO Check if still needed in Gtk4
+            //     for (int i = 0; i < extra_menu.get_n_items (); i++) {
+            //         var name = extra_menu.get_item_attribute_value (i, "label", VariantType.STRING).get_string ();
+            //         var action = extra_menu.get_item_attribute_value (i, "action", VariantType.STRING).get_string ();
+            //         // warning ("adding menuitem name %s, action_name %s", name, action);
+            //         menu.add (
+            //             new Gtk.MenuItem.with_label (name) {
+            //                 action_name = "sourceview." + action
+            //             }
+            //         );
+            //     }
+            // });
 
             // Handle context menu shortcuts here.
             // For port keep the key controller After porting to Gtk4 we may replace with shortcutcontroller
@@ -275,14 +275,7 @@ namespace Scratch.Widgets {
             });
 
             size_allocate.connect ((allocation) => {
-                // Throttle for performance
-                if (size_allocate_timer == 0) {
-                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
-                        size_allocate_timer = 0;
-                        bottom_margin = calculate_bottom_margin (allocation.height);
-                        return GLib.Source.REMOVE;
-                    });
-                }
+
             });
 
             application.notify["system-monospace-font"].connect (() => {
@@ -290,6 +283,19 @@ namespace Scratch.Widgets {
                     update_font ();
                 }
             });
+        }
+
+        public override void size_allocate (int width, int height, int baseline) {
+            // Throttle for performance
+            if (size_allocate_timer == 0) {
+                size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                    size_allocate_timer = 0;
+                    bottom_margin = calculate_bottom_margin (height);
+                    return GLib.Source.REMOVE;
+                });
+            }
+
+            base.size_allocate (width, height, baseline);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -598,13 +604,15 @@ namespace Scratch.Widgets {
         public void set_text (string text, bool opening = true) {
             var source_buffer = (GtkSource.Buffer) buffer;
             if (opening) {
-                source_buffer.begin_not_undoable_action ();
+                source_buffer.enable_undo = false;
+                // source_buffer.begin_not_undoable_action ();
             }
 
             source_buffer.text = text;
 
             if (opening) {
-                source_buffer.end_not_undoable_action ();
+                source_buffer.enable_undo = true;
+                // source_buffer.end_not_undoable_action ();
             }
 
             Gtk.TextIter? start = null;

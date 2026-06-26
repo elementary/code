@@ -22,7 +22,6 @@ public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPix
     construct {
         mark_list = new Gee.ArrayList<Gtk.TextMark> ();
         sorted_line_list = new Gee.ArrayList<int> ();
-        set_size (16);
         set_visible (true);
     }
 

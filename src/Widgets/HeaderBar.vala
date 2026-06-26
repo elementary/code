@@ -237,7 +237,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         format_bar = new Code.FormatBar () {
             valign = Gtk.Align.CENTER
         };
-        set_custom_title (format_bar);
+        title_widget = format_bar;
 
         pack_start (open_button);
         pack_start (save_button);

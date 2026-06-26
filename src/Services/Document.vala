@@ -730,8 +730,7 @@ namespace Scratch.Services {
             );
             file_chooser.add_filter (all_files_filter);
             file_chooser.add_filter (text_files_filter);
-            file_chooser.do_overwrite_confirmation = true;
-            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+            file_chooser.set_current_folder (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
             var current_file = file.dup ();
@@ -739,7 +738,6 @@ namespace Scratch.Services {
 
             file_chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    file = File.new_for_uri (file_chooser.get_uri ());
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                     success = true;

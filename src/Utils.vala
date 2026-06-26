@@ -263,7 +263,7 @@ namespace Scratch.Utils {
             var uri = Uri.join (UriFlags.NONE, "file", null, null, -1, path, null, null);
             var launcher = new Gtk.UriLauncher (uri);
             try {
-                launch (scratch_app.get_active_window (), null);
+                launcher.launch (scratch_app.get_active_window (), null);
             } catch (Error e) {
                 warning ("Error showing uri %s, %s", uri, e.message);
             }

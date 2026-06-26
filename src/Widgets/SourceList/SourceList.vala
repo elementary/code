@@ -1583,37 +1583,37 @@ public class SourceList : Gtk.ScrolledWindow {
         private const string STYLE_PROP_LEFT_PADDING = "left-padding";
         private const string STYLE_PROP_EXPANDER_SPACING = "expander-spacing";
 
-        static construct {
-            install_style_property (new ParamSpecInt (
-                STYLE_PROP_LEVEL_INDENTATION,
-                "Level Indentation",
-                "Space to add at the beginning of every indentation level. Must be an even number.",
-                1,
-                50,
-                6,
-                ParamFlags.READABLE
-            ));
+        // static construct {
+        //     install_style_property (new ParamSpecInt (
+        //         STYLE_PROP_LEVEL_INDENTATION,
+        //         "Level Indentation",
+        //         "Space to add at the beginning of every indentation level. Must be an even number.",
+        //         1,
+        //         50,
+        //         6,
+        //         ParamFlags.READABLE
+        //     ));
 
-            install_style_property (new ParamSpecInt (
-                STYLE_PROP_LEFT_PADDING,
-                "Left Padding",
-                "Padding added to the left side of the tree. Must be an even number.",
-                1,
-                50,
-                4,
-                ParamFlags.READABLE
-            ));
+        //     install_style_property (new ParamSpecInt (
+        //         STYLE_PROP_LEFT_PADDING,
+        //         "Left Padding",
+        //         "Padding added to the left side of the tree. Must be an even number.",
+        //         1,
+        //         50,
+        //         4,
+        //         ParamFlags.READABLE
+        //     ));
 
-            install_style_property (new ParamSpecInt (
-                STYLE_PROP_EXPANDER_SPACING,
-                "Expander Spacing",
-                "Space added between an item and its expander. Must be an even number.",
-                1,
-                50,
-                4,
-                ParamFlags.READABLE
-            ));
-        }
+        //     install_style_property (new ParamSpecInt (
+        //         STYLE_PROP_EXPANDER_SPACING,
+        //         "Expander Spacing",
+        //         "Space added between an item and its expander. Must be an even number.",
+        //         1,
+        //         50,
+        //         4,
+        //         ParamFlags.READABLE
+        //     ));
+        // }
 
         public Tree (DataModel data_model) {
             Object (data_model: data_model);
@@ -1693,8 +1693,7 @@ public class SourceList : Gtk.ScrolledWindow {
             // First expander. Used for normal expandable items
             primary_expander_cell = new CellRendererExpander ();
 
-            int expander_spacing;
-            style_get (STYLE_PROP_EXPANDER_SPACING, out expander_spacing);
+            int expander_spacing = 12;
             primary_expander_cell.xpad = expander_spacing / 2;
 
             item_column.pack_end (primary_expander_cell, false);
@@ -1711,9 +1710,9 @@ public class SourceList : Gtk.ScrolledWindow {
             // Add root-level indentation. New levels will be added by update_item_expansion()
             add_spacer_cell_for_level (1);
 
-            // Enable basic row drag and drop
-            configure_drag_source (null);
-            configure_drag_dest (null, 0);
+            // // Enable basic row drag and drop
+            // configure_drag_source (null);
+            // configure_drag_dest (null, 0);
 
             query_tooltip.connect_after (on_query_tooltip);
             has_tooltip = true;
@@ -1981,8 +1980,7 @@ public class SourceList : Gtk.ScrolledWindow {
                 // so we set the value to a half of actual (desired) value.
                 switch (level) {
                     case 1: // root
-                        int left_padding;
-                        style_get (STYLE_PROP_LEFT_PADDING, out left_padding);
+                        int left_padding = 12;
                         cell_xpadding = left_padding / 2;
                     break;
 
@@ -1991,8 +1989,7 @@ public class SourceList : Gtk.ScrolledWindow {
                     break;
 
                     default: // remaining levels
-                        int level_indentation;
-                        style_get (STYLE_PROP_LEVEL_INDENTATION, out level_indentation);
+                        int level_indentation = 12;
                         cell_xpadding = level_indentation / 2;
                     break;
                 }

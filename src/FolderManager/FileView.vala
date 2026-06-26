@@ -237,7 +237,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         //TODO Warn before switching active project?
         var active_project = set_active_project (path);
         if (active_project == null || !active_project.is_git_repo) {
-            Gdk.beep ();
+            Gdk.Display.get_default ().beep ();
             return;
         }
 
