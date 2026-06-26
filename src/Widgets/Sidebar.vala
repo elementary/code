@@ -111,16 +111,9 @@ public class Code.Sidebar : Gtk.Box {
         append (overlay);
         append (actionbar);
 
-        stack.remove.connect (() => {
-            switch (stack.pages.get_n_items ()) {
-                case 0:
-                    stack.hide ();
-                    break;
-                case 1:
-                    stack_switcher.hide ();
-                    break;
-            }
-        });
+        // stack.remove.connect (() => {
+
+        // });
 
         // Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
         // Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
@@ -161,20 +154,21 @@ public class Code.Sidebar : Gtk.Box {
 
     public void add_tab (Code.PaneSwitcher tab) {
         stack.add_child (tab);
-        stack.child_set_property (tab, "title", tab.title);
-        stack.child_set_property (tab, "icon-name", tab.icon_name);
-
-        tab.notify["title"].connect (() => {
-            stack.child_set_property (tab, "title", tab.title);
-        });
-
-        tab.notify["icon-name"].connect (() => {
-            stack.child_set_property (tab, "icon-name", tab.icon_name);
-        });
+        var page = stack.get_page (tab);
+        tab.bind_property ("title", page, "title", DEFAULT | SYNC_CREATE);
+        tab.bind_property ("icon-name", page, "icon-name", DEFAULT | SYNC_CREATE);
     }
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
+        switch (stack.pages.get_n_items ()) {
+            case 0:
+                stack.hide ();
+                break;
+            case 1:
+                stack_switcher.hide ();
+                break;
+        }
     }
 
     public void notify_cloning_success () {
