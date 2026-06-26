@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -532,7 +532,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
+                hexpand = true,
+                vexpand = true,
                 width_request = 200
             };
 
@@ -932,13 +933,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
