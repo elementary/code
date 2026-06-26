@@ -40,8 +40,6 @@ namespace Scratch.Widgets {
         private NavMarkGutterRenderer navmark_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
-        private double total_delta = 0;
-        private const double SCROLL_THRESHOLD = 1.0;
 
         protected static Scratch.Application application;
 
@@ -136,23 +134,6 @@ namespace Scratch.Widgets {
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                var handled = false;
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    total_delta += key_event.delta_y;
-                    if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
-                        total_delta = 0.0;
-                    } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
-                        total_delta = 0.0;
-                    }
-
-                    return true;
-                }
-
-                return false;
-            });
 
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
