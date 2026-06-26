@@ -198,8 +198,11 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
-            action_name = Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
+
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
+            child = check_button;
 
             var button_controller = new Gtk.GestureClick () {
                 propagation_phase = CAPTURE,
@@ -211,7 +214,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
                 activate ();
             });
             check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
-            child = check_button;
         }
     }
 }
