@@ -111,8 +111,7 @@ public class Code.Terminal : Gtk.Box {
 
         terminal.child_exited.connect (() => {
             //Hide the exited terminal
-            var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-            win_group.activate_action (Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
+            activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
             //Get ready to resume at last saved location
             spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
             //Clear screen of new shell

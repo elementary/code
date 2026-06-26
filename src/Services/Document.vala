@@ -238,10 +238,10 @@ namespace Scratch.Services {
                 if (Gdk.ModifierType.CONTROL_MASK in state) {
                     total_delta += dy;
                     if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                        activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN, null);
                         total_delta = 0.0;
                     } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                        activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT, null);
                         total_delta = 0.0;
                     }
 

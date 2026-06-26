@@ -150,10 +150,10 @@ public class Code.Sidebar : Gtk.Box {
     //         }
 
     //         foreach (var folder in folder_list) {
-    //             var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-    //             win_group.activate_action (
-    //                 Scratch.MainWindow.ACTION_OPEN_FOLDER,
-    //                 new Variant.string (folder.get_path ())
+    //             activate_action (
+    //                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
+    //                 "s",
+    //                  folder.get_path ()
     //             );
     //         }
 

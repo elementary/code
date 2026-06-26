@@ -58,7 +58,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public signal bool rename_request (File file);
 
     public SimpleActionGroup actions { get; private set; }
-    public ActionGroup toplevel_action_group { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
 
@@ -78,11 +77,6 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group (ACTION_GROUP, actions);
-
-        realize.connect (() => {
-            toplevel_action_group = get_action_group (MainWindow.ACTION_GROUP);
-            assert_nonnull (toplevel_action_group);
-        });
 
         Scratch.saved_state.changed["order-folders"].connect (() => {
             order_folders ();
@@ -117,9 +111,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                toplevel_action_group.activate_action (
-                    MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    new Variant.string (project_folder_item.path)
+                activate_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    "s",
+                    project_folder_item.path
                 );
                 root.remove (project_folder_item);
                 git_manager.remove_project (project_folder_item);
@@ -152,9 +147,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     }
 
     private void set_project_active (string path) {
-        toplevel_action_group.activate_action (
-            MainWindow.ACTION_SET_ACTIVE_PROJECT,
-            new Variant.string (path)
+        activate_action (
+            MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
+            "s",
+            path
         );
     }
 
@@ -220,10 +216,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             var project_folder = ((ProjectFolderItem) child);
             if (project_folder.path != path) {
                 project_folder.expanded = false;
-                toplevel_action_group.activate_action (MainWindow.ACTION_HIDE_PROJECT_DOCS, new Variant.string (project_folder.path));
+                activate_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                    "s",
+                    project_folder.path
+                );
             } else if (project_folder.path == path) {
                 project_folder.expanded = true;
-                toplevel_action_group.activate_action (MainWindow.ACTION_RESTORE_PROJECT_DOCS, new Variant.string (project_folder.path));
+                activate_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                    "s",
+                    project_folder.path
+                );
             }
         }
     }
@@ -373,7 +377,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             once = selected.edited.connect ((new_name) => {
                 selected.disconnect (once);
                 var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
-                this.toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_TAB, new Variant.string (path));
+                activate_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB,
+                    "s",
+                    path
+                );
 
                 // RecentManager requires valid URI
                 var new_uri = "file://" + new_path; // Code only edits local files
@@ -653,7 +661,11 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
-                toplevel_action_group.activate_action (MainWindow.ACTION_CLOSE_PROJECT_DOCS, new Variant.string (folder_root.path));
+                activate_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                    "s",
+                    folder_root.path
+                );
                 root.remove (folder_root);
                 foreach (var child in root.children) {
                     var child_folder = (ProjectFolderItem) child;
