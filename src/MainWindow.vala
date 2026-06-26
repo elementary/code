@@ -55,7 +55,6 @@ namespace Scratch {
         // Widgets for Plugins
         public Code.Sidebar sidebar;
 
-        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -533,7 +532,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
+                hexpand = true,
+                vexpand = true,
                 width_request = 200
             };
 
@@ -933,13 +933,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
@@ -950,14 +950,12 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            if (preferences_dialog == null) {
-                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
+            var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            preferences_dialog.show_all ();
 
-                preferences_dialog.destroy.connect (() => {
-                    preferences_dialog = null;
-                });
-            }
+            preferences_dialog.response.connect (() => {
+                preferences_dialog.destroy ();
+            });
 
             preferences_dialog.present ();
         }

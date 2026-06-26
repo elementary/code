@@ -87,7 +87,8 @@ namespace Scratch.Widgets {
             application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
-            expand = true;
+            hexpand = true;
+            vexpand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
@@ -186,7 +187,7 @@ namespace Scratch.Widgets {
                 }
             });
 
-            application.notify["system-document-font"].connect (() => {
+            application.notify["system-monospace-font"].connect (() => {
                 if (Scratch.settings.get_boolean ("use-system-font")) {
                     update_font ();
                 }
@@ -288,7 +289,7 @@ namespace Scratch.Widgets {
 
         private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = application.system_document_font;
+                font = application.system_monospace_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
