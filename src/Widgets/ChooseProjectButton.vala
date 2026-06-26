@@ -138,16 +138,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.remove.connect ((row) => {
-            var project_row = row as ProjectRow;
-            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
-            if (project_row.project_path == current_project) {
-                Scratch.Services.GitManager.get_instance ().active_project_path = "";
-                // Label and active_path will be updated automatically
-            }
-        });
-
-
         toggled.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
