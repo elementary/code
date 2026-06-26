@@ -220,7 +220,8 @@ namespace Scratch.Services {
             source_view = new Scratch.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null) {
-                expand = true
+                hexpand = true,
+                vexpand = true
             };
             scroll.add (source_view);
             source_file = new Gtk.SourceFile ();
