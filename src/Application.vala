@@ -29,7 +29,6 @@ namespace Scratch {
     public class Application : Gtk.Application {
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string system_monospace_font { get; set; }
-        public string system_document_font { get; set; }
         public bool is_running_in_flatpak { get; construct; }
 
         private static string _data_home_folder_unsaved;
@@ -72,7 +71,6 @@ namespace Scratch {
             service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
             var desktop_interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
-            desktop_interface_settings.bind ("document-font-name", this, "system-document-font", GET);
             desktop_interface_settings.bind ("monospace-font-name", this, "system-monospace-font", GET);
 
             location_jump_manager = new LocationJumpManager ();

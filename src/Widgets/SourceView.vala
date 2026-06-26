@@ -40,8 +40,6 @@ namespace Scratch.Widgets {
         private NavMarkGutterRenderer navmark_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
-        private double total_delta = 0;
-        private const double SCROLL_THRESHOLD = 1.0;
 
         protected static Scratch.Application application;
 
@@ -89,7 +87,8 @@ namespace Scratch.Widgets {
             application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
-            expand = true;
+            hexpand = true;
+            vexpand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
@@ -135,23 +134,6 @@ namespace Scratch.Widgets {
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                var handled = false;
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    total_delta += key_event.delta_y;
-                    if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
-                        total_delta = 0.0;
-                    } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
-                        total_delta = 0.0;
-                    }
-
-                    return true;
-                }
-
-                return false;
-            });
 
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
@@ -205,7 +187,7 @@ namespace Scratch.Widgets {
                 }
             });
 
-            application.notify["system-document-font"].connect (() => {
+            application.notify["system-monospace-font"].connect (() => {
                 if (Scratch.settings.get_boolean ("use-system-font")) {
                     update_font ();
                 }
@@ -307,7 +289,7 @@ namespace Scratch.Widgets {
 
         private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = application.system_document_font;
+                font = application.system_monospace_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
