@@ -75,7 +75,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
-            expand = true,
+            hexpand = true,
+            vexpand = true,
             margin_top = 3,
             margin_bottom = 3,
             max_content_height = 350,

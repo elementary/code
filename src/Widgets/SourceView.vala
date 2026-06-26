@@ -90,7 +90,8 @@ namespace Scratch.Widgets {
             application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
-            expand = true;
+            hexpand = true;
+            vexpand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
