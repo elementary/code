@@ -134,7 +134,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-
         activate.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
@@ -202,14 +201,17 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             action_name = Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
+            var button_controller = new Gtk.GestureClick () {
+                propagation_phase = CAPTURE,
+                button = 0
+            };
+
+            check_button.add_controller (button_controller);
+            button_controller.released.connect ((n, dx, dy) => {
+                activate ();
+            });
             check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
             child = check_button;
-            // Do not connect signal so we can initialize state without triggering action
-            realize.connect (() => {
-                check_button.toggled.connect (() => {
-                    activate ();
-                });
-            });
         }
     }
 }
