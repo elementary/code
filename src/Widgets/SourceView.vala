@@ -121,7 +121,7 @@ namespace Scratch.Widgets {
             // Create common tags
             warning_tag = new Gtk.TextTag ("warning_bg");
             warning_tag.underline = Pango.Underline.ERROR;
-            warning_tag.underline_rgba = Gdk.RGBA () { red = 0.13, green = 0.55, blue = 0.13, alpha = 1.0 };
+            warning_tag.underline_rgba = Gdk.RGBA () { red = 0.13f, green = 0.55f, blue = 0.13f, alpha = 1.0f };
 
             error_tag = new Gtk.TextTag ("error_bg");
             error_tag.underline = Pango.Underline.ERROR;

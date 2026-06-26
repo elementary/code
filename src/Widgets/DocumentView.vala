@@ -93,7 +93,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         var new_tab_button = new Gtk.Button.from_icon_name ("list-add-symbolic") {
-            relief = Gtk.ReliefStyle.NONE,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB),
                 _("New Tab")
@@ -105,9 +104,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         tab_history_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic"),
-            tooltip_text = _("Closed Tabs"),
-            use_popover = false,
+            icon_name = "document-open-recent-symbolic",
+            tooltip_text = _("Closed Tabs")
         };
 
         tab_bar = new Adw.TabBar () {

@@ -57,8 +57,8 @@ public class Code.Sidebar : Gtk.Box {
         };
 
         headerbar = new Adw.HeaderBar () {
-            custom_title = choose_project_button,
-            show_close_button = true
+            title_widget = choose_project_button,
+            decoration_layout = "close:"
         };
         headerbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
@@ -100,7 +100,6 @@ public class Code.Sidebar : Gtk.Box {
         };
         var project_menu_button = new Gtk.MenuButton () {
             hexpand = true,
-            use_popover = false,
             menu_model = project_menu_model,
             child = label
         };

@@ -101,14 +101,14 @@ public class Code.FormatBar : Gtk.Box {
 
         lang_scrolled.add (lang_selection_listbox);
 
-        normal_entry = new LangEntry (null, _("Plain Text"), group);
+        normal_entry = new LangEntry (null, _("Plain Text"));
         lang_selection_listbox.append (normal_entry);
 
         unowned string[]? ids = manager.get_language_ids ();
         foreach (unowned string id in ids) {
             weak GtkSource.Language lang = manager.get_language (id);
             var entry = new LangEntry (id, lang.name) {
-                group = normal_entry.group
+                group = (Gtk.CheckButton)normal_entry
             };
             lang_selection_listbox.append (entry);
         }
@@ -356,6 +356,15 @@ public class Code.FormatBar : Gtk.Box {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
+        public Gtk.CheckButton group {
+            private get {
+                return lang_radio.group;
+            }
+
+            set {
+                lang_radio.group = value;
+            }
+        }
         // public unowned SList<Gtk.CheckButton> group { get; construct; }
 
         public bool active {

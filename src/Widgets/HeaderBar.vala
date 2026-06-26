@@ -65,7 +65,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         share_menu = new GLib.Menu ();
 
         share_menu_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-export"),
+            icon_name = "document-export",
             menu_model = share_menu,
             tooltip_text = _("Share")
         };
@@ -109,7 +109,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         find_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SHOW_FIND,
-            image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic")
+            icon_name = "edit-find-on-page-symbolic"
         };
         find_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND + "::"),
@@ -180,12 +180,12 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         sidebar_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR,
-            image = new Gtk.Image.from_icon_name ("panel-left-symbolic")
+            icon_name = "panel-left-symbolic"
         };
 
         terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
-            image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic")
+            icon_name = "panel-bottom-symbolic"
         };
         terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (terminal_button.action_name),
@@ -194,7 +194,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
 
         outline_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
-            image = new Gtk.Image.from_icon_name ("panel-right-symbolic")
+            icon_name = "panel-right-symbolic"
         };
 
         var panels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -229,7 +229,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         menu.add (menu_box);
 
         var app_menu = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu"),
+            icon_name = "open-menu",
             popover = menu,
             tooltip_text = _("Menu")
         };
