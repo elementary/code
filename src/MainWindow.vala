@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or

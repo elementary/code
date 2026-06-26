@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 elementary, Inc. <https://elementary.io>
+ * Copyright 2024-2025 elementary, Inc. <https://elementary.io>
  *           2011 Lucas Baudin <xapantu@gmail.com>
  *  *
  * This is a free software; you can redistribute it and/or
