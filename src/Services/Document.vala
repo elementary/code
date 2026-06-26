@@ -460,9 +460,11 @@ namespace Scratch.Services {
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
                 var source_buffer = source_view.buffer as GtkSource.Buffer;
                 if (source_buffer != null) {
-                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.enable_undo = false;
+                    // source_buffer.begin_not_undoable_action ();
                     source_buffer.text = buffer.text;
-                    source_buffer.end_not_undoable_action ();
+                    // source_buffer.end_not_undoable_action ();
+                    source_buffer.enable_undo = false;
                 } else {
                     source_view.buffer.text = buffer.text;
                 }
@@ -1410,9 +1412,11 @@ namespace Scratch.Services {
                         continue;
                     }
 
-                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.enable_undo = false;
+                    // source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);
-                    source_buffer.end_not_undoable_action ();
+                    // source_buffer.end_not_undoable_action ();
+                    source_buffer.enable_undo = true;
                 }
             }
 
