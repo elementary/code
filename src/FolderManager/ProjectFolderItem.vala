@@ -397,13 +397,14 @@ namespace Scratch.FolderManager {
                     new ThemedIcon ("git"),
                     Gtk.ButtonsType.CLOSE
                 ) {
-                    badge_icon = new ThemedIcon ("dialog-error")
+                    badge_icon = new ThemedIcon ("dialog-error"),
+                    modal = true
                 };
                 dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
                 dialog.response.connect (() => {
                     dialog.destroy ();
                 });
-                dialog.run ();
+                dialog.show ();
             }
         }
 

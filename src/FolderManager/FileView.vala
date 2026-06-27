@@ -511,14 +511,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
         dialog.deletable = false;
 
-        if (dialog.run () == Gtk.ResponseType.OK) {
-            var app_info = dialog.get_app_info ();
-            if (app_info != null) {
-                Utils.launch_app_with_file (app_info.get_id (), path);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.OK) {
+                var app_info = dialog.get_app_info ();
+                if (app_info != null) {
+                    Utils.launch_app_with_file (app_info.get_id (), path);
+                }
             }
-        }
 
-        dialog.destroy ();
+            dialog.destroy ();
+        });
+
+        dialog.show ();
     }
 
     private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {

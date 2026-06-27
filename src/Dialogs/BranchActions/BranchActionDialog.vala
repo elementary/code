@@ -49,7 +49,8 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
-            project: project
+            project: project,
+            modal: true
         );
     }
 

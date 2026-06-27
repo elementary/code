@@ -259,7 +259,7 @@ namespace Scratch.Services {
                 };
 
                 dialog.response.connect (() => {dialog.destroy ();});
-                dialog.present ();
+                dialog.show ();
                 return false;
             }
 
@@ -313,7 +313,9 @@ namespace Scratch.Services {
                     parent,
                     new_branch_name,
                     project_diff
-                );
+                ) {
+                    modal = true
+                };
                 dialog.response.connect ((res) => {
                     dialog.destroy ();
                     if (res == Gtk.ResponseType.ACCEPT) {
@@ -321,8 +323,7 @@ namespace Scratch.Services {
                     }
                 });
 
-                dialog.present ();
-
+                dialog.show ();
                 return false;
             }
 
@@ -342,10 +343,12 @@ namespace Scratch.Services {
                     _("An error occurred while checking out the requested branch"),
                     e.message,
                     "dialog-warning"
-                );
+                ) {
+                    modal = true
+                };
 
                 dialog.response.connect (dialog.destroy);
-                dialog.present ();
+                dialog.show ();
                 return false;
             }
 
