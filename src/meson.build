@@ -24,7 +24,6 @@ code_files = files(
     'Dialogs/CloneRepositoryDialog.vala',
     'Dialogs/OverwriteUncommittedConfirmationDialog.vala',
     'Dialogs/GlobalSearchDialog.vala',
-    # 'Dialogs/NewBranchDialog.vala',
     'Dialogs/BranchActions/BranchActionDialog.vala',
     'Dialogs/BranchActions/BranchCheckoutPage.vala',
     'Dialogs/BranchActions/BranchCreatePage.vala',
