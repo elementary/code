@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-05 14:23+0000\n"
-"PO-Revision-Date: 2025-05-15 14:35+0000\n"
+"PO-Revision-Date: 2026-06-27 17:17+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementaryos.org/"
 "projects/code/code/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: src/Application.vala:42 src/Widgets/DocumentView.vala:99
@@ -127,21 +127,21 @@ msgstr "_Cancel"
 
 #: src/MainWindow.vala:1092
 msgid "Cloning completed"
-msgstr ""
+msgstr "Cloning completed"
 
 #: src/MainWindow.vala:1093
 #, c-format
 msgid "Clone successfully created in %s"
-msgstr ""
+msgstr "Clone successfully created in %s"
 
 #: src/MainWindow.vala:1099
 #, c-format
 msgid "Unable to clone %s"
-msgstr ""
+msgstr "Unable to clone %s"
 
 #: src/MainWindow.vala:1106
 msgid "Retry"
-msgstr ""
+msgstr "Retry"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -152,49 +152,47 @@ msgstr "Show '%s' with default app"
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
 msgid "Create a local clone of a Git repository"
-msgstr ""
+msgstr "Create a local clone of a Git repository"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:56
 msgid ""
 "The source repository and local folder must exist and have the required read "
 "and write permissions"
 msgstr ""
+"The source repository and local folder must exist and have the required read "
+"and write permissions"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Clone Repository"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
-msgstr ""
+msgstr "Select folder where the cloned repository will be created"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Select"
-msgstr "Select All"
+msgstr "Select"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "Repository URL"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
-#, fuzzy
-#| msgid "Local"
 msgid "Location"
-msgstr "Local"
+msgstr "Location"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
-msgstr ""
+msgstr "Name of Clone"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:122
 msgid "Cloning in progress"
-msgstr ""
+msgstr "Cloning in progress"
 
 #: src/Dialogs/GlobalSearchDialog.vala:62
 #, fuzzy
