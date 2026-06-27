@@ -208,7 +208,9 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
-            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path)) {
+                can_focus = false
+            };
             add (check_button);
 
             button_controller = new Gtk.GestureMultiPress (check_button) {
