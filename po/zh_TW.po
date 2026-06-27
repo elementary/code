@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 16:36+0000\n"
+"POT-Creation-Date: 2026-06-27 17:20+0000\n"
 "PO-Revision-Date: 2026-04-07 13:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "新增視窗"
 
-#: src/Application.vala:44
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: src/Application.vala:45
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr "開啟檔案中指定的選取範圍"
 
-#: src/Application.vala:45
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr "<起始行[.起始欄][-結束行[.結束欄]]>"
 
-#: src/Application.vala:46
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr "[檔案…]"
 
@@ -86,59 +86,58 @@ msgstr "顯示終端機"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:622
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:673
+#: src/MainWindow.vala:973 src/Services/Document.vala:702
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:677
+#: src/MainWindow.vala:977 src/Services/Document.vala:706
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:980
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:984 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:515 src/Services/Document.vala:685
-#: plugins/pastebin/pastebin_dialog.vala:329
-#: plugins/pastebin/pastebin_dialog.vala:383
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:544
+#: src/Services/Document.vala:714 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:386
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/MainWindow.vala:1083
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr "已完成拓製"
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "已成功拓製到 %s"
 
-#: src/MainWindow.vala:1090
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr "無法拓製 %s"
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr "重試"
 
@@ -191,48 +190,34 @@ msgstr "拓製後資料夾名稱"
 msgid "Cloning in progress"
 msgstr "正在複製版本庫"
 
-#: src/Dialogs/GlobalSearchDialog.vala:62
+#: src/Dialogs/GlobalSearchDialog.vala:63
 msgid "The search term will be treated as a regex expression"
 msgstr "搜尋字串會被視為正則表達式"
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case sensitive"
 msgstr "搜尋會區分大小寫"
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case insensitive"
 msgstr "搜尋會將大小寫視為相同文字"
 
-#: src/Dialogs/GlobalSearchDialog.vala:65
+#: src/Dialogs/GlobalSearchDialog.vala:66
 msgid "Search will match only whole words"
 msgstr "搜尋會只符合完整單詞"
 
-#: src/Dialogs/GlobalSearchDialog.vala:68
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "在 “%s” 中搜尋"
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr "搜尋字串至少要有三個字元長。"
 
-#: src/Dialogs/GlobalSearchDialog.vala:88
+#: src/Dialogs/GlobalSearchDialog.vala:89
 msgid "Search"
 msgstr "搜尋"
-
-#: src/Dialogs/NewBranchDialog.vala:43
-#, c-format
-msgid "Create a new branch of “%s/%s”"
-msgstr "建立「%s/%s」的新分支"
-
-#. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:48
-msgid "The branch name must be unique and follow Git naming rules."
-msgstr "分支名稱不能有重複且必須遵循 Git 的命名規則。"
-
-#: src/Dialogs/NewBranchDialog.vala:56
-msgid "Create Branch"
-msgstr "建立分支"
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
@@ -351,54 +336,54 @@ msgid "Extensions"
 msgstr "擴充套件"
 
 #: src/Dialogs/PreferencesDialog.vala:176
-#: plugins/pastebin/pastebin_dialog.vala:441
+#: plugins/pastebin/pastebin_dialog.vala:444
 msgid "Close"
 msgstr "關閉"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:31
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Are You Sure You Want to Restore This File?"
 msgstr "你確定要復原此檔案嗎？"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:32
+#: src/Dialogs/RestoreConfirmationDialog.vala:33
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr "復原檔案將會還原自開啟此檔案後的所有變更"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:34
+#: src/Dialogs/RestoreConfirmationDialog.vala:35
 msgid "Don't Restore"
 msgstr "不要還原"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:36
+#: src/Dialogs/RestoreConfirmationDialog.vala:37
 msgid "Restore Anyway"
 msgstr "無論如何都要復原"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "這個資料夾是已開啟專案的上層資料夾"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "開啟這個資料夾將會關閉所有子專案"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "關閉子專案"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "This folder is a child of an open project"
 msgstr "這個資料夾是已開啟專案的子資料夾"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Opening this folder will close the parent project"
 msgstr "開啟這個資料夾將會關閉上層專案"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
 msgid "Close Parent Project"
 msgstr "關閉上層專案"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
 msgid "Don't Open"
 msgstr "不要開啟"
 
@@ -544,148 +529,148 @@ msgid "Error while creating new branch: “%s”"
 msgstr "建立新分支時發生錯誤：「%s」"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:418
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文字檔"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:419
 msgid "Code will not load this type of file."
 msgstr "Code 無法載入這類檔案。"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:421
 msgid "Load Anyway"
 msgstr "無論如何都要載入"
 
-#: src/Services/Document.vala:413
+#: src/Services/Document.vala:442
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "載入「%s」花得有點久"
 
-#: src/Services/Document.vala:414
+#: src/Services/Document.vala:443
 msgid "Please wait while Code is loading the file."
 msgstr "當 Code 忙著載入檔案時總是等候它。"
 
-#: src/Services/Document.vala:416
+#: src/Services/Document.vala:445
 msgid "Cancel Loading"
 msgstr "取消載入"
 
-#: src/Services/Document.vala:505
+#: src/Services/Document.vala:534
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "關閉前要先將變更儲存到「%s」嗎？"
 
-#: src/Services/Document.vala:506
+#: src/Services/Document.vala:535
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若您不儲存，更動皆會永遠消失。"
 
-#: src/Services/Document.vala:512
+#: src/Services/Document.vala:541
 msgid "Close Without Saving"
 msgstr "關閉且不儲存"
 
-#: src/Services/Document.vala:516 src/Services/Document.vala:684
+#: src/Services/Document.vala:545 src/Services/Document.vala:713
 msgid "Save"
 msgstr "儲存"
 
-#: src/Services/Document.vala:643
+#: src/Services/Document.vala:672
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "儲存到「%s」失敗了。"
 
-#: src/Services/Document.vala:681
+#: src/Services/Document.vala:710
 msgid "Save File"
 msgstr "儲存檔案"
 
-#: src/Services/Document.vala:768 src/Services/Document.vala:786
+#: src/Services/Document.vala:797 src/Services/Document.vala:815
 msgid "New Document"
 msgstr "新增文件"
 
 #. No path for a new document
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:817
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "無法將此文件儲存至 %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:879
+#: src/Services/Document.vala:908
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "無法讀取檔案「%s」中的文字"
 
-#: src/Services/Document.vala:882
+#: src/Services/Document.vala:911
 msgid "You may not have permission to read the file."
 msgstr "您可能沒有讀取該檔案的權限。"
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:913
 msgid "The file may be corrupt or may not be a text file"
 msgstr "檔案可能已毀損或者不是文字檔案"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:919
 msgid "Show Anyway"
 msgstr "無論如何都要顯示"
 
-#: src/Services/Document.vala:921
+#: src/Services/Document.vala:950
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "包含「%s」檔案的位置已被卸載，而該檔案有未儲存的變更。"
 
-#: src/Services/Document.vala:923
+#: src/Services/Document.vala:952
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr "檔案「%s」已被刪除、重新命名或移動，但有未儲存的變更。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:937
+#: src/Services/Document.vala:966
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "沒有寫入檔案「%s」的權限。"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:1016
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "「%s」檔案已被外部程式修改過"
 
-#: src/Services/Document.vala:992
+#: src/Services/Document.vala:1021
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr "還有變更尚未儲存。重新載入文件會覆寫未儲存的變更。"
 
-#: src/Services/Document.vala:996
+#: src/Services/Document.vala:1025
 msgid "The document changed externally since you last saved it."
 msgstr "文件在您上次儲存以來已從外部被變更。"
 
-#: src/Services/Document.vala:1012
+#: src/Services/Document.vala:1041
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "「%s」無法儲存至此。要存一份副本到別的地方嗎？"
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1051
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1053
 msgid "Save Duplicate…"
 msgstr "儲存副本…"
 
-#: src/Services/Document.vala:1072
+#: src/Services/Document.vala:1102
 msgid "Continue"
 msgstr "繼續"
 
-#: src/Services/Document.vala:1074
+#: src/Services/Document.vala:1104
 msgid "Reload"
 msgstr "重新載入"
 
-#: src/Services/Document.vala:1077
+#: src/Services/Document.vala:1107
 msgid "Overwrite"
 msgstr "覆寫"
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1110
 msgid "Save Document elsewhere"
 msgstr "將文件儲存到別的地方"
 
@@ -699,12 +684,12 @@ msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr "要求的分支沒有在任何與此版本庫連結的遠端當中找到"
 
-#: src/Services/MonitoredRepository.vala:342
+#: src/Services/MonitoredRepository.vala:343
 msgid "An error occurred while checking out the requested branch"
 msgstr "遷出指定分支時發生錯誤"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:382
+#: src/Services/MonitoredRepository.vala:385
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s（分離狀態）"
@@ -803,40 +788,40 @@ msgstr "作用中 Git 專案：%s"
 msgid "Filter projects"
 msgstr "過濾專案"
 
-#: src/Widgets/ChooseProjectButton.vala:92
+#: src/Widgets/ChooseProjectButton.vala:93
 msgid "Open Folder…"
 msgstr "開啟資料夾…"
 
-#: src/Widgets/ChooseProjectButton.vala:97
+#: src/Widgets/ChooseProjectButton.vala:98
 msgid "Clone Git Repository…"
 msgstr "拓製 Git 版本庫…"
 
-#: src/Widgets/DocumentView.vala:109
+#: src/Widgets/DocumentView.vala:110
 msgid "Closed Tabs"
 msgstr "已關閉的分頁"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:450
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "文字檔來自 %s:%d"
 
-#: src/Widgets/DocumentView.vala:625
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Tabs to the Right"
 msgstr "關閉右方的分頁"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Other Tabs"
 msgstr "關閉其他分頁"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:628
 msgid "Close Tab"
 msgstr "關閉分頁"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:631
 msgid "Open in New Window"
 msgstr "在新視窗中開啟"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:632
 msgid "Duplicate Tab"
 msgstr "建立分頁副本"
 
@@ -976,7 +961,7 @@ msgstr "向前搜尋"
 msgid "Cyclic Search"
 msgstr "循環搜尋"
 
-#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:474
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:477
 msgid "Never"
 msgstr "永不"
 
@@ -1025,31 +1010,31 @@ msgstr "%d/%d"
 msgid "no results"
 msgstr "無結果"
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:576
 msgid "Sort Lines"
 msgstr "排序行數"
 
-#: src/Widgets/SourceView.vala:598
+#: src/Widgets/SourceView.vala:580
 msgid "Mark Line"
 msgstr "標記行數"
 
-#: src/Widgets/SourceView.vala:602
+#: src/Widgets/SourceView.vala:584
 msgid "Previous Mark"
 msgstr "上一個標記"
 
-#: src/Widgets/SourceView.vala:606
+#: src/Widgets/SourceView.vala:588
 msgid "Next Mark"
 msgstr "下一個標記"
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:598
 msgid "Toggle Comment"
 msgstr "切換註釋"
 
-#: src/Widgets/Terminal.vala:133
+#: src/Widgets/Terminal.vala:134
 msgid "Copy"
 msgstr "複製"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/Terminal.vala:135
 msgid "Paste"
 msgstr "貼上"
 
@@ -1085,68 +1070,78 @@ msgstr "開啟資料夾"
 msgid "Add a project folder to the sidebar."
 msgstr "將專案資料夾新增至側邊欄。"
 
-#: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:330 plugins/pastebin/pastebin.vala:125
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:127
 msgid "Upload to Pastebin"
 msgstr "上傳至 Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:257
+#: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Name:"
 msgstr "名稱："
 
-#: plugins/pastebin/pastebin_dialog.vala:261
+#: plugins/pastebin/pastebin_dialog.vala:263
 msgid "Format:"
 msgstr "格式："
 
-#: plugins/pastebin/pastebin_dialog.vala:268
+#: plugins/pastebin/pastebin_dialog.vala:270
 msgid "Choose different format"
 msgstr "選擇別的格式"
 
-#: plugins/pastebin/pastebin_dialog.vala:290
+#: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Expiration:"
 msgstr "到期時間："
 
-#: plugins/pastebin/pastebin_dialog.vala:297
+#: plugins/pastebin/pastebin_dialog.vala:299
 msgid "Keep this paste private"
 msgstr "保持該剪貼為私人使用"
 
-#: plugins/pastebin/pastebin_dialog.vala:356
+#: plugins/pastebin/pastebin_dialog.vala:358
 msgid "Available Formats"
 msgstr "可用格式"
 
-#: plugins/pastebin/pastebin_dialog.vala:385
+#: plugins/pastebin/pastebin_dialog.vala:388
 msgid "Select Format"
 msgstr "選擇格式"
 
-#: plugins/pastebin/pastebin_dialog.vala:475
+#: plugins/pastebin/pastebin_dialog.vala:478
 msgid "Ten minutes"
 msgstr "十分鐘"
 
-#: plugins/pastebin/pastebin_dialog.vala:476
+#: plugins/pastebin/pastebin_dialog.vala:479
 msgid "One hour"
 msgstr "一小時"
 
-#: plugins/pastebin/pastebin_dialog.vala:477
+#: plugins/pastebin/pastebin_dialog.vala:480
 msgid "One day"
 msgstr "一天"
 
-#: plugins/pastebin/pastebin_dialog.vala:478
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "One month"
 msgstr "一個月"
 
-#: plugins/spell/spell.vala:73
+#: plugins/spell/spell.vala:79
 msgid "No Suitable Dictionaries Were Found"
 msgstr "找不到合適的字典"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:80
 msgid "Please install at least one [aspell] dictionary."
 msgstr "請安裝至少一本 [aspell] 字典。"
 
-#: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/plugin.vala:166
 #: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
+
+#, c-format
+#~ msgid "Create a new branch of “%s/%s”"
+#~ msgstr "建立「%s/%s」的新分支"
+
+#~ msgid "The branch name must be unique and follow Git naming rules."
+#~ msgstr "分支名稱不能有重複且必須遵循 Git 的命名規則。"
+
+#~ msgid "Create Branch"
+#~ msgstr "建立分支"
 
 #~ msgid "Project templates"
 #~ msgstr "專案模板"

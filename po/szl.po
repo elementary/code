@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 16:36+0000\n"
+"POT-Creation-Date: 2026-06-27 17:20+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -14,27 +14,27 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Application.vala:42 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
 msgid "New Tab"
 msgstr "Nowo karta"
 
-#: src/Application.vala:43 src/FolderManager/FileItem.vala:85
+#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
 msgid "New Window"
 msgstr "Nowe ôkno"
 
-#: src/Application.vala:44
+#: src/Application.vala:43
 msgid "Print version info and exit"
 msgstr "Pokoż info ô wersyji i zawrzij"
 
-#: src/Application.vala:45
+#: src/Application.vala:44
 msgid "Open file at specified selection range"
 msgstr ""
 
-#: src/Application.vala:45
+#: src/Application.vala:44
 msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgstr ""
 
-#: src/Application.vala:46
+#: src/Application.vala:45
 msgid "[FILE…]"
 msgstr ""
 
@@ -90,59 +90,58 @@ msgstr "Pokoż terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:622
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:972 src/Services/Document.vala:673
+#: src/MainWindow.vala:973 src/Services/Document.vala:702
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:976 src/Services/Document.vala:677
+#: src/MainWindow.vala:977 src/Services/Document.vala:706
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:980
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:983
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:984 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:515 src/Services/Document.vala:685
-#: plugins/pastebin/pastebin_dialog.vala:329
-#: plugins/pastebin/pastebin_dialog.vala:383
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:544
+#: src/Services/Document.vala:714 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:386
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:1027
+#: src/MainWindow.vala:1028
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:1028
+#: src/MainWindow.vala:1029
 msgid "_Cancel"
 msgstr "_Pociep"
 
-#: src/MainWindow.vala:1083
+#: src/MainWindow.vala:1084
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1084
+#: src/MainWindow.vala:1085
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1090
+#: src/MainWindow.vala:1091
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1098
 msgid "Retry"
 msgstr ""
 
@@ -197,52 +196,36 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:62
+#: src/Dialogs/GlobalSearchDialog.vala:63
 msgid "The search term will be treated as a regex expression"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case sensitive"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case insensitive"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:65
+#: src/Dialogs/GlobalSearchDialog.vala:66
 msgid "Search will match only whole words"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:68
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:88
+#: src/Dialogs/GlobalSearchDialog.vala:89
 #, fuzzy
 #| msgid "Search next"
 msgid "Search"
 msgstr "Szukej do przodku"
-
-#: src/Dialogs/NewBranchDialog.vala:43
-#, c-format
-msgid "Create a new branch of “%s/%s”"
-msgstr ""
-
-#. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:48
-msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
-
-#: src/Dialogs/NewBranchDialog.vala:56
-#, fuzzy
-#| msgid "Branch"
-msgid "Create Branch"
-msgstr "Gałōńź"
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
@@ -384,61 +367,61 @@ msgid "Extensions"
 msgstr "Rozszyrzynia"
 
 #: src/Dialogs/PreferencesDialog.vala:176
-#: plugins/pastebin/pastebin_dialog.vala:441
+#: plugins/pastebin/pastebin_dialog.vala:444
 msgid "Close"
 msgstr "Zawrzij"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:31
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Are You Sure You Want to Restore This File?"
 msgstr "Na zicher chcesz prziwrōcić tyn zbiōr?"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:32
+#: src/Dialogs/RestoreConfirmationDialog.vala:33
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
 "Prziwrōcynie zbioru cofnie wszyjske zmiany, co były zrobiōne ôd jego ôtwarcio"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:34
+#: src/Dialogs/RestoreConfirmationDialog.vala:35
 msgid "Don't Restore"
 msgstr "Niy prziwrocej"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:36
+#: src/Dialogs/RestoreConfirmationDialog.vala:37
 msgid "Restore Anyway"
 msgstr "Prziwrōć i tak"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "This folder is a child of an open project"
 msgstr ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Opening this folder will close the parent project"
 msgstr ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
 msgid "Close Parent Project"
 msgstr ""
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
 #, fuzzy
 #| msgid "Don't Restore"
 msgid "Don't Open"
@@ -600,96 +583,96 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:389
+#: src/Services/Document.vala:418
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s to niy zbiōr tekstowy"
 
-#: src/Services/Document.vala:390
+#: src/Services/Document.vala:419
 msgid "Code will not load this type of file."
 msgstr "Kod niy zaladuje tyj zorty zbioru."
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:421
 msgid "Load Anyway"
 msgstr "Zaladuj i tak"
 
-#: src/Services/Document.vala:413
+#: src/Services/Document.vala:442
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Ladowanie zbioru „%s” biere moc czasu"
 
-#: src/Services/Document.vala:414
+#: src/Services/Document.vala:443
 msgid "Please wait while Code is loading the file."
 msgstr "Czekej, aż Kod zaladuje zbiōr."
 
-#: src/Services/Document.vala:416
+#: src/Services/Document.vala:445
 msgid "Cancel Loading"
 msgstr "Pociep ladowanie"
 
-#: src/Services/Document.vala:505
+#: src/Services/Document.vala:534
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Save changes to “%s” before closing?"
 msgstr "Spamiyntać zmiany we „%s” przed zawarciym?"
 
-#: src/Services/Document.vala:506
+#: src/Services/Document.vala:535
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Zmiany bydōm doimyntnie stracōne, jak niy bydōm spamiyntane."
 
-#: src/Services/Document.vala:512
+#: src/Services/Document.vala:541
 msgid "Close Without Saving"
 msgstr "Zawrzij bez spamiyntowanio"
 
-#: src/Services/Document.vala:516 src/Services/Document.vala:684
+#: src/Services/Document.vala:545 src/Services/Document.vala:713
 msgid "Save"
 msgstr "Spamiyntej"
 
-#: src/Services/Document.vala:643
+#: src/Services/Document.vala:672
 #, fuzzy, c-format
 #| msgid "Save changes to \"%s\" before closing?"
 msgid "Saving to “%s” failed."
 msgstr "Spamiyntać zmiany we „%s” przed zawarciym?"
 
-#: src/Services/Document.vala:681
+#: src/Services/Document.vala:710
 msgid "Save File"
 msgstr "Spamiyntej zbiōr"
 
-#: src/Services/Document.vala:768 src/Services/Document.vala:786
+#: src/Services/Document.vala:797 src/Services/Document.vala:815
 msgid "New Document"
 msgstr "Nowy dokumynt"
 
 #. No path for a new document
-#: src/Services/Document.vala:788
+#: src/Services/Document.vala:817
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:879
+#: src/Services/Document.vala:908
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:882
+#: src/Services/Document.vala:911
 #, fuzzy
 #| msgid "It may be corrupt or you don't have permission to read it."
 msgid "You may not have permission to read the file."
 msgstr "Może być poprzniōny abo możesz niy mieć przizwolynio na jego edycyjo."
 
-#: src/Services/Document.vala:884
+#: src/Services/Document.vala:913
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:919
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Zaladuj i tak"
 
-#: src/Services/Document.vala:921
+#: src/Services/Document.vala:950
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -700,7 +683,7 @@ msgid ""
 msgstr ""
 "Plac, kaj je zbiōr „%s”, bōł ôdmōntowany. Chcesz go spamiyntać kajś ińdzij?"
 
-#: src/Services/Document.vala:923
+#: src/Services/Document.vala:952
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -712,13 +695,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:937
+#: src/Services/Document.vala:966
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Zbiōr „%s” bōł skasowany. Chcesz go i tak spamiyntać?"
 
-#: src/Services/Document.vala:987
+#: src/Services/Document.vala:1016
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -728,44 +711,44 @@ msgstr ""
 "Zbiōr „%s” bōł zmodyfikowany ôd inkszego programu. Chcesz go zaladować na "
 "nowo abo chcesz kōntynuować edytowanie?"
 
-#: src/Services/Document.vala:992
+#: src/Services/Document.vala:1021
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:996
+#: src/Services/Document.vala:1025
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:1012
+#: src/Services/Document.vala:1041
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:1021
+#: src/Services/Document.vala:1051
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:1023
+#: src/Services/Document.vala:1053
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1072
+#: src/Services/Document.vala:1102
 msgid "Continue"
 msgstr "Dalij"
 
-#: src/Services/Document.vala:1074
+#: src/Services/Document.vala:1104
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Wyślij"
 
-#: src/Services/Document.vala:1077
+#: src/Services/Document.vala:1107
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1110
 #, fuzzy
 #| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
@@ -781,12 +764,12 @@ msgid ""
 "The requested branch was not found in any remote linked to this repository"
 msgstr ""
 
-#: src/Services/MonitoredRepository.vala:342
+#: src/Services/MonitoredRepository.vala:343
 msgid "An error occurred while checking out the requested branch"
 msgstr ""
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:382
+#: src/Services/MonitoredRepository.vala:385
 #, c-format
 msgid "%.8s (detached)"
 msgstr ""
@@ -893,50 +876,50 @@ msgstr ""
 msgid "Filter projects"
 msgstr ""
 
-#: src/Widgets/ChooseProjectButton.vala:92
+#: src/Widgets/ChooseProjectButton.vala:93
 #, fuzzy
 #| msgid "Open Folder"
 msgid "Open Folder…"
 msgstr "Ôtwōrz katalog"
 
-#: src/Widgets/ChooseProjectButton.vala:97
+#: src/Widgets/ChooseProjectButton.vala:98
 msgid "Clone Git Repository…"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:109
+#: src/Widgets/DocumentView.vala:110
 #, fuzzy
 #| msgid "Close"
 msgid "Closed Tabs"
 msgstr "Zawrzij"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:450
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Zbiōr tekstowy ze %s:%d"
 
-#: src/Widgets/DocumentView.vala:625
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:627
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "Zawrzij inksze katalogi"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:628
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Zawrzij"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Nowe ôkno"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:632
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -1092,7 +1075,7 @@ msgstr "Szukej do zadku"
 msgid "Cyclic Search"
 msgstr "Wyszukowanie cykliczne"
 
-#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:474
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:477
 msgid "Never"
 msgstr "Nigdy"
 
@@ -1143,35 +1126,35 @@ msgstr ""
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:594
+#: src/Widgets/SourceView.vala:576
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "Zortuj zaznaczōne wiersze"
 
-#: src/Widgets/SourceView.vala:598
+#: src/Widgets/SourceView.vala:580
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "Wychrōń teroźny widok"
 
-#: src/Widgets/SourceView.vala:602
+#: src/Widgets/SourceView.vala:584
 msgid "Previous Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:606
+#: src/Widgets/SourceView.vala:588
 msgid "Next Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:616
+#: src/Widgets/SourceView.vala:598
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
 
-#: src/Widgets/Terminal.vala:133
+#: src/Widgets/Terminal.vala:134
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/Terminal.vala:135
 msgid "Paste"
 msgstr "Wraź"
 
@@ -1207,72 +1190,77 @@ msgstr "Ôtwōrz katalog"
 msgid "Add a project folder to the sidebar."
 msgstr "Przidej katalog projektu do bocznego poska."
 
-#: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:330 plugins/pastebin/pastebin.vala:125
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:127
 msgid "Upload to Pastebin"
 msgstr "Wyślij do Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:257
+#: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Name:"
 msgstr "Miano:"
 
-#: plugins/pastebin/pastebin_dialog.vala:261
+#: plugins/pastebin/pastebin_dialog.vala:263
 msgid "Format:"
 msgstr "Format:"
 
-#: plugins/pastebin/pastebin_dialog.vala:268
+#: plugins/pastebin/pastebin_dialog.vala:270
 msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:290
+#: plugins/pastebin/pastebin_dialog.vala:292
 #, fuzzy
 #| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Czas kōńca:"
 
-#: plugins/pastebin/pastebin_dialog.vala:297
+#: plugins/pastebin/pastebin_dialog.vala:299
 msgid "Keep this paste private"
 msgstr "Trzim to wrażynie prywatne"
 
-#: plugins/pastebin/pastebin_dialog.vala:356
+#: plugins/pastebin/pastebin_dialog.vala:358
 msgid "Available Formats"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:385
+#: plugins/pastebin/pastebin_dialog.vala:388
 #, fuzzy
 #| msgid "Format:"
 msgid "Select Format"
 msgstr "Format:"
 
-#: plugins/pastebin/pastebin_dialog.vala:475
+#: plugins/pastebin/pastebin_dialog.vala:478
 msgid "Ten minutes"
 msgstr "Dziesiyńć minut"
 
-#: plugins/pastebin/pastebin_dialog.vala:476
+#: plugins/pastebin/pastebin_dialog.vala:479
 msgid "One hour"
 msgstr "Jedna godzina"
 
-#: plugins/pastebin/pastebin_dialog.vala:477
+#: plugins/pastebin/pastebin_dialog.vala:480
 msgid "One day"
 msgstr "Jedyn dziyń"
 
-#: plugins/pastebin/pastebin_dialog.vala:478
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "One month"
 msgstr "Jedyn miesiōnc"
 
-#: plugins/spell/spell.vala:73
+#: plugins/spell/spell.vala:79
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Niy szło znojś ôdpednich słownikōw"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:80
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Zainstaluj aby jedyn słownik [aspell]."
 
-#: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/plugin.vala:166
 #: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#, fuzzy
+#~| msgid "Branch"
+#~ msgid "Create Branch"
+#~ msgstr "Gałōńź"
 
 #~ msgid "Project templates"
 #~ msgstr "Szymle projektu"
