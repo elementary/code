@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 14:23+0000\n"
+"POT-Creation-Date: 2026-06-24 16:36+0000\n"
 "PO-Revision-Date: 2025-05-17 17:55+0000\n"
 "Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -44,102 +44,102 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ARQUIVO...]"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:269
 #, c-format
 msgid "Code (%s)"
 msgstr "Code (%s)"
 
-#: src/MainWindow.vala:274
+#: src/MainWindow.vala:271
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:410
+#: src/MainWindow.vala:403
 msgid "Hide search bar"
 msgstr "Esconder barra de busca"
 
-#: src/MainWindow.vala:415 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:408 src/Widgets/HeaderBar.vala:117
 msgid "Find on Page…"
 msgstr "Procurar na Página…"
 
-#: src/MainWindow.vala:426
+#: src/MainWindow.vala:419
 msgid "Hide Projects Sidebar"
 msgstr "Esconder barra de projetos"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:424
 msgid "Show Projects Sidebar"
 msgstr "Exibir barra de projetos"
 
-#: src/MainWindow.vala:440
+#: src/MainWindow.vala:433
 msgid "Hide Symbol Outline"
 msgstr "Esconder o contorno do símbolo"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:438
 msgid "Show Symbol Outline"
 msgstr "Exibir o contorno do símbolo"
 
-#: src/MainWindow.vala:454
+#: src/MainWindow.vala:447
 msgid "Hide Terminal"
 msgstr "Esconder o Terminal"
 
-#: src/MainWindow.vala:459 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:452 src/Widgets/HeaderBar.vala:190
 msgid "Show Terminal"
 msgstr "Mostrar o Terminal"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:629
+#: src/MainWindow.vala:622
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:981 src/Services/Document.vala:681
+#: src/MainWindow.vala:972 src/Services/Document.vala:673
 msgid "All files"
 msgstr "Todos os arquivos"
 
-#: src/MainWindow.vala:985 src/Services/Document.vala:685
+#: src/MainWindow.vala:976 src/Services/Document.vala:677
 msgid "Text files"
 msgstr "Arquivos de texto"
 
-#: src/MainWindow.vala:989
+#: src/MainWindow.vala:980
 msgid "Open some files"
 msgstr "Abrir alguns arquivos"
 
-#: src/MainWindow.vala:992
+#: src/MainWindow.vala:983
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:993 src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/MainWindow.vala:984 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:523 src/Services/Document.vala:693
-#: plugins/pastebin/pastebin_dialog.vala:327
-#: plugins/pastebin/pastebin_dialog.vala:378
+#: src/Services/Document.vala:515 src/Services/Document.vala:685
+#: plugins/pastebin/pastebin_dialog.vala:329
+#: plugins/pastebin/pastebin_dialog.vala:383
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:1036
+#: src/MainWindow.vala:1027
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:1037
+#: src/MainWindow.vala:1028
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/MainWindow.vala:1092
+#: src/MainWindow.vala:1083
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1093
+#: src/MainWindow.vala:1084
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1099
+#: src/MainWindow.vala:1090
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1106
+#: src/MainWindow.vala:1097
 msgid "Retry"
 msgstr ""
 
@@ -242,31 +242,31 @@ msgstr ""
 msgid "Create Branch"
 msgstr "Criar Branch"
 
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
 msgstr "Preferências"
 
-#: src/Dialogs/PreferencesDialog.vala:23
+#: src/Dialogs/PreferencesDialog.vala:24
 msgid "General"
 msgstr "Geral"
 
-#: src/Dialogs/PreferencesDialog.vala:24
+#: src/Dialogs/PreferencesDialog.vala:25
 msgid "Save files when changed"
 msgstr "Salvar arquivos quando alterados"
 
-#: src/Dialogs/PreferencesDialog.vala:26
+#: src/Dialogs/PreferencesDialog.vala:27
 msgid "Strip trailing whitespace on save"
 msgstr "Eliminar espaços no final das linhas ao salvar"
 
-#: src/Dialogs/PreferencesDialog.vala:28
+#: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:31
+#: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
 msgstr "Linhas inteligentes de recorte/cópia"
 
-#: src/Dialogs/PreferencesDialog.vala:33
+#: src/Dialogs/PreferencesDialog.vala:34
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -274,96 +274,96 @@ msgstr ""
 "Recortar ou copiar sem uma seleção ativa recortará ou copiará toda a linha "
 "atual"
 
-#: src/Dialogs/PreferencesDialog.vala:39
+#: src/Dialogs/PreferencesDialog.vala:40
 msgid "Indentation width"
 msgstr "Tamanho da indentação"
 
-#: src/Dialogs/PreferencesDialog.vala:50
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Indentation"
 msgstr "Indentação"
 
-#: src/Dialogs/PreferencesDialog.vala:51
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "Automatic indentation"
 msgstr "Indentação automática"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "Insert spaces instead of tabs"
 msgstr "Inserir espaços ao invés de margem tabulada"
 
-#: src/Dialogs/PreferencesDialog.vala:61
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Default build directory"
 msgstr "Diretório padrão de compilação"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Projects"
 msgstr "Projetos"
 
-#: src/Dialogs/PreferencesDialog.vala:82
+#: src/Dialogs/PreferencesDialog.vala:83
 msgid "None"
 msgstr "Nenhum"
 
-#: src/Dialogs/PreferencesDialog.vala:83
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "Current Line"
 msgstr "Linha atual"
 
-#: src/Dialogs/PreferencesDialog.vala:84
+#: src/Dialogs/PreferencesDialog.vala:85
 msgid "All"
 msgstr "Tudo"
 
-#: src/Dialogs/PreferencesDialog.vala:100
+#: src/Dialogs/PreferencesDialog.vala:101
 msgid "Whitespace visible when not selected"
 msgstr "Espaço em branco visível quando não está selecionado"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Highlight matching brackets"
 msgstr "Destacar colchetes correspondentes"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:118
 #, fuzzy
 #| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Realce de sintaxe"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Mini Map"
 msgstr "Mini mapa"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Wrap lines"
 msgstr "Ajuste de linhas"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Line width guide"
 msgstr "Guia de tamanho de linha"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:128
 #, fuzzy, c-format
 #| msgid "Use system font"
 msgid "Use system font (%s)"
 msgstr "Usar fonte do sistema"
 
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
 msgstr "Fonte"
 
-#: src/Dialogs/PreferencesDialog.vala:149
+#: src/Dialogs/PreferencesDialog.vala:153
 msgid "Behavior"
 msgstr "Comportamento"
 
-#: src/Dialogs/PreferencesDialog.vala:150 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Interface"
 
-#: src/Dialogs/PreferencesDialog.vala:166 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:125
 msgid "Extensions"
 msgstr "Extensões"
 
-#: src/Dialogs/PreferencesDialog.vala:172
-#: plugins/pastebin/pastebin_dialog.vala:434
+#: src/Dialogs/PreferencesDialog.vala:176
+#: plugins/pastebin/pastebin_dialog.vala:441
 msgid "Close"
 msgstr "Fechar"
 
@@ -491,7 +491,7 @@ msgstr "Arquivo vazio"
 msgid "…too many templates"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:255 src/Services/TemplateManager.vala:198
+#: src/FolderManager/FolderItem.vala:255
 msgid "Templates"
 msgstr "Modelos"
 
@@ -554,7 +554,7 @@ msgid_plural "Restore %u Hidden Documents"
 msgstr[0] "Restaurar %u Documento Escondido"
 msgstr[1] "Restaurar %u Documentos Escondidos"
 
-#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:126
 msgid "Find in Project…"
 msgstr "Encontrar no projeto…"
 
@@ -568,89 +568,89 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Erro ao criar novo ramo: “%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:389
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s não é um arquivo de texto"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:390
 msgid "Code will not load this type of file."
 msgstr "Code não irá carregar este tipo de arquivo."
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:392
 msgid "Load Anyway"
 msgstr "Carregar de qualquer forma"
 
-#: src/Services/Document.vala:421
+#: src/Services/Document.vala:413
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Carregar o arquivo \"%s\" está demorando muito"
 
-#: src/Services/Document.vala:422
+#: src/Services/Document.vala:414
 msgid "Please wait while Code is loading the file."
 msgstr "Aguarde enquanto o Code está carregando o arquivo."
 
-#: src/Services/Document.vala:424
+#: src/Services/Document.vala:416
 msgid "Cancel Loading"
 msgstr "Cancelar carregamento"
 
-#: src/Services/Document.vala:513
+#: src/Services/Document.vala:505
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Salvar as alterações em \"%s\" antes de fechar?"
 
-#: src/Services/Document.vala:514
+#: src/Services/Document.vala:506
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Se você não salvar, as alterações serão permanentemente perdidas."
 
-#: src/Services/Document.vala:520
+#: src/Services/Document.vala:512
 msgid "Close Without Saving"
 msgstr "Fechar sem salvar"
 
-#: src/Services/Document.vala:524 src/Services/Document.vala:692
+#: src/Services/Document.vala:516 src/Services/Document.vala:684
 msgid "Save"
 msgstr "Salvar"
 
-#: src/Services/Document.vala:651
+#: src/Services/Document.vala:643
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Salvar para \"%s\" falhou."
 
-#: src/Services/Document.vala:689
+#: src/Services/Document.vala:681
 msgid "Save File"
 msgstr "Salvar arquivo"
 
-#: src/Services/Document.vala:776 src/Services/Document.vala:794
+#: src/Services/Document.vala:768 src/Services/Document.vala:786
 msgid "New Document"
 msgstr "Novo documento"
 
 #. No path for a new document
-#: src/Services/Document.vala:796
+#: src/Services/Document.vala:788
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Não é possível salvar este documento em %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:887
+#: src/Services/Document.vala:879
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Não é possível ler o texto no arquivo \"%s\""
 
-#: src/Services/Document.vala:890
+#: src/Services/Document.vala:882
 msgid "You may not have permission to read the file."
 msgstr "Você pode não ter permissão para ler o arquivo."
 
-#: src/Services/Document.vala:892
+#: src/Services/Document.vala:884
 msgid "The file may be corrupt or may not be a text file"
 msgstr "O arquivo pode estar corrompido ou pode não ser um arquivo de texto"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:898
+#: src/Services/Document.vala:890
 msgid "Show Anyway"
 msgstr "Mostrar mesmo assim"
 
-#: src/Services/Document.vala:929
+#: src/Services/Document.vala:921
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
@@ -659,7 +659,7 @@ msgstr ""
 "O local contendo o arquivo \"%s\" foi desmontado e existem alterações não "
 "salvas."
 
-#: src/Services/Document.vala:931
+#: src/Services/Document.vala:923
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -667,17 +667,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:945
+#: src/Services/Document.vala:937
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "O arquivo \"%s\" não tem permissão de escrita."
 
-#: src/Services/Document.vala:995
+#: src/Services/Document.vala:987
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "O arquivo \"%s\" foi modificado por uma aplicação externa"
 
-#: src/Services/Document.vala:1000
+#: src/Services/Document.vala:992
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -685,37 +685,37 @@ msgstr ""
 "Existem também alterações não salvas. Recarregar o documento irá "
 "sobrescrever as alterações não salvas."
 
-#: src/Services/Document.vala:1004
+#: src/Services/Document.vala:996
 msgid "The document changed externally since you last saved it."
 msgstr ""
 "O documento foi alterado externamente desde a última vez que você salvou."
 
-#: src/Services/Document.vala:1020
+#: src/Services/Document.vala:1012
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” não pode ser salvo aqui. Salvar uma cópia em outro lugar?"
 
-#: src/Services/Document.vala:1029
+#: src/Services/Document.vala:1021
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: src/Services/Document.vala:1031
+#: src/Services/Document.vala:1023
 msgid "Save Duplicate…"
 msgstr "Salvar uma cópia…"
 
-#: src/Services/Document.vala:1080
+#: src/Services/Document.vala:1072
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/Services/Document.vala:1082
+#: src/Services/Document.vala:1074
 msgid "Reload"
 msgstr "Recarregar"
 
-#: src/Services/Document.vala:1085
+#: src/Services/Document.vala:1077
 msgid "Overwrite"
 msgstr "Sobrescrever"
 
-#: src/Services/Document.vala:1088
+#: src/Services/Document.vala:1080
 msgid "Save Document elsewhere"
 msgstr "Salvar o documento em outro local"
 
@@ -831,15 +831,15 @@ msgstr "Nenhum Projeto Selecionado"
 msgid "Active Git Project: %s"
 msgstr "Projeto Git ativo: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:67
+#: src/Widgets/ChooseProjectButton.vala:69
 msgid "Filter projects"
 msgstr "Filtrar projetos"
 
-#: src/Widgets/ChooseProjectButton.vala:90
+#: src/Widgets/ChooseProjectButton.vala:92
 msgid "Open Folder…"
 msgstr "Abrir pasta…"
 
-#: src/Widgets/ChooseProjectButton.vala:95
+#: src/Widgets/ChooseProjectButton.vala:97
 msgid "Clone Git Repository…"
 msgstr ""
 
@@ -882,101 +882,97 @@ msgstr "Filtrar linguagens"
 msgid "Line number"
 msgstr "Número da linha"
 
-#: src/Widgets/FormatBar.vala:87
+#: src/Widgets/FormatBar.vala:89
 msgid "Filter languages"
 msgstr "Filtrar linguagens"
 
-#: src/Widgets/FormatBar.vala:111
+#: src/Widgets/FormatBar.vala:113
 msgid "Plain Text"
 msgstr "Texto Simples"
 
-#: src/Widgets/FormatBar.vala:149
+#: src/Widgets/FormatBar.vala:151
 msgid "Some settings set by EditorConfig file"
 msgstr "Algumas configurações definidas pelo arquivo EditorConfig"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:154
 msgid "Automatic Indentation"
 msgstr "Indentação automática"
 
-#: src/Widgets/FormatBar.vala:154
+#: src/Widgets/FormatBar.vala:156
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Inserir espaços em vez de tabulações"
 
-#: src/Widgets/FormatBar.vala:156
+#: src/Widgets/FormatBar.vala:158
 msgid "Tab width"
 msgstr "Largura da tabulação"
 
-#: src/Widgets/FormatBar.vala:236
+#: src/Widgets/FormatBar.vala:238
 msgid "Go To Line:"
 msgstr "Ir para a linha:"
 
-#: src/Widgets/FormatBar.vala:287
+#: src/Widgets/FormatBar.vala:293
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Espaço"
 msgstr[1] "%d Espaços"
 
-#: src/Widgets/FormatBar.vala:289
+#: src/Widgets/FormatBar.vala:295
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Aba"
 msgstr[1] "%d Abas"
 
-#: src/Widgets/HeaderBar.vala:38
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Abrir um arquivo"
 
-#: src/Widgets/HeaderBar.vala:44
-msgid "Project templates"
-msgstr "Modelos de projeto"
-
-#: src/Widgets/HeaderBar.vala:51
+#: src/Widgets/HeaderBar.vala:46
 msgid "Save this file"
 msgstr "Salvar este arquivo"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:54
 msgid "Save this file with a different name"
 msgstr "Salvar este arquivo com um nome diferente"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:62
 msgid "Restore this file"
 msgstr "Restaurar este arquivo"
 
-#: src/Widgets/HeaderBar.vala:76
+#: src/Widgets/HeaderBar.vala:71
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:79
 msgid "Zoom Out"
 msgstr "Reduzir zoom"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:87
 msgid "Zoom 1:1"
 msgstr "Escala 1:1"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:95
 msgid "Zoom In"
 msgstr "Aumentar Zoom"
 
-#: src/Widgets/HeaderBar.vala:145
+#: src/Widgets/HeaderBar.vala:140
 msgid "Follow System Style"
 msgstr "Seguir o estilo do sistema"
 
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:234
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/HeaderBar.vala:392
+#: src/Widgets/HeaderBar.vala:386
 msgid "Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:395
+#: src/Widgets/HeaderBar.vala:389
 msgid "Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:398
+#: src/Widgets/HeaderBar.vala:392
 #, fuzzy
 #| msgid "High Contrast"
 msgid "Contrast"
@@ -1020,7 +1016,7 @@ msgstr "Procurar anterior"
 msgid "Cyclic Search"
 msgstr "Procura cíclica"
 
-#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:474
 msgid "Never"
 msgstr "Nunca"
 
@@ -1060,12 +1056,12 @@ msgstr "Substituir"
 msgid "Replace all"
 msgstr "Substituir todos"
 
-#: src/Widgets/SearchBar.vala:614
+#: src/Widgets/SearchBar.vala:601
 #, c-format
 msgid "%d of %d"
 msgstr "%d de %d"
 
-#: src/Widgets/SearchBar.vala:619
+#: src/Widgets/SearchBar.vala:606
 msgid "no results"
 msgstr "sem resultados"
 
@@ -1138,7 +1134,7 @@ msgid "Add a project folder to the sidebar."
 msgstr "Adicionar uma pasta de projeto à barra lateral."
 
 #: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
+#: plugins/pastebin/pastebin_dialog.vala:330 plugins/pastebin/pastebin.vala:125
 msgid "Upload to Pastebin"
 msgstr "Enviar para o Pastebin"
 
@@ -1162,27 +1158,27 @@ msgstr "Expiração:"
 msgid "Keep this paste private"
 msgstr "Mantenha essa pasta privada"
 
-#: plugins/pastebin/pastebin_dialog.vala:354
+#: plugins/pastebin/pastebin_dialog.vala:356
 msgid "Available Formats"
 msgstr "Formatos disponíveis"
 
-#: plugins/pastebin/pastebin_dialog.vala:380
+#: plugins/pastebin/pastebin_dialog.vala:385
 msgid "Select Format"
 msgstr "Selecionar formato"
 
-#: plugins/pastebin/pastebin_dialog.vala:468
+#: plugins/pastebin/pastebin_dialog.vala:475
 msgid "Ten minutes"
 msgstr "Dez minutos"
 
-#: plugins/pastebin/pastebin_dialog.vala:469
+#: plugins/pastebin/pastebin_dialog.vala:476
 msgid "One hour"
 msgstr "Uma hora"
 
-#: plugins/pastebin/pastebin_dialog.vala:470
+#: plugins/pastebin/pastebin_dialog.vala:477
 msgid "One day"
 msgstr "Um dia"
 
-#: plugins/pastebin/pastebin_dialog.vala:471
+#: plugins/pastebin/pastebin_dialog.vala:478
 msgid "One month"
 msgstr "Um mês"
 
@@ -1199,6 +1195,9 @@ msgstr "Por favor, instale pelo menos um dicionário [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Conclusão de Palavras"
+
+#~ msgid "Project templates"
+#~ msgstr "Modelos de projeto"
 
 #~ msgid "Local"
 #~ msgstr "Local"
