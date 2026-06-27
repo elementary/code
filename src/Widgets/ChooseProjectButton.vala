@@ -205,6 +205,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         construct {
+            can_focus = true;
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
