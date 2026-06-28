@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: LGPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2022-2026 elementary, Inc. (https://elementary.io)
  *                         2011-2013 Mario Guerriero <mario@elementaryos.org>
  */
 

@@ -35,7 +35,6 @@ public class Scratch.Dialogs.OverwriteUncommittedConfirmationDialog : Granite.Me
     }
 
     construct {
-        modal = true;
         image_icon = new ThemedIcon ("dialog-warning");
 
         primary_text = _("There are uncommitted changes in the current branch");

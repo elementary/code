@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -525,12 +525,8 @@ namespace Scratch {
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
-            // Set a proper position for ThinPaned widgets
-            int width, height;
-            get_size (out width, out height);
-
+            // The pane position is restored from settings
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp.position = (height - 150);
             vp.pack1 (content_stack, true, false);
             vp.pack2 (terminal, false, false);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 elementary, Inc. <https://elementary.io>
+ * Copyright 2024-2025 elementary, Inc. <https://elementary.io>
  * Copyright (c) 2013 Mario Guerriero <mario@elementaryos.org>
  *
  * This is a free software; you can redistribute it and/or
