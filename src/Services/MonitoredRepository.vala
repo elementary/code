@@ -313,7 +313,9 @@ namespace Scratch.Services {
                     parent,
                     new_branch_name,
                     project_diff
-                );
+                ) {
+                    modal = true
+                };
                 dialog.response.connect ((res) => {
                     dialog.destroy ();
                     if (res == Gtk.ResponseType.ACCEPT) {
@@ -322,7 +324,6 @@ namespace Scratch.Services {
                 });
 
                 dialog.show ();
-
                 return false;
             }
 
