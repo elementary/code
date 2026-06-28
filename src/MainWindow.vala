@@ -951,13 +951,12 @@ namespace Scratch {
 
         private void action_preferences () {
             var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-            preferences_dialog.show_all ();
 
             preferences_dialog.response.connect (() => {
                 preferences_dialog.destroy ();
             });
 
-            preferences_dialog.present ();
+            preferences_dialog.show ();
         }
 
         private void action_close_window () {
