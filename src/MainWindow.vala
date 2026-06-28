@@ -989,19 +989,22 @@ namespace Scratch {
             file_chooser.select_multiple = true;
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
-            var response = file_chooser.run ();
-            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
-
-            if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in file_chooser.get_uris ()) {
-                    // Update last visited path
-                    Utils.last_path = Path.get_dirname (uri);
-                    // Open the file
-                    var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (actions, file);
-                    open_document.begin (doc);
+            file_chooser.response.connect ((res) => {
+                var uris = file_chooser.get_uris ();
+                file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    foreach (string uri in file_chooser.get_uris ()) {
+                        // Update last visited path
+                        Utils.last_path = Path.get_dirname (uri);
+                        // Open the file
+                        var file = File.new_for_uri (uri);
+                        var doc = new Scratch.Services.Document (actions, file);
+                        open_document.begin (doc);
+                    }
                 }
-            }
+            });
+
+            file_chooser.show ();
         }
 
         private void action_open_in_new_window (SimpleAction action, Variant? param) {
