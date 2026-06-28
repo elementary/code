@@ -1624,12 +1624,8 @@ public class SourceList : Gtk.ScrolledWindow {
             add_css_class ("source-list");
 
             var css_provider = new Gtk.CssProvider ();
-            try {
-                css_provider.load_from_data (DEFAULT_STYLESHEET, -1);
-                Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_FALLBACK);
-            } catch (Error e) {
-                warning ("Could not create CSS Provider: %s\nStylesheet:\n%s", e.message, DEFAULT_STYLESHEET);
-            }
+            css_provider.load_from_string (DEFAULT_STYLESHEET);
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_FALLBACK);
 
             set_model (data_model);
 

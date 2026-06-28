@@ -288,12 +288,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
 
         var define = ".symbol-outline {background-color: %s;}".printf (color);
-
-        try {
-            source_list_style_provider.load_from_data (define);
-        } catch (Error e) {
-            critical ("Unable to sourcelist styling, going back to classic styling");
-        }
+        source_list_style_provider.load_from_string (define);
     }
 
     private void action_select_filters (SimpleAction action, Variant? param) {

@@ -373,12 +373,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         """.printf (background, foreground);
 
             var css_provider = new Gtk.CssProvider ();
-
-            try {
-                css_provider.load_from_data (style_css);
-            } catch (Error e) {
-                critical ("Unable to style color button: %s", e.message);
-            }
+            css_provider.load_from_string (style_css);
 
             color_button.add_css_class (Granite.STYLE_CLASS_COLOR_BUTTON);
             Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);

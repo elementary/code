@@ -401,11 +401,7 @@ namespace Scratch.Widgets {
                 "}"
             );
 
-            try {
-                font_css_provider.load_from_data (font_css);
-            } catch (Error e) {
-                critical (e.message);
-            }
+            font_css_provider.load_from_string (font_css);
         }
 
         public void go_to_line (int line, int offset = 0) {

@@ -228,11 +228,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            try {
-                style_provider.load_from_data (define);
-            } catch (Error e) {
-                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
-            }
+            style_provider.load_from_string (define);
         }
     }
 
