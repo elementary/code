@@ -102,7 +102,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_bottom = 6,
             margin_start = 12
         };
-        font_size_box.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+        font_size_box.add_css_class (Granite.STYLE_CLASS_LINKED);
         font_size_box.append (zoom_out_button);
         font_size_box.append (zoom_default_button);
         font_size_box.append (zoom_in_button);
@@ -132,7 +132,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_bottom = 12,
             margin_start = 12
         };
-        find_box.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+        find_box.add_css_class (Granite.STYLE_CLASS_LINKED);
         find_box.append (find_button);
         find_box.append (search_button);
 
@@ -204,7 +204,7 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
             margin_bottom = 6,
             margin_start = 12
         };
-        panels_box.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+        panels_box.add_css_class (Granite.STYLE_CLASS_LINKED);
         panels_box.append (sidebar_button);
         panels_box.append (terminal_button);
         panels_box.append (outline_button);

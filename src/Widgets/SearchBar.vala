@@ -126,7 +126,7 @@ namespace Scratch.Widgets {
             };
 
             search_occurence_count_label = new Gtk.Label (_("No Results"));
-            search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+            search_occurence_count_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
@@ -163,7 +163,7 @@ namespace Scratch.Widgets {
             var case_sensitive_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
             case_sensitive_box.append (case_sensitive_search_label);
             case_sensitive_box.append (case_sensitive_search_button);
-            case_sensitive_box.get_style_context ().add_class (Granite.STYLE_CLASS_MENUITEM);
+            case_sensitive_box.add_css_class (Granite.STYLE_CLASS_MENUITEM);
 
             regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
             whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
@@ -211,7 +211,7 @@ namespace Scratch.Widgets {
                 margin_bottom = 3,
                 margin_start = 6
             };
-            search_box.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+            search_box.add_css_class (Granite.STYLE_CLASS_LINKED);
             search_box.append (search_entry);
             search_box.append (tool_arrow_down);
             search_box.append (tool_arrow_up);
@@ -242,7 +242,7 @@ namespace Scratch.Widgets {
                 margin_bottom = 3,
                 margin_start = 3
             };
-            replace_grid.get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+            replace_grid.add_css_class (Granite.STYLE_CLASS_LINKED);
             replace_grid.append (replace_entry);
             replace_grid.append (replace_tool_button);
             replace_grid.append (replace_all_tool_button);
@@ -277,7 +277,7 @@ namespace Scratch.Widgets {
                 column_spacing = 6,
                 max_children_per_line = 2
             };
-            flowbox.get_style_context ().add_class ("search-bar");
+            flowbox.add_css_class ("search-bar");
             flowbox.append (search_flow_box_child);
             flowbox.append (replace_flow_box_child);
 
@@ -425,7 +425,7 @@ namespace Scratch.Widgets {
                     debug ("Not found: \"%s\"", search_entry.text);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
-                    search_entry.get_style_context ().add_class (Granite.STYLE_CLASS_ERROR);
+                    search_entry.add_css_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }

@@ -16,8 +16,8 @@ public class FileItem : Gtk.ListBoxRow {
     }
 
     public FileItem (SearchResult res, bool should_distinguish_project = false) {
-        this.get_style_context ().add_class ("fuzzy-item");
-        this.get_style_context ().add_class ("flat");
+        this.add_css_class ("fuzzy-item");
+        this.add_css_class ("flat");
 
         result = res;
         Icon icon;
@@ -44,7 +44,7 @@ public class FileItem : Gtk.ListBoxRow {
         var image = new Gtk.Image.from_gicon (icon) {
             icon_size = Gtk.IconSize.NORMAL
         );
-        image.get_style_context ().add_class ("fuzzy-file-icon");
+        image.add_css_class ("fuzzy-file-icon");
 
         path_box.add (filename_label);
         path_box.add (path_label);

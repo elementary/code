@@ -147,7 +147,7 @@ public class Code.FormatBar : Gtk.Box {
             margin_start = 9
         };
         editorconfig_infobar.add_child (new Gtk.Label (_("Some settings set by EditorConfig file")));
-        editorconfig_infobar.get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
+        editorconfig_infobar.add_css_class (Granite.STYLE_CLASS_FRAME);
 
         var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
 

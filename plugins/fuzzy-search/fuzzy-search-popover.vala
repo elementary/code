@@ -68,11 +68,11 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         width_request = 500;
         pointing_to = { 0, 32, 1, 1 };
 
-        this.get_style_context ().add_class ("fuzzy-popover");
+        this.add_css_class ("fuzzy-popover");
 
         title_label = new Gtk.Label (_("Find project files"));
         title_label.halign = Gtk.Align.START;
-        title_label.get_style_context ().add_class ("h4");
+        title_label.add_css_class ("h4");
 
         search_term_entry = new Gtk.SearchEntry ();
         search_term_entry.halign = Gtk.Align.FILL;
@@ -84,7 +84,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             can_focus = false
         };
 
-        search_result_listbox.get_style_context ().add_class ("fuzzy-list");
+        search_result_listbox.add_css_class ("fuzzy-list");
 
         search_result_listbox.row_activated.connect ((row) => {
             var file_item = row as FileItem;
@@ -198,7 +198,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                             if (first) {
                                 first = false;
-                                file_item.get_style_context ().add_class ("preselect-fuzzy");
+                                file_item.add_css_class ("preselect-fuzzy");
                                 preselected_index = 0;
                             }
 
@@ -293,7 +293,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private void preselect_new_item (FileItem old_item, FileItem new_item) {
         var class_name = "preselect-fuzzy";
         old_item.get_style_context ().remove_class (class_name);
-        new_item.get_style_context ().add_class (class_name);
+        new_item.add_css_class (class_name);
     }
 
     private string get_current_project () {

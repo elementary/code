@@ -44,7 +44,7 @@ public class Code.Sidebar : Gtk.Box {
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
-        get_style_context ().add_class (Granite.STYLE_CLASS_SIDEBAR);
+        add_css_class (Granite.STYLE_CLASS_SIDEBAR);
 
         choose_project_button = new Code.ChooseProjectButton () {
             hexpand = true,
@@ -60,7 +60,7 @@ public class Code.Sidebar : Gtk.Box {
             title_widget = choose_project_button,
             decoration_layout = "close:"
         };
-        headerbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -75,7 +75,7 @@ public class Code.Sidebar : Gtk.Box {
         stack_switcher.stack = stack;
 
         var actionbar = new Gtk.ActionBar ();
-        actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
+        actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);

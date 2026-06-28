@@ -44,6 +44,6 @@ public class Scratch.Dialogs.OverwriteUncommittedConfirmationDialog : Granite.Me
 
         var cancel_button = add_button (_("Do not Checkout"), Gtk.ResponseType.REJECT);
         var proceed_button = (Gtk.Button) add_button (_("Checkout and Overwrite"), Gtk.ResponseType.ACCEPT);
-        proceed_button.get_style_context ().add_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        proceed_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }
