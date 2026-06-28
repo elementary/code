@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2017–2023 elementary, Inc. <https://elementary.io>
+ * SPDX-FileCopyrightText: 2017–2025 elementary, Inc. <https://elementary.io>
  *                         2013 Mario Guerriero <mefrio.g@gmail.com>
  */
 
@@ -10,7 +10,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     public GLib.Menu share_menu;
     public Gtk.MenuButton share_menu_button;
 
-    public Gtk.Button templates_button { get; private set; }
     public Gtk.ToggleButton find_button { get; private set; }
     public Gtk.ToggleButton outline_button { get; private set; }
     public Gtk.ToggleButton sidebar_button { get; private set; }
@@ -38,10 +37,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             _("Open a file")
         );
 
-        templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR) {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES
-        };
-        templates_button.tooltip_text = _("Project templates");
 
         var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR) {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE
@@ -246,7 +241,6 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         set_custom_title (format_bar);
 
         pack_start (open_button);
-        pack_start (templates_button);
         pack_start (save_button);
         pack_start (save_as_button);
         pack_start (revert_button);
