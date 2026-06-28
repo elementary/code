@@ -188,8 +188,13 @@ namespace Scratch.Services {
         private Mount mount;
         private Icon locked_icon;
 
+        private Gtk.EventControllerScroll scroll_controller;
+
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
+
+        private double total_delta = 0;
+        private const double SCROLL_THRESHOLD = 1.0;
 
         public Document (SimpleActionGroup actions, File file) {
             Object (
@@ -220,9 +225,33 @@ namespace Scratch.Services {
             source_view = new Scratch.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null) {
-                expand = true
+                hexpand = true,
+                vexpand = true
             };
             scroll.add (source_view);
+
+            scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
+                propagation_phase = CAPTURE
+            };
+            scroll_controller.scroll.connect ((dx, dy) => {
+                Gdk.ModifierType state;
+                Gtk.get_current_event_state (out state);
+                if (Gdk.ModifierType.CONTROL_MASK in state) {
+                    total_delta += dy;
+                    if (total_delta < -SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                        total_delta = 0.0;
+                    } else if (total_delta > SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                        total_delta = 0.0;
+                    }
+
+                    return;
+                }
+
+                Gtk.propagate_event (scroll, Gtk.get_current_event ());
+            });
+
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -256,24 +285,16 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            // Focus in event for SourceView
-            // Check if file changed externally or permissions changed
-            this.source_view.focus_in_event.connect (() => {
-                if (!locked && !is_file_temporary) {
-                    check_undoable_actions ();
-                    check_file_status.begin ();
+            this.source_view.notify["is-focus"].connect (() => {
+                return_if_fail (!locked);
+                if (source_view.is_focus) {
+                    if (!is_file_temporary) {
+                        check_undoable_actions ();
+                        check_file_status.begin ();
+                    }
+                } else if (Scratch.settings.get_boolean ("autosave")) {
+                        save_with_hold.begin ();
                 }
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (!locked && Scratch.settings.get_boolean ("autosave")) {
-                    save_with_hold.begin ();
-                }
-
-                return false;
             });
 
             source_view.buffer.changed.connect (() => {
@@ -1023,7 +1044,8 @@ namespace Scratch.Services {
                 Gtk.ButtonsType.NONE
             ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
-                transient_for = app_instance.active_window
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
@@ -1056,7 +1078,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
 
         private void ask_external_changes (
@@ -1073,8 +1095,8 @@ namespace Scratch.Services {
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.NONE
                 ) {
-                transient_for = app_instance.active_window
-
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
@@ -1132,7 +1154,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {

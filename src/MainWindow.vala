@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -55,7 +55,6 @@ namespace Scratch {
         // Widgets for Plugins
         public Code.Sidebar sidebar;
 
-        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -89,7 +88,6 @@ namespace Scratch {
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
-        public const string ACTION_TEMPLATES = "action-templates";
         public const string ACTION_SHOW_REPLACE = "action-show-replace";
         public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
@@ -144,7 +142,6 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
-            { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
@@ -326,10 +323,6 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
-                toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            });
 
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
@@ -523,7 +516,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
+                hexpand = true,
+                vexpand = true,
                 width_request = 200
             };
 
@@ -923,13 +917,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
@@ -940,14 +934,12 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            if (preferences_dialog == null) {
-                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
+            var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            preferences_dialog.show_all ();
 
-                preferences_dialog.destroy.connect (() => {
-                    preferences_dialog = null;
-                });
-            }
+            preferences_dialog.response.connect (() => {
+                preferences_dialog.destroy ();
+            });
 
             preferences_dialog.present ();
         }
@@ -1355,9 +1347,6 @@ namespace Scratch {
             toolbar.format_bar.line_menubutton.active = true;
         }
 
-        private void action_templates () {
-            plugins.plugin_iface.template_manager.show_window (this);
-        }
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
