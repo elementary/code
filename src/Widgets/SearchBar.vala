@@ -46,7 +46,7 @@ namespace Scratch.Widgets {
         private Gtk.SearchEntry search_entry;
         private Gtk.Entry entry_for_search;
         private Gtk.SearchEntry replace_entry;
-        private Gtk.Entry entry_for_replace
+        private Gtk.Entry entry_for_replace;
         private Gtk.Label search_occurence_count_label;
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
