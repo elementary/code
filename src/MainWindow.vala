@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -519,8 +519,6 @@ namespace Scratch {
             content_stack.add_child (view_grid);  // Must be added first to avoid terminal warnings
             content_stack.add_child (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
-
-            // Set a proper position for ThinPaned widgets
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.start_child = content_stack;

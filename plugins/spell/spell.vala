@@ -1,6 +1,9 @@
 /*
- * Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com> This program
- * is free software: you can redistribute it and/or modify it under the
+ * Copyright (C) 2011-2015 Mario Guerriero <mefrio.g@gmail.com>
+ * Copyright (C) 2016-2025 elementary, Inc. (https://elementary.io)
+
+
+ * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License version 3, as published by
  * the Free Software Foundation.
  *
@@ -71,6 +74,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
                     if (language_list.length () == 0) {
                         // This fallback to the LC used but might fail.
                         spell.set_language (null);
+
                         var dialog = new Granite.MessageDialog (
                             _("No Suitable Dictionaries Were Found"),
                             _("Please install at least one [aspell] dictionary."),
@@ -81,6 +85,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
                         dialog.response.connect (() => {
                             dialog.destroy ();
                         });
+                        // The following code does not depend on the dialog response
+                        //so we can just show the dialog
                         dialog.show ();
                     } else if (!exist_language) {
                         this.lang_dict = language_list.first ().data;

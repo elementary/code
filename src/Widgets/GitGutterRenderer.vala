@@ -1,3 +1,10 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. <https://elementary.io>
+ *
+ * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
+ */
+
 public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
     // These style_ids must be present in the "classic" SourceStyleScheme (or allowed Code SourceStyleSchemes) to avoid terminal spam)
     public const string ADDED_STYLE_ID = "diff:added-line";

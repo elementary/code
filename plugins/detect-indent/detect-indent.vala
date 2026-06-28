@@ -1,3 +1,11 @@
+
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2015-2025 elementary, Inc. <https://elementary.io>
+ *
+ * Authored by: LemonBoy <thatlemon@gmail.com>
+ */
+
 public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Scratch.Services.ActivatablePlugin {
     const int MAX_LINES = 500;
 
