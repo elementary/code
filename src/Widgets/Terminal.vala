@@ -1,12 +1,11 @@
 /*
  * SPDX-License-Identifier: LGPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2022-2026 elementary, Inc. (https://elementary.io)
  *                         2011-2013 Mario Guerriero <mario@elementaryos.org>
  */
 
 public class Code.Terminal : Gtk.Box {
     public const string ACTION_GROUP = "term";
-    public const string ACTION_PREFIX = ACTION_GROUP + ".";
     public const string ACTION_COPY = "action-copy";
     public const string ACTION_PASTE = "action-paste";
 
@@ -26,7 +25,7 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
-
+    private Gtk.GestureMultiPress button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
     private Settings? gnome_wm_settings = null;
@@ -35,6 +34,7 @@ public class Code.Terminal : Gtk.Box {
 
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
+    private Menu menu_model;
 
     private Scratch.Application application;
 
@@ -128,14 +128,18 @@ public class Code.Terminal : Gtk.Box {
         actions = new SimpleActionGroup ();
         actions.add_action (copy_action);
         actions.add_action (paste_action);
+        terminal.insert_action_group (ACTION_GROUP, actions);
 
-        var menu_model = new GLib.Menu ();
-        menu_model.append (_("Copy"), ACTION_PREFIX + ACTION_COPY);
-        menu_model.append (_("Paste"), ACTION_PREFIX + ACTION_PASTE);
+        menu_model = new GLib.Menu ();
+        menu_model.append (_("Copy"), ACTION_COPY);
+        menu_model.append (_("Paste"), ACTION_PASTE);
 
-        var menu = new Gtk.Menu.from_model (menu_model);
-        menu.insert_action_group (ACTION_GROUP, actions);
-        menu.show_all ();
+        var menu = new Gtk.PopoverMenu () {
+            modal = true,
+            relative_to = terminal,
+            position = RIGHT
+        };
+        menu.bind_model (menu_model, ACTION_GROUP);
 
         key_controller = new Gtk.EventControllerKey (terminal) {
             propagation_phase = BUBBLE
@@ -146,17 +150,20 @@ public class Code.Terminal : Gtk.Box {
         terminal.enter_notify_event.connect (() => {
             if (!terminal.has_focus) {
                 terminal.grab_focus ();
-
             }
         });
 
-        terminal.button_press_event.connect ((event) => {
-            if (event.button == 3) {
+        button_controller = new Gtk.GestureMultiPress (terminal) {
+            propagation_phase = CAPTURE,
+            button = 0
+        };
+        button_controller.pressed.connect ((n, x, y) => {
+            var event = button_controller.get_last_event (null);
+            if (event.triggers_context_menu ()) {
                 paste_action.set_enabled (current_clipboard.wait_is_text_available ());
-                menu.select_first (false);
-                menu.popup_at_pointer (event);
+                menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
+                menu.popup ();
             }
-            return false;
         });
 
         realize.connect (() => {

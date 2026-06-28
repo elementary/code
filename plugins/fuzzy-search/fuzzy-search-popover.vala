@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
+ * SPDX-FileCopyrightText: 2023-2026 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
@@ -234,7 +234,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         scrolled = new Gtk.ScrolledWindow (null, null) {
             propagate_natural_height = true,
-            hexpand = true,
+            hexpand = true
         };
 
         scrolled.add (search_result_container);

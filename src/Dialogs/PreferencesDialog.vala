@@ -14,7 +14,8 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         Object (
             title: _("Preferences"),
             transient_for: parent,
-            plugins: plugins
+            plugins: plugins,
+            modal: true
         );
     }
 
@@ -124,7 +125,7 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
 
         var application = ((Scratch.Application) (GLib.Application.get_default ()));
         var font_switch = new SettingSwitch (
-            _("Use system font (%s)").printf (application.system_document_font),
+            _("Use system font (%s)").printf (application.system_monospace_font),
             "use-system-font"
         );
         // We assume the system font will not change while dialog open
