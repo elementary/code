@@ -521,11 +521,8 @@ namespace Scratch {
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
             // Set a proper position for ThinPaned widgets
-            int width, height;
-            get_size (out width, out height);
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp.position = (height - 150);
             vp.start_child = content_stack;
             vp.end_child = terminal;
 
